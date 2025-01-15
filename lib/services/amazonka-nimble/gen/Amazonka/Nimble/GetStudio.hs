@@ -154,5 +154,5 @@ getStudioResponse_studio = Lens.lens (\GetStudioResponse' {studio} -> studio) (\
 
 instance Prelude.NFData GetStudioResponse where
   rnf GetStudioResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf studio
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf studio

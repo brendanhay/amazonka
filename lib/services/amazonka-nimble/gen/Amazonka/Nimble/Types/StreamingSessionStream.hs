@@ -158,11 +158,11 @@ instance Prelude.Hashable StreamingSessionStream where
 
 instance Prelude.NFData StreamingSessionStream where
   rnf StreamingSessionStream' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf expiresAt `Prelude.seq`
+          Prelude.rnf ownedBy `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf statusCode `Prelude.seq`
+                Prelude.rnf streamId `Prelude.seq`
+                  Prelude.rnf url

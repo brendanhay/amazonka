@@ -280,19 +280,19 @@ instance Prelude.Hashable Studio where
 
 instance Prelude.NFData Studio where
   rnf Studio' {..} =
-    Prelude.rnf adminRoleArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf ssoClientId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf studioName
-      `Prelude.seq` Prelude.rnf studioUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf userRoleArn
+    Prelude.rnf adminRoleArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf homeRegion `Prelude.seq`
+              Prelude.rnf ssoClientId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf statusCode `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf studioEncryptionConfiguration `Prelude.seq`
+                        Prelude.rnf studioId `Prelude.seq`
+                          Prelude.rnf studioName `Prelude.seq`
+                            Prelude.rnf studioUrl `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf updatedAt `Prelude.seq`
+                                  Prelude.rnf userRoleArn

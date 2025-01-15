@@ -120,7 +120,7 @@ instance Prelude.Hashable ValidationResult where
 
 instance Prelude.NFData ValidationResult where
   rnf ValidationResult' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf statusCode `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf type'

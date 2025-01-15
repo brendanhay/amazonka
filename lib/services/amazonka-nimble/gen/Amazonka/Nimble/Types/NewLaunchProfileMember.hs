@@ -75,8 +75,8 @@ instance Prelude.Hashable NewLaunchProfileMember where
 
 instance Prelude.NFData NewLaunchProfileMember where
   rnf NewLaunchProfileMember' {..} =
-    Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf persona `Prelude.seq`
+      Prelude.rnf principalId
 
 instance Data.ToJSON NewLaunchProfileMember where
   toJSON NewLaunchProfileMember' {..} =

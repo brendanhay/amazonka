@@ -127,11 +127,11 @@ instance
 
 instance Prelude.NFData SharedFileSystemConfiguration where
   rnf SharedFileSystemConfiguration' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf linuxMountPoint
-      `Prelude.seq` Prelude.rnf shareName
-      `Prelude.seq` Prelude.rnf windowsMountDrive
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf linuxMountPoint `Prelude.seq`
+          Prelude.rnf shareName `Prelude.seq`
+            Prelude.rnf windowsMountDrive
 
 instance Data.ToJSON SharedFileSystemConfiguration where
   toJSON SharedFileSystemConfiguration' {..} =

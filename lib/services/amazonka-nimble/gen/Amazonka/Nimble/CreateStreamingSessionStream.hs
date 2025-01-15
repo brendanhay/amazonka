@@ -150,10 +150,10 @@ instance
 
 instance Prelude.NFData CreateStreamingSessionStream where
   rnf CreateStreamingSessionStream' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf expirationInSeconds
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf expirationInSeconds `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders CreateStreamingSessionStream where
   toHeaders CreateStreamingSessionStream' {..} =
@@ -229,5 +229,5 @@ instance
     CreateStreamingSessionStreamResponse
   where
   rnf CreateStreamingSessionStreamResponse' {..} =
-    Prelude.rnf stream
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stream `Prelude.seq`
+      Prelude.rnf httpStatus

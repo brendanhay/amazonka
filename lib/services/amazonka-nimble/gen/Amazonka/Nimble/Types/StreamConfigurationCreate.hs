@@ -303,16 +303,16 @@ instance Prelude.Hashable StreamConfigurationCreate where
 
 instance Prelude.NFData StreamConfigurationCreate where
   rnf StreamConfigurationCreate' {..} =
-    Prelude.rnf automaticTerminationMode
-      `Prelude.seq` Prelude.rnf maxSessionLengthInMinutes
-      `Prelude.seq` Prelude.rnf maxStoppedSessionLengthInMinutes
-      `Prelude.seq` Prelude.rnf sessionBackup
-      `Prelude.seq` Prelude.rnf sessionPersistenceMode
-      `Prelude.seq` Prelude.rnf sessionStorage
-      `Prelude.seq` Prelude.rnf volumeConfiguration
-      `Prelude.seq` Prelude.rnf clipboardMode
-      `Prelude.seq` Prelude.rnf ec2InstanceTypes
-      `Prelude.seq` Prelude.rnf streamingImageIds
+    Prelude.rnf automaticTerminationMode `Prelude.seq`
+      Prelude.rnf maxSessionLengthInMinutes `Prelude.seq`
+        Prelude.rnf maxStoppedSessionLengthInMinutes `Prelude.seq`
+          Prelude.rnf sessionBackup `Prelude.seq`
+            Prelude.rnf sessionPersistenceMode `Prelude.seq`
+              Prelude.rnf sessionStorage `Prelude.seq`
+                Prelude.rnf volumeConfiguration `Prelude.seq`
+                  Prelude.rnf clipboardMode `Prelude.seq`
+                    Prelude.rnf ec2InstanceTypes `Prelude.seq`
+                      Prelude.rnf streamingImageIds
 
 instance Data.ToJSON StreamConfigurationCreate where
   toJSON StreamConfigurationCreate' {..} =

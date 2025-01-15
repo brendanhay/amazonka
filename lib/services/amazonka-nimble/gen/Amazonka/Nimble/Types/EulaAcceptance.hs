@@ -114,8 +114,8 @@ instance Prelude.Hashable EulaAcceptance where
 
 instance Prelude.NFData EulaAcceptance where
   rnf EulaAcceptance' {..} =
-    Prelude.rnf acceptedAt
-      `Prelude.seq` Prelude.rnf acceptedBy
-      `Prelude.seq` Prelude.rnf accepteeId
-      `Prelude.seq` Prelude.rnf eulaAcceptanceId
-      `Prelude.seq` Prelude.rnf eulaId
+    Prelude.rnf acceptedAt `Prelude.seq`
+      Prelude.rnf acceptedBy `Prelude.seq`
+        Prelude.rnf accepteeId `Prelude.seq`
+          Prelude.rnf eulaAcceptanceId `Prelude.seq`
+            Prelude.rnf eulaId

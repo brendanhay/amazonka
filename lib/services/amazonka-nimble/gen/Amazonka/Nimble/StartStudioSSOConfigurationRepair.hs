@@ -141,8 +141,8 @@ instance
     StartStudioSSOConfigurationRepair
   where
   rnf StartStudioSSOConfigurationRepair' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf studioId
 
 instance
   Data.ToHeaders
@@ -226,5 +226,5 @@ instance
     StartStudioSSOConfigurationRepairResponse
   where
   rnf StartStudioSSOConfigurationRepairResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf studio
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf studio

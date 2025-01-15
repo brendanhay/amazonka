@@ -95,5 +95,5 @@ instance
     StreamingImageEncryptionConfiguration
   where
   rnf StreamingImageEncryptionConfiguration' {..} =
-    Prelude.rnf keyArn
-      `Prelude.seq` Prelude.rnf keyType
+    Prelude.rnf keyArn `Prelude.seq`
+      Prelude.rnf keyType

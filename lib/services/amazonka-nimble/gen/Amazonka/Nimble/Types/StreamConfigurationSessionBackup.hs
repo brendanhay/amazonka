@@ -109,8 +109,8 @@ instance
     StreamConfigurationSessionBackup
   where
   rnf StreamConfigurationSessionBackup' {..} =
-    Prelude.rnf maxBackupsToRetain
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf maxBackupsToRetain `Prelude.seq`
+      Prelude.rnf mode
 
 instance Data.ToJSON StreamConfigurationSessionBackup where
   toJSON StreamConfigurationSessionBackup' {..} =

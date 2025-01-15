@@ -119,10 +119,10 @@ instance
     StudioComponentInitializationScript
   where
   rnf StudioComponentInitializationScript' {..} =
-    Prelude.rnf launchProfileProtocolVersion
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf runContext
-      `Prelude.seq` Prelude.rnf script
+    Prelude.rnf launchProfileProtocolVersion `Prelude.seq`
+      Prelude.rnf platform `Prelude.seq`
+        Prelude.rnf runContext `Prelude.seq`
+          Prelude.rnf script
 
 instance
   Data.ToJSON

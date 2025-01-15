@@ -118,12 +118,12 @@ instance Core.AWSPager ListStreamingSessionBackups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamingSessionBackups_nextToken
-          Lens..~ rs
-          Lens.^? listStreamingSessionBackupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamingSessionBackups_nextToken
+              Lens..~ rs
+              Lens.^? listStreamingSessionBackupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingSessionBackups where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListStreamingSessionBackups where
 
 instance Prelude.NFData ListStreamingSessionBackups where
   rnf ListStreamingSessionBackups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf ownedBy `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders ListStreamingSessionBackups where
   toHeaders =
@@ -239,6 +239,6 @@ instance
     ListStreamingSessionBackupsResponse
   where
   rnf ListStreamingSessionBackupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamingSessionBackups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf streamingSessionBackups `Prelude.seq`
+        Prelude.rnf httpStatus

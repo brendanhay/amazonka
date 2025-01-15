@@ -130,8 +130,8 @@ instance Prelude.Hashable GetLaunchProfileDetails where
 
 instance Prelude.NFData GetLaunchProfileDetails where
   rnf GetLaunchProfileDetails' {..} =
-    Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf launchProfileId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetLaunchProfileDetails where
   toHeaders =
@@ -219,7 +219,7 @@ instance
     GetLaunchProfileDetailsResponse
   where
   rnf GetLaunchProfileDetailsResponse' {..} =
-    Prelude.rnf launchProfile
-      `Prelude.seq` Prelude.rnf streamingImages
-      `Prelude.seq` Prelude.rnf studioComponentSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfile `Prelude.seq`
+      Prelude.rnf streamingImages `Prelude.seq`
+        Prelude.rnf studioComponentSummaries `Prelude.seq`
+          Prelude.rnf httpStatus

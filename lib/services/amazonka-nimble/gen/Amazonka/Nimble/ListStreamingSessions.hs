@@ -137,12 +137,12 @@ instance Core.AWSPager ListStreamingSessions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamingSessions_nextToken
-          Lens..~ rs
-          Lens.^? listStreamingSessionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamingSessions_nextToken
+              Lens..~ rs
+              Lens.^? listStreamingSessionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingSessions where
   type
@@ -170,11 +170,11 @@ instance Prelude.Hashable ListStreamingSessions where
 
 instance Prelude.NFData ListStreamingSessions where
   rnf ListStreamingSessions' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf sessionIds
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf ownedBy `Prelude.seq`
+          Prelude.rnf sessionIds `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders ListStreamingSessions where
   toHeaders =
@@ -257,6 +257,6 @@ listStreamingSessionsResponse_httpStatus = Lens.lens (\ListStreamingSessionsResp
 
 instance Prelude.NFData ListStreamingSessionsResponse where
   rnf ListStreamingSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sessions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -324,23 +324,23 @@ instance Prelude.Hashable StudioComponent where
 
 instance Prelude.NFData StudioComponent where
   rnf StudioComponent' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
-      `Prelude.seq` Prelude.rnf initializationScripts
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf scriptParameters
-      `Prelude.seq` Prelude.rnf secureInitializationRoleArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf subtype
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf updatedBy
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf ec2SecurityGroupIds `Prelude.seq`
+                Prelude.rnf initializationScripts `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf runtimeRoleArn `Prelude.seq`
+                      Prelude.rnf scriptParameters `Prelude.seq`
+                        Prelude.rnf secureInitializationRoleArn `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf statusCode `Prelude.seq`
+                              Prelude.rnf statusMessage `Prelude.seq`
+                                Prelude.rnf studioComponentId `Prelude.seq`
+                                  Prelude.rnf subtype `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf type' `Prelude.seq`
+                                        Prelude.rnf updatedAt `Prelude.seq`
+                                          Prelude.rnf updatedBy

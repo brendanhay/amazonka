@@ -177,12 +177,12 @@ instance Prelude.Hashable LaunchProfileInitialization where
 
 instance Prelude.NFData LaunchProfileInitialization where
   rnf LaunchProfileInitialization' {..} =
-    Prelude.rnf activeDirectory
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersion
-      `Prelude.seq` Prelude.rnf launchPurpose
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf systemInitializationScripts
-      `Prelude.seq` Prelude.rnf userInitializationScripts
+    Prelude.rnf activeDirectory `Prelude.seq`
+      Prelude.rnf ec2SecurityGroupIds `Prelude.seq`
+        Prelude.rnf launchProfileId `Prelude.seq`
+          Prelude.rnf launchProfileProtocolVersion `Prelude.seq`
+            Prelude.rnf launchPurpose `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf platform `Prelude.seq`
+                  Prelude.rnf systemInitializationScripts `Prelude.seq`
+                    Prelude.rnf userInitializationScripts

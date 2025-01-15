@@ -107,9 +107,9 @@ instance
 
 instance Prelude.NFData ActiveDirectoryConfiguration where
   rnf ActiveDirectoryConfiguration' {..} =
-    Prelude.rnf computerAttributes
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
+    Prelude.rnf computerAttributes `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf organizationalUnitDistinguishedName
 
 instance Data.ToJSON ActiveDirectoryConfiguration where
   toJSON ActiveDirectoryConfiguration' {..} =

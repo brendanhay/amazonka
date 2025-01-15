@@ -220,15 +220,15 @@ instance Prelude.Hashable CreateLaunchProfile where
 
 instance Prelude.NFData CreateLaunchProfile where
   rnf CreateLaunchProfile' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ec2SubnetIds
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf streamConfiguration
-      `Prelude.seq` Prelude.rnf studioComponentIds
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf ec2SubnetIds `Prelude.seq`
+            Prelude.rnf launchProfileProtocolVersions `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf streamConfiguration `Prelude.seq`
+                  Prelude.rnf studioComponentIds `Prelude.seq`
+                    Prelude.rnf studioId
 
 instance Data.ToHeaders CreateLaunchProfile where
   toHeaders CreateLaunchProfile' {..} =
@@ -309,5 +309,5 @@ createLaunchProfileResponse_httpStatus = Lens.lens (\CreateLaunchProfileResponse
 
 instance Prelude.NFData CreateLaunchProfileResponse where
   rnf CreateLaunchProfileResponse' {..} =
-    Prelude.rnf launchProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfile `Prelude.seq`
+      Prelude.rnf httpStatus

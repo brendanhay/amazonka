@@ -111,8 +111,8 @@ instance Prelude.Hashable GetStreamingImage where
 
 instance Prelude.NFData GetStreamingImage where
   rnf GetStreamingImage' {..} =
-    Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf streamingImageId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetStreamingImage where
   toHeaders =
@@ -178,5 +178,5 @@ getStreamingImageResponse_httpStatus = Lens.lens (\GetStreamingImageResponse' {h
 
 instance Prelude.NFData GetStreamingImageResponse where
   rnf GetStreamingImageResponse' {..} =
-    Prelude.rnf streamingImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamingImage `Prelude.seq`
+      Prelude.rnf httpStatus

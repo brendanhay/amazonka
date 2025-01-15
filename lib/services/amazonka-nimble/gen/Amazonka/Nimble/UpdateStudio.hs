@@ -157,11 +157,11 @@ instance Prelude.Hashable UpdateStudio where
 
 instance Prelude.NFData UpdateStudio where
   rnf UpdateStudio' {..} =
-    Prelude.rnf adminRoleArn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf userRoleArn
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf adminRoleArn `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf userRoleArn `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateStudio where
   toHeaders UpdateStudio' {..} =
@@ -231,5 +231,5 @@ updateStudioResponse_studio = Lens.lens (\UpdateStudioResponse' {studio} -> stud
 
 instance Prelude.NFData UpdateStudioResponse where
   rnf UpdateStudioResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf studio
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf studio

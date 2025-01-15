@@ -113,8 +113,8 @@ instance Prelude.Hashable Eula where
 
 instance Prelude.NFData Eula where
   rnf Eula' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf eulaId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf eulaId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf updatedAt

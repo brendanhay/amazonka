@@ -90,12 +90,12 @@ instance Core.AWSPager ListStudios where
     | Core.stop (rs Lens.^. listStudiosResponse_studios) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStudios_nextToken
-          Lens..~ rs
-          Lens.^? listStudiosResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStudios_nextToken
+              Lens..~ rs
+              Lens.^? listStudiosResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudios where
   type AWSResponse ListStudios = ListStudiosResponse
@@ -187,6 +187,6 @@ listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> stud
 
 instance Prelude.NFData ListStudiosResponse where
   rnf ListStudiosResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf studios
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf studios

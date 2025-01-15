@@ -75,8 +75,8 @@ instance Prelude.Hashable NewStudioMember where
 
 instance Prelude.NFData NewStudioMember where
   rnf NewStudioMember' {..} =
-    Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf persona `Prelude.seq`
+      Prelude.rnf principalId
 
 instance Data.ToJSON NewStudioMember where
   toJSON NewStudioMember' {..} =

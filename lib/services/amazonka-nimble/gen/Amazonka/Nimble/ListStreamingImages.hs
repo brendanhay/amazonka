@@ -120,12 +120,12 @@ instance Core.AWSPager ListStreamingImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamingImages_nextToken
-          Lens..~ rs
-          Lens.^? listStreamingImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamingImages_nextToken
+              Lens..~ rs
+              Lens.^? listStreamingImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingImages where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListStreamingImages where
 
 instance Prelude.NFData ListStreamingImages where
   rnf ListStreamingImages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders ListStreamingImages where
   toHeaders =
@@ -237,6 +237,6 @@ listStreamingImagesResponse_httpStatus = Lens.lens (\ListStreamingImagesResponse
 
 instance Prelude.NFData ListStreamingImagesResponse where
   rnf ListStreamingImagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamingImages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf streamingImages `Prelude.seq`
+        Prelude.rnf httpStatus

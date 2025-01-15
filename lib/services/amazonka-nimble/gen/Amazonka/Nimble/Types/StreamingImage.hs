@@ -230,16 +230,16 @@ instance Prelude.Hashable StreamingImage where
 
 instance Prelude.NFData StreamingImage where
   rnf StreamingImage' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ec2ImageId
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf eulaIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf ec2ImageId `Prelude.seq`
+          Prelude.rnf encryptionConfiguration `Prelude.seq`
+            Prelude.rnf eulaIds `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf owner `Prelude.seq`
+                  Prelude.rnf platform `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf statusCode `Prelude.seq`
+                        Prelude.rnf statusMessage `Prelude.seq`
+                          Prelude.rnf streamingImageId `Prelude.seq`
+                            Prelude.rnf tags

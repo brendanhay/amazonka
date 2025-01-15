@@ -164,11 +164,11 @@ instance Prelude.Hashable UpdateLaunchProfileMember where
 
 instance Prelude.NFData UpdateLaunchProfileMember where
   rnf UpdateLaunchProfileMember' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf launchProfileId `Prelude.seq`
+        Prelude.rnf persona `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateLaunchProfileMember where
   toHeaders UpdateLaunchProfileMember' {..} =
@@ -243,5 +243,5 @@ instance
     UpdateLaunchProfileMemberResponse
   where
   rnf UpdateLaunchProfileMemberResponse' {..} =
-    Prelude.rnf member
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf member `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -131,9 +131,9 @@ instance Prelude.Hashable DeleteStreamingImage where
 
 instance Prelude.NFData DeleteStreamingImage where
   rnf DeleteStreamingImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf streamingImageId `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteStreamingImage where
   toHeaders DeleteStreamingImage' {..} =
@@ -196,5 +196,5 @@ deleteStreamingImageResponse_httpStatus = Lens.lens (\DeleteStreamingImageRespon
 
 instance Prelude.NFData DeleteStreamingImageResponse where
   rnf DeleteStreamingImageResponse' {..} =
-    Prelude.rnf streamingImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamingImage `Prelude.seq`
+      Prelude.rnf httpStatus

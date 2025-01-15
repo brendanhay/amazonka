@@ -104,9 +104,9 @@ instance Prelude.Hashable VolumeConfiguration where
 
 instance Prelude.NFData VolumeConfiguration where
   rnf VolumeConfiguration' {..} =
-    Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf throughput
+    Prelude.rnf iops `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf throughput
 
 instance Data.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =

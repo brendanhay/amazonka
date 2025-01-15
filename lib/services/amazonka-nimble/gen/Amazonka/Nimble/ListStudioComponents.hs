@@ -143,12 +143,12 @@ instance Core.AWSPager ListStudioComponents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStudioComponents_nextToken
-          Lens..~ rs
-          Lens.^? listStudioComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStudioComponents_nextToken
+              Lens..~ rs
+              Lens.^? listStudioComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioComponents where
   type
@@ -179,11 +179,11 @@ instance Prelude.Hashable ListStudioComponents where
 
 instance Prelude.NFData ListStudioComponents where
   rnf ListStudioComponents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf states `Prelude.seq`
+          Prelude.rnf types `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders ListStudioComponents where
   toHeaders =
@@ -270,6 +270,6 @@ listStudioComponentsResponse_httpStatus = Lens.lens (\ListStudioComponentsRespon
 
 instance Prelude.NFData ListStudioComponentsResponse where
   rnf ListStudioComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf studioComponents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf studioComponents `Prelude.seq`
+        Prelude.rnf httpStatus

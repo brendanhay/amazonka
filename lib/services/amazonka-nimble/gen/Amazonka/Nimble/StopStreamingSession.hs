@@ -147,10 +147,10 @@ instance Prelude.Hashable StopStreamingSession where
 
 instance Prelude.NFData StopStreamingSession where
   rnf StopStreamingSession' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf volumeRetentionMode
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf volumeRetentionMode `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders StopStreamingSession where
   toHeaders StopStreamingSession' {..} =
@@ -222,5 +222,5 @@ stopStreamingSessionResponse_httpStatus = Lens.lens (\StopStreamingSessionRespon
 
 instance Prelude.NFData StopStreamingSessionResponse where
   rnf StopStreamingSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

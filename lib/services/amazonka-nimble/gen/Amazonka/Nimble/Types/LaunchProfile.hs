@@ -279,20 +279,20 @@ instance Prelude.Hashable LaunchProfile where
 
 instance Prelude.NFData LaunchProfile where
   rnf LaunchProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ec2SubnetIds
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf streamConfiguration
-      `Prelude.seq` Prelude.rnf studioComponentIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf updatedBy
-      `Prelude.seq` Prelude.rnf validationResults
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf ec2SubnetIds `Prelude.seq`
+              Prelude.rnf launchProfileId `Prelude.seq`
+                Prelude.rnf launchProfileProtocolVersions `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf statusCode `Prelude.seq`
+                        Prelude.rnf statusMessage `Prelude.seq`
+                          Prelude.rnf streamConfiguration `Prelude.seq`
+                            Prelude.rnf studioComponentIds `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf updatedAt `Prelude.seq`
+                                  Prelude.rnf updatedBy `Prelude.seq`
+                                    Prelude.rnf validationResults

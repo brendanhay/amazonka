@@ -175,12 +175,12 @@ instance Prelude.Hashable CreateStreamingImage where
 
 instance Prelude.NFData CreateStreamingImage where
   rnf CreateStreamingImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ec2ImageId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf ec2ImageId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf studioId
 
 instance Data.ToHeaders CreateStreamingImage where
   toHeaders CreateStreamingImage' {..} =
@@ -253,5 +253,5 @@ createStreamingImageResponse_httpStatus = Lens.lens (\CreateStreamingImageRespon
 
 instance Prelude.NFData CreateStreamingImageResponse where
   rnf CreateStreamingImageResponse' {..} =
-    Prelude.rnf streamingImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamingImage `Prelude.seq`
+      Prelude.rnf httpStatus

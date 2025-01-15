@@ -162,11 +162,11 @@ instance Prelude.Hashable PutLaunchProfileMembers where
 
 instance Prelude.NFData PutLaunchProfileMembers where
   rnf PutLaunchProfileMembers' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf identityStoreId `Prelude.seq`
+        Prelude.rnf launchProfileId `Prelude.seq`
+          Prelude.rnf members `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders PutLaunchProfileMembers where
   toHeaders PutLaunchProfileMembers' {..} =

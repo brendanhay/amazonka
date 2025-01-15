@@ -210,14 +210,14 @@ instance Prelude.Hashable ListChannelMessages where
 
 instance Prelude.NFData ListChannelMessages where
   rnf ListChannelMessages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notAfter
-      `Prelude.seq` Prelude.rnf notBefore
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf notAfter `Prelude.seq`
+          Prelude.rnf notBefore `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf subChannelId `Prelude.seq`
+                Prelude.rnf channelArn `Prelude.seq`
+                  Prelude.rnf chimeBearer
 
 instance Data.ToHeaders ListChannelMessages where
   toHeaders ListChannelMessages' {..} =
@@ -311,8 +311,8 @@ listChannelMessagesResponse_httpStatus = Lens.lens (\ListChannelMessagesResponse
 
 instance Prelude.NFData ListChannelMessagesResponse where
   rnf ListChannelMessagesResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelMessages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelMessages `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf subChannelId `Prelude.seq`
+            Prelude.rnf httpStatus

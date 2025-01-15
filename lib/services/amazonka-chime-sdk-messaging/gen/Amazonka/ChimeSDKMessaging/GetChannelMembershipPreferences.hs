@@ -148,9 +148,9 @@ instance
     GetChannelMembershipPreferences
   where
   rnf GetChannelMembershipPreferences' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf memberArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance
   Data.ToHeaders
@@ -236,7 +236,7 @@ instance
     GetChannelMembershipPreferencesResponse
   where
   rnf GetChannelMembershipPreferencesResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf member
-      `Prelude.seq` Prelude.rnf preferences
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf member `Prelude.seq`
+        Prelude.rnf preferences `Prelude.seq`
+          Prelude.rnf httpStatus

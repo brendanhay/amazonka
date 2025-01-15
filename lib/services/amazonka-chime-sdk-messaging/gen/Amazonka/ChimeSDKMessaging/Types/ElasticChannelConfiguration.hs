@@ -113,9 +113,9 @@ instance Prelude.Hashable ElasticChannelConfiguration where
 
 instance Prelude.NFData ElasticChannelConfiguration where
   rnf ElasticChannelConfiguration' {..} =
-    Prelude.rnf maximumSubChannels
-      `Prelude.seq` Prelude.rnf targetMembershipsPerSubChannel
-      `Prelude.seq` Prelude.rnf minimumMembershipPercentage
+    Prelude.rnf maximumSubChannels `Prelude.seq`
+      Prelude.rnf targetMembershipsPerSubChannel `Prelude.seq`
+        Prelude.rnf minimumMembershipPercentage
 
 instance Data.ToJSON ElasticChannelConfiguration where
   toJSON ElasticChannelConfiguration' {..} =

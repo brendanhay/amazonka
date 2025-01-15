@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateChannelFlow where
 
 instance Prelude.NFData UpdateChannelFlow where
   rnf UpdateChannelFlow' {..} =
-    Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf processors
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf channelFlowArn `Prelude.seq`
+      Prelude.rnf processors `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,5 +192,5 @@ updateChannelFlowResponse_httpStatus = Lens.lens (\UpdateChannelFlowResponse' {h
 
 instance Prelude.NFData UpdateChannelFlowResponse where
   rnf UpdateChannelFlowResponse' {..} =
-    Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelFlowArn `Prelude.seq`
+      Prelude.rnf httpStatus

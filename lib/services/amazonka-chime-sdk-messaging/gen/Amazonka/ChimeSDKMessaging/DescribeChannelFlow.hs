@@ -152,5 +152,5 @@ describeChannelFlowResponse_httpStatus = Lens.lens (\DescribeChannelFlowResponse
 
 instance Prelude.NFData DescribeChannelFlowResponse where
   rnf DescribeChannelFlowResponse' {..} =
-    Prelude.rnf channelFlow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelFlow `Prelude.seq`
+      Prelude.rnf httpStatus

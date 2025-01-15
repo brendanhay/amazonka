@@ -121,9 +121,9 @@ instance Prelude.Hashable SearchField where
 
 instance Prelude.NFData SearchField where
   rnf SearchField' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON SearchField where
   toJSON SearchField' {..} =

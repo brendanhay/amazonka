@@ -91,9 +91,9 @@ instance
 
 instance Prelude.NFData PushNotificationConfiguration where
   rnf PushNotificationConfiguration' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON PushNotificationConfiguration where
   toJSON PushNotificationConfiguration' {..} =

@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateChannelReadMarker where
 
 instance Prelude.NFData UpdateChannelReadMarker where
   rnf UpdateChannelReadMarker' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf subChannelId `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance Data.ToHeaders UpdateChannelReadMarker where
   toHeaders UpdateChannelReadMarker' {..} =
@@ -205,6 +205,6 @@ instance
     UpdateChannelReadMarkerResponse
   where
   rnf UpdateChannelReadMarkerResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf subChannelId `Prelude.seq`
+        Prelude.rnf httpStatus

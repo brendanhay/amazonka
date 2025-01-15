@@ -127,8 +127,8 @@ instance
     ChannelAssociatedWithFlowSummary
   where
   rnf ChannelAssociatedWithFlowSummary' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf privacy
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf mode `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf privacy

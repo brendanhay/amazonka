@@ -103,7 +103,7 @@ instance Prelude.Hashable ChannelBan where
 
 instance Prelude.NFData ChannelBan where
   rnf ChannelBan' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf member
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf member

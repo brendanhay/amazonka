@@ -96,8 +96,8 @@ instance Prelude.Hashable PushNotificationPreferences where
 
 instance Prelude.NFData PushNotificationPreferences where
   rnf PushNotificationPreferences' {..} =
-    Prelude.rnf filterRule
-      `Prelude.seq` Prelude.rnf allowNotifications
+    Prelude.rnf filterRule `Prelude.seq`
+      Prelude.rnf allowNotifications
 
 instance Data.ToJSON PushNotificationPreferences where
   toJSON PushNotificationPreferences' {..} =

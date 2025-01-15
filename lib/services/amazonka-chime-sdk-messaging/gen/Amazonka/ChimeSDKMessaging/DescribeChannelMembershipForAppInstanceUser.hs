@@ -145,9 +145,9 @@ instance
     DescribeChannelMembershipForAppInstanceUser
   where
   rnf DescribeChannelMembershipForAppInstanceUser' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf appInstanceUserArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance
   Data.ToHeaders
@@ -225,5 +225,5 @@ instance
   where
   rnf
     DescribeChannelMembershipForAppInstanceUserResponse' {..} =
-      Prelude.rnf channelMembership
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf channelMembership `Prelude.seq`
+        Prelude.rnf httpStatus

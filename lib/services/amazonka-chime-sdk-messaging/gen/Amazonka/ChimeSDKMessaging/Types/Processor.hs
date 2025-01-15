@@ -146,10 +146,10 @@ instance Prelude.Hashable Processor where
 
 instance Prelude.NFData Processor where
   rnf Processor' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf executionOrder
-      `Prelude.seq` Prelude.rnf fallbackAction
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf executionOrder `Prelude.seq`
+          Prelude.rnf fallbackAction
 
 instance Data.ToJSON Processor where
   toJSON Processor' {..} =

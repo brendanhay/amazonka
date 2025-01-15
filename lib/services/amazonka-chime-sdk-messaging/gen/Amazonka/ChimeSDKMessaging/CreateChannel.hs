@@ -256,18 +256,18 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf elasticChannelConfiguration
-      `Prelude.seq` Prelude.rnf memberArns
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf moderatorArns
-      `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf elasticChannelConfiguration `Prelude.seq`
+        Prelude.rnf memberArns `Prelude.seq`
+          Prelude.rnf metadata `Prelude.seq`
+            Prelude.rnf mode `Prelude.seq`
+              Prelude.rnf moderatorArns `Prelude.seq`
+                Prelude.rnf privacy `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf appInstanceArn `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf clientRequestToken `Prelude.seq`
+                          Prelude.rnf chimeBearer
 
 instance Data.ToHeaders CreateChannel where
   toHeaders CreateChannel' {..} =
@@ -342,5 +342,5 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf httpStatus

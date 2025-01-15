@@ -192,14 +192,14 @@ instance Prelude.Hashable ChannelMessageSummary where
 
 instance Prelude.NFData ChannelMessageSummary where
   rnf ChannelMessageSummary' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastEditedTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf redacted
-      `Prelude.seq` Prelude.rnf sender
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf lastEditedTimestamp `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf messageAttributes `Prelude.seq`
+              Prelude.rnf messageId `Prelude.seq`
+                Prelude.rnf metadata `Prelude.seq`
+                  Prelude.rnf redacted `Prelude.seq`
+                    Prelude.rnf sender `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf type'

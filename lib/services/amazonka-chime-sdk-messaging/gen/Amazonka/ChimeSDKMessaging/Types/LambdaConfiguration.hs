@@ -85,8 +85,8 @@ instance Prelude.Hashable LambdaConfiguration where
 
 instance Prelude.NFData LambdaConfiguration where
   rnf LambdaConfiguration' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf invocationType
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf invocationType
 
 instance Data.ToJSON LambdaConfiguration where
   toJSON LambdaConfiguration' {..} =

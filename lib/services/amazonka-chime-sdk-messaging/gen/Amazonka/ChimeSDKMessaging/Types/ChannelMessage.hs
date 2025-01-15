@@ -223,17 +223,17 @@ instance Prelude.Hashable ChannelMessage where
 
 instance Prelude.NFData ChannelMessage where
   rnf ChannelMessage' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastEditedTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf persistence
-      `Prelude.seq` Prelude.rnf redacted
-      `Prelude.seq` Prelude.rnf sender
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf lastEditedTimestamp `Prelude.seq`
+            Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+              Prelude.rnf messageAttributes `Prelude.seq`
+                Prelude.rnf messageId `Prelude.seq`
+                  Prelude.rnf metadata `Prelude.seq`
+                    Prelude.rnf persistence `Prelude.seq`
+                      Prelude.rnf redacted `Prelude.seq`
+                        Prelude.rnf sender `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf subChannelId `Prelude.seq`
+                              Prelude.rnf type'

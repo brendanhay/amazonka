@@ -117,12 +117,12 @@ instance Prelude.Hashable ChannelMessageCallback where
 
 instance Prelude.NFData ChannelMessageCallback where
   rnf ChannelMessageCallback' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf pushNotification
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf messageAttributes `Prelude.seq`
+        Prelude.rnf metadata `Prelude.seq`
+          Prelude.rnf pushNotification `Prelude.seq`
+            Prelude.rnf subChannelId `Prelude.seq`
+              Prelude.rnf messageId
 
 instance Data.ToJSON ChannelMessageCallback where
   toJSON ChannelMessageCallback' {..} =

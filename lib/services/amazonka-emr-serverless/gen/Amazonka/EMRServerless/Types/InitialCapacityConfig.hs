@@ -84,8 +84,8 @@ instance Prelude.Hashable InitialCapacityConfig where
 
 instance Prelude.NFData InitialCapacityConfig where
   rnf InitialCapacityConfig' {..} =
-    Prelude.rnf workerConfiguration
-      `Prelude.seq` Prelude.rnf workerCount
+    Prelude.rnf workerConfiguration `Prelude.seq`
+      Prelude.rnf workerCount
 
 instance Data.ToJSON InitialCapacityConfig where
   toJSON InitialCapacityConfig' {..} =

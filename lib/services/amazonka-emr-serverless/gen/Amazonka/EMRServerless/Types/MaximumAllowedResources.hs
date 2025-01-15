@@ -96,9 +96,9 @@ instance Prelude.Hashable MaximumAllowedResources where
 
 instance Prelude.NFData MaximumAllowedResources where
   rnf MaximumAllowedResources' {..} =
-    Prelude.rnf disk
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf memory
+    Prelude.rnf disk `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf memory
 
 instance Data.ToJSON MaximumAllowedResources where
   toJSON MaximumAllowedResources' {..} =

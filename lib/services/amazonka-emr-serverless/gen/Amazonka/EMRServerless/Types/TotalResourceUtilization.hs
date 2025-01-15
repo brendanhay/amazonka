@@ -103,6 +103,6 @@ instance Prelude.Hashable TotalResourceUtilization where
 
 instance Prelude.NFData TotalResourceUtilization where
   rnf TotalResourceUtilization' {..} =
-    Prelude.rnf memoryGBHour
-      `Prelude.seq` Prelude.rnf storageGBHour
-      `Prelude.seq` Prelude.rnf vCPUHour
+    Prelude.rnf memoryGBHour `Prelude.seq`
+      Prelude.rnf storageGBHour `Prelude.seq`
+        Prelude.rnf vCPUHour

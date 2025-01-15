@@ -282,19 +282,19 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf autoStartConfiguration
-      `Prelude.seq` Prelude.rnf autoStopConfiguration
-      `Prelude.seq` Prelude.rnf imageConfiguration
-      `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workerTypeSpecifications
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf autoStartConfiguration `Prelude.seq`
+        Prelude.rnf autoStopConfiguration `Prelude.seq`
+          Prelude.rnf imageConfiguration `Prelude.seq`
+            Prelude.rnf initialCapacity `Prelude.seq`
+              Prelude.rnf maximumCapacity `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf networkConfiguration `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf workerTypeSpecifications `Prelude.seq`
+                        Prelude.rnf releaseLabel `Prelude.seq`
+                          Prelude.rnf type' `Prelude.seq`
+                            Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateApplication where
   toHeaders =
@@ -405,7 +405,7 @@ createApplicationResponse_arn = Lens.lens (\CreateApplicationResponse' {arn} -> 
 
 instance Prelude.NFData CreateApplicationResponse where
   rnf CreateApplicationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf arn

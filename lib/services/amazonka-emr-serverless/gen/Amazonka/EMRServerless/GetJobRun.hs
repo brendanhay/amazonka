@@ -108,8 +108,8 @@ instance Prelude.Hashable GetJobRun where
 
 instance Prelude.NFData GetJobRun where
   rnf GetJobRun' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf jobRunId
 
 instance Data.ToHeaders GetJobRun where
   toHeaders =
@@ -176,5 +176,5 @@ getJobRunResponse_jobRun = Lens.lens (\GetJobRunResponse' {jobRun} -> jobRun) (\
 
 instance Prelude.NFData GetJobRunResponse where
   rnf GetJobRunResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobRun
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobRun

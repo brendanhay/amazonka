@@ -89,5 +89,5 @@ instance Prelude.Hashable ImageConfiguration where
 
 instance Prelude.NFData ImageConfiguration where
   rnf ImageConfiguration' {..} =
-    Prelude.rnf resolvedImageDigest
-      `Prelude.seq` Prelude.rnf imageUri
+    Prelude.rnf resolvedImageDigest `Prelude.seq`
+      Prelude.rnf imageUri

@@ -93,9 +93,9 @@ instance Prelude.Hashable Hive where
 
 instance Prelude.NFData Hive where
   rnf Hive' {..} =
-    Prelude.rnf initQueryFile
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf query
+    Prelude.rnf initQueryFile `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf query
 
 instance Data.ToJSON Hive where
   toJSON Hive' {..} =

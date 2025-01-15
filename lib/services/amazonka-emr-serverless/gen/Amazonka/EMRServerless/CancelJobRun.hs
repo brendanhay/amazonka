@@ -110,8 +110,8 @@ instance Prelude.Hashable CancelJobRun where
 
 instance Prelude.NFData CancelJobRun where
   rnf CancelJobRun' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf jobRunId
 
 instance Data.ToHeaders CancelJobRun where
   toHeaders =
@@ -195,6 +195,6 @@ cancelJobRunResponse_jobRunId = Lens.lens (\CancelJobRunResponse' {jobRunId} -> 
 
 instance Prelude.NFData CancelJobRunResponse where
   rnf CancelJobRunResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf jobRunId

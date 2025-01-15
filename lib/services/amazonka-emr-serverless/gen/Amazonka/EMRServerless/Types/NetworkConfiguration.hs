@@ -84,8 +84,8 @@ instance Prelude.Hashable NetworkConfiguration where
 
 instance Prelude.NFData NetworkConfiguration where
   rnf NetworkConfiguration' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds
 
 instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =

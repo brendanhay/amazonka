@@ -190,14 +190,14 @@ instance Prelude.Hashable StartJobRun where
 
 instance Prelude.NFData StartJobRun where
   rnf StartJobRun' {..} =
-    Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf executionTimeoutMinutes
-      `Prelude.seq` Prelude.rnf jobDriver
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf executionRoleArn
+    Prelude.rnf configurationOverrides `Prelude.seq`
+      Prelude.rnf executionTimeoutMinutes `Prelude.seq`
+        Prelude.rnf jobDriver `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf applicationId `Prelude.seq`
+                Prelude.rnf clientToken `Prelude.seq`
+                  Prelude.rnf executionRoleArn
 
 instance Data.ToHeaders StartJobRun where
   toHeaders =
@@ -309,7 +309,7 @@ startJobRunResponse_arn = Lens.lens (\StartJobRunResponse' {arn} -> arn) (\s@Sta
 
 instance Prelude.NFData StartJobRunResponse where
   rnf StartJobRunResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf jobRunId `Prelude.seq`
+          Prelude.rnf arn

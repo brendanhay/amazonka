@@ -296,20 +296,20 @@ instance Prelude.Hashable JobRun where
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
-    Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf totalExecutionDurationSeconds
-      `Prelude.seq` Prelude.rnf totalResourceUtilization
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf jobDriver
+    Prelude.rnf configurationOverrides `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf networkConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf totalExecutionDurationSeconds `Prelude.seq`
+              Prelude.rnf totalResourceUtilization `Prelude.seq`
+                Prelude.rnf applicationId `Prelude.seq`
+                  Prelude.rnf jobRunId `Prelude.seq`
+                    Prelude.rnf arn `Prelude.seq`
+                      Prelude.rnf createdBy `Prelude.seq`
+                        Prelude.rnf createdAt `Prelude.seq`
+                          Prelude.rnf updatedAt `Prelude.seq`
+                            Prelude.rnf executionRole `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf stateDetails `Prelude.seq`
+                                  Prelude.rnf releaseLabel `Prelude.seq`
+                                    Prelude.rnf jobDriver

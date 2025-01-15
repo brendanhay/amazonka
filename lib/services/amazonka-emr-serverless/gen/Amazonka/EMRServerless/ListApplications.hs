@@ -115,12 +115,12 @@ instance Core.AWSPager ListApplications where
         (rs Lens.^. listApplicationsResponse_applications) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplications_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplications_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplications where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListApplications where
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf states
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -230,6 +230,6 @@ listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {a
 
 instance Prelude.NFData ListApplicationsResponse where
   rnf ListApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applications
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf applications

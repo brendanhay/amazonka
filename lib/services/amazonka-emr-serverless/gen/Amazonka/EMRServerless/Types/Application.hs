@@ -311,21 +311,21 @@ instance Prelude.Hashable Application where
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf autoStartConfiguration
-      `Prelude.seq` Prelude.rnf autoStopConfiguration
-      `Prelude.seq` Prelude.rnf imageConfiguration
-      `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workerTypeSpecifications
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf autoStartConfiguration `Prelude.seq`
+        Prelude.rnf autoStopConfiguration `Prelude.seq`
+          Prelude.rnf imageConfiguration `Prelude.seq`
+            Prelude.rnf initialCapacity `Prelude.seq`
+              Prelude.rnf maximumCapacity `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf networkConfiguration `Prelude.seq`
+                    Prelude.rnf stateDetails `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf workerTypeSpecifications `Prelude.seq`
+                          Prelude.rnf applicationId `Prelude.seq`
+                            Prelude.rnf arn `Prelude.seq`
+                              Prelude.rnf releaseLabel `Prelude.seq`
+                                Prelude.rnf type' `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf createdAt `Prelude.seq`
+                                      Prelude.rnf updatedAt

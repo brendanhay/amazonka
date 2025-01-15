@@ -181,5 +181,5 @@ describeFHIRDatastoreResponse_datastoreProperties = Lens.lens (\DescribeFHIRData
 
 instance Prelude.NFData DescribeFHIRDatastoreResponse where
   rnf DescribeFHIRDatastoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf datastoreProperties
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf datastoreProperties

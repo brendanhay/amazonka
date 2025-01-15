@@ -114,8 +114,8 @@ instance Prelude.Hashable DescribeFHIRExportJob where
 
 instance Prelude.NFData DescribeFHIRExportJob where
   rnf DescribeFHIRExportJob' {..} =
-    Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf datastoreId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeFHIRExportJob where
   toHeaders =
@@ -195,5 +195,5 @@ describeFHIRExportJobResponse_exportJobProperties = Lens.lens (\DescribeFHIRExpo
 
 instance Prelude.NFData DescribeFHIRExportJobResponse where
   rnf DescribeFHIRExportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exportJobProperties
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exportJobProperties

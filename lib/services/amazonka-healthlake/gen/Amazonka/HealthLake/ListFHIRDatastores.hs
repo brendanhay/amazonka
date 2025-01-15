@@ -126,9 +126,9 @@ instance Prelude.Hashable ListFHIRDatastores where
 
 instance Prelude.NFData ListFHIRDatastores where
   rnf ListFHIRDatastores' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFHIRDatastores where
   toHeaders =
@@ -211,6 +211,6 @@ listFHIRDatastoresResponse_datastorePropertiesList = Lens.lens (\ListFHIRDatasto
 
 instance Prelude.NFData ListFHIRDatastoresResponse where
   rnf ListFHIRDatastoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf datastorePropertiesList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf datastorePropertiesList

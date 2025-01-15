@@ -190,13 +190,13 @@ instance Prelude.Hashable ListFHIRImportJobs where
 
 instance Prelude.NFData ListFHIRImportJobs where
   rnf ListFHIRImportJobs' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf submittedAfter
-      `Prelude.seq` Prelude.rnf submittedBefore
-      `Prelude.seq` Prelude.rnf datastoreId
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf submittedAfter `Prelude.seq`
+              Prelude.rnf submittedBefore `Prelude.seq`
+                Prelude.rnf datastoreId
 
 instance Data.ToHeaders ListFHIRImportJobs where
   toHeaders =
@@ -291,6 +291,6 @@ listFHIRImportJobsResponse_importJobPropertiesList = Lens.lens (\ListFHIRImportJ
 
 instance Prelude.NFData ListFHIRImportJobsResponse where
   rnf ListFHIRImportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importJobPropertiesList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf importJobPropertiesList

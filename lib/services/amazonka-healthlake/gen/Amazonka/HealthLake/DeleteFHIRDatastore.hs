@@ -215,8 +215,8 @@ deleteFHIRDatastoreResponse_datastoreEndpoint = Lens.lens (\DeleteFHIRDatastoreR
 
 instance Prelude.NFData DeleteFHIRDatastoreResponse where
   rnf DeleteFHIRDatastoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf datastoreArn
-      `Prelude.seq` Prelude.rnf datastoreStatus
-      `Prelude.seq` Prelude.rnf datastoreEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf datastoreId `Prelude.seq`
+        Prelude.rnf datastoreArn `Prelude.seq`
+          Prelude.rnf datastoreStatus `Prelude.seq`
+            Prelude.rnf datastoreEndpoint

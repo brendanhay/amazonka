@@ -174,12 +174,12 @@ instance Prelude.Hashable StartFHIRImportJob where
 
 instance Prelude.NFData StartFHIRImportJob where
   rnf StartFHIRImportJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf jobOutputDataConfig
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf inputDataConfig `Prelude.seq`
+        Prelude.rnf jobOutputDataConfig `Prelude.seq`
+          Prelude.rnf datastoreId `Prelude.seq`
+            Prelude.rnf dataAccessRoleArn `Prelude.seq`
+              Prelude.rnf clientToken
 
 instance Data.ToHeaders StartFHIRImportJob where
   toHeaders =
@@ -284,7 +284,7 @@ startFHIRImportJobResponse_jobStatus = Lens.lens (\StartFHIRImportJobResponse' {
 
 instance Prelude.NFData StartFHIRImportJobResponse where
   rnf StartFHIRImportJobResponse' {..} =
-    Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf datastoreId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf jobStatus

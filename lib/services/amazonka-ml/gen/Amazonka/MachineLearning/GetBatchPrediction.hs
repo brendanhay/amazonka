@@ -452,21 +452,21 @@ getBatchPredictionResponse_httpStatus = Lens.lens (\GetBatchPredictionResponse' 
 
 instance Prelude.NFData GetBatchPredictionResponse where
   rnf GetBatchPredictionResponse' {..} =
-    Prelude.rnf batchPredictionDataSourceId
-      `Prelude.seq` Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf computeTime
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdByIamUser
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf inputDataLocationS3
-      `Prelude.seq` Prelude.rnf invalidRecordCount
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf logUri
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputUri
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf totalRecordCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPredictionDataSourceId `Prelude.seq`
+      Prelude.rnf batchPredictionId `Prelude.seq`
+        Prelude.rnf computeTime `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf createdByIamUser `Prelude.seq`
+              Prelude.rnf finishedAt `Prelude.seq`
+                Prelude.rnf inputDataLocationS3 `Prelude.seq`
+                  Prelude.rnf invalidRecordCount `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt `Prelude.seq`
+                      Prelude.rnf logUri `Prelude.seq`
+                        Prelude.rnf mLModelId `Prelude.seq`
+                          Prelude.rnf message `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf outputUri `Prelude.seq`
+                                Prelude.rnf startedAt `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf totalRecordCount `Prelude.seq`
+                                      Prelude.rnf httpStatus

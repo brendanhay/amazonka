@@ -85,8 +85,8 @@ instance Prelude.Hashable RedshiftDatabase where
 
 instance Prelude.NFData RedshiftDatabase where
   rnf RedshiftDatabase' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf clusterIdentifier
 
 instance Data.ToJSON RedshiftDatabase where
   toJSON RedshiftDatabase' {..} =

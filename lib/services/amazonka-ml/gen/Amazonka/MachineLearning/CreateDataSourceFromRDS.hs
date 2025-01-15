@@ -324,11 +324,11 @@ instance Prelude.Hashable CreateDataSourceFromRDS where
 
 instance Prelude.NFData CreateDataSourceFromRDS where
   rnf CreateDataSourceFromRDS' {..} =
-    Prelude.rnf computeStatistics
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf rDSData
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf computeStatistics `Prelude.seq`
+      Prelude.rnf dataSourceName `Prelude.seq`
+        Prelude.rnf dataSourceId `Prelude.seq`
+          Prelude.rnf rDSData `Prelude.seq`
+            Prelude.rnf roleARN
 
 instance Data.ToHeaders CreateDataSourceFromRDS where
   toHeaders =
@@ -422,5 +422,5 @@ instance
     CreateDataSourceFromRDSResponse
   where
   rnf CreateDataSourceFromRDSResponse' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf httpStatus

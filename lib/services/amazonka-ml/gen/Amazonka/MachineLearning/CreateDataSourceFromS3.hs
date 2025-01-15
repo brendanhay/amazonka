@@ -215,10 +215,10 @@ instance Prelude.Hashable CreateDataSourceFromS3 where
 
 instance Prelude.NFData CreateDataSourceFromS3 where
   rnf CreateDataSourceFromS3' {..} =
-    Prelude.rnf computeStatistics
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf dataSpec
+    Prelude.rnf computeStatistics `Prelude.seq`
+      Prelude.rnf dataSourceName `Prelude.seq`
+        Prelude.rnf dataSourceId `Prelude.seq`
+          Prelude.rnf dataSpec
 
 instance Data.ToHeaders CreateDataSourceFromS3 where
   toHeaders =
@@ -308,5 +308,5 @@ instance
     CreateDataSourceFromS3Response
   where
   rnf CreateDataSourceFromS3Response' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf httpStatus

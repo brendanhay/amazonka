@@ -124,9 +124,9 @@ instance Prelude.Hashable DeleteTags where
 
 instance Prelude.NFData DeleteTags where
   rnf DeleteTags' {..} =
-    Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf tagKeys `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToHeaders DeleteTags where
   toHeaders =
@@ -210,6 +210,6 @@ deleteTagsResponse_httpStatus = Lens.lens (\DeleteTagsResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteTagsResponse where
   rnf DeleteTagsResponse' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf httpStatus

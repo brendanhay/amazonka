@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateEvaluation where
 
 instance Prelude.NFData UpdateEvaluation where
   rnf UpdateEvaluation' {..} =
-    Prelude.rnf evaluationId
-      `Prelude.seq` Prelude.rnf evaluationName
+    Prelude.rnf evaluationId `Prelude.seq`
+      Prelude.rnf evaluationName
 
 instance Data.ToHeaders UpdateEvaluation where
   toHeaders =
@@ -198,5 +198,5 @@ updateEvaluationResponse_httpStatus = Lens.lens (\UpdateEvaluationResponse' {htt
 
 instance Prelude.NFData UpdateEvaluationResponse where
   rnf UpdateEvaluationResponse' {..} =
-    Prelude.rnf evaluationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evaluationId `Prelude.seq`
+      Prelude.rnf httpStatus

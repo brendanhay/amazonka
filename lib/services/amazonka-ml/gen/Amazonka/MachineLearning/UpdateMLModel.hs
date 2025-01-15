@@ -140,9 +140,9 @@ instance Prelude.Hashable UpdateMLModel where
 
 instance Prelude.NFData UpdateMLModel where
   rnf UpdateMLModel' {..} =
-    Prelude.rnf mLModelName
-      `Prelude.seq` Prelude.rnf scoreThreshold
-      `Prelude.seq` Prelude.rnf mLModelId
+    Prelude.rnf mLModelName `Prelude.seq`
+      Prelude.rnf scoreThreshold `Prelude.seq`
+        Prelude.rnf mLModelId
 
 instance Data.ToHeaders UpdateMLModel where
   toHeaders =
@@ -223,5 +223,5 @@ updateMLModelResponse_httpStatus = Lens.lens (\UpdateMLModelResponse' {httpStatu
 
 instance Prelude.NFData UpdateMLModelResponse where
   rnf UpdateMLModelResponse' {..} =
-    Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mLModelId `Prelude.seq`
+      Prelude.rnf httpStatus

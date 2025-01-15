@@ -359,13 +359,13 @@ instance Prelude.Hashable CreateMLModel where
 
 instance Prelude.NFData CreateMLModel where
   rnf CreateMLModel' {..} =
-    Prelude.rnf mLModelName
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf recipe
-      `Prelude.seq` Prelude.rnf recipeUri
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf mLModelType
-      `Prelude.seq` Prelude.rnf trainingDataSourceId
+    Prelude.rnf mLModelName `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf recipe `Prelude.seq`
+          Prelude.rnf recipeUri `Prelude.seq`
+            Prelude.rnf mLModelId `Prelude.seq`
+              Prelude.rnf mLModelType `Prelude.seq`
+                Prelude.rnf trainingDataSourceId
 
 instance Data.ToHeaders CreateMLModel where
   toHeaders =
@@ -455,5 +455,5 @@ createMLModelResponse_httpStatus = Lens.lens (\CreateMLModelResponse' {httpStatu
 
 instance Prelude.NFData CreateMLModelResponse where
   rnf CreateMLModelResponse' {..} =
-    Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mLModelId `Prelude.seq`
+      Prelude.rnf httpStatus

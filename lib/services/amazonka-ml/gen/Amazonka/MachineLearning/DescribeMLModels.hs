@@ -358,12 +358,12 @@ instance Core.AWSPager DescribeMLModels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMLModels_nextToken
-          Lens..~ rs
-          Lens.^? describeMLModelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMLModels_nextToken
+              Lens..~ rs
+              Lens.^? describeMLModelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMLModels where
   type
@@ -397,17 +397,17 @@ instance Prelude.Hashable DescribeMLModels where
 
 instance Prelude.NFData DescribeMLModels where
   rnf DescribeMLModels' {..} =
-    Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf filterVariable
-      `Prelude.seq` Prelude.rnf ge
-      `Prelude.seq` Prelude.rnf gt
-      `Prelude.seq` Prelude.rnf le
-      `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf ne
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf eq `Prelude.seq`
+      Prelude.rnf filterVariable `Prelude.seq`
+        Prelude.rnf ge `Prelude.seq`
+          Prelude.rnf gt `Prelude.seq`
+            Prelude.rnf le `Prelude.seq`
+              Prelude.rnf lt `Prelude.seq`
+                Prelude.rnf limit `Prelude.seq`
+                  Prelude.rnf ne `Prelude.seq`
+                    Prelude.rnf nextToken `Prelude.seq`
+                      Prelude.rnf prefix `Prelude.seq`
+                        Prelude.rnf sortOrder
 
 instance Data.ToHeaders DescribeMLModels where
   toHeaders =
@@ -505,6 +505,6 @@ describeMLModelsResponse_httpStatus = Lens.lens (\DescribeMLModelsResponse' {htt
 
 instance Prelude.NFData DescribeMLModelsResponse where
   rnf DescribeMLModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -177,5 +177,5 @@ deleteMLModelResponse_httpStatus = Lens.lens (\DeleteMLModelResponse' {httpStatu
 
 instance Prelude.NFData DeleteMLModelResponse where
   rnf DeleteMLModelResponse' {..} =
-    Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mLModelId `Prelude.seq`
+      Prelude.rnf httpStatus

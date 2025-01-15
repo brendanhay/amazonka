@@ -491,22 +491,22 @@ instance Prelude.Hashable MLModel where
 
 instance Prelude.NFData MLModel where
   rnf MLModel' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf computeTime
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdByIamUser
-      `Prelude.seq` Prelude.rnf endpointInfo
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf inputDataLocationS3
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf mLModelType
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scoreThreshold
-      `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
-      `Prelude.seq` Prelude.rnf sizeInBytes
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trainingDataSourceId
-      `Prelude.seq` Prelude.rnf trainingParameters
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf computeTime `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf createdByIamUser `Prelude.seq`
+            Prelude.rnf endpointInfo `Prelude.seq`
+              Prelude.rnf finishedAt `Prelude.seq`
+                Prelude.rnf inputDataLocationS3 `Prelude.seq`
+                  Prelude.rnf lastUpdatedAt `Prelude.seq`
+                    Prelude.rnf mLModelId `Prelude.seq`
+                      Prelude.rnf mLModelType `Prelude.seq`
+                        Prelude.rnf message `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf scoreThreshold `Prelude.seq`
+                              Prelude.rnf scoreThresholdLastUpdatedAt `Prelude.seq`
+                                Prelude.rnf sizeInBytes `Prelude.seq`
+                                  Prelude.rnf startedAt `Prelude.seq`
+                                    Prelude.rnf status `Prelude.seq`
+                                      Prelude.rnf trainingDataSourceId `Prelude.seq`
+                                        Prelude.rnf trainingParameters

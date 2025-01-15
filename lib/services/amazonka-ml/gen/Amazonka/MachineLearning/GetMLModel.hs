@@ -164,8 +164,8 @@ instance Prelude.Hashable GetMLModel where
 
 instance Prelude.NFData GetMLModel where
   rnf GetMLModel' {..} =
-    Prelude.rnf verbose
-      `Prelude.seq` Prelude.rnf mLModelId
+    Prelude.rnf verbose `Prelude.seq`
+      Prelude.rnf mLModelId
 
 instance Data.ToHeaders GetMLModel where
   toHeaders =

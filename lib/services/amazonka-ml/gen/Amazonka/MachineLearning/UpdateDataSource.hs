@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateDataSource where
 
 instance Prelude.NFData UpdateDataSource where
   rnf UpdateDataSource' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf dataSourceName
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf dataSourceName
 
 instance Data.ToHeaders UpdateDataSource where
   toHeaders =
@@ -199,5 +199,5 @@ updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {htt
 
 instance Prelude.NFData UpdateDataSourceResponse where
   rnf UpdateDataSourceResponse' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf httpStatus

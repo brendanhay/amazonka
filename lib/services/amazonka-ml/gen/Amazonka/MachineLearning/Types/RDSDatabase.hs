@@ -84,8 +84,8 @@ instance Prelude.Hashable RDSDatabase where
 
 instance Prelude.NFData RDSDatabase where
   rnf RDSDatabase' {..} =
-    Prelude.rnf instanceIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf instanceIdentifier `Prelude.seq`
+      Prelude.rnf databaseName
 
 instance Data.ToJSON RDSDatabase where
   toJSON RDSDatabase' {..} =

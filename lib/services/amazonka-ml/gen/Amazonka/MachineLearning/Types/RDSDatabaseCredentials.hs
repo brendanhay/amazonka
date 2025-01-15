@@ -72,8 +72,8 @@ instance Prelude.Hashable RDSDatabaseCredentials where
 
 instance Prelude.NFData RDSDatabaseCredentials where
   rnf RDSDatabaseCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance Data.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =

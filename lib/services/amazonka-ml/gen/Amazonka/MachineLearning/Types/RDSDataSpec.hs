@@ -586,17 +586,17 @@ instance Prelude.Hashable RDSDataSpec where
 
 instance Prelude.NFData RDSDataSpec where
   rnf RDSDataSpec' {..} =
-    Prelude.rnf dataRearrangement
-      `Prelude.seq` Prelude.rnf dataSchema
-      `Prelude.seq` Prelude.rnf dataSchemaUri
-      `Prelude.seq` Prelude.rnf databaseInformation
-      `Prelude.seq` Prelude.rnf selectSqlQuery
-      `Prelude.seq` Prelude.rnf databaseCredentials
-      `Prelude.seq` Prelude.rnf s3StagingLocation
-      `Prelude.seq` Prelude.rnf resourceRole
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf securityGroupIds
+    Prelude.rnf dataRearrangement `Prelude.seq`
+      Prelude.rnf dataSchema `Prelude.seq`
+        Prelude.rnf dataSchemaUri `Prelude.seq`
+          Prelude.rnf databaseInformation `Prelude.seq`
+            Prelude.rnf selectSqlQuery `Prelude.seq`
+              Prelude.rnf databaseCredentials `Prelude.seq`
+                Prelude.rnf s3StagingLocation `Prelude.seq`
+                  Prelude.rnf resourceRole `Prelude.seq`
+                    Prelude.rnf serviceRole `Prelude.seq`
+                      Prelude.rnf subnetId `Prelude.seq`
+                        Prelude.rnf securityGroupIds
 
 instance Data.ToJSON RDSDataSpec where
   toJSON RDSDataSpec' {..} =

@@ -181,5 +181,5 @@ deleteEvaluationResponse_httpStatus = Lens.lens (\DeleteEvaluationResponse' {htt
 
 instance Prelude.NFData DeleteEvaluationResponse where
   rnf DeleteEvaluationResponse' {..} =
-    Prelude.rnf evaluationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evaluationId `Prelude.seq`
+      Prelude.rnf httpStatus

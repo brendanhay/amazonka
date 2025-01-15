@@ -116,7 +116,7 @@ instance Prelude.Hashable Prediction where
 
 instance Prelude.NFData Prediction where
   rnf Prediction' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf predictedLabel
-      `Prelude.seq` Prelude.rnf predictedScores
-      `Prelude.seq` Prelude.rnf predictedValue
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf predictedLabel `Prelude.seq`
+        Prelude.rnf predictedScores `Prelude.seq`
+          Prelude.rnf predictedValue

@@ -166,8 +166,8 @@ instance Prelude.Hashable GetDataSource where
 
 instance Prelude.NFData GetDataSource where
   rnf GetDataSource' {..} =
-    Prelude.rnf verbose
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf verbose `Prelude.seq`
+      Prelude.rnf dataSourceId
 
 instance Data.ToHeaders GetDataSource where
   toHeaders =
@@ -504,24 +504,24 @@ getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatu
 
 instance Prelude.NFData GetDataSourceResponse where
   rnf GetDataSourceResponse' {..} =
-    Prelude.rnf computeStatistics
-      `Prelude.seq` Prelude.rnf computeTime
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdByIamUser
-      `Prelude.seq` Prelude.rnf dataLocationS3
-      `Prelude.seq` Prelude.rnf dataRearrangement
-      `Prelude.seq` Prelude.rnf dataSizeInBytes
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf dataSourceSchema
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf logUri
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfFiles
-      `Prelude.seq` Prelude.rnf rDSMetadata
-      `Prelude.seq` Prelude.rnf redshiftMetadata
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeStatistics `Prelude.seq`
+      Prelude.rnf computeTime `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf createdByIamUser `Prelude.seq`
+            Prelude.rnf dataLocationS3 `Prelude.seq`
+              Prelude.rnf dataRearrangement `Prelude.seq`
+                Prelude.rnf dataSizeInBytes `Prelude.seq`
+                  Prelude.rnf dataSourceId `Prelude.seq`
+                    Prelude.rnf dataSourceSchema `Prelude.seq`
+                      Prelude.rnf finishedAt `Prelude.seq`
+                        Prelude.rnf lastUpdatedAt `Prelude.seq`
+                          Prelude.rnf logUri `Prelude.seq`
+                            Prelude.rnf message `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf numberOfFiles `Prelude.seq`
+                                  Prelude.rnf rDSMetadata `Prelude.seq`
+                                    Prelude.rnf redshiftMetadata `Prelude.seq`
+                                      Prelude.rnf roleARN `Prelude.seq`
+                                        Prelude.rnf startedAt `Prelude.seq`
+                                          Prelude.rnf status `Prelude.seq`
+                                            Prelude.rnf httpStatus

@@ -121,9 +121,9 @@ instance Prelude.Hashable Predict where
 
 instance Prelude.NFData Predict where
   rnf Predict' {..} =
-    Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf record
-      `Prelude.seq` Prelude.rnf predictEndpoint
+    Prelude.rnf mLModelId `Prelude.seq`
+      Prelude.rnf record `Prelude.seq`
+        Prelude.rnf predictEndpoint
 
 instance Data.ToHeaders Predict where
   toHeaders =
@@ -194,5 +194,5 @@ predictResponse_httpStatus = Lens.lens (\PredictResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData PredictResponse where
   rnf PredictResponse' {..} =
-    Prelude.rnf prediction
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf prediction `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -146,10 +146,10 @@ instance Prelude.Hashable BeginTransaction where
 
 instance Prelude.NFData BeginTransaction where
   rnf BeginTransaction' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf schema `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf secretArn
 
 instance Data.ToHeaders BeginTransaction where
   toHeaders =
@@ -223,5 +223,5 @@ beginTransactionResponse_httpStatus = Lens.lens (\BeginTransactionResponse' {htt
 
 instance Prelude.NFData BeginTransactionResponse where
   rnf BeginTransactionResponse' {..} =
-    Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionId `Prelude.seq`
+      Prelude.rnf httpStatus

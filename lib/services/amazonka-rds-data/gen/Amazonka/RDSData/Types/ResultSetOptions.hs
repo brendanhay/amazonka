@@ -106,8 +106,8 @@ instance Prelude.Hashable ResultSetOptions where
 
 instance Prelude.NFData ResultSetOptions where
   rnf ResultSetOptions' {..} =
-    Prelude.rnf decimalReturnType
-      `Prelude.seq` Prelude.rnf longReturnType
+    Prelude.rnf decimalReturnType `Prelude.seq`
+      Prelude.rnf longReturnType
 
 instance Data.ToJSON ResultSetOptions where
   toJSON ResultSetOptions' {..} =

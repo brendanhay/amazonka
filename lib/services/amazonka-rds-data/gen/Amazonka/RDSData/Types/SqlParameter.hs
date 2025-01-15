@@ -148,9 +148,9 @@ instance Prelude.Hashable SqlParameter where
 
 instance Prelude.NFData SqlParameter where
   rnf SqlParameter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf typeHint
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf typeHint `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =

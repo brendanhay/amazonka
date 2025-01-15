@@ -130,9 +130,9 @@ instance Prelude.Hashable CommitTransaction where
 
 instance Prelude.NFData CommitTransaction where
   rnf CommitTransaction' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf secretArn `Prelude.seq`
+        Prelude.rnf transactionId
 
 instance Data.ToHeaders CommitTransaction where
   toHeaders =
@@ -206,5 +206,5 @@ commitTransactionResponse_httpStatus = Lens.lens (\CommitTransactionResponse' {h
 
 instance Prelude.NFData CommitTransactionResponse where
   rnf CommitTransactionResponse' {..} =
-    Prelude.rnf transactionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionStatus `Prelude.seq`
+      Prelude.rnf httpStatus

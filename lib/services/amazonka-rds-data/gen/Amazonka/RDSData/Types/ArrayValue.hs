@@ -113,11 +113,11 @@ instance Prelude.Hashable ArrayValue where
 
 instance Prelude.NFData ArrayValue where
   rnf ArrayValue' {..} =
-    Prelude.rnf arrayValues
-      `Prelude.seq` Prelude.rnf booleanValues
-      `Prelude.seq` Prelude.rnf doubleValues
-      `Prelude.seq` Prelude.rnf longValues
-      `Prelude.seq` Prelude.rnf stringValues
+    Prelude.rnf arrayValues `Prelude.seq`
+      Prelude.rnf booleanValues `Prelude.seq`
+        Prelude.rnf doubleValues `Prelude.seq`
+          Prelude.rnf longValues `Prelude.seq`
+            Prelude.rnf stringValues
 
 instance Data.ToJSON ArrayValue where
   toJSON ArrayValue' {..} =

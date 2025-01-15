@@ -224,5 +224,5 @@ instance
     DescribeCertificateAuthorityResponse
   where
   rnf DescribeCertificateAuthorityResponse' {..} =
-    Prelude.rnf certificateAuthority
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateAuthority `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -149,11 +149,11 @@ instance Prelude.Hashable Extensions where
 
 instance Prelude.NFData Extensions where
   rnf Extensions' {..} =
-    Prelude.rnf certificatePolicies
-      `Prelude.seq` Prelude.rnf customExtensions
-      `Prelude.seq` Prelude.rnf extendedKeyUsage
-      `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+    Prelude.rnf certificatePolicies `Prelude.seq`
+      Prelude.rnf customExtensions `Prelude.seq`
+        Prelude.rnf extendedKeyUsage `Prelude.seq`
+          Prelude.rnf keyUsage `Prelude.seq`
+            Prelude.rnf subjectAlternativeNames
 
 instance Data.ToJSON Extensions where
   toJSON Extensions' {..} =

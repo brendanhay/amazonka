@@ -188,9 +188,9 @@ instance Prelude.Hashable RevokeCertificate where
 
 instance Prelude.NFData RevokeCertificate where
   rnf RevokeCertificate' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf certificateSerial
-      `Prelude.seq` Prelude.rnf revocationReason
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf certificateSerial `Prelude.seq`
+        Prelude.rnf revocationReason
 
 instance Data.ToHeaders RevokeCertificate where
   toHeaders =

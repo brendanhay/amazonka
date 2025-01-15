@@ -280,9 +280,9 @@ instance
     ImportCertificateAuthorityCertificate
   where
   rnf ImportCertificateAuthorityCertificate' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf certificateAuthorityArn `Prelude.seq`
+        Prelude.rnf certificate
 
 instance
   Data.ToHeaders

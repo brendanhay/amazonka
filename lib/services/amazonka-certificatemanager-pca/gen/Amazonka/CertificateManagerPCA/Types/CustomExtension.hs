@@ -93,9 +93,9 @@ instance Prelude.Hashable CustomExtension where
 
 instance Prelude.NFData CustomExtension where
   rnf CustomExtension' {..} =
-    Prelude.rnf critical
-      `Prelude.seq` Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf critical `Prelude.seq`
+      Prelude.rnf objectIdentifier `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON CustomExtension where
   toJSON CustomExtension' {..} =

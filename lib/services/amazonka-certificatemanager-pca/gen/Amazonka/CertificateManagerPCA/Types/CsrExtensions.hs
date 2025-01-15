@@ -101,8 +101,8 @@ instance Prelude.Hashable CsrExtensions where
 
 instance Prelude.NFData CsrExtensions where
   rnf CsrExtensions' {..} =
-    Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf subjectInformationAccess
+    Prelude.rnf keyUsage `Prelude.seq`
+      Prelude.rnf subjectInformationAccess
 
 instance Data.ToJSON CsrExtensions where
   toJSON CsrExtensions' {..} =

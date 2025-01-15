@@ -172,9 +172,9 @@ instance
     CreateCertificateAuthorityAuditReport
   where
   rnf CreateCertificateAuthorityAuditReport' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf auditReportResponseFormat
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf auditReportResponseFormat
 
 instance
   Data.ToHeaders
@@ -280,6 +280,6 @@ instance
   where
   rnf
     CreateCertificateAuthorityAuditReportResponse' {..} =
-      Prelude.rnf auditReportId
-        `Prelude.seq` Prelude.rnf s3Key
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf auditReportId `Prelude.seq`
+        Prelude.rnf s3Key `Prelude.seq`
+          Prelude.rnf httpStatus

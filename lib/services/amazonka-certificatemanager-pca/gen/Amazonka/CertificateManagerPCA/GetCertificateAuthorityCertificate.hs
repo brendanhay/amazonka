@@ -232,6 +232,6 @@ instance
     GetCertificateAuthorityCertificateResponse
   where
   rnf GetCertificateAuthorityCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf certificateChain `Prelude.seq`
+        Prelude.rnf httpStatus

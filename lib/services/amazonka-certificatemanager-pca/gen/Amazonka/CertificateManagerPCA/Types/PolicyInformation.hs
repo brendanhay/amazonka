@@ -89,8 +89,8 @@ instance Prelude.Hashable PolicyInformation where
 
 instance Prelude.NFData PolicyInformation where
   rnf PolicyInformation' {..} =
-    Prelude.rnf policyQualifiers
-      `Prelude.seq` Prelude.rnf certPolicyId
+    Prelude.rnf policyQualifiers `Prelude.seq`
+      Prelude.rnf certPolicyId
 
 instance Data.ToJSON PolicyInformation where
   toJSON PolicyInformation' {..} =

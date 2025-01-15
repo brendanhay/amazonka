@@ -465,14 +465,14 @@ instance Prelude.Hashable IssueCertificate where
 
 instance Prelude.NFData IssueCertificate where
   rnf IssueCertificate' {..} =
-    Prelude.rnf apiPassthrough
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf validityNotBefore
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf csr
-      `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf validity
+    Prelude.rnf apiPassthrough `Prelude.seq`
+      Prelude.rnf idempotencyToken `Prelude.seq`
+        Prelude.rnf templateArn `Prelude.seq`
+          Prelude.rnf validityNotBefore `Prelude.seq`
+            Prelude.rnf certificateAuthorityArn `Prelude.seq`
+              Prelude.rnf csr `Prelude.seq`
+                Prelude.rnf signingAlgorithm `Prelude.seq`
+                  Prelude.rnf validity
 
 instance Data.ToHeaders IssueCertificate where
   toHeaders =
@@ -567,5 +567,5 @@ issueCertificateResponse_httpStatus = Lens.lens (\IssueCertificateResponse' {htt
 
 instance Prelude.NFData IssueCertificateResponse where
   rnf IssueCertificateResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf httpStatus

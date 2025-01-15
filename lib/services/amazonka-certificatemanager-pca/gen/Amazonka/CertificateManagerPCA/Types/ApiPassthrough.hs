@@ -78,8 +78,8 @@ instance Prelude.Hashable ApiPassthrough where
 
 instance Prelude.NFData ApiPassthrough where
   rnf ApiPassthrough' {..} =
-    Prelude.rnf extensions
-      `Prelude.seq` Prelude.rnf subject
+    Prelude.rnf extensions `Prelude.seq`
+      Prelude.rnf subject
 
 instance Data.ToJSON ApiPassthrough where
   toJSON ApiPassthrough' {..} =

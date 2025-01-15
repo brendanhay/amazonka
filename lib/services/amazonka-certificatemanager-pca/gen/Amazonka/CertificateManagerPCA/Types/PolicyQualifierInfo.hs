@@ -84,8 +84,8 @@ instance Prelude.Hashable PolicyQualifierInfo where
 
 instance Prelude.NFData PolicyQualifierInfo where
   rnf PolicyQualifierInfo' {..} =
-    Prelude.rnf policyQualifierId
-      `Prelude.seq` Prelude.rnf qualifier
+    Prelude.rnf policyQualifierId `Prelude.seq`
+      Prelude.rnf qualifier
 
 instance Data.ToJSON PolicyQualifierInfo where
   toJSON PolicyQualifierInfo' {..} =

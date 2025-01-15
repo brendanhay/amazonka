@@ -305,18 +305,18 @@ instance Prelude.Hashable CertificateAuthority where
 
 instance Prelude.NFData CertificateAuthority where
   rnf CertificateAuthority' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
-      `Prelude.seq` Prelude.rnf lastStateChangeAt
-      `Prelude.seq` Prelude.rnf notAfter
-      `Prelude.seq` Prelude.rnf notBefore
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf restorableUntil
-      `Prelude.seq` Prelude.rnf revocationConfiguration
-      `Prelude.seq` Prelude.rnf serial
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf usageMode
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf certificateAuthorityConfiguration `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf keyStorageSecurityStandard `Prelude.seq`
+              Prelude.rnf lastStateChangeAt `Prelude.seq`
+                Prelude.rnf notAfter `Prelude.seq`
+                  Prelude.rnf notBefore `Prelude.seq`
+                    Prelude.rnf ownerAccount `Prelude.seq`
+                      Prelude.rnf restorableUntil `Prelude.seq`
+                        Prelude.rnf revocationConfiguration `Prelude.seq`
+                          Prelude.rnf serial `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf usageMode

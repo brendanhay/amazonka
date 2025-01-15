@@ -205,5 +205,5 @@ instance
     UpdateCostAllocationTagsStatusResponse
   where
   rnf UpdateCostAllocationTagsStatusResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

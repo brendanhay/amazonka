@@ -729,14 +729,14 @@ instance Prelude.Hashable GetDimensionValues where
 
 instance Prelude.NFData GetDimensionValues where
   rnf GetDimensionValues' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf dimension
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextPageToken `Prelude.seq`
+            Prelude.rnf searchString `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf timePeriod `Prelude.seq`
+                  Prelude.rnf dimension
 
 instance Data.ToHeaders GetDimensionValues where
   toHeaders =
@@ -1155,8 +1155,8 @@ getDimensionValuesResponse_totalSize = Lens.lens (\GetDimensionValuesResponse' {
 
 instance Prelude.NFData GetDimensionValuesResponse where
   rnf GetDimensionValuesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dimensionValues
-      `Prelude.seq` Prelude.rnf returnSize
-      `Prelude.seq` Prelude.rnf totalSize
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf dimensionValues `Prelude.seq`
+          Prelude.rnf returnSize `Prelude.seq`
+            Prelude.rnf totalSize

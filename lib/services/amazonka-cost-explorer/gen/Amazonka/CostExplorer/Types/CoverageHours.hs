@@ -103,7 +103,7 @@ instance Prelude.Hashable CoverageHours where
 
 instance Prelude.NFData CoverageHours where
   rnf CoverageHours' {..} =
-    Prelude.rnf coverageHoursPercentage
-      `Prelude.seq` Prelude.rnf onDemandHours
-      `Prelude.seq` Prelude.rnf reservedHours
-      `Prelude.seq` Prelude.rnf totalRunningHours
+    Prelude.rnf coverageHoursPercentage `Prelude.seq`
+      Prelude.rnf onDemandHours `Prelude.seq`
+        Prelude.rnf reservedHours `Prelude.seq`
+          Prelude.rnf totalRunningHours

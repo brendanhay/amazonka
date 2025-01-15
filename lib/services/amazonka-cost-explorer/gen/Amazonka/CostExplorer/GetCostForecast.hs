@@ -368,11 +368,11 @@ instance Prelude.Hashable GetCostForecast where
 
 instance Prelude.NFData GetCostForecast where
   rnf GetCostForecast' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf predictionIntervalLevel
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf granularity
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf predictionIntervalLevel `Prelude.seq`
+        Prelude.rnf timePeriod `Prelude.seq`
+          Prelude.rnf metric `Prelude.seq`
+            Prelude.rnf granularity
 
 instance Data.ToHeaders GetCostForecast where
   toHeaders =
@@ -461,6 +461,6 @@ getCostForecastResponse_httpStatus = Lens.lens (\GetCostForecastResponse' {httpS
 
 instance Prelude.NFData GetCostForecastResponse where
   rnf GetCostForecastResponse' {..} =
-    Prelude.rnf forecastResultsByTime
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecastResultsByTime `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus

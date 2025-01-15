@@ -104,6 +104,6 @@ instance
     UpdateCostAllocationTagsStatusError
   where
   rnf UpdateCostAllocationTagsStatusError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf tagKey

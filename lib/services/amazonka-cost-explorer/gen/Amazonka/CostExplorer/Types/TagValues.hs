@@ -105,9 +105,9 @@ instance Prelude.Hashable TagValues where
 
 instance Prelude.NFData TagValues where
   rnf TagValues' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf matchOptions
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf matchOptions `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON TagValues where
   toJSON TagValues' {..} =

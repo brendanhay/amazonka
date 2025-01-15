@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData CostCategoryProcessingStatus where
   rnf CostCategoryProcessingStatus' {..} =
-    Prelude.rnf component
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf component `Prelude.seq`
+      Prelude.rnf status

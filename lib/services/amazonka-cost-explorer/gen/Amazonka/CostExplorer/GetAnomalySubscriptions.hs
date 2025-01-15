@@ -142,10 +142,10 @@ instance Prelude.Hashable GetAnomalySubscriptions where
 
 instance Prelude.NFData GetAnomalySubscriptions where
   rnf GetAnomalySubscriptions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf subscriptionArnList
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf monitorArn `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf subscriptionArnList
 
 instance Data.ToHeaders GetAnomalySubscriptions where
   toHeaders =
@@ -242,6 +242,6 @@ instance
     GetAnomalySubscriptionsResponse
   where
   rnf GetAnomalySubscriptionsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf anomalySubscriptions
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf anomalySubscriptions

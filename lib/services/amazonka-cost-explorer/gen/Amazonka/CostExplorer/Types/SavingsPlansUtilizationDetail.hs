@@ -135,8 +135,8 @@ instance
 
 instance Prelude.NFData SavingsPlansUtilizationDetail where
   rnf SavingsPlansUtilizationDetail' {..} =
-    Prelude.rnf amortizedCommitment
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf savings
-      `Prelude.seq` Prelude.rnf savingsPlanArn
-      `Prelude.seq` Prelude.rnf utilization
+    Prelude.rnf amortizedCommitment `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf savings `Prelude.seq`
+          Prelude.rnf savingsPlanArn `Prelude.seq`
+            Prelude.rnf utilization

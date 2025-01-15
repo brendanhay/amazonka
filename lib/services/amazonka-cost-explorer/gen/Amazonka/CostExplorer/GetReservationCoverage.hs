@@ -527,14 +527,14 @@ instance Prelude.Hashable GetReservationCoverage where
 
 instance Prelude.NFData GetReservationCoverage where
   rnf GetReservationCoverage' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf granularity `Prelude.seq`
+        Prelude.rnf groupBy `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf metrics `Prelude.seq`
+              Prelude.rnf nextPageToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetReservationCoverage where
   toHeaders =
@@ -640,7 +640,7 @@ instance
     GetReservationCoverageResponse
   where
   rnf GetReservationCoverageResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf coveragesByTime
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf coveragesByTime

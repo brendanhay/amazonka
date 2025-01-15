@@ -266,13 +266,13 @@ instance Prelude.Hashable GetTags where
 
 instance Prelude.NFData GetTags where
   rnf GetTags' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf searchString `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf tagKey `Prelude.seq`
+                Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetTags where
   toHeaders =
@@ -389,8 +389,8 @@ getTagsResponse_totalSize = Lens.lens (\GetTagsResponse' {totalSize} -> totalSiz
 
 instance Prelude.NFData GetTagsResponse where
   rnf GetTagsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf returnSize
-      `Prelude.seq` Prelude.rnf totalSize
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf returnSize `Prelude.seq`
+            Prelude.rnf totalSize

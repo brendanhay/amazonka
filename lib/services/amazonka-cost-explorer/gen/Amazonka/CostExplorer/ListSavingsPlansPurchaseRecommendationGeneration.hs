@@ -154,10 +154,10 @@ instance
   where
   rnf
     ListSavingsPlansPurchaseRecommendationGeneration' {..} =
-      Prelude.rnf generationStatus
-        `Prelude.seq` Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf pageSize
-        `Prelude.seq` Prelude.rnf recommendationIds
+      Prelude.rnf generationStatus `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf pageSize `Prelude.seq`
+            Prelude.rnf recommendationIds
 
 instance
   Data.ToHeaders
@@ -263,6 +263,6 @@ instance
   where
   rnf
     ListSavingsPlansPurchaseRecommendationGenerationResponse' {..} =
-      Prelude.rnf generationSummaryList
-        `Prelude.seq` Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf generationSummaryList `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf httpStatus

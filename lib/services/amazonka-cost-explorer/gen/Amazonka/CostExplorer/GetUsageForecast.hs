@@ -359,11 +359,11 @@ instance Prelude.Hashable GetUsageForecast where
 
 instance Prelude.NFData GetUsageForecast where
   rnf GetUsageForecast' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf predictionIntervalLevel
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf granularity
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf predictionIntervalLevel `Prelude.seq`
+        Prelude.rnf timePeriod `Prelude.seq`
+          Prelude.rnf metric `Prelude.seq`
+            Prelude.rnf granularity
 
 instance Data.ToHeaders GetUsageForecast where
   toHeaders =
@@ -452,6 +452,6 @@ getUsageForecastResponse_httpStatus = Lens.lens (\GetUsageForecastResponse' {htt
 
 instance Prelude.NFData GetUsageForecastResponse where
   rnf GetUsageForecastResponse' {..} =
-    Prelude.rnf forecastResultsByTime
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecastResultsByTime `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -85,9 +85,9 @@ instance Prelude.Hashable TotalImpactFilter where
 
 instance Prelude.NFData TotalImpactFilter where
   rnf TotalImpactFilter' {..} =
-    Prelude.rnf endValue
-      `Prelude.seq` Prelude.rnf numericOperator
-      `Prelude.seq` Prelude.rnf startValue
+    Prelude.rnf endValue `Prelude.seq`
+      Prelude.rnf numericOperator `Prelude.seq`
+        Prelude.rnf startValue
 
 instance Data.ToJSON TotalImpactFilter where
   toJSON TotalImpactFilter' {..} =

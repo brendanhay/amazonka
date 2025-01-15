@@ -72,8 +72,8 @@ instance Prelude.Hashable AnomalyDateInterval where
 
 instance Prelude.NFData AnomalyDateInterval where
   rnf AnomalyDateInterval' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf startDate
 
 instance Data.ToJSON AnomalyDateInterval where
   toJSON AnomalyDateInterval' {..} =

@@ -97,6 +97,6 @@ instance Prelude.Hashable Coverage where
 
 instance Prelude.NFData Coverage where
   rnf Coverage' {..} =
-    Prelude.rnf coverageCost
-      `Prelude.seq` Prelude.rnf coverageHours
-      `Prelude.seq` Prelude.rnf coverageNormalizedUnits
+    Prelude.rnf coverageCost `Prelude.seq`
+      Prelude.rnf coverageHours `Prelude.seq`
+        Prelude.rnf coverageNormalizedUnits

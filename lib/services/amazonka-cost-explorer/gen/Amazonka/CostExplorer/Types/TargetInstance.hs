@@ -153,10 +153,10 @@ instance Prelude.Hashable TargetInstance where
 
 instance Prelude.NFData TargetInstance where
   rnf TargetInstance' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf defaultTargetInstance
-      `Prelude.seq` Prelude.rnf estimatedMonthlyCost
-      `Prelude.seq` Prelude.rnf estimatedMonthlySavings
-      `Prelude.seq` Prelude.rnf expectedResourceUtilization
-      `Prelude.seq` Prelude.rnf platformDifferences
-      `Prelude.seq` Prelude.rnf resourceDetails
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf defaultTargetInstance `Prelude.seq`
+        Prelude.rnf estimatedMonthlyCost `Prelude.seq`
+          Prelude.rnf estimatedMonthlySavings `Prelude.seq`
+            Prelude.rnf expectedResourceUtilization `Prelude.seq`
+              Prelude.rnf platformDifferences `Prelude.seq`
+                Prelude.rnf resourceDetails

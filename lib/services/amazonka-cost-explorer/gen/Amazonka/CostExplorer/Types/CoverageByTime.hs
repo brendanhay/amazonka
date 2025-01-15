@@ -94,6 +94,6 @@ instance Prelude.Hashable CoverageByTime where
 
 instance Prelude.NFData CoverageByTime where
   rnf CoverageByTime' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf timePeriod `Prelude.seq`
+        Prelude.rnf total

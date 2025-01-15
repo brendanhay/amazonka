@@ -115,6 +115,6 @@ instance
     ReservationPurchaseRecommendationSummary
   where
   rnf ReservationPurchaseRecommendationSummary' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsAmount
-      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsPercentage
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf totalEstimatedMonthlySavingsAmount `Prelude.seq`
+        Prelude.rnf totalEstimatedMonthlySavingsPercentage

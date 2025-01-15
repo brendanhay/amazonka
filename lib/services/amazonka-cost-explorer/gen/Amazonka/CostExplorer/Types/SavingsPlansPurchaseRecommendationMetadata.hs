@@ -105,6 +105,6 @@ instance
     SavingsPlansPurchaseRecommendationMetadata
   where
   rnf SavingsPlansPurchaseRecommendationMetadata' {..} =
-    Prelude.rnf additionalMetadata
-      `Prelude.seq` Prelude.rnf generationTimestamp
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf additionalMetadata `Prelude.seq`
+      Prelude.rnf generationTimestamp `Prelude.seq`
+        Prelude.rnf recommendationId

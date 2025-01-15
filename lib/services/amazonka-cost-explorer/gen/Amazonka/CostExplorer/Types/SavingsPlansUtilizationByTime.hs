@@ -130,7 +130,7 @@ instance
 
 instance Prelude.NFData SavingsPlansUtilizationByTime where
   rnf SavingsPlansUtilizationByTime' {..} =
-    Prelude.rnf amortizedCommitment
-      `Prelude.seq` Prelude.rnf savings
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf utilization
+    Prelude.rnf amortizedCommitment `Prelude.seq`
+      Prelude.rnf savings `Prelude.seq`
+        Prelude.rnf timePeriod `Prelude.seq`
+          Prelude.rnf utilization

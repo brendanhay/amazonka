@@ -104,7 +104,7 @@ instance Prelude.Hashable ReservationUtilizationGroup where
 
 instance Prelude.NFData ReservationUtilizationGroup where
   rnf ReservationUtilizationGroup' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf utilization
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf utilization `Prelude.seq`
+          Prelude.rnf value

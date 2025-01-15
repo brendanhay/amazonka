@@ -285,21 +285,21 @@ instance Prelude.Hashable ReservationAggregates where
 
 instance Prelude.NFData ReservationAggregates where
   rnf ReservationAggregates' {..} =
-    Prelude.rnf amortizedRecurringFee
-      `Prelude.seq` Prelude.rnf amortizedUpfrontFee
-      `Prelude.seq` Prelude.rnf netRISavings
-      `Prelude.seq` Prelude.rnf onDemandCostOfRIHoursUsed
-      `Prelude.seq` Prelude.rnf purchasedHours
-      `Prelude.seq` Prelude.rnf purchasedUnits
-      `Prelude.seq` Prelude.rnf rICostForUnusedHours
-      `Prelude.seq` Prelude.rnf realizedSavings
-      `Prelude.seq` Prelude.rnf totalActualHours
-      `Prelude.seq` Prelude.rnf totalActualUnits
-      `Prelude.seq` Prelude.rnf totalAmortizedFee
-      `Prelude.seq` Prelude.rnf totalPotentialRISavings
-      `Prelude.seq` Prelude.rnf unrealizedSavings
-      `Prelude.seq` Prelude.rnf unusedHours
-      `Prelude.seq` Prelude.rnf unusedUnits
-      `Prelude.seq` Prelude.rnf utilizationPercentage
-      `Prelude.seq` Prelude.rnf
-        utilizationPercentageInUnits
+    Prelude.rnf amortizedRecurringFee `Prelude.seq`
+      Prelude.rnf amortizedUpfrontFee `Prelude.seq`
+        Prelude.rnf netRISavings `Prelude.seq`
+          Prelude.rnf onDemandCostOfRIHoursUsed `Prelude.seq`
+            Prelude.rnf purchasedHours `Prelude.seq`
+              Prelude.rnf purchasedUnits `Prelude.seq`
+                Prelude.rnf rICostForUnusedHours `Prelude.seq`
+                  Prelude.rnf realizedSavings `Prelude.seq`
+                    Prelude.rnf totalActualHours `Prelude.seq`
+                      Prelude.rnf totalActualUnits `Prelude.seq`
+                        Prelude.rnf totalAmortizedFee `Prelude.seq`
+                          Prelude.rnf totalPotentialRISavings `Prelude.seq`
+                            Prelude.rnf unrealizedSavings `Prelude.seq`
+                              Prelude.rnf unusedHours `Prelude.seq`
+                                Prelude.rnf unusedUnits `Prelude.seq`
+                                  Prelude.rnf utilizationPercentage `Prelude.seq`
+                                    Prelude.rnf
+                                      utilizationPercentageInUnits

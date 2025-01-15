@@ -116,7 +116,7 @@ instance Prelude.Hashable SavingsPlansCoverageData where
 
 instance Prelude.NFData SavingsPlansCoverageData where
   rnf SavingsPlansCoverageData' {..} =
-    Prelude.rnf coveragePercentage
-      `Prelude.seq` Prelude.rnf onDemandCost
-      `Prelude.seq` Prelude.rnf spendCoveredBySavingsPlans
-      `Prelude.seq` Prelude.rnf totalCost
+    Prelude.rnf coveragePercentage `Prelude.seq`
+      Prelude.rnf onDemandCost `Prelude.seq`
+        Prelude.rnf spendCoveredBySavingsPlans `Prelude.seq`
+          Prelude.rnf totalCost

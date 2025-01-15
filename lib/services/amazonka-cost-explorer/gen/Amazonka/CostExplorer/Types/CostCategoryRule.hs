@@ -175,10 +175,10 @@ instance Prelude.Hashable CostCategoryRule where
 
 instance Prelude.NFData CostCategoryRule where
   rnf CostCategoryRule' {..} =
-    Prelude.rnf inheritedValue
-      `Prelude.seq` Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf inheritedValue `Prelude.seq`
+      Prelude.rnf rule `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON CostCategoryRule where
   toJSON CostCategoryRule' {..} =

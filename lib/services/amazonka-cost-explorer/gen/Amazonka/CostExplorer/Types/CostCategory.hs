@@ -189,12 +189,12 @@ instance Prelude.Hashable CostCategory where
 
 instance Prelude.NFData CostCategory where
   rnf CostCategory' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf effectiveEnd
-      `Prelude.seq` Prelude.rnf processingStatus
-      `Prelude.seq` Prelude.rnf splitChargeRules
-      `Prelude.seq` Prelude.rnf costCategoryArn
-      `Prelude.seq` Prelude.rnf effectiveStart
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleVersion
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf effectiveEnd `Prelude.seq`
+        Prelude.rnf processingStatus `Prelude.seq`
+          Prelude.rnf splitChargeRules `Prelude.seq`
+            Prelude.rnf costCategoryArn `Prelude.seq`
+              Prelude.rnf effectiveStart `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf ruleVersion `Prelude.seq`
+                    Prelude.rnf rules

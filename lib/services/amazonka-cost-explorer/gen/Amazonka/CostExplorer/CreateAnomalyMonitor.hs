@@ -182,8 +182,8 @@ instance Prelude.Hashable CreateAnomalyMonitor where
 
 instance Prelude.NFData CreateAnomalyMonitor where
   rnf CreateAnomalyMonitor' {..} =
-    Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf anomalyMonitor
+    Prelude.rnf resourceTags `Prelude.seq`
+      Prelude.rnf anomalyMonitor
 
 instance Data.ToHeaders CreateAnomalyMonitor where
   toHeaders =
@@ -264,5 +264,5 @@ createAnomalyMonitorResponse_monitorArn = Lens.lens (\CreateAnomalyMonitorRespon
 
 instance Prelude.NFData CreateAnomalyMonitorResponse where
   rnf CreateAnomalyMonitorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitorArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf monitorArn

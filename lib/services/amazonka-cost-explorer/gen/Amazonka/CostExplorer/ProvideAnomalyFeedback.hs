@@ -113,8 +113,8 @@ instance Prelude.Hashable ProvideAnomalyFeedback where
 
 instance Prelude.NFData ProvideAnomalyFeedback where
   rnf ProvideAnomalyFeedback' {..} =
-    Prelude.rnf anomalyId
-      `Prelude.seq` Prelude.rnf feedback
+    Prelude.rnf anomalyId `Prelude.seq`
+      Prelude.rnf feedback
 
 instance Data.ToHeaders ProvideAnomalyFeedback where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     ProvideAnomalyFeedbackResponse
   where
   rnf ProvideAnomalyFeedbackResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf anomalyId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf anomalyId

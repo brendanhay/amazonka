@@ -103,7 +103,7 @@ instance Prelude.Hashable ForecastResult where
 
 instance Prelude.NFData ForecastResult where
   rnf ForecastResult' {..} =
-    Prelude.rnf meanValue
-      `Prelude.seq` Prelude.rnf predictionIntervalLowerBound
-      `Prelude.seq` Prelude.rnf predictionIntervalUpperBound
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf meanValue `Prelude.seq`
+      Prelude.rnf predictionIntervalLowerBound `Prelude.seq`
+        Prelude.rnf predictionIntervalUpperBound `Prelude.seq`
+          Prelude.rnf timePeriod

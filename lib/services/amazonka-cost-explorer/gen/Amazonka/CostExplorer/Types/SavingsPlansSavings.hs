@@ -90,5 +90,5 @@ instance Prelude.Hashable SavingsPlansSavings where
 
 instance Prelude.NFData SavingsPlansSavings where
   rnf SavingsPlansSavings' {..} =
-    Prelude.rnf netSavings
-      `Prelude.seq` Prelude.rnf onDemandCostEquivalent
+    Prelude.rnf netSavings `Prelude.seq`
+      Prelude.rnf onDemandCostEquivalent

@@ -97,6 +97,6 @@ instance Prelude.Hashable SavingsPlansCoverage where
 
 instance Prelude.NFData SavingsPlansCoverage where
   rnf SavingsPlansCoverage' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf coverage
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf coverage `Prelude.seq`
+        Prelude.rnf timePeriod

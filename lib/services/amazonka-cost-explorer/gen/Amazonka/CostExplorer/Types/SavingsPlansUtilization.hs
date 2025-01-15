@@ -115,7 +115,7 @@ instance Prelude.Hashable SavingsPlansUtilization where
 
 instance Prelude.NFData SavingsPlansUtilization where
   rnf SavingsPlansUtilization' {..} =
-    Prelude.rnf totalCommitment
-      `Prelude.seq` Prelude.rnf unusedCommitment
-      `Prelude.seq` Prelude.rnf usedCommitment
-      `Prelude.seq` Prelude.rnf utilizationPercentage
+    Prelude.rnf totalCommitment `Prelude.seq`
+      Prelude.rnf unusedCommitment `Prelude.seq`
+        Prelude.rnf usedCommitment `Prelude.seq`
+          Prelude.rnf utilizationPercentage

@@ -302,12 +302,12 @@ instance
     GetSavingsPlansUtilizationDetails
   where
   rnf GetSavingsPlansUtilizationDetails' {..} =
-    Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf dataType `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf timePeriod
 
 instance
   Data.ToHeaders
@@ -439,8 +439,8 @@ instance
     GetSavingsPlansUtilizationDetailsResponse
   where
   rnf GetSavingsPlansUtilizationDetailsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf savingsPlansUtilizationDetails
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf savingsPlansUtilizationDetails `Prelude.seq`
+            Prelude.rnf timePeriod

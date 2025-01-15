@@ -112,8 +112,8 @@ instance
     CostCategoryInheritedValueDimension
   where
   rnf CostCategoryInheritedValueDimension' {..} =
-    Prelude.rnf dimensionKey
-      `Prelude.seq` Prelude.rnf dimensionName
+    Prelude.rnf dimensionKey `Prelude.seq`
+      Prelude.rnf dimensionName
 
 instance
   Data.ToJSON

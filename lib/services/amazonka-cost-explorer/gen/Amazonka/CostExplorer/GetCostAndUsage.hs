@@ -316,12 +316,12 @@ instance Prelude.Hashable GetCostAndUsage where
 
 instance Prelude.NFData GetCostAndUsage where
   rnf GetCostAndUsage' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf metrics
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf groupBy `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf timePeriod `Prelude.seq`
+            Prelude.rnf granularity `Prelude.seq`
+              Prelude.rnf metrics
 
 instance Data.ToHeaders GetCostAndUsage where
   toHeaders =
@@ -437,8 +437,8 @@ getCostAndUsageResponse_httpStatus = Lens.lens (\GetCostAndUsageResponse' {httpS
 
 instance Prelude.NFData GetCostAndUsageResponse where
   rnf GetCostAndUsageResponse' {..} =
-    Prelude.rnf dimensionValueAttributes
-      `Prelude.seq` Prelude.rnf groupDefinitions
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf resultsByTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dimensionValueAttributes `Prelude.seq`
+      Prelude.rnf groupDefinitions `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf resultsByTime `Prelude.seq`
+            Prelude.rnf httpStatus

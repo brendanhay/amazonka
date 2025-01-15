@@ -166,15 +166,15 @@ instance Prelude.Hashable AnomalyMonitor where
 
 instance Prelude.NFData AnomalyMonitor where
   rnf AnomalyMonitor' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf dimensionalValueCount
-      `Prelude.seq` Prelude.rnf lastEvaluatedDate
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf monitorDimension
-      `Prelude.seq` Prelude.rnf monitorSpecification
-      `Prelude.seq` Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf monitorType
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf dimensionalValueCount `Prelude.seq`
+        Prelude.rnf lastEvaluatedDate `Prelude.seq`
+          Prelude.rnf lastUpdatedDate `Prelude.seq`
+            Prelude.rnf monitorArn `Prelude.seq`
+              Prelude.rnf monitorDimension `Prelude.seq`
+                Prelude.rnf monitorSpecification `Prelude.seq`
+                  Prelude.rnf monitorName `Prelude.seq`
+                    Prelude.rnf monitorType
 
 instance Data.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =

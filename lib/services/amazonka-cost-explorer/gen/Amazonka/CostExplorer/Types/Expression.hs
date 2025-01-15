@@ -205,12 +205,12 @@ instance Prelude.Hashable Expression where
 
 instance Prelude.NFData Expression where
   rnf Expression' {..} =
-    Prelude.rnf and
-      `Prelude.seq` Prelude.rnf costCategories
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf not
-      `Prelude.seq` Prelude.rnf or
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf and `Prelude.seq`
+      Prelude.rnf costCategories `Prelude.seq`
+        Prelude.rnf dimensions `Prelude.seq`
+          Prelude.rnf not `Prelude.seq`
+            Prelude.rnf or `Prelude.seq`
+              Prelude.rnf tags
 
 instance Data.ToJSON Expression where
   toJSON Expression' {..} =

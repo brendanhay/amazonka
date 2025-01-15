@@ -180,10 +180,10 @@ instance
     SavingsPlansPurchaseRecommendation
   where
   rnf SavingsPlansPurchaseRecommendation' {..} =
-    Prelude.rnf accountScope
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendationDetails
-      `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendationSummary
-      `Prelude.seq` Prelude.rnf savingsPlansType
-      `Prelude.seq` Prelude.rnf termInYears
+    Prelude.rnf accountScope `Prelude.seq`
+      Prelude.rnf lookbackPeriodInDays `Prelude.seq`
+        Prelude.rnf paymentOption `Prelude.seq`
+          Prelude.rnf savingsPlansPurchaseRecommendationDetails `Prelude.seq`
+            Prelude.rnf savingsPlansPurchaseRecommendationSummary `Prelude.seq`
+              Prelude.rnf savingsPlansType `Prelude.seq`
+                Prelude.rnf termInYears

@@ -121,8 +121,8 @@ instance Prelude.Hashable GenerationSummary where
 
 instance Prelude.NFData GenerationSummary where
   rnf GenerationSummary' {..} =
-    Prelude.rnf estimatedCompletionTime
-      `Prelude.seq` Prelude.rnf generationCompletionTime
-      `Prelude.seq` Prelude.rnf generationStartedTime
-      `Prelude.seq` Prelude.rnf generationStatus
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf estimatedCompletionTime `Prelude.seq`
+      Prelude.rnf generationCompletionTime `Prelude.seq`
+        Prelude.rnf generationStartedTime `Prelude.seq`
+          Prelude.rnf generationStatus `Prelude.seq`
+            Prelude.rnf recommendationId

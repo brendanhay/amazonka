@@ -248,13 +248,13 @@ instance Prelude.Hashable UpdateAnomalySubscription where
 
 instance Prelude.NFData UpdateAnomalySubscription where
   rnf UpdateAnomalySubscription' {..} =
-    Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf monitorArnList
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf thresholdExpression
-      `Prelude.seq` Prelude.rnf subscriptionArn
+    Prelude.rnf frequency `Prelude.seq`
+      Prelude.rnf monitorArnList `Prelude.seq`
+        Prelude.rnf subscribers `Prelude.seq`
+          Prelude.rnf subscriptionName `Prelude.seq`
+            Prelude.rnf threshold `Prelude.seq`
+              Prelude.rnf thresholdExpression `Prelude.seq`
+                Prelude.rnf subscriptionArn
 
 instance Data.ToHeaders UpdateAnomalySubscription where
   toHeaders =
@@ -343,5 +343,5 @@ instance
     UpdateAnomalySubscriptionResponse
   where
   rnf UpdateAnomalySubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscriptionArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf subscriptionArn

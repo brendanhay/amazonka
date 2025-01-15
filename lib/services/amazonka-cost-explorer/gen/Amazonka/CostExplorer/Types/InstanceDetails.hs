@@ -135,8 +135,8 @@ instance Prelude.Hashable InstanceDetails where
 
 instance Prelude.NFData InstanceDetails where
   rnf InstanceDetails' {..} =
-    Prelude.rnf eC2InstanceDetails
-      `Prelude.seq` Prelude.rnf eSInstanceDetails
-      `Prelude.seq` Prelude.rnf elastiCacheInstanceDetails
-      `Prelude.seq` Prelude.rnf rDSInstanceDetails
-      `Prelude.seq` Prelude.rnf redshiftInstanceDetails
+    Prelude.rnf eC2InstanceDetails `Prelude.seq`
+      Prelude.rnf eSInstanceDetails `Prelude.seq`
+        Prelude.rnf elastiCacheInstanceDetails `Prelude.seq`
+          Prelude.rnf rDSInstanceDetails `Prelude.seq`
+            Prelude.rnf redshiftInstanceDetails

@@ -104,7 +104,7 @@ instance Prelude.Hashable DiskResourceUtilization where
 
 instance Prelude.NFData DiskResourceUtilization where
   rnf DiskResourceUtilization' {..} =
-    Prelude.rnf diskReadBytesPerSecond
-      `Prelude.seq` Prelude.rnf diskReadOpsPerSecond
-      `Prelude.seq` Prelude.rnf diskWriteBytesPerSecond
-      `Prelude.seq` Prelude.rnf diskWriteOpsPerSecond
+    Prelude.rnf diskReadBytesPerSecond `Prelude.seq`
+      Prelude.rnf diskReadOpsPerSecond `Prelude.seq`
+        Prelude.rnf diskWriteBytesPerSecond `Prelude.seq`
+          Prelude.rnf diskWriteOpsPerSecond

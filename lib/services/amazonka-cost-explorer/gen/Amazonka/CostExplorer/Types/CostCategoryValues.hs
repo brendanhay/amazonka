@@ -105,9 +105,9 @@ instance Prelude.Hashable CostCategoryValues where
 
 instance Prelude.NFData CostCategoryValues where
   rnf CostCategoryValues' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf matchOptions
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf matchOptions `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =

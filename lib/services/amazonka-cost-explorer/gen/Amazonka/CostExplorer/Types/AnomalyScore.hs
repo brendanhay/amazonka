@@ -85,5 +85,5 @@ instance Prelude.Hashable AnomalyScore where
 
 instance Prelude.NFData AnomalyScore where
   rnf AnomalyScore' {..} =
-    Prelude.rnf maxScore
-      `Prelude.seq` Prelude.rnf currentScore
+    Prelude.rnf maxScore `Prelude.seq`
+      Prelude.rnf currentScore

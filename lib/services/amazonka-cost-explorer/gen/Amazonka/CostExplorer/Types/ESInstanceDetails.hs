@@ -118,8 +118,8 @@ instance Prelude.Hashable ESInstanceDetails where
 
 instance Prelude.NFData ESInstanceDetails where
   rnf ESInstanceDetails' {..} =
-    Prelude.rnf currentGeneration
-      `Prelude.seq` Prelude.rnf instanceClass
-      `Prelude.seq` Prelude.rnf instanceSize
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sizeFlexEligible
+    Prelude.rnf currentGeneration `Prelude.seq`
+      Prelude.rnf instanceClass `Prelude.seq`
+        Prelude.rnf instanceSize `Prelude.seq`
+          Prelude.rnf region `Prelude.seq`
+            Prelude.rnf sizeFlexEligible

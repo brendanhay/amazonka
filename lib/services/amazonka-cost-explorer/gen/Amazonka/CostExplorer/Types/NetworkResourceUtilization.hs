@@ -110,7 +110,7 @@ instance Prelude.Hashable NetworkResourceUtilization where
 
 instance Prelude.NFData NetworkResourceUtilization where
   rnf NetworkResourceUtilization' {..} =
-    Prelude.rnf networkInBytesPerSecond
-      `Prelude.seq` Prelude.rnf networkOutBytesPerSecond
-      `Prelude.seq` Prelude.rnf networkPacketsInPerSecond
-      `Prelude.seq` Prelude.rnf networkPacketsOutPerSecond
+    Prelude.rnf networkInBytesPerSecond `Prelude.seq`
+      Prelude.rnf networkOutBytesPerSecond `Prelude.seq`
+        Prelude.rnf networkPacketsInPerSecond `Prelude.seq`
+          Prelude.rnf networkPacketsOutPerSecond

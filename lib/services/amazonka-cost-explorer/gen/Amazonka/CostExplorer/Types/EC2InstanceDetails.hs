@@ -157,11 +157,11 @@ instance Prelude.Hashable EC2InstanceDetails where
 
 instance Prelude.NFData EC2InstanceDetails where
   rnf EC2InstanceDetails' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf currentGeneration
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sizeFlexEligible
-      `Prelude.seq` Prelude.rnf tenancy
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf currentGeneration `Prelude.seq`
+        Prelude.rnf family `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf platform `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf sizeFlexEligible `Prelude.seq`
+                  Prelude.rnf tenancy

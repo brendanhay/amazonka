@@ -204,7 +204,7 @@ instance
   where
   rnf
     StartSavingsPlansPurchaseRecommendationGenerationResponse' {..} =
-      Prelude.rnf estimatedCompletionTime
-        `Prelude.seq` Prelude.rnf generationStartedTime
-        `Prelude.seq` Prelude.rnf recommendationId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf estimatedCompletionTime `Prelude.seq`
+        Prelude.rnf generationStartedTime `Prelude.seq`
+          Prelude.rnf recommendationId `Prelude.seq`
+            Prelude.rnf httpStatus

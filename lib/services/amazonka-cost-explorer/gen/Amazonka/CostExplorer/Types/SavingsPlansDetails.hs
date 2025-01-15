@@ -101,6 +101,6 @@ instance Prelude.Hashable SavingsPlansDetails where
 
 instance Prelude.NFData SavingsPlansDetails where
   rnf SavingsPlansDetails' {..} =
-    Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf instanceFamily `Prelude.seq`
+      Prelude.rnf offeringId `Prelude.seq`
+        Prelude.rnf region

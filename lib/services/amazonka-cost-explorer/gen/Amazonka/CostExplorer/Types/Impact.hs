@@ -142,8 +142,8 @@ instance Prelude.Hashable Impact where
 
 instance Prelude.NFData Impact where
   rnf Impact' {..} =
-    Prelude.rnf totalActualSpend
-      `Prelude.seq` Prelude.rnf totalExpectedSpend
-      `Prelude.seq` Prelude.rnf totalImpact
-      `Prelude.seq` Prelude.rnf totalImpactPercentage
-      `Prelude.seq` Prelude.rnf maxImpact
+    Prelude.rnf totalActualSpend `Prelude.seq`
+      Prelude.rnf totalExpectedSpend `Prelude.seq`
+        Prelude.rnf totalImpact `Prelude.seq`
+          Prelude.rnf totalImpactPercentage `Prelude.seq`
+            Prelude.rnf maxImpact

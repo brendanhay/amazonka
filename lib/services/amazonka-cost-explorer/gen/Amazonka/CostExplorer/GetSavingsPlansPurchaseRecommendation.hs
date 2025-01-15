@@ -263,14 +263,14 @@ instance
     GetSavingsPlansPurchaseRecommendation
   where
   rnf GetSavingsPlansPurchaseRecommendation' {..} =
-    Prelude.rnf accountScope
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf savingsPlansType
-      `Prelude.seq` Prelude.rnf termInYears
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+    Prelude.rnf accountScope `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf pageSize `Prelude.seq`
+            Prelude.rnf savingsPlansType `Prelude.seq`
+              Prelude.rnf termInYears `Prelude.seq`
+                Prelude.rnf paymentOption `Prelude.seq`
+                  Prelude.rnf lookbackPeriodInDays
 
 instance
   Data.ToHeaders
@@ -399,7 +399,7 @@ instance
   where
   rnf
     GetSavingsPlansPurchaseRecommendationResponse' {..} =
-      Prelude.rnf metadata
-        `Prelude.seq` Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf savingsPlansPurchaseRecommendation `Prelude.seq`
+            Prelude.rnf httpStatus

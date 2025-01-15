@@ -118,8 +118,8 @@ instance Prelude.Hashable RedshiftInstanceDetails where
 
 instance Prelude.NFData RedshiftInstanceDetails where
   rnf RedshiftInstanceDetails' {..} =
-    Prelude.rnf currentGeneration
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sizeFlexEligible
+    Prelude.rnf currentGeneration `Prelude.seq`
+      Prelude.rnf family `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf region `Prelude.seq`
+            Prelude.rnf sizeFlexEligible

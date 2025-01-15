@@ -88,8 +88,8 @@ instance Prelude.Hashable RawString where
 
 instance Prelude.NFData RawString where
   rnf RawString' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf sha256
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf sha256
 
 instance Data.ToJSON RawString where
   toJSON RawString' {..} =

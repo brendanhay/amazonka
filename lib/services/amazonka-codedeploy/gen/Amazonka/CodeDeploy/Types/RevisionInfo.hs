@@ -86,5 +86,5 @@ instance Prelude.Hashable RevisionInfo where
 
 instance Prelude.NFData RevisionInfo where
   rnf RevisionInfo' {..} =
-    Prelude.rnf genericRevisionInfo
-      `Prelude.seq` Prelude.rnf revisionLocation
+    Prelude.rnf genericRevisionInfo `Prelude.seq`
+      Prelude.rnf revisionLocation

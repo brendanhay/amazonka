@@ -173,5 +173,5 @@ instance
     DeleteGitHubAccountTokenResponse
   where
   rnf DeleteGitHubAccountTokenResponse' {..} =
-    Prelude.rnf tokenName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tokenName `Prelude.seq`
+      Prelude.rnf httpStatus

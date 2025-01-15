@@ -158,10 +158,10 @@ instance Prelude.Hashable CloudFormationTarget where
 
 instance Prelude.NFData CloudFormationTarget where
   rnf CloudFormationTarget' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lifecycleEvents
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetVersionWeight
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf lifecycleEvents `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetId `Prelude.seq`
+                Prelude.rnf targetVersionWeight

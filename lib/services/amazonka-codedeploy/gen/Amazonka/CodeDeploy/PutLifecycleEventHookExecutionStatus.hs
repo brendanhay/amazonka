@@ -155,9 +155,9 @@ instance
     PutLifecycleEventHookExecutionStatus
   where
   rnf PutLifecycleEventHookExecutionStatus' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf lifecycleEventHookExecutionId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf lifecycleEventHookExecutionId `Prelude.seq`
+        Prelude.rnf status
 
 instance
   Data.ToHeaders
@@ -251,5 +251,5 @@ instance
     PutLifecycleEventHookExecutionStatusResponse
   where
   rnf PutLifecycleEventHookExecutionStatusResponse' {..} =
-    Prelude.rnf lifecycleEventHookExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycleEventHookExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

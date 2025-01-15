@@ -179,5 +179,5 @@ instance
     BatchGetOnPremisesInstancesResponse
   where
   rnf BatchGetOnPremisesInstancesResponse' {..} =
-    Prelude.rnf instanceInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceInfos `Prelude.seq`
+      Prelude.rnf httpStatus

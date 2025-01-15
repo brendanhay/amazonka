@@ -163,11 +163,11 @@ instance Prelude.Hashable RevisionLocation where
 
 instance Prelude.NFData RevisionLocation where
   rnf RevisionLocation' {..} =
-    Prelude.rnf appSpecContent
-      `Prelude.seq` Prelude.rnf gitHubLocation
-      `Prelude.seq` Prelude.rnf revisionType
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf string
+    Prelude.rnf appSpecContent `Prelude.seq`
+      Prelude.rnf gitHubLocation `Prelude.seq`
+        Prelude.rnf revisionType `Prelude.seq`
+          Prelude.rnf s3Location `Prelude.seq`
+            Prelude.rnf string
 
 instance Data.ToJSON RevisionLocation where
   toJSON RevisionLocation' {..} =

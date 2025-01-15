@@ -148,10 +148,10 @@ instance Prelude.Hashable InstanceTarget where
 
 instance Prelude.NFData InstanceTarget where
   rnf InstanceTarget' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf instanceLabel
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lifecycleEvents
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf instanceLabel `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf lifecycleEvents `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetArn `Prelude.seq`
+                Prelude.rnf targetId

@@ -130,8 +130,8 @@ instance Prelude.Hashable DeploymentTarget where
 
 instance Prelude.NFData DeploymentTarget where
   rnf DeploymentTarget' {..} =
-    Prelude.rnf cloudFormationTarget
-      `Prelude.seq` Prelude.rnf deploymentTargetType
-      `Prelude.seq` Prelude.rnf ecsTarget
-      `Prelude.seq` Prelude.rnf instanceTarget
-      `Prelude.seq` Prelude.rnf lambdaTarget
+    Prelude.rnf cloudFormationTarget `Prelude.seq`
+      Prelude.rnf deploymentTargetType `Prelude.seq`
+        Prelude.rnf ecsTarget `Prelude.seq`
+          Prelude.rnf instanceTarget `Prelude.seq`
+            Prelude.rnf lambdaTarget

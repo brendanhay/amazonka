@@ -112,8 +112,8 @@ instance
     RemoveTagsFromOnPremisesInstances
   where
   rnf RemoveTagsFromOnPremisesInstances' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceNames
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf instanceNames
 
 instance
   Data.ToHeaders

@@ -161,7 +161,7 @@ instance Prelude.Hashable Diagnostics where
 
 instance Prelude.NFData Diagnostics where
   rnf Diagnostics' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf logTail
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf scriptName
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf logTail `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf scriptName

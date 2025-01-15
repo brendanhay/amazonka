@@ -119,9 +119,9 @@ instance
     BlueGreenDeploymentConfiguration
   where
   rnf BlueGreenDeploymentConfiguration' {..} =
-    Prelude.rnf deploymentReadyOption
-      `Prelude.seq` Prelude.rnf greenFleetProvisioningOption
-      `Prelude.seq` Prelude.rnf terminateBlueInstancesOnDeploymentSuccess
+    Prelude.rnf deploymentReadyOption `Prelude.seq`
+      Prelude.rnf greenFleetProvisioningOption `Prelude.seq`
+        Prelude.rnf terminateBlueInstancesOnDeploymentSuccess
 
 instance Data.ToJSON BlueGreenDeploymentConfiguration where
   toJSON BlueGreenDeploymentConfiguration' {..} =

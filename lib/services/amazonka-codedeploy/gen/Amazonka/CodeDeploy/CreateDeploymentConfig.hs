@@ -190,10 +190,10 @@ instance Prelude.Hashable CreateDeploymentConfig where
 
 instance Prelude.NFData CreateDeploymentConfig where
   rnf CreateDeploymentConfig' {..} =
-    Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf minimumHealthyHosts
-      `Prelude.seq` Prelude.rnf trafficRoutingConfig
-      `Prelude.seq` Prelude.rnf deploymentConfigName
+    Prelude.rnf computePlatform `Prelude.seq`
+      Prelude.rnf minimumHealthyHosts `Prelude.seq`
+        Prelude.rnf trafficRoutingConfig `Prelude.seq`
+          Prelude.rnf deploymentConfigName
 
 instance Data.ToHeaders CreateDeploymentConfig where
   toHeaders =
@@ -279,5 +279,5 @@ instance
     CreateDeploymentConfigResponse
   where
   rnf CreateDeploymentConfigResponse' {..} =
-    Prelude.rnf deploymentConfigId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentConfigId `Prelude.seq`
+      Prelude.rnf httpStatus

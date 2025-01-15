@@ -182,8 +182,8 @@ instance Prelude.Hashable BatchGetDeploymentTargets where
 
 instance Prelude.NFData BatchGetDeploymentTargets where
   rnf BatchGetDeploymentTargets' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf targetIds
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf targetIds
 
 instance Data.ToHeaders BatchGetDeploymentTargets where
   toHeaders =
@@ -298,5 +298,5 @@ instance
     BatchGetDeploymentTargetsResponse
   where
   rnf BatchGetDeploymentTargetsResponse' {..} =
-    Prelude.rnf deploymentTargets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentTargets `Prelude.seq`
+      Prelude.rnf httpStatus

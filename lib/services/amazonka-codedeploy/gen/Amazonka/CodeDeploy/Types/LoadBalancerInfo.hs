@@ -128,9 +128,9 @@ instance Prelude.Hashable LoadBalancerInfo where
 
 instance Prelude.NFData LoadBalancerInfo where
   rnf LoadBalancerInfo' {..} =
-    Prelude.rnf elbInfoList
-      `Prelude.seq` Prelude.rnf targetGroupInfoList
-      `Prelude.seq` Prelude.rnf targetGroupPairInfoList
+    Prelude.rnf elbInfoList `Prelude.seq`
+      Prelude.rnf targetGroupInfoList `Prelude.seq`
+        Prelude.rnf targetGroupPairInfoList
 
 instance Data.ToJSON LoadBalancerInfo where
   toJSON LoadBalancerInfo' {..} =

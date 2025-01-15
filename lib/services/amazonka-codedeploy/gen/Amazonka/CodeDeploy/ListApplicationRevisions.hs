@@ -259,12 +259,12 @@ instance Core.AWSPager ListApplicationRevisions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplicationRevisions_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationRevisionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplicationRevisions_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationRevisionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationRevisions where
   type
@@ -294,13 +294,13 @@ instance Prelude.Hashable ListApplicationRevisions where
 
 instance Prelude.NFData ListApplicationRevisions where
   rnf ListApplicationRevisions' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf s3KeyPrefix `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder `Prelude.seq`
+                Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationRevisions where
   toHeaders =
@@ -399,6 +399,6 @@ instance
     ListApplicationRevisionsResponse
   where
   rnf ListApplicationRevisionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf revisions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf revisions `Prelude.seq`
+        Prelude.rnf httpStatus

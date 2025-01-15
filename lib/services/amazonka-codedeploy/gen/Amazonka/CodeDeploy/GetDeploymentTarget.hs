@@ -107,8 +107,8 @@ instance Prelude.Hashable GetDeploymentTarget where
 
 instance Prelude.NFData GetDeploymentTarget where
   rnf GetDeploymentTarget' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf targetId
 
 instance Data.ToHeaders GetDeploymentTarget where
   toHeaders =
@@ -193,5 +193,5 @@ getDeploymentTargetResponse_httpStatus = Lens.lens (\GetDeploymentTargetResponse
 
 instance Prelude.NFData GetDeploymentTargetResponse where
   rnf GetDeploymentTargetResponse' {..} =
-    Prelude.rnf deploymentTarget
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentTarget `Prelude.seq`
+      Prelude.rnf httpStatus

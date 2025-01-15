@@ -122,8 +122,8 @@ instance Prelude.Hashable AppSpecContent where
 
 instance Prelude.NFData AppSpecContent where
   rnf AppSpecContent' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf sha256
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf sha256
 
 instance Data.ToJSON AppSpecContent where
   toJSON AppSpecContent' {..} =

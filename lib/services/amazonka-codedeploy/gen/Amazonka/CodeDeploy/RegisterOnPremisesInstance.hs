@@ -117,9 +117,9 @@ instance Prelude.Hashable RegisterOnPremisesInstance where
 
 instance Prelude.NFData RegisterOnPremisesInstance where
   rnf RegisterOnPremisesInstance' {..} =
-    Prelude.rnf iamSessionArn
-      `Prelude.seq` Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf iamSessionArn `Prelude.seq`
+      Prelude.rnf iamUserArn `Prelude.seq`
+        Prelude.rnf instanceName
 
 instance Data.ToHeaders RegisterOnPremisesInstance where
   toHeaders =

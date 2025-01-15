@@ -393,17 +393,17 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf autoRollbackConfiguration
-      `Prelude.seq` Prelude.rnf deploymentConfigName
-      `Prelude.seq` Prelude.rnf deploymentGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fileExistsBehavior
-      `Prelude.seq` Prelude.rnf ignoreApplicationStopFailures
-      `Prelude.seq` Prelude.rnf overrideAlarmConfiguration
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf targetInstances
-      `Prelude.seq` Prelude.rnf updateOutdatedInstancesOnly
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf autoRollbackConfiguration `Prelude.seq`
+      Prelude.rnf deploymentConfigName `Prelude.seq`
+        Prelude.rnf deploymentGroupName `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf fileExistsBehavior `Prelude.seq`
+              Prelude.rnf ignoreApplicationStopFailures `Prelude.seq`
+                Prelude.rnf overrideAlarmConfiguration `Prelude.seq`
+                  Prelude.rnf revision `Prelude.seq`
+                    Prelude.rnf targetInstances `Prelude.seq`
+                      Prelude.rnf updateOutdatedInstancesOnly `Prelude.seq`
+                        Prelude.rnf applicationName
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders =
@@ -496,5 +496,5 @@ createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {htt
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -117,8 +117,8 @@ instance Prelude.Hashable GenericRevisionInfo where
 
 instance Prelude.NFData GenericRevisionInfo where
   rnf GenericRevisionInfo' {..} =
-    Prelude.rnf deploymentGroups
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firstUsedTime
-      `Prelude.seq` Prelude.rnf lastUsedTime
-      `Prelude.seq` Prelude.rnf registerTime
+    Prelude.rnf deploymentGroups `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf firstUsedTime `Prelude.seq`
+          Prelude.rnf lastUsedTime `Prelude.seq`
+            Prelude.rnf registerTime

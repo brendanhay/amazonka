@@ -90,8 +90,8 @@ instance Prelude.Hashable TimeBasedLinear where
 
 instance Prelude.NFData TimeBasedLinear where
   rnf TimeBasedLinear' {..} =
-    Prelude.rnf linearInterval
-      `Prelude.seq` Prelude.rnf linearPercentage
+    Prelude.rnf linearInterval `Prelude.seq`
+      Prelude.rnf linearPercentage
 
 instance Data.ToJSON TimeBasedLinear where
   toJSON TimeBasedLinear' {..} =

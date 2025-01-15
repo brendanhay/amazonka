@@ -139,10 +139,10 @@ instance Prelude.Hashable InstanceInfo where
 
 instance Prelude.NFData InstanceInfo where
   rnf InstanceInfo' {..} =
-    Prelude.rnf deregisterTime
-      `Prelude.seq` Prelude.rnf iamSessionArn
-      `Prelude.seq` Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf registerTime
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf deregisterTime `Prelude.seq`
+      Prelude.rnf iamSessionArn `Prelude.seq`
+        Prelude.rnf iamUserArn `Prelude.seq`
+          Prelude.rnf instanceArn `Prelude.seq`
+            Prelude.rnf instanceName `Prelude.seq`
+              Prelude.rnf registerTime `Prelude.seq`
+                Prelude.rnf tags

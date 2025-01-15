@@ -110,7 +110,7 @@ instance Prelude.Hashable LastDeploymentInfo where
 
 instance Prelude.NFData LastDeploymentInfo where
   rnf LastDeploymentInfo' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf status

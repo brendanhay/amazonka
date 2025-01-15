@@ -88,8 +88,8 @@ instance Prelude.Hashable DeploymentStyle where
 
 instance Prelude.NFData DeploymentStyle where
   rnf DeploymentStyle' {..} =
-    Prelude.rnf deploymentOption
-      `Prelude.seq` Prelude.rnf deploymentType
+    Prelude.rnf deploymentOption `Prelude.seq`
+      Prelude.rnf deploymentType
 
 instance Data.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =

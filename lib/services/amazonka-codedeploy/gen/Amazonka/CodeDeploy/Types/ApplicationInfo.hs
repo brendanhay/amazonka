@@ -131,9 +131,9 @@ instance Prelude.Hashable ApplicationInfo where
 
 instance Prelude.NFData ApplicationInfo where
   rnf ApplicationInfo' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf gitHubAccountName
-      `Prelude.seq` Prelude.rnf linkedToGitHub
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf computePlatform `Prelude.seq`
+          Prelude.rnf createTime `Prelude.seq`
+            Prelude.rnf gitHubAccountName `Prelude.seq`
+              Prelude.rnf linkedToGitHub

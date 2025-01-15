@@ -87,8 +87,8 @@ instance Prelude.Hashable AutoRollbackConfiguration where
 
 instance Prelude.NFData AutoRollbackConfiguration where
   rnf AutoRollbackConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf events
 
 instance Data.ToJSON AutoRollbackConfiguration where
   toJSON AutoRollbackConfiguration' {..} =

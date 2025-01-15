@@ -110,9 +110,9 @@ instance Prelude.Hashable TargetGroupPairInfo where
 
 instance Prelude.NFData TargetGroupPairInfo where
   rnf TargetGroupPairInfo' {..} =
-    Prelude.rnf prodTrafficRoute
-      `Prelude.seq` Prelude.rnf targetGroups
-      `Prelude.seq` Prelude.rnf testTrafficRoute
+    Prelude.rnf prodTrafficRoute `Prelude.seq`
+      Prelude.rnf targetGroups `Prelude.seq`
+        Prelude.rnf testTrafficRoute
 
 instance Data.ToJSON TargetGroupPairInfo where
   toJSON TargetGroupPairInfo' {..} =

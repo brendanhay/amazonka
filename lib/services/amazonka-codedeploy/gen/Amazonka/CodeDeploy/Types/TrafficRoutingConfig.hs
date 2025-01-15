@@ -121,9 +121,9 @@ instance Prelude.Hashable TrafficRoutingConfig where
 
 instance Prelude.NFData TrafficRoutingConfig where
   rnf TrafficRoutingConfig' {..} =
-    Prelude.rnf timeBasedCanary
-      `Prelude.seq` Prelude.rnf timeBasedLinear
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf timeBasedCanary `Prelude.seq`
+      Prelude.rnf timeBasedLinear `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =

@@ -406,25 +406,25 @@ instance Prelude.Hashable UpdateDeploymentGroup where
 
 instance Prelude.NFData UpdateDeploymentGroup where
   rnf UpdateDeploymentGroup' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
-      `Prelude.seq` Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
-      `Prelude.seq` Prelude.rnf deploymentConfigName
-      `Prelude.seq` Prelude.rnf deploymentStyle
-      `Prelude.seq` Prelude.rnf ec2TagFilters
-      `Prelude.seq` Prelude.rnf ec2TagSet
-      `Prelude.seq` Prelude.rnf ecsServices
-      `Prelude.seq` Prelude.rnf loadBalancerInfo
-      `Prelude.seq` Prelude.rnf newDeploymentGroupName'
-      `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
-      `Prelude.seq` Prelude.rnf onPremisesTagSet
-      `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf triggerConfigurations
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf
-        currentDeploymentGroupName
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf autoRollbackConfiguration `Prelude.seq`
+        Prelude.rnf autoScalingGroups `Prelude.seq`
+          Prelude.rnf blueGreenDeploymentConfiguration `Prelude.seq`
+            Prelude.rnf deploymentConfigName `Prelude.seq`
+              Prelude.rnf deploymentStyle `Prelude.seq`
+                Prelude.rnf ec2TagFilters `Prelude.seq`
+                  Prelude.rnf ec2TagSet `Prelude.seq`
+                    Prelude.rnf ecsServices `Prelude.seq`
+                      Prelude.rnf loadBalancerInfo `Prelude.seq`
+                        Prelude.rnf newDeploymentGroupName' `Prelude.seq`
+                          Prelude.rnf onPremisesInstanceTagFilters `Prelude.seq`
+                            Prelude.rnf onPremisesTagSet `Prelude.seq`
+                              Prelude.rnf outdatedInstancesStrategy `Prelude.seq`
+                                Prelude.rnf serviceRoleArn `Prelude.seq`
+                                  Prelude.rnf triggerConfigurations `Prelude.seq`
+                                    Prelude.rnf applicationName `Prelude.seq`
+                                      Prelude.rnf
+                                        currentDeploymentGroupName
 
 instance Data.ToHeaders UpdateDeploymentGroup where
   toHeaders =
@@ -547,5 +547,5 @@ updateDeploymentGroupResponse_httpStatus = Lens.lens (\UpdateDeploymentGroupResp
 
 instance Prelude.NFData UpdateDeploymentGroupResponse where
   rnf UpdateDeploymentGroupResponse' {..} =
-    Prelude.rnf hooksNotCleanedUp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hooksNotCleanedUp `Prelude.seq`
+      Prelude.rnf httpStatus

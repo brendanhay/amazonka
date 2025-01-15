@@ -94,8 +94,8 @@ instance
     ProjectAppConfigResourceConfig
   where
   rnf ProjectAppConfigResourceConfig' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId
 
 instance Data.ToJSON ProjectAppConfigResourceConfig where
   toJSON ProjectAppConfigResourceConfig' {..} =

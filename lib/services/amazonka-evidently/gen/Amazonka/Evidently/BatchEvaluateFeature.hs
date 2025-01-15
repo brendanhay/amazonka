@@ -138,8 +138,8 @@ instance Prelude.Hashable BatchEvaluateFeature where
 
 instance Prelude.NFData BatchEvaluateFeature where
   rnf BatchEvaluateFeature' {..} =
-    Prelude.rnf project
-      `Prelude.seq` Prelude.rnf requests
+    Prelude.rnf project `Prelude.seq`
+      Prelude.rnf requests
 
 instance Data.ToHeaders BatchEvaluateFeature where
   toHeaders =
@@ -211,5 +211,5 @@ batchEvaluateFeatureResponse_httpStatus = Lens.lens (\BatchEvaluateFeatureRespon
 
 instance Prelude.NFData BatchEvaluateFeatureResponse where
   rnf BatchEvaluateFeatureResponse' {..} =
-    Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf results `Prelude.seq`
+      Prelude.rnf httpStatus

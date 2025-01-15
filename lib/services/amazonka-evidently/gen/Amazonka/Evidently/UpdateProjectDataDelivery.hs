@@ -136,9 +136,9 @@ instance Prelude.Hashable UpdateProjectDataDelivery where
 
 instance Prelude.NFData UpdateProjectDataDelivery where
   rnf UpdateProjectDataDelivery' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf s3Destination `Prelude.seq`
+        Prelude.rnf project
 
 instance Data.ToHeaders UpdateProjectDataDelivery where
   toHeaders =
@@ -217,5 +217,5 @@ instance
     UpdateProjectDataDeliveryResponse
   where
   rnf UpdateProjectDataDeliveryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf project

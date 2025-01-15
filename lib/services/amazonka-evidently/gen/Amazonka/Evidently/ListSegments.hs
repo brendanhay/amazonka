@@ -109,12 +109,12 @@ instance Core.AWSPager ListSegments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSegments_nextToken
-          Lens..~ rs
-          Lens.^? listSegmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSegments_nextToken
+              Lens..~ rs
+              Lens.^? listSegmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSegments where
   type AWSResponse ListSegments = ListSegmentsResponse
@@ -137,8 +137,8 @@ instance Prelude.Hashable ListSegments where
 
 instance Prelude.NFData ListSegments where
   rnf ListSegments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSegments where
   toHeaders =
@@ -216,6 +216,6 @@ listSegmentsResponse_httpStatus = Lens.lens (\ListSegmentsResponse' {httpStatus}
 
 instance Prelude.NFData ListSegmentsResponse where
   rnf ListSegmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf segments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf segments `Prelude.seq`
+        Prelude.rnf httpStatus

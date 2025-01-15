@@ -97,5 +97,5 @@ instance Prelude.Hashable MetricGoal where
 
 instance Prelude.NFData MetricGoal where
   rnf MetricGoal' {..} =
-    Prelude.rnf desiredChange
-      `Prelude.seq` Prelude.rnf metricDefinition
+    Prelude.rnf desiredChange `Prelude.seq`
+      Prelude.rnf metricDefinition

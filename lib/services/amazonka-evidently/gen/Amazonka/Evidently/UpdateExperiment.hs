@@ -261,16 +261,16 @@ instance Prelude.Hashable UpdateExperiment where
 
 instance Prelude.NFData UpdateExperiment where
   rnf UpdateExperiment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metricGoals
-      `Prelude.seq` Prelude.rnf onlineAbConfig
-      `Prelude.seq` Prelude.rnf randomizationSalt
-      `Prelude.seq` Prelude.rnf removeSegment
-      `Prelude.seq` Prelude.rnf samplingRate
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf treatments
-      `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf metricGoals `Prelude.seq`
+        Prelude.rnf onlineAbConfig `Prelude.seq`
+          Prelude.rnf randomizationSalt `Prelude.seq`
+            Prelude.rnf removeSegment `Prelude.seq`
+              Prelude.rnf samplingRate `Prelude.seq`
+                Prelude.rnf segment `Prelude.seq`
+                  Prelude.rnf treatments `Prelude.seq`
+                    Prelude.rnf experiment `Prelude.seq`
+                      Prelude.rnf project
 
 instance Data.ToHeaders UpdateExperiment where
   toHeaders =
@@ -358,5 +358,5 @@ updateExperimentResponse_experiment = Lens.lens (\UpdateExperimentResponse' {exp
 
 instance Prelude.NFData UpdateExperimentResponse where
   rnf UpdateExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf experiment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf experiment

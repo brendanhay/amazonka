@@ -116,10 +116,10 @@ instance Prelude.Hashable VariableValue where
 
 instance Prelude.NFData VariableValue where
   rnf VariableValue' {..} =
-    Prelude.rnf boolValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf boolValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf longValue `Prelude.seq`
+          Prelude.rnf stringValue
 
 instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =

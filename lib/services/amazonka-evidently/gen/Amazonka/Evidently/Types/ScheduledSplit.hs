@@ -156,6 +156,6 @@ instance Prelude.Hashable ScheduledSplit where
 
 instance Prelude.NFData ScheduledSplit where
   rnf ScheduledSplit' {..} =
-    Prelude.rnf groupWeights
-      `Prelude.seq` Prelude.rnf segmentOverrides
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf groupWeights `Prelude.seq`
+      Prelude.rnf segmentOverrides `Prelude.seq`
+        Prelude.rnf startTime

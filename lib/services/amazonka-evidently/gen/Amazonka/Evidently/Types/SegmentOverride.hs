@@ -115,9 +115,9 @@ instance Prelude.Hashable SegmentOverride where
 
 instance Prelude.NFData SegmentOverride where
   rnf SegmentOverride' {..} =
-    Prelude.rnf evaluationOrder
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf weights
+    Prelude.rnf evaluationOrder `Prelude.seq`
+      Prelude.rnf segment `Prelude.seq`
+        Prelude.rnf weights
 
 instance Data.ToJSON SegmentOverride where
   toJSON SegmentOverride' {..} =

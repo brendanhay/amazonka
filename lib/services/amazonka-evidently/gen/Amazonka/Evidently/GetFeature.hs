@@ -110,8 +110,8 @@ instance Prelude.Hashable GetFeature where
 
 instance Prelude.NFData GetFeature where
   rnf GetFeature' {..} =
-    Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf feature `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders GetFeature where
   toHeaders =
@@ -178,5 +178,5 @@ getFeatureResponse_feature = Lens.lens (\GetFeatureResponse' {feature} -> featur
 
 instance Prelude.NFData GetFeatureResponse where
   rnf GetFeatureResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf feature
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf feature

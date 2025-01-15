@@ -100,6 +100,6 @@ instance Prelude.Hashable Treatment where
 
 instance Prelude.NFData Treatment where
   rnf Treatment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf featureVariations
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf featureVariations `Prelude.seq`
+        Prelude.rnf name

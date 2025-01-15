@@ -97,6 +97,6 @@ instance Prelude.Hashable LaunchGroup where
 
 instance Prelude.NFData LaunchGroup where
   rnf LaunchGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf featureVariations
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf featureVariations `Prelude.seq`
+        Prelude.rnf name

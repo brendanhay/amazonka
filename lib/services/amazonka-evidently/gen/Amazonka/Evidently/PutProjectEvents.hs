@@ -114,8 +114,8 @@ instance Prelude.Hashable PutProjectEvents where
 
 instance Prelude.NFData PutProjectEvents where
   rnf PutProjectEvents' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders PutProjectEvents where
   toHeaders =
@@ -199,6 +199,6 @@ putProjectEventsResponse_httpStatus = Lens.lens (\PutProjectEventsResponse' {htt
 
 instance Prelude.NFData PutProjectEventsResponse where
   rnf PutProjectEventsResponse' {..} =
-    Prelude.rnf eventResults
-      `Prelude.seq` Prelude.rnf failedEventCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventResults `Prelude.seq`
+      Prelude.rnf failedEventCount `Prelude.seq`
+        Prelude.rnf httpStatus

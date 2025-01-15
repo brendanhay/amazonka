@@ -123,11 +123,11 @@ instance Prelude.Hashable MetricDefinitionConfig where
 
 instance Prelude.NFData MetricDefinitionConfig where
   rnf MetricDefinitionConfig' {..} =
-    Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf unitLabel
-      `Prelude.seq` Prelude.rnf entityIdKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf valueKey
+    Prelude.rnf eventPattern `Prelude.seq`
+      Prelude.rnf unitLabel `Prelude.seq`
+        Prelude.rnf entityIdKey `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf valueKey
 
 instance Data.ToJSON MetricDefinitionConfig where
   toJSON MetricDefinitionConfig' {..} =

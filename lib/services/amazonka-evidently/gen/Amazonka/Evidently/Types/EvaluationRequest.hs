@@ -97,9 +97,9 @@ instance Prelude.Hashable EvaluationRequest where
 
 instance Prelude.NFData EvaluationRequest where
   rnf EvaluationRequest' {..} =
-    Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf feature
+    Prelude.rnf evaluationContext `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf feature
 
 instance Data.ToJSON EvaluationRequest where
   toJSON EvaluationRequest' {..} =

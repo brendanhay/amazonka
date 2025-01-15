@@ -273,18 +273,18 @@ instance Prelude.Hashable Launch where
 
 instance Prelude.NFData Launch where
   rnf Launch' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf metricMonitors
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf randomizationSalt
-      `Prelude.seq` Prelude.rnf scheduledSplitsDefinition
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf execution `Prelude.seq`
+        Prelude.rnf groups `Prelude.seq`
+          Prelude.rnf metricMonitors `Prelude.seq`
+            Prelude.rnf project `Prelude.seq`
+              Prelude.rnf randomizationSalt `Prelude.seq`
+                Prelude.rnf scheduledSplitsDefinition `Prelude.seq`
+                  Prelude.rnf statusReason `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf arn `Prelude.seq`
+                        Prelude.rnf createdTime `Prelude.seq`
+                          Prelude.rnf lastUpdatedTime `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf type'

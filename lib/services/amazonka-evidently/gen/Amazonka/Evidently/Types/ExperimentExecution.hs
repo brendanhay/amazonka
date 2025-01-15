@@ -81,5 +81,5 @@ instance Prelude.Hashable ExperimentExecution where
 
 instance Prelude.NFData ExperimentExecution where
   rnf ExperimentExecution' {..} =
-    Prelude.rnf endedTime
-      `Prelude.seq` Prelude.rnf startedTime
+    Prelude.rnf endedTime `Prelude.seq`
+      Prelude.rnf startedTime

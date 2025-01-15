@@ -194,12 +194,12 @@ instance Prelude.Hashable Segment where
 
 instance Prelude.NFData Segment where
   rnf Segment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf experimentCount
-      `Prelude.seq` Prelude.rnf launchCount
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf experimentCount `Prelude.seq`
+        Prelude.rnf launchCount `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf createdTime `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf pattern'

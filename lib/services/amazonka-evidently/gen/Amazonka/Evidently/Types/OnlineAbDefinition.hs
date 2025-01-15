@@ -102,5 +102,5 @@ instance Prelude.Hashable OnlineAbDefinition where
 
 instance Prelude.NFData OnlineAbDefinition where
   rnf OnlineAbDefinition' {..} =
-    Prelude.rnf controlTreatmentName
-      `Prelude.seq` Prelude.rnf treatmentWeights
+    Prelude.rnf controlTreatmentName `Prelude.seq`
+      Prelude.rnf treatmentWeights

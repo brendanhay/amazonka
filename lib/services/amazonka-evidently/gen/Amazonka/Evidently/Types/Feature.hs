@@ -306,17 +306,17 @@ instance Prelude.Hashable Feature where
 
 instance Prelude.NFData Feature where
   rnf Feature' {..} =
-    Prelude.rnf defaultVariation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf evaluationRules
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf evaluationStrategy
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf valueType
-      `Prelude.seq` Prelude.rnf variations
+    Prelude.rnf defaultVariation `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf entityOverrides `Prelude.seq`
+          Prelude.rnf evaluationRules `Prelude.seq`
+            Prelude.rnf project `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf createdTime `Prelude.seq`
+                    Prelude.rnf evaluationStrategy `Prelude.seq`
+                      Prelude.rnf lastUpdatedTime `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf valueType `Prelude.seq`
+                              Prelude.rnf variations

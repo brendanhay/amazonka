@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteExperiment where
 
 instance Prelude.NFData DeleteExperiment where
   rnf DeleteExperiment' {..} =
-    Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf experiment `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders DeleteExperiment where
   toHeaders =

@@ -229,14 +229,14 @@ instance Prelude.Hashable UpdateFeature where
 
 instance Prelude.NFData UpdateFeature where
   rnf UpdateFeature' {..} =
-    Prelude.rnf addOrUpdateVariations
-      `Prelude.seq` Prelude.rnf defaultVariation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf evaluationStrategy
-      `Prelude.seq` Prelude.rnf removeVariations
-      `Prelude.seq` Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf addOrUpdateVariations `Prelude.seq`
+      Prelude.rnf defaultVariation `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf entityOverrides `Prelude.seq`
+            Prelude.rnf evaluationStrategy `Prelude.seq`
+              Prelude.rnf removeVariations `Prelude.seq`
+                Prelude.rnf feature `Prelude.seq`
+                  Prelude.rnf project
 
 instance Data.ToHeaders UpdateFeature where
   toHeaders =
@@ -321,5 +321,5 @@ updateFeatureResponse_feature = Lens.lens (\UpdateFeatureResponse' {feature} -> 
 
 instance Prelude.NFData UpdateFeatureResponse where
   rnf UpdateFeatureResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf feature
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf feature

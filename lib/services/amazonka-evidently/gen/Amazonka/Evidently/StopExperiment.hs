@@ -136,10 +136,10 @@ instance Prelude.Hashable StopExperiment where
 
 instance Prelude.NFData StopExperiment where
   rnf StopExperiment' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf experiment `Prelude.seq`
+          Prelude.rnf project
 
 instance Data.ToHeaders StopExperiment where
   toHeaders =
@@ -215,5 +215,5 @@ stopExperimentResponse_httpStatus = Lens.lens (\StopExperimentResponse' {httpSta
 
 instance Prelude.NFData StopExperimentResponse where
   rnf StopExperimentResponse' {..} =
-    Prelude.rnf endedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endedTime `Prelude.seq`
+      Prelude.rnf httpStatus

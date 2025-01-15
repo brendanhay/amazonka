@@ -209,7 +209,7 @@ instance
     CreatePresignedNotebookUrlResponse
   where
   rnf CreatePresignedNotebookUrlResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf notebookUrl
-      `Prelude.seq` Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf authTokenExpirationTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf notebookUrl `Prelude.seq`
+        Prelude.rnf authToken `Prelude.seq`
+          Prelude.rnf authTokenExpirationTime

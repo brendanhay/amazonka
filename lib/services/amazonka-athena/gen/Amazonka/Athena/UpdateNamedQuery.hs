@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdateNamedQuery where
 
 instance Prelude.NFData UpdateNamedQuery where
   rnf UpdateNamedQuery' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf namedQueryId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf namedQueryId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf queryString
 
 instance Data.ToHeaders UpdateNamedQuery where
   toHeaders =

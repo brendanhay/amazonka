@@ -93,6 +93,6 @@ instance Prelude.Hashable Column where
 
 instance Prelude.NFData Column where
   rnf Column' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf name

@@ -152,12 +152,12 @@ instance Core.AWSPager ListTableMetadata where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTableMetadata_nextToken
-          Lens..~ rs
-          Lens.^? listTableMetadataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTableMetadata_nextToken
+              Lens..~ rs
+              Lens.^? listTableMetadataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableMetadata where
   type
@@ -188,11 +188,11 @@ instance Prelude.Hashable ListTableMetadata where
 
 instance Prelude.NFData ListTableMetadata where
   rnf ListTableMetadata' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf catalogName `Prelude.seq`
+            Prelude.rnf databaseName
 
 instance Data.ToHeaders ListTableMetadata where
   toHeaders =
@@ -286,6 +286,6 @@ listTableMetadataResponse_httpStatus = Lens.lens (\ListTableMetadataResponse' {h
 
 instance Prelude.NFData ListTableMetadataResponse where
   rnf ListTableMetadataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableMetadataList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tableMetadataList `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,12 +141,12 @@ instance Core.AWSPager GetQueryResults where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getQueryResults_nextToken
-          Lens..~ rs
-          Lens.^? getQueryResultsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getQueryResults_nextToken
+              Lens..~ rs
+              Lens.^? getQueryResultsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetQueryResults where
   type
@@ -173,9 +173,9 @@ instance Prelude.Hashable GetQueryResults where
 
 instance Prelude.NFData GetQueryResults where
   rnf GetQueryResults' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryExecutionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf queryExecutionId
 
 instance Data.ToHeaders GetQueryResults where
   toHeaders =
@@ -277,7 +277,7 @@ getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpS
 
 instance Prelude.NFData GetQueryResultsResponse where
   rnf GetQueryResultsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resultSet
-      `Prelude.seq` Prelude.rnf updateCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resultSet `Prelude.seq`
+        Prelude.rnf updateCount `Prelude.seq`
+          Prelude.rnf httpStatus

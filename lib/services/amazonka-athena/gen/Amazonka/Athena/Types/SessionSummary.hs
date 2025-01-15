@@ -118,8 +118,8 @@ instance Prelude.Hashable SessionSummary where
 
 instance Prelude.NFData SessionSummary where
   rnf SessionSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf notebookVersion
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf notebookVersion `Prelude.seq`
+          Prelude.rnf sessionId `Prelude.seq`
+            Prelude.rnf status

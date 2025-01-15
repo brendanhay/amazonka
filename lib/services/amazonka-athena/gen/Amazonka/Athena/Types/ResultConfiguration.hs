@@ -219,10 +219,10 @@ instance Prelude.Hashable ResultConfiguration where
 
 instance Prelude.NFData ResultConfiguration where
   rnf ResultConfiguration' {..} =
-    Prelude.rnf aclConfiguration
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf outputLocation
+    Prelude.rnf aclConfiguration `Prelude.seq`
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf outputLocation
 
 instance Data.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =

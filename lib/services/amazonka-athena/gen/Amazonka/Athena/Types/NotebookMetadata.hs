@@ -126,9 +126,9 @@ instance Prelude.Hashable NotebookMetadata where
 
 instance Prelude.NFData NotebookMetadata where
   rnf NotebookMetadata' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notebookId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf notebookId `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf workGroup

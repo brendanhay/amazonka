@@ -195,6 +195,6 @@ batchGetNamedQueryResponse_httpStatus = Lens.lens (\BatchGetNamedQueryResponse' 
 
 instance Prelude.NFData BatchGetNamedQueryResponse where
   rnf BatchGetNamedQueryResponse' {..} =
-    Prelude.rnf namedQueries
-      `Prelude.seq` Prelude.rnf unprocessedNamedQueryIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf namedQueries `Prelude.seq`
+      Prelude.rnf unprocessedNamedQueryIds `Prelude.seq`
+        Prelude.rnf httpStatus

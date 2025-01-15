@@ -191,11 +191,11 @@ instance Prelude.Hashable QueryExecutionStatistics where
 
 instance Prelude.NFData QueryExecutionStatistics where
   rnf QueryExecutionStatistics' {..} =
-    Prelude.rnf dataManifestLocation
-      `Prelude.seq` Prelude.rnf dataScannedInBytes
-      `Prelude.seq` Prelude.rnf engineExecutionTimeInMillis
-      `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis
-      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
-      `Prelude.seq` Prelude.rnf resultReuseInformation
-      `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis
-      `Prelude.seq` Prelude.rnf totalExecutionTimeInMillis
+    Prelude.rnf dataManifestLocation `Prelude.seq`
+      Prelude.rnf dataScannedInBytes `Prelude.seq`
+        Prelude.rnf engineExecutionTimeInMillis `Prelude.seq`
+          Prelude.rnf queryPlanningTimeInMillis `Prelude.seq`
+            Prelude.rnf queryQueueTimeInMillis `Prelude.seq`
+              Prelude.rnf resultReuseInformation `Prelude.seq`
+                Prelude.rnf serviceProcessingTimeInMillis `Prelude.seq`
+                  Prelude.rnf totalExecutionTimeInMillis

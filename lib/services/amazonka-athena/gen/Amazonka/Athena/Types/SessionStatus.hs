@@ -188,9 +188,9 @@ instance Prelude.Hashable SessionStatus where
 
 instance Prelude.NFData SessionStatus where
   rnf SessionStatus' {..} =
-    Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf idleSinceDateTime
-      `Prelude.seq` Prelude.rnf lastModifiedDateTime
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
+    Prelude.rnf endDateTime `Prelude.seq`
+      Prelude.rnf idleSinceDateTime `Prelude.seq`
+        Prelude.rnf lastModifiedDateTime `Prelude.seq`
+          Prelude.rnf startDateTime `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf stateChangeReason

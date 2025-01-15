@@ -131,9 +131,9 @@ instance Prelude.Hashable NamedQuery where
 
 instance Prelude.NFData NamedQuery where
   rnf NamedQuery' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf namedQueryId
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf namedQueryId `Prelude.seq`
+        Prelude.rnf workGroup `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf database `Prelude.seq`
+              Prelude.rnf queryString

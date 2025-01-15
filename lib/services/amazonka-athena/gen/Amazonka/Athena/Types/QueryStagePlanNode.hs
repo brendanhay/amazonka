@@ -112,7 +112,7 @@ instance Prelude.Hashable QueryStagePlanNode where
 
 instance Prelude.NFData QueryStagePlanNode where
   rnf QueryStagePlanNode' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf remoteSources
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf remoteSources

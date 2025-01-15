@@ -281,11 +281,11 @@ instance Prelude.Hashable CreateDataCatalog where
 
 instance Prelude.NFData CreateDataCatalog where
   rnf CreateDataCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders CreateDataCatalog where
   toHeaders =

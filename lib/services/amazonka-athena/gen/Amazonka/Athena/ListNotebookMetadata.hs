@@ -142,10 +142,10 @@ instance Prelude.Hashable ListNotebookMetadata where
 
 instance Prelude.NFData ListNotebookMetadata where
   rnf ListNotebookMetadata' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf workGroup
 
 instance Data.ToHeaders ListNotebookMetadata where
   toHeaders =
@@ -238,6 +238,6 @@ listNotebookMetadataResponse_httpStatus = Lens.lens (\ListNotebookMetadataRespon
 
 instance Prelude.NFData ListNotebookMetadataResponse where
   rnf ListNotebookMetadataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notebookMetadataList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notebookMetadataList `Prelude.seq`
+        Prelude.rnf httpStatus

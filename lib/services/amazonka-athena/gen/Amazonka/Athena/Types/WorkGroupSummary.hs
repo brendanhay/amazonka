@@ -122,8 +122,8 @@ instance Prelude.Hashable WorkGroupSummary where
 
 instance Prelude.NFData WorkGroupSummary where
   rnf WorkGroupSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state

@@ -81,5 +81,5 @@ instance Prelude.Hashable NotebookSessionSummary where
 
 instance Prelude.NFData NotebookSessionSummary where
   rnf NotebookSessionSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf sessionId

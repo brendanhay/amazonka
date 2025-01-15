@@ -103,7 +103,7 @@ instance Prelude.Hashable SessionConfiguration where
 
 instance Prelude.NFData SessionConfiguration where
   rnf SessionConfiguration' {..} =
-    Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf idleTimeoutSeconds
-      `Prelude.seq` Prelude.rnf workingDirectory
+    Prelude.rnf encryptionConfiguration `Prelude.seq`
+      Prelude.rnf executionRole `Prelude.seq`
+        Prelude.rnf idleTimeoutSeconds `Prelude.seq`
+          Prelude.rnf workingDirectory

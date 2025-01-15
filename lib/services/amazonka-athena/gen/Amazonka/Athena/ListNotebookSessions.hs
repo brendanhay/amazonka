@@ -136,9 +136,9 @@ instance Prelude.Hashable ListNotebookSessions where
 
 instance Prelude.NFData ListNotebookSessions where
   rnf ListNotebookSessions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notebookId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf notebookId
 
 instance Data.ToHeaders ListNotebookSessions where
   toHeaders =
@@ -230,6 +230,6 @@ listNotebookSessionsResponse_notebookSessionsList = Lens.lens (\ListNotebookSess
 
 instance Prelude.NFData ListNotebookSessionsResponse where
   rnf ListNotebookSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf notebookSessionsList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf notebookSessionsList

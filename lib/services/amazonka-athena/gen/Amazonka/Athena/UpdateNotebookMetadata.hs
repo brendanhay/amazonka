@@ -141,9 +141,9 @@ instance Prelude.Hashable UpdateNotebookMetadata where
 
 instance Prelude.NFData UpdateNotebookMetadata where
   rnf UpdateNotebookMetadata' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf notebookId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf notebookId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateNotebookMetadata where
   toHeaders =

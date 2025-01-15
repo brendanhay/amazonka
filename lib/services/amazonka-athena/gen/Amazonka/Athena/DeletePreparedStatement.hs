@@ -112,8 +112,8 @@ instance Prelude.Hashable DeletePreparedStatement where
 
 instance Prelude.NFData DeletePreparedStatement where
   rnf DeletePreparedStatement' {..} =
-    Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf statementName `Prelude.seq`
+      Prelude.rnf workGroup
 
 instance Data.ToHeaders DeletePreparedStatement where
   toHeaders =

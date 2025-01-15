@@ -254,13 +254,13 @@ getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetSessionResponse where
   rnf GetSessionResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineConfiguration
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf notebookVersion
-      `Prelude.seq` Prelude.rnf sessionConfiguration
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf engineConfiguration `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf notebookVersion `Prelude.seq`
+            Prelude.rnf sessionConfiguration `Prelude.seq`
+              Prelude.rnf sessionId `Prelude.seq`
+                Prelude.rnf statistics `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf workGroup `Prelude.seq`
+                      Prelude.rnf httpStatus

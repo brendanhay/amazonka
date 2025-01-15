@@ -171,11 +171,11 @@ instance Prelude.Hashable ImportNotebook where
 
 instance Prelude.NFData ImportNotebook where
   rnf ImportNotebook' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workGroup `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf payload `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders ImportNotebook where
   toHeaders =
@@ -252,5 +252,5 @@ importNotebookResponse_httpStatus = Lens.lens (\ImportNotebookResponse' {httpSta
 
 instance Prelude.NFData ImportNotebookResponse where
   rnf ImportNotebookResponse' {..} =
-    Prelude.rnf notebookId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookId `Prelude.seq`
+      Prelude.rnf httpStatus

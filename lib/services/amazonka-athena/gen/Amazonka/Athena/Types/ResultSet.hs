@@ -87,5 +87,5 @@ instance Prelude.Hashable ResultSet where
 
 instance Prelude.NFData ResultSet where
   rnf ResultSet' {..} =
-    Prelude.rnf resultSetMetadata
-      `Prelude.seq` Prelude.rnf rows
+    Prelude.rnf resultSetMetadata `Prelude.seq`
+      Prelude.rnf rows

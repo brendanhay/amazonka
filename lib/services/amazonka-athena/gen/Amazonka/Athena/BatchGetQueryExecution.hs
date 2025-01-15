@@ -199,6 +199,6 @@ instance
     BatchGetQueryExecutionResponse
   where
   rnf BatchGetQueryExecutionResponse' {..} =
-    Prelude.rnf queryExecutions
-      `Prelude.seq` Prelude.rnf unprocessedQueryExecutionIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryExecutions `Prelude.seq`
+      Prelude.rnf unprocessedQueryExecutionIds `Prelude.seq`
+        Prelude.rnf httpStatus

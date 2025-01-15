@@ -137,7 +137,7 @@ instance Prelude.Hashable AthenaError where
 
 instance Prelude.NFData AthenaError where
   rnf AthenaError' {..} =
-    Prelude.rnf errorCategory
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorType
-      `Prelude.seq` Prelude.rnf retryable
+    Prelude.rnf errorCategory `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf errorType `Prelude.seq`
+          Prelude.rnf retryable

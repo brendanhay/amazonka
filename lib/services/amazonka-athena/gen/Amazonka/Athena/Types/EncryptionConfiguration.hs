@@ -108,8 +108,8 @@ instance Prelude.Hashable EncryptionConfiguration where
 
 instance Prelude.NFData EncryptionConfiguration where
   rnf EncryptionConfiguration' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf encryptionOption
+    Prelude.rnf kmsKey `Prelude.seq`
+      Prelude.rnf encryptionOption
 
 instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =

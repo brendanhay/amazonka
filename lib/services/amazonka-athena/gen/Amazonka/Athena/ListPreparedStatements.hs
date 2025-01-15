@@ -134,9 +134,9 @@ instance Prelude.Hashable ListPreparedStatements where
 
 instance Prelude.NFData ListPreparedStatements where
   rnf ListPreparedStatements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workGroup
 
 instance Data.ToHeaders ListPreparedStatements where
   toHeaders =
@@ -231,6 +231,6 @@ instance
     ListPreparedStatementsResponse
   where
   rnf ListPreparedStatementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf preparedStatements
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf preparedStatements `Prelude.seq`
+        Prelude.rnf httpStatus

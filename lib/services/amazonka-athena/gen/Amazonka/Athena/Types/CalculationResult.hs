@@ -105,7 +105,7 @@ instance Prelude.Hashable CalculationResult where
 
 instance Prelude.NFData CalculationResult where
   rnf CalculationResult' {..} =
-    Prelude.rnf resultS3Uri
-      `Prelude.seq` Prelude.rnf resultType
-      `Prelude.seq` Prelude.rnf stdErrorS3Uri
-      `Prelude.seq` Prelude.rnf stdOutS3Uri
+    Prelude.rnf resultS3Uri `Prelude.seq`
+      Prelude.rnf resultType `Prelude.seq`
+        Prelude.rnf stdErrorS3Uri `Prelude.seq`
+          Prelude.rnf stdOutS3Uri

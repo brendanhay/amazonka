@@ -231,7 +231,7 @@ instance Prelude.Hashable DataCatalog where
 
 instance Prelude.NFData DataCatalog where
   rnf DataCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'

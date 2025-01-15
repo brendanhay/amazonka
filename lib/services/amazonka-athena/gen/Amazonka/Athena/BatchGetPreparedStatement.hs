@@ -122,8 +122,8 @@ instance Prelude.Hashable BatchGetPreparedStatement where
 
 instance Prelude.NFData BatchGetPreparedStatement where
   rnf BatchGetPreparedStatement' {..} =
-    Prelude.rnf preparedStatementNames
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf preparedStatementNames `Prelude.seq`
+      Prelude.rnf workGroup
 
 instance Data.ToHeaders BatchGetPreparedStatement where
   toHeaders =
@@ -215,6 +215,6 @@ instance
     BatchGetPreparedStatementResponse
   where
   rnf BatchGetPreparedStatementResponse' {..} =
-    Prelude.rnf preparedStatements
-      `Prelude.seq` Prelude.rnf unprocessedPreparedStatementNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preparedStatements `Prelude.seq`
+      Prelude.rnf unprocessedPreparedStatementNames `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -151,9 +151,9 @@ instance Prelude.Hashable CreateNotebook where
 
 instance Prelude.NFData CreateNotebook where
   rnf CreateNotebook' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workGroup `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateNotebook where
   toHeaders =
@@ -228,5 +228,5 @@ createNotebookResponse_httpStatus = Lens.lens (\CreateNotebookResponse' {httpSta
 
 instance Prelude.NFData CreateNotebookResponse where
   rnf CreateNotebookResponse' {..} =
-    Prelude.rnf notebookId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteWorkGroup where
 
 instance Prelude.NFData DeleteWorkGroup where
   rnf DeleteWorkGroup' {..} =
-    Prelude.rnf recursiveDeleteOption
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf recursiveDeleteOption `Prelude.seq`
+      Prelude.rnf workGroup
 
 instance Data.ToHeaders DeleteWorkGroup where
   toHeaders =

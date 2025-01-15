@@ -136,10 +136,10 @@ instance Prelude.Hashable EngineConfiguration where
 
 instance Prelude.NFData EngineConfiguration where
   rnf EngineConfiguration' {..} =
-    Prelude.rnf additionalConfigs
-      `Prelude.seq` Prelude.rnf coordinatorDpuSize
-      `Prelude.seq` Prelude.rnf defaultExecutorDpuSize
-      `Prelude.seq` Prelude.rnf maxConcurrentDpus
+    Prelude.rnf additionalConfigs `Prelude.seq`
+      Prelude.rnf coordinatorDpuSize `Prelude.seq`
+        Prelude.rnf defaultExecutorDpuSize `Prelude.seq`
+          Prelude.rnf maxConcurrentDpus
 
 instance Data.ToJSON EngineConfiguration where
   toJSON EngineConfiguration' {..} =

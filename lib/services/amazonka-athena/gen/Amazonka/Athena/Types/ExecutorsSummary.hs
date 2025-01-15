@@ -179,9 +179,9 @@ instance Prelude.Hashable ExecutorsSummary where
 
 instance Prelude.NFData ExecutorsSummary where
   rnf ExecutorsSummary' {..} =
-    Prelude.rnf executorSize
-      `Prelude.seq` Prelude.rnf executorState
-      `Prelude.seq` Prelude.rnf executorType
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf terminationDateTime
-      `Prelude.seq` Prelude.rnf executorId
+    Prelude.rnf executorSize `Prelude.seq`
+      Prelude.rnf executorState `Prelude.seq`
+        Prelude.rnf executorType `Prelude.seq`
+          Prelude.rnf startDateTime `Prelude.seq`
+            Prelude.rnf terminationDateTime `Prelude.seq`
+              Prelude.rnf executorId

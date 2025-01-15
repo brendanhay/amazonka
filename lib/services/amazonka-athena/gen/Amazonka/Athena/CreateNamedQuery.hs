@@ -192,12 +192,12 @@ instance Prelude.Hashable CreateNamedQuery where
 
 instance Prelude.NFData CreateNamedQuery where
   rnf CreateNamedQuery' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf workGroup `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf database `Prelude.seq`
+              Prelude.rnf queryString
 
 instance Data.ToHeaders CreateNamedQuery where
   toHeaders =
@@ -275,5 +275,5 @@ createNamedQueryResponse_httpStatus = Lens.lens (\CreateNamedQueryResponse' {htt
 
 instance Prelude.NFData CreateNamedQueryResponse where
   rnf CreateNamedQueryResponse' {..} =
-    Prelude.rnf namedQueryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf namedQueryId `Prelude.seq`
+      Prelude.rnf httpStatus

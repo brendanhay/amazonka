@@ -84,8 +84,8 @@ instance Prelude.Hashable QueryExecutionContext where
 
 instance Prelude.NFData QueryExecutionContext where
   rnf QueryExecutionContext' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf database
 
 instance Data.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =

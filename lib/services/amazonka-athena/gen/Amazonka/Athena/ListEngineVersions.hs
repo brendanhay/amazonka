@@ -118,8 +118,8 @@ instance Prelude.Hashable ListEngineVersions where
 
 instance Prelude.NFData ListEngineVersions where
   rnf ListEngineVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEngineVersions where
   toHeaders =
@@ -210,6 +210,6 @@ listEngineVersionsResponse_httpStatus = Lens.lens (\ListEngineVersionsResponse' 
 
 instance Prelude.NFData ListEngineVersionsResponse where
   rnf ListEngineVersionsResponse' {..} =
-    Prelude.rnf engineVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf engineVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

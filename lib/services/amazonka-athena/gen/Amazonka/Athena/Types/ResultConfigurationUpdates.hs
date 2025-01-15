@@ -275,14 +275,14 @@ instance Prelude.Hashable ResultConfigurationUpdates where
 
 instance Prelude.NFData ResultConfigurationUpdates where
   rnf ResultConfigurationUpdates' {..} =
-    Prelude.rnf aclConfiguration
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf removeAclConfiguration
-      `Prelude.seq` Prelude.rnf removeEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf removeExpectedBucketOwner
-      `Prelude.seq` Prelude.rnf removeOutputLocation
+    Prelude.rnf aclConfiguration `Prelude.seq`
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf expectedBucketOwner `Prelude.seq`
+          Prelude.rnf outputLocation `Prelude.seq`
+            Prelude.rnf removeAclConfiguration `Prelude.seq`
+              Prelude.rnf removeEncryptionConfiguration `Prelude.seq`
+                Prelude.rnf removeExpectedBucketOwner `Prelude.seq`
+                  Prelude.rnf removeOutputLocation
 
 instance Data.ToJSON ResultConfigurationUpdates where
   toJSON ResultConfigurationUpdates' {..} =

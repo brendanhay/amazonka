@@ -93,6 +93,6 @@ instance Prelude.Hashable Database where
 
 instance Prelude.NFData Database where
   rnf Database' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf name

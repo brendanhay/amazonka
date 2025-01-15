@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdatePreparedStatement where
 
 instance Prelude.NFData UpdatePreparedStatement where
   rnf UpdatePreparedStatement' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf queryStatement
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf statementName `Prelude.seq`
+        Prelude.rnf workGroup `Prelude.seq`
+          Prelude.rnf queryStatement
 
 instance Data.ToHeaders UpdatePreparedStatement where
   toHeaders =

@@ -194,12 +194,12 @@ instance Prelude.Hashable StartSession where
 
 instance Prelude.NFData StartSession where
   rnf StartSession' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notebookVersion
-      `Prelude.seq` Prelude.rnf sessionIdleTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf engineConfiguration
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf notebookVersion `Prelude.seq`
+          Prelude.rnf sessionIdleTimeoutInMinutes `Prelude.seq`
+            Prelude.rnf workGroup `Prelude.seq`
+              Prelude.rnf engineConfiguration
 
 instance Data.ToHeaders StartSession where
   toHeaders =
@@ -343,6 +343,6 @@ startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus}
 
 instance Prelude.NFData StartSessionResponse where
   rnf StartSessionResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

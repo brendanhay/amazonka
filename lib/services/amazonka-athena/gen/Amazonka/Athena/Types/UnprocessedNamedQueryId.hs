@@ -98,6 +98,6 @@ instance Prelude.Hashable UnprocessedNamedQueryId where
 
 instance Prelude.NFData UnprocessedNamedQueryId where
   rnf UnprocessedNamedQueryId' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf namedQueryId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf namedQueryId

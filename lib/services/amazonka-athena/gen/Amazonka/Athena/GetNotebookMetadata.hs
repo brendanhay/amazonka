@@ -164,5 +164,5 @@ getNotebookMetadataResponse_httpStatus = Lens.lens (\GetNotebookMetadataResponse
 
 instance Prelude.NFData GetNotebookMetadataResponse where
   rnf GetNotebookMetadataResponse' {..} =
-    Prelude.rnf notebookMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

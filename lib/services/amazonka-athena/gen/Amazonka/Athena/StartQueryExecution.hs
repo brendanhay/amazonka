@@ -224,13 +224,13 @@ instance Prelude.Hashable StartQueryExecution where
 
 instance Prelude.NFData StartQueryExecution where
   rnf StartQueryExecution' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf executionParameters
-      `Prelude.seq` Prelude.rnf queryExecutionContext
-      `Prelude.seq` Prelude.rnf resultConfiguration
-      `Prelude.seq` Prelude.rnf resultReuseConfiguration
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf executionParameters `Prelude.seq`
+        Prelude.rnf queryExecutionContext `Prelude.seq`
+          Prelude.rnf resultConfiguration `Prelude.seq`
+            Prelude.rnf resultReuseConfiguration `Prelude.seq`
+              Prelude.rnf workGroup `Prelude.seq`
+                Prelude.rnf queryString
 
 instance Data.ToHeaders StartQueryExecution where
   toHeaders =
@@ -313,5 +313,5 @@ startQueryExecutionResponse_httpStatus = Lens.lens (\StartQueryExecutionResponse
 
 instance Prelude.NFData StartQueryExecutionResponse where
   rnf StartQueryExecutionResponse' {..} =
-    Prelude.rnf queryExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

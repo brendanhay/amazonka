@@ -116,12 +116,12 @@ instance Prelude.Hashable DeploymentResult where
 
 instance Prelude.NFData DeploymentResult where
   rnf DeploymentResult' {..} =
-    Prelude.rnf deploymentEndTime
-      `Prelude.seq` Prelude.rnf deploymentModels
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf deploymentStartTime
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf deploymentStatusMessage
+    Prelude.rnf deploymentEndTime `Prelude.seq`
+      Prelude.rnf deploymentModels `Prelude.seq`
+        Prelude.rnf deploymentName `Prelude.seq`
+          Prelude.rnf deploymentStartTime `Prelude.seq`
+            Prelude.rnf deploymentStatus `Prelude.seq`
+              Prelude.rnf deploymentStatusMessage
 
 instance Data.ToJSON DeploymentResult where
   toJSON DeploymentResult' {..} =

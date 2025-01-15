@@ -109,7 +109,7 @@ instance Prelude.Hashable EdgeDeployment where
 
 instance Prelude.NFData EdgeDeployment where
   rnf EdgeDeployment' {..} =
-    Prelude.rnf definitions
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf failureHandlingPolicy
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf definitions `Prelude.seq`
+      Prelude.rnf deploymentName `Prelude.seq`
+        Prelude.rnf failureHandlingPolicy `Prelude.seq`
+          Prelude.rnf type'

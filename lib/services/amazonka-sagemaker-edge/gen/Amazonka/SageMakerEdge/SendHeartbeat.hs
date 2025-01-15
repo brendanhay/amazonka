@@ -154,12 +154,12 @@ instance Prelude.Hashable SendHeartbeat where
 
 instance Prelude.NFData SendHeartbeat where
   rnf SendHeartbeat' {..} =
-    Prelude.rnf agentMetrics
-      `Prelude.seq` Prelude.rnf deploymentResult
-      `Prelude.seq` Prelude.rnf models
-      `Prelude.seq` Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf agentMetrics `Prelude.seq`
+      Prelude.rnf deploymentResult `Prelude.seq`
+        Prelude.rnf models `Prelude.seq`
+          Prelude.rnf agentVersion `Prelude.seq`
+            Prelude.rnf deviceName `Prelude.seq`
+              Prelude.rnf deviceFleetName
 
 instance Data.ToHeaders SendHeartbeat where
   toHeaders =

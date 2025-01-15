@@ -104,7 +104,7 @@ instance Prelude.Hashable Definition where
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf modelHandle
-      `Prelude.seq` Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf modelHandle `Prelude.seq`
+        Prelude.rnf s3Url `Prelude.seq`
+          Prelude.rnf state

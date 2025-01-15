@@ -132,14 +132,14 @@ instance Prelude.Hashable DeploymentModel where
 
 instance Prelude.NFData DeploymentModel where
   rnf DeploymentModel' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf modelHandle
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf rollbackFailureReason
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf modelHandle `Prelude.seq`
+        Prelude.rnf modelName `Prelude.seq`
+          Prelude.rnf modelVersion `Prelude.seq`
+            Prelude.rnf rollbackFailureReason `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusReason
 
 instance Data.ToJSON DeploymentModel where
   toJSON DeploymentModel' {..} =

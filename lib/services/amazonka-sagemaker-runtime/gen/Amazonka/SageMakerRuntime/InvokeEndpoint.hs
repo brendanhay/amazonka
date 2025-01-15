@@ -349,16 +349,16 @@ instance Prelude.Hashable InvokeEndpoint where
 
 instance Prelude.NFData InvokeEndpoint where
   rnf InvokeEndpoint' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf customAttributes
-      `Prelude.seq` Prelude.rnf enableExplanations
-      `Prelude.seq` Prelude.rnf inferenceId
-      `Prelude.seq` Prelude.rnf targetContainerHostname
-      `Prelude.seq` Prelude.rnf targetModel
-      `Prelude.seq` Prelude.rnf targetVariant
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf customAttributes `Prelude.seq`
+          Prelude.rnf enableExplanations `Prelude.seq`
+            Prelude.rnf inferenceId `Prelude.seq`
+              Prelude.rnf targetContainerHostname `Prelude.seq`
+                Prelude.rnf targetModel `Prelude.seq`
+                  Prelude.rnf targetVariant `Prelude.seq`
+                    Prelude.rnf endpointName `Prelude.seq`
+                      Prelude.rnf body
 
 instance Data.ToHeaders InvokeEndpoint where
   toHeaders InvokeEndpoint' {..} =
@@ -545,8 +545,8 @@ invokeEndpointResponse_body = Lens.lens (\InvokeEndpointResponse' {body} -> body
 
 instance Prelude.NFData InvokeEndpointResponse where
   rnf InvokeEndpointResponse' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf customAttributes
-      `Prelude.seq` Prelude.rnf invokedProductionVariant
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf customAttributes `Prelude.seq`
+        Prelude.rnf invokedProductionVariant `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf body

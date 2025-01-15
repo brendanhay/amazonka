@@ -898,17 +898,17 @@ instance Prelude.Hashable AssumeRole where
 
 instance Prelude.NFData AssumeRole where
   rnf AssumeRole' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArns
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf sourceIdentity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tokenCode
-      `Prelude.seq` Prelude.rnf transitiveTagKeys
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleSessionName
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf externalId `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf policyArns `Prelude.seq`
+            Prelude.rnf serialNumber `Prelude.seq`
+              Prelude.rnf sourceIdentity `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf tokenCode `Prelude.seq`
+                    Prelude.rnf transitiveTagKeys `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf roleSessionName
 
 instance Data.ToHeaders AssumeRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -1105,8 +1105,8 @@ assumeRoleResponse_credentials = Lens.lens (\AssumeRoleResponse' {credentials} -
 
 instance Prelude.NFData AssumeRoleResponse where
   rnf AssumeRoleResponse' {..} =
-    Prelude.rnf assumedRoleUser
-      `Prelude.seq` Prelude.rnf packedPolicySize
-      `Prelude.seq` Prelude.rnf sourceIdentity
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf assumedRoleUser `Prelude.seq`
+      Prelude.rnf packedPolicySize `Prelude.seq`
+        Prelude.rnf sourceIdentity `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf credentials

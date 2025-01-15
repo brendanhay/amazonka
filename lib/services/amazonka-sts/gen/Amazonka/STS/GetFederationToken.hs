@@ -610,11 +610,11 @@ instance Prelude.Hashable GetFederationToken where
 
 instance Prelude.NFData GetFederationToken where
   rnf GetFederationToken' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf policyArns `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders GetFederationToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -736,7 +736,7 @@ getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' 
 
 instance Prelude.NFData GetFederationTokenResponse where
   rnf GetFederationTokenResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf federatedUser
-      `Prelude.seq` Prelude.rnf packedPolicySize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf federatedUser `Prelude.seq`
+        Prelude.rnf packedPolicySize `Prelude.seq`
+          Prelude.rnf httpStatus

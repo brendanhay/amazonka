@@ -191,7 +191,7 @@ getCallerIdentityResponse_httpStatus = Lens.lens (\GetCallerIdentityResponse' {h
 
 instance Prelude.NFData GetCallerIdentityResponse where
   rnf GetCallerIdentityResponse' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf userId `Prelude.seq`
+          Prelude.rnf httpStatus

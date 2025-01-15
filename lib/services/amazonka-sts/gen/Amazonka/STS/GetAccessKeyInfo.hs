@@ -188,5 +188,5 @@ getAccessKeyInfoResponse_httpStatus = Lens.lens (\GetAccessKeyInfoResponse' {htt
 
 instance Prelude.NFData GetAccessKeyInfoResponse where
   rnf GetAccessKeyInfoResponse' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf httpStatus

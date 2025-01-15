@@ -96,5 +96,5 @@ instance Prelude.Hashable FederatedUser where
 
 instance Prelude.NFData FederatedUser where
   rnf FederatedUser' {..} =
-    Prelude.rnf federatedUserId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf federatedUserId `Prelude.seq`
+      Prelude.rnf arn

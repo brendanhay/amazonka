@@ -99,5 +99,5 @@ instance Prelude.Hashable AssumedRoleUser where
 
 instance Prelude.NFData AssumedRoleUser where
   rnf AssumedRoleUser' {..} =
-    Prelude.rnf assumedRoleId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf assumedRoleId `Prelude.seq`
+      Prelude.rnf arn

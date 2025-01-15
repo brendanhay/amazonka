@@ -420,11 +420,11 @@ instance Prelude.Hashable Decrypt where
 
 instance Prelude.NFData Decrypt where
   rnf Decrypt' {..} =
-    Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf encryptionContext
-      `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf ciphertextBlob
+    Prelude.rnf encryptionAlgorithm `Prelude.seq`
+      Prelude.rnf encryptionContext `Prelude.seq`
+        Prelude.rnf grantTokens `Prelude.seq`
+          Prelude.rnf keyId `Prelude.seq`
+            Prelude.rnf ciphertextBlob
 
 instance Data.ToHeaders Decrypt where
   toHeaders =
@@ -539,7 +539,7 @@ decryptResponse_httpStatus = Lens.lens (\DecryptResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData DecryptResponse where
   rnf DecryptResponse' {..} =
-    Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf plaintext
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf encryptionAlgorithm `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf plaintext `Prelude.seq`
+          Prelude.rnf httpStatus

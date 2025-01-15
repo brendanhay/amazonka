@@ -237,12 +237,12 @@ instance Core.AWSPager ListGrants where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGrants_marker
-          Lens..~ rs
-          Lens.^? listGrantsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGrants_marker
+              Lens..~ rs
+              Lens.^? listGrantsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGrants where
   type AWSResponse ListGrants = ListGrantsResponse
@@ -263,11 +263,11 @@ instance Prelude.Hashable ListGrants where
 
 instance Prelude.NFData ListGrants where
   rnf ListGrants' {..} =
-    Prelude.rnf grantId
-      `Prelude.seq` Prelude.rnf granteePrincipal
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf grantId `Prelude.seq`
+      Prelude.rnf granteePrincipal `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf keyId
 
 instance Data.ToHeaders ListGrants where
   toHeaders =

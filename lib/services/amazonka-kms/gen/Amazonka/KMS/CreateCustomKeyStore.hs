@@ -696,16 +696,16 @@ instance Prelude.Hashable CreateCustomKeyStore where
 
 instance Prelude.NFData CreateCustomKeyStore where
   rnf CreateCustomKeyStore' {..} =
-    Prelude.rnf cloudHsmClusterId
-      `Prelude.seq` Prelude.rnf customKeyStoreType
-      `Prelude.seq` Prelude.rnf keyStorePassword
-      `Prelude.seq` Prelude.rnf trustAnchorCertificate
-      `Prelude.seq` Prelude.rnf xksProxyAuthenticationCredential
-      `Prelude.seq` Prelude.rnf xksProxyConnectivity
-      `Prelude.seq` Prelude.rnf xksProxyUriEndpoint
-      `Prelude.seq` Prelude.rnf xksProxyUriPath
-      `Prelude.seq` Prelude.rnf xksProxyVpcEndpointServiceName
-      `Prelude.seq` Prelude.rnf customKeyStoreName
+    Prelude.rnf cloudHsmClusterId `Prelude.seq`
+      Prelude.rnf customKeyStoreType `Prelude.seq`
+        Prelude.rnf keyStorePassword `Prelude.seq`
+          Prelude.rnf trustAnchorCertificate `Prelude.seq`
+            Prelude.rnf xksProxyAuthenticationCredential `Prelude.seq`
+              Prelude.rnf xksProxyConnectivity `Prelude.seq`
+                Prelude.rnf xksProxyUriEndpoint `Prelude.seq`
+                  Prelude.rnf xksProxyUriPath `Prelude.seq`
+                    Prelude.rnf xksProxyVpcEndpointServiceName `Prelude.seq`
+                      Prelude.rnf customKeyStoreName
 
 instance Data.ToHeaders CreateCustomKeyStore where
   toHeaders =
@@ -796,5 +796,5 @@ createCustomKeyStoreResponse_httpStatus = Lens.lens (\CreateCustomKeyStoreRespon
 
 instance Prelude.NFData CreateCustomKeyStoreResponse where
   rnf CreateCustomKeyStoreResponse' {..} =
-    Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customKeyStoreId `Prelude.seq`
+      Prelude.rnf httpStatus

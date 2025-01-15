@@ -362,10 +362,10 @@ instance
     GenerateDataKeyPairWithoutPlaintext
   where
   rnf GenerateDataKeyPairWithoutPlaintext' {..} =
-    Prelude.rnf encryptionContext
-      `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyPairSpec
+    Prelude.rnf encryptionContext `Prelude.seq`
+      Prelude.rnf grantTokens `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf keyPairSpec
 
 instance
   Data.ToHeaders
@@ -519,8 +519,8 @@ instance
     GenerateDataKeyPairWithoutPlaintextResponse
   where
   rnf GenerateDataKeyPairWithoutPlaintextResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyPairSpec
-      `Prelude.seq` Prelude.rnf privateKeyCiphertextBlob
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf keyPairSpec `Prelude.seq`
+        Prelude.rnf privateKeyCiphertextBlob `Prelude.seq`
+          Prelude.rnf publicKey `Prelude.seq`
+            Prelude.rnf httpStatus

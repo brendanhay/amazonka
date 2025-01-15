@@ -226,5 +226,5 @@ cancelKeyDeletionResponse_httpStatus = Lens.lens (\CancelKeyDeletionResponse' {h
 
 instance Prelude.NFData CancelKeyDeletionResponse where
   rnf CancelKeyDeletionResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf httpStatus

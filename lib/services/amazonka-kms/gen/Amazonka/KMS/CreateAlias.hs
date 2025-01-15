@@ -237,8 +237,8 @@ instance Prelude.Hashable CreateAlias where
 
 instance Prelude.NFData CreateAlias where
   rnf CreateAlias' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf targetKeyId
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf targetKeyId
 
 instance Data.ToHeaders CreateAlias where
   toHeaders =

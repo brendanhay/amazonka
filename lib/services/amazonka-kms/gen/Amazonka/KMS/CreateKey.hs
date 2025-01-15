@@ -1177,17 +1177,17 @@ instance Prelude.Hashable CreateKey where
 
 instance Prelude.NFData CreateKey where
   rnf CreateKey' {..} =
-    Prelude.rnf bypassPolicyLockoutSafetyCheck
-      `Prelude.seq` Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf customerMasterKeySpec
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf keySpec
-      `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf multiRegion
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf xksKeyId
+    Prelude.rnf bypassPolicyLockoutSafetyCheck `Prelude.seq`
+      Prelude.rnf customKeyStoreId `Prelude.seq`
+        Prelude.rnf customerMasterKeySpec `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf keySpec `Prelude.seq`
+              Prelude.rnf keyUsage `Prelude.seq`
+                Prelude.rnf multiRegion `Prelude.seq`
+                  Prelude.rnf origin `Prelude.seq`
+                    Prelude.rnf policy `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf xksKeyId
 
 instance Data.ToHeaders CreateKey where
   toHeaders =
@@ -1269,5 +1269,5 @@ createKeyResponse_httpStatus = Lens.lens (\CreateKeyResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateKeyResponse where
   rnf CreateKeyResponse' {..} =
-    Prelude.rnf keyMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

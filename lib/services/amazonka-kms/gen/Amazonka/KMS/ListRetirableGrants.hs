@@ -201,12 +201,12 @@ instance Core.AWSPager ListRetirableGrants where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRetirableGrants_marker
-          Lens..~ rs
-          Lens.^? listGrantsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRetirableGrants_marker
+              Lens..~ rs
+              Lens.^? listGrantsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetirableGrants where
   type
@@ -227,9 +227,9 @@ instance Prelude.Hashable ListRetirableGrants where
 
 instance Prelude.NFData ListRetirableGrants where
   rnf ListRetirableGrants' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf retiringPrincipal
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf retiringPrincipal
 
 instance Data.ToHeaders ListRetirableGrants where
   toHeaders =

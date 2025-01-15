@@ -259,11 +259,11 @@ instance Prelude.Hashable VerifyMac where
 
 instance Prelude.NFData VerifyMac where
   rnf VerifyMac' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf macAlgorithm
-      `Prelude.seq` Prelude.rnf mac
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf macAlgorithm `Prelude.seq`
+            Prelude.rnf mac
 
 instance Data.ToHeaders VerifyMac where
   toHeaders =
@@ -372,7 +372,7 @@ verifyMacResponse_httpStatus = Lens.lens (\VerifyMacResponse' {httpStatus} -> ht
 
 instance Prelude.NFData VerifyMacResponse where
   rnf VerifyMacResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf macAlgorithm
-      `Prelude.seq` Prelude.rnf macValid
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf macAlgorithm `Prelude.seq`
+        Prelude.rnf macValid `Prelude.seq`
+          Prelude.rnf httpStatus

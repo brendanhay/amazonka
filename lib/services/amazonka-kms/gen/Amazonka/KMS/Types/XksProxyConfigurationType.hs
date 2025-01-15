@@ -155,8 +155,8 @@ instance Prelude.Hashable XksProxyConfigurationType where
 
 instance Prelude.NFData XksProxyConfigurationType where
   rnf XksProxyConfigurationType' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf connectivity
-      `Prelude.seq` Prelude.rnf uriEndpoint
-      `Prelude.seq` Prelude.rnf uriPath
-      `Prelude.seq` Prelude.rnf vpcEndpointServiceName
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf connectivity `Prelude.seq`
+        Prelude.rnf uriEndpoint `Prelude.seq`
+          Prelude.rnf uriPath `Prelude.seq`
+            Prelude.rnf vpcEndpointServiceName

@@ -228,12 +228,12 @@ instance Core.AWSPager DescribeCustomKeyStores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCustomKeyStores_marker
-          Lens..~ rs
-          Lens.^? describeCustomKeyStoresResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCustomKeyStores_marker
+              Lens..~ rs
+              Lens.^? describeCustomKeyStoresResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCustomKeyStores where
   type
@@ -264,10 +264,10 @@ instance Prelude.Hashable DescribeCustomKeyStores where
 
 instance Prelude.NFData DescribeCustomKeyStores where
   rnf DescribeCustomKeyStores' {..} =
-    Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf customKeyStoreName
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf customKeyStoreId `Prelude.seq`
+      Prelude.rnf customKeyStoreName `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker
 
 instance Data.ToHeaders DescribeCustomKeyStores where
   toHeaders =
@@ -377,7 +377,7 @@ instance
     DescribeCustomKeyStoresResponse
   where
   rnf DescribeCustomKeyStoresResponse' {..} =
-    Prelude.rnf customKeyStores
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customKeyStores `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf truncated `Prelude.seq`
+          Prelude.rnf httpStatus

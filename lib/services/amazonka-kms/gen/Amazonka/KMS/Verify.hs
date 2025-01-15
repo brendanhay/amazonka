@@ -360,12 +360,12 @@ instance Prelude.Hashable Verify where
 
 instance Prelude.NFData Verify where
   rnf Verify' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf signingAlgorithm
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf messageType `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf signature `Prelude.seq`
+              Prelude.rnf signingAlgorithm
 
 instance Data.ToHeaders Verify where
   toHeaders =
@@ -476,7 +476,7 @@ verifyResponse_httpStatus = Lens.lens (\VerifyResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData VerifyResponse where
   rnf VerifyResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf signatureValid
-      `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf signatureValid `Prelude.seq`
+        Prelude.rnf signingAlgorithm `Prelude.seq`
+          Prelude.rnf httpStatus

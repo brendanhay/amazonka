@@ -102,6 +102,6 @@ instance Prelude.Hashable ListGrantsResponse where
 
 instance Prelude.NFData ListGrantsResponse where
   rnf ListGrantsResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf truncated
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf truncated

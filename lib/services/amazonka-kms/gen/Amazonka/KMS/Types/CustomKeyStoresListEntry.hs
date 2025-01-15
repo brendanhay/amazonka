@@ -745,12 +745,12 @@ instance Prelude.Hashable CustomKeyStoresListEntry where
 
 instance Prelude.NFData CustomKeyStoresListEntry where
   rnf CustomKeyStoresListEntry' {..} =
-    Prelude.rnf cloudHsmClusterId
-      `Prelude.seq` Prelude.rnf connectionErrorCode
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf customKeyStoreName
-      `Prelude.seq` Prelude.rnf customKeyStoreType
-      `Prelude.seq` Prelude.rnf trustAnchorCertificate
-      `Prelude.seq` Prelude.rnf xksProxyConfiguration
+    Prelude.rnf cloudHsmClusterId `Prelude.seq`
+      Prelude.rnf connectionErrorCode `Prelude.seq`
+        Prelude.rnf connectionState `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf customKeyStoreId `Prelude.seq`
+              Prelude.rnf customKeyStoreName `Prelude.seq`
+                Prelude.rnf customKeyStoreType `Prelude.seq`
+                  Prelude.rnf trustAnchorCertificate `Prelude.seq`
+                    Prelude.rnf xksProxyConfiguration

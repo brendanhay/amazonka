@@ -96,8 +96,8 @@ instance
     XksProxyAuthenticationCredentialType
   where
   rnf XksProxyAuthenticationCredentialType' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf rawSecretAccessKey
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf rawSecretAccessKey
 
 instance
   Data.ToJSON

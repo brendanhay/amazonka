@@ -204,12 +204,12 @@ instance Core.AWSPager ListResourceTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceTags_marker
-          Lens..~ rs
-          Lens.^? listResourceTagsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceTags_marker
+              Lens..~ rs
+              Lens.^? listResourceTagsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceTags where
   type
@@ -236,9 +236,9 @@ instance Prelude.Hashable ListResourceTags where
 
 instance Prelude.NFData ListResourceTags where
   rnf ListResourceTags' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf keyId
 
 instance Data.ToHeaders ListResourceTags where
   toHeaders =
@@ -363,7 +363,7 @@ listResourceTagsResponse_httpStatus = Lens.lens (\ListResourceTagsResponse' {htt
 
 instance Prelude.NFData ListResourceTagsResponse where
   rnf ListResourceTagsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf truncated `Prelude.seq`
+          Prelude.rnf httpStatus

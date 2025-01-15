@@ -122,8 +122,8 @@ instance Prelude.Hashable AliasListEntry where
 
 instance Prelude.NFData AliasListEntry where
   rnf AliasListEntry' {..} =
-    Prelude.rnf aliasArn
-      `Prelude.seq` Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf targetKeyId
+    Prelude.rnf aliasArn `Prelude.seq`
+      Prelude.rnf aliasName `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf lastUpdatedDate `Prelude.seq`
+            Prelude.rnf targetKeyId

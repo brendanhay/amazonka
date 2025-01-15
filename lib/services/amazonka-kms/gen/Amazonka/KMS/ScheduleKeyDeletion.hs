@@ -234,8 +234,8 @@ instance Prelude.Hashable ScheduleKeyDeletion where
 
 instance Prelude.NFData ScheduleKeyDeletion where
   rnf ScheduleKeyDeletion' {..} =
-    Prelude.rnf pendingWindowInDays
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf pendingWindowInDays `Prelude.seq`
+      Prelude.rnf keyId
 
 instance Data.ToHeaders ScheduleKeyDeletion where
   toHeaders =
@@ -381,8 +381,8 @@ scheduleKeyDeletionResponse_httpStatus = Lens.lens (\ScheduleKeyDeletionResponse
 
 instance Prelude.NFData ScheduleKeyDeletionResponse where
   rnf ScheduleKeyDeletionResponse' {..} =
-    Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyState
-      `Prelude.seq` Prelude.rnf pendingWindowInDays
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletionDate `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf keyState `Prelude.seq`
+          Prelude.rnf pendingWindowInDays `Prelude.seq`
+            Prelude.rnf httpStatus

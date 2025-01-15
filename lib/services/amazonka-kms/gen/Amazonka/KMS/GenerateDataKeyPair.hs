@@ -363,10 +363,10 @@ instance Prelude.Hashable GenerateDataKeyPair where
 
 instance Prelude.NFData GenerateDataKeyPair where
   rnf GenerateDataKeyPair' {..} =
-    Prelude.rnf encryptionContext
-      `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyPairSpec
+    Prelude.rnf encryptionContext `Prelude.seq`
+      Prelude.rnf grantTokens `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf keyPairSpec
 
 instance Data.ToHeaders GenerateDataKeyPair where
   toHeaders =
@@ -526,9 +526,9 @@ generateDataKeyPairResponse_httpStatus = Lens.lens (\GenerateDataKeyPairResponse
 
 instance Prelude.NFData GenerateDataKeyPairResponse where
   rnf GenerateDataKeyPairResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyPairSpec
-      `Prelude.seq` Prelude.rnf privateKeyCiphertextBlob
-      `Prelude.seq` Prelude.rnf privateKeyPlaintext
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf keyPairSpec `Prelude.seq`
+        Prelude.rnf privateKeyCiphertextBlob `Prelude.seq`
+          Prelude.rnf privateKeyPlaintext `Prelude.seq`
+            Prelude.rnf publicKey `Prelude.seq`
+              Prelude.rnf httpStatus

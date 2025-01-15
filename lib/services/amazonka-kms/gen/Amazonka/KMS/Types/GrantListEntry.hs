@@ -189,12 +189,12 @@ instance Prelude.Hashable GrantListEntry where
 
 instance Prelude.NFData GrantListEntry where
   rnf GrantListEntry' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf grantId
-      `Prelude.seq` Prelude.rnf granteePrincipal
-      `Prelude.seq` Prelude.rnf issuingAccount
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf retiringPrincipal
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf grantId `Prelude.seq`
+          Prelude.rnf granteePrincipal `Prelude.seq`
+            Prelude.rnf issuingAccount `Prelude.seq`
+              Prelude.rnf keyId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf operations `Prelude.seq`
+                    Prelude.rnf retiringPrincipal

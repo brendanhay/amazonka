@@ -158,7 +158,7 @@ operation' l template o =
   module'
     Module
       { name,
-        imports = operationImports l o,
+        imports = operationImports l,
         template,
         env = do
           x <- JSON.objectErr (show name) o

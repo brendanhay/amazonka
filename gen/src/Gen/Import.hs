@@ -8,8 +8,8 @@ import qualified Data.Set as Set
 import Gen.Prelude
 import Gen.Types
 
-operationImports :: Library -> Operation Identity SData a -> [NS]
-operationImports l _o =
+operationImports :: Library -> [NS]
+operationImports l =
   Set.toAscList . Set.fromList $
     "qualified Amazonka.Request as Request"
       : "qualified Amazonka.Response as Response"

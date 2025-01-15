@@ -92,5 +92,5 @@ instance Prelude.Hashable GroupQuery where
 
 instance Prelude.NFData GroupQuery where
   rnf GroupQuery' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf resourceQuery
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf resourceQuery

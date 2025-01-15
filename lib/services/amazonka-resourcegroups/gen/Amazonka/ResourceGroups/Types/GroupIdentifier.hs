@@ -80,5 +80,5 @@ instance Prelude.Hashable GroupIdentifier where
 
 instance Prelude.NFData GroupIdentifier where
   rnf GroupIdentifier' {..} =
-    Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupArn `Prelude.seq`
+      Prelude.rnf groupName

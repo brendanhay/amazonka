@@ -105,8 +105,8 @@ instance Prelude.Hashable GroupConfigurationItem where
 
 instance Prelude.NFData GroupConfigurationItem where
   rnf GroupConfigurationItem' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON GroupConfigurationItem where
   toJSON GroupConfigurationItem' {..} =

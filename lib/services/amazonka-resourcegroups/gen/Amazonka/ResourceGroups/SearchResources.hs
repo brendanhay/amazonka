@@ -171,12 +171,12 @@ instance Core.AWSPager SearchResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchResources_nextToken
-          Lens..~ rs
-          Lens.^? searchResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchResources_nextToken
+              Lens..~ rs
+              Lens.^? searchResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchResources where
   type
@@ -206,9 +206,9 @@ instance Prelude.Hashable SearchResources where
 
 instance Prelude.NFData SearchResources where
   rnf SearchResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceQuery
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceQuery
 
 instance Data.ToHeaders SearchResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,7 +313,7 @@ searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpS
 
 instance Prelude.NFData SearchResourcesResponse where
   rnf SearchResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryErrors
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryErrors `Prelude.seq`
+        Prelude.rnf resourceIdentifiers `Prelude.seq`
+          Prelude.rnf httpStatus

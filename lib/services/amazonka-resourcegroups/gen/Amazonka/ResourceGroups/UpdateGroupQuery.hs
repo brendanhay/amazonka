@@ -139,9 +139,9 @@ instance Prelude.Hashable UpdateGroupQuery where
 
 instance Prelude.NFData UpdateGroupQuery where
   rnf UpdateGroupQuery' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf resourceQuery
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf resourceQuery
 
 instance Data.ToHeaders UpdateGroupQuery where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ updateGroupQueryResponse_httpStatus = Lens.lens (\UpdateGroupQueryResponse' {htt
 
 instance Prelude.NFData UpdateGroupQueryResponse where
   rnf UpdateGroupQueryResponse' {..} =
-    Prelude.rnf groupQuery
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupQuery `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -96,5 +96,5 @@ instance Prelude.Hashable ListGroupResourcesItem where
 
 instance Prelude.NFData ListGroupResourcesItem where
   rnf ListGroupResourcesItem' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf status

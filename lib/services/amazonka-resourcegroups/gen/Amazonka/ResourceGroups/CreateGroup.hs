@@ -210,11 +210,11 @@ instance Prelude.Hashable CreateGroup where
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf resourceQuery
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf resourceQuery `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,8 +316,8 @@ createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -
 
 instance Prelude.NFData CreateGroupResponse where
   rnf CreateGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupConfiguration
-      `Prelude.seq` Prelude.rnf resourceQuery
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf groupConfiguration `Prelude.seq`
+        Prelude.rnf resourceQuery `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

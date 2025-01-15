@@ -91,6 +91,6 @@ instance Prelude.Hashable FailedResource where
 
 instance Prelude.NFData FailedResource where
   rnf FailedResource' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf resourceArn

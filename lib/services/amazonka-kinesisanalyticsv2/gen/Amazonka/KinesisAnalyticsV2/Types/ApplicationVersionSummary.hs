@@ -91,5 +91,5 @@ instance Prelude.Hashable ApplicationVersionSummary where
 
 instance Prelude.NFData ApplicationVersionSummary where
   rnf ApplicationVersionSummary' {..} =
-    Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf applicationStatus
+    Prelude.rnf applicationVersionId `Prelude.seq`
+      Prelude.rnf applicationStatus

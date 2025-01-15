@@ -195,7 +195,7 @@ instance
     CheckpointConfigurationDescription
   where
   rnf CheckpointConfigurationDescription' {..} =
-    Prelude.rnf checkpointInterval
-      `Prelude.seq` Prelude.rnf checkpointingEnabled
-      `Prelude.seq` Prelude.rnf configurationType
-      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpoints
+    Prelude.rnf checkpointInterval `Prelude.seq`
+      Prelude.rnf checkpointingEnabled `Prelude.seq`
+        Prelude.rnf configurationType `Prelude.seq`
+          Prelude.rnf minPauseBetweenCheckpoints

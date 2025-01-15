@@ -114,10 +114,10 @@ instance
     ZeppelinApplicationConfigurationUpdate
   where
   rnf ZeppelinApplicationConfigurationUpdate' {..} =
-    Prelude.rnf catalogConfigurationUpdate
-      `Prelude.seq` Prelude.rnf customArtifactsConfigurationUpdate
-      `Prelude.seq` Prelude.rnf deployAsApplicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf monitoringConfigurationUpdate
+    Prelude.rnf catalogConfigurationUpdate `Prelude.seq`
+      Prelude.rnf customArtifactsConfigurationUpdate `Prelude.seq`
+        Prelude.rnf deployAsApplicationConfigurationUpdate `Prelude.seq`
+          Prelude.rnf monitoringConfigurationUpdate
 
 instance
   Data.ToJSON

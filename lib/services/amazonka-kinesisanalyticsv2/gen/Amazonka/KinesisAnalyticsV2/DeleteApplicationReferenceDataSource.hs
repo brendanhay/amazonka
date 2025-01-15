@@ -164,9 +164,9 @@ instance
     DeleteApplicationReferenceDataSource
   where
   rnf DeleteApplicationReferenceDataSource' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf referenceId
 
 instance
   Data.ToHeaders
@@ -270,6 +270,6 @@ instance
     DeleteApplicationReferenceDataSourceResponse
   where
   rnf DeleteApplicationReferenceDataSourceResponse' {..} =
-    Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationARN `Prelude.seq`
+      Prelude.rnf applicationVersionId `Prelude.seq`
+        Prelude.rnf httpStatus

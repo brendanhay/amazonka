@@ -144,9 +144,9 @@ instance Prelude.Hashable ListApplicationVersions where
 
 instance Prelude.NFData ListApplicationVersions where
   rnf ListApplicationVersions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationVersions where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     ListApplicationVersionsResponse
   where
   rnf ListApplicationVersionsResponse' {..} =
-    Prelude.rnf applicationVersionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationVersionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

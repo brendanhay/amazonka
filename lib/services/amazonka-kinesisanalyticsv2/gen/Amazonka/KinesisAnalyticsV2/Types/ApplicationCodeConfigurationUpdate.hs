@@ -83,8 +83,8 @@ instance
     ApplicationCodeConfigurationUpdate
   where
   rnf ApplicationCodeConfigurationUpdate' {..} =
-    Prelude.rnf codeContentTypeUpdate
-      `Prelude.seq` Prelude.rnf codeContentUpdate
+    Prelude.rnf codeContentTypeUpdate `Prelude.seq`
+      Prelude.rnf codeContentUpdate
 
 instance
   Data.ToJSON

@@ -184,10 +184,10 @@ instance
 
 instance Prelude.NFData CheckpointConfigurationUpdate where
   rnf CheckpointConfigurationUpdate' {..} =
-    Prelude.rnf checkpointIntervalUpdate
-      `Prelude.seq` Prelude.rnf checkpointingEnabledUpdate
-      `Prelude.seq` Prelude.rnf configurationTypeUpdate
-      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpointsUpdate
+    Prelude.rnf checkpointIntervalUpdate `Prelude.seq`
+      Prelude.rnf checkpointingEnabledUpdate `Prelude.seq`
+        Prelude.rnf configurationTypeUpdate `Prelude.seq`
+          Prelude.rnf minPauseBetweenCheckpointsUpdate
 
 instance Data.ToJSON CheckpointConfigurationUpdate where
   toJSON CheckpointConfigurationUpdate' {..} =

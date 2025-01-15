@@ -147,10 +147,10 @@ instance Prelude.Hashable ParallelismConfiguration where
 
 instance Prelude.NFData ParallelismConfiguration where
   rnf ParallelismConfiguration' {..} =
-    Prelude.rnf autoScalingEnabled
-      `Prelude.seq` Prelude.rnf parallelism
-      `Prelude.seq` Prelude.rnf parallelismPerKPU
-      `Prelude.seq` Prelude.rnf configurationType
+    Prelude.rnf autoScalingEnabled `Prelude.seq`
+      Prelude.rnf parallelism `Prelude.seq`
+        Prelude.rnf parallelismPerKPU `Prelude.seq`
+          Prelude.rnf configurationType
 
 instance Data.ToJSON ParallelismConfiguration where
   toJSON ParallelismConfiguration' {..} =

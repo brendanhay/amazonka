@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteApplicationSnapshot where
 
 instance Prelude.NFData DeleteApplicationSnapshot where
   rnf DeleteApplicationSnapshot' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf snapshotCreationTimestamp
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf snapshotName `Prelude.seq`
+        Prelude.rnf snapshotCreationTimestamp
 
 instance Data.ToHeaders DeleteApplicationSnapshot where
   toHeaders =

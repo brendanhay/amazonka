@@ -201,10 +201,10 @@ instance Prelude.Hashable CheckpointConfiguration where
 
 instance Prelude.NFData CheckpointConfiguration where
   rnf CheckpointConfiguration' {..} =
-    Prelude.rnf checkpointInterval
-      `Prelude.seq` Prelude.rnf checkpointingEnabled
-      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpoints
-      `Prelude.seq` Prelude.rnf configurationType
+    Prelude.rnf checkpointInterval `Prelude.seq`
+      Prelude.rnf checkpointingEnabled `Prelude.seq`
+        Prelude.rnf minPauseBetweenCheckpoints `Prelude.seq`
+          Prelude.rnf configurationType
 
 instance Data.ToJSON CheckpointConfiguration where
   toJSON CheckpointConfiguration' {..} =

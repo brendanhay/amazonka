@@ -93,8 +93,8 @@ instance Prelude.Hashable MappingParameters where
 
 instance Prelude.NFData MappingParameters where
   rnf MappingParameters' {..} =
-    Prelude.rnf cSVMappingParameters
-      `Prelude.seq` Prelude.rnf jSONMappingParameters
+    Prelude.rnf cSVMappingParameters `Prelude.seq`
+      Prelude.rnf jSONMappingParameters
 
 instance Data.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =

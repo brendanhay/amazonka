@@ -81,8 +81,8 @@ instance
 
 instance Prelude.NFData CloudWatchLoggingOptionUpdate where
   rnf CloudWatchLoggingOptionUpdate' {..} =
-    Prelude.rnf logStreamARNUpdate
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+    Prelude.rnf logStreamARNUpdate `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptionId
 
 instance Data.ToJSON CloudWatchLoggingOptionUpdate where
   toJSON CloudWatchLoggingOptionUpdate' {..} =

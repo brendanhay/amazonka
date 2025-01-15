@@ -111,7 +111,7 @@ instance Prelude.Hashable CodeContentDescription where
 
 instance Prelude.NFData CodeContentDescription where
   rnf CodeContentDescription' {..} =
-    Prelude.rnf codeMD5
-      `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf s3ApplicationCodeLocationDescription
-      `Prelude.seq` Prelude.rnf textContent
+    Prelude.rnf codeMD5 `Prelude.seq`
+      Prelude.rnf codeSize `Prelude.seq`
+        Prelude.rnf s3ApplicationCodeLocationDescription `Prelude.seq`
+          Prelude.rnf textContent

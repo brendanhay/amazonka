@@ -113,6 +113,6 @@ instance
     CustomArtifactConfigurationDescription
   where
   rnf CustomArtifactConfigurationDescription' {..} =
-    Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf mavenReferenceDescription
-      `Prelude.seq` Prelude.rnf s3ContentLocationDescription
+    Prelude.rnf artifactType `Prelude.seq`
+      Prelude.rnf mavenReferenceDescription `Prelude.seq`
+        Prelude.rnf s3ContentLocationDescription

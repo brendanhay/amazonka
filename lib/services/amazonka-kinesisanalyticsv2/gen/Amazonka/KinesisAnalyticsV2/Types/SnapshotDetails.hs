@@ -113,7 +113,7 @@ instance Prelude.Hashable SnapshotDetails where
 
 instance Prelude.NFData SnapshotDetails where
   rnf SnapshotDetails' {..} =
-    Prelude.rnf snapshotCreationTimestamp
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf snapshotStatus
-      `Prelude.seq` Prelude.rnf applicationVersionId
+    Prelude.rnf snapshotCreationTimestamp `Prelude.seq`
+      Prelude.rnf snapshotName `Prelude.seq`
+        Prelude.rnf snapshotStatus `Prelude.seq`
+          Prelude.rnf applicationVersionId

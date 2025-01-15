@@ -159,13 +159,13 @@ instance
     ApplicationConfigurationUpdate
   where
   rnf ApplicationConfigurationUpdate' {..} =
-    Prelude.rnf applicationCodeConfigurationUpdate
-      `Prelude.seq` Prelude.rnf applicationSnapshotConfigurationUpdate
-      `Prelude.seq` Prelude.rnf environmentPropertyUpdates
-      `Prelude.seq` Prelude.rnf flinkApplicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf sqlApplicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf vpcConfigurationUpdates
-      `Prelude.seq` Prelude.rnf zeppelinApplicationConfigurationUpdate
+    Prelude.rnf applicationCodeConfigurationUpdate `Prelude.seq`
+      Prelude.rnf applicationSnapshotConfigurationUpdate `Prelude.seq`
+        Prelude.rnf environmentPropertyUpdates `Prelude.seq`
+          Prelude.rnf flinkApplicationConfigurationUpdate `Prelude.seq`
+            Prelude.rnf sqlApplicationConfigurationUpdate `Prelude.seq`
+              Prelude.rnf vpcConfigurationUpdates `Prelude.seq`
+                Prelude.rnf zeppelinApplicationConfigurationUpdate
 
 instance Data.ToJSON ApplicationConfigurationUpdate where
   toJSON ApplicationConfigurationUpdate' {..} =

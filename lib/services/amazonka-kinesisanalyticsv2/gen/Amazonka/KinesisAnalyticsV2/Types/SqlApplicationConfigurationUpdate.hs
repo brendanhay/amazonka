@@ -104,9 +104,9 @@ instance
     SqlApplicationConfigurationUpdate
   where
   rnf SqlApplicationConfigurationUpdate' {..} =
-    Prelude.rnf inputUpdates
-      `Prelude.seq` Prelude.rnf outputUpdates
-      `Prelude.seq` Prelude.rnf referenceDataSourceUpdates
+    Prelude.rnf inputUpdates `Prelude.seq`
+      Prelude.rnf outputUpdates `Prelude.seq`
+        Prelude.rnf referenceDataSourceUpdates
 
 instance
   Data.ToJSON

@@ -111,5 +111,5 @@ instance
     KinesisFirehoseOutputDescription
   where
   rnf KinesisFirehoseOutputDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf roleARN `Prelude.seq`
+      Prelude.rnf resourceARN

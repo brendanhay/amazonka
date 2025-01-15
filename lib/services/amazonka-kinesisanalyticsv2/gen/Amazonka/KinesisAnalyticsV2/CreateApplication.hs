@@ -211,14 +211,14 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf applicationConfiguration
-      `Prelude.seq` Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf applicationMode
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf runtimeEnvironment
-      `Prelude.seq` Prelude.rnf serviceExecutionRole
+    Prelude.rnf applicationConfiguration `Prelude.seq`
+      Prelude.rnf applicationDescription `Prelude.seq`
+        Prelude.rnf applicationMode `Prelude.seq`
+          Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf applicationName `Prelude.seq`
+                Prelude.rnf runtimeEnvironment `Prelude.seq`
+                  Prelude.rnf serviceExecutionRole
 
 instance Data.ToHeaders CreateApplication where
   toHeaders =
@@ -313,5 +313,5 @@ createApplicationResponse_applicationDetail = Lens.lens (\CreateApplicationRespo
 
 instance Prelude.NFData CreateApplicationResponse where
   rnf CreateApplicationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationDetail
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationDetail

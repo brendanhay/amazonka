@@ -124,8 +124,8 @@ instance Prelude.Hashable DescribeApplicationVersion where
 
 instance Prelude.NFData DescribeApplicationVersion where
   rnf DescribeApplicationVersion' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationVersionId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf applicationVersionId
 
 instance Data.ToHeaders DescribeApplicationVersion where
   toHeaders =
@@ -204,5 +204,5 @@ instance
     DescribeApplicationVersionResponse
   where
   rnf DescribeApplicationVersionResponse' {..} =
-    Prelude.rnf applicationVersionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationVersionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

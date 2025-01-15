@@ -85,9 +85,9 @@ instance Prelude.Hashable S3ContentLocationUpdate where
 
 instance Prelude.NFData S3ContentLocationUpdate where
   rnf S3ContentLocationUpdate' {..} =
-    Prelude.rnf bucketARNUpdate
-      `Prelude.seq` Prelude.rnf fileKeyUpdate
-      `Prelude.seq` Prelude.rnf objectVersionUpdate
+    Prelude.rnf bucketARNUpdate `Prelude.seq`
+      Prelude.rnf fileKeyUpdate `Prelude.seq`
+        Prelude.rnf objectVersionUpdate
 
 instance Data.ToJSON S3ContentLocationUpdate where
   toJSON S3ContentLocationUpdate' {..} =

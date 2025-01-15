@@ -184,10 +184,10 @@ instance
     AddApplicationCloudWatchLoggingOption
   where
   rnf AddApplicationCloudWatchLoggingOption' {..} =
-    Prelude.rnf conditionalToken
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOption
+    Prelude.rnf conditionalToken `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf applicationName `Prelude.seq`
+          Prelude.rnf cloudWatchLoggingOption
 
 instance
   Data.ToHeaders
@@ -314,7 +314,7 @@ instance
   where
   rnf
     AddApplicationCloudWatchLoggingOptionResponse' {..} =
-      Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf applicationVersionId
-        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf applicationARN `Prelude.seq`
+        Prelude.rnf applicationVersionId `Prelude.seq`
+          Prelude.rnf cloudWatchLoggingOptionDescriptions `Prelude.seq`
+            Prelude.rnf httpStatus

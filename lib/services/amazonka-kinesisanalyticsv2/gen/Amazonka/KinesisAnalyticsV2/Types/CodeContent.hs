@@ -99,9 +99,9 @@ instance Prelude.Hashable CodeContent where
 
 instance Prelude.NFData CodeContent where
   rnf CodeContent' {..} =
-    Prelude.rnf s3ContentLocation
-      `Prelude.seq` Prelude.rnf textContent
-      `Prelude.seq` Prelude.rnf zipFileContent
+    Prelude.rnf s3ContentLocation `Prelude.seq`
+      Prelude.rnf textContent `Prelude.seq`
+        Prelude.rnf zipFileContent
 
 instance Data.ToJSON CodeContent where
   toJSON CodeContent' {..} =

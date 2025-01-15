@@ -91,9 +91,9 @@ instance Prelude.Hashable CodeContentUpdate where
 
 instance Prelude.NFData CodeContentUpdate where
   rnf CodeContentUpdate' {..} =
-    Prelude.rnf s3ContentLocationUpdate
-      `Prelude.seq` Prelude.rnf textContentUpdate
-      `Prelude.seq` Prelude.rnf zipFileContentUpdate
+    Prelude.rnf s3ContentLocationUpdate `Prelude.seq`
+      Prelude.rnf textContentUpdate `Prelude.seq`
+        Prelude.rnf zipFileContentUpdate
 
 instance Data.ToJSON CodeContentUpdate where
   toJSON CodeContentUpdate' {..} =

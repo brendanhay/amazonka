@@ -150,9 +150,9 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf applicationMode
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationStatus
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf runtimeEnvironment
+    Prelude.rnf applicationMode `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf applicationARN `Prelude.seq`
+          Prelude.rnf applicationStatus `Prelude.seq`
+            Prelude.rnf applicationVersionId `Prelude.seq`
+              Prelude.rnf runtimeEnvironment

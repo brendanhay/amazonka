@@ -191,10 +191,10 @@ instance
     DeleteApplicationCloudWatchLoggingOption
   where
   rnf DeleteApplicationCloudWatchLoggingOption' {..} =
-    Prelude.rnf conditionalToken
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+    Prelude.rnf conditionalToken `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf applicationName `Prelude.seq`
+          Prelude.rnf cloudWatchLoggingOptionId
 
 instance
   Data.ToHeaders
@@ -321,7 +321,7 @@ instance
   where
   rnf
     DeleteApplicationCloudWatchLoggingOptionResponse' {..} =
-      Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf applicationVersionId
-        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf applicationARN `Prelude.seq`
+        Prelude.rnf applicationVersionId `Prelude.seq`
+          Prelude.rnf cloudWatchLoggingOptionDescriptions `Prelude.seq`
+            Prelude.rnf httpStatus

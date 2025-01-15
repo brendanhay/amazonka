@@ -112,11 +112,11 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf kinesisFirehoseOutput
-      `Prelude.seq` Prelude.rnf kinesisStreamsOutput
-      `Prelude.seq` Prelude.rnf lambdaOutput
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf destinationSchema
+    Prelude.rnf kinesisFirehoseOutput `Prelude.seq`
+      Prelude.rnf kinesisStreamsOutput `Prelude.seq`
+        Prelude.rnf lambdaOutput `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf destinationSchema
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =

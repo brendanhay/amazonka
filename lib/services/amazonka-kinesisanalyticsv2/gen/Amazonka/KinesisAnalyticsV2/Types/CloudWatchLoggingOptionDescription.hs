@@ -120,6 +120,6 @@ instance
     CloudWatchLoggingOptionDescription
   where
   rnf CloudWatchLoggingOptionDescription' {..} =
-    Prelude.rnf cloudWatchLoggingOptionId
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf logStreamARN
+    Prelude.rnf cloudWatchLoggingOptionId `Prelude.seq`
+      Prelude.rnf roleARN `Prelude.seq`
+        Prelude.rnf logStreamARN

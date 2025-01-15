@@ -146,10 +146,10 @@ instance
     ParallelismConfigurationUpdate
   where
   rnf ParallelismConfigurationUpdate' {..} =
-    Prelude.rnf autoScalingEnabledUpdate
-      `Prelude.seq` Prelude.rnf configurationTypeUpdate
-      `Prelude.seq` Prelude.rnf parallelismPerKPUUpdate
-      `Prelude.seq` Prelude.rnf parallelismUpdate
+    Prelude.rnf autoScalingEnabledUpdate `Prelude.seq`
+      Prelude.rnf configurationTypeUpdate `Prelude.seq`
+        Prelude.rnf parallelismPerKPUUpdate `Prelude.seq`
+          Prelude.rnf parallelismUpdate
 
 instance Data.ToJSON ParallelismConfigurationUpdate where
   toJSON ParallelismConfigurationUpdate' {..} =

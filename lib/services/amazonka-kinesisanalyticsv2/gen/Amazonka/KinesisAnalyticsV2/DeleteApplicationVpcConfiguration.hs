@@ -177,10 +177,10 @@ instance
     DeleteApplicationVpcConfiguration
   where
   rnf DeleteApplicationVpcConfiguration' {..} =
-    Prelude.rnf conditionalToken
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf vpcConfigurationId
+    Prelude.rnf conditionalToken `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf applicationName `Prelude.seq`
+          Prelude.rnf vpcConfigurationId
 
 instance
   Data.ToHeaders
@@ -285,6 +285,6 @@ instance
     DeleteApplicationVpcConfigurationResponse
   where
   rnf DeleteApplicationVpcConfigurationResponse' {..} =
-    Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationARN `Prelude.seq`
+      Prelude.rnf applicationVersionId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -151,7 +151,7 @@ instance
     FlinkApplicationConfigurationDescription
   where
   rnf FlinkApplicationConfigurationDescription' {..} =
-    Prelude.rnf checkpointConfigurationDescription
-      `Prelude.seq` Prelude.rnf jobPlanDescription
-      `Prelude.seq` Prelude.rnf monitoringConfigurationDescription
-      `Prelude.seq` Prelude.rnf parallelismConfigurationDescription
+    Prelude.rnf checkpointConfigurationDescription `Prelude.seq`
+      Prelude.rnf jobPlanDescription `Prelude.seq`
+        Prelude.rnf monitoringConfigurationDescription `Prelude.seq`
+          Prelude.rnf parallelismConfigurationDescription

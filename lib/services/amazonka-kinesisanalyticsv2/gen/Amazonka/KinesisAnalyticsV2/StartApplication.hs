@@ -112,8 +112,8 @@ instance Prelude.Hashable StartApplication where
 
 instance Prelude.NFData StartApplication where
   rnf StartApplication' {..} =
-    Prelude.rnf runConfiguration
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf runConfiguration `Prelude.seq`
+      Prelude.rnf applicationName
 
 instance Data.ToHeaders StartApplication where
   toHeaders =

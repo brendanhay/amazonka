@@ -111,8 +111,8 @@ instance Prelude.Hashable CreateApplicationSnapshot where
 
 instance Prelude.NFData CreateApplicationSnapshot where
   rnf CreateApplicationSnapshot' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf snapshotName
 
 instance Data.ToHeaders CreateApplicationSnapshot where
   toHeaders =

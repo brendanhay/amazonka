@@ -100,9 +100,9 @@ instance Prelude.Hashable MonitoringConfiguration where
 
 instance Prelude.NFData MonitoringConfiguration where
   rnf MonitoringConfiguration' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf metricsLevel
-      `Prelude.seq` Prelude.rnf configurationType
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf metricsLevel `Prelude.seq`
+        Prelude.rnf configurationType
 
 instance Data.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =

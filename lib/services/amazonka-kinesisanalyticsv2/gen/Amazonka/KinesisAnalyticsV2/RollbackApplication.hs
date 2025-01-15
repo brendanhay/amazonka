@@ -128,8 +128,8 @@ instance Prelude.Hashable RollbackApplication where
 
 instance Prelude.NFData RollbackApplication where
   rnf RollbackApplication' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId
 
 instance Data.ToHeaders RollbackApplication where
   toHeaders =
@@ -209,5 +209,5 @@ rollbackApplicationResponse_applicationDetail = Lens.lens (\RollbackApplicationR
 
 instance Prelude.NFData RollbackApplicationResponse where
   rnf RollbackApplicationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationDetail
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationDetail

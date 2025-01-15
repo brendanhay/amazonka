@@ -82,8 +82,8 @@ instance Prelude.Hashable PropertyGroup where
 
 instance Prelude.NFData PropertyGroup where
   rnf PropertyGroup' {..} =
-    Prelude.rnf propertyGroupId
-      `Prelude.seq` Prelude.rnf propertyMap
+    Prelude.rnf propertyGroupId `Prelude.seq`
+      Prelude.rnf propertyMap
 
 instance Data.ToJSON PropertyGroup where
   toJSON PropertyGroup' {..} =

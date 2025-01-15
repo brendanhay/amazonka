@@ -201,12 +201,12 @@ instance Prelude.Hashable InputDescription where
 
 instance Prelude.NFData InputDescription where
   rnf InputDescription' {..} =
-    Prelude.rnf inAppStreamNames
-      `Prelude.seq` Prelude.rnf inputId
-      `Prelude.seq` Prelude.rnf inputParallelism
-      `Prelude.seq` Prelude.rnf inputProcessingConfigurationDescription
-      `Prelude.seq` Prelude.rnf inputSchema
-      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
-      `Prelude.seq` Prelude.rnf kinesisFirehoseInputDescription
-      `Prelude.seq` Prelude.rnf kinesisStreamsInputDescription
-      `Prelude.seq` Prelude.rnf namePrefix
+    Prelude.rnf inAppStreamNames `Prelude.seq`
+      Prelude.rnf inputId `Prelude.seq`
+        Prelude.rnf inputParallelism `Prelude.seq`
+          Prelude.rnf inputProcessingConfigurationDescription `Prelude.seq`
+            Prelude.rnf inputSchema `Prelude.seq`
+              Prelude.rnf inputStartingPositionConfiguration `Prelude.seq`
+                Prelude.rnf kinesisFirehoseInputDescription `Prelude.seq`
+                  Prelude.rnf kinesisStreamsInputDescription `Prelude.seq`
+                    Prelude.rnf namePrefix

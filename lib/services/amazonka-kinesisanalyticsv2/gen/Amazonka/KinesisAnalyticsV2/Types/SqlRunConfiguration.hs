@@ -85,8 +85,8 @@ instance Prelude.Hashable SqlRunConfiguration where
 
 instance Prelude.NFData SqlRunConfiguration where
   rnf SqlRunConfiguration' {..} =
-    Prelude.rnf inputId
-      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
+    Prelude.rnf inputId `Prelude.seq`
+      Prelude.rnf inputStartingPositionConfiguration
 
 instance Data.ToJSON SqlRunConfiguration where
   toJSON SqlRunConfiguration' {..} =

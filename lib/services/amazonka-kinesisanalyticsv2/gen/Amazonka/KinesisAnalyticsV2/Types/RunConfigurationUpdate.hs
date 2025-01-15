@@ -77,8 +77,8 @@ instance Prelude.Hashable RunConfigurationUpdate where
 
 instance Prelude.NFData RunConfigurationUpdate where
   rnf RunConfigurationUpdate' {..} =
-    Prelude.rnf applicationRestoreConfiguration
-      `Prelude.seq` Prelude.rnf flinkRunConfiguration
+    Prelude.rnf applicationRestoreConfiguration `Prelude.seq`
+      Prelude.rnf flinkRunConfiguration
 
 instance Data.ToJSON RunConfigurationUpdate where
   toJSON RunConfigurationUpdate' {..} =

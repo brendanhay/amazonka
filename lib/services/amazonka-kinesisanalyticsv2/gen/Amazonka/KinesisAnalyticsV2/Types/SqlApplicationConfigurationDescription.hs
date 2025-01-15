@@ -127,6 +127,6 @@ instance
     SqlApplicationConfigurationDescription
   where
   rnf SqlApplicationConfigurationDescription' {..} =
-    Prelude.rnf inputDescriptions
-      `Prelude.seq` Prelude.rnf outputDescriptions
-      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
+    Prelude.rnf inputDescriptions `Prelude.seq`
+      Prelude.rnf outputDescriptions `Prelude.seq`
+        Prelude.rnf referenceDataSourceDescriptions

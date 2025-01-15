@@ -78,8 +78,8 @@ instance
 
 instance Prelude.NFData ApplicationCodeConfiguration where
   rnf ApplicationCodeConfiguration' {..} =
-    Prelude.rnf codeContent
-      `Prelude.seq` Prelude.rnf codeContentType
+    Prelude.rnf codeContent `Prelude.seq`
+      Prelude.rnf codeContentType
 
 instance Data.ToJSON ApplicationCodeConfiguration where
   toJSON ApplicationCodeConfiguration' {..} =

@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateDataIntegration where
 
 instance Prelude.NFData UpdateDataIntegration where
   rnf UpdateDataIntegration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf identifier
 
 instance Data.ToHeaders UpdateDataIntegration where
   toHeaders =

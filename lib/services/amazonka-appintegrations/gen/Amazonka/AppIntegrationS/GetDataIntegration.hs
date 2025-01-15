@@ -237,12 +237,12 @@ getDataIntegrationResponse_httpStatus = Lens.lens (\GetDataIntegrationResponse' 
 
 instance Prelude.NFData GetDataIntegrationResponse where
   rnf GetDataIntegrationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scheduleConfiguration
-      `Prelude.seq` Prelude.rnf sourceURI
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf kmsKey `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf scheduleConfiguration `Prelude.seq`
+                Prelude.rnf sourceURI `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

@@ -142,9 +142,9 @@ instance
     ListEventIntegrationAssociations
   where
   rnf ListEventIntegrationAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventIntegrationName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf eventIntegrationName
 
 instance
   Data.ToHeaders
@@ -235,6 +235,6 @@ instance
     ListEventIntegrationAssociationsResponse
   where
   rnf ListEventIntegrationAssociationsResponse' {..} =
-    Prelude.rnf eventIntegrationAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventIntegrationAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

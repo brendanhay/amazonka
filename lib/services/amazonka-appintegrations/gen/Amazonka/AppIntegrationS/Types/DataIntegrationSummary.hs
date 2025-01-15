@@ -91,6 +91,6 @@ instance Prelude.Hashable DataIntegrationSummary where
 
 instance Prelude.NFData DataIntegrationSummary where
   rnf DataIntegrationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceURI
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sourceURI

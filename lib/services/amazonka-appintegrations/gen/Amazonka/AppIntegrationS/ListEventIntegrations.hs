@@ -115,8 +115,8 @@ instance Prelude.Hashable ListEventIntegrations where
 
 instance Prelude.NFData ListEventIntegrations where
   rnf ListEventIntegrations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventIntegrations where
   toHeaders =
@@ -192,6 +192,6 @@ listEventIntegrationsResponse_httpStatus = Lens.lens (\ListEventIntegrationsResp
 
 instance Prelude.NFData ListEventIntegrationsResponse where
   rnf ListEventIntegrationsResponse' {..} =
-    Prelude.rnf eventIntegrations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventIntegrations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

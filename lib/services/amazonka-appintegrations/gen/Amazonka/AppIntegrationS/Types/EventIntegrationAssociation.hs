@@ -133,9 +133,9 @@ instance Prelude.Hashable EventIntegrationAssociation where
 
 instance Prelude.NFData EventIntegrationAssociation where
   rnf EventIntegrationAssociation' {..} =
-    Prelude.rnf clientAssociationMetadata
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf eventBridgeRuleName
-      `Prelude.seq` Prelude.rnf eventIntegrationAssociationArn
-      `Prelude.seq` Prelude.rnf eventIntegrationAssociationId
-      `Prelude.seq` Prelude.rnf eventIntegrationName
+    Prelude.rnf clientAssociationMetadata `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf eventBridgeRuleName `Prelude.seq`
+          Prelude.rnf eventIntegrationAssociationArn `Prelude.seq`
+            Prelude.rnf eventIntegrationAssociationId `Prelude.seq`
+              Prelude.rnf eventIntegrationName

@@ -187,13 +187,13 @@ instance Prelude.Hashable CreateDataIntegration where
 
 instance Prelude.NFData CreateDataIntegration where
   rnf CreateDataIntegration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf scheduleConfig
-      `Prelude.seq` Prelude.rnf sourceURI
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf scheduleConfig `Prelude.seq`
+            Prelude.rnf sourceURI `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders CreateDataIntegration where
   toHeaders =
@@ -343,13 +343,13 @@ createDataIntegrationResponse_httpStatus = Lens.lens (\CreateDataIntegrationResp
 
 instance Prelude.NFData CreateDataIntegrationResponse where
   rnf CreateDataIntegrationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scheduleConfiguration
-      `Prelude.seq` Prelude.rnf sourceURI
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf kmsKey `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf scheduleConfiguration `Prelude.seq`
+                  Prelude.rnf sourceURI `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

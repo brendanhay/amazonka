@@ -224,14 +224,14 @@ instance Prelude.Hashable EffectiveDeployment where
 
 instance Prelude.NFData EffectiveDeployment where
   rnf EffectiveDeployment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iotJobArn
-      `Prelude.seq` Prelude.rnf iotJobId
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf coreDeviceExecutionStatus
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf modifiedTimestamp
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf iotJobArn `Prelude.seq`
+        Prelude.rnf iotJobId `Prelude.seq`
+          Prelude.rnf reason `Prelude.seq`
+            Prelude.rnf statusDetails `Prelude.seq`
+              Prelude.rnf deploymentId `Prelude.seq`
+                Prelude.rnf deploymentName `Prelude.seq`
+                  Prelude.rnf targetArn `Prelude.seq`
+                    Prelude.rnf coreDeviceExecutionStatus `Prelude.seq`
+                      Prelude.rnf creationTimestamp `Prelude.seq`
+                        Prelude.rnf modifiedTimestamp

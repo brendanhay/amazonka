@@ -216,12 +216,12 @@ instance Prelude.Hashable InstalledComponent where
 
 instance Prelude.NFData InstalledComponent where
   rnf InstalledComponent' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf isRoot
-      `Prelude.seq` Prelude.rnf lastInstallationSource
-      `Prelude.seq` Prelude.rnf lastReportedTimestamp
-      `Prelude.seq` Prelude.rnf lastStatusChangeTimestamp
-      `Prelude.seq` Prelude.rnf lifecycleState
-      `Prelude.seq` Prelude.rnf lifecycleStateDetails
-      `Prelude.seq` Prelude.rnf lifecycleStatusCodes
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentVersion `Prelude.seq`
+        Prelude.rnf isRoot `Prelude.seq`
+          Prelude.rnf lastInstallationSource `Prelude.seq`
+            Prelude.rnf lastReportedTimestamp `Prelude.seq`
+              Prelude.rnf lastStatusChangeTimestamp `Prelude.seq`
+                Prelude.rnf lifecycleState `Prelude.seq`
+                  Prelude.rnf lifecycleStateDetails `Prelude.seq`
+                    Prelude.rnf lifecycleStatusCodes

@@ -117,6 +117,6 @@ instance Prelude.Hashable CoreDevice where
 
 instance Prelude.NFData CoreDevice where
   rnf CoreDevice' {..} =
-    Prelude.rnf coreDeviceThingName
-      `Prelude.seq` Prelude.rnf lastStatusUpdateTimestamp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf coreDeviceThingName `Prelude.seq`
+      Prelude.rnf lastStatusUpdateTimestamp `Prelude.seq`
+        Prelude.rnf status

@@ -115,10 +115,10 @@ instance Prelude.Hashable ConnectivityInfo where
 
 instance Prelude.NFData ConnectivityInfo where
   rnf ConnectivityInfo' {..} =
-    Prelude.rnf hostAddress
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf portNumber
+    Prelude.rnf hostAddress `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf metadata `Prelude.seq`
+          Prelude.rnf portNumber
 
 instance Data.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =

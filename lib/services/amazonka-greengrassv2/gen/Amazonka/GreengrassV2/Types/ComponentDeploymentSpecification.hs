@@ -141,9 +141,9 @@ instance
     ComponentDeploymentSpecification
   where
   rnf ComponentDeploymentSpecification' {..} =
-    Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf configurationUpdate
-      `Prelude.seq` Prelude.rnf runWith
+    Prelude.rnf componentVersion `Prelude.seq`
+      Prelude.rnf configurationUpdate `Prelude.seq`
+        Prelude.rnf runWith
 
 instance Data.ToJSON ComponentDeploymentSpecification where
   toJSON ComponentDeploymentSpecification' {..} =

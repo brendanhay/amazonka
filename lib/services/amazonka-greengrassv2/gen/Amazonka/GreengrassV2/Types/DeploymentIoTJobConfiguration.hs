@@ -107,9 +107,9 @@ instance
 
 instance Prelude.NFData DeploymentIoTJobConfiguration where
   rnf DeploymentIoTJobConfiguration' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf timeoutConfig
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+        Prelude.rnf timeoutConfig
 
 instance Data.ToJSON DeploymentIoTJobConfiguration where
   toJSON DeploymentIoTJobConfiguration' {..} =

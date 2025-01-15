@@ -142,8 +142,8 @@ instance Prelude.Hashable GetComponentVersionArtifact where
 
 instance Prelude.NFData GetComponentVersionArtifact where
   rnf GetComponentVersionArtifact' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf artifactName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf artifactName
 
 instance Data.ToHeaders GetComponentVersionArtifact where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +208,5 @@ instance
     GetComponentVersionArtifactResponse
   where
   rnf GetComponentVersionArtifactResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf preSignedUrl
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf preSignedUrl

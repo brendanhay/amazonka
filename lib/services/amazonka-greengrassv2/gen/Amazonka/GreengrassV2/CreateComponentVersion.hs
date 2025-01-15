@@ -244,10 +244,10 @@ instance Prelude.Hashable CreateComponentVersion where
 
 instance Prelude.NFData CreateComponentVersion where
   rnf CreateComponentVersion' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf inlineRecipe
-      `Prelude.seq` Prelude.rnf lambdaFunction
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf inlineRecipe `Prelude.seq`
+        Prelude.rnf lambdaFunction `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateComponentVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -378,9 +378,9 @@ instance
     CreateComponentVersionResponse
   where
   rnf CreateComponentVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf componentName `Prelude.seq`
+          Prelude.rnf componentVersion `Prelude.seq`
+            Prelude.rnf creationTimestamp `Prelude.seq`
+              Prelude.rnf status

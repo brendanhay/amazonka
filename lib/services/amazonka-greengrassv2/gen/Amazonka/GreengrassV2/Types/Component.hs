@@ -98,6 +98,6 @@ instance Prelude.Hashable Component where
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf latestVersion
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf latestVersion

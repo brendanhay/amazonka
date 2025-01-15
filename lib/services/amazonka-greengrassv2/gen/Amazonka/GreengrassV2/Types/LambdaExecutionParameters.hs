@@ -236,17 +236,17 @@ instance Prelude.Hashable LambdaExecutionParameters where
 
 instance Prelude.NFData LambdaExecutionParameters where
   rnf LambdaExecutionParameters' {..} =
-    Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf eventSources
-      `Prelude.seq` Prelude.rnf execArgs
-      `Prelude.seq` Prelude.rnf inputPayloadEncodingType
-      `Prelude.seq` Prelude.rnf linuxProcessParams
-      `Prelude.seq` Prelude.rnf maxIdleTimeInSeconds
-      `Prelude.seq` Prelude.rnf maxInstancesCount
-      `Prelude.seq` Prelude.rnf maxQueueSize
-      `Prelude.seq` Prelude.rnf pinned
-      `Prelude.seq` Prelude.rnf statusTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf environmentVariables `Prelude.seq`
+      Prelude.rnf eventSources `Prelude.seq`
+        Prelude.rnf execArgs `Prelude.seq`
+          Prelude.rnf inputPayloadEncodingType `Prelude.seq`
+            Prelude.rnf linuxProcessParams `Prelude.seq`
+              Prelude.rnf maxIdleTimeInSeconds `Prelude.seq`
+                Prelude.rnf maxInstancesCount `Prelude.seq`
+                  Prelude.rnf maxQueueSize `Prelude.seq`
+                    Prelude.rnf pinned `Prelude.seq`
+                      Prelude.rnf statusTimeoutInSeconds `Prelude.seq`
+                        Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON LambdaExecutionParameters where
   toJSON LambdaExecutionParameters' {..} =

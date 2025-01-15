@@ -126,8 +126,8 @@ instance
     BatchDisassociateClientDeviceFromCoreDevice
   where
   rnf BatchDisassociateClientDeviceFromCoreDevice' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
+    Prelude.rnf entries `Prelude.seq`
+      Prelude.rnf coreDeviceThingName
 
 instance
   Data.ToHeaders
@@ -214,5 +214,5 @@ instance
   where
   rnf
     BatchDisassociateClientDeviceFromCoreDeviceResponse' {..} =
-      Prelude.rnf errorEntries
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf errorEntries `Prelude.seq`
+        Prelude.rnf httpStatus

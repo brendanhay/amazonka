@@ -97,6 +97,6 @@ instance Prelude.Hashable ComponentVersionListItem where
 
 instance Prelude.NFData ComponentVersionListItem where
   rnf ComponentVersionListItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf componentVersion

@@ -188,9 +188,9 @@ instance Prelude.Hashable ResolvedComponentVersion where
 
 instance Prelude.NFData ResolvedComponentVersion where
   rnf ResolvedComponentVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf recipe
-      `Prelude.seq` Prelude.rnf vendorGuidance
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf componentVersion `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf recipe `Prelude.seq`
+              Prelude.rnf vendorGuidance

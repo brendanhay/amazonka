@@ -147,12 +147,12 @@ instance Prelude.Hashable LambdaFunctionRecipeSource where
 
 instance Prelude.NFData LambdaFunctionRecipeSource where
   rnf LambdaFunctionRecipeSource' {..} =
-    Prelude.rnf componentDependencies
-      `Prelude.seq` Prelude.rnf componentLambdaParameters
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentPlatforms
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf lambdaArn
+    Prelude.rnf componentDependencies `Prelude.seq`
+      Prelude.rnf componentLambdaParameters `Prelude.seq`
+        Prelude.rnf componentName `Prelude.seq`
+          Prelude.rnf componentPlatforms `Prelude.seq`
+            Prelude.rnf componentVersion `Prelude.seq`
+              Prelude.rnf lambdaArn
 
 instance Data.ToJSON LambdaFunctionRecipeSource where
   toJSON LambdaFunctionRecipeSource' {..} =

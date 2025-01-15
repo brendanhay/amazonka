@@ -129,8 +129,8 @@ instance Prelude.Hashable ResolveComponentCandidates where
 
 instance Prelude.NFData ResolveComponentCandidates where
   rnf ResolveComponentCandidates' {..} =
-    Prelude.rnf componentCandidates
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf componentCandidates `Prelude.seq`
+      Prelude.rnf platform
 
 instance Data.ToHeaders ResolveComponentCandidates where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,5 +203,5 @@ instance
     ResolveComponentCandidatesResponse
   where
   rnf ResolveComponentCandidatesResponse' {..} =
-    Prelude.rnf resolvedComponentVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolvedComponentVersions `Prelude.seq`
+      Prelude.rnf httpStatus

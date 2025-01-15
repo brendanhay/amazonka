@@ -116,12 +116,12 @@ instance Core.AWSPager ListEffectiveDeployments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEffectiveDeployments_nextToken
-          Lens..~ rs
-          Lens.^? listEffectiveDeploymentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEffectiveDeployments_nextToken
+              Lens..~ rs
+              Lens.^? listEffectiveDeploymentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEffectiveDeployments where
   type
@@ -150,9 +150,9 @@ instance Prelude.Hashable ListEffectiveDeployments where
 
 instance Prelude.NFData ListEffectiveDeployments where
   rnf ListEffectiveDeployments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf coreDeviceThingName
 
 instance Data.ToHeaders ListEffectiveDeployments where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,6 +228,6 @@ instance
     ListEffectiveDeploymentsResponse
   where
   rnf ListEffectiveDeploymentsResponse' {..} =
-    Prelude.rnf effectiveDeployments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effectiveDeployments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

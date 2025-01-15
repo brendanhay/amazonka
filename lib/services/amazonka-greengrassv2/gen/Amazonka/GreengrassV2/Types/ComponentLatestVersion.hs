@@ -134,9 +134,9 @@ instance Prelude.Hashable ComponentLatestVersion where
 
 instance Prelude.NFData ComponentLatestVersion where
   rnf ComponentLatestVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf publisher
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf componentVersion `Prelude.seq`
+        Prelude.rnf creationTimestamp `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf platforms `Prelude.seq`
+              Prelude.rnf publisher

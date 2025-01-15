@@ -287,11 +287,11 @@ getCoreDeviceResponse_httpStatus = Lens.lens (\GetCoreDeviceResponse' {httpStatu
 
 instance Prelude.NFData GetCoreDeviceResponse where
   rnf GetCoreDeviceResponse' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
-      `Prelude.seq` Prelude.rnf coreVersion
-      `Prelude.seq` Prelude.rnf lastStatusUpdateTimestamp
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf coreDeviceThingName `Prelude.seq`
+        Prelude.rnf coreVersion `Prelude.seq`
+          Prelude.rnf lastStatusUpdateTimestamp `Prelude.seq`
+            Prelude.rnf platform `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

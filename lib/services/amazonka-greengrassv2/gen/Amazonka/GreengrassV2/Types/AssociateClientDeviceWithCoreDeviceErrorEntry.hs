@@ -107,6 +107,6 @@ instance
   where
   rnf
     AssociateClientDeviceWithCoreDeviceErrorEntry' {..} =
-      Prelude.rnf code
-        `Prelude.seq` Prelude.rnf message
-        `Prelude.seq` Prelude.rnf thingName
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf thingName

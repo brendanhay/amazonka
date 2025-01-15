@@ -184,12 +184,12 @@ instance Core.AWSPager ListInstalledComponents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstalledComponents_nextToken
-          Lens..~ rs
-          Lens.^? listInstalledComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstalledComponents_nextToken
+              Lens..~ rs
+              Lens.^? listInstalledComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstalledComponents where
   type
@@ -219,10 +219,10 @@ instance Prelude.Hashable ListInstalledComponents where
 
 instance Prelude.NFData ListInstalledComponents where
   rnf ListInstalledComponents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf topologyFilter
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf topologyFilter `Prelude.seq`
+          Prelude.rnf coreDeviceThingName
 
 instance Data.ToHeaders ListInstalledComponents where
   toHeaders = Prelude.const Prelude.mempty
@@ -326,6 +326,6 @@ instance
     ListInstalledComponentsResponse
   where
   rnf ListInstalledComponentsResponse' {..} =
-    Prelude.rnf installedComponents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf installedComponents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

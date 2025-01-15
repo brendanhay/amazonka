@@ -170,11 +170,11 @@ instance Prelude.Hashable CompleteSnapshot where
 
 instance Prelude.NFData CompleteSnapshot where
   rnf CompleteSnapshot' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf checksumAggregationMethod
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf changedBlocksCount
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf checksumAggregationMethod `Prelude.seq`
+        Prelude.rnf checksumAlgorithm `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf changedBlocksCount
 
 instance Data.ToHeaders CompleteSnapshot where
   toHeaders CompleteSnapshot' {..} =
@@ -240,5 +240,5 @@ completeSnapshotResponse_httpStatus = Lens.lens (\CompleteSnapshotResponse' {htt
 
 instance Prelude.NFData CompleteSnapshotResponse where
   rnf CompleteSnapshotResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

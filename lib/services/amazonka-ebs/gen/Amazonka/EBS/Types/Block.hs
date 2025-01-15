@@ -80,5 +80,5 @@ instance Prelude.Hashable Block where
 
 instance Prelude.NFData Block where
   rnf Block' {..} =
-    Prelude.rnf blockIndex
-      `Prelude.seq` Prelude.rnf blockToken
+    Prelude.rnf blockIndex `Prelude.seq`
+      Prelude.rnf blockToken

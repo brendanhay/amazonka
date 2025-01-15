@@ -169,12 +169,12 @@ instance Prelude.Hashable SigningPlatform where
 
 instance Prelude.NFData SigningPlatform where
   rnf SigningPlatform' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf maxSizeInMB
-      `Prelude.seq` Prelude.rnf partner
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf revocationSupported
-      `Prelude.seq` Prelude.rnf signingConfiguration
-      `Prelude.seq` Prelude.rnf signingImageFormat
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf maxSizeInMB `Prelude.seq`
+          Prelude.rnf partner `Prelude.seq`
+            Prelude.rnf platformId `Prelude.seq`
+              Prelude.rnf revocationSupported `Prelude.seq`
+                Prelude.rnf signingConfiguration `Prelude.seq`
+                  Prelude.rnf signingImageFormat `Prelude.seq`
+                    Prelude.rnf target

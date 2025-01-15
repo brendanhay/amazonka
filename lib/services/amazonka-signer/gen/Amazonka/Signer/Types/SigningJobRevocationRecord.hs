@@ -92,6 +92,6 @@ instance Prelude.Hashable SigningJobRevocationRecord where
 
 instance Prelude.NFData SigningJobRevocationRecord where
   rnf SigningJobRevocationRecord' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf revokedBy
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf revokedAt `Prelude.seq`
+        Prelude.rnf revokedBy

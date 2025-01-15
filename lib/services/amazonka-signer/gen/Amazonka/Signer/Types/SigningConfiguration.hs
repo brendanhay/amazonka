@@ -92,5 +92,5 @@ instance Prelude.Hashable SigningConfiguration where
 
 instance Prelude.NFData SigningConfiguration where
   rnf SigningConfiguration' {..} =
-    Prelude.rnf encryptionAlgorithmOptions
-      `Prelude.seq` Prelude.rnf hashAlgorithmOptions
+    Prelude.rnf encryptionAlgorithmOptions `Prelude.seq`
+      Prelude.rnf hashAlgorithmOptions

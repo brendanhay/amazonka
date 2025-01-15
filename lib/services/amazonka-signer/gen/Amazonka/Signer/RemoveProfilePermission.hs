@@ -132,9 +132,9 @@ instance Prelude.Hashable RemoveProfilePermission where
 
 instance Prelude.NFData RemoveProfilePermission where
   rnf RemoveProfilePermission' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf profileName `Prelude.seq`
+        Prelude.rnf statementId
 
 instance Data.ToHeaders RemoveProfilePermission where
   toHeaders =
@@ -204,5 +204,5 @@ instance
     RemoveProfilePermissionResponse
   where
   rnf RemoveProfilePermissionResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf httpStatus

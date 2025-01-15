@@ -137,8 +137,8 @@ instance Prelude.Hashable GetSigningProfile where
 
 instance Prelude.NFData GetSigningProfile where
   rnf GetSigningProfile' {..} =
-    Prelude.rnf profileOwner
-      `Prelude.seq` Prelude.rnf profileName
+    Prelude.rnf profileOwner `Prelude.seq`
+      Prelude.rnf profileName
 
 instance Data.ToHeaders GetSigningProfile where
   toHeaders =
@@ -328,18 +328,18 @@ getSigningProfileResponse_httpStatus = Lens.lens (\GetSigningProfileResponse' {h
 
 instance Prelude.NFData GetSigningProfileResponse where
   rnf GetSigningProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf platformDisplayName
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf profileVersionArn
-      `Prelude.seq` Prelude.rnf revocationRecord
-      `Prelude.seq` Prelude.rnf signatureValidityPeriod
-      `Prelude.seq` Prelude.rnf signingMaterial
-      `Prelude.seq` Prelude.rnf signingParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf overrides `Prelude.seq`
+        Prelude.rnf platformDisplayName `Prelude.seq`
+          Prelude.rnf platformId `Prelude.seq`
+            Prelude.rnf profileName `Prelude.seq`
+              Prelude.rnf profileVersion `Prelude.seq`
+                Prelude.rnf profileVersionArn `Prelude.seq`
+                  Prelude.rnf revocationRecord `Prelude.seq`
+                    Prelude.rnf signatureValidityPeriod `Prelude.seq`
+                      Prelude.rnf signingMaterial `Prelude.seq`
+                        Prelude.rnf signingParameters `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusReason `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf httpStatus

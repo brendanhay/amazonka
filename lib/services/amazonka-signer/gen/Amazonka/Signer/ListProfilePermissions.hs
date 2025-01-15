@@ -115,8 +115,8 @@ instance Prelude.Hashable ListProfilePermissions where
 
 instance Prelude.NFData ListProfilePermissions where
   rnf ListProfilePermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf profileName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf profileName
 
 instance Data.ToHeaders ListProfilePermissions where
   toHeaders =
@@ -212,8 +212,8 @@ instance
     ListProfilePermissionsResponse
   where
   rnf ListProfilePermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf policySizeBytes
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf policySizeBytes `Prelude.seq`
+          Prelude.rnf revisionId `Prelude.seq`
+            Prelude.rnf httpStatus

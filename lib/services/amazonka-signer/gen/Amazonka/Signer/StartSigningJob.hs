@@ -186,11 +186,11 @@ instance Prelude.Hashable StartSigningJob where
 
 instance Prelude.NFData StartSigningJob where
   rnf StartSigningJob' {..} =
-    Prelude.rnf profileOwner
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf profileOwner `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf profileName `Prelude.seq`
+            Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders StartSigningJob where
   toHeaders =
@@ -271,6 +271,6 @@ startSigningJobResponse_httpStatus = Lens.lens (\StartSigningJobResponse' {httpS
 
 instance Prelude.NFData StartSigningJobResponse where
   rnf StartSigningJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobOwner
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf jobOwner `Prelude.seq`
+        Prelude.rnf httpStatus

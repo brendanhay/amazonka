@@ -249,13 +249,13 @@ getSigningPlatformResponse_httpStatus = Lens.lens (\GetSigningPlatformResponse' 
 
 instance Prelude.NFData GetSigningPlatformResponse where
   rnf GetSigningPlatformResponse' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf maxSizeInMB
-      `Prelude.seq` Prelude.rnf partner
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf revocationSupported
-      `Prelude.seq` Prelude.rnf signingConfiguration
-      `Prelude.seq` Prelude.rnf signingImageFormat
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf maxSizeInMB `Prelude.seq`
+          Prelude.rnf partner `Prelude.seq`
+            Prelude.rnf platformId `Prelude.seq`
+              Prelude.rnf revocationSupported `Prelude.seq`
+                Prelude.rnf signingConfiguration `Prelude.seq`
+                  Prelude.rnf signingImageFormat `Prelude.seq`
+                    Prelude.rnf target `Prelude.seq`
+                      Prelude.rnf httpStatus

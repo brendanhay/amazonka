@@ -212,12 +212,12 @@ instance Core.AWSPager ListSigningJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSigningJobs_nextToken
-          Lens..~ rs
-          Lens.^? listSigningJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSigningJobs_nextToken
+              Lens..~ rs
+              Lens.^? listSigningJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningJobs where
   type
@@ -249,15 +249,15 @@ instance Prelude.Hashable ListSigningJobs where
 
 instance Prelude.NFData ListSigningJobs where
   rnf ListSigningJobs' {..} =
-    Prelude.rnf isRevoked
-      `Prelude.seq` Prelude.rnf jobInvoker
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf requestedBy
-      `Prelude.seq` Prelude.rnf signatureExpiresAfter
-      `Prelude.seq` Prelude.rnf signatureExpiresBefore
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf isRevoked `Prelude.seq`
+      Prelude.rnf jobInvoker `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf platformId `Prelude.seq`
+              Prelude.rnf requestedBy `Prelude.seq`
+                Prelude.rnf signatureExpiresAfter `Prelude.seq`
+                  Prelude.rnf signatureExpiresBefore `Prelude.seq`
+                    Prelude.rnf status
 
 instance Data.ToHeaders ListSigningJobs where
   toHeaders =
@@ -338,6 +338,6 @@ listSigningJobsResponse_httpStatus = Lens.lens (\ListSigningJobsResponse' {httpS
 
 instance Prelude.NFData ListSigningJobsResponse where
   rnf ListSigningJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

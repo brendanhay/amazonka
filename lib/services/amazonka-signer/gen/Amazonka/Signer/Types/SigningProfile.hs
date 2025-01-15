@@ -189,14 +189,14 @@ instance Prelude.Hashable SigningProfile where
 
 instance Prelude.NFData SigningProfile where
   rnf SigningProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf platformDisplayName
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf profileVersionArn
-      `Prelude.seq` Prelude.rnf signatureValidityPeriod
-      `Prelude.seq` Prelude.rnf signingMaterial
-      `Prelude.seq` Prelude.rnf signingParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf platformDisplayName `Prelude.seq`
+        Prelude.rnf platformId `Prelude.seq`
+          Prelude.rnf profileName `Prelude.seq`
+            Prelude.rnf profileVersion `Prelude.seq`
+              Prelude.rnf profileVersionArn `Prelude.seq`
+                Prelude.rnf signatureValidityPeriod `Prelude.seq`
+                  Prelude.rnf signingMaterial `Prelude.seq`
+                    Prelude.rnf signingParameters `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tags

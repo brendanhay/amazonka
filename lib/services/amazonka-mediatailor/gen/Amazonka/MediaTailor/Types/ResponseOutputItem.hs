@@ -131,8 +131,8 @@ instance Prelude.Hashable ResponseOutputItem where
 
 instance Prelude.NFData ResponseOutputItem where
   rnf ResponseOutputItem' {..} =
-    Prelude.rnf dashPlaylistSettings
-      `Prelude.seq` Prelude.rnf hlsPlaylistSettings
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf playbackUrl
-      `Prelude.seq` Prelude.rnf sourceGroup
+    Prelude.rnf dashPlaylistSettings `Prelude.seq`
+      Prelude.rnf hlsPlaylistSettings `Prelude.seq`
+        Prelude.rnf manifestName `Prelude.seq`
+          Prelude.rnf playbackUrl `Prelude.seq`
+            Prelude.rnf sourceGroup

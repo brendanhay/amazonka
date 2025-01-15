@@ -154,8 +154,8 @@ instance
     ConfigureLogsForPlaybackConfiguration
   where
   rnf ConfigureLogsForPlaybackConfiguration' {..} =
-    Prelude.rnf percentEnabled
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
+    Prelude.rnf percentEnabled `Prelude.seq`
+      Prelude.rnf playbackConfigurationName
 
 instance
   Data.ToHeaders
@@ -263,6 +263,6 @@ instance
   where
   rnf
     ConfigureLogsForPlaybackConfigurationResponse' {..} =
-      Prelude.rnf playbackConfigurationName
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf percentEnabled
+      Prelude.rnf playbackConfigurationName `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf percentEnabled

@@ -110,9 +110,9 @@ instance Prelude.Hashable HttpPackageConfiguration where
 
 instance Prelude.NFData HttpPackageConfiguration where
   rnf HttpPackageConfiguration' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf sourceGroup
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf sourceGroup `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON HttpPackageConfiguration where
   toJSON HttpPackageConfiguration' {..} =

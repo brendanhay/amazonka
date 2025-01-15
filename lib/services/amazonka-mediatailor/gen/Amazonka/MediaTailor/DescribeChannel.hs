@@ -267,14 +267,14 @@ describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpS
 
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf channelState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fillerSlate
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf playbackMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf channelName `Prelude.seq`
+        Prelude.rnf channelState `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf fillerSlate `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf outputs `Prelude.seq`
+                  Prelude.rnf playbackMode `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf tier `Prelude.seq`
+                        Prelude.rnf httpStatus

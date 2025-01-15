@@ -173,9 +173,9 @@ instance Prelude.Hashable PrefetchSchedule where
 
 instance Prelude.NFData PrefetchSchedule where
   rnf PrefetchSchedule' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf consumption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf retrieval
+    Prelude.rnf streamId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf consumption `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf playbackConfigurationName `Prelude.seq`
+              Prelude.rnf retrieval

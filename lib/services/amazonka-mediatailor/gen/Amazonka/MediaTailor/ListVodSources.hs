@@ -127,12 +127,12 @@ instance Core.AWSPager ListVodSources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVodSources_nextToken
-          Lens..~ rs
-          Lens.^? listVodSourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVodSources_nextToken
+              Lens..~ rs
+              Lens.^? listVodSourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVodSources where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListVodSources where
 
 instance Prelude.NFData ListVodSources where
   rnf ListVodSources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders ListVodSources where
   toHeaders =
@@ -240,6 +240,6 @@ listVodSourcesResponse_httpStatus = Lens.lens (\ListVodSourcesResponse' {httpSta
 
 instance Prelude.NFData ListVodSourcesResponse where
   rnf ListVodSourcesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

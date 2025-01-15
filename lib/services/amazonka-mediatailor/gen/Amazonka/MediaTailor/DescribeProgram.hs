@@ -129,8 +129,8 @@ instance Prelude.Hashable DescribeProgram where
 
 instance Prelude.NFData DescribeProgram where
   rnf DescribeProgram' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf programName
 
 instance Data.ToHeaders DescribeProgram where
   toHeaders =
@@ -274,13 +274,13 @@ describeProgramResponse_httpStatus = Lens.lens (\DescribeProgramResponse' {httpS
 
 instance Prelude.NFData DescribeProgramResponse where
   rnf DescribeProgramResponse' {..} =
-    Prelude.rnf adBreaks
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf scheduledStartTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adBreaks `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf channelName `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf liveSourceName `Prelude.seq`
+              Prelude.rnf programName `Prelude.seq`
+                Prelude.rnf scheduledStartTime `Prelude.seq`
+                  Prelude.rnf sourceLocationName `Prelude.seq`
+                    Prelude.rnf vodSourceName `Prelude.seq`
+                      Prelude.rnf httpStatus

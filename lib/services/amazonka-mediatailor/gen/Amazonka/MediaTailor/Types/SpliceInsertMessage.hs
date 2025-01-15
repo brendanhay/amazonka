@@ -123,10 +123,10 @@ instance Prelude.Hashable SpliceInsertMessage where
 
 instance Prelude.NFData SpliceInsertMessage where
   rnf SpliceInsertMessage' {..} =
-    Prelude.rnf availNum
-      `Prelude.seq` Prelude.rnf availsExpected
-      `Prelude.seq` Prelude.rnf spliceEventId
-      `Prelude.seq` Prelude.rnf uniqueProgramId
+    Prelude.rnf availNum `Prelude.seq`
+      Prelude.rnf availsExpected `Prelude.seq`
+        Prelude.rnf spliceEventId `Prelude.seq`
+          Prelude.rnf uniqueProgramId
 
 instance Data.ToJSON SpliceInsertMessage where
   toJSON SpliceInsertMessage' {..} =

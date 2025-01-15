@@ -174,12 +174,12 @@ instance Core.AWSPager ListPrefetchSchedules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPrefetchSchedules_nextToken
-          Lens..~ rs
-          Lens.^? listPrefetchSchedulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPrefetchSchedules_nextToken
+              Lens..~ rs
+              Lens.^? listPrefetchSchedulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrefetchSchedules where
   type
@@ -206,10 +206,10 @@ instance Prelude.Hashable ListPrefetchSchedules where
 
 instance Prelude.NFData ListPrefetchSchedules where
   rnf ListPrefetchSchedules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf streamId `Prelude.seq`
+          Prelude.rnf playbackConfigurationName
 
 instance Data.ToHeaders ListPrefetchSchedules where
   toHeaders =
@@ -298,6 +298,6 @@ listPrefetchSchedulesResponse_httpStatus = Lens.lens (\ListPrefetchSchedulesResp
 
 instance Prelude.NFData ListPrefetchSchedulesResponse where
   rnf ListPrefetchSchedulesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

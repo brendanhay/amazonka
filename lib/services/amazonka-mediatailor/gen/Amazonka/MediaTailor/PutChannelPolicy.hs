@@ -109,8 +109,8 @@ instance Prelude.Hashable PutChannelPolicy where
 
 instance Prelude.NFData PutChannelPolicy where
   rnf PutChannelPolicy' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutChannelPolicy where
   toHeaders =

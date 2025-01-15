@@ -191,13 +191,13 @@ instance Prelude.Hashable CreateProgram where
 
 instance Prelude.NFData CreateProgram where
   rnf CreateProgram' {..} =
-    Prelude.rnf adBreaks
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf scheduleConfiguration
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf adBreaks `Prelude.seq`
+      Prelude.rnf liveSourceName `Prelude.seq`
+        Prelude.rnf vodSourceName `Prelude.seq`
+          Prelude.rnf channelName `Prelude.seq`
+            Prelude.rnf programName `Prelude.seq`
+              Prelude.rnf scheduleConfiguration `Prelude.seq`
+                Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders CreateProgram where
   toHeaders =
@@ -351,13 +351,13 @@ createProgramResponse_httpStatus = Lens.lens (\CreateProgramResponse' {httpStatu
 
 instance Prelude.NFData CreateProgramResponse where
   rnf CreateProgramResponse' {..} =
-    Prelude.rnf adBreaks
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf scheduledStartTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adBreaks `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf channelName `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf liveSourceName `Prelude.seq`
+              Prelude.rnf programName `Prelude.seq`
+                Prelude.rnf scheduledStartTime `Prelude.seq`
+                  Prelude.rnf sourceLocationName `Prelude.seq`
+                    Prelude.rnf vodSourceName `Prelude.seq`
+                      Prelude.rnf httpStatus

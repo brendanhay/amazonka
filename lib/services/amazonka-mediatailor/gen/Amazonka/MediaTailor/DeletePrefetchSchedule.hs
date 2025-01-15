@@ -119,8 +119,8 @@ instance Prelude.Hashable DeletePrefetchSchedule where
 
 instance Prelude.NFData DeletePrefetchSchedule where
   rnf DeletePrefetchSchedule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf playbackConfigurationName
 
 instance Data.ToHeaders DeletePrefetchSchedule where
   toHeaders =

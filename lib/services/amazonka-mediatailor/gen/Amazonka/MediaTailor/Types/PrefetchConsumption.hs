@@ -120,9 +120,9 @@ instance Prelude.Hashable PrefetchConsumption where
 
 instance Prelude.NFData PrefetchConsumption where
   rnf PrefetchConsumption' {..} =
-    Prelude.rnf availMatchingCriteria
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf availMatchingCriteria `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf endTime
 
 instance Data.ToJSON PrefetchConsumption where
   toJSON PrefetchConsumption' {..} =

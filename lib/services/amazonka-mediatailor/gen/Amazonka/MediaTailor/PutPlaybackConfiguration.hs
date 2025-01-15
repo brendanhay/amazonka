@@ -390,20 +390,20 @@ instance Prelude.Hashable PutPlaybackConfiguration where
 
 instance Prelude.NFData PutPlaybackConfiguration where
   rnf PutPlaybackConfiguration' {..} =
-    Prelude.rnf adDecisionServerUrl
-      `Prelude.seq` Prelude.rnf availSuppression
-      `Prelude.seq` Prelude.rnf bumper
-      `Prelude.seq` Prelude.rnf cdnConfiguration
-      `Prelude.seq` Prelude.rnf configurationAliases
-      `Prelude.seq` Prelude.rnf dashConfiguration
-      `Prelude.seq` Prelude.rnf livePreRollConfiguration
-      `Prelude.seq` Prelude.rnf manifestProcessingRules
-      `Prelude.seq` Prelude.rnf personalizationThresholdSeconds
-      `Prelude.seq` Prelude.rnf slateAdUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transcodeProfileName
-      `Prelude.seq` Prelude.rnf videoContentSourceUrl
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf adDecisionServerUrl `Prelude.seq`
+      Prelude.rnf availSuppression `Prelude.seq`
+        Prelude.rnf bumper `Prelude.seq`
+          Prelude.rnf cdnConfiguration `Prelude.seq`
+            Prelude.rnf configurationAliases `Prelude.seq`
+              Prelude.rnf dashConfiguration `Prelude.seq`
+                Prelude.rnf livePreRollConfiguration `Prelude.seq`
+                  Prelude.rnf manifestProcessingRules `Prelude.seq`
+                    Prelude.rnf personalizationThresholdSeconds `Prelude.seq`
+                      Prelude.rnf slateAdUrl `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf transcodeProfileName `Prelude.seq`
+                            Prelude.rnf videoContentSourceUrl `Prelude.seq`
+                              Prelude.rnf name
 
 instance Data.ToHeaders PutPlaybackConfiguration where
   toHeaders =

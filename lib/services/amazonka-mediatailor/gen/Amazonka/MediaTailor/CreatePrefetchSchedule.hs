@@ -200,11 +200,11 @@ instance Prelude.Hashable CreatePrefetchSchedule where
 
 instance Prelude.NFData CreatePrefetchSchedule where
   rnf CreatePrefetchSchedule' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf consumption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf retrieval
+    Prelude.rnf streamId `Prelude.seq`
+      Prelude.rnf consumption `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf playbackConfigurationName `Prelude.seq`
+            Prelude.rnf retrieval
 
 instance Data.ToHeaders CreatePrefetchSchedule where
   toHeaders =
@@ -361,10 +361,10 @@ instance
     CreatePrefetchScheduleResponse
   where
   rnf CreatePrefetchScheduleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf consumption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf retrieval
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf consumption `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf playbackConfigurationName `Prelude.seq`
+            Prelude.rnf retrieval `Prelude.seq`
+              Prelude.rnf streamId `Prelude.seq`
+                Prelude.rnf httpStatus

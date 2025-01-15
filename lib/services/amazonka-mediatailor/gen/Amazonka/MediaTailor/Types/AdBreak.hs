@@ -153,11 +153,11 @@ instance Prelude.Hashable AdBreak where
 
 instance Prelude.NFData AdBreak where
   rnf AdBreak' {..} =
-    Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf offsetMillis
-      `Prelude.seq` Prelude.rnf slate
-      `Prelude.seq` Prelude.rnf spliceInsertMessage
-      `Prelude.seq` Prelude.rnf timeSignalMessage
+    Prelude.rnf messageType `Prelude.seq`
+      Prelude.rnf offsetMillis `Prelude.seq`
+        Prelude.rnf slate `Prelude.seq`
+          Prelude.rnf spliceInsertMessage `Prelude.seq`
+            Prelude.rnf timeSignalMessage
 
 instance Data.ToJSON AdBreak where
   toJSON AdBreak' {..} =

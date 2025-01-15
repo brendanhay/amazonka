@@ -195,12 +195,12 @@ instance Prelude.Hashable CreateSourceLocation where
 
 instance Prelude.NFData CreateSourceLocation where
   rnf CreateSourceLocation' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+        Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpConfiguration `Prelude.seq`
+              Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders CreateSourceLocation where
   toHeaders =
@@ -370,13 +370,13 @@ createSourceLocationResponse_httpStatus = Lens.lens (\CreateSourceLocationRespon
 
 instance Prelude.NFData CreateSourceLocationResponse where
   rnf CreateSourceLocationResponse' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+            Prelude.rnf httpConfiguration `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+                  Prelude.rnf sourceLocationName `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

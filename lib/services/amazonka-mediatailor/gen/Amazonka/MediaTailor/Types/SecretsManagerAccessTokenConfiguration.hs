@@ -120,9 +120,9 @@ instance
     SecretsManagerAccessTokenConfiguration
   where
   rnf SecretsManagerAccessTokenConfiguration' {..} =
-    Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf secretStringKey
+    Prelude.rnf headerName `Prelude.seq`
+      Prelude.rnf secretArn `Prelude.seq`
+        Prelude.rnf secretStringKey
 
 instance
   Data.ToJSON

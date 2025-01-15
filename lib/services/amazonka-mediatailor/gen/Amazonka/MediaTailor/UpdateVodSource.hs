@@ -142,9 +142,9 @@ instance Prelude.Hashable UpdateVodSource where
 
 instance Prelude.NFData UpdateVodSource where
   rnf UpdateVodSource' {..} =
-    Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf httpPackageConfigurations `Prelude.seq`
+      Prelude.rnf sourceLocationName `Prelude.seq`
+        Prelude.rnf vodSourceName
 
 instance Data.ToHeaders UpdateVodSource where
   toHeaders =
@@ -286,11 +286,11 @@ updateVodSourceResponse_httpStatus = Lens.lens (\UpdateVodSourceResponse' {httpS
 
 instance Prelude.NFData UpdateVodSourceResponse where
   rnf UpdateVodSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf httpPackageConfigurations `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf sourceLocationName `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf vodSourceName `Prelude.seq`
+                  Prelude.rnf httpStatus

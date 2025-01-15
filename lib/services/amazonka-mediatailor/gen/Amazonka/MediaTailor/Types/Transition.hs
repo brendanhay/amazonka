@@ -162,11 +162,11 @@ instance Prelude.Hashable Transition where
 
 instance Prelude.NFData Transition where
   rnf Transition' {..} =
-    Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf relativeProgram
-      `Prelude.seq` Prelude.rnf scheduledStartTimeMillis
-      `Prelude.seq` Prelude.rnf relativePosition
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf durationMillis `Prelude.seq`
+      Prelude.rnf relativeProgram `Prelude.seq`
+        Prelude.rnf scheduledStartTimeMillis `Prelude.seq`
+          Prelude.rnf relativePosition `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON Transition where
   toJSON Transition' {..} =

@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteVodSource where
 
 instance Prelude.NFData DeleteVodSource where
   rnf DeleteVodSource' {..} =
-    Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf sourceLocationName `Prelude.seq`
+      Prelude.rnf vodSourceName
 
 instance Data.ToHeaders DeleteVodSource where
   toHeaders =

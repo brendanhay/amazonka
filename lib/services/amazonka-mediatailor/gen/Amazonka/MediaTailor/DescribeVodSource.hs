@@ -129,8 +129,8 @@ instance Prelude.Hashable DescribeVodSource where
 
 instance Prelude.NFData DescribeVodSource where
   rnf DescribeVodSource' {..} =
-    Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf sourceLocationName `Prelude.seq`
+      Prelude.rnf vodSourceName
 
 instance Data.ToHeaders DescribeVodSource where
   toHeaders =
@@ -258,11 +258,11 @@ describeVodSourceResponse_httpStatus = Lens.lens (\DescribeVodSourceResponse' {h
 
 instance Prelude.NFData DescribeVodSourceResponse where
   rnf DescribeVodSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf httpPackageConfigurations `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf sourceLocationName `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf vodSourceName `Prelude.seq`
+                  Prelude.rnf httpStatus

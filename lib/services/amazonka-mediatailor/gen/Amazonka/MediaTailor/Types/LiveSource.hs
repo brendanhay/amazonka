@@ -157,10 +157,10 @@ instance Prelude.Hashable LiveSource where
 
 instance Prelude.NFData LiveSource where
   rnf LiveSource' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf httpPackageConfigurations `Prelude.seq`
+              Prelude.rnf liveSourceName `Prelude.seq`
+                Prelude.rnf sourceLocationName

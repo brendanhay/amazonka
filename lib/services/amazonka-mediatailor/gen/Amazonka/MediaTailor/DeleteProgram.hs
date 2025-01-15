@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteProgram where
 
 instance Prelude.NFData DeleteProgram where
   rnf DeleteProgram' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf programName
 
 instance Data.ToHeaders DeleteProgram where
   toHeaders =

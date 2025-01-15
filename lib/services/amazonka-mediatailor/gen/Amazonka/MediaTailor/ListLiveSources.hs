@@ -127,12 +127,12 @@ instance Core.AWSPager ListLiveSources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLiveSources_nextToken
-          Lens..~ rs
-          Lens.^? listLiveSourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLiveSources_nextToken
+              Lens..~ rs
+              Lens.^? listLiveSourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLiveSources where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListLiveSources where
 
 instance Prelude.NFData ListLiveSources where
   rnf ListLiveSources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders ListLiveSources where
   toHeaders =
@@ -240,6 +240,6 @@ listLiveSourcesResponse_httpStatus = Lens.lens (\ListLiveSourcesResponse' {httpS
 
 instance Prelude.NFData ListLiveSourcesResponse where
   rnf ListLiveSourcesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

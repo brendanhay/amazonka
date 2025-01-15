@@ -102,8 +102,8 @@ instance Prelude.Hashable LivePreRollConfiguration where
 
 instance Prelude.NFData LivePreRollConfiguration where
   rnf LivePreRollConfiguration' {..} =
-    Prelude.rnf adDecisionServerUrl
-      `Prelude.seq` Prelude.rnf maxDurationSeconds
+    Prelude.rnf adDecisionServerUrl `Prelude.seq`
+      Prelude.rnf maxDurationSeconds
 
 instance Data.ToJSON LivePreRollConfiguration where
   toJSON LivePreRollConfiguration' {..} =

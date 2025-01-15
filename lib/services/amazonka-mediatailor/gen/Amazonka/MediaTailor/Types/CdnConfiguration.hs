@@ -115,8 +115,8 @@ instance Prelude.Hashable CdnConfiguration where
 
 instance Prelude.NFData CdnConfiguration where
   rnf CdnConfiguration' {..} =
-    Prelude.rnf adSegmentUrlPrefix
-      `Prelude.seq` Prelude.rnf contentSegmentUrlPrefix
+    Prelude.rnf adSegmentUrlPrefix `Prelude.seq`
+      Prelude.rnf contentSegmentUrlPrefix
 
 instance Data.ToJSON CdnConfiguration where
   toJSON CdnConfiguration' {..} =

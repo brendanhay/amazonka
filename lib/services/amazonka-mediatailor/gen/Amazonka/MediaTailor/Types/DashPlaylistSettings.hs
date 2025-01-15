@@ -124,10 +124,10 @@ instance Prelude.Hashable DashPlaylistSettings where
 
 instance Prelude.NFData DashPlaylistSettings where
   rnf DashPlaylistSettings' {..} =
-    Prelude.rnf manifestWindowSeconds
-      `Prelude.seq` Prelude.rnf minBufferTimeSeconds
-      `Prelude.seq` Prelude.rnf minUpdatePeriodSeconds
-      `Prelude.seq` Prelude.rnf suggestedPresentationDelaySeconds
+    Prelude.rnf manifestWindowSeconds `Prelude.seq`
+      Prelude.rnf minBufferTimeSeconds `Prelude.seq`
+        Prelude.rnf minUpdatePeriodSeconds `Prelude.seq`
+          Prelude.rnf suggestedPresentationDelaySeconds
 
 instance Data.ToJSON DashPlaylistSettings where
   toJSON DashPlaylistSettings' {..} =

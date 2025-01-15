@@ -83,8 +83,8 @@ instance Prelude.Hashable Bumper where
 
 instance Prelude.NFData Bumper where
   rnf Bumper' {..} =
-    Prelude.rnf endUrl
-      `Prelude.seq` Prelude.rnf startUrl
+    Prelude.rnf endUrl `Prelude.seq`
+      Prelude.rnf startUrl
 
 instance Data.ToJSON Bumper where
   toJSON Bumper' {..} =

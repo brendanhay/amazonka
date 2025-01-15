@@ -106,7 +106,7 @@ instance Prelude.Hashable RetainedMessageSummary where
 
 instance Prelude.NFData RetainedMessageSummary where
   rnf RetainedMessageSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf payloadSize
-      `Prelude.seq` Prelude.rnf qos
-      `Prelude.seq` Prelude.rnf topic
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf payloadSize `Prelude.seq`
+        Prelude.rnf qos `Prelude.seq`
+          Prelude.rnf topic

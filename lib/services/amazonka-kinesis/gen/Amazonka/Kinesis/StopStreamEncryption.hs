@@ -196,10 +196,10 @@ instance Prelude.Hashable StopStreamEncryption where
 
 instance Prelude.NFData StopStreamEncryption where
   rnf StopStreamEncryption' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf encryptionType `Prelude.seq`
+          Prelude.rnf keyId
 
 instance Data.ToHeaders StopStreamEncryption where
   toHeaders =

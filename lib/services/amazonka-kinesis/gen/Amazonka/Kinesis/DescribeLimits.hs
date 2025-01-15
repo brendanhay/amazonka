@@ -195,8 +195,8 @@ describeLimitsResponse_onDemandStreamCountLimit = Lens.lens (\DescribeLimitsResp
 
 instance Prelude.NFData DescribeLimitsResponse where
   rnf DescribeLimitsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf shardLimit
-      `Prelude.seq` Prelude.rnf openShardCount
-      `Prelude.seq` Prelude.rnf onDemandStreamCount
-      `Prelude.seq` Prelude.rnf onDemandStreamCountLimit
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf shardLimit `Prelude.seq`
+        Prelude.rnf openShardCount `Prelude.seq`
+          Prelude.rnf onDemandStreamCount `Prelude.seq`
+            Prelude.rnf onDemandStreamCountLimit

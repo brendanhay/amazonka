@@ -140,9 +140,9 @@ instance Prelude.Hashable DeregisterStreamConsumer where
 
 instance Prelude.NFData DeregisterStreamConsumer where
   rnf DeregisterStreamConsumer' {..} =
-    Prelude.rnf consumerARN
-      `Prelude.seq` Prelude.rnf consumerName
-      `Prelude.seq` Prelude.rnf streamARN
+    Prelude.rnf consumerARN `Prelude.seq`
+      Prelude.rnf consumerName `Prelude.seq`
+        Prelude.rnf streamARN
 
 instance Data.ToHeaders DeregisterStreamConsumer where
   toHeaders =

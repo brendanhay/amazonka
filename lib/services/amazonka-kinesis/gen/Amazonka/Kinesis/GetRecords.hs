@@ -204,9 +204,9 @@ instance Prelude.Hashable GetRecords where
 
 instance Prelude.NFData GetRecords where
   rnf GetRecords' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf shardIterator
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf streamARN `Prelude.seq`
+        Prelude.rnf shardIterator
 
 instance Data.ToHeaders GetRecords where
   toHeaders =
@@ -330,8 +330,8 @@ getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> record
 
 instance Prelude.NFData GetRecordsResponse where
   rnf GetRecordsResponse' {..} =
-    Prelude.rnf childShards
-      `Prelude.seq` Prelude.rnf millisBehindLatest
-      `Prelude.seq` Prelude.rnf nextShardIterator
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf childShards `Prelude.seq`
+      Prelude.rnf millisBehindLatest `Prelude.seq`
+        Prelude.rnf nextShardIterator `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf records

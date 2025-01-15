@@ -195,10 +195,10 @@ instance Prelude.Hashable StartStreamEncryption where
 
 instance Prelude.NFData StartStreamEncryption where
   rnf StartStreamEncryption' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf encryptionType `Prelude.seq`
+          Prelude.rnf keyId
 
 instance Data.ToHeaders StartStreamEncryption where
   toHeaders =

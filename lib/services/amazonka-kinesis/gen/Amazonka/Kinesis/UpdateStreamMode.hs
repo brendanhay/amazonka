@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateStreamMode where
 
 instance Prelude.NFData UpdateStreamMode where
   rnf UpdateStreamMode' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamModeDetails
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamModeDetails
 
 instance Data.ToHeaders UpdateStreamMode where
   toHeaders =

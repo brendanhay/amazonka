@@ -195,9 +195,9 @@ instance Prelude.Hashable PutRecords where
 
 instance Prelude.NFData PutRecords where
   rnf PutRecords' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf records
 
 instance Data.ToHeaders PutRecords where
   toHeaders =
@@ -323,7 +323,7 @@ putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> record
 
 instance Prelude.NFData PutRecordsResponse where
   rnf PutRecordsResponse' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf failedRecordCount
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf encryptionType `Prelude.seq`
+      Prelude.rnf failedRecordCount `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf records

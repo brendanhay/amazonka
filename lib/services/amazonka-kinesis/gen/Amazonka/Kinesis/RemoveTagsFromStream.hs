@@ -122,9 +122,9 @@ instance Prelude.Hashable RemoveTagsFromStream where
 
 instance Prelude.NFData RemoveTagsFromStream where
   rnf RemoveTagsFromStream' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf tagKeys
 
 instance Data.ToHeaders RemoveTagsFromStream where
   toHeaders =

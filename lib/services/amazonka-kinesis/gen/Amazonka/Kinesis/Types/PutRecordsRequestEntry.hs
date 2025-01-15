@@ -129,9 +129,9 @@ instance Prelude.Hashable PutRecordsRequestEntry where
 
 instance Prelude.NFData PutRecordsRequestEntry where
   rnf PutRecordsRequestEntry' {..} =
-    Prelude.rnf explicitHashKey
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf partitionKey
+    Prelude.rnf explicitHashKey `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf partitionKey
 
 instance Data.ToJSON PutRecordsRequestEntry where
   toJSON PutRecordsRequestEntry' {..} =

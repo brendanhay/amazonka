@@ -183,14 +183,14 @@ instance Core.AWSPager DescribeStream where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStream_exclusiveStartShardId
-          Lens..~ rs
-          Lens.^? describeStreamResponse_streamDescription
-          Prelude.. streamDescription_shards
-          Prelude.. Lens._last
-          Prelude.. shard_shardId
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStream_exclusiveStartShardId
+              Lens..~ rs
+              Lens.^? describeStreamResponse_streamDescription
+              Prelude.. streamDescription_shards
+              Prelude.. Lens._last
+              Prelude.. shard_shardId
 
 instance Core.AWSRequest DescribeStream where
   type
@@ -216,10 +216,10 @@ instance Prelude.Hashable DescribeStream where
 
 instance Prelude.NFData DescribeStream where
   rnf DescribeStream' {..} =
-    Prelude.rnf exclusiveStartShardId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf exclusiveStartShardId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName
 
 instance Data.ToHeaders DescribeStream where
   toHeaders =
@@ -306,5 +306,5 @@ describeStreamResponse_streamDescription = Lens.lens (\DescribeStreamResponse' {
 
 instance Prelude.NFData DescribeStreamResponse where
   rnf DescribeStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf streamDescription

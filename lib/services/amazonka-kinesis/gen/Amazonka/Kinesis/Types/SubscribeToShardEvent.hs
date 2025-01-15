@@ -135,7 +135,7 @@ instance Prelude.Hashable SubscribeToShardEvent where
 
 instance Prelude.NFData SubscribeToShardEvent where
   rnf SubscribeToShardEvent' {..} =
-    Prelude.rnf childShards
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf continuationSequenceNumber
-      `Prelude.seq` Prelude.rnf millisBehindLatest
+    Prelude.rnf childShards `Prelude.seq`
+      Prelude.rnf records `Prelude.seq`
+        Prelude.rnf continuationSequenceNumber `Prelude.seq`
+          Prelude.rnf millisBehindLatest

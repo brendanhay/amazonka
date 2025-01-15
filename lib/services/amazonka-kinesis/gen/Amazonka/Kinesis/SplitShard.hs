@@ -197,10 +197,10 @@ instance Prelude.Hashable SplitShard where
 
 instance Prelude.NFData SplitShard where
   rnf SplitShard' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf shardToSplit
-      `Prelude.seq` Prelude.rnf newStartingHashKey'
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf shardToSplit `Prelude.seq`
+          Prelude.rnf newStartingHashKey'
 
 instance Data.ToHeaders SplitShard where
   toHeaders =

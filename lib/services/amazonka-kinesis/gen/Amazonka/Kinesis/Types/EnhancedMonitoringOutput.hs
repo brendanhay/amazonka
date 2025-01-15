@@ -117,7 +117,7 @@ instance Prelude.Hashable EnhancedMonitoringOutput where
 
 instance Prelude.NFData EnhancedMonitoringOutput where
   rnf EnhancedMonitoringOutput' {..} =
-    Prelude.rnf currentShardLevelMetrics
-      `Prelude.seq` Prelude.rnf desiredShardLevelMetrics
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf currentShardLevelMetrics `Prelude.seq`
+      Prelude.rnf desiredShardLevelMetrics `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName

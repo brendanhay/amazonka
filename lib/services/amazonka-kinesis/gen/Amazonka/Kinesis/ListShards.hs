@@ -366,12 +366,12 @@ instance Core.AWSPager ListShards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listShards_nextToken
-          Lens..~ rs
-          Lens.^? listShardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listShards_nextToken
+              Lens..~ rs
+              Lens.^? listShardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListShards where
   type AWSResponse ListShards = ListShardsResponse
@@ -399,13 +399,13 @@ instance Prelude.Hashable ListShards where
 
 instance Prelude.NFData ListShards where
   rnf ListShards' {..} =
-    Prelude.rnf exclusiveStartShardId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf shardFilter
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamCreationTimestamp
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf exclusiveStartShardId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf shardFilter `Prelude.seq`
+            Prelude.rnf streamARN `Prelude.seq`
+              Prelude.rnf streamCreationTimestamp `Prelude.seq`
+                Prelude.rnf streamName
 
 instance Data.ToHeaders ListShards where
   toHeaders =
@@ -541,6 +541,6 @@ listShardsResponse_httpStatus = Lens.lens (\ListShardsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListShardsResponse where
   rnf ListShardsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf shards
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf shards `Prelude.seq`
+        Prelude.rnf httpStatus

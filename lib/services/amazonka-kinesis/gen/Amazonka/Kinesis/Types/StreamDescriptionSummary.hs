@@ -326,14 +326,14 @@ instance Prelude.Hashable StreamDescriptionSummary where
 
 instance Prelude.NFData StreamDescriptionSummary where
   rnf StreamDescriptionSummary' {..} =
-    Prelude.rnf consumerCount
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf streamModeDetails
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamStatus
-      `Prelude.seq` Prelude.rnf retentionPeriodHours
-      `Prelude.seq` Prelude.rnf streamCreationTimestamp
-      `Prelude.seq` Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf openShardCount
+    Prelude.rnf consumerCount `Prelude.seq`
+      Prelude.rnf encryptionType `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf streamModeDetails `Prelude.seq`
+            Prelude.rnf streamName `Prelude.seq`
+              Prelude.rnf streamARN `Prelude.seq`
+                Prelude.rnf streamStatus `Prelude.seq`
+                  Prelude.rnf retentionPeriodHours `Prelude.seq`
+                    Prelude.rnf streamCreationTimestamp `Prelude.seq`
+                      Prelude.rnf enhancedMonitoring `Prelude.seq`
+                        Prelude.rnf openShardCount

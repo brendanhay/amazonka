@@ -177,9 +177,9 @@ instance Prelude.Hashable ShardFilter where
 
 instance Prelude.NFData ShardFilter where
   rnf ShardFilter' {..} =
-    Prelude.rnf shardId
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf shardId `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =

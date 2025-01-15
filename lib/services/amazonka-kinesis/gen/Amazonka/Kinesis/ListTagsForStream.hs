@@ -152,10 +152,10 @@ instance Prelude.Hashable ListTagsForStream where
 
 instance Prelude.NFData ListTagsForStream where
   rnf ListTagsForStream' {..} =
-    Prelude.rnf exclusiveStartTagKey
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf exclusiveStartTagKey `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName
 
 instance Data.ToHeaders ListTagsForStream where
   toHeaders =
@@ -252,6 +252,6 @@ listTagsForStreamResponse_hasMoreTags = Lens.lens (\ListTagsForStreamResponse' {
 
 instance Prelude.NFData ListTagsForStreamResponse where
   rnf ListTagsForStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hasMoreTags
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf hasMoreTags

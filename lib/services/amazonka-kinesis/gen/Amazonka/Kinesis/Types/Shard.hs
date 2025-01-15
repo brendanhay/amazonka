@@ -127,8 +127,8 @@ instance Prelude.Hashable Shard where
 
 instance Prelude.NFData Shard where
   rnf Shard' {..} =
-    Prelude.rnf adjacentParentShardId
-      `Prelude.seq` Prelude.rnf parentShardId
-      `Prelude.seq` Prelude.rnf shardId
-      `Prelude.seq` Prelude.rnf hashKeyRange
-      `Prelude.seq` Prelude.rnf sequenceNumberRange
+    Prelude.rnf adjacentParentShardId `Prelude.seq`
+      Prelude.rnf parentShardId `Prelude.seq`
+        Prelude.rnf shardId `Prelude.seq`
+          Prelude.rnf hashKeyRange `Prelude.seq`
+            Prelude.rnf sequenceNumberRange

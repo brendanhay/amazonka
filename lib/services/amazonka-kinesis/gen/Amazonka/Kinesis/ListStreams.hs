@@ -132,12 +132,12 @@ instance Core.AWSPager ListStreams where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreams_nextToken
-          Lens..~ rs
-          Lens.^? listStreamsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreams_nextToken
+              Lens..~ rs
+              Lens.^? listStreamsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListStreams where
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf exclusiveStartStreamName
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf exclusiveStartStreamName `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -272,8 +272,8 @@ listStreamsResponse_hasMoreStreams = Lens.lens (\ListStreamsResponse' {hasMoreSt
 
 instance Prelude.NFData ListStreamsResponse where
   rnf ListStreamsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamNames
-      `Prelude.seq` Prelude.rnf hasMoreStreams
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf streamSummaries `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf streamNames `Prelude.seq`
+            Prelude.rnf hasMoreStreams

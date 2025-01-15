@@ -223,12 +223,12 @@ instance Core.AWSPager ListStreamConsumers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamConsumers_nextToken
-          Lens..~ rs
-          Lens.^? listStreamConsumersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamConsumers_nextToken
+              Lens..~ rs
+              Lens.^? listStreamConsumersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamConsumers where
   type
@@ -255,10 +255,10 @@ instance Prelude.Hashable ListStreamConsumers where
 
 instance Prelude.NFData ListStreamConsumers where
   rnf ListStreamConsumers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamCreationTimestamp
-      `Prelude.seq` Prelude.rnf streamARN
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf streamCreationTimestamp `Prelude.seq`
+          Prelude.rnf streamARN
 
 instance Data.ToHeaders ListStreamConsumers where
   toHeaders =
@@ -385,6 +385,6 @@ listStreamConsumersResponse_httpStatus = Lens.lens (\ListStreamConsumersResponse
 
 instance Prelude.NFData ListStreamConsumersResponse where
   rnf ListStreamConsumersResponse' {..} =
-    Prelude.rnf consumers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

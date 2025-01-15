@@ -124,8 +124,8 @@ instance Prelude.Hashable StreamSummary where
 
 instance Prelude.NFData StreamSummary where
   rnf StreamSummary' {..} =
-    Prelude.rnf streamCreationTimestamp
-      `Prelude.seq` Prelude.rnf streamModeDetails
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamStatus
+    Prelude.rnf streamCreationTimestamp `Prelude.seq`
+      Prelude.rnf streamModeDetails `Prelude.seq`
+        Prelude.rnf streamName `Prelude.seq`
+          Prelude.rnf streamARN `Prelude.seq`
+            Prelude.rnf streamStatus

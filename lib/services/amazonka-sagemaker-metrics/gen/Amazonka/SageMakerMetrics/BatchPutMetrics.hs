@@ -112,8 +112,8 @@ instance Prelude.Hashable BatchPutMetrics where
 
 instance Prelude.NFData BatchPutMetrics where
   rnf BatchPutMetrics' {..} =
-    Prelude.rnf trialComponentName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf trialComponentName `Prelude.seq`
+      Prelude.rnf metricData
 
 instance Data.ToHeaders BatchPutMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,5 +174,5 @@ batchPutMetricsResponse_httpStatus = Lens.lens (\BatchPutMetricsResponse' {httpS
 
 instance Prelude.NFData BatchPutMetricsResponse where
   rnf BatchPutMetricsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

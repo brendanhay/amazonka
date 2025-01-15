@@ -96,10 +96,10 @@ instance Prelude.Hashable RawMetricData where
 
 instance Prelude.NFData RawMetricData where
   rnf RawMetricData' {..} =
-    Prelude.rnf step
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf step `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON RawMetricData where
   toJSON RawMetricData' {..} =

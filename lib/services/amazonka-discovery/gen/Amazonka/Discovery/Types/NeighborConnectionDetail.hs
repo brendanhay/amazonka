@@ -123,8 +123,8 @@ instance Prelude.Hashable NeighborConnectionDetail where
 
 instance Prelude.NFData NeighborConnectionDetail where
   rnf NeighborConnectionDetail' {..} =
-    Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf transportProtocol
-      `Prelude.seq` Prelude.rnf sourceServerId
-      `Prelude.seq` Prelude.rnf destinationServerId
-      `Prelude.seq` Prelude.rnf connectionsCount
+    Prelude.rnf destinationPort `Prelude.seq`
+      Prelude.rnf transportProtocol `Prelude.seq`
+        Prelude.rnf sourceServerId `Prelude.seq`
+          Prelude.rnf destinationServerId `Prelude.seq`
+            Prelude.rnf connectionsCount

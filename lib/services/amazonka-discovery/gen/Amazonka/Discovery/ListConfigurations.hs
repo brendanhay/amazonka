@@ -184,12 +184,12 @@ instance Core.AWSPager ListConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConfigurations where
   type
@@ -217,11 +217,11 @@ instance Prelude.Hashable ListConfigurations where
 
 instance Prelude.NFData ListConfigurations where
   rnf ListConfigurations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf configurationType
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf orderBy `Prelude.seq`
+            Prelude.rnf configurationType
 
 instance Data.ToHeaders ListConfigurations where
   toHeaders =
@@ -322,6 +322,6 @@ listConfigurationsResponse_httpStatus = Lens.lens (\ListConfigurationsResponse' 
 
 instance Prelude.NFData ListConfigurationsResponse where
   rnf ListConfigurationsResponse' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

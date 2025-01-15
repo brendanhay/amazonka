@@ -292,16 +292,16 @@ instance Prelude.Hashable ImportTask where
 
 instance Prelude.NFData ImportTask where
   rnf ImportTask' {..} =
-    Prelude.rnf applicationImportFailure
-      `Prelude.seq` Prelude.rnf applicationImportSuccess
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf errorsAndFailedEntriesZip
-      `Prelude.seq` Prelude.rnf importCompletionTime
-      `Prelude.seq` Prelude.rnf importDeletedTime
-      `Prelude.seq` Prelude.rnf importRequestTime
-      `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf importUrl
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serverImportFailure
-      `Prelude.seq` Prelude.rnf serverImportSuccess
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf applicationImportFailure `Prelude.seq`
+      Prelude.rnf applicationImportSuccess `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf errorsAndFailedEntriesZip `Prelude.seq`
+            Prelude.rnf importCompletionTime `Prelude.seq`
+              Prelude.rnf importDeletedTime `Prelude.seq`
+                Prelude.rnf importRequestTime `Prelude.seq`
+                  Prelude.rnf importTaskId `Prelude.seq`
+                    Prelude.rnf importUrl `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf serverImportFailure `Prelude.seq`
+                          Prelude.rnf serverImportSuccess `Prelude.seq`
+                            Prelude.rnf status

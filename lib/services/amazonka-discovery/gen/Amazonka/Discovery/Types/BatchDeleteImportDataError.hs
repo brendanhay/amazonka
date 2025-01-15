@@ -94,6 +94,6 @@ instance Prelude.Hashable BatchDeleteImportDataError where
 
 instance Prelude.NFData BatchDeleteImportDataError where
   rnf BatchDeleteImportDataError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorDescription
-      `Prelude.seq` Prelude.rnf importTaskId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorDescription `Prelude.seq`
+        Prelude.rnf importTaskId

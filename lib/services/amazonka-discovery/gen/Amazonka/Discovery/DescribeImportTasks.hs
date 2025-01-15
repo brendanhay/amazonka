@@ -130,9 +130,9 @@ instance Prelude.Hashable DescribeImportTasks where
 
 instance Prelude.NFData DescribeImportTasks where
   rnf DescribeImportTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImportTasks where
   toHeaders =
@@ -218,6 +218,6 @@ describeImportTasksResponse_httpStatus = Lens.lens (\DescribeImportTasksResponse
 
 instance Prelude.NFData DescribeImportTasksResponse where
   rnf DescribeImportTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tasks `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,8 +125,8 @@ instance Prelude.Hashable ConfigurationTag where
 
 instance Prelude.NFData ConfigurationTag where
   rnf ConfigurationTag' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf configurationType
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf timeOfCreation
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf configurationId `Prelude.seq`
+      Prelude.rnf configurationType `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf timeOfCreation `Prelude.seq`
+            Prelude.rnf value

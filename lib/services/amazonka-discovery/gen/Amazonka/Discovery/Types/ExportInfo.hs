@@ -183,11 +183,11 @@ instance Prelude.Hashable ExportInfo where
 
 instance Prelude.NFData ExportInfo where
   rnf ExportInfo' {..} =
-    Prelude.rnf configurationsDownloadUrl
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf requestedEndTime
-      `Prelude.seq` Prelude.rnf requestedStartTime
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf exportRequestTime
+    Prelude.rnf configurationsDownloadUrl `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf requestedEndTime `Prelude.seq`
+          Prelude.rnf requestedStartTime `Prelude.seq`
+            Prelude.rnf exportId `Prelude.seq`
+              Prelude.rnf exportStatus `Prelude.seq`
+                Prelude.rnf statusMessage `Prelude.seq`
+                  Prelude.rnf exportRequestTime

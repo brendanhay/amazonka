@@ -153,12 +153,12 @@ instance Core.AWSPager DescribeExportTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeExportTasks_nextToken
-          Lens..~ rs
-          Lens.^? describeExportTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeExportTasks_nextToken
+              Lens..~ rs
+              Lens.^? describeExportTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeExportTasks where
   type
@@ -185,10 +185,10 @@ instance Prelude.Hashable DescribeExportTasks where
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf exportIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf exportIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeExportTasks where
   toHeaders =
@@ -287,6 +287,6 @@ describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse
 
 instance Prelude.NFData DescribeExportTasksResponse where
   rnf DescribeExportTasksResponse' {..} =
-    Prelude.rnf exportsInfo
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportsInfo `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

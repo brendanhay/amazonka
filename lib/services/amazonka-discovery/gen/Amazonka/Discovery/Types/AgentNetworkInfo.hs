@@ -80,5 +80,5 @@ instance Prelude.Hashable AgentNetworkInfo where
 
 instance Prelude.NFData AgentNetworkInfo where
   rnf AgentNetworkInfo' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf macAddress
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf macAddress

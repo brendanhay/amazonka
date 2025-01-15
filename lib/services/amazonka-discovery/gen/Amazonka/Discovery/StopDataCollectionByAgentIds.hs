@@ -184,5 +184,5 @@ instance
     StopDataCollectionByAgentIdsResponse
   where
   rnf StopDataCollectionByAgentIdsResponse' {..} =
-    Prelude.rnf agentsConfigurationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentsConfigurationStatus `Prelude.seq`
+      Prelude.rnf httpStatus

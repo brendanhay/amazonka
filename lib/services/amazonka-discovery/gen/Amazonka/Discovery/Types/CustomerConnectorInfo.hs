@@ -157,10 +157,10 @@ instance Prelude.Hashable CustomerConnectorInfo where
 
 instance Prelude.NFData CustomerConnectorInfo where
   rnf CustomerConnectorInfo' {..} =
-    Prelude.rnf activeConnectors
-      `Prelude.seq` Prelude.rnf healthyConnectors
-      `Prelude.seq` Prelude.rnf blackListedConnectors
-      `Prelude.seq` Prelude.rnf shutdownConnectors
-      `Prelude.seq` Prelude.rnf unhealthyConnectors
-      `Prelude.seq` Prelude.rnf totalConnectors
-      `Prelude.seq` Prelude.rnf unknownConnectors
+    Prelude.rnf activeConnectors `Prelude.seq`
+      Prelude.rnf healthyConnectors `Prelude.seq`
+        Prelude.rnf blackListedConnectors `Prelude.seq`
+          Prelude.rnf shutdownConnectors `Prelude.seq`
+            Prelude.rnf unhealthyConnectors `Prelude.seq`
+              Prelude.rnf totalConnectors `Prelude.seq`
+                Prelude.rnf unknownConnectors

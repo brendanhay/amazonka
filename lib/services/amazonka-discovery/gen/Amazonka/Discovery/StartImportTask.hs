@@ -188,9 +188,9 @@ instance Prelude.Hashable StartImportTask where
 
 instance Prelude.NFData StartImportTask where
   rnf StartImportTask' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf importUrl
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf importUrl
 
 instance Data.ToHeaders StartImportTask where
   toHeaders =
@@ -270,5 +270,5 @@ startImportTaskResponse_httpStatus = Lens.lens (\StartImportTaskResponse' {httpS
 
 instance Prelude.NFData StartImportTaskResponse where
   rnf StartImportTaskResponse' {..} =
-    Prelude.rnf task
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf task `Prelude.seq`
+      Prelude.rnf httpStatus

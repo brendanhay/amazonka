@@ -434,11 +434,11 @@ instance Prelude.Hashable ContinuousExportDescription where
 
 instance Prelude.NFData ContinuousExportDescription where
   rnf ContinuousExportDescription' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf schemaStorageConfig
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf stopTime
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf exportId `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf schemaStorageConfig `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusDetail `Prelude.seq`
+                  Prelude.rnf stopTime

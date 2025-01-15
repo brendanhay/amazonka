@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteTags where
 
 instance Prelude.NFData DeleteTags where
   rnf DeleteTags' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configurationIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf configurationIds
 
 instance Data.ToHeaders DeleteTags where
   toHeaders =

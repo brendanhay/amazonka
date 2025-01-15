@@ -162,10 +162,10 @@ instance
     CustomerAgentlessCollectorInfo
   where
   rnf CustomerAgentlessCollectorInfo' {..} =
-    Prelude.rnf activeAgentlessCollectors
-      `Prelude.seq` Prelude.rnf healthyAgentlessCollectors
-      `Prelude.seq` Prelude.rnf denyListedAgentlessCollectors
-      `Prelude.seq` Prelude.rnf shutdownAgentlessCollectors
-      `Prelude.seq` Prelude.rnf unhealthyAgentlessCollectors
-      `Prelude.seq` Prelude.rnf totalAgentlessCollectors
-      `Prelude.seq` Prelude.rnf unknownAgentlessCollectors
+    Prelude.rnf activeAgentlessCollectors `Prelude.seq`
+      Prelude.rnf healthyAgentlessCollectors `Prelude.seq`
+        Prelude.rnf denyListedAgentlessCollectors `Prelude.seq`
+          Prelude.rnf shutdownAgentlessCollectors `Prelude.seq`
+            Prelude.rnf unhealthyAgentlessCollectors `Prelude.seq`
+              Prelude.rnf totalAgentlessCollectors `Prelude.seq`
+                Prelude.rnf unknownAgentlessCollectors

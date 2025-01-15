@@ -83,8 +83,8 @@ instance Prelude.Hashable EndpointAttributes where
 
 instance Prelude.NFData EndpointAttributes where
   rnf EndpointAttributes' {..} =
-    Prelude.rnf voipDeviceToken
-      `Prelude.seq` Prelude.rnf deviceToken
+    Prelude.rnf voipDeviceToken `Prelude.seq`
+      Prelude.rnf deviceToken
 
 instance Data.ToJSON EndpointAttributes where
   toJSON EndpointAttributes' {..} =

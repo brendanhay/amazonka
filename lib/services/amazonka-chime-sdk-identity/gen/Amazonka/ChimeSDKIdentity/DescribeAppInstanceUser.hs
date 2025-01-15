@@ -156,5 +156,5 @@ instance
     DescribeAppInstanceUserResponse
   where
   rnf DescribeAppInstanceUserResponse' {..} =
-    Prelude.rnf appInstanceUser
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUser `Prelude.seq`
+      Prelude.rnf httpStatus

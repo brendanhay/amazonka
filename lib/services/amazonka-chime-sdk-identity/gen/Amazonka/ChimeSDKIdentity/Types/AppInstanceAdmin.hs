@@ -92,6 +92,6 @@ instance Prelude.Hashable AppInstanceAdmin where
 
 instance Prelude.NFData AppInstanceAdmin where
   rnf AppInstanceAdmin' {..} =
-    Prelude.rnf admin
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf admin `Prelude.seq`
+      Prelude.rnf appInstanceArn `Prelude.seq`
+        Prelude.rnf createdTimestamp

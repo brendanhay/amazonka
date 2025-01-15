@@ -187,6 +187,6 @@ instance
     GetAppInstanceRetentionSettingsResponse
   where
   rnf GetAppInstanceRetentionSettingsResponse' {..} =
-    Prelude.rnf appInstanceRetentionSettings
-      `Prelude.seq` Prelude.rnf initiateDeletionTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceRetentionSettings `Prelude.seq`
+      Prelude.rnf initiateDeletionTimestamp `Prelude.seq`
+        Prelude.rnf httpStatus

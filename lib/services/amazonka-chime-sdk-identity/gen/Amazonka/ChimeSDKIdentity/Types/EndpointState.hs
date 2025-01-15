@@ -100,5 +100,5 @@ instance Prelude.Hashable EndpointState where
 
 instance Prelude.NFData EndpointState where
   rnf EndpointState' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf status

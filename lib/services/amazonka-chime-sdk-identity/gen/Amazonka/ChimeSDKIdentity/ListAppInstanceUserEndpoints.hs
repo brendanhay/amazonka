@@ -133,9 +133,9 @@ instance
 
 instance Prelude.NFData ListAppInstanceUserEndpoints where
   rnf ListAppInstanceUserEndpoints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appInstanceUserArn
 
 instance Data.ToHeaders ListAppInstanceUserEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,6 +211,6 @@ instance
     ListAppInstanceUserEndpointsResponse
   where
   rnf ListAppInstanceUserEndpointsResponse' {..} =
-    Prelude.rnf appInstanceUserEndpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUserEndpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

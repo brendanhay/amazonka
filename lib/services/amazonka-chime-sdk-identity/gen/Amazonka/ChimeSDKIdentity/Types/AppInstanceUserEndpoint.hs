@@ -229,13 +229,13 @@ instance Prelude.Hashable AppInstanceUserEndpoint where
 
 instance Prelude.NFData AppInstanceUserEndpoint where
   rnf AppInstanceUserEndpoint' {..} =
-    Prelude.rnf allowMessages
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf endpointAttributes
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf endpointState
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf allowMessages `Prelude.seq`
+      Prelude.rnf appInstanceUserArn `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf endpointAttributes `Prelude.seq`
+            Prelude.rnf endpointId `Prelude.seq`
+              Prelude.rnf endpointState `Prelude.seq`
+                Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf resourceArn `Prelude.seq`
+                      Prelude.rnf type'

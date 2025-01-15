@@ -153,10 +153,10 @@ instance
 
 instance Prelude.NFData UpdateAppInstanceUserEndpoint where
   rnf UpdateAppInstanceUserEndpoint' {..} =
-    Prelude.rnf allowMessages
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf allowMessages `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf appInstanceUserArn `Prelude.seq`
+          Prelude.rnf endpointId
 
 instance Data.ToHeaders UpdateAppInstanceUserEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,6 +235,6 @@ instance
     UpdateAppInstanceUserEndpointResponse
   where
   rnf UpdateAppInstanceUserEndpointResponse' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf httpStatus

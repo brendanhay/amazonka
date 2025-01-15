@@ -124,8 +124,8 @@ instance
     DeleteConfigurationSetEventDestination
   where
   rnf DeleteConfigurationSetEventDestination' {..} =
-    Prelude.rnf eventDestinationName
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf eventDestinationName `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteDeviceUsageData where
 
 instance Prelude.NFData DeleteDeviceUsageData where
   rnf DeleteDeviceUsageData' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceUsageType
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf deviceUsageType
 
 instance Data.ToHeaders DeleteDeviceUsageData where
   toHeaders =

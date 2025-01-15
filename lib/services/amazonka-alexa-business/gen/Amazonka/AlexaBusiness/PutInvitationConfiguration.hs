@@ -125,9 +125,9 @@ instance Prelude.Hashable PutInvitationConfiguration where
 
 instance Prelude.NFData PutInvitationConfiguration where
   rnf PutInvitationConfiguration' {..} =
-    Prelude.rnf contactEmail
-      `Prelude.seq` Prelude.rnf privateSkillIds
-      `Prelude.seq` Prelude.rnf organizationName
+    Prelude.rnf contactEmail `Prelude.seq`
+      Prelude.rnf privateSkillIds `Prelude.seq`
+        Prelude.rnf organizationName
 
 instance Data.ToHeaders PutInvitationConfiguration where
   toHeaders =

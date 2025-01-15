@@ -157,10 +157,10 @@ instance Prelude.Hashable SearchNetworkProfiles where
 
 instance Prelude.NFData SearchNetworkProfiles where
   rnf SearchNetworkProfiles' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchNetworkProfiles where
   toHeaders =
@@ -265,7 +265,7 @@ searchNetworkProfilesResponse_httpStatus = Lens.lens (\SearchNetworkProfilesResp
 
 instance Prelude.NFData SearchNetworkProfilesResponse where
   rnf SearchNetworkProfilesResponse' {..} =
-    Prelude.rnf networkProfiles
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfiles `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

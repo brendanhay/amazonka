@@ -84,9 +84,9 @@ instance Prelude.Hashable Content where
 
 instance Prelude.NFData Content where
   rnf Content' {..} =
-    Prelude.rnf audioList
-      `Prelude.seq` Prelude.rnf ssmlList
-      `Prelude.seq` Prelude.rnf textList
+    Prelude.rnf audioList `Prelude.seq`
+      Prelude.rnf ssmlList `Prelude.seq`
+        Prelude.rnf textList
 
 instance Data.ToJSON Content where
   toJSON Content' {..} =

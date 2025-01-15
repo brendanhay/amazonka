@@ -134,10 +134,10 @@ instance Prelude.Hashable CreateSkillGroup where
 
 instance Prelude.NFData CreateSkillGroup where
   rnf CreateSkillGroup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf skillGroupName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf skillGroupName
 
 instance Data.ToHeaders CreateSkillGroup where
   toHeaders =
@@ -214,5 +214,5 @@ createSkillGroupResponse_httpStatus = Lens.lens (\CreateSkillGroupResponse' {htt
 
 instance Prelude.NFData CreateSkillGroupResponse where
   rnf CreateSkillGroupResponse' {..} =
-    Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf skillGroupArn `Prelude.seq`
+      Prelude.rnf httpStatus

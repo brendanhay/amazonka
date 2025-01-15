@@ -106,8 +106,8 @@ instance Prelude.Hashable AssociateSkillGroupWithRoom where
 
 instance Prelude.NFData AssociateSkillGroupWithRoom where
   rnf AssociateSkillGroupWithRoom' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillGroupArn
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillGroupArn
 
 instance Data.ToHeaders AssociateSkillGroupWithRoom where
   toHeaders =

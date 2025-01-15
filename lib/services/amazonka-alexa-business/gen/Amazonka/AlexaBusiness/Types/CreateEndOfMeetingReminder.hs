@@ -93,9 +93,9 @@ instance Prelude.Hashable CreateEndOfMeetingReminder where
 
 instance Prelude.NFData CreateEndOfMeetingReminder where
   rnf CreateEndOfMeetingReminder' {..} =
-    Prelude.rnf reminderAtMinutes
-      `Prelude.seq` Prelude.rnf reminderType
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf reminderAtMinutes `Prelude.seq`
+      Prelude.rnf reminderType `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToJSON CreateEndOfMeetingReminder where
   toJSON CreateEndOfMeetingReminder' {..} =

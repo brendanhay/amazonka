@@ -102,7 +102,7 @@ instance Prelude.Hashable DeveloperInfo where
 
 instance Prelude.NFData DeveloperInfo where
   rnf DeveloperInfo' {..} =
-    Prelude.rnf developerName
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf privacyPolicy
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf developerName `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf privacyPolicy `Prelude.seq`
+          Prelude.rnf url

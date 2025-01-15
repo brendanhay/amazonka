@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteUser where
 
 instance Prelude.NFData DeleteUser where
   rnf DeleteUser' {..} =
-    Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf enrollmentId
+    Prelude.rnf userArn `Prelude.seq`
+      Prelude.rnf enrollmentId
 
 instance Data.ToHeaders DeleteUser where
   toHeaders =

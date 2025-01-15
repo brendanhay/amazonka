@@ -76,8 +76,8 @@ instance Prelude.Hashable UpdateInstantBooking where
 
 instance Prelude.NFData UpdateInstantBooking where
   rnf UpdateInstantBooking' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf durationInMinutes `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON UpdateInstantBooking where
   toJSON UpdateInstantBooking' {..} =

@@ -127,9 +127,9 @@ instance Prelude.Hashable DeleteRoomSkillParameter where
 
 instance Prelude.NFData DeleteRoomSkillParameter where
   rnf DeleteRoomSkillParameter' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillId
-      `Prelude.seq` Prelude.rnf parameterKey
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillId `Prelude.seq`
+        Prelude.rnf parameterKey
 
 instance Data.ToHeaders DeleteRoomSkillParameter where
   toHeaders =

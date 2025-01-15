@@ -154,10 +154,10 @@ instance Prelude.Hashable SearchAddressBooks where
 
 instance Prelude.NFData SearchAddressBooks where
   rnf SearchAddressBooks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchAddressBooks where
   toHeaders =
@@ -253,7 +253,7 @@ searchAddressBooksResponse_httpStatus = Lens.lens (\SearchAddressBooksResponse' 
 
 instance Prelude.NFData SearchAddressBooksResponse where
   rnf SearchAddressBooksResponse' {..} =
-    Prelude.rnf addressBooks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressBooks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

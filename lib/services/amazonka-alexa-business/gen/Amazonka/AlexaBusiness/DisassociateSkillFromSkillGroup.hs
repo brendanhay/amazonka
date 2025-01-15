@@ -118,8 +118,8 @@ instance
     DisassociateSkillFromSkillGroup
   where
   rnf DisassociateSkillFromSkillGroup' {..} =
-    Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf skillId
+    Prelude.rnf skillGroupArn `Prelude.seq`
+      Prelude.rnf skillId
 
 instance
   Data.ToHeaders

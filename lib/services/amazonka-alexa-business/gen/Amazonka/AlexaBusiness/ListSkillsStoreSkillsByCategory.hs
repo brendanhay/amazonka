@@ -121,12 +121,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSkillsStoreSkillsByCategory_nextToken
-          Lens..~ rs
-          Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSkillsStoreSkillsByCategory_nextToken
+              Lens..~ rs
+              Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -166,9 +166,9 @@ instance
     ListSkillsStoreSkillsByCategory
   where
   rnf ListSkillsStoreSkillsByCategory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf categoryId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf categoryId
 
 instance
   Data.ToHeaders
@@ -259,6 +259,6 @@ instance
     ListSkillsStoreSkillsByCategoryResponse
   where
   rnf ListSkillsStoreSkillsByCategoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf skillsStoreSkills
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf skillsStoreSkills `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -82,5 +82,5 @@ instance Prelude.Hashable Category where
 
 instance Prelude.NFData Category where
   rnf Category' {..} =
-    Prelude.rnf categoryId
-      `Prelude.seq` Prelude.rnf categoryName
+    Prelude.rnf categoryId `Prelude.seq`
+      Prelude.rnf categoryName

@@ -115,8 +115,8 @@ instance Prelude.Hashable ListGatewayGroups where
 
 instance Prelude.NFData ListGatewayGroups where
   rnf ListGatewayGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGatewayGroups where
   toHeaders =
@@ -201,6 +201,6 @@ listGatewayGroupsResponse_httpStatus = Lens.lens (\ListGatewayGroupsResponse' {h
 
 instance Prelude.NFData ListGatewayGroupsResponse where
   rnf ListGatewayGroupsResponse' {..} =
-    Prelude.rnf gatewayGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

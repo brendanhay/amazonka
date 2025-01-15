@@ -91,6 +91,6 @@ instance Prelude.Hashable SkillGroupData where
 
 instance Prelude.NFData SkillGroupData where
   rnf SkillGroupData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf skillGroupName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf skillGroupArn `Prelude.seq`
+        Prelude.rnf skillGroupName

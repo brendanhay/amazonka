@@ -92,8 +92,8 @@ instance Prelude.Hashable Audio where
 
 instance Prelude.NFData Audio where
   rnf Audio' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf location
 
 instance Data.ToJSON Audio where
   toJSON Audio' {..} =

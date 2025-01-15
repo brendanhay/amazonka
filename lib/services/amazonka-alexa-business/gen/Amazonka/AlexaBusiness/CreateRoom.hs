@@ -153,12 +153,12 @@ instance Prelude.Hashable CreateRoom where
 
 instance Prelude.NFData CreateRoom where
   rnf CreateRoom' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf providerCalendarId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf roomName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf profileArn `Prelude.seq`
+          Prelude.rnf providerCalendarId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf roomName
 
 instance Data.ToHeaders CreateRoom where
   toHeaders =
@@ -236,5 +236,5 @@ createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateRoomResponse where
   rnf CreateRoomResponse' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf httpStatus

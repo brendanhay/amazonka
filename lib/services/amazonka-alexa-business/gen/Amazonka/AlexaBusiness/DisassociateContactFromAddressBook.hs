@@ -122,8 +122,8 @@ instance
     DisassociateContactFromAddressBook
   where
   rnf DisassociateContactFromAddressBook' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf addressBookArn
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf addressBookArn
 
 instance
   Data.ToHeaders

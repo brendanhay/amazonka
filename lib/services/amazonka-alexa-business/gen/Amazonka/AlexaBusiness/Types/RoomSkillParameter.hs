@@ -87,8 +87,8 @@ instance Prelude.Hashable RoomSkillParameter where
 
 instance Prelude.NFData RoomSkillParameter where
   rnf RoomSkillParameter' {..} =
-    Prelude.rnf parameterKey
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterKey `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToJSON RoomSkillParameter where
   toJSON RoomSkillParameter' {..} =

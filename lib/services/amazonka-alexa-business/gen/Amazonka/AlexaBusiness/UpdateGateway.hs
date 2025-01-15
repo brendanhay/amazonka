@@ -132,10 +132,10 @@ instance Prelude.Hashable UpdateGateway where
 
 instance Prelude.NFData UpdateGateway where
   rnf UpdateGateway' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf softwareVersion
-      `Prelude.seq` Prelude.rnf gatewayArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf softwareVersion `Prelude.seq`
+          Prelude.rnf gatewayArn
 
 instance Data.ToHeaders UpdateGateway where
   toHeaders =

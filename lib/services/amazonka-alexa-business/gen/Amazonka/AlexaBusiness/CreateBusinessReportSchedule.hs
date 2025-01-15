@@ -195,14 +195,14 @@ instance
 
 instance Prelude.NFData CreateBusinessReportSchedule where
   rnf CreateBusinessReportSchedule' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf scheduleName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf contentRange
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf recurrence `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3KeyPrefix `Prelude.seq`
+            Prelude.rnf scheduleName `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf format `Prelude.seq`
+                  Prelude.rnf contentRange
 
 instance Data.ToHeaders CreateBusinessReportSchedule where
   toHeaders =
@@ -285,5 +285,5 @@ instance
     CreateBusinessReportScheduleResponse
   where
   rnf CreateBusinessReportScheduleResponse' {..} =
-    Prelude.rnf scheduleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf scheduleArn `Prelude.seq`
+      Prelude.rnf httpStatus

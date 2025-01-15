@@ -92,6 +92,6 @@ instance Prelude.Hashable DeviceNetworkProfileInfo where
 
 instance Prelude.NFData DeviceNetworkProfileInfo where
   rnf DeviceNetworkProfileInfo' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateExpirationTime
-      `Prelude.seq` Prelude.rnf networkProfileArn
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateExpirationTime `Prelude.seq`
+        Prelude.rnf networkProfileArn

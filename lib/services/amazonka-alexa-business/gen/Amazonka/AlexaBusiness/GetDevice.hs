@@ -157,5 +157,5 @@ getDeviceResponse_httpStatus = Lens.lens (\GetDeviceResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetDeviceResponse where
   rnf GetDeviceResponse' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf httpStatus

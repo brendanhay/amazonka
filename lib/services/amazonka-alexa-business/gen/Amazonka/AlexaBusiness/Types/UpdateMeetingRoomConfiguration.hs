@@ -121,10 +121,10 @@ instance
     UpdateMeetingRoomConfiguration
   where
   rnf UpdateMeetingRoomConfiguration' {..} =
-    Prelude.rnf endOfMeetingReminder
-      `Prelude.seq` Prelude.rnf instantBooking
-      `Prelude.seq` Prelude.rnf requireCheckIn
-      `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
+    Prelude.rnf endOfMeetingReminder `Prelude.seq`
+      Prelude.rnf instantBooking `Prelude.seq`
+        Prelude.rnf requireCheckIn `Prelude.seq`
+          Prelude.rnf roomUtilizationMetricsEnabled
 
 instance Data.ToJSON UpdateMeetingRoomConfiguration where
   toJSON UpdateMeetingRoomConfiguration' {..} =

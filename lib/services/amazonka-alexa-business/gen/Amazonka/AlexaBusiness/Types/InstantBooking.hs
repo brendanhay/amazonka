@@ -86,5 +86,5 @@ instance Prelude.Hashable InstantBooking where
 
 instance Prelude.NFData InstantBooking where
   rnf InstantBooking' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf durationInMinutes `Prelude.seq`
+      Prelude.rnf enabled

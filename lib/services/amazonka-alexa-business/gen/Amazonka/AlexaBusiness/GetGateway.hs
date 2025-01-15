@@ -161,5 +161,5 @@ getGatewayResponse_httpStatus = Lens.lens (\GetGatewayResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetGatewayResponse where
   rnf GetGatewayResponse' {..} =
-    Prelude.rnf gateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gateway `Prelude.seq`
+      Prelude.rnf httpStatus

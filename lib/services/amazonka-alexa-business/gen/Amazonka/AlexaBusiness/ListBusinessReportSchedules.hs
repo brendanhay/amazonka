@@ -109,12 +109,12 @@ instance Core.AWSPager ListBusinessReportSchedules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBusinessReportSchedules_nextToken
-          Lens..~ rs
-          Lens.^? listBusinessReportSchedulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBusinessReportSchedules_nextToken
+              Lens..~ rs
+              Lens.^? listBusinessReportSchedulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBusinessReportSchedules where
   type
@@ -142,8 +142,8 @@ instance Prelude.Hashable ListBusinessReportSchedules where
 
 instance Prelude.NFData ListBusinessReportSchedules where
   rnf ListBusinessReportSchedules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBusinessReportSchedules where
   toHeaders =
@@ -231,6 +231,6 @@ instance
     ListBusinessReportSchedulesResponse
   where
   rnf ListBusinessReportSchedulesResponse' {..} =
-    Prelude.rnf businessReportSchedules
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf businessReportSchedules `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

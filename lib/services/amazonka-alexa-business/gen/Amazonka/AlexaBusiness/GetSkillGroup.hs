@@ -164,5 +164,5 @@ getSkillGroupResponse_httpStatus = Lens.lens (\GetSkillGroupResponse' {httpStatu
 
 instance Prelude.NFData GetSkillGroupResponse where
   rnf GetSkillGroupResponse' {..} =
-    Prelude.rnf skillGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf skillGroup `Prelude.seq`
+      Prelude.rnf httpStatus

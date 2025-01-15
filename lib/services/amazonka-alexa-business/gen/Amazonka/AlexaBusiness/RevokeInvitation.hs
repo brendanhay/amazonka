@@ -107,8 +107,8 @@ instance Prelude.Hashable RevokeInvitation where
 
 instance Prelude.NFData RevokeInvitation where
   rnf RevokeInvitation' {..} =
-    Prelude.rnf enrollmentId
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf enrollmentId `Prelude.seq`
+      Prelude.rnf userArn
 
 instance Data.ToHeaders RevokeInvitation where
   toHeaders =

@@ -118,8 +118,8 @@ instance Prelude.Hashable SkillSummary where
 
 instance Prelude.NFData SkillSummary where
   rnf SkillSummary' {..} =
-    Prelude.rnf enablementType
-      `Prelude.seq` Prelude.rnf skillId
-      `Prelude.seq` Prelude.rnf skillName
-      `Prelude.seq` Prelude.rnf skillType
-      `Prelude.seq` Prelude.rnf supportsLinking
+    Prelude.rnf enablementType `Prelude.seq`
+      Prelude.rnf skillId `Prelude.seq`
+        Prelude.rnf skillName `Prelude.seq`
+          Prelude.rnf skillType `Prelude.seq`
+            Prelude.rnf supportsLinking

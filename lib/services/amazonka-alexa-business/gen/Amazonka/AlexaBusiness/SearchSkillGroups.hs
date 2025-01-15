@@ -145,12 +145,12 @@ instance Core.AWSPager SearchSkillGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchSkillGroups_nextToken
-          Lens..~ rs
-          Lens.^? searchSkillGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchSkillGroups_nextToken
+              Lens..~ rs
+              Lens.^? searchSkillGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSkillGroups where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable SearchSkillGroups where
 
 instance Prelude.NFData SearchSkillGroups where
   rnf SearchSkillGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchSkillGroups where
   toHeaders =
@@ -274,7 +274,7 @@ searchSkillGroupsResponse_httpStatus = Lens.lens (\SearchSkillGroupsResponse' {h
 
 instance Prelude.NFData SearchSkillGroupsResponse where
   rnf SearchSkillGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf skillGroups
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf skillGroups `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

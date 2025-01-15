@@ -196,13 +196,13 @@ instance Prelude.Hashable RegisterAVSDevice where
 
 instance Prelude.NFData RegisterAVSDevice where
   rnf RegisterAVSDevice' {..} =
-    Prelude.rnf deviceSerialNumber
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf userCode
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf amazonId
+    Prelude.rnf deviceSerialNumber `Prelude.seq`
+      Prelude.rnf roomArn `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clientId `Prelude.seq`
+            Prelude.rnf userCode `Prelude.seq`
+              Prelude.rnf productId `Prelude.seq`
+                Prelude.rnf amazonId
 
 instance Data.ToHeaders RegisterAVSDevice where
   toHeaders =
@@ -281,5 +281,5 @@ registerAVSDeviceResponse_httpStatus = Lens.lens (\RegisterAVSDeviceResponse' {h
 
 instance Prelude.NFData RegisterAVSDeviceResponse where
   rnf RegisterAVSDeviceResponse' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf httpStatus

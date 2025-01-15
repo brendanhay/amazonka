@@ -244,17 +244,17 @@ instance Prelude.Hashable CreateNetworkProfile where
 
 instance Prelude.NFData CreateNetworkProfile where
   rnf CreateNetworkProfile' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf currentPassword
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eapMethod
-      `Prelude.seq` Prelude.rnf nextPassword
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trustAnchors
-      `Prelude.seq` Prelude.rnf networkProfileName
-      `Prelude.seq` Prelude.rnf ssid
-      `Prelude.seq` Prelude.rnf securityType
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf currentPassword `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf eapMethod `Prelude.seq`
+            Prelude.rnf nextPassword `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf trustAnchors `Prelude.seq`
+                  Prelude.rnf networkProfileName `Prelude.seq`
+                    Prelude.rnf ssid `Prelude.seq`
+                      Prelude.rnf securityType `Prelude.seq`
+                        Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateNetworkProfile where
   toHeaders =
@@ -340,5 +340,5 @@ createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileRespon
 
 instance Prelude.NFData CreateNetworkProfileResponse where
   rnf CreateNetworkProfileResponse' {..} =
-    Prelude.rnf networkProfileArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfileArn `Prelude.seq`
+      Prelude.rnf httpStatus

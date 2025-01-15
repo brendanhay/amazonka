@@ -149,10 +149,10 @@ instance Prelude.Hashable SendAnnouncement where
 
 instance Prelude.NFData SendAnnouncement where
   rnf SendAnnouncement' {..} =
-    Prelude.rnf timeToLiveInSeconds
-      `Prelude.seq` Prelude.rnf roomFilters
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf timeToLiveInSeconds `Prelude.seq`
+      Prelude.rnf roomFilters `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders SendAnnouncement where
   toHeaders =
@@ -229,5 +229,5 @@ sendAnnouncementResponse_httpStatus = Lens.lens (\SendAnnouncementResponse' {htt
 
 instance Prelude.NFData SendAnnouncementResponse where
   rnf SendAnnouncementResponse' {..} =
-    Prelude.rnf announcementArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf announcementArn `Prelude.seq`
+      Prelude.rnf httpStatus

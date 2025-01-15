@@ -120,8 +120,8 @@ instance
     DisassociateSkillGroupFromRoom
   where
   rnf DisassociateSkillGroupFromRoom' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillGroupArn
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillGroupArn
 
 instance
   Data.ToHeaders

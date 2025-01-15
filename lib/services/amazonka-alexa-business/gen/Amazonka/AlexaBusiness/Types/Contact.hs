@@ -146,10 +146,10 @@ instance Prelude.Hashable Contact where
 
 instance Prelude.NFData Contact where
   rnf Contact' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf sipAddresses
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf firstName `Prelude.seq`
+          Prelude.rnf lastName `Prelude.seq`
+            Prelude.rnf phoneNumber `Prelude.seq`
+              Prelude.rnf phoneNumbers `Prelude.seq`
+                Prelude.rnf sipAddresses

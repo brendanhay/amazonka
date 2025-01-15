@@ -106,12 +106,12 @@ instance Core.AWSPager ListConferenceProviders where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConferenceProviders_nextToken
-          Lens..~ rs
-          Lens.^? listConferenceProvidersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConferenceProviders_nextToken
+              Lens..~ rs
+              Lens.^? listConferenceProvidersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConferenceProviders where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListConferenceProviders where
 
 instance Prelude.NFData ListConferenceProviders where
   rnf ListConferenceProviders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConferenceProviders where
   toHeaders =
@@ -225,6 +225,6 @@ instance
     ListConferenceProvidersResponse
   where
   rnf ListConferenceProvidersResponse' {..} =
-    Prelude.rnf conferenceProviders
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conferenceProviders `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

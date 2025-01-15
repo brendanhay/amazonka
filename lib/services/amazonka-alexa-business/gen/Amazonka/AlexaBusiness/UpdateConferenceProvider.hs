@@ -147,11 +147,11 @@ instance Prelude.Hashable UpdateConferenceProvider where
 
 instance Prelude.NFData UpdateConferenceProvider where
   rnf UpdateConferenceProvider' {..} =
-    Prelude.rnf iPDialIn
-      `Prelude.seq` Prelude.rnf pSTNDialIn
-      `Prelude.seq` Prelude.rnf conferenceProviderArn
-      `Prelude.seq` Prelude.rnf conferenceProviderType
-      `Prelude.seq` Prelude.rnf meetingSetting
+    Prelude.rnf iPDialIn `Prelude.seq`
+      Prelude.rnf pSTNDialIn `Prelude.seq`
+        Prelude.rnf conferenceProviderArn `Prelude.seq`
+          Prelude.rnf conferenceProviderType `Prelude.seq`
+            Prelude.rnf meetingSetting
 
 instance Data.ToHeaders UpdateConferenceProvider where
   toHeaders =

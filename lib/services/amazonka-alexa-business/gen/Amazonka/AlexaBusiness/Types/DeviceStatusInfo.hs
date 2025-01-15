@@ -100,6 +100,6 @@ instance Prelude.Hashable DeviceStatusInfo where
 
 instance Prelude.NFData DeviceStatusInfo where
   rnf DeviceStatusInfo' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf connectionStatusUpdatedTime
-      `Prelude.seq` Prelude.rnf deviceStatusDetails
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf connectionStatusUpdatedTime `Prelude.seq`
+        Prelude.rnf deviceStatusDetails

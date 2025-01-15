@@ -170,13 +170,13 @@ instance Prelude.Hashable UpdateContact where
 
 instance Prelude.NFData UpdateContact where
   rnf UpdateContact' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf sipAddresses
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf firstName `Prelude.seq`
+        Prelude.rnf lastName `Prelude.seq`
+          Prelude.rnf phoneNumber `Prelude.seq`
+            Prelude.rnf phoneNumbers `Prelude.seq`
+              Prelude.rnf sipAddresses `Prelude.seq`
+                Prelude.rnf contactArn
 
 instance Data.ToHeaders UpdateContact where
   toHeaders =

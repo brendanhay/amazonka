@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateDeviceWithRoom where
 
 instance Prelude.NFData AssociateDeviceWithRoom where
   rnf AssociateDeviceWithRoom' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf roomArn
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf roomArn
 
 instance Data.ToHeaders AssociateDeviceWithRoom where
   toHeaders =

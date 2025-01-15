@@ -157,10 +157,10 @@ instance Prelude.Hashable SearchContacts where
 
 instance Prelude.NFData SearchContacts where
   rnf SearchContacts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchContacts where
   toHeaders =
@@ -255,7 +255,7 @@ searchContactsResponse_httpStatus = Lens.lens (\SearchContactsResponse' {httpSta
 
 instance Prelude.NFData SearchContactsResponse where
   rnf SearchContactsResponse' {..} =
-    Prelude.rnf contacts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contacts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

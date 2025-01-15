@@ -126,9 +126,9 @@ instance Prelude.Hashable PutSkillAuthorization where
 
 instance Prelude.NFData PutSkillAuthorization where
   rnf PutSkillAuthorization' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf authorizationResult
-      `Prelude.seq` Prelude.rnf skillId
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf authorizationResult `Prelude.seq`
+        Prelude.rnf skillId
 
 instance Data.ToHeaders PutSkillAuthorization where
   toHeaders =

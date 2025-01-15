@@ -110,8 +110,8 @@ instance
 
 instance Prelude.NFData AssociateSkillWithSkillGroup where
   rnf AssociateSkillWithSkillGroup' {..} =
-    Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf skillId
+    Prelude.rnf skillGroupArn `Prelude.seq`
+      Prelude.rnf skillId
 
 instance Data.ToHeaders AssociateSkillWithSkillGroup where
   toHeaders =

@@ -156,5 +156,5 @@ getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetRoomResponse where
   rnf GetRoomResponse' {..} =
-    Prelude.rnf room
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf room `Prelude.seq`
+      Prelude.rnf httpStatus

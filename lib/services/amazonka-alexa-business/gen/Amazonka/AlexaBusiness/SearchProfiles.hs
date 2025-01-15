@@ -145,12 +145,12 @@ instance Core.AWSPager SearchProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchProfiles_nextToken
-          Lens..~ rs
-          Lens.^? searchProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchProfiles_nextToken
+              Lens..~ rs
+              Lens.^? searchProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchProfiles where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable SearchProfiles where
 
 instance Prelude.NFData SearchProfiles where
   rnf SearchProfiles' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchProfiles where
   toHeaders =
@@ -277,7 +277,7 @@ searchProfilesResponse_httpStatus = Lens.lens (\SearchProfilesResponse' {httpSta
 
 instance Prelude.NFData SearchProfilesResponse where
   rnf SearchProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf profiles
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf profiles `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

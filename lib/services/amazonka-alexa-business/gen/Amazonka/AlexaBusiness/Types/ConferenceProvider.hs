@@ -131,9 +131,9 @@ instance Prelude.Hashable ConferenceProvider where
 
 instance Prelude.NFData ConferenceProvider where
   rnf ConferenceProvider' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf iPDialIn
-      `Prelude.seq` Prelude.rnf meetingSetting
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pSTNDialIn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf iPDialIn `Prelude.seq`
+        Prelude.rnf meetingSetting `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf pSTNDialIn `Prelude.seq`
+              Prelude.rnf type'

@@ -107,8 +107,8 @@ instance Prelude.Hashable UpdateElasticIp where
 
 instance Prelude.NFData UpdateElasticIp where
   rnf UpdateElasticIp' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf elasticIp
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf elasticIp
 
 instance Data.ToHeaders UpdateElasticIp where
   toHeaders =

@@ -278,17 +278,17 @@ instance Prelude.Hashable Volume where
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf ec2VolumeId
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf raidArrayId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf device `Prelude.seq`
+        Prelude.rnf ec2VolumeId `Prelude.seq`
+          Prelude.rnf encrypted `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf iops `Prelude.seq`
+                Prelude.rnf mountPoint `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf raidArrayId `Prelude.seq`
+                      Prelude.rnf region `Prelude.seq`
+                        Prelude.rnf size `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf volumeId `Prelude.seq`
+                              Prelude.rnf volumeType

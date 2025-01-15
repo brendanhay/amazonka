@@ -141,9 +141,9 @@ instance Prelude.Hashable DescribeServiceErrors where
 
 instance Prelude.NFData DescribeServiceErrors where
   rnf DescribeServiceErrors' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf serviceErrorIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf serviceErrorIds `Prelude.seq`
+        Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeServiceErrors where
   toHeaders =
@@ -223,5 +223,5 @@ describeServiceErrorsResponse_httpStatus = Lens.lens (\DescribeServiceErrorsResp
 
 instance Prelude.NFData DescribeServiceErrorsResponse where
   rnf DescribeServiceErrorsResponse' {..} =
-    Prelude.rnf serviceErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceErrors `Prelude.seq`
+      Prelude.rnf httpStatus

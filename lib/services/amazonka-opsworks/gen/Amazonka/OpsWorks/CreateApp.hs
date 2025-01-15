@@ -290,18 +290,18 @@ instance Prelude.Hashable CreateApp where
 
 instance Prelude.NFData CreateApp where
   rnf CreateApp' {..} =
-    Prelude.rnf appSource
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf enableSsl
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf shortname
-      `Prelude.seq` Prelude.rnf sslConfiguration
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf appSource `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf dataSources `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf domains `Prelude.seq`
+              Prelude.rnf enableSsl `Prelude.seq`
+                Prelude.rnf environment `Prelude.seq`
+                  Prelude.rnf shortname `Prelude.seq`
+                    Prelude.rnf sslConfiguration `Prelude.seq`
+                      Prelude.rnf stackId `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf type'
 
 instance Data.ToHeaders CreateApp where
   toHeaders =
@@ -386,5 +386,5 @@ createAppResponse_httpStatus = Lens.lens (\CreateAppResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateAppResponse where
   rnf CreateAppResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf httpStatus

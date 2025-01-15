@@ -164,12 +164,12 @@ instance Prelude.Hashable ElasticLoadBalancer where
 
 instance Prelude.NFData ElasticLoadBalancer where
   rnf ElasticLoadBalancer' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf ec2InstanceIds
-      `Prelude.seq` Prelude.rnf elasticLoadBalancerName
-      `Prelude.seq` Prelude.rnf layerId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf ec2InstanceIds `Prelude.seq`
+          Prelude.rnf elasticLoadBalancerName `Prelude.seq`
+            Prelude.rnf layerId `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf stackId `Prelude.seq`
+                  Prelude.rnf subnetIds `Prelude.seq`
+                    Prelude.rnf vpcId

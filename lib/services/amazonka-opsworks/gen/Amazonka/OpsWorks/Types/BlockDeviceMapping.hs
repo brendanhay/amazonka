@@ -124,10 +124,10 @@ instance Prelude.Hashable BlockDeviceMapping where
 
 instance Prelude.NFData BlockDeviceMapping where
   rnf BlockDeviceMapping' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf noDevice
-      `Prelude.seq` Prelude.rnf virtualName
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf ebs `Prelude.seq`
+        Prelude.rnf noDevice `Prelude.seq`
+          Prelude.rnf virtualName
 
 instance Data.ToJSON BlockDeviceMapping where
   toJSON BlockDeviceMapping' {..} =

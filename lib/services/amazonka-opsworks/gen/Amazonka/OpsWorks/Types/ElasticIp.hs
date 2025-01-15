@@ -116,8 +116,8 @@ instance Prelude.Hashable ElasticIp where
 
 instance Prelude.NFData ElasticIp where
   rnf ElasticIp' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf ip `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf region

@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateElasticIp where
 
 instance Prelude.NFData AssociateElasticIp where
   rnf AssociateElasticIp' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf elasticIp
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf elasticIp
 
 instance Data.ToHeaders AssociateElasticIp where
   toHeaders =

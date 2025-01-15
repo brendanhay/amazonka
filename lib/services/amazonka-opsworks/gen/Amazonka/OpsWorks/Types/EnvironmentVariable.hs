@@ -119,9 +119,9 @@ instance Prelude.Hashable EnvironmentVariable where
 
 instance Prelude.NFData EnvironmentVariable where
   rnf EnvironmentVariable' {..} =
-    Prelude.rnf secure
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf secure `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =

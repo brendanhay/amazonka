@@ -215,6 +215,6 @@ instance
     DescribeStackProvisioningParametersResponse
   where
   rnf DescribeStackProvisioningParametersResponse' {..} =
-    Prelude.rnf agentInstallerUrl
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentInstallerUrl `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

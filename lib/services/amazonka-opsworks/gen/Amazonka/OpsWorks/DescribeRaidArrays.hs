@@ -134,9 +134,9 @@ instance Prelude.Hashable DescribeRaidArrays where
 
 instance Prelude.NFData DescribeRaidArrays where
   rnf DescribeRaidArrays' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf raidArrayIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf raidArrayIds `Prelude.seq`
+        Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeRaidArrays where
   toHeaders =
@@ -212,5 +212,5 @@ describeRaidArraysResponse_httpStatus = Lens.lens (\DescribeRaidArraysResponse' 
 
 instance Prelude.NFData DescribeRaidArraysResponse where
   rnf DescribeRaidArraysResponse' {..} =
-    Prelude.rnf raidArrays
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf raidArrays `Prelude.seq`
+      Prelude.rnf httpStatus

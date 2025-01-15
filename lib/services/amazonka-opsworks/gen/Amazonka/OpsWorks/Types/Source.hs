@@ -207,12 +207,12 @@ instance Prelude.Hashable Source where
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf sshKey
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf revision `Prelude.seq`
+        Prelude.rnf sshKey `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf url `Prelude.seq`
+              Prelude.rnf username
 
 instance Data.ToJSON Source where
   toJSON Source' {..} =

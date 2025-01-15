@@ -151,5 +151,5 @@ describeMyUserProfileResponse_httpStatus = Lens.lens (\DescribeMyUserProfileResp
 
 instance Prelude.NFData DescribeMyUserProfileResponse where
   rnf DescribeMyUserProfileResponse' {..} =
-    Prelude.rnf userProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userProfile `Prelude.seq`
+      Prelude.rnf httpStatus

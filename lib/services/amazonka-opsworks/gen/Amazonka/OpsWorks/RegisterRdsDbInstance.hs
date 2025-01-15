@@ -137,10 +137,10 @@ instance Prelude.Hashable RegisterRdsDbInstance where
 
 instance Prelude.NFData RegisterRdsDbInstance where
   rnf RegisterRdsDbInstance' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf dbPassword
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf rdsDbInstanceArn `Prelude.seq`
+        Prelude.rnf dbUser `Prelude.seq`
+          Prelude.rnf dbPassword
 
 instance Data.ToHeaders RegisterRdsDbInstance where
   toHeaders =

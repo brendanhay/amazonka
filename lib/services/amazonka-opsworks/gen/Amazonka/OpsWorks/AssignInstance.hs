@@ -116,8 +116,8 @@ instance Prelude.Hashable AssignInstance where
 
 instance Prelude.NFData AssignInstance where
   rnf AssignInstance' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf layerIds
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf layerIds
 
 instance Data.ToHeaders AssignInstance where
   toHeaders =

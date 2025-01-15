@@ -145,10 +145,10 @@ instance Prelude.Hashable UpdateUserProfile where
 
 instance Prelude.NFData UpdateUserProfile where
   rnf UpdateUserProfile' {..} =
-    Prelude.rnf allowSelfManagement
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf sshUsername
-      `Prelude.seq` Prelude.rnf iamUserArn
+    Prelude.rnf allowSelfManagement `Prelude.seq`
+      Prelude.rnf sshPublicKey `Prelude.seq`
+        Prelude.rnf sshUsername `Prelude.seq`
+          Prelude.rnf iamUserArn
 
 instance Data.ToHeaders UpdateUserProfile where
   toHeaders =

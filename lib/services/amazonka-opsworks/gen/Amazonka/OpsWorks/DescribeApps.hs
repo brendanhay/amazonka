@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribeApps where
 
 instance Prelude.NFData DescribeApps where
   rnf DescribeApps' {..} =
-    Prelude.rnf appIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf appIds `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeApps where
   toHeaders =
@@ -196,5 +196,5 @@ describeAppsResponse_httpStatus = Lens.lens (\DescribeAppsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeAppsResponse where
   rnf DescribeAppsResponse' {..} =
-    Prelude.rnf apps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apps `Prelude.seq`
+      Prelude.rnf httpStatus

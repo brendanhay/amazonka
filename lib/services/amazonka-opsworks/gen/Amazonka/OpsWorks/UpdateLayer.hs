@@ -355,23 +355,23 @@ instance Prelude.Hashable UpdateLayer where
 
 instance Prelude.NFData UpdateLayer where
   rnf UpdateLayer' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf autoAssignElasticIps
-      `Prelude.seq` Prelude.rnf autoAssignPublicIps
-      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
-      `Prelude.seq` Prelude.rnf customInstanceProfileArn
-      `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf customRecipes
-      `Prelude.seq` Prelude.rnf customSecurityGroupIds
-      `Prelude.seq` Prelude.rnf enableAutoHealing
-      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
-      `Prelude.seq` Prelude.rnf lifecycleEventConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packages
-      `Prelude.seq` Prelude.rnf shortname
-      `Prelude.seq` Prelude.rnf useEbsOptimizedInstances
-      `Prelude.seq` Prelude.rnf volumeConfigurations
-      `Prelude.seq` Prelude.rnf layerId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf autoAssignElasticIps `Prelude.seq`
+        Prelude.rnf autoAssignPublicIps `Prelude.seq`
+          Prelude.rnf cloudWatchLogsConfiguration `Prelude.seq`
+            Prelude.rnf customInstanceProfileArn `Prelude.seq`
+              Prelude.rnf customJson `Prelude.seq`
+                Prelude.rnf customRecipes `Prelude.seq`
+                  Prelude.rnf customSecurityGroupIds `Prelude.seq`
+                    Prelude.rnf enableAutoHealing `Prelude.seq`
+                      Prelude.rnf installUpdatesOnBoot `Prelude.seq`
+                        Prelude.rnf lifecycleEventConfiguration `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf packages `Prelude.seq`
+                              Prelude.rnf shortname `Prelude.seq`
+                                Prelude.rnf useEbsOptimizedInstances `Prelude.seq`
+                                  Prelude.rnf volumeConfigurations `Prelude.seq`
+                                    Prelude.rnf layerId
 
 instance Data.ToHeaders UpdateLayer where
   toHeaders =

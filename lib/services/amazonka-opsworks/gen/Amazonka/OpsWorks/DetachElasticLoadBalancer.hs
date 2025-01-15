@@ -114,8 +114,8 @@ instance Prelude.Hashable DetachElasticLoadBalancer where
 
 instance Prelude.NFData DetachElasticLoadBalancer where
   rnf DetachElasticLoadBalancer' {..} =
-    Prelude.rnf elasticLoadBalancerName
-      `Prelude.seq` Prelude.rnf layerId
+    Prelude.rnf elasticLoadBalancerName `Prelude.seq`
+      Prelude.rnf layerId
 
 instance Data.ToHeaders DetachElasticLoadBalancer where
   toHeaders =

@@ -117,8 +117,8 @@ instance Prelude.Hashable GrantAccess where
 
 instance Prelude.NFData GrantAccess where
   rnf GrantAccess' {..} =
-    Prelude.rnf validForInMinutes
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf validForInMinutes `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GrantAccess where
   toHeaders =
@@ -200,5 +200,5 @@ grantAccessResponse_httpStatus = Lens.lens (\GrantAccessResponse' {httpStatus} -
 
 instance Prelude.NFData GrantAccessResponse where
   rnf GrantAccessResponse' {..} =
-    Prelude.rnf temporaryCredential
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf temporaryCredential `Prelude.seq`
+      Prelude.rnf httpStatus

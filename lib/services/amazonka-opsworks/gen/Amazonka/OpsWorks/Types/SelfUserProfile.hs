@@ -102,7 +102,7 @@ instance Prelude.Hashable SelfUserProfile where
 
 instance Prelude.NFData SelfUserProfile where
   rnf SelfUserProfile' {..} =
-    Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf sshUsername
+    Prelude.rnf iamUserArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sshPublicKey `Prelude.seq`
+          Prelude.rnf sshUsername

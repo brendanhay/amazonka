@@ -102,7 +102,7 @@ instance Prelude.Hashable EcsCluster where
 
 instance Prelude.NFData EcsCluster where
   rnf EcsCluster' {..} =
-    Prelude.rnf ecsClusterArn
-      `Prelude.seq` Prelude.rnf ecsClusterName
-      `Prelude.seq` Prelude.rnf registeredAt
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf ecsClusterArn `Prelude.seq`
+      Prelude.rnf ecsClusterName `Prelude.seq`
+        Prelude.rnf registeredAt `Prelude.seq`
+          Prelude.rnf stackId

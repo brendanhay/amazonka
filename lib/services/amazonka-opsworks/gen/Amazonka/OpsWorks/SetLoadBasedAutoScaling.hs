@@ -154,10 +154,10 @@ instance Prelude.Hashable SetLoadBasedAutoScaling where
 
 instance Prelude.NFData SetLoadBasedAutoScaling where
   rnf SetLoadBasedAutoScaling' {..} =
-    Prelude.rnf downScaling
-      `Prelude.seq` Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf upScaling
-      `Prelude.seq` Prelude.rnf layerId
+    Prelude.rnf downScaling `Prelude.seq`
+      Prelude.rnf enable `Prelude.seq`
+        Prelude.rnf upScaling `Prelude.seq`
+          Prelude.rnf layerId
 
 instance Data.ToHeaders SetLoadBasedAutoScaling where
   toHeaders =

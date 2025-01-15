@@ -249,17 +249,17 @@ instance Prelude.Hashable UpdateApp where
 
 instance Prelude.NFData UpdateApp where
   rnf UpdateApp' {..} =
-    Prelude.rnf appSource
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf enableSsl
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sslConfiguration
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appSource `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf dataSources `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf domains `Prelude.seq`
+              Prelude.rnf enableSsl `Prelude.seq`
+                Prelude.rnf environment `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf sslConfiguration `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf appId
 
 instance Data.ToHeaders UpdateApp where
   toHeaders =

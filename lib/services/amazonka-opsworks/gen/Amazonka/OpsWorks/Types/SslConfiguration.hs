@@ -94,9 +94,9 @@ instance Prelude.Hashable SslConfiguration where
 
 instance Prelude.NFData SslConfiguration where
   rnf SslConfiguration' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf chain
-      `Prelude.seq` Prelude.rnf privateKey
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf chain `Prelude.seq`
+        Prelude.rnf privateKey
 
 instance Data.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =

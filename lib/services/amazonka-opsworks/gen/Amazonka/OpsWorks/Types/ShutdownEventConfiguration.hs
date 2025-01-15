@@ -90,8 +90,8 @@ instance Prelude.Hashable ShutdownEventConfiguration where
 
 instance Prelude.NFData ShutdownEventConfiguration where
   rnf ShutdownEventConfiguration' {..} =
-    Prelude.rnf delayUntilElbConnectionsDrained
-      `Prelude.seq` Prelude.rnf executionTimeout
+    Prelude.rnf delayUntilElbConnectionsDrained `Prelude.seq`
+      Prelude.rnf executionTimeout
 
 instance Data.ToJSON ShutdownEventConfiguration where
   toJSON ShutdownEventConfiguration' {..} =

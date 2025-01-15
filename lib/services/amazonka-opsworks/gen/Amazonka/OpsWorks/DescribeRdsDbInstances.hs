@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeRdsDbInstances where
 
 instance Prelude.NFData DescribeRdsDbInstances where
   rnf DescribeRdsDbInstances' {..} =
-    Prelude.rnf rdsDbInstanceArns
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf rdsDbInstanceArns `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeRdsDbInstances where
   toHeaders =
@@ -200,5 +200,5 @@ instance
     DescribeRdsDbInstancesResponse
   where
   rnf DescribeRdsDbInstancesResponse' {..} =
-    Prelude.rnf rdsDbInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rdsDbInstances `Prelude.seq`
+      Prelude.rnf httpStatus

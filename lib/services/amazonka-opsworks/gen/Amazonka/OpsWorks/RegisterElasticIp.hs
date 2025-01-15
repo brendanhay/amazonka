@@ -120,8 +120,8 @@ instance Prelude.Hashable RegisterElasticIp where
 
 instance Prelude.NFData RegisterElasticIp where
   rnf RegisterElasticIp' {..} =
-    Prelude.rnf elasticIp
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf elasticIp `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders RegisterElasticIp where
   toHeaders =
@@ -196,5 +196,5 @@ registerElasticIpResponse_httpStatus = Lens.lens (\RegisterElasticIpResponse' {h
 
 instance Prelude.NFData RegisterElasticIpResponse where
   rnf RegisterElasticIpResponse' {..} =
-    Prelude.rnf elasticIp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticIp `Prelude.seq`
+      Prelude.rnf httpStatus

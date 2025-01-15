@@ -125,11 +125,11 @@ instance Prelude.Hashable Recipes where
 
 instance Prelude.NFData Recipes where
   rnf Recipes' {..} =
-    Prelude.rnf configure
-      `Prelude.seq` Prelude.rnf deploy
-      `Prelude.seq` Prelude.rnf setup
-      `Prelude.seq` Prelude.rnf shutdown
-      `Prelude.seq` Prelude.rnf undeploy
+    Prelude.rnf configure `Prelude.seq`
+      Prelude.rnf deploy `Prelude.seq`
+        Prelude.rnf setup `Prelude.seq`
+          Prelude.rnf shutdown `Prelude.seq`
+            Prelude.rnf undeploy
 
 instance Data.ToJSON Recipes where
   toJSON Recipes' {..} =

@@ -109,8 +109,8 @@ instance Prelude.Hashable SetTimeBasedAutoScaling where
 
 instance Prelude.NFData SetTimeBasedAutoScaling where
   rnf SetTimeBasedAutoScaling' {..} =
-    Prelude.rnf autoScalingSchedule
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf autoScalingSchedule `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders SetTimeBasedAutoScaling where
   toHeaders =

@@ -118,8 +118,8 @@ instance Prelude.Hashable RegisterVolume where
 
 instance Prelude.NFData RegisterVolume where
   rnf RegisterVolume' {..} =
-    Prelude.rnf ec2VolumeId
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf ec2VolumeId `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders RegisterVolume where
   toHeaders =
@@ -193,5 +193,5 @@ registerVolumeResponse_httpStatus = Lens.lens (\RegisterVolumeResponse' {httpSta
 
 instance Prelude.NFData RegisterVolumeResponse where
   rnf RegisterVolumeResponse' {..} =
-    Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumeId `Prelude.seq`
+      Prelude.rnf httpStatus

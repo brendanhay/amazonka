@@ -146,10 +146,10 @@ instance Prelude.Hashable OperatingSystem where
 
 instance Prelude.NFData OperatingSystem where
   rnf OperatingSystem' {..} =
-    Prelude.rnf configurationManagers
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reportedName
-      `Prelude.seq` Prelude.rnf reportedVersion
-      `Prelude.seq` Prelude.rnf supported
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf configurationManagers `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf reportedName `Prelude.seq`
+            Prelude.rnf reportedVersion `Prelude.seq`
+              Prelude.rnf supported `Prelude.seq`
+                Prelude.rnf type'

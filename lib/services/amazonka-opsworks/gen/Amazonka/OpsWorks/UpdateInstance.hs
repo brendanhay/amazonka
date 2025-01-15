@@ -431,18 +431,18 @@ instance Prelude.Hashable UpdateInstance where
 
 instance Prelude.NFData UpdateInstance where
   rnf UpdateInstance' {..} =
-    Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf autoScalingType
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf layerIds
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf sshKeyName
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf agentVersion `Prelude.seq`
+      Prelude.rnf amiId `Prelude.seq`
+        Prelude.rnf architecture `Prelude.seq`
+          Prelude.rnf autoScalingType `Prelude.seq`
+            Prelude.rnf ebsOptimized `Prelude.seq`
+              Prelude.rnf hostname `Prelude.seq`
+                Prelude.rnf installUpdatesOnBoot `Prelude.seq`
+                  Prelude.rnf instanceType `Prelude.seq`
+                    Prelude.rnf layerIds `Prelude.seq`
+                      Prelude.rnf os `Prelude.seq`
+                        Prelude.rnf sshKeyName `Prelude.seq`
+                          Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateInstance where
   toHeaders =

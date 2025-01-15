@@ -124,8 +124,8 @@ instance Prelude.Hashable StopInstance where
 
 instance Prelude.NFData StopInstance where
   rnf StopInstance' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders StopInstance where
   toHeaders =

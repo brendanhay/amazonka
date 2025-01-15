@@ -82,5 +82,5 @@ instance Prelude.Hashable AgentVersion where
 
 instance Prelude.NFData AgentVersion where
   rnf AgentVersion' {..} =
-    Prelude.rnf configurationManager
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf configurationManager `Prelude.seq`
+      Prelude.rnf version

@@ -157,5 +157,5 @@ instance
     DescribeOperatingSystemsResponse
   where
   rnf DescribeOperatingSystemsResponse' {..} =
-    Prelude.rnf operatingSystems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operatingSystems `Prelude.seq`
+      Prelude.rnf httpStatus

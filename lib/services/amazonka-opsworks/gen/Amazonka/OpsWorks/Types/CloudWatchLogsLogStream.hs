@@ -281,17 +281,17 @@ instance Prelude.Hashable CloudWatchLogsLogStream where
 
 instance Prelude.NFData CloudWatchLogsLogStream where
   rnf CloudWatchLogsLogStream' {..} =
-    Prelude.rnf batchCount
-      `Prelude.seq` Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf bufferDuration
-      `Prelude.seq` Prelude.rnf datetimeFormat
-      `Prelude.seq` Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf fileFingerprintLines
-      `Prelude.seq` Prelude.rnf initialPosition
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf multiLineStartPattern
-      `Prelude.seq` Prelude.rnf timeZone
+    Prelude.rnf batchCount `Prelude.seq`
+      Prelude.rnf batchSize `Prelude.seq`
+        Prelude.rnf bufferDuration `Prelude.seq`
+          Prelude.rnf datetimeFormat `Prelude.seq`
+            Prelude.rnf encoding `Prelude.seq`
+              Prelude.rnf file `Prelude.seq`
+                Prelude.rnf fileFingerprintLines `Prelude.seq`
+                  Prelude.rnf initialPosition `Prelude.seq`
+                    Prelude.rnf logGroupName `Prelude.seq`
+                      Prelude.rnf multiLineStartPattern `Prelude.seq`
+                        Prelude.rnf timeZone
 
 instance Data.ToJSON CloudWatchLogsLogStream where
   toJSON CloudWatchLogsLogStream' {..} =

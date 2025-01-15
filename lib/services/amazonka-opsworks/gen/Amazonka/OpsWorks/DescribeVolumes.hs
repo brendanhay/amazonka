@@ -151,10 +151,10 @@ instance Prelude.Hashable DescribeVolumes where
 
 instance Prelude.NFData DescribeVolumes where
   rnf DescribeVolumes' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf raidArrayId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf volumeIds
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf raidArrayId `Prelude.seq`
+        Prelude.rnf stackId `Prelude.seq`
+          Prelude.rnf volumeIds
 
 instance Data.ToHeaders DescribeVolumes where
   toHeaders =
@@ -230,5 +230,5 @@ describeVolumesResponse_httpStatus = Lens.lens (\DescribeVolumesResponse' {httpS
 
 instance Prelude.NFData DescribeVolumesResponse where
   rnf DescribeVolumesResponse' {..} =
-    Prelude.rnf volumes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumes `Prelude.seq`
+      Prelude.rnf httpStatus

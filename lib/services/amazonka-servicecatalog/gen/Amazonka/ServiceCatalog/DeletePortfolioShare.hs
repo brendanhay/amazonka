@@ -155,10 +155,10 @@ instance Prelude.Hashable DeletePortfolioShare where
 
 instance Prelude.NFData DeletePortfolioShare where
   rnf DeletePortfolioShare' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf organizationNode
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf organizationNode `Prelude.seq`
+          Prelude.rnf portfolioId
 
 instance Data.ToHeaders DeletePortfolioShare where
   toHeaders =
@@ -238,5 +238,5 @@ deletePortfolioShareResponse_httpStatus = Lens.lens (\DeletePortfolioShareRespon
 
 instance Prelude.NFData DeletePortfolioShareResponse where
   rnf DeletePortfolioShareResponse' {..} =
-    Prelude.rnf portfolioShareToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portfolioShareToken `Prelude.seq`
+      Prelude.rnf httpStatus

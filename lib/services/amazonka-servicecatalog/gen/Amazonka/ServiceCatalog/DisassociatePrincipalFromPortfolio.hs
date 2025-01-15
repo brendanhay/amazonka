@@ -180,10 +180,10 @@ instance
     DisassociatePrincipalFromPortfolio
   where
   rnf DisassociatePrincipalFromPortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf principalARN
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf principalType `Prelude.seq`
+        Prelude.rnf portfolioId `Prelude.seq`
+          Prelude.rnf principalARN
 
 instance
   Data.ToHeaders

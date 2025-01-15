@@ -201,11 +201,11 @@ instance Prelude.Hashable ProvisioningArtifactDetail where
 
 instance Prelude.NFData ProvisioningArtifactDetail where
   rnf ProvisioningArtifactDetail' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf guidance
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceRevision
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf guidance `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf sourceRevision `Prelude.seq`
+                  Prelude.rnf type'

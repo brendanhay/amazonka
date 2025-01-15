@@ -147,9 +147,9 @@ instance Prelude.Hashable DeleteProvisioningArtifact where
 
 instance Prelude.NFData DeleteProvisioningArtifact where
   rnf DeleteProvisioningArtifact' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf productId `Prelude.seq`
+        Prelude.rnf provisioningArtifactId
 
 instance Data.ToHeaders DeleteProvisioningArtifact where
   toHeaders =

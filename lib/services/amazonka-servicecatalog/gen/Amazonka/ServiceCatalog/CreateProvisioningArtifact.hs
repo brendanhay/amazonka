@@ -175,10 +175,10 @@ instance Prelude.Hashable CreateProvisioningArtifact where
 
 instance Prelude.NFData CreateProvisioningArtifact where
   rnf CreateProvisioningArtifact' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf productId `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateProvisioningArtifact where
   toHeaders =
@@ -319,7 +319,7 @@ instance
     CreateProvisioningArtifactResponse
   where
   rnf CreateProvisioningArtifactResponse' {..} =
-    Prelude.rnf info
-      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf info `Prelude.seq`
+      Prelude.rnf provisioningArtifactDetail `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

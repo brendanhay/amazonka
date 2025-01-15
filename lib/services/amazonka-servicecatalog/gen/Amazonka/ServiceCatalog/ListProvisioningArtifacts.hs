@@ -133,8 +133,8 @@ instance Prelude.Hashable ListProvisioningArtifacts where
 
 instance Prelude.NFData ListProvisioningArtifacts where
   rnf ListProvisioningArtifacts' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf productId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf productId
 
 instance Data.ToHeaders ListProvisioningArtifacts where
   toHeaders =
@@ -224,6 +224,6 @@ instance
     ListProvisioningArtifactsResponse
   where
   rnf ListProvisioningArtifactsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf provisioningArtifactDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf provisioningArtifactDetails `Prelude.seq`
+        Prelude.rnf httpStatus

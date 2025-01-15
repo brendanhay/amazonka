@@ -124,10 +124,10 @@ instance Prelude.Hashable CodeStarParameters where
 
 instance Prelude.NFData CodeStarParameters where
   rnf CodeStarParameters' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf artifactPath
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf repository `Prelude.seq`
+        Prelude.rnf branch `Prelude.seq`
+          Prelude.rnf artifactPath
 
 instance Data.ToJSON CodeStarParameters where
   toJSON CodeStarParameters' {..} =

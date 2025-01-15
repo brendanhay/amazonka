@@ -392,13 +392,13 @@ instance
 
 instance Prelude.NFData UpdateProvisioningPreferences where
   rnf UpdateProvisioningPreferences' {..} =
-    Prelude.rnf stackSetAccounts
-      `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
-      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
-      `Prelude.seq` Prelude.rnf stackSetOperationType
-      `Prelude.seq` Prelude.rnf stackSetRegions
+    Prelude.rnf stackSetAccounts `Prelude.seq`
+      Prelude.rnf stackSetFailureToleranceCount `Prelude.seq`
+        Prelude.rnf stackSetFailureTolerancePercentage `Prelude.seq`
+          Prelude.rnf stackSetMaxConcurrencyCount `Prelude.seq`
+            Prelude.rnf stackSetMaxConcurrencyPercentage `Prelude.seq`
+              Prelude.rnf stackSetOperationType `Prelude.seq`
+                Prelude.rnf stackSetRegions
 
 instance Data.ToJSON UpdateProvisioningPreferences where
   toJSON UpdateProvisioningPreferences' {..} =

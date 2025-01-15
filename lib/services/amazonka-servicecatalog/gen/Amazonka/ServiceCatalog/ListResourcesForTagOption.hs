@@ -140,12 +140,12 @@ instance Core.AWSPager ListResourcesForTagOption where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourcesForTagOption_pageToken
-          Lens..~ rs
-          Lens.^? listResourcesForTagOptionResponse_pageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourcesForTagOption_pageToken
+              Lens..~ rs
+              Lens.^? listResourcesForTagOptionResponse_pageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourcesForTagOption where
   type
@@ -175,10 +175,10 @@ instance Prelude.Hashable ListResourcesForTagOption where
 
 instance Prelude.NFData ListResourcesForTagOption where
   rnf ListResourcesForTagOption' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tagOptionId
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf pageToken `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf tagOptionId
 
 instance Data.ToHeaders ListResourcesForTagOption where
   toHeaders =
@@ -268,6 +268,6 @@ instance
     ListResourcesForTagOptionResponse
   where
   rnf ListResourcesForTagOptionResponse' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pageToken `Prelude.seq`
+      Prelude.rnf resourceDetails `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -80,5 +80,5 @@ instance Prelude.Hashable RecordError where
 
 instance Prelude.NFData RecordError where
   rnf RecordError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description

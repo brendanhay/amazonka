@@ -150,6 +150,6 @@ instance Prelude.Hashable StackInstance where
 
 instance Prelude.NFData StackInstance where
   rnf StackInstance' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf stackInstanceStatus
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf stackInstanceStatus

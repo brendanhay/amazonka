@@ -152,8 +152,8 @@ instance Prelude.Hashable ProductViewDetail where
 
 instance Prelude.NFData ProductViewDetail where
   rnf ProductViewDetail' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf productARN
-      `Prelude.seq` Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf sourceConnection
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf productARN `Prelude.seq`
+        Prelude.rnf productViewSummary `Prelude.seq`
+          Prelude.rnf sourceConnection `Prelude.seq`
+            Prelude.rnf status

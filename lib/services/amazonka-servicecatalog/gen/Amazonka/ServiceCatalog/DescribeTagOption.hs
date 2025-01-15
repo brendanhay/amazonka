@@ -162,5 +162,5 @@ describeTagOptionResponse_httpStatus = Lens.lens (\DescribeTagOptionResponse' {h
 
 instance Prelude.NFData DescribeTagOptionResponse where
   rnf DescribeTagOptionResponse' {..} =
-    Prelude.rnf tagOptionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagOptionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

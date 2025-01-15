@@ -81,5 +81,5 @@ instance Prelude.Hashable ProvisioningArtifactOutput where
 
 instance Prelude.NFData ProvisioningArtifactOutput where
   rnf ProvisioningArtifactOutput' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf key

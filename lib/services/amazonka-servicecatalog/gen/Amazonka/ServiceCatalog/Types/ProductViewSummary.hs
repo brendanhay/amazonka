@@ -204,14 +204,14 @@ instance Prelude.Hashable ProductViewSummary where
 
 instance Prelude.NFData ProductViewSummary where
   rnf ProductViewSummary' {..} =
-    Prelude.rnf distributor
-      `Prelude.seq` Prelude.rnf hasDefaultPath
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf shortDescription
-      `Prelude.seq` Prelude.rnf supportDescription
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportUrl
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf distributor `Prelude.seq`
+      Prelude.rnf hasDefaultPath `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf productId `Prelude.seq`
+                Prelude.rnf shortDescription `Prelude.seq`
+                  Prelude.rnf supportDescription `Prelude.seq`
+                    Prelude.rnf supportEmail `Prelude.seq`
+                      Prelude.rnf supportUrl `Prelude.seq`
+                        Prelude.rnf type'

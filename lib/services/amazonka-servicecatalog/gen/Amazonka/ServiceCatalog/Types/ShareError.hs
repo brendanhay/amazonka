@@ -91,6 +91,6 @@ instance Prelude.Hashable ShareError where
 
 instance Prelude.NFData ShareError where
   rnf ShareError' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf message

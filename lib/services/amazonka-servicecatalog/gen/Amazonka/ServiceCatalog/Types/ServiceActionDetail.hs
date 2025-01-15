@@ -82,5 +82,5 @@ instance Prelude.Hashable ServiceActionDetail where
 
 instance Prelude.NFData ServiceActionDetail where
   rnf ServiceActionDetail' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf serviceActionSummary
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf serviceActionSummary

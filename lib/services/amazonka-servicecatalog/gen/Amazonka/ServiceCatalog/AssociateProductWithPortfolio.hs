@@ -159,10 +159,10 @@ instance
 
 instance Prelude.NFData AssociateProductWithPortfolio where
   rnf AssociateProductWithPortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf sourcePortfolioId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf sourcePortfolioId `Prelude.seq`
+        Prelude.rnf productId `Prelude.seq`
+          Prelude.rnf portfolioId
 
 instance Data.ToHeaders AssociateProductWithPortfolio where
   toHeaders =

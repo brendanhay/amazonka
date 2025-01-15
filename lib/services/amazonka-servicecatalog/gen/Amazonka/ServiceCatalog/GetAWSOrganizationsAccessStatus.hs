@@ -163,5 +163,5 @@ instance
     GetAWSOrganizationsAccessStatusResponse
   where
   rnf GetAWSOrganizationsAccessStatusResponse' {..} =
-    Prelude.rnf accessStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessStatus `Prelude.seq`
+      Prelude.rnf httpStatus

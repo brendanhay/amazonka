@@ -125,8 +125,8 @@ instance
     DisassociateBudgetFromResource
   where
   rnf DisassociateBudgetFromResource' {..} =
-    Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf budgetName `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance
   Data.ToHeaders

@@ -156,8 +156,8 @@ instance Prelude.Hashable PortfolioShareDetail where
 
 instance Prelude.NFData PortfolioShareDetail where
   rnf PortfolioShareDetail' {..} =
-    Prelude.rnf accepted
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf sharePrincipals
-      `Prelude.seq` Prelude.rnf shareTagOptions
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf accepted `Prelude.seq`
+      Prelude.rnf principalId `Prelude.seq`
+        Prelude.rnf sharePrincipals `Prelude.seq`
+          Prelude.rnf shareTagOptions `Prelude.seq`
+            Prelude.rnf type'

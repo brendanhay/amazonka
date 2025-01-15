@@ -177,12 +177,12 @@ instance Core.AWSPager ListAcceptedPortfolioShares where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAcceptedPortfolioShares_pageToken
-          Lens..~ rs
-          Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAcceptedPortfolioShares_pageToken
+              Lens..~ rs
+              Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAcceptedPortfolioShares where
   type
@@ -212,10 +212,10 @@ instance Prelude.Hashable ListAcceptedPortfolioShares where
 
 instance Prelude.NFData ListAcceptedPortfolioShares where
   rnf ListAcceptedPortfolioShares' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioShareType
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf portfolioShareType
 
 instance Data.ToHeaders ListAcceptedPortfolioShares where
   toHeaders =
@@ -307,6 +307,6 @@ instance
     ListAcceptedPortfolioSharesResponse
   where
   rnf ListAcceptedPortfolioSharesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf portfolioDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf portfolioDetails `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -228,13 +228,13 @@ instance Prelude.Hashable SearchProvisionedProducts where
 
 instance Prelude.NFData SearchProvisionedProducts where
   rnf SearchProvisionedProducts' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accessLevelFilter
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accessLevelFilter `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf pageSize `Prelude.seq`
+            Prelude.rnf pageToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToHeaders SearchProvisionedProducts where
   toHeaders =
@@ -338,7 +338,7 @@ instance
     SearchProvisionedProductsResponse
   where
   rnf SearchProvisionedProductsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf provisionedProducts
-      `Prelude.seq` Prelude.rnf totalResultsCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf provisionedProducts `Prelude.seq`
+        Prelude.rnf totalResultsCount `Prelude.seq`
+          Prelude.rnf httpStatus

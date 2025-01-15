@@ -135,8 +135,8 @@ instance Prelude.Hashable DescribePortfolio where
 
 instance Prelude.NFData DescribePortfolio where
   rnf DescribePortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DescribePortfolio where
   toHeaders =
@@ -237,8 +237,8 @@ describePortfolioResponse_httpStatus = Lens.lens (\DescribePortfolioResponse' {h
 
 instance Prelude.NFData DescribePortfolioResponse where
   rnf DescribePortfolioResponse' {..} =
-    Prelude.rnf budgets
-      `Prelude.seq` Prelude.rnf portfolioDetail
-      `Prelude.seq` Prelude.rnf tagOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf budgets `Prelude.seq`
+      Prelude.rnf portfolioDetail `Prelude.seq`
+        Prelude.rnf tagOptions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

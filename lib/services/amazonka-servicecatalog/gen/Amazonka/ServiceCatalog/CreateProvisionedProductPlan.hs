@@ -303,17 +303,17 @@ instance
 
 instance Prelude.NFData CreateProvisionedProductPlan where
   rnf CreateProvisionedProductPlan' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf planName
-      `Prelude.seq` Prelude.rnf planType
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf notificationArns `Prelude.seq`
+        Prelude.rnf pathId `Prelude.seq`
+          Prelude.rnf provisioningParameters `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf planName `Prelude.seq`
+                Prelude.rnf planType `Prelude.seq`
+                  Prelude.rnf productId `Prelude.seq`
+                    Prelude.rnf provisionedProductName `Prelude.seq`
+                      Prelude.rnf provisioningArtifactId `Prelude.seq`
+                        Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateProvisionedProductPlan where
   toHeaders =
@@ -446,9 +446,9 @@ instance
     CreateProvisionedProductPlanResponse
   where
   rnf CreateProvisionedProductPlanResponse' {..} =
-    Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf planName
-      `Prelude.seq` Prelude.rnf provisionProductId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf planId `Prelude.seq`
+      Prelude.rnf planName `Prelude.seq`
+        Prelude.rnf provisionProductId `Prelude.seq`
+          Prelude.rnf provisionedProductName `Prelude.seq`
+            Prelude.rnf provisioningArtifactId `Prelude.seq`
+              Prelude.rnf httpStatus

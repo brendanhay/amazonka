@@ -231,13 +231,13 @@ instance Prelude.Hashable UpdateProvisioningArtifact where
 
 instance Prelude.NFData UpdateProvisioningArtifact where
   rnf UpdateProvisioningArtifact' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf active
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf guidance
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf active `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf guidance `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf productId `Prelude.seq`
+                Prelude.rnf provisioningArtifactId
 
 instance Data.ToHeaders UpdateProvisioningArtifact where
   toHeaders =
@@ -344,7 +344,7 @@ instance
     UpdateProvisioningArtifactResponse
   where
   rnf UpdateProvisioningArtifactResponse' {..} =
-    Prelude.rnf info
-      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf info `Prelude.seq`
+      Prelude.rnf provisioningArtifactDetail `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

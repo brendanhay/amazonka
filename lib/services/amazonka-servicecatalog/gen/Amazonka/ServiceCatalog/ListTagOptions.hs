@@ -118,12 +118,12 @@ instance Core.AWSPager ListTagOptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTagOptions_pageToken
-          Lens..~ rs
-          Lens.^? listTagOptionsResponse_pageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTagOptions_pageToken
+              Lens..~ rs
+              Lens.^? listTagOptionsResponse_pageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagOptions where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListTagOptions where
 
 instance Prelude.NFData ListTagOptions where
   rnf ListTagOptions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken
 
 instance Data.ToHeaders ListTagOptions where
   toHeaders =
@@ -240,6 +240,6 @@ listTagOptionsResponse_httpStatus = Lens.lens (\ListTagOptionsResponse' {httpSta
 
 instance Prelude.NFData ListTagOptionsResponse where
   rnf ListTagOptionsResponse' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf tagOptionDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pageToken `Prelude.seq`
+      Prelude.rnf tagOptionDetails `Prelude.seq`
+        Prelude.rnf httpStatus

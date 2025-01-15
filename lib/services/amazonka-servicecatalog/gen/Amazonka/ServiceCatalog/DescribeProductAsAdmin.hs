@@ -180,10 +180,10 @@ instance Prelude.Hashable DescribeProductAsAdmin where
 
 instance Prelude.NFData DescribeProductAsAdmin where
   rnf DescribeProductAsAdmin' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourcePortfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sourcePortfolioId
 
 instance Data.ToHeaders DescribeProductAsAdmin where
   toHeaders =
@@ -303,9 +303,9 @@ instance
     DescribeProductAsAdminResponse
   where
   rnf DescribeProductAsAdminResponse' {..} =
-    Prelude.rnf budgets
-      `Prelude.seq` Prelude.rnf productViewDetail
-      `Prelude.seq` Prelude.rnf provisioningArtifactSummaries
-      `Prelude.seq` Prelude.rnf tagOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf budgets `Prelude.seq`
+      Prelude.rnf productViewDetail `Prelude.seq`
+        Prelude.rnf provisioningArtifactSummaries `Prelude.seq`
+          Prelude.rnf tagOptions `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

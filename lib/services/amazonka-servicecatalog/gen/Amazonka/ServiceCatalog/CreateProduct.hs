@@ -301,19 +301,19 @@ instance Prelude.Hashable CreateProduct where
 
 instance Prelude.NFData CreateProduct where
   rnf CreateProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributor
-      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
-      `Prelude.seq` Prelude.rnf sourceConnection
-      `Prelude.seq` Prelude.rnf supportDescription
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf distributor `Prelude.seq`
+          Prelude.rnf provisioningArtifactParameters `Prelude.seq`
+            Prelude.rnf sourceConnection `Prelude.seq`
+              Prelude.rnf supportDescription `Prelude.seq`
+                Prelude.rnf supportEmail `Prelude.seq`
+                  Prelude.rnf supportUrl `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf owner `Prelude.seq`
+                          Prelude.rnf productType `Prelude.seq`
+                            Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateProduct where
   toHeaders =
@@ -420,7 +420,7 @@ createProductResponse_httpStatus = Lens.lens (\CreateProductResponse' {httpStatu
 
 instance Prelude.NFData CreateProductResponse where
   rnf CreateProductResponse' {..} =
-    Prelude.rnf productViewDetail
-      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf productViewDetail `Prelude.seq`
+      Prelude.rnf provisioningArtifactDetail `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus

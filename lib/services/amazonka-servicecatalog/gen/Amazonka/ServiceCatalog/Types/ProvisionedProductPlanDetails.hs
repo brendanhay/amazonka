@@ -249,18 +249,18 @@ instance
 
 instance Prelude.NFData ProvisionedProductPlanDetails where
   rnf ProvisionedProductPlanDetails' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf planName
-      `Prelude.seq` Prelude.rnf planType
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisionProductId
-      `Prelude.seq` Prelude.rnf provisionProductName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedTime
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf notificationArns `Prelude.seq`
+        Prelude.rnf pathId `Prelude.seq`
+          Prelude.rnf planId `Prelude.seq`
+            Prelude.rnf planName `Prelude.seq`
+              Prelude.rnf planType `Prelude.seq`
+                Prelude.rnf productId `Prelude.seq`
+                  Prelude.rnf provisionProductId `Prelude.seq`
+                    Prelude.rnf provisionProductName `Prelude.seq`
+                      Prelude.rnf provisioningArtifactId `Prelude.seq`
+                        Prelude.rnf provisioningParameters `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf updatedTime

@@ -278,17 +278,17 @@ instance Prelude.Hashable RecordDetail where
 
 instance Prelude.NFData RecordDetail where
   rnf RecordDetail' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf launchRoleArn
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf provisionedProductType
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf recordErrors
-      `Prelude.seq` Prelude.rnf recordId
-      `Prelude.seq` Prelude.rnf recordTags
-      `Prelude.seq` Prelude.rnf recordType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTime
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf launchRoleArn `Prelude.seq`
+        Prelude.rnf pathId `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf provisionedProductId `Prelude.seq`
+              Prelude.rnf provisionedProductName `Prelude.seq`
+                Prelude.rnf provisionedProductType `Prelude.seq`
+                  Prelude.rnf provisioningArtifactId `Prelude.seq`
+                    Prelude.rnf recordErrors `Prelude.seq`
+                      Prelude.rnf recordId `Prelude.seq`
+                        Prelude.rnf recordTags `Prelude.seq`
+                          Prelude.rnf recordType `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf updatedTime

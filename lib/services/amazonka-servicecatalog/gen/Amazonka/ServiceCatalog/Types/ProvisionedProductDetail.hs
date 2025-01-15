@@ -352,17 +352,17 @@ instance Prelude.Hashable ProvisionedProductDetail where
 
 instance Prelude.NFData ProvisionedProductDetail where
   rnf ProvisionedProductDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf lastProvisioningRecordId
-      `Prelude.seq` Prelude.rnf lastRecordId
-      `Prelude.seq` Prelude.rnf lastSuccessfulProvisioningRecordId
-      `Prelude.seq` Prelude.rnf launchRoleArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf idempotencyToken `Prelude.seq`
+            Prelude.rnf lastProvisioningRecordId `Prelude.seq`
+              Prelude.rnf lastRecordId `Prelude.seq`
+                Prelude.rnf lastSuccessfulProvisioningRecordId `Prelude.seq`
+                  Prelude.rnf launchRoleArn `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf productId `Prelude.seq`
+                        Prelude.rnf provisioningArtifactId `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf type'

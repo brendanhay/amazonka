@@ -126,8 +126,8 @@ instance Prelude.Hashable DeleteConstraint where
 
 instance Prelude.NFData DeleteConstraint where
   rnf DeleteConstraint' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteConstraint where
   toHeaders =

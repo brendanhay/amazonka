@@ -172,9 +172,9 @@ instance Prelude.Hashable RejectPortfolioShare where
 
 instance Prelude.NFData RejectPortfolioShare where
   rnf RejectPortfolioShare' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf portfolioShareType
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf portfolioShareType `Prelude.seq`
+        Prelude.rnf portfolioId
 
 instance Data.ToHeaders RejectPortfolioShare where
   toHeaders =

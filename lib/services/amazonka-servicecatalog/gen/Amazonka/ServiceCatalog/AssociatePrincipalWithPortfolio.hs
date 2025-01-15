@@ -207,10 +207,10 @@ instance
     AssociatePrincipalWithPortfolio
   where
   rnf AssociatePrincipalWithPortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf principalARN
-      `Prelude.seq` Prelude.rnf principalType
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf portfolioId `Prelude.seq`
+        Prelude.rnf principalARN `Prelude.seq`
+          Prelude.rnf principalType
 
 instance
   Data.ToHeaders

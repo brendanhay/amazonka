@@ -175,11 +175,11 @@ instance Prelude.Hashable ListPortfolioAccess where
 
 instance Prelude.NFData ListPortfolioAccess where
   rnf ListPortfolioAccess' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf organizationParentId
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf organizationParentId `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf portfolioId
 
 instance Data.ToHeaders ListPortfolioAccess where
   toHeaders =
@@ -272,6 +272,6 @@ listPortfolioAccessResponse_httpStatus = Lens.lens (\ListPortfolioAccessResponse
 
 instance Prelude.NFData ListPortfolioAccessResponse where
   rnf ListPortfolioAccessResponse' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

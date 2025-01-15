@@ -187,12 +187,12 @@ instance Prelude.Hashable CreatePortfolio where
 
 instance Prelude.NFData CreatePortfolio where
   rnf CreatePortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf providerName `Prelude.seq`
+              Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreatePortfolio where
   toHeaders =
@@ -280,6 +280,6 @@ createPortfolioResponse_httpStatus = Lens.lens (\CreatePortfolioResponse' {httpS
 
 instance Prelude.NFData CreatePortfolioResponse where
   rnf CreatePortfolioResponse' {..} =
-    Prelude.rnf portfolioDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portfolioDetail `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

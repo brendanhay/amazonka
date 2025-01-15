@@ -111,8 +111,8 @@ instance Prelude.Hashable AssociateBudgetWithResource where
 
 instance Prelude.NFData AssociateBudgetWithResource where
   rnf AssociateBudgetWithResource' {..} =
-    Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf budgetName `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders AssociateBudgetWithResource where
   toHeaders =

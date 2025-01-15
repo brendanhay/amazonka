@@ -411,22 +411,22 @@ instance Prelude.Hashable ProvisionedProductAttribute where
 
 instance Prelude.NFData ProvisionedProductAttribute where
   rnf ProvisionedProductAttribute' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf lastProvisioningRecordId
-      `Prelude.seq` Prelude.rnf lastRecordId
-      `Prelude.seq` Prelude.rnf lastSuccessfulProvisioningRecordId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf physicalId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf userArnSession
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf idempotencyToken `Prelude.seq`
+            Prelude.rnf lastProvisioningRecordId `Prelude.seq`
+              Prelude.rnf lastRecordId `Prelude.seq`
+                Prelude.rnf lastSuccessfulProvisioningRecordId `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf physicalId `Prelude.seq`
+                      Prelude.rnf productId `Prelude.seq`
+                        Prelude.rnf productName `Prelude.seq`
+                          Prelude.rnf provisioningArtifactId `Prelude.seq`
+                            Prelude.rnf provisioningArtifactName `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusMessage `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf type' `Prelude.seq`
+                                      Prelude.rnf userArn `Prelude.seq`
+                                        Prelude.rnf userArnSession

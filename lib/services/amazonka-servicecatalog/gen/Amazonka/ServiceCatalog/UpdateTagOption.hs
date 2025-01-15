@@ -119,9 +119,9 @@ instance Prelude.Hashable UpdateTagOption where
 
 instance Prelude.NFData UpdateTagOption where
   rnf UpdateTagOption' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders UpdateTagOption where
   toHeaders =
@@ -195,5 +195,5 @@ updateTagOptionResponse_httpStatus = Lens.lens (\UpdateTagOptionResponse' {httpS
 
 instance Prelude.NFData UpdateTagOptionResponse where
   rnf UpdateTagOptionResponse' {..} =
-    Prelude.rnf tagOptionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagOptionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

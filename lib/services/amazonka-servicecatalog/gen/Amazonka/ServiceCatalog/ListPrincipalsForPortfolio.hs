@@ -147,12 +147,12 @@ instance Core.AWSPager ListPrincipalsForPortfolio where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPrincipalsForPortfolio_pageToken
-          Lens..~ rs
-          Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPrincipalsForPortfolio_pageToken
+              Lens..~ rs
+              Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
@@ -179,10 +179,10 @@ instance Prelude.Hashable ListPrincipalsForPortfolio where
 
 instance Prelude.NFData ListPrincipalsForPortfolio where
   rnf ListPrincipalsForPortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf portfolioId
 
 instance Data.ToHeaders ListPrincipalsForPortfolio where
   toHeaders =
@@ -276,6 +276,6 @@ instance
     ListPrincipalsForPortfolioResponse
   where
   rnf ListPrincipalsForPortfolioResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf httpStatus

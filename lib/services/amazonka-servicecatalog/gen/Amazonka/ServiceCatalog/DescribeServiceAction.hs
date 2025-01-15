@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeServiceAction where
 
 instance Prelude.NFData DescribeServiceAction where
   rnf DescribeServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DescribeServiceAction where
   toHeaders =
@@ -202,5 +202,5 @@ describeServiceActionResponse_httpStatus = Lens.lens (\DescribeServiceActionResp
 
 instance Prelude.NFData DescribeServiceActionResponse where
   rnf DescribeServiceActionResponse' {..} =
-    Prelude.rnf serviceActionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceActionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

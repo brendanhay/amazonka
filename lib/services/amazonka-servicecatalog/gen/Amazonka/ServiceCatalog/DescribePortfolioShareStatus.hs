@@ -231,9 +231,9 @@ instance
     DescribePortfolioShareStatusResponse
   where
   rnf DescribePortfolioShareStatusResponse' {..} =
-    Prelude.rnf organizationNodeValue
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf portfolioShareToken
-      `Prelude.seq` Prelude.rnf shareDetails
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationNodeValue `Prelude.seq`
+      Prelude.rnf portfolioId `Prelude.seq`
+        Prelude.rnf portfolioShareToken `Prelude.seq`
+          Prelude.rnf shareDetails `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

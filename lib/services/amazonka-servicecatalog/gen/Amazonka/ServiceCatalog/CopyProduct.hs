@@ -212,13 +212,13 @@ instance Prelude.Hashable CopyProduct where
 
 instance Prelude.NFData CopyProduct where
   rnf CopyProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf copyOptions
-      `Prelude.seq` Prelude.rnf sourceProvisioningArtifactIdentifiers
-      `Prelude.seq` Prelude.rnf targetProductId
-      `Prelude.seq` Prelude.rnf targetProductName
-      `Prelude.seq` Prelude.rnf sourceProductArn
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf copyOptions `Prelude.seq`
+        Prelude.rnf sourceProvisioningArtifactIdentifiers `Prelude.seq`
+          Prelude.rnf targetProductId `Prelude.seq`
+            Prelude.rnf targetProductName `Prelude.seq`
+              Prelude.rnf sourceProductArn `Prelude.seq`
+                Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CopyProduct where
   toHeaders =
@@ -302,5 +302,5 @@ copyProductResponse_httpStatus = Lens.lens (\CopyProductResponse' {httpStatus} -
 
 instance Prelude.NFData CopyProductResponse where
   rnf CopyProductResponse' {..} =
-    Prelude.rnf copyProductToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf copyProductToken `Prelude.seq`
+      Prelude.rnf httpStatus

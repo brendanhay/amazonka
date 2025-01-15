@@ -245,13 +245,13 @@ instance
     DescribeProvisioningParameters
   where
   rnf DescribeProvisioningParameters' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf pathName
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pathId `Prelude.seq`
+        Prelude.rnf pathName `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf productName `Prelude.seq`
+              Prelude.rnf provisioningArtifactId `Prelude.seq`
+                Prelude.rnf provisioningArtifactName
 
 instance
   Data.ToHeaders
@@ -412,11 +412,11 @@ instance
     DescribeProvisioningParametersResponse
   where
   rnf DescribeProvisioningParametersResponse' {..} =
-    Prelude.rnf constraintSummaries
-      `Prelude.seq` Prelude.rnf provisioningArtifactOutputKeys
-      `Prelude.seq` Prelude.rnf provisioningArtifactOutputs
-      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
-      `Prelude.seq` Prelude.rnf provisioningArtifactPreferences
-      `Prelude.seq` Prelude.rnf tagOptions
-      `Prelude.seq` Prelude.rnf usageInstructions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf constraintSummaries `Prelude.seq`
+      Prelude.rnf provisioningArtifactOutputKeys `Prelude.seq`
+        Prelude.rnf provisioningArtifactOutputs `Prelude.seq`
+          Prelude.rnf provisioningArtifactParameters `Prelude.seq`
+            Prelude.rnf provisioningArtifactPreferences `Prelude.seq`
+              Prelude.rnf tagOptions `Prelude.seq`
+                Prelude.rnf usageInstructions `Prelude.seq`
+                  Prelude.rnf httpStatus

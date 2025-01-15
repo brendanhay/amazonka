@@ -79,8 +79,8 @@ instance Prelude.Hashable SourceConnection where
 
 instance Prelude.NFData SourceConnection where
   rnf SourceConnection' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf connectionParameters
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf connectionParameters
 
 instance Data.ToJSON SourceConnection where
   toJSON SourceConnection' {..} =

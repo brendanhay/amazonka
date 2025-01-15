@@ -80,9 +80,9 @@ instance Prelude.Hashable ListTagOptionsFilters where
 
 instance Prelude.NFData ListTagOptionsFilters where
   rnf ListTagOptionsFilters' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON ListTagOptionsFilters where
   toJSON ListTagOptionsFilters' {..} =

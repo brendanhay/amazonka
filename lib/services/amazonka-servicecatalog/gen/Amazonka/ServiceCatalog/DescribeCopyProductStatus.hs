@@ -134,8 +134,8 @@ instance Prelude.Hashable DescribeCopyProductStatus where
 
 instance Prelude.NFData DescribeCopyProductStatus where
   rnf DescribeCopyProductStatus' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf copyProductToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf copyProductToken
 
 instance Data.ToHeaders DescribeCopyProductStatus where
   toHeaders =
@@ -231,7 +231,7 @@ instance
     DescribeCopyProductStatusResponse
   where
   rnf DescribeCopyProductStatusResponse' {..} =
-    Prelude.rnf copyProductStatus
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf targetProductId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf copyProductStatus `Prelude.seq`
+      Prelude.rnf statusDetail `Prelude.seq`
+        Prelude.rnf targetProductId `Prelude.seq`
+          Prelude.rnf httpStatus

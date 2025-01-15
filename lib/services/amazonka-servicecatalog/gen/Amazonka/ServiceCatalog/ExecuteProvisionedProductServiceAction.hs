@@ -195,11 +195,11 @@ instance
     ExecuteProvisionedProductServiceAction
   where
   rnf ExecuteProvisionedProductServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf serviceActionId
-      `Prelude.seq` Prelude.rnf executeToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf provisionedProductId `Prelude.seq`
+          Prelude.rnf serviceActionId `Prelude.seq`
+            Prelude.rnf executeToken
 
 instance
   Data.ToHeaders
@@ -300,5 +300,5 @@ instance
   where
   rnf
     ExecuteProvisionedProductServiceActionResponse' {..} =
-      Prelude.rnf recordDetail
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf recordDetail `Prelude.seq`
+        Prelude.rnf httpStatus

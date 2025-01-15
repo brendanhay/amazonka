@@ -170,10 +170,10 @@ instance
     DescribeProvisionedProductPlan
   where
   rnf DescribeProvisionedProductPlan' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf planId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf planId
 
 instance
   Data.ToHeaders
@@ -281,7 +281,7 @@ instance
     DescribeProvisionedProductPlanResponse
   where
   rnf DescribeProvisionedProductPlanResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf provisionedProductPlanDetails
-      `Prelude.seq` Prelude.rnf resourceChanges
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf provisionedProductPlanDetails `Prelude.seq`
+        Prelude.rnf resourceChanges `Prelude.seq`
+          Prelude.rnf httpStatus

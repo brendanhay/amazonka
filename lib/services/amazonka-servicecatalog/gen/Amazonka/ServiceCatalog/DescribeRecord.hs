@@ -169,10 +169,10 @@ instance Prelude.Hashable DescribeRecord where
 
 instance Prelude.NFData DescribeRecord where
   rnf DescribeRecord' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders DescribeRecord where
   toHeaders =
@@ -275,7 +275,7 @@ describeRecordResponse_httpStatus = Lens.lens (\DescribeRecordResponse' {httpSta
 
 instance Prelude.NFData DescribeRecordResponse where
   rnf DescribeRecordResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf recordOutputs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf recordDetail `Prelude.seq`
+        Prelude.rnf recordOutputs `Prelude.seq`
+          Prelude.rnf httpStatus

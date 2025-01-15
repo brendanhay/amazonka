@@ -331,12 +331,12 @@ instance Prelude.Hashable ProvisioningPreferences where
 
 instance Prelude.NFData ProvisioningPreferences where
   rnf ProvisioningPreferences' {..} =
-    Prelude.rnf stackSetAccounts
-      `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
-      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
-      `Prelude.seq` Prelude.rnf stackSetRegions
+    Prelude.rnf stackSetAccounts `Prelude.seq`
+      Prelude.rnf stackSetFailureToleranceCount `Prelude.seq`
+        Prelude.rnf stackSetFailureTolerancePercentage `Prelude.seq`
+          Prelude.rnf stackSetMaxConcurrencyCount `Prelude.seq`
+            Prelude.rnf stackSetMaxConcurrencyPercentage `Prelude.seq`
+              Prelude.rnf stackSetRegions
 
 instance Data.ToJSON ProvisioningPreferences where
   toJSON ProvisioningPreferences' {..} =

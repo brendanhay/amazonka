@@ -188,12 +188,12 @@ instance Core.AWSPager SearchProductsAsAdmin where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchProductsAsAdmin_pageToken
-          Lens..~ rs
-          Lens.^? searchProductsAsAdminResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchProductsAsAdmin_pageToken
+              Lens..~ rs
+              Lens.^? searchProductsAsAdminResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchProductsAsAdmin where
   type
@@ -227,14 +227,14 @@ instance Prelude.Hashable SearchProductsAsAdmin where
 
 instance Prelude.NFData SearchProductsAsAdmin where
   rnf SearchProductsAsAdmin' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf productSource
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf portfolioId `Prelude.seq`
+              Prelude.rnf productSource `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder
 
 instance Data.ToHeaders SearchProductsAsAdmin where
   toHeaders =
@@ -326,6 +326,6 @@ searchProductsAsAdminResponse_httpStatus = Lens.lens (\SearchProductsAsAdminResp
 
 instance Prelude.NFData SearchProductsAsAdminResponse where
   rnf SearchProductsAsAdminResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf productViewDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf productViewDetails `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -104,7 +104,7 @@ instance Prelude.Hashable ServiceActionSummary where
 
 instance Prelude.NFData ServiceActionSummary where
   rnf ServiceActionSummary' {..} =
-    Prelude.rnf definitionType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf definitionType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name

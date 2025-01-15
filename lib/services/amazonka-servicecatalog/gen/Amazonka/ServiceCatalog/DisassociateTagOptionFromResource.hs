@@ -122,8 +122,8 @@ instance
     DisassociateTagOptionFromResource
   where
   rnf DisassociateTagOptionFromResource' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tagOptionId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf tagOptionId
 
 instance
   Data.ToHeaders

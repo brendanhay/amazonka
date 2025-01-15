@@ -106,9 +106,9 @@ instance
   where
   rnf
     SelfManagedActiveDirectoryConfigurationUpdates' {..} =
-      Prelude.rnf dnsIps
-        `Prelude.seq` Prelude.rnf password
-        `Prelude.seq` Prelude.rnf userName
+      Prelude.rnf dnsIps `Prelude.seq`
+        Prelude.rnf password `Prelude.seq`
+          Prelude.rnf userName
 
 instance
   Data.ToJSON

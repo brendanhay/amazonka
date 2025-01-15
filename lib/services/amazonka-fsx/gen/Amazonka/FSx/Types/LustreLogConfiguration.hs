@@ -131,5 +131,5 @@ instance Prelude.Hashable LustreLogConfiguration where
 
 instance Prelude.NFData LustreLogConfiguration where
   rnf LustreLogConfiguration' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf level
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf level

@@ -81,5 +81,5 @@ instance Prelude.Hashable DeleteVolumeOntapResponse where
 
 instance Prelude.NFData DeleteVolumeOntapResponse where
   rnf DeleteVolumeOntapResponse' {..} =
-    Prelude.rnf finalBackupId
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupId `Prelude.seq`
+      Prelude.rnf finalBackupTags

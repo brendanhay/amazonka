@@ -179,10 +179,10 @@ instance
     UpdateDataRepositoryAssociation
   where
   rnf UpdateDataRepositoryAssociation' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf importedFileChunkSize `Prelude.seq`
+        Prelude.rnf s3 `Prelude.seq`
+          Prelude.rnf associationId
 
 instance
   Data.ToHeaders
@@ -270,5 +270,5 @@ instance
     UpdateDataRepositoryAssociationResponse
   where
   rnf UpdateDataRepositoryAssociationResponse' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf httpStatus

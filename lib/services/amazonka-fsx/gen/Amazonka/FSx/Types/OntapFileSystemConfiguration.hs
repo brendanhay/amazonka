@@ -234,13 +234,13 @@ instance
 
 instance Prelude.NFData OntapFileSystemConfiguration where
   rnf OntapFileSystemConfiguration' {..} =
-    Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf endpointIpAddressRange
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf preferredSubnetId
-      `Prelude.seq` Prelude.rnf routeTableIds
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+      Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+        Prelude.rnf deploymentType `Prelude.seq`
+          Prelude.rnf diskIopsConfiguration `Prelude.seq`
+            Prelude.rnf endpointIpAddressRange `Prelude.seq`
+              Prelude.rnf endpoints `Prelude.seq`
+                Prelude.rnf preferredSubnetId `Prelude.seq`
+                  Prelude.rnf routeTableIds `Prelude.seq`
+                    Prelude.rnf throughputCapacity `Prelude.seq`
+                      Prelude.rnf weeklyMaintenanceStartTime

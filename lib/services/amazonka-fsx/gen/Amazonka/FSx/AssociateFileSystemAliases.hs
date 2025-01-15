@@ -187,9 +187,9 @@ instance Prelude.Hashable AssociateFileSystemAliases where
 
 instance Prelude.NFData AssociateFileSystemAliases where
   rnf AssociateFileSystemAliases' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf aliases
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf aliases
 
 instance Data.ToHeaders AssociateFileSystemAliases where
   toHeaders =
@@ -276,5 +276,5 @@ instance
     AssociateFileSystemAliasesResponse
   where
   rnf AssociateFileSystemAliasesResponse' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,8 +93,8 @@ instance Prelude.Hashable FileCacheNFSConfiguration where
 
 instance Prelude.NFData FileCacheNFSConfiguration where
   rnf FileCacheNFSConfiguration' {..} =
-    Prelude.rnf dnsIps
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf dnsIps `Prelude.seq`
+      Prelude.rnf version
 
 instance Data.ToJSON FileCacheNFSConfiguration where
   toJSON FileCacheNFSConfiguration' {..} =

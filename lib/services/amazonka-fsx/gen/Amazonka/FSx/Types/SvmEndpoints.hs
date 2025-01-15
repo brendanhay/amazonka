@@ -114,7 +114,7 @@ instance Prelude.Hashable SvmEndpoints where
 
 instance Prelude.NFData SvmEndpoints where
   rnf SvmEndpoints' {..} =
-    Prelude.rnf iscsi
-      `Prelude.seq` Prelude.rnf management
-      `Prelude.seq` Prelude.rnf nfs
-      `Prelude.seq` Prelude.rnf smb
+    Prelude.rnf iscsi `Prelude.seq`
+      Prelude.rnf management `Prelude.seq`
+        Prelude.rnf nfs `Prelude.seq`
+          Prelude.rnf smb

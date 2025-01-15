@@ -219,12 +219,12 @@ instance Prelude.Hashable CopyBackup where
 
 instance Prelude.NFData CopyBackup where
   rnf CopyBackup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceBackupId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf copyTags `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf sourceRegion `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf sourceBackupId
 
 instance Data.ToHeaders CopyBackup where
   toHeaders =
@@ -301,5 +301,5 @@ copyBackupResponse_httpStatus = Lens.lens (\CopyBackupResponse' {httpStatus} -> 
 
 instance Prelude.NFData CopyBackupResponse where
   rnf CopyBackupResponse' {..} =
-    Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backup `Prelude.seq`
+      Prelude.rnf httpStatus

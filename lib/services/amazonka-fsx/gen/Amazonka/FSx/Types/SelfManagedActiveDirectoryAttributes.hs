@@ -144,8 +144,8 @@ instance
     SelfManagedActiveDirectoryAttributes
   where
   rnf SelfManagedActiveDirectoryAttributes' {..} =
-    Prelude.rnf dnsIps
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf fileSystemAdministratorsGroup
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf dnsIps `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf fileSystemAdministratorsGroup `Prelude.seq`
+          Prelude.rnf organizationalUnitDistinguishedName `Prelude.seq`
+            Prelude.rnf userName

@@ -322,17 +322,17 @@ instance Prelude.Hashable OpenZFSVolumeConfiguration where
 
 instance Prelude.NFData OpenZFSVolumeConfiguration where
   rnf OpenZFSVolumeConfiguration' {..} =
-    Prelude.rnf copyTagsToSnapshots
-      `Prelude.seq` Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf deleteClonedVolumes
-      `Prelude.seq` Prelude.rnf deleteIntermediateSnaphots
-      `Prelude.seq` Prelude.rnf nfsExports
-      `Prelude.seq` Prelude.rnf originSnapshot
-      `Prelude.seq` Prelude.rnf parentVolumeId
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf recordSizeKiB
-      `Prelude.seq` Prelude.rnf restoreToSnapshot
-      `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
-      `Prelude.seq` Prelude.rnf storageCapacityReservationGiB
-      `Prelude.seq` Prelude.rnf userAndGroupQuotas
-      `Prelude.seq` Prelude.rnf volumePath
+    Prelude.rnf copyTagsToSnapshots `Prelude.seq`
+      Prelude.rnf dataCompressionType `Prelude.seq`
+        Prelude.rnf deleteClonedVolumes `Prelude.seq`
+          Prelude.rnf deleteIntermediateSnaphots `Prelude.seq`
+            Prelude.rnf nfsExports `Prelude.seq`
+              Prelude.rnf originSnapshot `Prelude.seq`
+                Prelude.rnf parentVolumeId `Prelude.seq`
+                  Prelude.rnf readOnly `Prelude.seq`
+                    Prelude.rnf recordSizeKiB `Prelude.seq`
+                      Prelude.rnf restoreToSnapshot `Prelude.seq`
+                        Prelude.rnf storageCapacityQuotaGiB `Prelude.seq`
+                          Prelude.rnf storageCapacityReservationGiB `Prelude.seq`
+                            Prelude.rnf userAndGroupQuotas `Prelude.seq`
+                              Prelude.rnf volumePath

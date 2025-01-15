@@ -190,12 +190,12 @@ instance Prelude.Hashable Snapshot where
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf administrativeActions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lifecycleTransitionReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf administrativeActions `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lifecycle `Prelude.seq`
+          Prelude.rnf lifecycleTransitionReason `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceARN `Prelude.seq`
+                Prelude.rnf snapshotId `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf volumeId

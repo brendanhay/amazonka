@@ -141,9 +141,9 @@ instance
 
 instance Prelude.NFData DisassociateFileSystemAliases where
   rnf DisassociateFileSystemAliases' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf aliases
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf aliases
 
 instance Data.ToHeaders DisassociateFileSystemAliases where
   toHeaders =
@@ -229,5 +229,5 @@ instance
     DisassociateFileSystemAliasesResponse
   where
   rnf DisassociateFileSystemAliasesResponse' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf httpStatus

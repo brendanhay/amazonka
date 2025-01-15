@@ -82,5 +82,5 @@ instance Prelude.Hashable FileSystemEndpoint where
 
 instance Prelude.NFData FileSystemEndpoint where
   rnf FileSystemEndpoint' {..} =
-    Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf ipAddresses
+    Prelude.rnf dNSName `Prelude.seq`
+      Prelude.rnf ipAddresses

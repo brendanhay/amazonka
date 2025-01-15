@@ -140,10 +140,10 @@ instance Prelude.Hashable DeleteVolume where
 
 instance Prelude.NFData DeleteVolume where
   rnf DeleteVolume' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf ontapConfiguration `Prelude.seq`
+        Prelude.rnf openZFSConfiguration `Prelude.seq`
+          Prelude.rnf volumeId
 
 instance Data.ToHeaders DeleteVolume where
   toHeaders =
@@ -244,7 +244,7 @@ deleteVolumeResponse_httpStatus = Lens.lens (\DeleteVolumeResponse' {httpStatus}
 
 instance Prelude.NFData DeleteVolumeResponse where
   rnf DeleteVolumeResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf ontapResponse
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf ontapResponse `Prelude.seq`
+        Prelude.rnf volumeId `Prelude.seq`
+          Prelude.rnf httpStatus

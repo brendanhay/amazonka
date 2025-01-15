@@ -131,8 +131,8 @@ instance Prelude.Hashable DataRepositoryTaskStatus where
 
 instance Prelude.NFData DataRepositoryTaskStatus where
   rnf DataRepositoryTaskStatus' {..} =
-    Prelude.rnf failedCount
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf releasedCapacity
-      `Prelude.seq` Prelude.rnf succeededCount
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf failedCount `Prelude.seq`
+      Prelude.rnf lastUpdatedTime `Prelude.seq`
+        Prelude.rnf releasedCapacity `Prelude.seq`
+          Prelude.rnf succeededCount `Prelude.seq`
+            Prelude.rnf totalCount

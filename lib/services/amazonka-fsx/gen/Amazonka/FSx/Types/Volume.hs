@@ -244,15 +244,15 @@ instance Prelude.Hashable Volume where
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf administrativeActions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lifecycleTransitionReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf administrativeActions `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf fileSystemId `Prelude.seq`
+          Prelude.rnf lifecycle `Prelude.seq`
+            Prelude.rnf lifecycleTransitionReason `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf ontapConfiguration `Prelude.seq`
+                  Prelude.rnf openZFSConfiguration `Prelude.seq`
+                    Prelude.rnf resourceARN `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf volumeId `Prelude.seq`
+                          Prelude.rnf volumeType

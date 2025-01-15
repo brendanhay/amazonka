@@ -397,18 +397,18 @@ instance Prelude.Hashable CreateFileSystemFromBackup where
 
 instance Prelude.NFData CreateFileSystemFromBackup where
   rnf CreateFileSystemFromBackup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemTypeVersion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileSystemTypeVersion `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf lustreConfiguration `Prelude.seq`
+            Prelude.rnf openZFSConfiguration `Prelude.seq`
+              Prelude.rnf securityGroupIds `Prelude.seq`
+                Prelude.rnf storageCapacity `Prelude.seq`
+                  Prelude.rnf storageType `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf windowsConfiguration `Prelude.seq`
+                        Prelude.rnf backupId `Prelude.seq`
+                          Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateFileSystemFromBackup where
   toHeaders =
@@ -503,5 +503,5 @@ instance
     CreateFileSystemFromBackupResponse
   where
   rnf CreateFileSystemFromBackupResponse' {..} =
-    Prelude.rnf fileSystem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystem `Prelude.seq`
+      Prelude.rnf httpStatus

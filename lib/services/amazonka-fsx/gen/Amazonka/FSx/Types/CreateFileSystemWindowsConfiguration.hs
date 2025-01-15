@@ -394,17 +394,17 @@ instance
     CreateFileSystemWindowsConfiguration
   where
   rnf CreateFileSystemWindowsConfiguration' {..} =
-    Prelude.rnf activeDirectoryId
-      `Prelude.seq` Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf auditLogConfiguration
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf preferredSubnetId
-      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf throughputCapacity
+    Prelude.rnf activeDirectoryId `Prelude.seq`
+      Prelude.rnf aliases `Prelude.seq`
+        Prelude.rnf auditLogConfiguration `Prelude.seq`
+          Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+            Prelude.rnf copyTagsToBackups `Prelude.seq`
+              Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+                Prelude.rnf deploymentType `Prelude.seq`
+                  Prelude.rnf preferredSubnetId `Prelude.seq`
+                    Prelude.rnf selfManagedActiveDirectoryConfiguration `Prelude.seq`
+                      Prelude.rnf weeklyMaintenanceStartTime `Prelude.seq`
+                        Prelude.rnf throughputCapacity
 
 instance
   Data.ToJSON

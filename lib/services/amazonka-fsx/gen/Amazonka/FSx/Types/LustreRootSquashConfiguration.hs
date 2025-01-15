@@ -155,8 +155,8 @@ instance
 
 instance Prelude.NFData LustreRootSquashConfiguration where
   rnf LustreRootSquashConfiguration' {..} =
-    Prelude.rnf noSquashNids
-      `Prelude.seq` Prelude.rnf rootSquash
+    Prelude.rnf noSquashNids `Prelude.seq`
+      Prelude.rnf rootSquash
 
 instance Data.ToJSON LustreRootSquashConfiguration where
   toJSON LustreRootSquashConfiguration' {..} =

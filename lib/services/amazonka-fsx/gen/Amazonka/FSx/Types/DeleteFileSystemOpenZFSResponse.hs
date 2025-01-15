@@ -92,5 +92,5 @@ instance
     DeleteFileSystemOpenZFSResponse
   where
   rnf DeleteFileSystemOpenZFSResponse' {..} =
-    Prelude.rnf finalBackupId
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupId `Prelude.seq`
+      Prelude.rnf finalBackupTags

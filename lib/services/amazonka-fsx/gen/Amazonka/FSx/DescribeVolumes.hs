@@ -121,12 +121,12 @@ instance Core.AWSPager DescribeVolumes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVolumes_nextToken
-          Lens..~ rs
-          Lens.^? describeVolumesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVolumes_nextToken
+              Lens..~ rs
+              Lens.^? describeVolumesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumes where
   type
@@ -153,10 +153,10 @@ instance Prelude.Hashable DescribeVolumes where
 
 instance Prelude.NFData DescribeVolumes where
   rnf DescribeVolumes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf volumeIds
 
 instance Data.ToHeaders DescribeVolumes where
   toHeaders =
@@ -242,6 +242,6 @@ describeVolumesResponse_httpStatus = Lens.lens (\DescribeVolumesResponse' {httpS
 
 instance Prelude.NFData DescribeVolumesResponse where
   rnf DescribeVolumesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf volumes `Prelude.seq`
+        Prelude.rnf httpStatus

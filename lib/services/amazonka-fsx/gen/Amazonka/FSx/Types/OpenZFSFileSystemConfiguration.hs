@@ -208,12 +208,12 @@ instance
     OpenZFSFileSystemConfiguration
   where
   rnf OpenZFSFileSystemConfiguration' {..} =
-    Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf copyTagsToVolumes
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf rootVolumeId
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+      Prelude.rnf copyTagsToBackups `Prelude.seq`
+        Prelude.rnf copyTagsToVolumes `Prelude.seq`
+          Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+            Prelude.rnf deploymentType `Prelude.seq`
+              Prelude.rnf diskIopsConfiguration `Prelude.seq`
+                Prelude.rnf rootVolumeId `Prelude.seq`
+                  Prelude.rnf throughputCapacity `Prelude.seq`
+                    Prelude.rnf weeklyMaintenanceStartTime

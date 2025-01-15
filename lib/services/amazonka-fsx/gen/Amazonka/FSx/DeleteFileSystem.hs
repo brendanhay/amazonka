@@ -188,11 +188,11 @@ instance Prelude.Hashable DeleteFileSystem where
 
 instance Prelude.NFData DeleteFileSystem where
   rnf DeleteFileSystem' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf lustreConfiguration `Prelude.seq`
+        Prelude.rnf openZFSConfiguration `Prelude.seq`
+          Prelude.rnf windowsConfiguration `Prelude.seq`
+            Prelude.rnf fileSystemId
 
 instance Data.ToHeaders DeleteFileSystem where
   toHeaders =
@@ -314,9 +314,9 @@ deleteFileSystemResponse_httpStatus = Lens.lens (\DeleteFileSystemResponse' {htt
 
 instance Prelude.NFData DeleteFileSystemResponse where
   rnf DeleteFileSystemResponse' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lustreResponse
-      `Prelude.seq` Prelude.rnf openZFSResponse
-      `Prelude.seq` Prelude.rnf windowsResponse
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf lifecycle `Prelude.seq`
+        Prelude.rnf lustreResponse `Prelude.seq`
+          Prelude.rnf openZFSResponse `Prelude.seq`
+            Prelude.rnf windowsResponse `Prelude.seq`
+              Prelude.rnf httpStatus

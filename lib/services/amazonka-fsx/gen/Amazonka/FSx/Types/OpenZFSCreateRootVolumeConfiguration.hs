@@ -206,12 +206,12 @@ instance
     OpenZFSCreateRootVolumeConfiguration
   where
   rnf OpenZFSCreateRootVolumeConfiguration' {..} =
-    Prelude.rnf copyTagsToSnapshots
-      `Prelude.seq` Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf nfsExports
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf recordSizeKiB
-      `Prelude.seq` Prelude.rnf userAndGroupQuotas
+    Prelude.rnf copyTagsToSnapshots `Prelude.seq`
+      Prelude.rnf dataCompressionType `Prelude.seq`
+        Prelude.rnf nfsExports `Prelude.seq`
+          Prelude.rnf readOnly `Prelude.seq`
+            Prelude.rnf recordSizeKiB `Prelude.seq`
+              Prelude.rnf userAndGroupQuotas
 
 instance
   Data.ToJSON

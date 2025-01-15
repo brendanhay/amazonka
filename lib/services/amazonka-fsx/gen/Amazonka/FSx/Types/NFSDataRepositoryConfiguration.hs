@@ -123,6 +123,6 @@ instance
     NFSDataRepositoryConfiguration
   where
   rnf NFSDataRepositoryConfiguration' {..} =
-    Prelude.rnf autoExportPolicy
-      `Prelude.seq` Prelude.rnf dnsIps
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf autoExportPolicy `Prelude.seq`
+      Prelude.rnf dnsIps `Prelude.seq`
+        Prelude.rnf version

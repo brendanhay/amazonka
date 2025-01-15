@@ -360,13 +360,13 @@ instance Prelude.Hashable UpdateFileSystem where
 
 instance Prelude.NFData UpdateFileSystem where
   rnf UpdateFileSystem' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf lustreConfiguration `Prelude.seq`
+        Prelude.rnf ontapConfiguration `Prelude.seq`
+          Prelude.rnf openZFSConfiguration `Prelude.seq`
+            Prelude.rnf storageCapacity `Prelude.seq`
+              Prelude.rnf windowsConfiguration `Prelude.seq`
+                Prelude.rnf fileSystemId
 
 instance Data.ToHeaders UpdateFileSystem where
   toHeaders =
@@ -452,5 +452,5 @@ updateFileSystemResponse_httpStatus = Lens.lens (\UpdateFileSystemResponse' {htt
 
 instance Prelude.NFData UpdateFileSystemResponse where
   rnf UpdateFileSystemResponse' {..} =
-    Prelude.rnf fileSystem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystem `Prelude.seq`
+      Prelude.rnf httpStatus

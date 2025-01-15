@@ -168,10 +168,10 @@ instance Prelude.Hashable CompletionReport where
 
 instance Prelude.NFData CompletionReport where
   rnf CompletionReport' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf scope `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToJSON CompletionReport where
   toJSON CompletionReport' {..} =

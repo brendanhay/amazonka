@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteStorageVirtualMachine where
 
 instance Prelude.NFData DeleteStorageVirtualMachine where
   rnf DeleteStorageVirtualMachine' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf storageVirtualMachineId
 
 instance Data.ToHeaders DeleteStorageVirtualMachine where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     DeleteStorageVirtualMachineResponse
   where
   rnf DeleteStorageVirtualMachineResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf storageVirtualMachineId `Prelude.seq`
+        Prelude.rnf httpStatus

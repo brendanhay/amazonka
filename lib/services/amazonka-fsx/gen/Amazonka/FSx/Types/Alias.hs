@@ -176,5 +176,5 @@ instance Prelude.Hashable Alias where
 
 instance Prelude.NFData Alias where
   rnf Alias' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf name

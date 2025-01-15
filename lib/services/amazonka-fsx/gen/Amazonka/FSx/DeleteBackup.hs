@@ -123,8 +123,8 @@ instance Prelude.Hashable DeleteBackup where
 
 instance Prelude.NFData DeleteBackup where
   rnf DeleteBackup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf backupId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf backupId
 
 instance Data.ToHeaders DeleteBackup where
   toHeaders =
@@ -211,6 +211,6 @@ deleteBackupResponse_httpStatus = Lens.lens (\DeleteBackupResponse' {httpStatus}
 
 instance Prelude.NFData DeleteBackupResponse where
   rnf DeleteBackupResponse' {..} =
-    Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupId `Prelude.seq`
+      Prelude.rnf lifecycle `Prelude.seq`
+        Prelude.rnf httpStatus

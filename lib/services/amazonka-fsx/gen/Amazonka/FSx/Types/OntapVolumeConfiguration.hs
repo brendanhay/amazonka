@@ -375,15 +375,15 @@ instance Prelude.Hashable OntapVolumeConfiguration where
 
 instance Prelude.NFData OntapVolumeConfiguration where
   rnf OntapVolumeConfiguration' {..} =
-    Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf flexCacheEndpointType
-      `Prelude.seq` Prelude.rnf junctionPath
-      `Prelude.seq` Prelude.rnf ontapVolumeType
-      `Prelude.seq` Prelude.rnf securityStyle
-      `Prelude.seq` Prelude.rnf sizeInMegabytes
-      `Prelude.seq` Prelude.rnf snapshotPolicy
-      `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
-      `Prelude.seq` Prelude.rnf storageVirtualMachineRoot
-      `Prelude.seq` Prelude.rnf tieringPolicy
-      `Prelude.seq` Prelude.rnf uuid
+    Prelude.rnf copyTagsToBackups `Prelude.seq`
+      Prelude.rnf flexCacheEndpointType `Prelude.seq`
+        Prelude.rnf junctionPath `Prelude.seq`
+          Prelude.rnf ontapVolumeType `Prelude.seq`
+            Prelude.rnf securityStyle `Prelude.seq`
+              Prelude.rnf sizeInMegabytes `Prelude.seq`
+                Prelude.rnf snapshotPolicy `Prelude.seq`
+                  Prelude.rnf storageEfficiencyEnabled `Prelude.seq`
+                    Prelude.rnf storageVirtualMachineId `Prelude.seq`
+                      Prelude.rnf storageVirtualMachineRoot `Prelude.seq`
+                        Prelude.rnf tieringPolicy `Prelude.seq`
+                          Prelude.rnf uuid

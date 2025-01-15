@@ -302,14 +302,14 @@ instance
     CreateDataRepositoryAssociation
   where
   rnf CreateDataRepositoryAssociation' {..} =
-    Prelude.rnf batchImportMetaDataOnCreate
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemPath
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf dataRepositoryPath
+    Prelude.rnf batchImportMetaDataOnCreate `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf fileSystemPath `Prelude.seq`
+          Prelude.rnf importedFileChunkSize `Prelude.seq`
+            Prelude.rnf s3 `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf fileSystemId `Prelude.seq`
+                  Prelude.rnf dataRepositoryPath
 
 instance
   Data.ToHeaders
@@ -403,5 +403,5 @@ instance
     CreateDataRepositoryAssociationResponse
   where
   rnf CreateDataRepositoryAssociationResponse' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf httpStatus

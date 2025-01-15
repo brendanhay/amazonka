@@ -142,9 +142,9 @@ instance Prelude.Hashable DescribeFileCaches where
 
 instance Prelude.NFData DescribeFileCaches where
   rnf DescribeFileCaches' {..} =
-    Prelude.rnf fileCacheIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf fileCacheIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFileCaches where
   toHeaders =
@@ -226,6 +226,6 @@ describeFileCachesResponse_httpStatus = Lens.lens (\DescribeFileCachesResponse' 
 
 instance Prelude.NFData DescribeFileCachesResponse where
   rnf DescribeFileCachesResponse' {..} =
-    Prelude.rnf fileCaches
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileCaches `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

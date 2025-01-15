@@ -508,25 +508,25 @@ instance Prelude.Hashable FileSystem where
 
 instance Prelude.NFData FileSystem where
   rnf FileSystem' {..} =
-    Prelude.rnf administrativeActions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf fileSystemTypeVersion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf
-        windowsConfiguration
+    Prelude.rnf administrativeActions `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dNSName `Prelude.seq`
+          Prelude.rnf failureDetails `Prelude.seq`
+            Prelude.rnf fileSystemId `Prelude.seq`
+              Prelude.rnf fileSystemType `Prelude.seq`
+                Prelude.rnf fileSystemTypeVersion `Prelude.seq`
+                  Prelude.rnf kmsKeyId `Prelude.seq`
+                    Prelude.rnf lifecycle `Prelude.seq`
+                      Prelude.rnf lustreConfiguration `Prelude.seq`
+                        Prelude.rnf networkInterfaceIds `Prelude.seq`
+                          Prelude.rnf ontapConfiguration `Prelude.seq`
+                            Prelude.rnf openZFSConfiguration `Prelude.seq`
+                              Prelude.rnf ownerId `Prelude.seq`
+                                Prelude.rnf resourceARN `Prelude.seq`
+                                  Prelude.rnf storageCapacity `Prelude.seq`
+                                    Prelude.rnf storageType `Prelude.seq`
+                                      Prelude.rnf subnetIds `Prelude.seq`
+                                        Prelude.rnf tags `Prelude.seq`
+                                          Prelude.rnf vpcId `Prelude.seq`
+                                            Prelude.rnf
+                                              windowsConfiguration

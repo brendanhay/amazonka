@@ -87,8 +87,8 @@ instance
     CreateSvmActiveDirectoryConfiguration
   where
   rnf CreateSvmActiveDirectoryConfiguration' {..} =
-    Prelude.rnf selfManagedActiveDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf netBiosName
+    Prelude.rnf selfManagedActiveDirectoryConfiguration `Prelude.seq`
+      Prelude.rnf netBiosName
 
 instance
   Data.ToJSON

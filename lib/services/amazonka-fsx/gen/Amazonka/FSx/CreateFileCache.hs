@@ -335,17 +335,17 @@ instance Prelude.Hashable CreateFileCache where
 
 instance Prelude.NFData CreateFileCache where
   rnf CreateFileCache' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf copyTagsToDataRepositoryAssociations
-      `Prelude.seq` Prelude.rnf dataRepositoryAssociations
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fileCacheType
-      `Prelude.seq` Prelude.rnf fileCacheTypeVersion
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf copyTagsToDataRepositoryAssociations `Prelude.seq`
+        Prelude.rnf dataRepositoryAssociations `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf lustreConfiguration `Prelude.seq`
+              Prelude.rnf securityGroupIds `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf fileCacheType `Prelude.seq`
+                    Prelude.rnf fileCacheTypeVersion `Prelude.seq`
+                      Prelude.rnf storageCapacity `Prelude.seq`
+                        Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateFileCache where
   toHeaders =
@@ -436,5 +436,5 @@ createFileCacheResponse_httpStatus = Lens.lens (\CreateFileCacheResponse' {httpS
 
 instance Prelude.NFData CreateFileCacheResponse where
   rnf CreateFileCacheResponse' {..} =
-    Prelude.rnf fileCache
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileCache `Prelude.seq`
+      Prelude.rnf httpStatus

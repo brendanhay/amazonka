@@ -184,16 +184,16 @@ instance Prelude.Hashable PipelineActivity where
 
 instance Prelude.NFData PipelineActivity where
   rnf PipelineActivity' {..} =
-    Prelude.rnf addAttributes
-      `Prelude.seq` Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf datastore
-      `Prelude.seq` Prelude.rnf deviceRegistryEnrich
-      `Prelude.seq` Prelude.rnf deviceShadowEnrich
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf math
-      `Prelude.seq` Prelude.rnf removeAttributes
-      `Prelude.seq` Prelude.rnf selectAttributes
+    Prelude.rnf addAttributes `Prelude.seq`
+      Prelude.rnf channel `Prelude.seq`
+        Prelude.rnf datastore `Prelude.seq`
+          Prelude.rnf deviceRegistryEnrich `Prelude.seq`
+            Prelude.rnf deviceShadowEnrich `Prelude.seq`
+              Prelude.rnf filter' `Prelude.seq`
+                Prelude.rnf lambda `Prelude.seq`
+                  Prelude.rnf math `Prelude.seq`
+                    Prelude.rnf removeAttributes `Prelude.seq`
+                      Prelude.rnf selectAttributes
 
 instance Data.ToJSON PipelineActivity where
   toJSON PipelineActivity' {..} =

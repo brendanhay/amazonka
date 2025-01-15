@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeDatastore where
 
 instance Prelude.NFData DescribeDatastore where
   rnf DescribeDatastore' {..} =
-    Prelude.rnf includeStatistics
-      `Prelude.seq` Prelude.rnf datastoreName
+    Prelude.rnf includeStatistics `Prelude.seq`
+      Prelude.rnf datastoreName
 
 instance Data.ToHeaders DescribeDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,6 +186,6 @@ describeDatastoreResponse_httpStatus = Lens.lens (\DescribeDatastoreResponse' {h
 
 instance Prelude.NFData DescribeDatastoreResponse where
   rnf DescribeDatastoreResponse' {..} =
-    Prelude.rnf datastore
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datastore `Prelude.seq`
+      Prelude.rnf statistics `Prelude.seq`
+        Prelude.rnf httpStatus

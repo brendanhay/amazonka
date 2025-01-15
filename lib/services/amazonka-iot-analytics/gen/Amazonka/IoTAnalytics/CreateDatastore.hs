@@ -184,12 +184,12 @@ instance Prelude.Hashable CreateDatastore where
 
 instance Prelude.NFData CreateDatastore where
   rnf CreateDatastore' {..} =
-    Prelude.rnf datastorePartitions
-      `Prelude.seq` Prelude.rnf datastoreStorage
-      `Prelude.seq` Prelude.rnf fileFormatConfiguration
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf datastoreName
+    Prelude.rnf datastorePartitions `Prelude.seq`
+      Prelude.rnf datastoreStorage `Prelude.seq`
+        Prelude.rnf fileFormatConfiguration `Prelude.seq`
+          Prelude.rnf retentionPeriod `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf datastoreName
 
 instance Data.ToHeaders CreateDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -277,7 +277,7 @@ createDatastoreResponse_httpStatus = Lens.lens (\CreateDatastoreResponse' {httpS
 
 instance Prelude.NFData CreateDatastoreResponse where
   rnf CreateDatastoreResponse' {..} =
-    Prelude.rnf datastoreArn
-      `Prelude.seq` Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datastoreArn `Prelude.seq`
+      Prelude.rnf datastoreName `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf httpStatus

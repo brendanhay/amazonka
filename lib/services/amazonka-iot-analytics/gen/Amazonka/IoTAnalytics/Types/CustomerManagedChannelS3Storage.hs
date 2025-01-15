@@ -122,9 +122,9 @@ instance
     CustomerManagedChannelS3Storage
   where
   rnf CustomerManagedChannelS3Storage' {..} =
-    Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf keyPrefix `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON CustomerManagedChannelS3Storage where
   toJSON CustomerManagedChannelS3Storage' {..} =

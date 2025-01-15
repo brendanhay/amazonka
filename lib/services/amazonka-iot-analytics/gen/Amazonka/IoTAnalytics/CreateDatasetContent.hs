@@ -118,8 +118,8 @@ instance Prelude.Hashable CreateDatasetContent where
 
 instance Prelude.NFData CreateDatasetContent where
   rnf CreateDatasetContent' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf datasetName
 
 instance Data.ToHeaders CreateDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,5 +180,5 @@ createDatasetContentResponse_httpStatus = Lens.lens (\CreateDatasetContentRespon
 
 instance Prelude.NFData CreateDatasetContentResponse where
   rnf CreateDatasetContentResponse' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf httpStatus

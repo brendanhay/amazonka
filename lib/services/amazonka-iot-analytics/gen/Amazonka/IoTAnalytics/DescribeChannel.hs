@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeChannel where
 
 instance Prelude.NFData DescribeChannel where
   rnf DescribeChannel' {..} =
-    Prelude.rnf includeStatistics
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf includeStatistics `Prelude.seq`
+      Prelude.rnf channelName
 
 instance Data.ToHeaders DescribeChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,6 +185,6 @@ describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpS
 
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf statistics `Prelude.seq`
+        Prelude.rnf httpStatus

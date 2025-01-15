@@ -84,8 +84,8 @@ instance Prelude.Hashable LateDataRule where
 
 instance Prelude.NFData LateDataRule where
   rnf LateDataRule' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf ruleConfiguration
+    Prelude.rnf ruleName `Prelude.seq`
+      Prelude.rnf ruleConfiguration
 
 instance Data.ToJSON LateDataRule where
   toJSON LateDataRule' {..} =

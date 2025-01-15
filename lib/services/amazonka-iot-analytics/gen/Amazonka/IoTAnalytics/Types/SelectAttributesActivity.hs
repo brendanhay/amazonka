@@ -96,9 +96,9 @@ instance Prelude.Hashable SelectAttributesActivity where
 
 instance Prelude.NFData SelectAttributesActivity where
   rnf SelectAttributesActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attributes
 
 instance Data.ToJSON SelectAttributesActivity where
   toJSON SelectAttributesActivity' {..} =

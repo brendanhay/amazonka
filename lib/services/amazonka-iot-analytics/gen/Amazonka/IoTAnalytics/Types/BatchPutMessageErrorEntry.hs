@@ -95,6 +95,6 @@ instance Prelude.Hashable BatchPutMessageErrorEntry where
 
 instance Prelude.NFData BatchPutMessageErrorEntry where
   rnf BatchPutMessageErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf messageId

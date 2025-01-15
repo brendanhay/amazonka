@@ -115,8 +115,8 @@ instance Prelude.Hashable DeltaTime where
 
 instance Prelude.NFData DeltaTime where
   rnf DeltaTime' {..} =
-    Prelude.rnf offsetSeconds
-      `Prelude.seq` Prelude.rnf timeExpression
+    Prelude.rnf offsetSeconds `Prelude.seq`
+      Prelude.rnf timeExpression
 
 instance Data.ToJSON DeltaTime where
   toJSON DeltaTime' {..} =

@@ -134,10 +134,10 @@ instance Prelude.Hashable SampleChannelData where
 
 instance Prelude.NFData SampleChannelData where
   rnf SampleChannelData' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxMessages
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf maxMessages `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf channelName
 
 instance Data.ToHeaders SampleChannelData where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,5 +199,5 @@ sampleChannelDataResponse_httpStatus = Lens.lens (\SampleChannelDataResponse' {h
 
 instance Prelude.NFData SampleChannelDataResponse where
   rnf SampleChannelDataResponse' {..} =
-    Prelude.rnf payloads
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf payloads `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -83,8 +83,8 @@ instance Prelude.Hashable RetentionPeriod where
 
 instance Prelude.NFData RetentionPeriod where
   rnf RetentionPeriod' {..} =
-    Prelude.rnf numberOfDays
-      `Prelude.seq` Prelude.rnf unlimited
+    Prelude.rnf numberOfDays `Prelude.seq`
+      Prelude.rnf unlimited
 
 instance Data.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =

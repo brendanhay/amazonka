@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteDatasetContent where
 
 instance Prelude.NFData DeleteDatasetContent where
   rnf DeleteDatasetContent' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf datasetName
 
 instance Data.ToHeaders DeleteDatasetContent where
   toHeaders = Prelude.const Prelude.mempty

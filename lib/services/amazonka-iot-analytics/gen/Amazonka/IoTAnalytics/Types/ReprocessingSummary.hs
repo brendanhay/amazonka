@@ -93,6 +93,6 @@ instance Prelude.Hashable ReprocessingSummary where
 
 instance Prelude.NFData ReprocessingSummary where
   rnf ReprocessingSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status

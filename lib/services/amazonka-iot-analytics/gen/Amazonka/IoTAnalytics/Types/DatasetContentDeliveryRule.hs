@@ -85,8 +85,8 @@ instance Prelude.Hashable DatasetContentDeliveryRule where
 
 instance Prelude.NFData DatasetContentDeliveryRule where
   rnf DatasetContentDeliveryRule' {..} =
-    Prelude.rnf entryName
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf entryName `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToJSON DatasetContentDeliveryRule where
   toJSON DatasetContentDeliveryRule' {..} =

@@ -95,9 +95,9 @@ instance Prelude.Hashable RemoveAttributesActivity where
 
 instance Prelude.NFData RemoveAttributesActivity where
   rnf RemoveAttributesActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attributes
 
 instance Data.ToJSON RemoveAttributesActivity where
   toJSON RemoveAttributesActivity' {..} =

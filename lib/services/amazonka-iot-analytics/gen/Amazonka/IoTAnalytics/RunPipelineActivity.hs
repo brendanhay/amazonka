@@ -129,8 +129,8 @@ instance Prelude.Hashable RunPipelineActivity where
 
 instance Prelude.NFData RunPipelineActivity where
   rnf RunPipelineActivity' {..} =
-    Prelude.rnf pipelineActivity
-      `Prelude.seq` Prelude.rnf payloads
+    Prelude.rnf pipelineActivity `Prelude.seq`
+      Prelude.rnf payloads
 
 instance Data.ToHeaders RunPipelineActivity where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,6 +207,6 @@ runPipelineActivityResponse_httpStatus = Lens.lens (\RunPipelineActivityResponse
 
 instance Prelude.NFData RunPipelineActivityResponse where
   rnf RunPipelineActivityResponse' {..} =
-    Prelude.rnf logResult
-      `Prelude.seq` Prelude.rnf payloads
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logResult `Prelude.seq`
+      Prelude.rnf payloads `Prelude.seq`
+        Prelude.rnf httpStatus

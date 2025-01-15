@@ -84,8 +84,8 @@ instance Prelude.Hashable VersioningConfiguration where
 
 instance Prelude.NFData VersioningConfiguration where
   rnf VersioningConfiguration' {..} =
-    Prelude.rnf maxVersions
-      `Prelude.seq` Prelude.rnf unlimited
+    Prelude.rnf maxVersions `Prelude.seq`
+      Prelude.rnf unlimited
 
 instance Data.ToJSON VersioningConfiguration where
   toJSON VersioningConfiguration' {..} =

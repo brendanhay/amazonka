@@ -123,9 +123,9 @@ instance
     CustomerManagedDatastoreS3Storage
   where
   rnf CustomerManagedDatastoreS3Storage' {..} =
-    Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf keyPrefix `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance
   Data.ToJSON

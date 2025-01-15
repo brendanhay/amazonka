@@ -105,8 +105,8 @@ instance
     IotEventsDestinationConfiguration
   where
   rnf IotEventsDestinationConfiguration' {..} =
-    Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf inputName `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance
   Data.ToJSON

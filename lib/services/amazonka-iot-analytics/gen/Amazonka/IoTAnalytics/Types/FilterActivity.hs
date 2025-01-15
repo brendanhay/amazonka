@@ -101,9 +101,9 @@ instance Prelude.Hashable FilterActivity where
 
 instance Prelude.NFData FilterActivity where
   rnf FilterActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf filter'
 
 instance Data.ToJSON FilterActivity where
   toJSON FilterActivity' {..} =

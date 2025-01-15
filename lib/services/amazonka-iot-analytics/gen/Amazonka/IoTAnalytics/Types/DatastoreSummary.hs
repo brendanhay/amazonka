@@ -171,11 +171,11 @@ instance Prelude.Hashable DatastoreSummary where
 
 instance Prelude.NFData DatastoreSummary where
   rnf DatastoreSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf datastorePartitions
-      `Prelude.seq` Prelude.rnf datastoreStorage
-      `Prelude.seq` Prelude.rnf fileFormatType
-      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datastoreName `Prelude.seq`
+        Prelude.rnf datastorePartitions `Prelude.seq`
+          Prelude.rnf datastoreStorage `Prelude.seq`
+            Prelude.rnf fileFormatType `Prelude.seq`
+              Prelude.rnf lastMessageArrivalTime `Prelude.seq`
+                Prelude.rnf lastUpdateTime `Prelude.seq`
+                  Prelude.rnf status

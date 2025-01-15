@@ -106,9 +106,9 @@ instance Prelude.Hashable DatasetAction where
 
 instance Prelude.NFData DatasetAction where
   rnf DatasetAction' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf containerAction
-      `Prelude.seq` Prelude.rnf queryAction
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf containerAction `Prelude.seq`
+        Prelude.rnf queryAction
 
 instance Data.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =

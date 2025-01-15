@@ -134,8 +134,8 @@ instance Prelude.Hashable UpdatePipeline where
 
 instance Prelude.NFData UpdatePipeline where
   rnf UpdatePipeline' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineActivities
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf pipelineActivities
 
 instance Data.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty

@@ -88,8 +88,8 @@ instance Prelude.Hashable FileFormatConfiguration where
 
 instance Prelude.NFData FileFormatConfiguration where
   rnf FileFormatConfiguration' {..} =
-    Prelude.rnf jsonConfiguration
-      `Prelude.seq` Prelude.rnf parquetConfiguration
+    Prelude.rnf jsonConfiguration `Prelude.seq`
+      Prelude.rnf parquetConfiguration
 
 instance Data.ToJSON FileFormatConfiguration where
   toJSON FileFormatConfiguration' {..} =

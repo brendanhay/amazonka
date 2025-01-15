@@ -129,9 +129,9 @@ instance Prelude.Hashable Pipeline where
 
 instance Prelude.NFData Pipeline where
   rnf Pipeline' {..} =
-    Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reprocessingSummaries
+    Prelude.rnf activities `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf reprocessingSummaries

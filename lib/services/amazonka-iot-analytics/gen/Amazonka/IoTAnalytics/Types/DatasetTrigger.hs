@@ -86,8 +86,8 @@ instance Prelude.Hashable DatasetTrigger where
 
 instance Prelude.NFData DatasetTrigger where
   rnf DatasetTrigger' {..} =
-    Prelude.rnf dataset
-      `Prelude.seq` Prelude.rnf schedule
+    Prelude.rnf dataset `Prelude.seq`
+      Prelude.rnf schedule
 
 instance Data.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =

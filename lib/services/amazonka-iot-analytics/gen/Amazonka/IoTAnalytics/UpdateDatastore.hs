@@ -152,10 +152,10 @@ instance Prelude.Hashable UpdateDatastore where
 
 instance Prelude.NFData UpdateDatastore where
   rnf UpdateDatastore' {..} =
-    Prelude.rnf datastoreStorage
-      `Prelude.seq` Prelude.rnf fileFormatConfiguration
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf datastoreName
+    Prelude.rnf datastoreStorage `Prelude.seq`
+      Prelude.rnf fileFormatConfiguration `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf datastoreName
 
 instance Data.ToHeaders UpdateDatastore where
   toHeaders = Prelude.const Prelude.mempty

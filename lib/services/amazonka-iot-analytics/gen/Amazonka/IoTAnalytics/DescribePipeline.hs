@@ -147,5 +147,5 @@ describePipelineResponse_httpStatus = Lens.lens (\DescribePipelineResponse' {htt
 
 instance Prelude.NFData DescribePipelineResponse where
   rnf DescribePipelineResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf httpStatus

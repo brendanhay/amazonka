@@ -84,8 +84,8 @@ instance Prelude.Hashable DatastorePartition where
 
 instance Prelude.NFData DatastorePartition where
   rnf DatastorePartition' {..} =
-    Prelude.rnf attributePartition
-      `Prelude.seq` Prelude.rnf timestampPartition
+    Prelude.rnf attributePartition `Prelude.seq`
+      Prelude.rnf timestampPartition
 
 instance Data.ToJSON DatastorePartition where
   toJSON DatastorePartition' {..} =

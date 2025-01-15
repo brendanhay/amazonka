@@ -203,12 +203,12 @@ instance Prelude.Hashable UploadLayerPart where
 
 instance Prelude.NFData UploadLayerPart where
   rnf UploadLayerPart' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf partFirstByte
-      `Prelude.seq` Prelude.rnf partLastByte
-      `Prelude.seq` Prelude.rnf layerPartBlob
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf uploadId `Prelude.seq`
+          Prelude.rnf partFirstByte `Prelude.seq`
+            Prelude.rnf partLastByte `Prelude.seq`
+              Prelude.rnf layerPartBlob
 
 instance Data.ToHeaders UploadLayerPart where
   toHeaders =
@@ -314,8 +314,8 @@ uploadLayerPartResponse_httpStatus = Lens.lens (\UploadLayerPartResponse' {httpS
 
 instance Prelude.NFData UploadLayerPartResponse where
   rnf UploadLayerPartResponse' {..} =
-    Prelude.rnf lastByteReceived
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastByteReceived `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf uploadId `Prelude.seq`
+            Prelude.rnf httpStatus

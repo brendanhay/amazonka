@@ -144,9 +144,9 @@ instance Prelude.Hashable CreatePullThroughCacheRule where
 
 instance Prelude.NFData CreatePullThroughCacheRule where
   rnf CreatePullThroughCacheRule' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf ecrRepositoryPrefix `Prelude.seq`
+        Prelude.rnf upstreamRegistryUrl
 
 instance Data.ToHeaders CreatePullThroughCacheRule where
   toHeaders =
@@ -258,8 +258,8 @@ instance
     CreatePullThroughCacheRuleResponse
   where
   rnf CreatePullThroughCacheRuleResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf ecrRepositoryPrefix `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf upstreamRegistryUrl `Prelude.seq`
+            Prelude.rnf httpStatus

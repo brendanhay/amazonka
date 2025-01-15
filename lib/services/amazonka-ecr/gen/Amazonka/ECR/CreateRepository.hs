@@ -200,12 +200,12 @@ instance Prelude.Hashable CreateRepository where
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf imageScanningConfiguration
-      `Prelude.seq` Prelude.rnf imageTagMutability
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf encryptionConfiguration `Prelude.seq`
+      Prelude.rnf imageScanningConfiguration `Prelude.seq`
+        Prelude.rnf imageTagMutability `Prelude.seq`
+          Prelude.rnf registryId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf repositoryName
 
 instance Data.ToHeaders CreateRepository where
   toHeaders =
@@ -286,5 +286,5 @@ createRepositoryResponse_httpStatus = Lens.lens (\CreateRepositoryResponse' {htt
 
 instance Prelude.NFData CreateRepositoryResponse where
   rnf CreateRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

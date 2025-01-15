@@ -92,6 +92,6 @@ instance Prelude.Hashable LayerFailure where
 
 instance Prelude.NFData LayerFailure where
   rnf LayerFailure' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf layerDigest
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf layerDigest

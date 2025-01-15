@@ -161,10 +161,10 @@ instance Prelude.Hashable BatchGetImage where
 
 instance Prelude.NFData BatchGetImage where
   rnf BatchGetImage' {..} =
-    Prelude.rnf acceptedMediaTypes
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageIds
+    Prelude.rnf acceptedMediaTypes `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf imageIds
 
 instance Data.ToHeaders BatchGetImage where
   toHeaders =
@@ -252,6 +252,6 @@ batchGetImageResponse_httpStatus = Lens.lens (\BatchGetImageResponse' {httpStatu
 
 instance Prelude.NFData BatchGetImageResponse where
   rnf BatchGetImageResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf images
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf images `Prelude.seq`
+        Prelude.rnf httpStatus

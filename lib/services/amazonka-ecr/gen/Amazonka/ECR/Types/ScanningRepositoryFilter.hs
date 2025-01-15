@@ -88,8 +88,8 @@ instance Prelude.Hashable ScanningRepositoryFilter where
 
 instance Prelude.NFData ScanningRepositoryFilter where
   rnf ScanningRepositoryFilter' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf filterType
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf filterType
 
 instance Data.ToJSON ScanningRepositoryFilter where
   toJSON ScanningRepositoryFilter' {..} =

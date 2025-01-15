@@ -90,8 +90,8 @@ instance Prelude.Hashable ReplicationDestination where
 
 instance Prelude.NFData ReplicationDestination where
   rnf ReplicationDestination' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf region `Prelude.seq`
+      Prelude.rnf registryId
 
 instance Data.ToJSON ReplicationDestination where
   toJSON ReplicationDestination' {..} =

@@ -137,9 +137,9 @@ instance Prelude.Hashable StartLifecyclePolicyPreview where
 
 instance Prelude.NFData StartLifecyclePolicyPreview where
   rnf StartLifecyclePolicyPreview' {..} =
-    Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf lifecyclePolicyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName
 
 instance Data.ToHeaders StartLifecyclePolicyPreview where
   toHeaders =
@@ -245,8 +245,8 @@ instance
     StartLifecyclePolicyPreviewResponse
   where
   rnf StartLifecyclePolicyPreviewResponse' {..} =
-    Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecyclePolicyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

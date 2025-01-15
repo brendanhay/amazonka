@@ -155,6 +155,6 @@ getRegistryPolicyResponse_httpStatus = Lens.lens (\GetRegistryPolicyResponse' {h
 
 instance Prelude.NFData GetRegistryPolicyResponse where
   rnf GetRegistryPolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf httpStatus

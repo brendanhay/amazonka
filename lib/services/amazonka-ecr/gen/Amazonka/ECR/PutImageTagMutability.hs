@@ -152,9 +152,9 @@ instance Prelude.Hashable PutImageTagMutability where
 
 instance Prelude.NFData PutImageTagMutability where
   rnf PutImageTagMutability' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageTagMutability
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf imageTagMutability
 
 instance Data.ToHeaders PutImageTagMutability where
   toHeaders =
@@ -248,7 +248,7 @@ putImageTagMutabilityResponse_httpStatus = Lens.lens (\PutImageTagMutabilityResp
 
 instance Prelude.NFData PutImageTagMutabilityResponse where
   rnf PutImageTagMutabilityResponse' {..} =
-    Prelude.rnf imageTagMutability
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageTagMutability `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

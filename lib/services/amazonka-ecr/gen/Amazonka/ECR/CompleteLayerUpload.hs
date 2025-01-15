@@ -162,10 +162,10 @@ instance Prelude.Hashable CompleteLayerUpload where
 
 instance Prelude.NFData CompleteLayerUpload where
   rnf CompleteLayerUpload' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf layerDigests
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf uploadId `Prelude.seq`
+          Prelude.rnf layerDigests
 
 instance Data.ToHeaders CompleteLayerUpload where
   toHeaders =
@@ -268,8 +268,8 @@ completeLayerUploadResponse_httpStatus = Lens.lens (\CompleteLayerUploadResponse
 
 instance Prelude.NFData CompleteLayerUploadResponse where
   rnf CompleteLayerUploadResponse' {..} =
-    Prelude.rnf layerDigest
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf layerDigest `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf uploadId `Prelude.seq`
+            Prelude.rnf httpStatus

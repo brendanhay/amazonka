@@ -121,8 +121,8 @@ instance Prelude.Hashable DeleteLifecyclePolicy where
 
 instance Prelude.NFData DeleteLifecyclePolicy where
   rnf DeleteLifecyclePolicy' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
@@ -223,8 +223,8 @@ deleteLifecyclePolicyResponse_httpStatus = Lens.lens (\DeleteLifecyclePolicyResp
 
 instance Prelude.NFData DeleteLifecyclePolicyResponse where
   rnf DeleteLifecyclePolicyResponse' {..} =
-    Prelude.rnf lastEvaluatedAt
-      `Prelude.seq` Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastEvaluatedAt `Prelude.seq`
+      Prelude.rnf lifecyclePolicyText `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf repositoryName `Prelude.seq`
+            Prelude.rnf httpStatus

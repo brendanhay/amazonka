@@ -163,10 +163,10 @@ instance Prelude.Hashable SetRepositoryPolicy where
 
 instance Prelude.NFData SetRepositoryPolicy where
   rnf SetRepositoryPolicy' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf policyText
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf policyText
 
 instance Data.ToHeaders SetRepositoryPolicy where
   toHeaders =
@@ -260,7 +260,7 @@ setRepositoryPolicyResponse_httpStatus = Lens.lens (\SetRepositoryPolicyResponse
 
 instance Prelude.NFData SetRepositoryPolicyResponse where
   rnf SetRepositoryPolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -86,5 +86,5 @@ instance
 
 instance Prelude.NFData RegistryScanningConfiguration where
   rnf RegistryScanningConfiguration' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf scanType
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf scanType

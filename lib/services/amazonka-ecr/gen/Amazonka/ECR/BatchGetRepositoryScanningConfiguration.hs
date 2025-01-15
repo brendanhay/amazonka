@@ -216,6 +216,6 @@ instance
   where
   rnf
     BatchGetRepositoryScanningConfigurationResponse' {..} =
-      Prelude.rnf failures
-        `Prelude.seq` Prelude.rnf scanningConfigurations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf failures `Prelude.seq`
+        Prelude.rnf scanningConfigurations `Prelude.seq`
+          Prelude.rnf httpStatus

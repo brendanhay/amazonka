@@ -81,8 +81,8 @@ instance Prelude.Hashable ImageIdentifier where
 
 instance Prelude.NFData ImageIdentifier where
   rnf ImageIdentifier' {..} =
-    Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageTag
+    Prelude.rnf imageDigest `Prelude.seq`
+      Prelude.rnf imageTag
 
 instance Data.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =

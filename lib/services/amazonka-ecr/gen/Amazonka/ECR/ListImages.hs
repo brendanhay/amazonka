@@ -192,12 +192,12 @@ instance Core.AWSPager ListImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImages_nextToken
-          Lens..~ rs
-          Lens.^? listImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImages_nextToken
+              Lens..~ rs
+              Lens.^? listImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImages where
   type AWSResponse ListImages = ListImagesResponse
@@ -223,11 +223,11 @@ instance Prelude.Hashable ListImages where
 
 instance Prelude.NFData ListImages where
   rnf ListImages' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf registryId `Prelude.seq`
+            Prelude.rnf repositoryName
 
 instance Data.ToHeaders ListImages where
   toHeaders =
@@ -321,6 +321,6 @@ listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListImagesResponse where
   rnf ListImagesResponse' {..} =
-    Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

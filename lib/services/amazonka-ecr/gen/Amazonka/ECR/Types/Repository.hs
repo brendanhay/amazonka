@@ -172,11 +172,11 @@ instance Prelude.Hashable Repository where
 
 instance Prelude.NFData Repository where
   rnf Repository' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf imageScanningConfiguration
-      `Prelude.seq` Prelude.rnf imageTagMutability
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryArn
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryUri
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf imageScanningConfiguration `Prelude.seq`
+          Prelude.rnf imageTagMutability `Prelude.seq`
+            Prelude.rnf registryId `Prelude.seq`
+              Prelude.rnf repositoryArn `Prelude.seq`
+                Prelude.rnf repositoryName `Prelude.seq`
+                  Prelude.rnf repositoryUri

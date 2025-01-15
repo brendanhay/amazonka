@@ -81,5 +81,5 @@ instance Prelude.Hashable ImageScanStatus where
 
 instance Prelude.NFData ImageScanStatus where
   rnf ImageScanStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf status

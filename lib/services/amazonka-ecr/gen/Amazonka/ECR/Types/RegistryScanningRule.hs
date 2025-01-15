@@ -103,8 +103,8 @@ instance Prelude.Hashable RegistryScanningRule where
 
 instance Prelude.NFData RegistryScanningRule where
   rnf RegistryScanningRule' {..} =
-    Prelude.rnf scanFrequency
-      `Prelude.seq` Prelude.rnf repositoryFilters
+    Prelude.rnf scanFrequency `Prelude.seq`
+      Prelude.rnf repositoryFilters
 
 instance Data.ToJSON RegistryScanningRule where
   toJSON RegistryScanningRule' {..} =

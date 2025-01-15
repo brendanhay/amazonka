@@ -120,8 +120,8 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imageManifest
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf imageManifest `Prelude.seq`
+        Prelude.rnf imageManifestMediaType `Prelude.seq`
+          Prelude.rnf registryId `Prelude.seq`
+            Prelude.rnf repositoryName

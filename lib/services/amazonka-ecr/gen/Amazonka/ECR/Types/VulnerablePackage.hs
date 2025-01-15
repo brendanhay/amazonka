@@ -146,11 +146,11 @@ instance Prelude.Hashable VulnerablePackage where
 
 instance Prelude.NFData VulnerablePackage where
   rnf VulnerablePackage' {..} =
-    Prelude.rnf arch
-      `Prelude.seq` Prelude.rnf epoch
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageManager
-      `Prelude.seq` Prelude.rnf release
-      `Prelude.seq` Prelude.rnf sourceLayerHash
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arch `Prelude.seq`
+      Prelude.rnf epoch `Prelude.seq`
+        Prelude.rnf filePath `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf packageManager `Prelude.seq`
+              Prelude.rnf release `Prelude.seq`
+                Prelude.rnf sourceLayerHash `Prelude.seq`
+                  Prelude.rnf version

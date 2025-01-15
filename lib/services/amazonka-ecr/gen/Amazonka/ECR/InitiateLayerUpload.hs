@@ -125,8 +125,8 @@ instance Prelude.Hashable InitiateLayerUpload where
 
 instance Prelude.NFData InitiateLayerUpload where
   rnf InitiateLayerUpload' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders InitiateLayerUpload where
   toHeaders =
@@ -215,6 +215,6 @@ initiateLayerUploadResponse_httpStatus = Lens.lens (\InitiateLayerUploadResponse
 
 instance Prelude.NFData InitiateLayerUploadResponse where
   rnf InitiateLayerUploadResponse' {..} =
-    Prelude.rnf partSize
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf partSize `Prelude.seq`
+      Prelude.rnf uploadId `Prelude.seq`
+        Prelude.rnf httpStatus

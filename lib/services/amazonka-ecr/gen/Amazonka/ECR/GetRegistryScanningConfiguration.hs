@@ -176,6 +176,6 @@ instance
     GetRegistryScanningConfigurationResponse
   where
   rnf GetRegistryScanningConfigurationResponse' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf scanningConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf scanningConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

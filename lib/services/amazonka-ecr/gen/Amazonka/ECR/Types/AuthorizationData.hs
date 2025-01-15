@@ -113,6 +113,6 @@ instance Prelude.Hashable AuthorizationData where
 
 instance Prelude.NFData AuthorizationData where
   rnf AuthorizationData' {..} =
-    Prelude.rnf authorizationToken
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf proxyEndpoint
+    Prelude.rnf authorizationToken `Prelude.seq`
+      Prelude.rnf expiresAt `Prelude.seq`
+        Prelude.rnf proxyEndpoint

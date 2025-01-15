@@ -229,18 +229,18 @@ instance Prelude.Hashable EnhancedImageScanFinding where
 
 instance Prelude.NFData EnhancedImageScanFinding where
   rnf EnhancedImageScanFinding' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf findingArn
-      `Prelude.seq` Prelude.rnf firstObservedAt
-      `Prelude.seq` Prelude.rnf lastObservedAt
-      `Prelude.seq` Prelude.rnf packageVulnerabilityDetails
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf scoreDetails
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf findingArn `Prelude.seq`
+          Prelude.rnf firstObservedAt `Prelude.seq`
+            Prelude.rnf lastObservedAt `Prelude.seq`
+              Prelude.rnf packageVulnerabilityDetails `Prelude.seq`
+                Prelude.rnf remediation `Prelude.seq`
+                  Prelude.rnf resources `Prelude.seq`
+                    Prelude.rnf score `Prelude.seq`
+                      Prelude.rnf scoreDetails `Prelude.seq`
+                        Prelude.rnf severity `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf title `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf updatedAt

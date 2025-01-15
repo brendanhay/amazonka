@@ -107,7 +107,7 @@ instance Prelude.Hashable ImageReplicationStatus where
 
 instance Prelude.NFData ImageReplicationStatus where
   rnf ImageReplicationStatus' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf status

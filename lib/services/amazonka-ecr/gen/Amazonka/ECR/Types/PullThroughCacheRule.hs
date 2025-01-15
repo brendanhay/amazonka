@@ -108,7 +108,7 @@ instance Prelude.Hashable PullThroughCacheRule where
 
 instance Prelude.NFData PullThroughCacheRule where
   rnf PullThroughCacheRule' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf ecrRepositoryPrefix `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf upstreamRegistryUrl

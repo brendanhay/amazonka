@@ -205,12 +205,12 @@ instance Core.AWSPager GetLifecyclePolicyPreview where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getLifecyclePolicyPreview_nextToken
-          Lens..~ rs
-          Lens.^? getLifecyclePolicyPreviewResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getLifecyclePolicyPreview_nextToken
+              Lens..~ rs
+              Lens.^? getLifecyclePolicyPreviewResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLifecyclePolicyPreview where
   type
@@ -244,12 +244,12 @@ instance Prelude.Hashable GetLifecyclePolicyPreview where
 
 instance Prelude.NFData GetLifecyclePolicyPreview where
   rnf GetLifecyclePolicyPreview' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf imageIds `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf registryId `Prelude.seq`
+              Prelude.rnf repositoryName
 
 instance Data.ToHeaders GetLifecyclePolicyPreview where
   toHeaders =
@@ -393,11 +393,11 @@ instance
     GetLifecyclePolicyPreviewResponse
   where
   rnf GetLifecyclePolicyPreviewResponse' {..} =
-    Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf previewResults
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecyclePolicyText `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf previewResults `Prelude.seq`
+          Prelude.rnf registryId `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf summary `Prelude.seq`
+                  Prelude.rnf httpStatus

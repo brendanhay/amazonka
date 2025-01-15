@@ -157,8 +157,8 @@ instance
     PutRegistryScanningConfiguration
   where
   rnf PutRegistryScanningConfiguration' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf scanType
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf scanType
 
 instance
   Data.ToHeaders
@@ -241,5 +241,5 @@ instance
     PutRegistryScanningConfigurationResponse
   where
   rnf PutRegistryScanningConfigurationResponse' {..} =
-    Prelude.rnf registryScanningConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registryScanningConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

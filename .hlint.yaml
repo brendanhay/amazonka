@@ -4,7 +4,9 @@
     within:
       - Amazonka.Auth.SSO
       - Amazonka.Data.Body
+      - Amazonka.EC2.Internal
       - Amazonka.EC2.Metadata
       - Amazonka.Env
+      - Amazonka.S3.Internal
       - Amazonka.Types
       - Amazonka.Waiter

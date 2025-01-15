@@ -216,14 +216,14 @@ instance Prelude.Hashable WorkspaceSummary where
 
 instance Prelude.NFData WorkspaceSummary where
   rnf WorkspaceSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notificationDestinations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf authentication
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf grafanaVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf modified
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf notificationDestinations `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf authentication `Prelude.seq`
+              Prelude.rnf created `Prelude.seq`
+                Prelude.rnf endpoint `Prelude.seq`
+                  Prelude.rnf grafanaVersion `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf modified `Prelude.seq`
+                        Prelude.rnf status

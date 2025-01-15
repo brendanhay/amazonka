@@ -418,21 +418,21 @@ instance Prelude.Hashable CreateWorkspace where
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf organizationRoleName
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf workspaceDataSources
-      `Prelude.seq` Prelude.rnf workspaceDescription
-      `Prelude.seq` Prelude.rnf workspaceName
-      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
-      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
-      `Prelude.seq` Prelude.rnf workspaceRoleArn
-      `Prelude.seq` Prelude.rnf accountAccessType
-      `Prelude.seq` Prelude.rnf authenticationProviders
-      `Prelude.seq` Prelude.rnf permissionType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf organizationRoleName `Prelude.seq`
+          Prelude.rnf stackSetName `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcConfiguration `Prelude.seq`
+                Prelude.rnf workspaceDataSources `Prelude.seq`
+                  Prelude.rnf workspaceDescription `Prelude.seq`
+                    Prelude.rnf workspaceName `Prelude.seq`
+                      Prelude.rnf workspaceNotificationDestinations `Prelude.seq`
+                        Prelude.rnf workspaceOrganizationalUnits `Prelude.seq`
+                          Prelude.rnf workspaceRoleArn `Prelude.seq`
+                            Prelude.rnf accountAccessType `Prelude.seq`
+                              Prelude.rnf authenticationProviders `Prelude.seq`
+                                Prelude.rnf permissionType
 
 instance Data.ToHeaders CreateWorkspace where
   toHeaders =
@@ -527,5 +527,5 @@ createWorkspaceResponse_workspace = Lens.lens (\CreateWorkspaceResponse' {worksp
 
 instance Prelude.NFData CreateWorkspaceResponse where
   rnf CreateWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

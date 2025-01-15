@@ -187,5 +187,5 @@ instance
     DescribeWorkspaceAuthenticationResponse
   where
   rnf DescribeWorkspaceAuthenticationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf authentication
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf authentication

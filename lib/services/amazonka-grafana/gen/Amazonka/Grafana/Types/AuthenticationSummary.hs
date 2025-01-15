@@ -91,5 +91,5 @@ instance Prelude.Hashable AuthenticationSummary where
 
 instance Prelude.NFData AuthenticationSummary where
   rnf AuthenticationSummary' {..} =
-    Prelude.rnf samlConfigurationStatus
-      `Prelude.seq` Prelude.rnf providers
+    Prelude.rnf samlConfigurationStatus `Prelude.seq`
+      Prelude.rnf providers

@@ -366,19 +366,19 @@ instance Prelude.Hashable UpdateWorkspace where
 
 instance Prelude.NFData UpdateWorkspace where
   rnf UpdateWorkspace' {..} =
-    Prelude.rnf accountAccessType
-      `Prelude.seq` Prelude.rnf organizationRoleName
-      `Prelude.seq` Prelude.rnf permissionType
-      `Prelude.seq` Prelude.rnf removeVpcConfiguration
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf workspaceDataSources
-      `Prelude.seq` Prelude.rnf workspaceDescription
-      `Prelude.seq` Prelude.rnf workspaceName
-      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
-      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
-      `Prelude.seq` Prelude.rnf workspaceRoleArn
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf accountAccessType `Prelude.seq`
+      Prelude.rnf organizationRoleName `Prelude.seq`
+        Prelude.rnf permissionType `Prelude.seq`
+          Prelude.rnf removeVpcConfiguration `Prelude.seq`
+            Prelude.rnf stackSetName `Prelude.seq`
+              Prelude.rnf vpcConfiguration `Prelude.seq`
+                Prelude.rnf workspaceDataSources `Prelude.seq`
+                  Prelude.rnf workspaceDescription `Prelude.seq`
+                    Prelude.rnf workspaceName `Prelude.seq`
+                      Prelude.rnf workspaceNotificationDestinations `Prelude.seq`
+                        Prelude.rnf workspaceOrganizationalUnits `Prelude.seq`
+                          Prelude.rnf workspaceRoleArn `Prelude.seq`
+                            Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateWorkspace where
   toHeaders =
@@ -470,5 +470,5 @@ updateWorkspaceResponse_workspace = Lens.lens (\UpdateWorkspaceResponse' {worksp
 
 instance Prelude.NFData UpdateWorkspaceResponse where
   rnf UpdateWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

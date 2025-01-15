@@ -86,5 +86,5 @@ instance Prelude.Hashable SamlAuthentication where
 
 instance Prelude.NFData SamlAuthentication where
   rnf SamlAuthentication' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf status

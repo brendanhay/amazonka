@@ -106,9 +106,9 @@ instance Prelude.Hashable UpdateInstruction where
 
 instance Prelude.NFData UpdateInstruction where
   rnf UpdateInstruction' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf users
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf role' `Prelude.seq`
+        Prelude.rnf users
 
 instance Data.ToJSON UpdateInstruction where
   toJSON UpdateInstruction' {..} =

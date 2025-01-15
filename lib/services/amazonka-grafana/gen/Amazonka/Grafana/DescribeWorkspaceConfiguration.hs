@@ -189,5 +189,5 @@ instance
     DescribeWorkspaceConfigurationResponse
   where
   rnf DescribeWorkspaceConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf configuration

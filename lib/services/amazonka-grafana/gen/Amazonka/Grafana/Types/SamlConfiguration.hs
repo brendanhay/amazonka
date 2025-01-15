@@ -144,11 +144,11 @@ instance Prelude.Hashable SamlConfiguration where
 
 instance Prelude.NFData SamlConfiguration where
   rnf SamlConfiguration' {..} =
-    Prelude.rnf allowedOrganizations
-      `Prelude.seq` Prelude.rnf assertionAttributes
-      `Prelude.seq` Prelude.rnf loginValidityDuration
-      `Prelude.seq` Prelude.rnf roleValues
-      `Prelude.seq` Prelude.rnf idpMetadata
+    Prelude.rnf allowedOrganizations `Prelude.seq`
+      Prelude.rnf assertionAttributes `Prelude.seq`
+        Prelude.rnf loginValidityDuration `Prelude.seq`
+          Prelude.rnf roleValues `Prelude.seq`
+            Prelude.rnf idpMetadata
 
 instance Data.ToJSON SamlConfiguration where
   toJSON SamlConfiguration' {..} =

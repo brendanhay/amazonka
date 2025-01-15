@@ -101,6 +101,6 @@ instance Prelude.Hashable UpdateError where
 
 instance Prelude.NFData UpdateError where
   rnf UpdateError' {..} =
-    Prelude.rnf causedBy
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf causedBy `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf message

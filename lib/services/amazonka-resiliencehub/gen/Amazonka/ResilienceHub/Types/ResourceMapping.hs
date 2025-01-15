@@ -193,13 +193,13 @@ instance Prelude.Hashable ResourceMapping where
 
 instance Prelude.NFData ResourceMapping where
   rnf ResourceMapping' {..} =
-    Prelude.rnf appRegistryAppName
-      `Prelude.seq` Prelude.rnf logicalStackName
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf terraformSourceName
-      `Prelude.seq` Prelude.rnf mappingType
-      `Prelude.seq` Prelude.rnf physicalResourceId
+    Prelude.rnf appRegistryAppName `Prelude.seq`
+      Prelude.rnf logicalStackName `Prelude.seq`
+        Prelude.rnf resourceGroupName `Prelude.seq`
+          Prelude.rnf resourceName `Prelude.seq`
+            Prelude.rnf terraformSourceName `Prelude.seq`
+              Prelude.rnf mappingType `Prelude.seq`
+                Prelude.rnf physicalResourceId
 
 instance Data.ToJSON ResourceMapping where
   toJSON ResourceMapping' {..} =

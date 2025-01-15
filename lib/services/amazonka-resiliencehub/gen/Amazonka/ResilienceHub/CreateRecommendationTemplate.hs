@@ -260,14 +260,14 @@ instance
 
 instance Prelude.NFData CreateRecommendationTemplate where
   rnf CreateRecommendationTemplate' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf recommendationTypes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assessmentArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf recommendationIds `Prelude.seq`
+            Prelude.rnf recommendationTypes `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf assessmentArn `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders CreateRecommendationTemplate where
   toHeaders =
@@ -354,5 +354,5 @@ instance
     CreateRecommendationTemplateResponse
   where
   rnf CreateRecommendationTemplateResponse' {..} =
-    Prelude.rnf recommendationTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommendationTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

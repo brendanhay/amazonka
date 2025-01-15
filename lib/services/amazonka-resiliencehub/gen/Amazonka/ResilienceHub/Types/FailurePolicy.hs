@@ -84,8 +84,8 @@ instance Prelude.Hashable FailurePolicy where
 
 instance Prelude.NFData FailurePolicy where
   rnf FailurePolicy' {..} =
-    Prelude.rnf rpoInSecs
-      `Prelude.seq` Prelude.rnf rtoInSecs
+    Prelude.rnf rpoInSecs `Prelude.seq`
+      Prelude.rnf rtoInSecs
 
 instance Data.ToJSON FailurePolicy where
   toJSON FailurePolicy' {..} =

@@ -103,7 +103,7 @@ instance Prelude.Hashable RecommendationItem where
 
 instance Prelude.NFData RecommendationItem where
   rnf RecommendationItem' {..} =
-    Prelude.rnf alreadyImplemented
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf targetAccountId
-      `Prelude.seq` Prelude.rnf targetRegion
+    Prelude.rnf alreadyImplemented `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf targetAccountId `Prelude.seq`
+          Prelude.rnf targetRegion

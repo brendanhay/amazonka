@@ -159,9 +159,9 @@ instance
     ImportResourcesToDraftAppVersion
   where
   rnf ImportResourcesToDraftAppVersion' {..} =
-    Prelude.rnf sourceArns
-      `Prelude.seq` Prelude.rnf terraformSources
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf sourceArns `Prelude.seq`
+      Prelude.rnf terraformSources `Prelude.seq`
+        Prelude.rnf appArn
 
 instance
   Data.ToHeaders
@@ -302,9 +302,9 @@ instance
     ImportResourcesToDraftAppVersionResponse
   where
   rnf ImportResourcesToDraftAppVersionResponse' {..} =
-    Prelude.rnf sourceArns
-      `Prelude.seq` Prelude.rnf terraformSources
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf sourceArns `Prelude.seq`
+      Prelude.rnf terraformSources `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf appArn `Prelude.seq`
+            Prelude.rnf appVersion `Prelude.seq`
+              Prelude.rnf status

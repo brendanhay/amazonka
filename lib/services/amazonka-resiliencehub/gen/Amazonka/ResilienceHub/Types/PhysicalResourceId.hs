@@ -125,10 +125,10 @@ instance Prelude.Hashable PhysicalResourceId where
 
 instance Prelude.NFData PhysicalResourceId where
   rnf PhysicalResourceId' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON PhysicalResourceId where
   toJSON PhysicalResourceId' {..} =

@@ -195,5 +195,5 @@ instance
     DescribeResiliencyPolicyResponse
   where
   rnf DescribeResiliencyPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy

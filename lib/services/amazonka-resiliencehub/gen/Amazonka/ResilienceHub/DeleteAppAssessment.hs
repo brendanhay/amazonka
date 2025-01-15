@@ -132,8 +132,8 @@ instance Prelude.Hashable DeleteAppAssessment where
 
 instance Prelude.NFData DeleteAppAssessment where
   rnf DeleteAppAssessment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf assessmentArn
 
 instance Data.ToHeaders DeleteAppAssessment where
   toHeaders =
@@ -234,6 +234,6 @@ deleteAppAssessmentResponse_assessmentStatus = Lens.lens (\DeleteAppAssessmentRe
 
 instance Prelude.NFData DeleteAppAssessmentResponse where
   rnf DeleteAppAssessmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentArn
-      `Prelude.seq` Prelude.rnf assessmentStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessmentArn `Prelude.seq`
+        Prelude.rnf assessmentStatus

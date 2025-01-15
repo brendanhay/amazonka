@@ -134,9 +134,9 @@ instance Prelude.Hashable AppComponentCompliance where
 
 instance Prelude.NFData AppComponentCompliance where
   rnf AppComponentCompliance' {..} =
-    Prelude.rnf appComponentName
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resiliencyScore
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf appComponentName `Prelude.seq`
+      Prelude.rnf compliance `Prelude.seq`
+        Prelude.rnf cost `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf resiliencyScore `Prelude.seq`
+              Prelude.rnf status

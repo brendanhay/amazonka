@@ -169,11 +169,11 @@ instance Prelude.Hashable StartAppAssessment where
 
 instance Prelude.NFData StartAppAssessment where
   rnf StartAppAssessment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf assessmentName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf appArn `Prelude.seq`
+          Prelude.rnf appVersion `Prelude.seq`
+            Prelude.rnf assessmentName
 
 instance Data.ToHeaders StartAppAssessment where
   toHeaders =
@@ -250,5 +250,5 @@ startAppAssessmentResponse_assessment = Lens.lens (\StartAppAssessmentResponse' 
 
 instance Prelude.NFData StartAppAssessmentResponse where
   rnf StartAppAssessmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessment

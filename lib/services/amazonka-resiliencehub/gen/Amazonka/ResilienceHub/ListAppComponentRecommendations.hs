@@ -157,9 +157,9 @@ instance
     ListAppComponentRecommendations
   where
   rnf ListAppComponentRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentArn
 
 instance
   Data.ToHeaders
@@ -257,6 +257,6 @@ instance
     ListAppComponentRecommendationsResponse
   where
   rnf ListAppComponentRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf componentRecommendations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf componentRecommendations

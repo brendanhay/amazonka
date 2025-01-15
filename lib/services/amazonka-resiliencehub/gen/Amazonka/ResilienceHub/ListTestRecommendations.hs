@@ -146,9 +146,9 @@ instance Prelude.Hashable ListTestRecommendations where
 
 instance Prelude.NFData ListTestRecommendations where
   rnf ListTestRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListTestRecommendations where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     ListTestRecommendationsResponse
   where
   rnf ListTestRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf testRecommendations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf testRecommendations

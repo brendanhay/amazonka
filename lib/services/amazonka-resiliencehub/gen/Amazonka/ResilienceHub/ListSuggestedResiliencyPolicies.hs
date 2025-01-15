@@ -130,8 +130,8 @@ instance
     ListSuggestedResiliencyPolicies
   where
   rnf ListSuggestedResiliencyPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -216,6 +216,6 @@ instance
     ListSuggestedResiliencyPoliciesResponse
   where
   rnf ListSuggestedResiliencyPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resiliencyPolicies
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf resiliencyPolicies

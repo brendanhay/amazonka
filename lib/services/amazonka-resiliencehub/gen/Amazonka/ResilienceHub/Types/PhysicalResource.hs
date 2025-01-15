@@ -127,8 +127,8 @@ instance Prelude.Hashable PhysicalResource where
 
 instance Prelude.NFData PhysicalResource where
   rnf PhysicalResource' {..} =
-    Prelude.rnf appComponents
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf appComponents `Prelude.seq`
+      Prelude.rnf resourceName `Prelude.seq`
+        Prelude.rnf logicalResourceId `Prelude.seq`
+          Prelude.rnf physicalResourceId `Prelude.seq`
+            Prelude.rnf resourceType

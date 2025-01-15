@@ -140,8 +140,8 @@ instance
     RecommendationDisruptionCompliance
   where
   rnf RecommendationDisruptionCompliance' {..} =
-    Prelude.rnf expectedRpoDescription
-      `Prelude.seq` Prelude.rnf expectedRpoInSecs
-      `Prelude.seq` Prelude.rnf expectedRtoDescription
-      `Prelude.seq` Prelude.rnf expectedRtoInSecs
-      `Prelude.seq` Prelude.rnf expectedComplianceStatus
+    Prelude.rnf expectedRpoDescription `Prelude.seq`
+      Prelude.rnf expectedRpoInSecs `Prelude.seq`
+        Prelude.rnf expectedRtoDescription `Prelude.seq`
+          Prelude.rnf expectedRtoInSecs `Prelude.seq`
+            Prelude.rnf expectedComplianceStatus

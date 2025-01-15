@@ -169,11 +169,11 @@ instance Prelude.Hashable ListAppVersionResources where
 
 instance Prelude.NFData ListAppVersionResources where
   rnf ListAppVersionResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resolutionId `Prelude.seq`
+          Prelude.rnf appArn `Prelude.seq`
+            Prelude.rnf appVersion
 
 instance Data.ToHeaders ListAppVersionResources where
   toHeaders =
@@ -273,7 +273,7 @@ instance
     ListAppVersionResourcesResponse
   where
   rnf ListAppVersionResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf physicalResources
-      `Prelude.seq` Prelude.rnf resolutionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf physicalResources `Prelude.seq`
+          Prelude.rnf resolutionId

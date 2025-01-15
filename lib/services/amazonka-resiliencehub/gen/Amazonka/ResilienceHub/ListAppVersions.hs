@@ -139,9 +139,9 @@ instance Prelude.Hashable ListAppVersions where
 
 instance Prelude.NFData ListAppVersions where
   rnf ListAppVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appArn
 
 instance Data.ToHeaders ListAppVersions where
   toHeaders =
@@ -223,6 +223,6 @@ listAppVersionsResponse_appVersions = Lens.lens (\ListAppVersionsResponse' {appV
 
 instance Prelude.NFData ListAppVersionsResponse where
   rnf ListAppVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appVersions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf appVersions

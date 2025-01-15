@@ -193,13 +193,13 @@ instance Prelude.Hashable ListRecommendationTemplates where
 
 instance Prelude.NFData ListRecommendationTemplates where
   rnf ListRecommendationTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationTemplateArn
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf recommendationTemplateArn `Prelude.seq`
+            Prelude.rnf reverseOrder `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListRecommendationTemplates where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     ListRecommendationTemplatesResponse
   where
   rnf ListRecommendationTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationTemplates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationTemplates `Prelude.seq`
+        Prelude.rnf httpStatus

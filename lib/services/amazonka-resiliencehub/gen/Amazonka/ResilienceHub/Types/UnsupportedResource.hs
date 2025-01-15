@@ -103,6 +103,6 @@ instance Prelude.Hashable UnsupportedResource where
 
 instance Prelude.NFData UnsupportedResource where
   rnf UnsupportedResource' {..} =
-    Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf logicalResourceId `Prelude.seq`
+      Prelude.rnf physicalResourceId `Prelude.seq`
+        Prelude.rnf resourceType

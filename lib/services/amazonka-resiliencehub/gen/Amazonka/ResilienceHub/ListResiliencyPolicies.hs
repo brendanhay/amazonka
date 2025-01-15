@@ -129,9 +129,9 @@ instance Prelude.Hashable ListResiliencyPolicies where
 
 instance Prelude.NFData ListResiliencyPolicies where
   rnf ListResiliencyPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf policyName
 
 instance Data.ToHeaders ListResiliencyPolicies where
   toHeaders =
@@ -211,6 +211,6 @@ instance
     ListResiliencyPoliciesResponse
   where
   rnf ListResiliencyPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resiliencyPolicies
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf resiliencyPolicies

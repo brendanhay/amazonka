@@ -105,7 +105,7 @@ instance Prelude.Hashable LogicalResourceId where
 
 instance Prelude.NFData LogicalResourceId where
   rnf LogicalResourceId' {..} =
-    Prelude.rnf logicalStackName
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf terraformSourceName
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf logicalStackName `Prelude.seq`
+      Prelude.rnf resourceGroupName `Prelude.seq`
+        Prelude.rnf terraformSourceName `Prelude.seq`
+          Prelude.rnf identifier

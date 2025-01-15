@@ -131,8 +131,8 @@ instance Prelude.Hashable DeleteResiliencyPolicy where
 
 instance Prelude.NFData DeleteResiliencyPolicy where
   rnf DeleteResiliencyPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders DeleteResiliencyPolicy where
   toHeaders =
@@ -223,5 +223,5 @@ instance
     DeleteResiliencyPolicyResponse
   where
   rnf DeleteResiliencyPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policyArn

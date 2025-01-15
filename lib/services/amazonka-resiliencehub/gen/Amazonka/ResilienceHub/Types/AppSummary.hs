@@ -167,11 +167,11 @@ instance Prelude.Hashable AppSummary where
 
 instance Prelude.NFData AppSummary where
   rnf AppSummary' {..} =
-    Prelude.rnf assessmentSchedule
-      `Prelude.seq` Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf resiliencyScore
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf assessmentSchedule `Prelude.seq`
+      Prelude.rnf complianceStatus `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf resiliencyScore `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf appArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf name

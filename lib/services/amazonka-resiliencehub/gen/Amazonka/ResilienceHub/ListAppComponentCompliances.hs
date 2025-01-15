@@ -146,9 +146,9 @@ instance Prelude.Hashable ListAppComponentCompliances where
 
 instance Prelude.NFData ListAppComponentCompliances where
   rnf ListAppComponentCompliances' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListAppComponentCompliances where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     ListAppComponentCompliancesResponse
   where
   rnf ListAppComponentCompliancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf componentCompliances
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf componentCompliances

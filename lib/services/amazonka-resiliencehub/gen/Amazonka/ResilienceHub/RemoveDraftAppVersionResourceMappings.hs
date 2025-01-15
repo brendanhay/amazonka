@@ -186,12 +186,12 @@ instance
     RemoveDraftAppVersionResourceMappings
   where
   rnf RemoveDraftAppVersionResourceMappings' {..} =
-    Prelude.rnf appRegistryAppNames
-      `Prelude.seq` Prelude.rnf logicalStackNames
-      `Prelude.seq` Prelude.rnf resourceGroupNames
-      `Prelude.seq` Prelude.rnf resourceNames
-      `Prelude.seq` Prelude.rnf terraformSourceNames
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf appRegistryAppNames `Prelude.seq`
+      Prelude.rnf logicalStackNames `Prelude.seq`
+        Prelude.rnf resourceGroupNames `Prelude.seq`
+          Prelude.rnf resourceNames `Prelude.seq`
+            Prelude.rnf terraformSourceNames `Prelude.seq`
+              Prelude.rnf appArn
 
 instance
   Data.ToHeaders
@@ -308,6 +308,6 @@ instance
   where
   rnf
     RemoveDraftAppVersionResourceMappingsResponse' {..} =
-      Prelude.rnf appArn
-        `Prelude.seq` Prelude.rnf appVersion
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf appArn `Prelude.seq`
+        Prelude.rnf appVersion `Prelude.seq`
+          Prelude.rnf httpStatus

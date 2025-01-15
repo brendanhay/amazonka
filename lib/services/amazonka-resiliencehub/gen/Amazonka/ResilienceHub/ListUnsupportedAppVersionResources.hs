@@ -184,11 +184,11 @@ instance
     ListUnsupportedAppVersionResources
   where
   rnf ListUnsupportedAppVersionResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resolutionId `Prelude.seq`
+          Prelude.rnf appArn `Prelude.seq`
+            Prelude.rnf appVersion
 
 instance
   Data.ToHeaders
@@ -303,7 +303,7 @@ instance
     ListUnsupportedAppVersionResourcesResponse
   where
   rnf ListUnsupportedAppVersionResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf unsupportedResources
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf resolutionId `Prelude.seq`
+          Prelude.rnf unsupportedResources

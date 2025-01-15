@@ -116,11 +116,11 @@ instance
     UpdatePipeSourceSelfManagedKafkaParameters
   where
   rnf UpdatePipeSourceSelfManagedKafkaParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf serverRootCaCertificate
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf credentials `Prelude.seq`
+        Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+          Prelude.rnf serverRootCaCertificate `Prelude.seq`
+            Prelude.rnf vpc
 
 instance
   Data.ToJSON

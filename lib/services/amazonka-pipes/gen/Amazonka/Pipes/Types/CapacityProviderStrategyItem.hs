@@ -118,9 +118,9 @@ instance
 
 instance Prelude.NFData CapacityProviderStrategyItem where
   rnf CapacityProviderStrategyItem' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf weight
-      `Prelude.seq` Prelude.rnf capacityProvider
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf weight `Prelude.seq`
+        Prelude.rnf capacityProvider
 
 instance Data.ToJSON CapacityProviderStrategyItem where
   toJSON CapacityProviderStrategyItem' {..} =

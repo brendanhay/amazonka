@@ -93,9 +93,9 @@ instance
   where
   rnf
     UpdatePipeSourceManagedStreamingKafkaParameters' {..} =
-      Prelude.rnf batchSize
-        `Prelude.seq` Prelude.rnf credentials
-        `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      Prelude.rnf batchSize `Prelude.seq`
+        Prelude.rnf credentials `Prelude.seq`
+          Prelude.rnf maximumBatchingWindowInSeconds
 
 instance
   Data.ToJSON

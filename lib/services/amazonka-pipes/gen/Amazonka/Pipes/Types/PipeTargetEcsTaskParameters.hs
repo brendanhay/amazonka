@@ -369,21 +369,21 @@ instance Prelude.Hashable PipeTargetEcsTaskParameters where
 
 instance Prelude.NFData PipeTargetEcsTaskParameters where
   rnf PipeTargetEcsTaskParameters' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf enableECSManagedTags
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskCount
-      `Prelude.seq` Prelude.rnf taskDefinitionArn
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf enableECSManagedTags `Prelude.seq`
+        Prelude.rnf enableExecuteCommand `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf launchType `Prelude.seq`
+              Prelude.rnf networkConfiguration `Prelude.seq`
+                Prelude.rnf overrides `Prelude.seq`
+                  Prelude.rnf placementConstraints `Prelude.seq`
+                    Prelude.rnf placementStrategy `Prelude.seq`
+                      Prelude.rnf platformVersion `Prelude.seq`
+                        Prelude.rnf propagateTags `Prelude.seq`
+                          Prelude.rnf referenceId `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf taskCount `Prelude.seq`
+                                Prelude.rnf taskDefinitionArn
 
 instance Data.ToJSON PipeTargetEcsTaskParameters where
   toJSON PipeTargetEcsTaskParameters' {..} =

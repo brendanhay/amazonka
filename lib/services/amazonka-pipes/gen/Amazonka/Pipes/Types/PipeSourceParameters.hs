@@ -164,14 +164,14 @@ instance Prelude.Hashable PipeSourceParameters where
 
 instance Prelude.NFData PipeSourceParameters where
   rnf PipeSourceParameters' {..} =
-    Prelude.rnf activeMQBrokerParameters
-      `Prelude.seq` Prelude.rnf dynamoDBStreamParameters
-      `Prelude.seq` Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf kinesisStreamParameters
-      `Prelude.seq` Prelude.rnf managedStreamingKafkaParameters
-      `Prelude.seq` Prelude.rnf rabbitMQBrokerParameters
-      `Prelude.seq` Prelude.rnf selfManagedKafkaParameters
-      `Prelude.seq` Prelude.rnf sqsQueueParameters
+    Prelude.rnf activeMQBrokerParameters `Prelude.seq`
+      Prelude.rnf dynamoDBStreamParameters `Prelude.seq`
+        Prelude.rnf filterCriteria `Prelude.seq`
+          Prelude.rnf kinesisStreamParameters `Prelude.seq`
+            Prelude.rnf managedStreamingKafkaParameters `Prelude.seq`
+              Prelude.rnf rabbitMQBrokerParameters `Prelude.seq`
+                Prelude.rnf selfManagedKafkaParameters `Prelude.seq`
+                  Prelude.rnf sqsQueueParameters
 
 instance Data.ToJSON PipeSourceParameters where
   toJSON PipeSourceParameters' {..} =

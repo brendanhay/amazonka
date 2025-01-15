@@ -217,18 +217,18 @@ instance Prelude.Hashable PipeTargetParameters where
 
 instance Prelude.NFData PipeTargetParameters where
   rnf PipeTargetParameters' {..} =
-    Prelude.rnf batchJobParameters
-      `Prelude.seq` Prelude.rnf cloudWatchLogsParameters
-      `Prelude.seq` Prelude.rnf ecsTaskParameters
-      `Prelude.seq` Prelude.rnf eventBridgeEventBusParameters
-      `Prelude.seq` Prelude.rnf httpParameters
-      `Prelude.seq` Prelude.rnf inputTemplate
-      `Prelude.seq` Prelude.rnf kinesisStreamParameters
-      `Prelude.seq` Prelude.rnf lambdaFunctionParameters
-      `Prelude.seq` Prelude.rnf redshiftDataParameters
-      `Prelude.seq` Prelude.rnf sageMakerPipelineParameters
-      `Prelude.seq` Prelude.rnf sqsQueueParameters
-      `Prelude.seq` Prelude.rnf stepFunctionStateMachineParameters
+    Prelude.rnf batchJobParameters `Prelude.seq`
+      Prelude.rnf cloudWatchLogsParameters `Prelude.seq`
+        Prelude.rnf ecsTaskParameters `Prelude.seq`
+          Prelude.rnf eventBridgeEventBusParameters `Prelude.seq`
+            Prelude.rnf httpParameters `Prelude.seq`
+              Prelude.rnf inputTemplate `Prelude.seq`
+                Prelude.rnf kinesisStreamParameters `Prelude.seq`
+                  Prelude.rnf lambdaFunctionParameters `Prelude.seq`
+                    Prelude.rnf redshiftDataParameters `Prelude.seq`
+                      Prelude.rnf sageMakerPipelineParameters `Prelude.seq`
+                        Prelude.rnf sqsQueueParameters `Prelude.seq`
+                          Prelude.rnf stepFunctionStateMachineParameters
 
 instance Data.ToJSON PipeTargetParameters where
   toJSON PipeTargetParameters' {..} =

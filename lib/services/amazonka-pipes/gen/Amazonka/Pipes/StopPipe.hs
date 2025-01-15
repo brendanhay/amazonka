@@ -215,10 +215,10 @@ stopPipeResponse_httpStatus = Lens.lens (\StopPipeResponse' {httpStatus} -> http
 
 instance Prelude.NFData StopPipeResponse where
   rnf StopPipeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentState `Prelude.seq`
+          Prelude.rnf desiredState `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf httpStatus

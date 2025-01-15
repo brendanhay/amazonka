@@ -111,9 +111,9 @@ instance Prelude.Hashable PipeTargetHttpParameters where
 
 instance Prelude.NFData PipeTargetHttpParameters where
   rnf PipeTargetHttpParameters' {..} =
-    Prelude.rnf headerParameters
-      `Prelude.seq` Prelude.rnf pathParameterValues
-      `Prelude.seq` Prelude.rnf queryStringParameters
+    Prelude.rnf headerParameters `Prelude.seq`
+      Prelude.rnf pathParameterValues `Prelude.seq`
+        Prelude.rnf queryStringParameters
 
 instance Data.ToJSON PipeTargetHttpParameters where
   toJSON PipeTargetHttpParameters' {..} =

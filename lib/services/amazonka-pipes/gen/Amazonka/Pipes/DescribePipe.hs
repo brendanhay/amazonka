@@ -324,20 +324,20 @@ describePipeResponse_httpStatus = Lens.lens (\DescribePipeResponse' {httpStatus}
 
 instance Prelude.NFData DescribePipeResponse where
   rnf DescribePipeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf enrichment
-      `Prelude.seq` Prelude.rnf enrichmentParameters
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceParameters
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetParameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentState `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf desiredState `Prelude.seq`
+              Prelude.rnf enrichment `Prelude.seq`
+                Prelude.rnf enrichmentParameters `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf source `Prelude.seq`
+                          Prelude.rnf sourceParameters `Prelude.seq`
+                            Prelude.rnf stateReason `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf target `Prelude.seq`
+                                  Prelude.rnf targetParameters `Prelude.seq`
+                                    Prelude.rnf httpStatus

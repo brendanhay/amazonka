@@ -158,12 +158,12 @@ instance
     PipeTargetRedshiftDataParameters
   where
   rnf PipeTargetRedshiftDataParameters' {..} =
-    Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf withEvent
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf sqls
+    Prelude.rnf dbUser `Prelude.seq`
+      Prelude.rnf secretManagerArn `Prelude.seq`
+        Prelude.rnf statementName `Prelude.seq`
+          Prelude.rnf withEvent `Prelude.seq`
+            Prelude.rnf database `Prelude.seq`
+              Prelude.rnf sqls
 
 instance Data.ToJSON PipeTargetRedshiftDataParameters where
   toJSON PipeTargetRedshiftDataParameters' {..} =

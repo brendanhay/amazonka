@@ -222,17 +222,17 @@ instance Prelude.Hashable CreatePipe where
 
 instance Prelude.NFData CreatePipe where
   rnf CreatePipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf enrichment
-      `Prelude.seq` Prelude.rnf enrichmentParameters
-      `Prelude.seq` Prelude.rnf sourceParameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetParameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf desiredState `Prelude.seq`
+        Prelude.rnf enrichment `Prelude.seq`
+          Prelude.rnf enrichmentParameters `Prelude.seq`
+            Prelude.rnf sourceParameters `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf targetParameters `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf source `Prelude.seq`
+                        Prelude.rnf target
 
 instance Data.ToHeaders CreatePipe where
   toHeaders =
@@ -363,10 +363,10 @@ createPipeResponse_httpStatus = Lens.lens (\CreatePipeResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreatePipeResponse where
   rnf CreatePipeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentState `Prelude.seq`
+          Prelude.rnf desiredState `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf httpStatus

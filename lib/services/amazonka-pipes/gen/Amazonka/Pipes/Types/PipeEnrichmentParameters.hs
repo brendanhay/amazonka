@@ -112,8 +112,8 @@ instance Prelude.Hashable PipeEnrichmentParameters where
 
 instance Prelude.NFData PipeEnrichmentParameters where
   rnf PipeEnrichmentParameters' {..} =
-    Prelude.rnf httpParameters
-      `Prelude.seq` Prelude.rnf inputTemplate
+    Prelude.rnf httpParameters `Prelude.seq`
+      Prelude.rnf inputTemplate
 
 instance Data.ToJSON PipeEnrichmentParameters where
   toJSON PipeEnrichmentParameters' {..} =

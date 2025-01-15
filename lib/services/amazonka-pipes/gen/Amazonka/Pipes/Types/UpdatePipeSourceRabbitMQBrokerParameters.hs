@@ -94,9 +94,9 @@ instance
     UpdatePipeSourceRabbitMQBrokerParameters
   where
   rnf UpdatePipeSourceRabbitMQBrokerParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+        Prelude.rnf credentials
 
 instance
   Data.ToJSON

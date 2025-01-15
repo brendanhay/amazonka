@@ -143,10 +143,10 @@ instance Prelude.Hashable BatchContainerOverrides where
 
 instance Prelude.NFData BatchContainerOverrides where
   rnf BatchContainerOverrides' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf resourceRequirements
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf resourceRequirements
 
 instance Data.ToJSON BatchContainerOverrides where
   toJSON BatchContainerOverrides' {..} =

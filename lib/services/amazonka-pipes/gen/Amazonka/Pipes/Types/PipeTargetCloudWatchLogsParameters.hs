@@ -95,8 +95,8 @@ instance
     PipeTargetCloudWatchLogsParameters
   where
   rnf PipeTargetCloudWatchLogsParameters' {..} =
-    Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf logStreamName `Prelude.seq`
+      Prelude.rnf timestamp
 
 instance
   Data.ToJSON

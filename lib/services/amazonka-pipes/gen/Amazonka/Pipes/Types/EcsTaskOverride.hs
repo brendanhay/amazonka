@@ -187,13 +187,13 @@ instance Prelude.Hashable EcsTaskOverride where
 
 instance Prelude.NFData EcsTaskOverride where
   rnf EcsTaskOverride' {..} =
-    Prelude.rnf containerOverrides
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inferenceAcceleratorOverrides
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf taskRoleArn
+    Prelude.rnf containerOverrides `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf ephemeralStorage `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf inferenceAcceleratorOverrides `Prelude.seq`
+              Prelude.rnf memory `Prelude.seq`
+                Prelude.rnf taskRoleArn
 
 instance Data.ToJSON EcsTaskOverride where
   toJSON EcsTaskOverride' {..} =

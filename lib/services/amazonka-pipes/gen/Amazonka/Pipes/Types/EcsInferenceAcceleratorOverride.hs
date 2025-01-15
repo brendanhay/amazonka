@@ -102,8 +102,8 @@ instance
     EcsInferenceAcceleratorOverride
   where
   rnf EcsInferenceAcceleratorOverride' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceType
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceType
 
 instance Data.ToJSON EcsInferenceAcceleratorOverride where
   toJSON EcsInferenceAcceleratorOverride' {..} =

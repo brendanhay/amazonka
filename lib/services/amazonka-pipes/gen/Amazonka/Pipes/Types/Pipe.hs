@@ -178,13 +178,13 @@ instance Prelude.Hashable Pipe where
 
 instance Prelude.NFData Pipe where
   rnf Pipe' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf enrichment
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentState `Prelude.seq`
+          Prelude.rnf desiredState `Prelude.seq`
+            Prelude.rnf enrichment `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf source `Prelude.seq`
+                    Prelude.rnf stateReason `Prelude.seq`
+                      Prelude.rnf target

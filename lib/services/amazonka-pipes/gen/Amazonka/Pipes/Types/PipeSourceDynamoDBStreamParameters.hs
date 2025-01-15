@@ -191,14 +191,14 @@ instance
     PipeSourceDynamoDBStreamParameters
   where
   rnf PipeSourceDynamoDBStreamParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf onPartialBatchItemFailure
-      `Prelude.seq` Prelude.rnf parallelizationFactor
-      `Prelude.seq` Prelude.rnf startingPosition
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf deadLetterConfig `Prelude.seq`
+        Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+          Prelude.rnf maximumRecordAgeInSeconds `Prelude.seq`
+            Prelude.rnf maximumRetryAttempts `Prelude.seq`
+              Prelude.rnf onPartialBatchItemFailure `Prelude.seq`
+                Prelude.rnf parallelizationFactor `Prelude.seq`
+                  Prelude.rnf startingPosition
 
 instance
   Data.ToJSON

@@ -118,10 +118,10 @@ instance
   where
   rnf
     SelfManagedKafkaAccessConfigurationCredentials' {..} =
-      Prelude.rnf basicAuth
-        `Prelude.seq` Prelude.rnf clientCertificateTlsAuth
-        `Prelude.seq` Prelude.rnf saslScram256Auth
-        `Prelude.seq` Prelude.rnf saslScram512Auth
+      Prelude.rnf basicAuth `Prelude.seq`
+        Prelude.rnf clientCertificateTlsAuth `Prelude.seq`
+          Prelude.rnf saslScram256Auth `Prelude.seq`
+            Prelude.rnf saslScram512Auth
 
 instance
   Data.ToJSON

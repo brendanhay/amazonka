@@ -150,5 +150,5 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

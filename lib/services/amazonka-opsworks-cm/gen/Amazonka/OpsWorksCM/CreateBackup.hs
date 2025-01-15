@@ -183,9 +183,9 @@ instance Prelude.Hashable CreateBackup where
 
 instance Prelude.NFData CreateBackup where
   rnf CreateBackup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf serverName
 
 instance Data.ToHeaders CreateBackup where
   toHeaders =
@@ -258,5 +258,5 @@ createBackupResponse_httpStatus = Lens.lens (\CreateBackupResponse' {httpStatus}
 
 instance Prelude.NFData CreateBackupResponse where
   rnf CreateBackupResponse' {..} =
-    Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backup `Prelude.seq`
+      Prelude.rnf httpStatus

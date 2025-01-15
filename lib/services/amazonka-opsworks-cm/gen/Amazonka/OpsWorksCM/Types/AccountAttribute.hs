@@ -115,6 +115,6 @@ instance Prelude.Hashable AccountAttribute where
 
 instance Prelude.NFData AccountAttribute where
   rnf AccountAttribute' {..} =
-    Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf used
+    Prelude.rnf maximum `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf used

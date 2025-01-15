@@ -103,7 +103,7 @@ instance Prelude.Hashable ServerEvent where
 
 instance Prelude.NFData ServerEvent where
   rnf ServerEvent' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf logUrl
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf logUrl `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf serverName

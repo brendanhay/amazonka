@@ -198,9 +198,9 @@ instance Prelude.Hashable ExportServerEngineAttribute where
 
 instance Prelude.NFData ExportServerEngineAttribute where
   rnf ExportServerEngineAttribute' {..} =
-    Prelude.rnf inputAttributes
-      `Prelude.seq` Prelude.rnf exportAttributeName
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf inputAttributes `Prelude.seq`
+      Prelude.rnf exportAttributeName `Prelude.seq`
+        Prelude.rnf serverName
 
 instance Data.ToHeaders ExportServerEngineAttribute where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     ExportServerEngineAttributeResponse
   where
   rnf ExportServerEngineAttributeResponse' {..} =
-    Prelude.rnf engineAttribute
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf engineAttribute `Prelude.seq`
+      Prelude.rnf serverName `Prelude.seq`
+        Prelude.rnf httpStatus

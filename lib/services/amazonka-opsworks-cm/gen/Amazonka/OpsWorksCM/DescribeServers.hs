@@ -120,12 +120,12 @@ instance Core.AWSPager DescribeServers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeServers_nextToken
-          Lens..~ rs
-          Lens.^? describeServersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeServers_nextToken
+              Lens..~ rs
+              Lens.^? describeServersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServers where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable DescribeServers where
 
 instance Prelude.NFData DescribeServers where
   rnf DescribeServers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverName
 
 instance Data.ToHeaders DescribeServers where
   toHeaders =
@@ -296,6 +296,6 @@ describeServersResponse_httpStatus = Lens.lens (\DescribeServersResponse' {httpS
 
 instance Prelude.NFData DescribeServersResponse where
   rnf DescribeServersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf servers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf servers `Prelude.seq`
+        Prelude.rnf httpStatus

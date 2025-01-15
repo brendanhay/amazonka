@@ -139,9 +139,9 @@ instance
 
 instance Prelude.NFData UpdateServerEngineAttributes where
   rnf UpdateServerEngineAttributes' {..} =
-    Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeValue `Prelude.seq`
+      Prelude.rnf serverName `Prelude.seq`
+        Prelude.rnf attributeName
 
 instance Data.ToHeaders UpdateServerEngineAttributes where
   toHeaders =
@@ -220,5 +220,5 @@ instance
     UpdateServerEngineAttributesResponse
   where
   rnf UpdateServerEngineAttributesResponse' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeBackups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBackups_nextToken
-          Lens..~ rs
-          Lens.^? describeBackupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBackups_nextToken
+              Lens..~ rs
+              Lens.^? describeBackupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBackups where
   type
@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeBackups where
 
 instance Prelude.NFData DescribeBackups where
   rnf DescribeBackups' {..} =
-    Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf backupId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serverName
 
 instance Data.ToHeaders DescribeBackups where
   toHeaders =
@@ -248,6 +248,6 @@ describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpS
 
 instance Prelude.NFData DescribeBackupsResponse where
   rnf DescribeBackupsResponse' {..} =
-    Prelude.rnf backups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

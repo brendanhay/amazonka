@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude

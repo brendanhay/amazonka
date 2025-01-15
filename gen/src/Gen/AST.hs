@@ -47,7 +47,7 @@ rewrite _version' _config' s' = do
             Lit {} -> []
 
       -- A 'Lens.Fold' over any type names that 't' will have to import.
-      importedTypes :: TypeOf t => Lens.Fold t Text
+      importedTypes :: (TypeOf t) => Lens.Fold t Text
       importedTypes = Lens.to (typeNames . typeOf) . traverse
         where
           typeNames = \case
@@ -61,12 +61,12 @@ rewrite _version' _config' s' = do
             TList1 t -> typeNames t
             TMap k v -> typeNames k ++ typeNames v
 
-      -- Compute cuts that we will need to turn into @{-# SOURCE #-}@ imports.
-      -- Ignore cuts from a type to itself; they don't cause circular imports.
-      _cuts' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
+      -- Compute imports for which we need to use @{-# SOURCE #-}@ pragmas.
+      -- Ignore imports from a type to itself; they don't cause circular imports.
+      _sourceImports' = Set.filter (uncurry (/=)) $ breakLoops edges nodes
 
   _instance' <- serviceData (_service' ^. metadata) (_service' ^. retry)
-  pure $ Library {_version', _config', _service', _cuts', _instance'}
+  pure $ Library {_version', _config', _service', _sourceImports', _instance'}
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
@@ -137,7 +137,7 @@ type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either S
 -- /Note:/ This currently doesn't operate over the free AST, since it's also
 -- used by 'setDefaults'.
 relations ::
-  Show a =>
+  (Show a) =>
   HashMap Id (Operation Maybe (RefF b) c) ->
   HashMap Id (ShapeF a) ->
   Either String (HashMap Id Relation)
@@ -186,7 +186,7 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
 
 -- FIXME: Necessary to update the Relation?
 solve ::
-  Traversable t =>
+  (Traversable t) =>
   Config ->
   t (Shape Prefixed) ->
   t (Shape Solved)
@@ -231,7 +231,7 @@ separate os = State.runStateT (traverse go os)
             _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
           }
 
-    remove :: HasRelation a => Direction -> Id -> MemoS a a
+    remove :: (HasRelation a) => Direction -> Id -> MemoS a a
     remove d n = do
       s <- State.get
 
@@ -251,7 +251,7 @@ separate os = State.runStateT (traverse go os)
 
 breakLoops ::
   forall node.
-  Ord node =>
+  (Ord node) =>
   -- | Edge relation
   (node -> [node]) ->
   -- | Set of nodes to explore from

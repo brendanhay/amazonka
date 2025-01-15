@@ -52,6 +52,7 @@ module Amazonka.DynamoDB.Types
 
     -- * Re-exported Types
     module Amazonka.DynamoDB.Types.AttributeValue,
+    module Amazonka.DynamoDB.Types.TransactWriteItem,
     module Amazonka.DynamoDB.Types.WriteRequest,
 
     -- * AttributeAction
@@ -912,14 +913,6 @@ module Amazonka.DynamoDB.Types
     TransactGetItem (..),
     newTransactGetItem,
     transactGetItem_get,
-
-    -- * TransactWriteItem
-    TransactWriteItem (..),
-    newTransactWriteItem,
-    transactWriteItem_conditionCheck,
-    transactWriteItem_delete,
-    transactWriteItem_put,
-    transactWriteItem_update,
 
     -- * Update
     Update (..),

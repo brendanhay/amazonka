@@ -30,6 +30,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

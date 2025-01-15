@@ -92,7 +92,12 @@ data Config = Config
     _typeOverrides :: HashMap Id Override,
     _ignoredWaiters :: HashSet Id,
     _ignoredPaginators :: HashSet Id,
-    _extraDependencies :: [Text]
+    _extraDependencies :: [Text],
+    -- | Additional shape names for which we need to generate
+    -- @.hs-boot@ files. Handy when defining @typeModules@ that need
+    -- to import generated shapes (e.g., DynamoDB's
+    -- @TransactWriteItem@).
+    _extraBootShapes :: [Text]
   }
 
 $(Lens.makeClassy ''Config)
@@ -109,15 +114,16 @@ instance FromJSON Config where
         <*> o .:? "ignoredWaiters" .!= mempty
         <*> o .:? "ignoredPaginators" .!= mempty
         <*> o .:? "extraDependencies" .!= mempty
+        <*> o .:? "extraBootShapes" .!= mempty
 
 data Library = Library
   { _version' :: Version,
     _config' :: Config,
     _service' :: Service Identity SData SData WData,
-    -- | @(x, y)@ in cuts' means that:
+    -- | @(x, y)@ in sourceImports' means that:
     -- * The module for @x@ should @import {-# SOURCE #-} y@, and
     -- * We should generate a @.hs-boot@ for @y@.
-    _cuts' :: Set (Text, Text),
+    _sourceImports' :: Set (Text, Text),
     _instance' :: Fun
   }
 
@@ -154,6 +160,7 @@ instance ToJSON Library where
             "exposedModules" .= List.sort (l ^. exposedModules),
             "otherModules" .= List.sort (l ^. otherModules),
             "extraDependencies" .= List.sort (l ^. extraDependencies),
+            "extraBootShapes" .= List.sort (l ^. extraBootShapes),
             "operations"
               .= List.sortOn _opName (l ^.. operations . Lens.each),
             "shapes" .= List.sort (l ^.. shapes . Lens.each),

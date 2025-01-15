@@ -27,6 +27,7 @@ import Amazonka.DynamoDB.Types.IndexStatus
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
 import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
+import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 

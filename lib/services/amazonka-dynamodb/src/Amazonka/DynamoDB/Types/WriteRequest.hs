@@ -41,7 +41,7 @@ import qualified  Data.HashMap.Strict as KeyMap
 -- need to provide two separate @WriteRequest@ objects.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_WriteRequest.html WriteRequest>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html BatchWriteItem>
 -- in the /Amazon DynamoDB Developer Guide/.
 data WriteRequest
   = -- | A request to perform a @DeleteItem@ operation.
@@ -82,5 +82,5 @@ instance ToJSON WriteRequest where
 
   toEncoding =
     pairs . \case
-      DeleteRequest key -> "DeleteRequest" .= (object ["Key" .= key])
-      PutRequest item -> "PutRequest" .= (object ["Item" .= item])
+      DeleteRequest key -> "DeleteRequest" .= object ["Key" .= key]
+      PutRequest item -> "PutRequest" .= object ["Item" .= item]

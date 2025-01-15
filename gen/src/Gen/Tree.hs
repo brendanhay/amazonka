@@ -25,7 +25,7 @@ import Text.EDE (Template)
 import qualified Text.EDE as EDE
 
 fold ::
-  MonadFail m =>
+  (MonadFail m) =>
   -- | Directories
   (FilePath -> m ()) ->
   -- | Files
@@ -122,18 +122,20 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
       where
         template = case s of
           Prod _ p _
-            | _prodName p `elem` Set.map snd (l ^. cuts') ->
-              Just bootProductTemplate
+            | _prodName p `elem` Set.map snd (l ^. sourceImports') ->
+                Just bootProductTemplate
+            | _prodName p `elem` (l ^. extraBootShapes) ->
+                Just bootProductTemplate
           _ -> Nothing
 
     fixture :: Operation Identity SData a -> [DirTree (Either String Touch)]
     fixture o =
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
-            fromPairs
-              [ "method" .= (o ^. opHttp . method),
-                "endpointPrefix" .= (l ^. endpointPrefix)
-              ]
+          fromPairs
+            [ "method" .= (o ^. opHttp . method),
+              "endpointPrefix" .= (l ^. endpointPrefix)
+            ]
       ]
       where
         n = typeId (_opName o)
@@ -213,7 +215,7 @@ data Module a = Module
     env :: Either String a
   }
 
-module' :: ToJSON a => Module a -> DirTree (Either String Rendered)
+module' :: (ToJSON a) => Module a -> DirTree (Either String Rendered)
 module' Module {..} =
   render (FilePath.takeFileName (nsToPath name)) template $ do
     x <- env >>= JSON.objectErr (show name)
@@ -227,7 +229,7 @@ module' Module {..} =
         "templateName" .= templateName name
       ]
 
-bootModule' :: ToJSON a => Module a -> DirTree (Either String Rendered)
+bootModule' :: (ToJSON a) => Module a -> DirTree (Either String Rendered)
 bootModule' Module {..} =
   render (FilePath.takeFileName (nsToPath name) <> "-boot") template $ do
     x <- env >>= JSON.objectErr (show name)
@@ -242,7 +244,7 @@ bootModule' Module {..} =
       ]
 
 render ::
-  ToJSON a =>
+  (ToJSON a) =>
   FilePath ->
   Template ->
   Either String a ->
@@ -253,10 +255,10 @@ render p tmpl a =
 touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
   File (Text.unpack f) $
-     bimap id Left (EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env))
+    bimap id Left (EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env))
 
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)
 
-fromPairs :: [Aeson.Types.Pair]  -> Aeson.Types.Object
+fromPairs :: [Aeson.Types.Pair] -> Aeson.Types.Object
 fromPairs = Aeson.KeyMap.fromHashMapText . EDE.fromPairs

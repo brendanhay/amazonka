@@ -11,23 +11,23 @@ import Gen.Types
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l _o =
   Set.toAscList . Set.fromList $
-    "qualified Amazonka.Request as Request" :
-    "qualified Amazonka.Response as Response" :
-    "qualified Amazonka.Core as Core" :
-    "qualified Amazonka.Core.Lens.Internal as Lens" :
-    "qualified Amazonka.Data as Data" :
-    "qualified Amazonka.Prelude as Prelude" :
-    l ^. typesNS :
-    l ^. operationModules
+    "qualified Amazonka.Request as Request"
+      : "qualified Amazonka.Response as Response"
+      : "qualified Amazonka.Core as Core"
+      : "qualified Amazonka.Core.Lens.Internal as Lens"
+      : "qualified Amazonka.Data as Data"
+      : "qualified Amazonka.Prelude as Prelude"
+      : l ^. typesNS
+      : l ^. operationModules
 
 typeImports :: Library -> [NS]
 typeImports l =
   List.sort $
-    "qualified Amazonka.Core as Core" :
-    "qualified Amazonka.Core.Lens.Internal as Lens" :
-    "qualified Amazonka.Prelude as Prelude" :
-    signatureImport (l ^. signatureVersion) :
-    l ^. typeModules
+    "qualified Amazonka.Core as Core"
+      : "qualified Amazonka.Core.Lens.Internal as Lens"
+      : "qualified Amazonka.Prelude as Prelude"
+      : signatureImport (l ^. signatureVersion)
+      : l ^. typeModules
 
 lensImports :: Library -> [NS]
 lensImports l =
@@ -36,26 +36,27 @@ lensImports l =
 sumImports :: Library -> [NS]
 sumImports l =
   List.sort $
-    "qualified Amazonka.Core as Core" :
-    "qualified Amazonka.Data as Data" :
-    "qualified Amazonka.Prelude as Prelude" :
-    l ^. typeModules
+    "qualified Amazonka.Core as Core"
+      : "qualified Amazonka.Data as Data"
+      : "qualified Amazonka.Prelude as Prelude"
+      : l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   List.sort $
-    "qualified Amazonka.Core as Core" :
-    "qualified Amazonka.Core.Lens.Internal as Lens" :
-    "qualified Amazonka.Data as Data" :
-    "qualified Amazonka.Prelude as Prelude" :
-    l ^. typeModules ++ productDependencies l p
+    "qualified Amazonka.Core as Core"
+      : "qualified Amazonka.Core.Lens.Internal as Lens"
+      : "qualified Amazonka.Data as Data"
+      : "qualified Amazonka.Prelude as Prelude"
+      : l ^. typeModules
+      ++ productDependencies l p
 
 productDependencies :: Library -> Prod -> [NS]
 productDependencies l p =
   Set.toList (Set.map buildImport moduleDependencies)
   where
     buildImport t
-      | (_prodName p, t) `elem` (l ^. cuts') = addSource t'
+      | (_prodName p, t) `elem` (l ^. sourceImports') = addSource t'
       | otherwise = t'
       where
         t' = l ^. typesNS <> mkNS t
@@ -73,13 +74,13 @@ productDependencies l p =
 waiterImports :: Library -> [NS]
 waiterImports l =
   List.sort $
-    "qualified Amazonka.Core as Core" :
-    "qualified Amazonka.Core.Lens.Internal as Lens" :
-    "qualified Amazonka.Data as Data" :
-    "qualified Amazonka.Prelude as Prelude" :
-    l ^. typesNS :
-    l ^. lensNS :
-    map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
+    "qualified Amazonka.Core as Core"
+      : "qualified Amazonka.Core.Lens.Internal as Lens"
+      : "qualified Amazonka.Data as Data"
+      : "qualified Amazonka.Prelude as Prelude"
+      : l ^. typesNS
+      : l ^. lensNS
+      : map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
   where
     ns = l ^. libraryNS
 

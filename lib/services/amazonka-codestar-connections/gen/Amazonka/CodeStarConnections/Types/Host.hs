@@ -159,10 +159,10 @@ instance Prelude.Hashable Host where
 
 instance Prelude.NFData Host where
   rnf Host' {..} =
-    Prelude.rnf hostArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf providerEndpoint
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf hostArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf providerEndpoint `Prelude.seq`
+          Prelude.rnf providerType `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf vpcConfiguration

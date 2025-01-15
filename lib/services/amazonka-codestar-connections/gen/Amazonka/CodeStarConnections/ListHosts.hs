@@ -115,8 +115,8 @@ instance Prelude.Hashable ListHosts where
 
 instance Prelude.NFData ListHosts where
   rnf ListHosts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHosts where
   toHeaders =
@@ -206,6 +206,6 @@ listHostsResponse_httpStatus = Lens.lens (\ListHostsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListHostsResponse where
   rnf ListHostsResponse' {..} =
-    Prelude.rnf hosts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hosts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

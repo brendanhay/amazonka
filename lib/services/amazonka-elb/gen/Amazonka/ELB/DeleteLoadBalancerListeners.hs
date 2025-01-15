@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteLoadBalancerListeners where
 
 instance Prelude.NFData DeleteLoadBalancerListeners where
   rnf DeleteLoadBalancerListeners' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf loadBalancerPorts
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf loadBalancerPorts
 
 instance Data.ToHeaders DeleteLoadBalancerListeners where
   toHeaders = Prelude.const Prelude.mempty

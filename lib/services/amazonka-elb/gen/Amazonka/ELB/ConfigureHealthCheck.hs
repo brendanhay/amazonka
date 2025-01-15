@@ -121,8 +121,8 @@ instance Prelude.Hashable ConfigureHealthCheck where
 
 instance Prelude.NFData ConfigureHealthCheck where
   rnf ConfigureHealthCheck' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf healthCheck
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf healthCheck
 
 instance Data.ToHeaders ConfigureHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,5 +184,5 @@ configureHealthCheckResponse_httpStatus = Lens.lens (\ConfigureHealthCheckRespon
 
 instance Prelude.NFData ConfigureHealthCheckResponse where
   rnf ConfigureHealthCheckResponse' {..} =
-    Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf healthCheck `Prelude.seq`
+      Prelude.rnf httpStatus

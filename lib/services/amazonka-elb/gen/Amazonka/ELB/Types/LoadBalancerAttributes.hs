@@ -192,11 +192,11 @@ instance Prelude.Hashable LoadBalancerAttributes where
 
 instance Prelude.NFData LoadBalancerAttributes where
   rnf LoadBalancerAttributes' {..} =
-    Prelude.rnf accessLog
-      `Prelude.seq` Prelude.rnf additionalAttributes
-      `Prelude.seq` Prelude.rnf connectionDraining
-      `Prelude.seq` Prelude.rnf connectionSettings
-      `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
+    Prelude.rnf accessLog `Prelude.seq`
+      Prelude.rnf additionalAttributes `Prelude.seq`
+        Prelude.rnf connectionDraining `Prelude.seq`
+          Prelude.rnf connectionSettings `Prelude.seq`
+            Prelude.rnf crossZoneLoadBalancing
 
 instance Data.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =

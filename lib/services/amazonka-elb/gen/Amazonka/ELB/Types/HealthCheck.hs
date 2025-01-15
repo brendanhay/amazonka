@@ -194,11 +194,11 @@ instance Prelude.Hashable HealthCheck where
 
 instance Prelude.NFData HealthCheck where
   rnf HealthCheck' {..} =
-    Prelude.rnf target
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
-      `Prelude.seq` Prelude.rnf healthyThreshold
+    Prelude.rnf target `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf timeout `Prelude.seq`
+          Prelude.rnf unhealthyThreshold `Prelude.seq`
+            Prelude.rnf healthyThreshold
 
 instance Data.ToQuery HealthCheck where
   toQuery HealthCheck' {..} =

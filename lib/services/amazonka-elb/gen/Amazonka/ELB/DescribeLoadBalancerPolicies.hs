@@ -125,8 +125,8 @@ instance
 
 instance Prelude.NFData DescribeLoadBalancerPolicies where
   rnf DescribeLoadBalancerPolicies' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf policyNames
 
 instance Data.ToHeaders DescribeLoadBalancerPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ instance
     DescribeLoadBalancerPoliciesResponse
   where
   rnf DescribeLoadBalancerPoliciesResponse' {..} =
-    Prelude.rnf policyDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyDescriptions `Prelude.seq`
+      Prelude.rnf httpStatus

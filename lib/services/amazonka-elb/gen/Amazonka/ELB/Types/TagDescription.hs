@@ -68,9 +68,7 @@ instance Data.FromXML TagDescription where
   parseXML x =
     TagDescription'
       Prelude.<$> (x Data..@? "LoadBalancerName")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "member")
                   )
 
@@ -82,5 +80,5 @@ instance Prelude.Hashable TagDescription where
 
 instance Prelude.NFData TagDescription where
   rnf TagDescription' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf tags

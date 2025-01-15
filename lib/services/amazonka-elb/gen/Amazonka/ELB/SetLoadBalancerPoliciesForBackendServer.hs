@@ -159,9 +159,9 @@ instance
     SetLoadBalancerPoliciesForBackendServer
   where
   rnf SetLoadBalancerPoliciesForBackendServer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instancePort
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf instancePort `Prelude.seq`
+        Prelude.rnf policyNames
 
 instance
   Data.ToHeaders

@@ -201,5 +201,5 @@ instance
     DescribeLoadBalancerPolicyTypesResponse
   where
   rnf DescribeLoadBalancerPolicyTypesResponse' {..} =
-    Prelude.rnf policyTypeDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyTypeDescriptions `Prelude.seq`
+      Prelude.rnf httpStatus

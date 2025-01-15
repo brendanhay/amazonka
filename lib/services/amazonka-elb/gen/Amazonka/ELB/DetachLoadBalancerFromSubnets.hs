@@ -109,9 +109,7 @@ instance
       "DetachLoadBalancerFromSubnetsResult"
       ( \s h x ->
           DetachLoadBalancerFromSubnetsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Subnets"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,8 +126,8 @@ instance
 
 instance Prelude.NFData DetachLoadBalancerFromSubnets where
   rnf DetachLoadBalancerFromSubnets' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToHeaders DetachLoadBalancerFromSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +194,5 @@ instance
     DetachLoadBalancerFromSubnetsResponse
   where
   rnf DetachLoadBalancerFromSubnetsResponse' {..} =
-    Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subnets `Prelude.seq`
+      Prelude.rnf httpStatus

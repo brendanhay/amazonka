@@ -139,8 +139,8 @@ instance
 
 instance Prelude.NFData ModifyLoadBalancerAttributes where
   rnf ModifyLoadBalancerAttributes' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf loadBalancerAttributes
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf loadBalancerAttributes
 
 instance Data.ToHeaders ModifyLoadBalancerAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,6 +217,6 @@ instance
     ModifyLoadBalancerAttributesResponse
   where
   rnf ModifyLoadBalancerAttributesResponse' {..} =
-    Prelude.rnf loadBalancerAttributes
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancerAttributes `Prelude.seq`
+      Prelude.rnf loadBalancerName `Prelude.seq`
+        Prelude.rnf httpStatus

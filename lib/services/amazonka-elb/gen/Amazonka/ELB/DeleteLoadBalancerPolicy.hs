@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteLoadBalancerPolicy where
 
 instance Prelude.NFData DeleteLoadBalancerPolicy where
   rnf DeleteLoadBalancerPolicy' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders DeleteLoadBalancerPolicy where
   toHeaders = Prelude.const Prelude.mempty

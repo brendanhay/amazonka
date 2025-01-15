@@ -116,10 +116,10 @@ instance Prelude.Hashable AccessLog where
 
 instance Prelude.NFData AccessLog where
   rnf AccessLog' {..} =
-    Prelude.rnf emitInterval
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3BucketPrefix
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf emitInterval `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf s3BucketPrefix `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToQuery AccessLog where
   toQuery AccessLog' {..} =

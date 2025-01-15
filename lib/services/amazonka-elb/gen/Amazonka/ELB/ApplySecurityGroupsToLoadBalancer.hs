@@ -113,9 +113,7 @@ instance
       "ApplySecurityGroupsToLoadBalancerResult"
       ( \s h x ->
           ApplySecurityGroupsToLoadBalancerResponse'
-            Prelude.<$> ( x
-                            Data..@? "SecurityGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,8 +135,8 @@ instance
     ApplySecurityGroupsToLoadBalancer
   where
   rnf ApplySecurityGroupsToLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf securityGroups
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf securityGroups
 
 instance
   Data.ToHeaders
@@ -216,5 +214,5 @@ instance
     ApplySecurityGroupsToLoadBalancerResponse
   where
   rnf ApplySecurityGroupsToLoadBalancerResponse' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf httpStatus

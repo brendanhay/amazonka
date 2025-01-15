@@ -153,9 +153,9 @@ instance
     SetLoadBalancerPoliciesOfListener
   where
   rnf SetLoadBalancerPoliciesOfListener' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf loadBalancerPort
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf loadBalancerPort `Prelude.seq`
+        Prelude.rnf policyNames
 
 instance
   Data.ToHeaders

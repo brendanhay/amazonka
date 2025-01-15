@@ -109,9 +109,7 @@ instance Core.AWSRequest AttachLoadBalancerToSubnets where
       "AttachLoadBalancerToSubnetsResult"
       ( \s h x ->
           AttachLoadBalancerToSubnetsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Subnets"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,8 +123,8 @@ instance Prelude.Hashable AttachLoadBalancerToSubnets where
 
 instance Prelude.NFData AttachLoadBalancerToSubnets where
   rnf AttachLoadBalancerToSubnets' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToHeaders AttachLoadBalancerToSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +191,5 @@ instance
     AttachLoadBalancerToSubnetsResponse
   where
   rnf AttachLoadBalancerToSubnetsResponse' {..} =
-    Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subnets `Prelude.seq`
+      Prelude.rnf httpStatus

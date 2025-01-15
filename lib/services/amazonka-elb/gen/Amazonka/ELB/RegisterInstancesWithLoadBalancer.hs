@@ -129,9 +129,7 @@ instance
       "RegisterInstancesWithLoadBalancerResult"
       ( \s h x ->
           RegisterInstancesWithLoadBalancerResponse'
-            Prelude.<$> ( x
-                            Data..@? "Instances"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,8 +151,8 @@ instance
     RegisterInstancesWithLoadBalancer
   where
   rnf RegisterInstancesWithLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf instances
 
 instance
   Data.ToHeaders
@@ -232,5 +230,5 @@ instance
     RegisterInstancesWithLoadBalancerResponse
   where
   rnf RegisterInstancesWithLoadBalancerResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf httpStatus

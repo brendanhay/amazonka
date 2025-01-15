@@ -77,5 +77,5 @@ instance Prelude.Hashable SourceSecurityGroup where
 
 instance Prelude.NFData SourceSecurityGroup where
   rnf SourceSecurityGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf ownerAlias
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf ownerAlias

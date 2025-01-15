@@ -189,7 +189,7 @@ instance Prelude.Hashable InstanceState where
 
 instance Prelude.NFData InstanceState where
   rnf InstanceState' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf reasonCode
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf reasonCode `Prelude.seq`
+          Prelude.rnf state

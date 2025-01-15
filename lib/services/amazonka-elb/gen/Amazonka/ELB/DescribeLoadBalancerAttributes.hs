@@ -181,5 +181,5 @@ instance
     DescribeLoadBalancerAttributesResponse
   where
   rnf DescribeLoadBalancerAttributesResponse' {..} =
-    Prelude.rnf loadBalancerAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancerAttributes `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -272,13 +272,13 @@ instance Prelude.Hashable CreateLoadBalancer where
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf scheme `Prelude.seq`
+        Prelude.rnf securityGroups `Prelude.seq`
+          Prelude.rnf subnets `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf loadBalancerName `Prelude.seq`
+                Prelude.rnf listeners
 
 instance Data.ToHeaders CreateLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
@@ -358,5 +358,5 @@ createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' 
 
 instance Prelude.NFData CreateLoadBalancerResponse where
   rnf CreateLoadBalancerResponse' {..} =
-    Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dNSName `Prelude.seq`
+      Prelude.rnf httpStatus

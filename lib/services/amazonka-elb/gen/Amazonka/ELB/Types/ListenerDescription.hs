@@ -68,9 +68,7 @@ instance Data.FromXML ListenerDescription where
   parseXML x =
     ListenerDescription'
       Prelude.<$> (x Data..@? "Listener")
-      Prelude.<*> ( x
-                      Data..@? "PolicyNames"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -82,5 +80,5 @@ instance Prelude.Hashable ListenerDescription where
 
 instance Prelude.NFData ListenerDescription where
   rnf ListenerDescription' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf policyNames

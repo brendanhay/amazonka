@@ -149,8 +149,8 @@ instance
     PolicyAttributeTypeDescription
   where
   rnf PolicyAttributeTypeDescription' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf cardinality
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeType `Prelude.seq`
+        Prelude.rnf cardinality `Prelude.seq`
+          Prelude.rnf defaultValue `Prelude.seq`
+            Prelude.rnf description

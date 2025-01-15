@@ -104,8 +104,8 @@ instance Prelude.Hashable UntagQueue where
 
 instance Prelude.NFData UntagQueue where
   rnf UntagQueue' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagQueue where
   toHeaders = Prelude.const Prelude.mempty

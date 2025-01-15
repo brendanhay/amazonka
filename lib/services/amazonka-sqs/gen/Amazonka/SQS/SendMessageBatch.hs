@@ -151,8 +151,8 @@ instance Prelude.Hashable SendMessageBatch where
 
 instance Prelude.NFData SendMessageBatch where
   rnf SendMessageBatch' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders SendMessageBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,6 +230,6 @@ sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed}
 
 instance Prelude.NFData SendMessageBatchResponse where
   rnf SendMessageBatchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf failed
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf failed

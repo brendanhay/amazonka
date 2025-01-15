@@ -443,13 +443,13 @@ instance
 
 instance Prelude.NFData SendMessageBatchRequestEntry where
   rnf SendMessageBatchRequestEntry' {..} =
-    Prelude.rnf delaySeconds
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf messageSystemAttributes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf delaySeconds `Prelude.seq`
+      Prelude.rnf messageAttributes `Prelude.seq`
+        Prelude.rnf messageDeduplicationId `Prelude.seq`
+          Prelude.rnf messageGroupId `Prelude.seq`
+            Prelude.rnf messageSystemAttributes `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf messageBody
 
 instance Data.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =

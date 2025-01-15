@@ -185,9 +185,9 @@ instance Prelude.Hashable SendMessageBatchResultEntry where
 
 instance Prelude.NFData SendMessageBatchResultEntry where
   rnf SendMessageBatchResultEntry' {..} =
-    Prelude.rnf mD5OfMessageAttributes
-      `Prelude.seq` Prelude.rnf mD5OfMessageSystemAttributes
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf mD5OfMessageBody
+    Prelude.rnf mD5OfMessageAttributes `Prelude.seq`
+      Prelude.rnf mD5OfMessageSystemAttributes `Prelude.seq`
+        Prelude.rnf sequenceNumber `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf messageId `Prelude.seq`
+              Prelude.rnf mD5OfMessageBody

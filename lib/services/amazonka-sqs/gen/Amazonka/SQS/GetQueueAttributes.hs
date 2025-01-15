@@ -548,8 +548,8 @@ instance Prelude.Hashable GetQueueAttributes where
 
 instance Prelude.NFData GetQueueAttributes where
   rnf GetQueueAttributes' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf queueUrl
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf queueUrl
 
 instance Data.ToHeaders GetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -614,5 +614,5 @@ getQueueAttributesResponse_httpStatus = Lens.lens (\GetQueueAttributesResponse' 
 
 instance Prelude.NFData GetQueueAttributesResponse where
   rnf GetQueueAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

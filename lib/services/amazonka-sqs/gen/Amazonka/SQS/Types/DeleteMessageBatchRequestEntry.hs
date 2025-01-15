@@ -102,8 +102,8 @@ instance
     DeleteMessageBatchRequestEntry
   where
   rnf DeleteMessageBatchRequestEntry' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf receiptHandle
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf receiptHandle
 
 instance Data.ToQuery DeleteMessageBatchRequestEntry where
   toQuery DeleteMessageBatchRequestEntry' {..} =

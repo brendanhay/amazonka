@@ -189,9 +189,9 @@ instance Prelude.Hashable ChangeMessageVisibility where
 
 instance Prelude.NFData ChangeMessageVisibility where
   rnf ChangeMessageVisibility' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf receiptHandle
-      `Prelude.seq` Prelude.rnf visibilityTimeout
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf receiptHandle `Prelude.seq`
+        Prelude.rnf visibilityTimeout
 
 instance Data.ToHeaders ChangeMessageVisibility where
   toHeaders = Prelude.const Prelude.mempty

@@ -624,13 +624,13 @@ instance Prelude.Hashable ReceiveMessage where
 
 instance Prelude.NFData ReceiveMessage where
   rnf ReceiveMessage' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf maxNumberOfMessages
-      `Prelude.seq` Prelude.rnf messageAttributeNames
-      `Prelude.seq` Prelude.rnf receiveRequestAttemptId
-      `Prelude.seq` Prelude.rnf visibilityTimeout
-      `Prelude.seq` Prelude.rnf waitTimeSeconds
-      `Prelude.seq` Prelude.rnf queueUrl
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf maxNumberOfMessages `Prelude.seq`
+        Prelude.rnf messageAttributeNames `Prelude.seq`
+          Prelude.rnf receiveRequestAttemptId `Prelude.seq`
+            Prelude.rnf visibilityTimeout `Prelude.seq`
+              Prelude.rnf waitTimeSeconds `Prelude.seq`
+                Prelude.rnf queueUrl
 
 instance Data.ToHeaders ReceiveMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -703,5 +703,5 @@ receiveMessageResponse_httpStatus = Lens.lens (\ReceiveMessageResponse' {httpSta
 
 instance Prelude.NFData ReceiveMessageResponse where
   rnf ReceiveMessageResponse' {..} =
-    Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messages `Prelude.seq`
+      Prelude.rnf httpStatus

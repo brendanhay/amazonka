@@ -133,8 +133,8 @@ instance Prelude.Hashable DeleteMessageBatch where
 
 instance Prelude.NFData DeleteMessageBatch where
   rnf DeleteMessageBatch' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders DeleteMessageBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,6 +209,6 @@ deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {fai
 
 instance Prelude.NFData DeleteMessageBatchResponse where
   rnf DeleteMessageBatchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf failed
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf failed

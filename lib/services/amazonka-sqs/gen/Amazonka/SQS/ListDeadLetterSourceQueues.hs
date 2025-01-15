@@ -142,12 +142,12 @@ instance Core.AWSPager ListDeadLetterSourceQueues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeadLetterSourceQueues_nextToken
-          Lens..~ rs
-          Lens.^? listDeadLetterSourceQueuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeadLetterSourceQueues_nextToken
+              Lens..~ rs
+              Lens.^? listDeadLetterSourceQueuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeadLetterSourceQueues where
   type
@@ -174,9 +174,9 @@ instance Prelude.Hashable ListDeadLetterSourceQueues where
 
 instance Prelude.NFData ListDeadLetterSourceQueues where
   rnf ListDeadLetterSourceQueues' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queueUrl
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf queueUrl
 
 instance Data.ToHeaders ListDeadLetterSourceQueues where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,6 +260,6 @@ instance
     ListDeadLetterSourceQueuesResponse
   where
   rnf ListDeadLetterSourceQueuesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queueUrls
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf queueUrls

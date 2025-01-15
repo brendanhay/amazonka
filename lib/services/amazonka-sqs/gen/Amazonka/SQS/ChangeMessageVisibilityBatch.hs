@@ -145,8 +145,8 @@ instance
 
 instance Prelude.NFData ChangeMessageVisibilityBatch where
   rnf ChangeMessageVisibilityBatch' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders ChangeMessageVisibilityBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,6 +226,6 @@ instance
     ChangeMessageVisibilityBatchResponse
   where
   rnf ChangeMessageVisibilityBatchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf failed
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf failed

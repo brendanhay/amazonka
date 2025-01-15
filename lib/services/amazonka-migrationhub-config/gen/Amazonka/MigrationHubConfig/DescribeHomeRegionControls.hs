@@ -160,11 +160,11 @@ instance Prelude.Hashable DescribeHomeRegionControls where
 
 instance Prelude.NFData DescribeHomeRegionControls where
   rnf DescribeHomeRegionControls' {..} =
-    Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf controlId `Prelude.seq`
+      Prelude.rnf homeRegion `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf target
 
 instance Data.ToHeaders DescribeHomeRegionControls where
   toHeaders =
@@ -258,6 +258,6 @@ instance
     DescribeHomeRegionControlsResponse
   where
   rnf DescribeHomeRegionControlsResponse' {..} =
-    Prelude.rnf homeRegionControls
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf homeRegionControls `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

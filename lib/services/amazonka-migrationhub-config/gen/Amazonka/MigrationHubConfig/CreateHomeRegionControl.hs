@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateHomeRegionControl where
 
 instance Prelude.NFData CreateHomeRegionControl where
   rnf CreateHomeRegionControl' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf homeRegion `Prelude.seq`
+        Prelude.rnf target
 
 instance Data.ToHeaders CreateHomeRegionControl where
   toHeaders =
@@ -209,5 +209,5 @@ instance
     CreateHomeRegionControlResponse
   where
   rnf CreateHomeRegionControlResponse' {..} =
-    Prelude.rnf homeRegionControl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf homeRegionControl `Prelude.seq`
+      Prelude.rnf httpStatus

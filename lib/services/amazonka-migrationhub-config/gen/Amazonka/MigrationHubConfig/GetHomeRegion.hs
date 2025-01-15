@@ -149,5 +149,5 @@ getHomeRegionResponse_httpStatus = Lens.lens (\GetHomeRegionResponse' {httpStatu
 
 instance Prelude.NFData GetHomeRegionResponse where
   rnf GetHomeRegionResponse' {..} =
-    Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf homeRegion `Prelude.seq`
+      Prelude.rnf httpStatus

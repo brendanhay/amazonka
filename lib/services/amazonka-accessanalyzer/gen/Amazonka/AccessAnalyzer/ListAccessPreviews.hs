@@ -119,12 +119,12 @@ instance Core.AWSPager ListAccessPreviews where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccessPreviews_nextToken
-          Lens..~ rs
-          Lens.^? listAccessPreviewsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccessPreviews_nextToken
+              Lens..~ rs
+              Lens.^? listAccessPreviewsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessPreviews where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListAccessPreviews where
 
 instance Prelude.NFData ListAccessPreviews where
   rnf ListAccessPreviews' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf analyzerArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf analyzerArn
 
 instance Data.ToHeaders ListAccessPreviews where
   toHeaders =
@@ -229,6 +229,6 @@ listAccessPreviewsResponse_accessPreviews = Lens.lens (\ListAccessPreviewsRespon
 
 instance Prelude.NFData ListAccessPreviewsResponse where
   rnf ListAccessPreviewsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPreviews
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accessPreviews

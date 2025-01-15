@@ -103,7 +103,7 @@ instance Prelude.Hashable PathElement where
 
 instance Prelude.NFData PathElement where
   rnf PathElement' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf substring
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf substring `Prelude.seq`
+          Prelude.rnf value

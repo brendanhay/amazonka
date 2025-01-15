@@ -104,6 +104,6 @@ instance Prelude.Hashable GeneratedPolicyProperties where
 
 instance Prelude.NFData GeneratedPolicyProperties where
   rnf GeneratedPolicyProperties' {..} =
-    Prelude.rnf cloudTrailProperties
-      `Prelude.seq` Prelude.rnf isComplete
-      `Prelude.seq` Prelude.rnf principalArn
+    Prelude.rnf cloudTrailProperties `Prelude.seq`
+      Prelude.rnf isComplete `Prelude.seq`
+        Prelude.rnf principalArn

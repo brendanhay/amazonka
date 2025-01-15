@@ -150,9 +150,9 @@ instance Prelude.Hashable StartPolicyGeneration where
 
 instance Prelude.NFData StartPolicyGeneration where
   rnf StartPolicyGeneration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf cloudTrailDetails
-      `Prelude.seq` Prelude.rnf policyGenerationDetails
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf cloudTrailDetails `Prelude.seq`
+        Prelude.rnf policyGenerationDetails
 
 instance Data.ToHeaders StartPolicyGeneration where
   toHeaders =
@@ -237,5 +237,5 @@ startPolicyGenerationResponse_jobId = Lens.lens (\StartPolicyGenerationResponse'
 
 instance Prelude.NFData StartPolicyGenerationResponse where
   rnf StartPolicyGenerationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId

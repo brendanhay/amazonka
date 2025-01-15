@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateArchiveRule where
 
 instance Prelude.NFData UpdateArchiveRule where
   rnf UpdateArchiveRule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf analyzerName `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf filter'
 
 instance Data.ToHeaders UpdateArchiveRule where
   toHeaders =

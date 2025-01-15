@@ -113,8 +113,8 @@ instance
     S3PublicAccessBlockConfiguration
   where
   rnf S3PublicAccessBlockConfiguration' {..} =
-    Prelude.rnf ignorePublicAcls
-      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+    Prelude.rnf ignorePublicAcls `Prelude.seq`
+      Prelude.rnf restrictPublicBuckets
 
 instance Data.ToJSON S3PublicAccessBlockConfiguration where
   toJSON S3PublicAccessBlockConfiguration' {..} =

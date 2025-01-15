@@ -118,8 +118,8 @@ instance Prelude.Hashable GetAnalyzedResource where
 
 instance Prelude.NFData GetAnalyzedResource where
   rnf GetAnalyzedResource' {..} =
-    Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf analyzerArn `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders GetAnalyzedResource where
   toHeaders =
@@ -188,5 +188,5 @@ getAnalyzedResourceResponse_httpStatus = Lens.lens (\GetAnalyzedResourceResponse
 
 instance Prelude.NFData GetAnalyzedResourceResponse where
   rnf GetAnalyzedResourceResponse' {..} =
-    Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resource `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -104,8 +104,8 @@ instance Prelude.Hashable DeleteAnalyzer where
 
 instance Prelude.NFData DeleteAnalyzer where
   rnf DeleteAnalyzer' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf analyzerName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf analyzerName
 
 instance Data.ToHeaders DeleteAnalyzer where
   toHeaders =

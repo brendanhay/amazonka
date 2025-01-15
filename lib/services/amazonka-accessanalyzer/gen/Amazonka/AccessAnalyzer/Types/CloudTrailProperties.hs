@@ -115,6 +115,6 @@ instance Prelude.Hashable CloudTrailProperties where
 
 instance Prelude.NFData CloudTrailProperties where
   rnf CloudTrailProperties' {..} =
-    Prelude.rnf trailProperties
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf trailProperties `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf endTime

@@ -329,18 +329,18 @@ instance Prelude.Hashable AccessPreviewFinding where
 
 instance Prelude.NFData AccessPreviewFinding where
   rnf AccessPreviewFinding' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf existingFindingId
-      `Prelude.seq` Prelude.rnf existingFindingStatus
-      `Prelude.seq` Prelude.rnf isPublic
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceOwnerAccount
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf condition `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf existingFindingId `Prelude.seq`
+            Prelude.rnf existingFindingStatus `Prelude.seq`
+              Prelude.rnf isPublic `Prelude.seq`
+                Prelude.rnf principal `Prelude.seq`
+                  Prelude.rnf resource `Prelude.seq`
+                    Prelude.rnf sources `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf resourceType `Prelude.seq`
+                          Prelude.rnf createdAt `Prelude.seq`
+                            Prelude.rnf changeType `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf resourceOwnerAccount

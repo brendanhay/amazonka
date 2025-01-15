@@ -128,9 +128,9 @@ instance Prelude.Hashable StartResourceScan where
 
 instance Prelude.NFData StartResourceScan where
   rnf StartResourceScan' {..} =
-    Prelude.rnf resourceOwnerAccount
-      `Prelude.seq` Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceOwnerAccount `Prelude.seq`
+      Prelude.rnf analyzerArn `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders StartResourceScan where
   toHeaders =

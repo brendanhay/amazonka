@@ -130,8 +130,8 @@ instance Prelude.Hashable JobDetails where
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf jobError
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startedOn
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf jobError `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf startedOn

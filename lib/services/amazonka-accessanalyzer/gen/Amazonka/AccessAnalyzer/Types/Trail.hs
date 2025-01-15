@@ -95,9 +95,9 @@ instance Prelude.Hashable Trail where
 
 instance Prelude.NFData Trail where
   rnf Trail' {..} =
-    Prelude.rnf allRegions
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf cloudTrailArn
+    Prelude.rnf allRegions `Prelude.seq`
+      Prelude.rnf regions `Prelude.seq`
+        Prelude.rnf cloudTrailArn
 
 instance Data.ToJSON Trail where
   toJSON Trail' {..} =

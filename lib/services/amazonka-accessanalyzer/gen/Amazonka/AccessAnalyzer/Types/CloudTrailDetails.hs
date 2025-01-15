@@ -113,10 +113,10 @@ instance Prelude.Hashable CloudTrailDetails where
 
 instance Prelude.NFData CloudTrailDetails where
   rnf CloudTrailDetails' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf trails
-      `Prelude.seq` Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf trails `Prelude.seq`
+        Prelude.rnf accessRole `Prelude.seq`
+          Prelude.rnf startTime
 
 instance Data.ToJSON CloudTrailDetails where
   toJSON CloudTrailDetails' {..} =

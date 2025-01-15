@@ -107,10 +107,10 @@ instance Prelude.Hashable Criterion where
 
 instance Prelude.NFData Criterion where
   rnf Criterion' {..} =
-    Prelude.rnf contains
-      `Prelude.seq` Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf exists
-      `Prelude.seq` Prelude.rnf neq
+    Prelude.rnf contains `Prelude.seq`
+      Prelude.rnf eq `Prelude.seq`
+        Prelude.rnf exists `Prelude.seq`
+          Prelude.rnf neq
 
 instance Data.ToJSON Criterion where
   toJSON Criterion' {..} =

@@ -145,12 +145,12 @@ instance Core.AWSPager ListAccessPreviewFindings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccessPreviewFindings_nextToken
-          Lens..~ rs
-          Lens.^? listAccessPreviewFindingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccessPreviewFindings_nextToken
+              Lens..~ rs
+              Lens.^? listAccessPreviewFindingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessPreviewFindings where
   type
@@ -178,11 +178,11 @@ instance Prelude.Hashable ListAccessPreviewFindings where
 
 instance Prelude.NFData ListAccessPreviewFindings where
   rnf ListAccessPreviewFindings' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accessPreviewId
-      `Prelude.seq` Prelude.rnf analyzerArn
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf accessPreviewId `Prelude.seq`
+            Prelude.rnf analyzerArn
 
 instance Data.ToHeaders ListAccessPreviewFindings where
   toHeaders =
@@ -270,6 +270,6 @@ instance
     ListAccessPreviewFindingsResponse
   where
   rnf ListAccessPreviewFindingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findings
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf findings

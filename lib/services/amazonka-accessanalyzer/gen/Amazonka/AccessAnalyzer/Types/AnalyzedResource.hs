@@ -211,14 +211,14 @@ instance Prelude.Hashable AnalyzedResource where
 
 instance Prelude.NFData AnalyzedResource where
   rnf AnalyzedResource' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf sharedVia
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf analyzedAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf isPublic
-      `Prelude.seq` Prelude.rnf resourceOwnerAccount
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf sharedVia `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf analyzedAt `Prelude.seq`
+                    Prelude.rnf updatedAt `Prelude.seq`
+                      Prelude.rnf isPublic `Prelude.seq`
+                        Prelude.rnf resourceOwnerAccount

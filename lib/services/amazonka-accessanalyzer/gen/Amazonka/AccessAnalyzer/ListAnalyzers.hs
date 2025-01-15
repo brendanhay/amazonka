@@ -111,12 +111,12 @@ instance Core.AWSPager ListAnalyzers where
         (rs Lens.^. listAnalyzersResponse_analyzers) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnalyzers_nextToken
-          Lens..~ rs
-          Lens.^? listAnalyzersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnalyzers_nextToken
+              Lens..~ rs
+              Lens.^? listAnalyzersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnalyzers where
   type
@@ -142,9 +142,9 @@ instance Prelude.Hashable ListAnalyzers where
 
 instance Prelude.NFData ListAnalyzers where
   rnf ListAnalyzers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders ListAnalyzers where
   toHeaders =
@@ -219,6 +219,6 @@ listAnalyzersResponse_analyzers = Lens.lens (\ListAnalyzersResponse' {analyzers}
 
 instance Prelude.NFData ListAnalyzersResponse where
   rnf ListAnalyzersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf analyzers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf analyzers

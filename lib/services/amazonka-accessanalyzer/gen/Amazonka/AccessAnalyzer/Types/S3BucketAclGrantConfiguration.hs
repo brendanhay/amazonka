@@ -94,8 +94,8 @@ instance
 
 instance Prelude.NFData S3BucketAclGrantConfiguration where
   rnf S3BucketAclGrantConfiguration' {..} =
-    Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf grantee
+    Prelude.rnf permission `Prelude.seq`
+      Prelude.rnf grantee
 
 instance Data.ToJSON S3BucketAclGrantConfiguration where
   toJSON S3BucketAclGrantConfiguration' {..} =

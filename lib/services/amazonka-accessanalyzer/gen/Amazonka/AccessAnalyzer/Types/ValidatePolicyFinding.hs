@@ -174,8 +174,8 @@ instance Prelude.Hashable ValidatePolicyFinding where
 
 instance Prelude.NFData ValidatePolicyFinding where
   rnf ValidatePolicyFinding' {..} =
-    Prelude.rnf findingDetails
-      `Prelude.seq` Prelude.rnf findingType
-      `Prelude.seq` Prelude.rnf issueCode
-      `Prelude.seq` Prelude.rnf learnMoreLink
-      `Prelude.seq` Prelude.rnf locations
+    Prelude.rnf findingDetails `Prelude.seq`
+      Prelude.rnf findingType `Prelude.seq`
+        Prelude.rnf issueCode `Prelude.seq`
+          Prelude.rnf learnMoreLink `Prelude.seq`
+            Prelude.rnf locations

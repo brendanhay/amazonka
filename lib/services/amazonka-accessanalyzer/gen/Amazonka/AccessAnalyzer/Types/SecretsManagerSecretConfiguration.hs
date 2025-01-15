@@ -112,8 +112,8 @@ instance
     SecretsManagerSecretConfiguration
   where
   rnf SecretsManagerSecretConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf secretPolicy
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf secretPolicy
 
 instance
   Data.ToJSON

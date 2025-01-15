@@ -206,12 +206,12 @@ instance Core.AWSPager ValidatePolicy where
         (rs Lens.^. validatePolicyResponse_findings) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& validatePolicy_nextToken
-          Lens..~ rs
-          Lens.^? validatePolicyResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& validatePolicy_nextToken
+              Lens..~ rs
+              Lens.^? validatePolicyResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ValidatePolicy where
   type
@@ -240,12 +240,12 @@ instance Prelude.Hashable ValidatePolicy where
 
 instance Prelude.NFData ValidatePolicy where
   rnf ValidatePolicy' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf validatePolicyResourceType
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf validatePolicyResourceType `Prelude.seq`
+            Prelude.rnf policyDocument `Prelude.seq`
+              Prelude.rnf policyType
 
 instance Data.ToHeaders ValidatePolicy where
   toHeaders =
@@ -334,6 +334,6 @@ validatePolicyResponse_findings = Lens.lens (\ValidatePolicyResponse' {findings}
 
 instance Prelude.NFData ValidatePolicyResponse where
   rnf ValidatePolicyResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findings
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf findings

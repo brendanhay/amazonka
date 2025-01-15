@@ -118,8 +118,8 @@ instance Prelude.Hashable GetAccessPreview where
 
 instance Prelude.NFData GetAccessPreview where
   rnf GetAccessPreview' {..} =
-    Prelude.rnf accessPreviewId
-      `Prelude.seq` Prelude.rnf analyzerArn
+    Prelude.rnf accessPreviewId `Prelude.seq`
+      Prelude.rnf analyzerArn
 
 instance Data.ToHeaders GetAccessPreview where
   toHeaders =
@@ -186,5 +186,5 @@ getAccessPreviewResponse_accessPreview = Lens.lens (\GetAccessPreviewResponse' {
 
 instance Prelude.NFData GetAccessPreviewResponse where
   rnf GetAccessPreviewResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPreview
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPreview

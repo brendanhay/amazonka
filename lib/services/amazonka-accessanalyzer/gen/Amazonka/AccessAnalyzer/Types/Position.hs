@@ -100,6 +100,6 @@ instance Prelude.Hashable Position where
 
 instance Prelude.NFData Position where
   rnf Position' {..} =
-    Prelude.rnf line
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf offset
+    Prelude.rnf line `Prelude.seq`
+      Prelude.rnf column `Prelude.seq`
+        Prelude.rnf offset

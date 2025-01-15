@@ -147,11 +147,11 @@ instance Prelude.Hashable KmsGrantConfiguration where
 
 instance Prelude.NFData KmsGrantConfiguration where
   rnf KmsGrantConfiguration' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf retiringPrincipal
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf granteePrincipal
-      `Prelude.seq` Prelude.rnf issuingAccount
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf retiringPrincipal `Prelude.seq`
+        Prelude.rnf operations `Prelude.seq`
+          Prelude.rnf granteePrincipal `Prelude.seq`
+            Prelude.rnf issuingAccount
 
 instance Data.ToJSON KmsGrantConfiguration where
   toJSON KmsGrantConfiguration' {..} =

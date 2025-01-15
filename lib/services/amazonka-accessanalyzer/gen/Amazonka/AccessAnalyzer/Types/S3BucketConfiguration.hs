@@ -139,10 +139,10 @@ instance Prelude.Hashable S3BucketConfiguration where
 
 instance Prelude.NFData S3BucketConfiguration where
   rnf S3BucketConfiguration' {..} =
-    Prelude.rnf accessPoints
-      `Prelude.seq` Prelude.rnf bucketAclGrants
-      `Prelude.seq` Prelude.rnf bucketPolicy
-      `Prelude.seq` Prelude.rnf bucketPublicAccessBlock
+    Prelude.rnf accessPoints `Prelude.seq`
+      Prelude.rnf bucketAclGrants `Prelude.seq`
+        Prelude.rnf bucketPolicy `Prelude.seq`
+          Prelude.rnf bucketPublicAccessBlock
 
 instance Data.ToJSON S3BucketConfiguration where
   toJSON S3BucketConfiguration' {..} =

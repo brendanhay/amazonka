@@ -277,20 +277,20 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf highAvailabilityConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf storageConfigurations
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf highAvailabilityConfig `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                Prelude.rnf publiclyAccessible `Prelude.seq`
+                  Prelude.rnf securityGroupIds `Prelude.seq`
+                    Prelude.rnf storageConfigurations `Prelude.seq`
+                      Prelude.rnf subnetIds `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf engineType `Prelude.seq`
+                            Prelude.rnf instanceType `Prelude.seq`
+                              Prelude.rnf name
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders =
@@ -380,5 +380,5 @@ createEnvironmentResponse_environmentId = Lens.lens (\CreateEnvironmentResponse'
 
 instance Prelude.NFData CreateEnvironmentResponse where
   rnf CreateEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentId

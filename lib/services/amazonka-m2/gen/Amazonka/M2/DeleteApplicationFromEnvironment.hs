@@ -129,8 +129,8 @@ instance
     DeleteApplicationFromEnvironment
   where
   rnf DeleteApplicationFromEnvironment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId
 
 instance
   Data.ToHeaders

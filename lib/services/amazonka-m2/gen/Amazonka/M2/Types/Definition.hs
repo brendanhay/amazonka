@@ -76,8 +76,8 @@ instance Prelude.Hashable Definition where
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf s3Location
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf s3Location
 
 instance Data.ToJSON Definition where
   toJSON Definition' {..} =

@@ -113,7 +113,7 @@ instance Prelude.Hashable ApplicationVersionSummary where
 
 instance Prelude.NFData ApplicationVersionSummary where
   rnf ApplicationVersionSummary' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf applicationVersion `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf status

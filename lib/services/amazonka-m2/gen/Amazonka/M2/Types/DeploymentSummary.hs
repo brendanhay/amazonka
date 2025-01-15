@@ -154,10 +154,10 @@ instance Prelude.Hashable DeploymentSummary where
 
 instance Prelude.NFData DeploymentSummary where
   rnf DeploymentSummary' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf applicationVersion `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf deploymentId `Prelude.seq`
+              Prelude.rnf environmentId `Prelude.seq`
+                Prelude.rnf status

@@ -118,10 +118,10 @@ instance Prelude.Hashable AlternateKey where
 
 instance Prelude.NFData AlternateKey where
   rnf AlternateKey' {..} =
-    Prelude.rnf allowDuplicates
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf length
-      `Prelude.seq` Prelude.rnf offset
+    Prelude.rnf allowDuplicates `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf length `Prelude.seq`
+          Prelude.rnf offset
 
 instance Data.ToJSON AlternateKey where
   toJSON AlternateKey' {..} =

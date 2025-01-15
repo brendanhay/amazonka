@@ -83,5 +83,5 @@ instance Prelude.Hashable BatchJobDefinition where
 
 instance Prelude.NFData BatchJobDefinition where
   rnf BatchJobDefinition' {..} =
-    Prelude.rnf fileBatchJobDefinition
-      `Prelude.seq` Prelude.rnf scriptBatchJobDefinition
+    Prelude.rnf fileBatchJobDefinition `Prelude.seq`
+      Prelude.rnf scriptBatchJobDefinition

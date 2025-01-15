@@ -120,12 +120,12 @@ instance Core.AWSPager ListDataSetImportHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDataSetImportHistory_nextToken
-          Lens..~ rs
-          Lens.^? listDataSetImportHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDataSetImportHistory_nextToken
+              Lens..~ rs
+              Lens.^? listDataSetImportHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataSetImportHistory where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListDataSetImportHistory where
 
 instance Prelude.NFData ListDataSetImportHistory where
   rnf ListDataSetImportHistory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationId
 
 instance Data.ToHeaders ListDataSetImportHistory where
   toHeaders =
@@ -243,6 +243,6 @@ instance
     ListDataSetImportHistoryResponse
   where
   rnf ListDataSetImportHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dataSetImportTasks
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf dataSetImportTasks

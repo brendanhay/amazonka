@@ -83,5 +83,5 @@ instance Prelude.Hashable FileBatchJobDefinition where
 
 instance Prelude.NFData FileBatchJobDefinition where
   rnf FileBatchJobDefinition' {..} =
-    Prelude.rnf folderPath
-      `Prelude.seq` Prelude.rnf fileName
+    Prelude.rnf folderPath `Prelude.seq`
+      Prelude.rnf fileName

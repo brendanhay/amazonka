@@ -87,8 +87,8 @@ instance Prelude.Hashable EfsStorageConfiguration where
 
 instance Prelude.NFData EfsStorageConfiguration where
   rnf EfsStorageConfiguration' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf mountPoint
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf mountPoint
 
 instance Data.ToJSON EfsStorageConfiguration where
   toJSON EfsStorageConfiguration' {..} =

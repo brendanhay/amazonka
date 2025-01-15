@@ -168,12 +168,12 @@ instance Core.AWSPager ListBatchJobExecutions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBatchJobExecutions_nextToken
-          Lens..~ rs
-          Lens.^? listBatchJobExecutionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBatchJobExecutions_nextToken
+              Lens..~ rs
+              Lens.^? listBatchJobExecutionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBatchJobExecutions where
   type
@@ -207,14 +207,14 @@ instance Prelude.Hashable ListBatchJobExecutions where
 
 instance Prelude.NFData ListBatchJobExecutions where
   rnf ListBatchJobExecutions' {..} =
-    Prelude.rnf executionIds
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf startedBefore
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf executionIds `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startedAfter `Prelude.seq`
+              Prelude.rnf startedBefore `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf applicationId
 
 instance Data.ToHeaders ListBatchJobExecutions where
   toHeaders =
@@ -305,6 +305,6 @@ instance
     ListBatchJobExecutionsResponse
   where
   rnf ListBatchJobExecutionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf batchJobExecutions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf batchJobExecutions

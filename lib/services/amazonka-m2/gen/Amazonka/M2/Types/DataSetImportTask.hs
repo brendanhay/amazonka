@@ -99,6 +99,6 @@ instance Prelude.Hashable DataSetImportTask where
 
 instance Prelude.NFData DataSetImportTask where
   rnf DataSetImportTask' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf summary `Prelude.seq`
+        Prelude.rnf taskId

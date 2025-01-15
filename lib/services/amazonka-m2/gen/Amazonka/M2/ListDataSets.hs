@@ -138,12 +138,12 @@ instance Core.AWSPager ListDataSets where
         (rs Lens.^. listDataSetsResponse_dataSets) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDataSets_nextToken
-          Lens..~ rs
-          Lens.^? listDataSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDataSets_nextToken
+              Lens..~ rs
+              Lens.^? listDataSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataSets where
   type AWSResponse ListDataSets = ListDataSetsResponse
@@ -168,10 +168,10 @@ instance Prelude.Hashable ListDataSets where
 
 instance Prelude.NFData ListDataSets where
   rnf ListDataSets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders ListDataSets where
   toHeaders =
@@ -261,6 +261,6 @@ listDataSetsResponse_dataSets = Lens.lens (\ListDataSetsResponse' {dataSets} -> 
 
 instance Prelude.NFData ListDataSetsResponse where
   rnf ListDataSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dataSets
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf dataSets

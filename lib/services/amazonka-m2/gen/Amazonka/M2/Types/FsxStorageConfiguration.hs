@@ -87,8 +87,8 @@ instance Prelude.Hashable FsxStorageConfiguration where
 
 instance Prelude.NFData FsxStorageConfiguration where
   rnf FsxStorageConfiguration' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf mountPoint
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf mountPoint
 
 instance Data.ToJSON FsxStorageConfiguration where
   toJSON FsxStorageConfiguration' {..} =

@@ -129,9 +129,9 @@ instance Prelude.Hashable StartBatchJob where
 
 instance Prelude.NFData StartBatchJob where
   rnf StartBatchJob' {..} =
-    Prelude.rnf jobParams
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf batchJobIdentifier
+    Prelude.rnf jobParams `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf batchJobIdentifier
 
 instance Data.ToHeaders StartBatchJob where
   toHeaders =
@@ -207,5 +207,5 @@ startBatchJobResponse_executionId = Lens.lens (\StartBatchJobResponse' {executio
 
 instance Prelude.NFData StartBatchJobResponse where
   rnf StartBatchJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf executionId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf executionId

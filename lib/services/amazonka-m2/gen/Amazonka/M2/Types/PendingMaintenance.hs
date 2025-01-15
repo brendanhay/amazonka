@@ -82,5 +82,5 @@ instance Prelude.Hashable PendingMaintenance where
 
 instance Prelude.NFData PendingMaintenance where
   rnf PendingMaintenance' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf schedule
+    Prelude.rnf engineVersion `Prelude.seq`
+      Prelude.rnf schedule

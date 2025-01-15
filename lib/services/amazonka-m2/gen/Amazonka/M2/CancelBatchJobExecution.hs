@@ -111,8 +111,8 @@ instance Prelude.Hashable CancelBatchJobExecution where
 
 instance Prelude.NFData CancelBatchJobExecution where
   rnf CancelBatchJobExecution' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf executionId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf executionId
 
 instance Data.ToHeaders CancelBatchJobExecution where
   toHeaders =

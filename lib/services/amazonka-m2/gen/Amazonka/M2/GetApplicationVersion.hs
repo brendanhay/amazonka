@@ -125,8 +125,8 @@ instance Prelude.Hashable GetApplicationVersion where
 
 instance Prelude.NFData GetApplicationVersion where
   rnf GetApplicationVersion' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationVersion
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf applicationVersion
 
 instance Data.ToHeaders GetApplicationVersion where
   toHeaders =
@@ -269,11 +269,11 @@ getApplicationVersionResponse_status = Lens.lens (\GetApplicationVersionResponse
 
 instance Prelude.NFData GetApplicationVersionResponse where
   rnf GetApplicationVersionResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf definitionContent
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf statusReason `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf applicationVersion `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf definitionContent `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

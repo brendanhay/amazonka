@@ -76,8 +76,8 @@ instance Prelude.Hashable BatchJobIdentifier where
 
 instance Prelude.NFData BatchJobIdentifier where
   rnf BatchJobIdentifier' {..} =
-    Prelude.rnf fileBatchJobIdentifier
-      `Prelude.seq` Prelude.rnf scriptBatchJobIdentifier
+    Prelude.rnf fileBatchJobIdentifier `Prelude.seq`
+      Prelude.rnf scriptBatchJobIdentifier
 
 instance Data.ToJSON BatchJobIdentifier where
   toJSON BatchJobIdentifier' {..} =

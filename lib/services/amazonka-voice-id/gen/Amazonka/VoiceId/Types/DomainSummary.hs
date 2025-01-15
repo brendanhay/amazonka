@@ -175,12 +175,12 @@ instance Prelude.Hashable DomainSummary where
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionUpdateDetails
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf domainId `Prelude.seq`
+            Prelude.rnf domainStatus `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+                  Prelude.rnf serverSideEncryptionUpdateDetails `Prelude.seq`
+                    Prelude.rnf updatedAt

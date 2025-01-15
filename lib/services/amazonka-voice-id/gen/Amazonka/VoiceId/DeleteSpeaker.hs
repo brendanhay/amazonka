@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteSpeaker where
 
 instance Prelude.NFData DeleteSpeaker where
   rnf DeleteSpeaker' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf speakerId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf speakerId
 
 instance Data.ToHeaders DeleteSpeaker where
   toHeaders =

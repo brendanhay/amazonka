@@ -110,8 +110,8 @@ instance
     EnrollmentJobFraudDetectionConfig
   where
   rnf EnrollmentJobFraudDetectionConfig' {..} =
-    Prelude.rnf fraudDetectionAction
-      `Prelude.seq` Prelude.rnf riskThreshold
+    Prelude.rnf fraudDetectionAction `Prelude.seq`
+      Prelude.rnf riskThreshold
 
 instance
   Data.ToJSON

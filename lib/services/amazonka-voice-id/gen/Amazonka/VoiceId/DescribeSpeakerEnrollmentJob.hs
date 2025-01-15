@@ -114,8 +114,8 @@ instance
 
 instance Prelude.NFData DescribeSpeakerEnrollmentJob where
   rnf DescribeSpeakerEnrollmentJob' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeSpeakerEnrollmentJob where
   toHeaders =
@@ -191,5 +191,5 @@ instance
     DescribeSpeakerEnrollmentJobResponse
   where
   rnf DescribeSpeakerEnrollmentJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

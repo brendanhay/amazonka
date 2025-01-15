@@ -124,8 +124,8 @@ instance Prelude.Hashable EvaluateSession where
 
 instance Prelude.NFData EvaluateSession where
   rnf EvaluateSession' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf sessionNameOrId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf sessionNameOrId
 
 instance Data.ToHeaders EvaluateSession where
   toHeaders =
@@ -272,10 +272,10 @@ evaluateSessionResponse_httpStatus = Lens.lens (\EvaluateSessionResponse' {httpS
 
 instance Prelude.NFData EvaluateSessionResponse where
   rnf EvaluateSessionResponse' {..} =
-    Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fraudDetectionResult
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf sessionName
-      `Prelude.seq` Prelude.rnf streamingStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationResult `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf fraudDetectionResult `Prelude.seq`
+          Prelude.rnf sessionId `Prelude.seq`
+            Prelude.rnf sessionName `Prelude.seq`
+              Prelude.rnf streamingStatus `Prelude.seq`
+                Prelude.rnf httpStatus

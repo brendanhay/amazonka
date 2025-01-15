@@ -90,5 +90,5 @@ instance Prelude.Hashable KnownFraudsterRisk where
 
 instance Prelude.NFData KnownFraudsterRisk where
   rnf KnownFraudsterRisk' {..} =
-    Prelude.rnf generatedFraudsterId
-      `Prelude.seq` Prelude.rnf riskScore
+    Prelude.rnf generatedFraudsterId `Prelude.seq`
+      Prelude.rnf riskScore

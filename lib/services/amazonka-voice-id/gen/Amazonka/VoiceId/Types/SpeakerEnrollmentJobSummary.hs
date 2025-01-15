@@ -165,11 +165,11 @@ instance Prelude.Hashable SpeakerEnrollmentJobSummary where
 
 instance Prelude.NFData SpeakerEnrollmentJobSummary where
   rnf SpeakerEnrollmentJobSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobProgress
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf endedAt `Prelude.seq`
+          Prelude.rnf failureDetails `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf jobName `Prelude.seq`
+                Prelude.rnf jobProgress `Prelude.seq`
+                  Prelude.rnf jobStatus

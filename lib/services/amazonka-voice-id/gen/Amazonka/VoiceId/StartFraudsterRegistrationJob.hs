@@ -213,13 +213,13 @@ instance
 
 instance Prelude.NFData StartFraudsterRegistrationJob where
   rnf StartFraudsterRegistrationJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf registrationConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf registrationConfig `Prelude.seq`
+          Prelude.rnf dataAccessRoleArn `Prelude.seq`
+            Prelude.rnf domainId `Prelude.seq`
+              Prelude.rnf inputDataConfig `Prelude.seq`
+                Prelude.rnf outputDataConfig
 
 instance Data.ToHeaders StartFraudsterRegistrationJob where
   toHeaders =
@@ -304,5 +304,5 @@ instance
     StartFraudsterRegistrationJobResponse
   where
   rnf StartFraudsterRegistrationJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

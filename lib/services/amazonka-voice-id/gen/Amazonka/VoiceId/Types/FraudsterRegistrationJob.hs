@@ -233,15 +233,15 @@ instance Prelude.Hashable FraudsterRegistrationJob where
 
 instance Prelude.NFData FraudsterRegistrationJob where
   rnf FraudsterRegistrationJob' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobProgress
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf registrationConfig
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf endedAt `Prelude.seq`
+            Prelude.rnf failureDetails `Prelude.seq`
+              Prelude.rnf inputDataConfig `Prelude.seq`
+                Prelude.rnf jobId `Prelude.seq`
+                  Prelude.rnf jobName `Prelude.seq`
+                    Prelude.rnf jobProgress `Prelude.seq`
+                      Prelude.rnf jobStatus `Prelude.seq`
+                        Prelude.rnf outputDataConfig `Prelude.seq`
+                          Prelude.rnf registrationConfig

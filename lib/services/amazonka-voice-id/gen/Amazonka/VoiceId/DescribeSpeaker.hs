@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeSpeaker where
 
 instance Prelude.NFData DescribeSpeaker where
   rnf DescribeSpeaker' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf speakerId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf speakerId
 
 instance Data.ToHeaders DescribeSpeaker where
   toHeaders =
@@ -181,5 +181,5 @@ describeSpeakerResponse_httpStatus = Lens.lens (\DescribeSpeakerResponse' {httpS
 
 instance Prelude.NFData DescribeSpeakerResponse where
   rnf DescribeSpeakerResponse' {..} =
-    Prelude.rnf speaker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf speaker `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -192,11 +192,11 @@ instance Prelude.Hashable AuthenticationResult where
 
 instance Prelude.NFData AuthenticationResult where
   rnf AuthenticationResult' {..} =
-    Prelude.rnf audioAggregationEndedAt
-      `Prelude.seq` Prelude.rnf audioAggregationStartedAt
-      `Prelude.seq` Prelude.rnf authenticationResultId
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf customerSpeakerId
-      `Prelude.seq` Prelude.rnf decision
-      `Prelude.seq` Prelude.rnf generatedSpeakerId
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf audioAggregationEndedAt `Prelude.seq`
+      Prelude.rnf audioAggregationStartedAt `Prelude.seq`
+        Prelude.rnf authenticationResultId `Prelude.seq`
+          Prelude.rnf configuration `Prelude.seq`
+            Prelude.rnf customerSpeakerId `Prelude.seq`
+              Prelude.rnf decision `Prelude.seq`
+                Prelude.rnf generatedSpeakerId `Prelude.seq`
+                  Prelude.rnf score

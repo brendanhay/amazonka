@@ -96,8 +96,8 @@ instance Prelude.Hashable RegistrationConfig where
 
 instance Prelude.NFData RegistrationConfig where
   rnf RegistrationConfig' {..} =
-    Prelude.rnf duplicateRegistrationAction
-      `Prelude.seq` Prelude.rnf fraudsterSimilarityThreshold
+    Prelude.rnf duplicateRegistrationAction `Prelude.seq`
+      Prelude.rnf fraudsterSimilarityThreshold
 
 instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =

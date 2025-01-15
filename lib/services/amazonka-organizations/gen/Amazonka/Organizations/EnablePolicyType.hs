@@ -164,8 +164,8 @@ instance Prelude.Hashable EnablePolicyType where
 
 instance Prelude.NFData EnablePolicyType where
   rnf EnablePolicyType' {..} =
-    Prelude.rnf rootId
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf rootId `Prelude.seq`
+      Prelude.rnf policyType
 
 instance Data.ToHeaders EnablePolicyType where
   toHeaders =
@@ -240,5 +240,5 @@ enablePolicyTypeResponse_httpStatus = Lens.lens (\EnablePolicyTypeResponse' {htt
 
 instance Prelude.NFData EnablePolicyTypeResponse where
   rnf EnablePolicyTypeResponse' {..} =
-    Prelude.rnf root
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf root `Prelude.seq`
+      Prelude.rnf httpStatus

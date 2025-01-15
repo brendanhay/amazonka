@@ -152,6 +152,6 @@ instance Prelude.Hashable HandshakeResource where
 
 instance Prelude.NFData HandshakeResource where
   rnf HandshakeResource' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf resources `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf value

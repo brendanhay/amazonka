@@ -205,5 +205,5 @@ instance
     DescribeCreateAccountStatusResponse
   where
   rnf DescribeCreateAccountStatusResponse' {..} =
-    Prelude.rnf createAccountStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createAccountStatus `Prelude.seq`
+      Prelude.rnf httpStatus

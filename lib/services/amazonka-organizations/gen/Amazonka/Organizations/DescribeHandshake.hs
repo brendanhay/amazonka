@@ -193,5 +193,5 @@ describeHandshakeResponse_httpStatus = Lens.lens (\DescribeHandshakeResponse' {h
 
 instance Prelude.NFData DescribeHandshakeResponse where
   rnf DescribeHandshakeResponse' {..} =
-    Prelude.rnf handshake
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshake `Prelude.seq`
+      Prelude.rnf httpStatus

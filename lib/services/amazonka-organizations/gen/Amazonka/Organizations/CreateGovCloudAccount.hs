@@ -508,11 +508,11 @@ instance Prelude.Hashable CreateGovCloudAccount where
 
 instance Prelude.NFData CreateGovCloudAccount where
   rnf CreateGovCloudAccount' {..} =
-    Prelude.rnf iamUserAccessToBilling
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf accountName
+    Prelude.rnf iamUserAccessToBilling `Prelude.seq`
+      Prelude.rnf roleName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf accountName
 
 instance Data.ToHeaders CreateGovCloudAccount where
   toHeaders =
@@ -588,5 +588,5 @@ createGovCloudAccountResponse_httpStatus = Lens.lens (\CreateGovCloudAccountResp
 
 instance Prelude.NFData CreateGovCloudAccountResponse where
   rnf CreateGovCloudAccountResponse' {..} =
-    Prelude.rnf createAccountStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createAccountStatus `Prelude.seq`
+      Prelude.rnf httpStatus

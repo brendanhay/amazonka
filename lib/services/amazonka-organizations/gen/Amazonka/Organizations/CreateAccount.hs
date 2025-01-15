@@ -427,11 +427,11 @@ instance Prelude.Hashable CreateAccount where
 
 instance Prelude.NFData CreateAccount where
   rnf CreateAccount' {..} =
-    Prelude.rnf iamUserAccessToBilling
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf accountName
+    Prelude.rnf iamUserAccessToBilling `Prelude.seq`
+      Prelude.rnf roleName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf accountName
 
 instance Data.ToHeaders CreateAccount where
   toHeaders =
@@ -532,5 +532,5 @@ createAccountResponse_httpStatus = Lens.lens (\CreateAccountResponse' {httpStatu
 
 instance Prelude.NFData CreateAccountResponse where
   rnf CreateAccountResponse' {..} =
-    Prelude.rnf createAccountStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createAccountStatus `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -135,8 +135,8 @@ instance
     RegisterDelegatedAdministrator
   where
   rnf RegisterDelegatedAdministrator' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf servicePrincipal
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf servicePrincipal
 
 instance
   Data.ToHeaders

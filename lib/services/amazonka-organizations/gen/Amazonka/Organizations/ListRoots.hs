@@ -158,12 +158,12 @@ instance Core.AWSPager ListRoots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRoots_nextToken
-          Lens..~ rs
-          Lens.^? listRootsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRoots_nextToken
+              Lens..~ rs
+              Lens.^? listRootsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoots where
   type AWSResponse ListRoots = ListRootsResponse
@@ -186,8 +186,8 @@ instance Prelude.Hashable ListRoots where
 
 instance Prelude.NFData ListRoots where
   rnf ListRoots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRoots where
   toHeaders =
@@ -280,6 +280,6 @@ listRootsResponse_httpStatus = Lens.lens (\ListRootsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListRootsResponse where
   rnf ListRootsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf roots `Prelude.seq`
+        Prelude.rnf httpStatus

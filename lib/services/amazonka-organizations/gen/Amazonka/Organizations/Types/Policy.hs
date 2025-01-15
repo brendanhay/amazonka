@@ -83,5 +83,5 @@ instance Prelude.Hashable Policy where
 
 instance Prelude.NFData Policy where
   rnf Policy' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf policySummary
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf policySummary

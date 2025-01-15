@@ -185,5 +185,5 @@ describePolicyResponse_httpStatus = Lens.lens (\DescribePolicyResponse' {httpSta
 
 instance Prelude.NFData DescribePolicyResponse where
   rnf DescribePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

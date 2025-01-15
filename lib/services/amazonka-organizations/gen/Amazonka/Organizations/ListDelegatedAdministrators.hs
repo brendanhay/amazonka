@@ -169,12 +169,12 @@ instance Core.AWSPager ListDelegatedAdministrators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDelegatedAdministrators_nextToken
-          Lens..~ rs
-          Lens.^? listDelegatedAdministratorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDelegatedAdministrators_nextToken
+              Lens..~ rs
+              Lens.^? listDelegatedAdministratorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDelegatedAdministrators where
   type
@@ -203,9 +203,9 @@ instance Prelude.Hashable ListDelegatedAdministrators where
 
 instance Prelude.NFData ListDelegatedAdministrators where
   rnf ListDelegatedAdministrators' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf servicePrincipal
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf servicePrincipal
 
 instance Data.ToHeaders ListDelegatedAdministrators where
   toHeaders =
@@ -304,6 +304,6 @@ instance
     ListDelegatedAdministratorsResponse
   where
   rnf ListDelegatedAdministratorsResponse' {..} =
-    Prelude.rnf delegatedAdministrators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegatedAdministrators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

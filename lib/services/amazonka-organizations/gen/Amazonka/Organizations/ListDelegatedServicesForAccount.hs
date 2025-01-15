@@ -165,12 +165,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDelegatedServicesForAccount_nextToken
-          Lens..~ rs
-          Lens.^? listDelegatedServicesForAccountResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDelegatedServicesForAccount_nextToken
+              Lens..~ rs
+              Lens.^? listDelegatedServicesForAccountResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,9 +210,9 @@ instance
     ListDelegatedServicesForAccount
   where
   rnf ListDelegatedServicesForAccount' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId
 
 instance
   Data.ToHeaders
@@ -314,6 +314,6 @@ instance
     ListDelegatedServicesForAccountResponse
   where
   rnf ListDelegatedServicesForAccountResponse' {..} =
-    Prelude.rnf delegatedServices
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegatedServices `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

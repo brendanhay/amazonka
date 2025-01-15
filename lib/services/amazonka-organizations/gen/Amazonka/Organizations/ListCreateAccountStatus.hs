@@ -169,12 +169,12 @@ instance Core.AWSPager ListCreateAccountStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCreateAccountStatus_nextToken
-          Lens..~ rs
-          Lens.^? listCreateAccountStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCreateAccountStatus_nextToken
+              Lens..~ rs
+              Lens.^? listCreateAccountStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCreateAccountStatus where
   type
@@ -203,9 +203,9 @@ instance Prelude.Hashable ListCreateAccountStatus where
 
 instance Prelude.NFData ListCreateAccountStatus where
   rnf ListCreateAccountStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf states
 
 instance Data.ToHeaders ListCreateAccountStatus where
   toHeaders =
@@ -309,6 +309,6 @@ instance
     ListCreateAccountStatusResponse
   where
   rnf ListCreateAccountStatusResponse' {..} =
-    Prelude.rnf createAccountStatuses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createAccountStatuses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

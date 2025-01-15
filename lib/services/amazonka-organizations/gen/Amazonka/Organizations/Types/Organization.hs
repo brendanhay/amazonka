@@ -227,10 +227,10 @@ instance Prelude.Hashable Organization where
 
 instance Prelude.NFData Organization where
   rnf Organization' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availablePolicyTypes
-      `Prelude.seq` Prelude.rnf featureSet
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf masterAccountArn
-      `Prelude.seq` Prelude.rnf masterAccountEmail
-      `Prelude.seq` Prelude.rnf masterAccountId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availablePolicyTypes `Prelude.seq`
+        Prelude.rnf featureSet `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf masterAccountArn `Prelude.seq`
+              Prelude.rnf masterAccountEmail `Prelude.seq`
+                Prelude.rnf masterAccountId

@@ -250,9 +250,9 @@ instance Prelude.Hashable InviteAccountToOrganization where
 
 instance Prelude.NFData InviteAccountToOrganization where
   rnf InviteAccountToOrganization' {..} =
-    Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf notes `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf target
 
 instance Data.ToHeaders InviteAccountToOrganization where
   toHeaders =
@@ -332,5 +332,5 @@ instance
     InviteAccountToOrganizationResponse
   where
   rnf InviteAccountToOrganizationResponse' {..} =
-    Prelude.rnf handshake
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshake `Prelude.seq`
+      Prelude.rnf httpStatus

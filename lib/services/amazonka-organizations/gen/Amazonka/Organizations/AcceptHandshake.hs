@@ -205,5 +205,5 @@ acceptHandshakeResponse_httpStatus = Lens.lens (\AcceptHandshakeResponse' {httpS
 
 instance Prelude.NFData AcceptHandshakeResponse where
   rnf AcceptHandshakeResponse' {..} =
-    Prelude.rnf handshake
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshake `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -91,5 +91,5 @@ instance Prelude.Hashable DelegatedService where
 
 instance Prelude.NFData DelegatedService where
   rnf DelegatedService' {..} =
-    Prelude.rnf delegationEnabledDate
-      `Prelude.seq` Prelude.rnf servicePrincipal
+    Prelude.rnf delegationEnabledDate `Prelude.seq`
+      Prelude.rnf servicePrincipal

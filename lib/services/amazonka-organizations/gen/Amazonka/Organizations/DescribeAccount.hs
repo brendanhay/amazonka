@@ -182,5 +182,5 @@ describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpS
 
 instance Prelude.NFData DescribeAccountResponse where
   rnf DescribeAccountResponse' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -168,9 +168,9 @@ instance Prelude.Hashable PolicySummary where
 
 instance Prelude.NFData PolicySummary where
   rnf PolicySummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsManaged
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf awsManaged `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf type'

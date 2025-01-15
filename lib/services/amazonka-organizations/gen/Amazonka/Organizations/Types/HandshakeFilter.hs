@@ -105,8 +105,8 @@ instance Prelude.Hashable HandshakeFilter where
 
 instance Prelude.NFData HandshakeFilter where
   rnf HandshakeFilter' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf parentHandshakeId
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf parentHandshakeId
 
 instance Data.ToJSON HandshakeFilter where
   toJSON HandshakeFilter' {..} =

@@ -115,8 +115,8 @@ instance Prelude.Hashable UntagResource where
 
 instance Prelude.NFData UntagResource where
   rnf UntagResource' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tagKeyList
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf tagKeyList
 
 instance Data.ToHeaders UntagResource where
   toHeaders =

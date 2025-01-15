@@ -166,5 +166,5 @@ deleteBackupResponse_httpStatus = Lens.lens (\DeleteBackupResponse' {httpStatus}
 
 instance Prelude.NFData DeleteBackupResponse where
   rnf DeleteBackupResponse' {..} =
-    Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backup `Prelude.seq`
+      Prelude.rnf httpStatus

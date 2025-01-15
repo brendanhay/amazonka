@@ -171,11 +171,11 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf backupRetentionPolicy
-      `Prelude.seq` Prelude.rnf sourceBackupId
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf hsmType
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf backupRetentionPolicy `Prelude.seq`
+      Prelude.rnf sourceBackupId `Prelude.seq`
+        Prelude.rnf tagList `Prelude.seq`
+          Prelude.rnf hsmType `Prelude.seq`
+            Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -252,5 +252,5 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

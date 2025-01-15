@@ -241,18 +241,18 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf backupPolicy
-      `Prelude.seq` Prelude.rnf backupRetentionPolicy
-      `Prelude.seq` Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf createTimestamp
-      `Prelude.seq` Prelude.rnf hsmType
-      `Prelude.seq` Prelude.rnf hsms
-      `Prelude.seq` Prelude.rnf preCoPassword
-      `Prelude.seq` Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf sourceBackupId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf subnetMapping
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf backupPolicy `Prelude.seq`
+      Prelude.rnf backupRetentionPolicy `Prelude.seq`
+        Prelude.rnf certificates `Prelude.seq`
+          Prelude.rnf clusterId `Prelude.seq`
+            Prelude.rnf createTimestamp `Prelude.seq`
+              Prelude.rnf hsmType `Prelude.seq`
+                Prelude.rnf hsms `Prelude.seq`
+                  Prelude.rnf preCoPassword `Prelude.seq`
+                    Prelude.rnf securityGroup `Prelude.seq`
+                      Prelude.rnf sourceBackupId `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf stateMessage `Prelude.seq`
+                            Prelude.rnf subnetMapping `Prelude.seq`
+                              Prelude.rnf tagList `Prelude.seq`
+                                Prelude.rnf vpcId

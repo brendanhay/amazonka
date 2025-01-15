@@ -206,14 +206,14 @@ instance Prelude.Hashable Backup where
 
 instance Prelude.NFData Backup where
   rnf Backup' {..} =
-    Prelude.rnf backupState
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf copyTimestamp
-      `Prelude.seq` Prelude.rnf createTimestamp
-      `Prelude.seq` Prelude.rnf deleteTimestamp
-      `Prelude.seq` Prelude.rnf neverExpires
-      `Prelude.seq` Prelude.rnf sourceBackup
-      `Prelude.seq` Prelude.rnf sourceCluster
-      `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf backupId
+    Prelude.rnf backupState `Prelude.seq`
+      Prelude.rnf clusterId `Prelude.seq`
+        Prelude.rnf copyTimestamp `Prelude.seq`
+          Prelude.rnf createTimestamp `Prelude.seq`
+            Prelude.rnf deleteTimestamp `Prelude.seq`
+              Prelude.rnf neverExpires `Prelude.seq`
+                Prelude.rnf sourceBackup `Prelude.seq`
+                  Prelude.rnf sourceCluster `Prelude.seq`
+                    Prelude.rnf sourceRegion `Prelude.seq`
+                      Prelude.rnf tagList `Prelude.seq`
+                        Prelude.rnf backupId

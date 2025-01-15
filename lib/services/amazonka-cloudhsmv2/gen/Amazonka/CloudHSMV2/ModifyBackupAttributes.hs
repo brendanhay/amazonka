@@ -122,8 +122,8 @@ instance Prelude.Hashable ModifyBackupAttributes where
 
 instance Prelude.NFData ModifyBackupAttributes where
   rnf ModifyBackupAttributes' {..} =
-    Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf neverExpires
+    Prelude.rnf backupId `Prelude.seq`
+      Prelude.rnf neverExpires
 
 instance Data.ToHeaders ModifyBackupAttributes where
   toHeaders =
@@ -198,5 +198,5 @@ instance
     ModifyBackupAttributesResponse
   where
   rnf ModifyBackupAttributesResponse' {..} =
-    Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -168,5 +168,5 @@ restoreBackupResponse_httpStatus = Lens.lens (\RestoreBackupResponse' {httpStatu
 
 instance Prelude.NFData RestoreBackupResponse where
   rnf RestoreBackupResponse' {..} =
-    Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -113,7 +113,7 @@ instance Prelude.Hashable DestinationBackup where
 
 instance Prelude.NFData DestinationBackup where
   rnf DestinationBackup' {..} =
-    Prelude.rnf createTimestamp
-      `Prelude.seq` Prelude.rnf sourceBackup
-      `Prelude.seq` Prelude.rnf sourceCluster
-      `Prelude.seq` Prelude.rnf sourceRegion
+    Prelude.rnf createTimestamp `Prelude.seq`
+      Prelude.rnf sourceBackup `Prelude.seq`
+        Prelude.rnf sourceCluster `Prelude.seq`
+          Prelude.rnf sourceRegion

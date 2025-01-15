@@ -124,8 +124,8 @@ instance Prelude.Hashable Certificates where
 
 instance Prelude.NFData Certificates where
   rnf Certificates' {..} =
-    Prelude.rnf awsHardwareCertificate
-      `Prelude.seq` Prelude.rnf clusterCertificate
-      `Prelude.seq` Prelude.rnf clusterCsr
-      `Prelude.seq` Prelude.rnf hsmCertificate
-      `Prelude.seq` Prelude.rnf manufacturerHardwareCertificate
+    Prelude.rnf awsHardwareCertificate `Prelude.seq`
+      Prelude.rnf clusterCertificate `Prelude.seq`
+        Prelude.rnf clusterCsr `Prelude.seq`
+          Prelude.rnf hsmCertificate `Prelude.seq`
+            Prelude.rnf manufacturerHardwareCertificate

@@ -140,10 +140,10 @@ instance Prelude.Hashable DeleteHsm where
 
 instance Prelude.NFData DeleteHsm where
   rnf DeleteHsm' {..} =
-    Prelude.rnf eniId
-      `Prelude.seq` Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf hsmId
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf eniId `Prelude.seq`
+      Prelude.rnf eniIp `Prelude.seq`
+        Prelude.rnf hsmId `Prelude.seq`
+          Prelude.rnf clusterId
 
 instance Data.ToHeaders DeleteHsm where
   toHeaders =
@@ -215,5 +215,5 @@ deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> ht
 
 instance Prelude.NFData DeleteHsmResponse where
   rnf DeleteHsmResponse' {..} =
-    Prelude.rnf hsmId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmId `Prelude.seq`
+      Prelude.rnf httpStatus

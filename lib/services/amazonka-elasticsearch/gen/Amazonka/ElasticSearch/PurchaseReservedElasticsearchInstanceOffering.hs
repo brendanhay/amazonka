@@ -144,9 +144,9 @@ instance
   where
   rnf
     PurchaseReservedElasticsearchInstanceOffering' {..} =
-      Prelude.rnf instanceCount
-        `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
-        `Prelude.seq` Prelude.rnf reservationName
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf reservedElasticsearchInstanceOfferingId `Prelude.seq`
+          Prelude.rnf reservationName
 
 instance
   Data.ToHeaders
@@ -246,6 +246,6 @@ instance
   where
   rnf
     PurchaseReservedElasticsearchInstanceOfferingResponse' {..} =
-      Prelude.rnf reservationName
-        `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf reservationName `Prelude.seq`
+        Prelude.rnf reservedElasticsearchInstanceId `Prelude.seq`
+          Prelude.rnf httpStatus

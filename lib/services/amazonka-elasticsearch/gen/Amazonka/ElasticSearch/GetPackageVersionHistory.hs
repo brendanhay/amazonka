@@ -137,9 +137,9 @@ instance Prelude.Hashable GetPackageVersionHistory where
 
 instance Prelude.NFData GetPackageVersionHistory where
   rnf GetPackageVersionHistory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packageID
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf packageID
 
 instance Data.ToHeaders GetPackageVersionHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,7 +223,7 @@ instance
     GetPackageVersionHistoryResponse
   where
   rnf GetPackageVersionHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf packageVersionHistoryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf packageID `Prelude.seq`
+        Prelude.rnf packageVersionHistoryList `Prelude.seq`
+          Prelude.rnf httpStatus

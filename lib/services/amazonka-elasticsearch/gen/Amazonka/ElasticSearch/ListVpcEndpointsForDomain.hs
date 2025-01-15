@@ -118,8 +118,8 @@ instance Prelude.Hashable ListVpcEndpointsForDomain where
 
 instance Prelude.NFData ListVpcEndpointsForDomain where
   rnf ListVpcEndpointsForDomain' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders ListVpcEndpointsForDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,6 +200,6 @@ instance
     ListVpcEndpointsForDomainResponse
   where
   rnf ListVpcEndpointsForDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpointSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpointSummaryList `Prelude.seq`
+        Prelude.rnf nextToken

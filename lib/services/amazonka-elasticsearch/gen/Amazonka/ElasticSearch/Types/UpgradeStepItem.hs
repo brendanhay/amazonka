@@ -144,7 +144,7 @@ instance Prelude.Hashable UpgradeStepItem where
 
 instance Prelude.NFData UpgradeStepItem where
   rnf UpgradeStepItem' {..} =
-    Prelude.rnf issues
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf upgradeStep
-      `Prelude.seq` Prelude.rnf upgradeStepStatus
+    Prelude.rnf issues `Prelude.seq`
+      Prelude.rnf progressPercent `Prelude.seq`
+        Prelude.rnf upgradeStep `Prelude.seq`
+          Prelude.rnf upgradeStepStatus

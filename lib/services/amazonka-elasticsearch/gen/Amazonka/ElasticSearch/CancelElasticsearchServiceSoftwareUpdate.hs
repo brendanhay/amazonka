@@ -201,5 +201,5 @@ instance
   where
   rnf
     CancelElasticsearchServiceSoftwareUpdateResponse' {..} =
-      Prelude.rnf serviceSoftwareOptions
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf serviceSoftwareOptions `Prelude.seq`
+        Prelude.rnf httpStatus

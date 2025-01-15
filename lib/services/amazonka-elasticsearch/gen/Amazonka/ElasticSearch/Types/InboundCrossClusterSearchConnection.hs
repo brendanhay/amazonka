@@ -127,7 +127,7 @@ instance
     InboundCrossClusterSearchConnection
   where
   rnf InboundCrossClusterSearchConnection' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
-      `Prelude.seq` Prelude.rnf destinationDomainInfo
-      `Prelude.seq` Prelude.rnf sourceDomainInfo
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf crossClusterSearchConnectionId `Prelude.seq`
+        Prelude.rnf destinationDomainInfo `Prelude.seq`
+          Prelude.rnf sourceDomainInfo

@@ -107,5 +107,5 @@ instance
     ElasticsearchClusterConfigStatus
   where
   rnf ElasticsearchClusterConfigStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

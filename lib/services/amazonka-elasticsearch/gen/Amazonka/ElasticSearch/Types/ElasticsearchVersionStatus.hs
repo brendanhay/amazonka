@@ -92,5 +92,5 @@ instance Prelude.Hashable ElasticsearchVersionStatus where
 
 instance Prelude.NFData ElasticsearchVersionStatus where
   rnf ElasticsearchVersionStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

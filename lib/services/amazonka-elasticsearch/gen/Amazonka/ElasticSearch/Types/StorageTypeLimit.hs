@@ -104,5 +104,5 @@ instance Prelude.Hashable StorageTypeLimit where
 
 instance Prelude.NFData StorageTypeLimit where
   rnf StorageTypeLimit' {..} =
-    Prelude.rnf limitName
-      `Prelude.seq` Prelude.rnf limitValues
+    Prelude.rnf limitName `Prelude.seq`
+      Prelude.rnf limitValues

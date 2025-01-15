@@ -83,8 +83,8 @@ instance Prelude.Hashable AutoTuneOptionsInput where
 
 instance Prelude.NFData AutoTuneOptionsInput where
   rnf AutoTuneOptionsInput' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf maintenanceSchedules
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf maintenanceSchedules
 
 instance Data.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =

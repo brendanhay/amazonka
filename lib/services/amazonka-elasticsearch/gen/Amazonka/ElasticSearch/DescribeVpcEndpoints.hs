@@ -180,6 +180,6 @@ describeVpcEndpointsResponse_vpcEndpointErrors = Lens.lens (\DescribeVpcEndpoint
 
 instance Prelude.NFData DescribeVpcEndpointsResponse where
   rnf DescribeVpcEndpointsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpoints
-      `Prelude.seq` Prelude.rnf vpcEndpointErrors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpoints `Prelude.seq`
+        Prelude.rnf vpcEndpointErrors

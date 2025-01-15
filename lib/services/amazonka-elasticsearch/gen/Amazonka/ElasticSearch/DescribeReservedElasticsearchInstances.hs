@@ -132,12 +132,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedElasticsearchInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeReservedElasticsearchInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedElasticsearchInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeReservedElasticsearchInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,9 +178,9 @@ instance
     DescribeReservedElasticsearchInstances
   where
   rnf DescribeReservedElasticsearchInstances' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedElasticsearchInstanceId
 
 instance
   Data.ToHeaders
@@ -265,6 +265,6 @@ instance
   where
   rnf
     DescribeReservedElasticsearchInstancesResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf reservedElasticsearchInstances
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedElasticsearchInstances `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -166,9 +166,9 @@ instance
     DescribeInboundCrossClusterSearchConnections
   where
   rnf DescribeInboundCrossClusterSearchConnections' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -273,6 +273,6 @@ instance
   where
   rnf
     DescribeInboundCrossClusterSearchConnectionsResponse' {..} =
-      Prelude.rnf crossClusterSearchConnections
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf crossClusterSearchConnections `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

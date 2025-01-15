@@ -96,5 +96,5 @@ instance
 
 instance Prelude.NFData EncryptionAtRestOptionsStatus where
   rnf EncryptionAtRestOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

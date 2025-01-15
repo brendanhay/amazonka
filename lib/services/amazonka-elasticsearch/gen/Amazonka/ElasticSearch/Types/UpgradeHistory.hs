@@ -131,7 +131,7 @@ instance Prelude.Hashable UpgradeHistory where
 
 instance Prelude.NFData UpgradeHistory where
   rnf UpgradeHistory' {..} =
-    Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf stepsList
-      `Prelude.seq` Prelude.rnf upgradeName
-      `Prelude.seq` Prelude.rnf upgradeStatus
+    Prelude.rnf startTimestamp `Prelude.seq`
+      Prelude.rnf stepsList `Prelude.seq`
+        Prelude.rnf upgradeName `Prelude.seq`
+          Prelude.rnf upgradeStatus

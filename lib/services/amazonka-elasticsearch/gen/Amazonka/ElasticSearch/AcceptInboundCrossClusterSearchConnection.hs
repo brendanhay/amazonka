@@ -199,5 +199,5 @@ instance
   where
   rnf
     AcceptInboundCrossClusterSearchConnectionResponse' {..} =
-      Prelude.rnf crossClusterSearchConnection
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf crossClusterSearchConnection `Prelude.seq`
+        Prelude.rnf httpStatus

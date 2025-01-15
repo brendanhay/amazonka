@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdatePackage where
 
 instance Prelude.NFData UpdatePackage where
   rnf UpdatePackage' {..} =
-    Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf packageDescription
-      `Prelude.seq` Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf packageSource
+    Prelude.rnf commitMessage `Prelude.seq`
+      Prelude.rnf packageDescription `Prelude.seq`
+        Prelude.rnf packageID `Prelude.seq`
+          Prelude.rnf packageSource
 
 instance Data.ToHeaders UpdatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,5 +206,5 @@ updatePackageResponse_httpStatus = Lens.lens (\UpdatePackageResponse' {httpStatu
 
 instance Prelude.NFData UpdatePackageResponse where
   rnf UpdatePackageResponse' {..} =
-    Prelude.rnf packageDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf packageDetails `Prelude.seq`
+      Prelude.rnf httpStatus

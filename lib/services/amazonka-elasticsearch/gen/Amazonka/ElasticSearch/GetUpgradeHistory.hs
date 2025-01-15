@@ -114,12 +114,12 @@ instance Core.AWSPager GetUpgradeHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getUpgradeHistory_nextToken
-          Lens..~ rs
-          Lens.^? getUpgradeHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getUpgradeHistory_nextToken
+              Lens..~ rs
+              Lens.^? getUpgradeHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUpgradeHistory where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable GetUpgradeHistory where
 
 instance Prelude.NFData GetUpgradeHistory where
   rnf GetUpgradeHistory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders GetUpgradeHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,6 +231,6 @@ getUpgradeHistoryResponse_httpStatus = Lens.lens (\GetUpgradeHistoryResponse' {h
 
 instance Prelude.NFData GetUpgradeHistoryResponse where
   rnf GetUpgradeHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf upgradeHistories
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf upgradeHistories `Prelude.seq`
+        Prelude.rnf httpStatus

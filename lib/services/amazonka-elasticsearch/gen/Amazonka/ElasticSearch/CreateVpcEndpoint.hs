@@ -124,9 +124,9 @@ instance Prelude.Hashable CreateVpcEndpoint where
 
 instance Prelude.NFData CreateVpcEndpoint where
   rnf CreateVpcEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf vpcOptions
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf domainArn `Prelude.seq`
+        Prelude.rnf vpcOptions
 
 instance Data.ToHeaders CreateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ createVpcEndpointResponse_vpcEndpoint = Lens.lens (\CreateVpcEndpointResponse' {
 
 instance Prelude.NFData CreateVpcEndpointResponse where
   rnf CreateVpcEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpoint

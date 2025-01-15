@@ -193,5 +193,5 @@ instance
     DescribeElasticsearchDomainConfigResponse
   where
   rnf DescribeElasticsearchDomainConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainConfig

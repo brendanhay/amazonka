@@ -80,5 +80,5 @@ instance Prelude.Hashable InstanceCountLimits where
 
 instance Prelude.NFData InstanceCountLimits where
   rnf InstanceCountLimits' {..} =
-    Prelude.rnf maximumInstanceCount
-      `Prelude.seq` Prelude.rnf minimumInstanceCount
+    Prelude.rnf maximumInstanceCount `Prelude.seq`
+      Prelude.rnf minimumInstanceCount

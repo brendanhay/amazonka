@@ -165,10 +165,10 @@ instance Prelude.Hashable ChangeProgressStatusDetails where
 
 instance Prelude.NFData ChangeProgressStatusDetails where
   rnf ChangeProgressStatusDetails' {..} =
-    Prelude.rnf changeId
-      `Prelude.seq` Prelude.rnf changeProgressStages
-      `Prelude.seq` Prelude.rnf completedProperties
-      `Prelude.seq` Prelude.rnf pendingProperties
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf totalNumberOfStages
+    Prelude.rnf changeId `Prelude.seq`
+      Prelude.rnf changeProgressStages `Prelude.seq`
+        Prelude.rnf completedProperties `Prelude.seq`
+          Prelude.rnf pendingProperties `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf totalNumberOfStages

@@ -166,5 +166,5 @@ instance
     DeleteElasticsearchDomainResponse
   where
   rnf DeleteElasticsearchDomainResponse' {..} =
-    Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainStatus `Prelude.seq`
+      Prelude.rnf httpStatus

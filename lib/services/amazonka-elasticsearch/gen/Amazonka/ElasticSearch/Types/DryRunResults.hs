@@ -99,5 +99,5 @@ instance Prelude.Hashable DryRunResults where
 
 instance Prelude.NFData DryRunResults where
   rnf DryRunResults' {..} =
-    Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf deploymentType `Prelude.seq`
+      Prelude.rnf message

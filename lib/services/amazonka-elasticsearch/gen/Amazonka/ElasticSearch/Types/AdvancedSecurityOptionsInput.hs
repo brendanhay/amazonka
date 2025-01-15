@@ -112,11 +112,11 @@ instance
 
 instance Prelude.NFData AdvancedSecurityOptionsInput where
   rnf AdvancedSecurityOptionsInput' {..} =
-    Prelude.rnf anonymousAuthEnabled
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
-      `Prelude.seq` Prelude.rnf masterUserOptions
-      `Prelude.seq` Prelude.rnf sAMLOptions
+    Prelude.rnf anonymousAuthEnabled `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf internalUserDatabaseEnabled `Prelude.seq`
+          Prelude.rnf masterUserOptions `Prelude.seq`
+            Prelude.rnf sAMLOptions
 
 instance Data.ToJSON AdvancedSecurityOptionsInput where
   toJSON AdvancedSecurityOptionsInput' {..} =

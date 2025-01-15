@@ -193,5 +193,5 @@ instance
   where
   rnf
     DeleteOutboundCrossClusterSearchConnectionResponse' {..} =
-      Prelude.rnf crossClusterSearchConnection
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf crossClusterSearchConnection `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -114,8 +114,8 @@ instance Prelude.Hashable SAMLOptionsOutput where
 
 instance Prelude.NFData SAMLOptionsOutput where
   rnf SAMLOptionsOutput' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf idp
-      `Prelude.seq` Prelude.rnf rolesKey
-      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
-      `Prelude.seq` Prelude.rnf subjectKey
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf idp `Prelude.seq`
+        Prelude.rnf rolesKey `Prelude.seq`
+          Prelude.rnf sessionTimeoutMinutes `Prelude.seq`
+            Prelude.rnf subjectKey

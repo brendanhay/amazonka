@@ -254,18 +254,18 @@ instance Prelude.Hashable ElasticsearchDomainConfig where
 
 instance Prelude.NFData ElasticsearchDomainConfig where
   rnf ElasticsearchDomainConfig' {..} =
-    Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf changeProgressDetails
-      `Prelude.seq` Prelude.rnf cognitoOptions
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
-      `Prelude.seq` Prelude.rnf elasticsearchVersion
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf vPCOptions
+    Prelude.rnf accessPolicies `Prelude.seq`
+      Prelude.rnf advancedOptions `Prelude.seq`
+        Prelude.rnf advancedSecurityOptions `Prelude.seq`
+          Prelude.rnf autoTuneOptions `Prelude.seq`
+            Prelude.rnf changeProgressDetails `Prelude.seq`
+              Prelude.rnf cognitoOptions `Prelude.seq`
+                Prelude.rnf domainEndpointOptions `Prelude.seq`
+                  Prelude.rnf eBSOptions `Prelude.seq`
+                    Prelude.rnf elasticsearchClusterConfig `Prelude.seq`
+                      Prelude.rnf elasticsearchVersion `Prelude.seq`
+                        Prelude.rnf encryptionAtRestOptions `Prelude.seq`
+                          Prelude.rnf logPublishingOptions `Prelude.seq`
+                            Prelude.rnf nodeToNodeEncryptionOptions `Prelude.seq`
+                              Prelude.rnf snapshotOptions `Prelude.seq`
+                                Prelude.rnf vPCOptions

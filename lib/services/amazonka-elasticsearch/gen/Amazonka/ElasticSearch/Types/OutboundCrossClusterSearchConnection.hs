@@ -141,8 +141,8 @@ instance
     OutboundCrossClusterSearchConnection
   where
   rnf OutboundCrossClusterSearchConnection' {..} =
-    Prelude.rnf connectionAlias
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
-      `Prelude.seq` Prelude.rnf destinationDomainInfo
-      `Prelude.seq` Prelude.rnf sourceDomainInfo
+    Prelude.rnf connectionAlias `Prelude.seq`
+      Prelude.rnf connectionStatus `Prelude.seq`
+        Prelude.rnf crossClusterSearchConnectionId `Prelude.seq`
+          Prelude.rnf destinationDomainInfo `Prelude.seq`
+            Prelude.rnf sourceDomainInfo

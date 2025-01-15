@@ -89,5 +89,5 @@ instance Prelude.Hashable EBSOptionsStatus where
 
 instance Prelude.NFData EBSOptionsStatus where
   rnf EBSOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

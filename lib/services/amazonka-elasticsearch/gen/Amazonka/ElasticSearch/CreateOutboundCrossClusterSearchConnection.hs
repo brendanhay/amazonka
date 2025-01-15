@@ -159,9 +159,9 @@ instance
     CreateOutboundCrossClusterSearchConnection
   where
   rnf CreateOutboundCrossClusterSearchConnection' {..} =
-    Prelude.rnf sourceDomainInfo
-      `Prelude.seq` Prelude.rnf destinationDomainInfo
-      `Prelude.seq` Prelude.rnf connectionAlias
+    Prelude.rnf sourceDomainInfo `Prelude.seq`
+      Prelude.rnf destinationDomainInfo `Prelude.seq`
+        Prelude.rnf connectionAlias
 
 instance
   Data.ToHeaders
@@ -305,9 +305,9 @@ instance
   where
   rnf
     CreateOutboundCrossClusterSearchConnectionResponse' {..} =
-      Prelude.rnf connectionAlias
-        `Prelude.seq` Prelude.rnf connectionStatus
-        `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
-        `Prelude.seq` Prelude.rnf destinationDomainInfo
-        `Prelude.seq` Prelude.rnf sourceDomainInfo
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf connectionAlias `Prelude.seq`
+        Prelude.rnf connectionStatus `Prelude.seq`
+          Prelude.rnf crossClusterSearchConnectionId `Prelude.seq`
+            Prelude.rnf destinationDomainInfo `Prelude.seq`
+              Prelude.rnf sourceDomainInfo `Prelude.seq`
+                Prelude.rnf httpStatus

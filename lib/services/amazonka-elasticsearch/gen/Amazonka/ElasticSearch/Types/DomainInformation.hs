@@ -88,9 +88,9 @@ instance Prelude.Hashable DomainInformation where
 
 instance Prelude.NFData DomainInformation where
   rnf DomainInformation' {..} =
-    Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf ownerId `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToJSON DomainInformation where
   toJSON DomainInformation' {..} =

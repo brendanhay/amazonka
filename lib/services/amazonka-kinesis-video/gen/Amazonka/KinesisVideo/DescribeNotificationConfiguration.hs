@@ -130,8 +130,8 @@ instance
     DescribeNotificationConfiguration
   where
   rnf DescribeNotificationConfiguration' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName
 
 instance
   Data.ToHeaders
@@ -215,5 +215,5 @@ instance
     DescribeNotificationConfigurationResponse
   where
   rnf DescribeNotificationConfigurationResponse' {..} =
-    Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notificationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

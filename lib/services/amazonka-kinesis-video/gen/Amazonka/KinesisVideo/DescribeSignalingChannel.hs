@@ -109,8 +109,8 @@ instance Prelude.Hashable DescribeSignalingChannel where
 
 instance Prelude.NFData DescribeSignalingChannel where
   rnf DescribeSignalingChannel' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf channelName
 
 instance Data.ToHeaders DescribeSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,5 +177,5 @@ instance
     DescribeSignalingChannelResponse
   where
   rnf DescribeSignalingChannelResponse' {..} =
-    Prelude.rnf channelInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelInfo `Prelude.seq`
+      Prelude.rnf httpStatus

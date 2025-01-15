@@ -85,8 +85,8 @@ instance Prelude.Hashable MediaStorageConfiguration where
 
 instance Prelude.NFData MediaStorageConfiguration where
   rnf MediaStorageConfiguration' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON MediaStorageConfiguration where
   toJSON MediaStorageConfiguration' {..} =

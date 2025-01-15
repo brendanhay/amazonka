@@ -270,12 +270,12 @@ instance Prelude.Hashable CreateStream where
 
 instance Prelude.NFData CreateStream where
   rnf CreateStream' {..} =
-    Prelude.rnf dataRetentionInHours
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf mediaType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf dataRetentionInHours `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf mediaType `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf streamName
 
 instance Data.ToHeaders CreateStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -340,5 +340,5 @@ createStreamResponse_httpStatus = Lens.lens (\CreateStreamResponse' {httpStatus}
 
 instance Prelude.NFData CreateStreamResponse where
   rnf CreateStreamResponse' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf httpStatus

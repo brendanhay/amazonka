@@ -199,5 +199,5 @@ instance
     GetSignalingChannelEndpointResponse
   where
   rnf GetSignalingChannelEndpointResponse' {..} =
-    Prelude.rnf resourceEndpointList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceEndpointList `Prelude.seq`
+      Prelude.rnf httpStatus

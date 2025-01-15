@@ -155,9 +155,9 @@ instance
 
 instance Prelude.NFData StartEdgeConfigurationUpdate where
   rnf StartEdgeConfigurationUpdate' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf edgeConfig
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf edgeConfig
 
 instance Data.ToHeaders StartEdgeConfigurationUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,11 +292,11 @@ instance
     StartEdgeConfigurationUpdateResponse
   where
   rnf StartEdgeConfigurationUpdateResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf edgeConfig
-      `Prelude.seq` Prelude.rnf failedStatusDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf syncStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf edgeConfig `Prelude.seq`
+        Prelude.rnf failedStatusDetails `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf streamARN `Prelude.seq`
+              Prelude.rnf streamName `Prelude.seq`
+                Prelude.rnf syncStatus `Prelude.seq`
+                  Prelude.rnf httpStatus

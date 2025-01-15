@@ -185,11 +185,11 @@ instance Prelude.Hashable UpdateDataRetention where
 
 instance Prelude.NFData UpdateDataRetention where
   rnf UpdateDataRetention' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf dataRetentionChangeInHours
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf currentVersion `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf dataRetentionChangeInHours
 
 instance Data.ToHeaders UpdateDataRetention where
   toHeaders = Prelude.const Prelude.mempty

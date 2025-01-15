@@ -145,9 +145,9 @@ instance
     UpdateNotificationConfiguration
   where
   rnf UpdateNotificationConfiguration' {..} =
-    Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf notificationConfiguration `Prelude.seq`
+      Prelude.rnf streamARN `Prelude.seq`
+        Prelude.rnf streamName
 
 instance
   Data.ToHeaders

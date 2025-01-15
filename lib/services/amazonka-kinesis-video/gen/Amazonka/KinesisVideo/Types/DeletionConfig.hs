@@ -130,9 +130,9 @@ instance Prelude.Hashable DeletionConfig where
 
 instance Prelude.NFData DeletionConfig where
   rnf DeletionConfig' {..} =
-    Prelude.rnf deleteAfterUpload
-      `Prelude.seq` Prelude.rnf edgeRetentionInHours
-      `Prelude.seq` Prelude.rnf localSizeConfig
+    Prelude.rnf deleteAfterUpload `Prelude.seq`
+      Prelude.rnf edgeRetentionInHours `Prelude.seq`
+        Prelude.rnf localSizeConfig
 
 instance Data.ToJSON DeletionConfig where
   toJSON DeletionConfig' {..} =

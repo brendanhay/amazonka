@@ -129,10 +129,10 @@ instance Prelude.Hashable EdgeConfig where
 
 instance Prelude.NFData EdgeConfig where
   rnf EdgeConfig' {..} =
-    Prelude.rnf deletionConfig
-      `Prelude.seq` Prelude.rnf uploaderConfig
-      `Prelude.seq` Prelude.rnf hubDeviceArn
-      `Prelude.seq` Prelude.rnf recorderConfig
+    Prelude.rnf deletionConfig `Prelude.seq`
+      Prelude.rnf uploaderConfig `Prelude.seq`
+        Prelude.rnf hubDeviceArn `Prelude.seq`
+          Prelude.rnf recorderConfig
 
 instance Data.ToJSON EdgeConfig where
   toJSON EdgeConfig' {..} =

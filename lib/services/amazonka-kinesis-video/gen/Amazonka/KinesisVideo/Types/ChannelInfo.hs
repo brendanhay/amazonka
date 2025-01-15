@@ -142,10 +142,10 @@ instance Prelude.Hashable ChannelInfo where
 
 instance Prelude.NFData ChannelInfo where
   rnf ChannelInfo' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf channelStatus
-      `Prelude.seq` Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf singleMasterConfiguration
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf channelName `Prelude.seq`
+        Prelude.rnf channelStatus `Prelude.seq`
+          Prelude.rnf channelType `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf singleMasterConfiguration `Prelude.seq`
+                Prelude.rnf version

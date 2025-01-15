@@ -81,8 +81,8 @@ instance Prelude.Hashable ChannelNameCondition where
 
 instance Prelude.NFData ChannelNameCondition where
   rnf ChannelNameCondition' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf comparisonValue
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf comparisonValue
 
 instance Data.ToJSON ChannelNameCondition where
   toJSON ChannelNameCondition' {..} =

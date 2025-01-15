@@ -91,8 +91,8 @@ instance Prelude.Hashable LocalSizeConfig where
 
 instance Prelude.NFData LocalSizeConfig where
   rnf LocalSizeConfig' {..} =
-    Prelude.rnf maxLocalMediaSizeInMB
-      `Prelude.seq` Prelude.rnf strategyOnFullSize
+    Prelude.rnf maxLocalMediaSizeInMB `Prelude.seq`
+      Prelude.rnf strategyOnFullSize
 
 instance Data.ToJSON LocalSizeConfig where
   toJSON LocalSizeConfig' {..} =

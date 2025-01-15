@@ -252,14 +252,14 @@ instance
 
 instance Prelude.NFData ImageGenerationConfiguration where
   rnf ImageGenerationConfiguration' {..} =
-    Prelude.rnf formatConfig
-      `Prelude.seq` Prelude.rnf heightPixels
-      `Prelude.seq` Prelude.rnf widthPixels
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf imageSelectorType
-      `Prelude.seq` Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf samplingInterval
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf formatConfig `Prelude.seq`
+      Prelude.rnf heightPixels `Prelude.seq`
+        Prelude.rnf widthPixels `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf imageSelectorType `Prelude.seq`
+              Prelude.rnf destinationConfig `Prelude.seq`
+                Prelude.rnf samplingInterval `Prelude.seq`
+                  Prelude.rnf format
 
 instance Data.ToJSON ImageGenerationConfiguration where
   toJSON ImageGenerationConfiguration' {..} =

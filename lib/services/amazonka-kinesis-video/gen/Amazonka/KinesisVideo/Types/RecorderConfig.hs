@@ -104,8 +104,8 @@ instance Prelude.Hashable RecorderConfig where
 
 instance Prelude.NFData RecorderConfig where
   rnf RecorderConfig' {..} =
-    Prelude.rnf scheduleConfig
-      `Prelude.seq` Prelude.rnf mediaSourceConfig
+    Prelude.rnf scheduleConfig `Prelude.seq`
+      Prelude.rnf mediaSourceConfig
 
 instance Data.ToJSON RecorderConfig where
   toJSON RecorderConfig' {..} =

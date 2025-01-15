@@ -89,5 +89,5 @@ instance Prelude.Hashable ResourceEndpointListItem where
 
 instance Prelude.NFData ResourceEndpointListItem where
   rnf ResourceEndpointListItem' {..} =
-    Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf resourceEndpoint
+    Prelude.rnf protocol `Prelude.seq`
+      Prelude.rnf resourceEndpoint

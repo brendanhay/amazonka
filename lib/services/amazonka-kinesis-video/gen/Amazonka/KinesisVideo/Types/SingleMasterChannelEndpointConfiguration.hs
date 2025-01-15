@@ -109,8 +109,8 @@ instance
     SingleMasterChannelEndpointConfiguration
   where
   rnf SingleMasterChannelEndpointConfiguration' {..} =
-    Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf protocols `Prelude.seq`
+      Prelude.rnf role'
 
 instance
   Data.ToJSON

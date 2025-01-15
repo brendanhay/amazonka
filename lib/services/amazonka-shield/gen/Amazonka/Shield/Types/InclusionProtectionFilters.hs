@@ -90,9 +90,9 @@ instance Prelude.Hashable InclusionProtectionFilters where
 
 instance Prelude.NFData InclusionProtectionFilters where
   rnf InclusionProtectionFilters' {..} =
-    Prelude.rnf protectionNames
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf protectionNames `Prelude.seq`
+      Prelude.rnf resourceArns `Prelude.seq`
+        Prelude.rnf resourceTypes
 
 instance Data.ToJSON InclusionProtectionFilters where
   toJSON InclusionProtectionFilters' {..} =

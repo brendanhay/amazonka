@@ -125,8 +125,8 @@ instance Prelude.Hashable AssociateHealthCheck where
 
 instance Prelude.NFData AssociateHealthCheck where
   rnf AssociateHealthCheck' {..} =
-    Prelude.rnf protectionId
-      `Prelude.seq` Prelude.rnf healthCheckArn
+    Prelude.rnf protectionId `Prelude.seq`
+      Prelude.rnf healthCheckArn
 
 instance Data.ToHeaders AssociateHealthCheck where
   toHeaders =

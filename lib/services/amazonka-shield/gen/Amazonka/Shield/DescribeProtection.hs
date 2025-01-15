@@ -118,8 +118,8 @@ instance Prelude.Hashable DescribeProtection where
 
 instance Prelude.NFData DescribeProtection where
   rnf DescribeProtection' {..} =
-    Prelude.rnf protectionId
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf protectionId `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders DescribeProtection where
   toHeaders =
@@ -192,5 +192,5 @@ describeProtectionResponse_httpStatus = Lens.lens (\DescribeProtectionResponse' 
 
 instance Prelude.NFData DescribeProtectionResponse where
   rnf DescribeProtectionResponse' {..} =
-    Prelude.rnf protection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf protection `Prelude.seq`
+      Prelude.rnf httpStatus

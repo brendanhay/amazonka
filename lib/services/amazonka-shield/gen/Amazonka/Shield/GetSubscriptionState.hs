@@ -148,5 +148,5 @@ getSubscriptionStateResponse_subscriptionState = Lens.lens (\GetSubscriptionStat
 
 instance Prelude.NFData GetSubscriptionStateResponse where
   rnf GetSubscriptionStateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscriptionState
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf subscriptionState

@@ -142,8 +142,8 @@ instance
     UpdateApplicationLayerAutomaticResponse
   where
   rnf UpdateApplicationLayerAutomaticResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf action
 
 instance
   Data.ToHeaders

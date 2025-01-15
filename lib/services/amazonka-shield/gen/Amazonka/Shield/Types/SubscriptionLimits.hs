@@ -89,5 +89,5 @@ instance Prelude.Hashable SubscriptionLimits where
 
 instance Prelude.NFData SubscriptionLimits where
   rnf SubscriptionLimits' {..} =
-    Prelude.rnf protectionLimits
-      `Prelude.seq` Prelude.rnf protectionGroupLimits
+    Prelude.rnf protectionLimits `Prelude.seq`
+      Prelude.rnf protectionGroupLimits

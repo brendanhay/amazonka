@@ -214,9 +214,9 @@ instance Prelude.Hashable ProtectionGroup where
 
 instance Prelude.NFData ProtectionGroup where
   rnf ProtectionGroup' {..} =
-    Prelude.rnf protectionGroupArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf protectionGroupId
-      `Prelude.seq` Prelude.rnf aggregation
-      `Prelude.seq` Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf protectionGroupArn `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf protectionGroupId `Prelude.seq`
+          Prelude.rnf aggregation `Prelude.seq`
+            Prelude.rnf pattern' `Prelude.seq`
+              Prelude.rnf members

@@ -176,6 +176,6 @@ instance
     DescribeAttackStatisticsResponse
   where
   rnf DescribeAttackStatisticsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf timeRange
-      `Prelude.seq` Prelude.rnf dataItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf timeRange `Prelude.seq`
+        Prelude.rnf dataItems

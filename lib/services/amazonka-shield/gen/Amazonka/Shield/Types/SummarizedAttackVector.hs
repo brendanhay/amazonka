@@ -84,5 +84,5 @@ instance Prelude.Hashable SummarizedAttackVector where
 
 instance Prelude.NFData SummarizedAttackVector where
   rnf SummarizedAttackVector' {..} =
-    Prelude.rnf vectorCounters
-      `Prelude.seq` Prelude.rnf vectorType
+    Prelude.rnf vectorCounters `Prelude.seq`
+      Prelude.rnf vectorType

@@ -144,5 +144,5 @@ describeSubscriptionResponse_httpStatus = Lens.lens (\DescribeSubscriptionRespon
 
 instance Prelude.NFData DescribeSubscriptionResponse where
   rnf DescribeSubscriptionResponse' {..} =
-    Prelude.rnf subscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subscription `Prelude.seq`
+      Prelude.rnf httpStatus

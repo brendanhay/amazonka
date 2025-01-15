@@ -163,5 +163,5 @@ describeAttackResponse_httpStatus = Lens.lens (\DescribeAttackResponse' {httpSta
 
 instance Prelude.NFData DescribeAttackResponse where
   rnf DescribeAttackResponse' {..} =
-    Prelude.rnf attack
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attack `Prelude.seq`
+      Prelude.rnf httpStatus

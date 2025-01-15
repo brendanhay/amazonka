@@ -198,9 +198,9 @@ instance Prelude.Hashable CreateProtection where
 
 instance Prelude.NFData CreateProtection where
   rnf CreateProtection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders CreateProtection where
   toHeaders =
@@ -274,5 +274,5 @@ createProtectionResponse_httpStatus = Lens.lens (\CreateProtectionResponse' {htt
 
 instance Prelude.NFData CreateProtectionResponse where
   rnf CreateProtectionResponse' {..} =
-    Prelude.rnf protectionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf protectionId `Prelude.seq`
+      Prelude.rnf httpStatus

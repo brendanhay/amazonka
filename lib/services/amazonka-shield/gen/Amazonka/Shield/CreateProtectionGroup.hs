@@ -234,12 +234,12 @@ instance Prelude.Hashable CreateProtectionGroup where
 
 instance Prelude.NFData CreateProtectionGroup where
   rnf CreateProtectionGroup' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf protectionGroupId
-      `Prelude.seq` Prelude.rnf aggregation
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf members `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf protectionGroupId `Prelude.seq`
+            Prelude.rnf aggregation `Prelude.seq`
+              Prelude.rnf pattern'
 
 instance Data.ToHeaders CreateProtectionGroup where
   toHeaders =

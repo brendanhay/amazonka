@@ -106,6 +106,6 @@ instance Prelude.Hashable AttackVolume where
 
 instance Prelude.NFData AttackVolume where
   rnf AttackVolume' {..} =
-    Prelude.rnf bitsPerSecond
-      `Prelude.seq` Prelude.rnf packetsPerSecond
-      `Prelude.seq` Prelude.rnf requestsPerSecond
+    Prelude.rnf bitsPerSecond `Prelude.seq`
+      Prelude.rnf packetsPerSecond `Prelude.seq`
+        Prelude.rnf requestsPerSecond

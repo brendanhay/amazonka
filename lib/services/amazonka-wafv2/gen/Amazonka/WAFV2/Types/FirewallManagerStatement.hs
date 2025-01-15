@@ -141,5 +141,5 @@ instance Prelude.Hashable FirewallManagerStatement where
 
 instance Prelude.NFData FirewallManagerStatement where
   rnf FirewallManagerStatement' {..} =
-    Prelude.rnf managedRuleGroupStatement
-      `Prelude.seq` Prelude.rnf ruleGroupReferenceStatement
+    Prelude.rnf managedRuleGroupStatement `Prelude.seq`
+      Prelude.rnf ruleGroupReferenceStatement

@@ -176,9 +176,9 @@ instance Prelude.Hashable ListRegexPatternSets where
 
 instance Prelude.NFData ListRegexPatternSets where
   rnf ListRegexPatternSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf scope
 
 instance Data.ToHeaders ListRegexPatternSets where
   toHeaders =
@@ -268,6 +268,6 @@ listRegexPatternSetsResponse_httpStatus = Lens.lens (\ListRegexPatternSetsRespon
 
 instance Prelude.NFData ListRegexPatternSetsResponse where
   rnf ListRegexPatternSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf regexPatternSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf regexPatternSets `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -201,10 +201,10 @@ instance Prelude.Hashable DeleteRegexPatternSet where
 
 instance Prelude.NFData DeleteRegexPatternSet where
   rnf DeleteRegexPatternSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken
 
 instance Data.ToHeaders DeleteRegexPatternSet where
   toHeaders =

@@ -199,10 +199,10 @@ instance Prelude.Hashable DescribeManagedRuleGroup where
 
 instance Prelude.NFData DescribeManagedRuleGroup where
   rnf DescribeManagedRuleGroup' {..} =
-    Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf vendorName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf versionName `Prelude.seq`
+      Prelude.rnf vendorName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf scope
 
 instance Data.ToHeaders DescribeManagedRuleGroup where
   toHeaders =
@@ -416,11 +416,11 @@ instance
     DescribeManagedRuleGroupResponse
   where
   rnf DescribeManagedRuleGroupResponse' {..} =
-    Prelude.rnf availableLabels
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf consumedLabels
-      `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availableLabels `Prelude.seq`
+      Prelude.rnf capacity `Prelude.seq`
+        Prelude.rnf consumedLabels `Prelude.seq`
+          Prelude.rnf labelNamespace `Prelude.seq`
+            Prelude.rnf rules `Prelude.seq`
+              Prelude.rnf snsTopicArn `Prelude.seq`
+                Prelude.rnf versionName `Prelude.seq`
+                  Prelude.rnf httpStatus

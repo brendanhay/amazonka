@@ -244,12 +244,12 @@ instance Prelude.Hashable UpdateRegexPatternSet where
 
 instance Prelude.NFData UpdateRegexPatternSet where
   rnf UpdateRegexPatternSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf regularExpressionList
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf scope `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf regularExpressionList `Prelude.seq`
+              Prelude.rnf lockToken
 
 instance Data.ToHeaders UpdateRegexPatternSet where
   toHeaders =
@@ -335,5 +335,5 @@ updateRegexPatternSetResponse_httpStatus = Lens.lens (\UpdateRegexPatternSetResp
 
 instance Prelude.NFData UpdateRegexPatternSetResponse where
   rnf UpdateRegexPatternSetResponse' {..} =
-    Prelude.rnf nextLockToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextLockToken `Prelude.seq`
+      Prelude.rnf httpStatus

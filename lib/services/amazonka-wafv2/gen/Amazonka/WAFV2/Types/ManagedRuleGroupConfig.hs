@@ -149,11 +149,11 @@ instance Prelude.Hashable ManagedRuleGroupConfig where
 
 instance Prelude.NFData ManagedRuleGroupConfig where
   rnf ManagedRuleGroupConfig' {..} =
-    Prelude.rnf aWSManagedRulesBotControlRuleSet
-      `Prelude.seq` Prelude.rnf loginPath
-      `Prelude.seq` Prelude.rnf passwordField
-      `Prelude.seq` Prelude.rnf payloadType
-      `Prelude.seq` Prelude.rnf usernameField
+    Prelude.rnf aWSManagedRulesBotControlRuleSet `Prelude.seq`
+      Prelude.rnf loginPath `Prelude.seq`
+        Prelude.rnf passwordField `Prelude.seq`
+          Prelude.rnf payloadType `Prelude.seq`
+            Prelude.rnf usernameField
 
 instance Data.ToJSON ManagedRuleGroupConfig where
   toJSON ManagedRuleGroupConfig' {..} =

@@ -113,8 +113,8 @@ instance Prelude.Hashable IPSetReferenceStatement where
 
 instance Prelude.NFData IPSetReferenceStatement where
   rnf IPSetReferenceStatement' {..} =
-    Prelude.rnf iPSetForwardedIPConfig
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf iPSetForwardedIPConfig `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToJSON IPSetReferenceStatement where
   toJSON IPSetReferenceStatement' {..} =

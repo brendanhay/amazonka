@@ -182,11 +182,11 @@ instance Prelude.Hashable CreateRegexPatternSet where
 
 instance Prelude.NFData CreateRegexPatternSet where
   rnf CreateRegexPatternSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf regularExpressionList
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf regularExpressionList
 
 instance Data.ToHeaders CreateRegexPatternSet where
   toHeaders =
@@ -277,5 +277,5 @@ createRegexPatternSetResponse_httpStatus = Lens.lens (\CreateRegexPatternSetResp
 
 instance Prelude.NFData CreateRegexPatternSetResponse where
   rnf CreateRegexPatternSetResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf httpStatus

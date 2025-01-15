@@ -254,14 +254,14 @@ instance Prelude.Hashable SampledHTTPRequest where
 
 instance Prelude.NFData SampledHTTPRequest where
   rnf SampledHTTPRequest' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf captchaResponse
-      `Prelude.seq` Prelude.rnf challengeResponse
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf overriddenAction
-      `Prelude.seq` Prelude.rnf requestHeadersInserted
-      `Prelude.seq` Prelude.rnf responseCodeSent
-      `Prelude.seq` Prelude.rnf ruleNameWithinRuleGroup
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf request
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf captchaResponse `Prelude.seq`
+        Prelude.rnf challengeResponse `Prelude.seq`
+          Prelude.rnf labels `Prelude.seq`
+            Prelude.rnf overriddenAction `Prelude.seq`
+              Prelude.rnf requestHeadersInserted `Prelude.seq`
+                Prelude.rnf responseCodeSent `Prelude.seq`
+                  Prelude.rnf ruleNameWithinRuleGroup `Prelude.seq`
+                    Prelude.rnf timestamp `Prelude.seq`
+                      Prelude.rnf request `Prelude.seq`
+                        Prelude.rnf weight

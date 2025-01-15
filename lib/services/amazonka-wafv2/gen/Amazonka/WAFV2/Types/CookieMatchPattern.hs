@@ -105,9 +105,9 @@ instance Prelude.Hashable CookieMatchPattern where
 
 instance Prelude.NFData CookieMatchPattern where
   rnf CookieMatchPattern' {..} =
-    Prelude.rnf all
-      `Prelude.seq` Prelude.rnf excludedCookies
-      `Prelude.seq` Prelude.rnf includedCookies
+    Prelude.rnf all `Prelude.seq`
+      Prelude.rnf excludedCookies `Prelude.seq`
+        Prelude.rnf includedCookies
 
 instance Data.ToJSON CookieMatchPattern where
   toJSON CookieMatchPattern' {..} =

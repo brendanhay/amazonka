@@ -235,13 +235,13 @@ instance Prelude.Hashable ManagedRuleGroupStatement where
 
 instance Prelude.NFData ManagedRuleGroupStatement where
   rnf ManagedRuleGroupStatement' {..} =
-    Prelude.rnf excludedRules
-      `Prelude.seq` Prelude.rnf managedRuleGroupConfigs
-      `Prelude.seq` Prelude.rnf ruleActionOverrides
-      `Prelude.seq` Prelude.rnf scopeDownStatement
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf vendorName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf excludedRules `Prelude.seq`
+      Prelude.rnf managedRuleGroupConfigs `Prelude.seq`
+        Prelude.rnf ruleActionOverrides `Prelude.seq`
+          Prelude.rnf scopeDownStatement `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf vendorName `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToJSON ManagedRuleGroupStatement where
   toJSON ManagedRuleGroupStatement' {..} =

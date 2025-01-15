@@ -211,5 +211,5 @@ instance
     PutLoggingConfigurationResponse
   where
   rnf PutLoggingConfigurationResponse' {..} =
-    Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loggingConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

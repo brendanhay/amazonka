@@ -149,9 +149,9 @@ instance Prelude.Hashable ListMobileSdkReleases where
 
 instance Prelude.NFData ListMobileSdkReleases where
   rnf ListMobileSdkReleases' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf platform
 
 instance Data.ToHeaders ListMobileSdkReleases where
   toHeaders =
@@ -243,6 +243,6 @@ listMobileSdkReleasesResponse_httpStatus = Lens.lens (\ListMobileSdkReleasesResp
 
 instance Prelude.NFData ListMobileSdkReleasesResponse where
   rnf ListMobileSdkReleasesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf releaseSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf releaseSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -119,8 +119,8 @@ instance Prelude.Hashable GenerateMobileSdkReleaseUrl where
 
 instance Prelude.NFData GenerateMobileSdkReleaseUrl where
   rnf GenerateMobileSdkReleaseUrl' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf releaseVersion
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf releaseVersion
 
 instance Data.ToHeaders GenerateMobileSdkReleaseUrl where
   toHeaders =
@@ -197,5 +197,5 @@ instance
     GenerateMobileSdkReleaseUrlResponse
   where
   rnf GenerateMobileSdkReleaseUrlResponse' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf url `Prelude.seq`
+      Prelude.rnf httpStatus

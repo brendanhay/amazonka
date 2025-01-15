@@ -197,10 +197,10 @@ instance Prelude.Hashable DeleteRuleGroup where
 
 instance Prelude.NFData DeleteRuleGroup where
   rnf DeleteRuleGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken
 
 instance Data.ToHeaders DeleteRuleGroup where
   toHeaders =

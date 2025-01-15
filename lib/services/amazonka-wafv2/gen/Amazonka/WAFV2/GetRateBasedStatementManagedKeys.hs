@@ -238,11 +238,11 @@ instance
     GetRateBasedStatementManagedKeys
   where
   rnf GetRateBasedStatementManagedKeys' {..} =
-    Prelude.rnf ruleGroupRuleName
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf webACLName
-      `Prelude.seq` Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf ruleGroupRuleName `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf webACLName `Prelude.seq`
+          Prelude.rnf webACLId `Prelude.seq`
+            Prelude.rnf ruleName
 
 instance
   Data.ToHeaders
@@ -338,6 +338,6 @@ instance
     GetRateBasedStatementManagedKeysResponse
   where
   rnf GetRateBasedStatementManagedKeysResponse' {..} =
-    Prelude.rnf managedKeysIPV4
-      `Prelude.seq` Prelude.rnf managedKeysIPV6
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedKeysIPV4 `Prelude.seq`
+      Prelude.rnf managedKeysIPV6 `Prelude.seq`
+        Prelude.rnf httpStatus

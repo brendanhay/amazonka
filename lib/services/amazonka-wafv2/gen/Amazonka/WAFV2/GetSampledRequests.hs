@@ -241,11 +241,11 @@ instance Prelude.Hashable GetSampledRequests where
 
 instance Prelude.NFData GetSampledRequests where
   rnf GetSampledRequests' {..} =
-    Prelude.rnf webAclArn
-      `Prelude.seq` Prelude.rnf ruleMetricName
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf timeWindow
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf webAclArn `Prelude.seq`
+      Prelude.rnf ruleMetricName `Prelude.seq`
+        Prelude.rnf scope `Prelude.seq`
+          Prelude.rnf timeWindow `Prelude.seq`
+            Prelude.rnf maxItems
 
 instance Data.ToHeaders GetSampledRequests where
   toHeaders =
@@ -367,7 +367,7 @@ getSampledRequestsResponse_httpStatus = Lens.lens (\GetSampledRequestsResponse' 
 
 instance Prelude.NFData GetSampledRequestsResponse where
   rnf GetSampledRequestsResponse' {..} =
-    Prelude.rnf populationSize
-      `Prelude.seq` Prelude.rnf sampledRequests
-      `Prelude.seq` Prelude.rnf timeWindow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf populationSize `Prelude.seq`
+      Prelude.rnf sampledRequests `Prelude.seq`
+        Prelude.rnf timeWindow `Prelude.seq`
+          Prelude.rnf httpStatus

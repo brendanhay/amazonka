@@ -146,8 +146,8 @@ instance Prelude.Hashable IPSetSummary where
 
 instance Prelude.NFData IPSetSummary where
   rnf IPSetSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken `Prelude.seq`
+            Prelude.rnf name

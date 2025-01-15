@@ -495,19 +495,19 @@ instance Prelude.Hashable WebACL where
 
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf challengeConfig
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf managedByFirewallManager
-      `Prelude.seq` Prelude.rnf postProcessFirewallManagerRuleGroups
-      `Prelude.seq` Prelude.rnf preProcessFirewallManagerRuleGroups
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf tokenDomains
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf captchaConfig `Prelude.seq`
+        Prelude.rnf challengeConfig `Prelude.seq`
+          Prelude.rnf customResponseBodies `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf labelNamespace `Prelude.seq`
+                Prelude.rnf managedByFirewallManager `Prelude.seq`
+                  Prelude.rnf postProcessFirewallManagerRuleGroups `Prelude.seq`
+                    Prelude.rnf preProcessFirewallManagerRuleGroups `Prelude.seq`
+                      Prelude.rnf rules `Prelude.seq`
+                        Prelude.rnf tokenDomains `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf id `Prelude.seq`
+                              Prelude.rnf arn `Prelude.seq`
+                                Prelude.rnf defaultAction `Prelude.seq`
+                                  Prelude.rnf visibilityConfig

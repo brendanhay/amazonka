@@ -299,12 +299,12 @@ instance Prelude.Hashable CreateIPSet where
 
 instance Prelude.NFData CreateIPSet where
   rnf CreateIPSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf iPAddressVersion
-      `Prelude.seq` Prelude.rnf addresses
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf iPAddressVersion `Prelude.seq`
+              Prelude.rnf addresses
 
 instance Data.ToHeaders CreateIPSet where
   toHeaders =
@@ -390,5 +390,5 @@ createIPSetResponse_httpStatus = Lens.lens (\CreateIPSetResponse' {httpStatus} -
 
 instance Prelude.NFData CreateIPSetResponse where
   rnf CreateIPSetResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf httpStatus

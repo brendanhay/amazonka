@@ -143,9 +143,9 @@ instance
     RegexPatternSetReferenceStatement
   where
   rnf RegexPatternSetReferenceStatement' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformations
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf fieldToMatch `Prelude.seq`
+        Prelude.rnf textTransformations
 
 instance
   Data.ToJSON

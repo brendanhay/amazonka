@@ -128,8 +128,8 @@ instance Prelude.Hashable JsonMatchPattern where
 
 instance Prelude.NFData JsonMatchPattern where
   rnf JsonMatchPattern' {..} =
-    Prelude.rnf all
-      `Prelude.seq` Prelude.rnf includedPaths
+    Prelude.rnf all `Prelude.seq`
+      Prelude.rnf includedPaths
 
 instance Data.ToJSON JsonMatchPattern where
   toJSON JsonMatchPattern' {..} =

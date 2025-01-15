@@ -166,9 +166,9 @@ instance Prelude.Hashable HTTPRequest where
 
 instance Prelude.NFData HTTPRequest where
   rnf HTTPRequest' {..} =
-    Prelude.rnf clientIP
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf hTTPVersion
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf method
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf clientIP `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf hTTPVersion `Prelude.seq`
+          Prelude.rnf headers `Prelude.seq`
+            Prelude.rnf method `Prelude.seq`
+              Prelude.rnf uri

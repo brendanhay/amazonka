@@ -96,8 +96,8 @@ instance Prelude.Hashable RuleActionOverride where
 
 instance Prelude.NFData RuleActionOverride where
   rnf RuleActionOverride' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf actionToUse
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf actionToUse
 
 instance Data.ToJSON RuleActionOverride where
   toJSON RuleActionOverride' {..} =

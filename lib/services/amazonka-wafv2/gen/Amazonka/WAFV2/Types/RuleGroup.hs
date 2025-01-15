@@ -361,14 +361,14 @@ instance Prelude.Hashable RuleGroup where
 
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
-    Prelude.rnf availableLabels
-      `Prelude.seq` Prelude.rnf consumedLabels
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf availableLabels `Prelude.seq`
+      Prelude.rnf consumedLabels `Prelude.seq`
+        Prelude.rnf customResponseBodies `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf labelNamespace `Prelude.seq`
+              Prelude.rnf rules `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf capacity `Prelude.seq`
+                      Prelude.rnf arn `Prelude.seq`
+                        Prelude.rnf visibilityConfig

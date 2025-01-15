@@ -436,18 +436,18 @@ instance Prelude.Hashable UpdateWebACL where
 
 instance Prelude.NFData UpdateWebACL where
   rnf UpdateWebACL' {..} =
-    Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf challengeConfig
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf tokenDomains
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf visibilityConfig
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf captchaConfig `Prelude.seq`
+      Prelude.rnf challengeConfig `Prelude.seq`
+        Prelude.rnf customResponseBodies `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf rules `Prelude.seq`
+              Prelude.rnf tokenDomains `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf scope `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf defaultAction `Prelude.seq`
+                        Prelude.rnf visibilityConfig `Prelude.seq`
+                          Prelude.rnf lockToken
 
 instance Data.ToHeaders UpdateWebACL where
   toHeaders =
@@ -539,5 +539,5 @@ updateWebACLResponse_httpStatus = Lens.lens (\UpdateWebACLResponse' {httpStatus}
 
 instance Prelude.NFData UpdateWebACLResponse where
   rnf UpdateWebACLResponse' {..} =
-    Prelude.rnf nextLockToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextLockToken `Prelude.seq`
+      Prelude.rnf httpStatus

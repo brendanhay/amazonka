@@ -171,9 +171,9 @@ instance Prelude.Hashable ListIPSets where
 
 instance Prelude.NFData ListIPSets where
   rnf ListIPSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf scope
 
 instance Data.ToHeaders ListIPSets where
   toHeaders =
@@ -265,6 +265,6 @@ listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListIPSetsResponse where
   rnf ListIPSetsResponse' {..} =
-    Prelude.rnf iPSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iPSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

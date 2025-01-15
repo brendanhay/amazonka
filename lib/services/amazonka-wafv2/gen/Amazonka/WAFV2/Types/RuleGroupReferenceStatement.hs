@@ -135,9 +135,9 @@ instance Prelude.Hashable RuleGroupReferenceStatement where
 
 instance Prelude.NFData RuleGroupReferenceStatement where
   rnf RuleGroupReferenceStatement' {..} =
-    Prelude.rnf excludedRules
-      `Prelude.seq` Prelude.rnf ruleActionOverrides
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf excludedRules `Prelude.seq`
+      Prelude.rnf ruleActionOverrides `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToJSON RuleGroupReferenceStatement where
   toJSON RuleGroupReferenceStatement' {..} =

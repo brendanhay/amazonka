@@ -102,6 +102,6 @@ instance Prelude.Hashable ChallengeResponse where
 
 instance Prelude.NFData ChallengeResponse where
   rnf ChallengeResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf solveTimestamp
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf responseCode `Prelude.seq`
+        Prelude.rnf solveTimestamp

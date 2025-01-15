@@ -219,10 +219,10 @@ instance Prelude.Hashable ManagedRuleSet where
 
 instance Prelude.NFData ManagedRuleSet where
   rnf ManagedRuleSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf publishedVersions
-      `Prelude.seq` Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf labelNamespace `Prelude.seq`
+        Prelude.rnf publishedVersions `Prelude.seq`
+          Prelude.rnf recommendedVersion `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf arn

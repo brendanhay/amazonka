@@ -146,8 +146,8 @@ instance Prelude.Hashable WebACLSummary where
 
 instance Prelude.NFData WebACLSummary where
   rnf WebACLSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken `Prelude.seq`
+            Prelude.rnf name

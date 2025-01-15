@@ -87,8 +87,8 @@ instance Prelude.Hashable VersionToPublish where
 
 instance Prelude.NFData VersionToPublish where
   rnf VersionToPublish' {..} =
-    Prelude.rnf associatedRuleGroupArn
-      `Prelude.seq` Prelude.rnf forecastedLifetime
+    Prelude.rnf associatedRuleGroupArn `Prelude.seq`
+      Prelude.rnf forecastedLifetime
 
 instance Data.ToJSON VersionToPublish where
   toJSON VersionToPublish' {..} =

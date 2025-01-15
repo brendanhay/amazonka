@@ -351,10 +351,10 @@ instance Prelude.Hashable ByteMatchStatement where
 
 instance Prelude.NFData ByteMatchStatement where
   rnf ByteMatchStatement' {..} =
-    Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformations
-      `Prelude.seq` Prelude.rnf positionalConstraint
+    Prelude.rnf searchString `Prelude.seq`
+      Prelude.rnf fieldToMatch `Prelude.seq`
+        Prelude.rnf textTransformations `Prelude.seq`
+          Prelude.rnf positionalConstraint
 
 instance Data.ToJSON ByteMatchStatement where
   toJSON ByteMatchStatement' {..} =

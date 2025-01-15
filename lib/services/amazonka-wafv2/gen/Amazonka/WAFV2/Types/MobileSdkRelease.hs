@@ -110,7 +110,7 @@ instance Prelude.Hashable MobileSdkRelease where
 
 instance Prelude.NFData MobileSdkRelease where
   rnf MobileSdkRelease' {..} =
-    Prelude.rnf releaseNotes
-      `Prelude.seq` Prelude.rnf releaseVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf releaseNotes `Prelude.seq`
+      Prelude.rnf releaseVersion `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf timestamp

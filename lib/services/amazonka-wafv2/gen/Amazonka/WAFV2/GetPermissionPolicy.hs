@@ -170,5 +170,5 @@ getPermissionPolicyResponse_httpStatus = Lens.lens (\GetPermissionPolicyResponse
 
 instance Prelude.NFData GetPermissionPolicyResponse where
   rnf GetPermissionPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

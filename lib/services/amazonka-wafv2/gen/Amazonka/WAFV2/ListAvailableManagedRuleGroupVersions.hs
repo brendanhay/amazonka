@@ -223,11 +223,11 @@ instance
     ListAvailableManagedRuleGroupVersions
   where
   rnf ListAvailableManagedRuleGroupVersions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf vendorName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf vendorName `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf scope
 
 instance
   Data.ToHeaders
@@ -350,7 +350,7 @@ instance
   where
   rnf
     ListAvailableManagedRuleGroupVersionsResponse' {..} =
-      Prelude.rnf currentDefaultVersion
-        `Prelude.seq` Prelude.rnf nextMarker
-        `Prelude.seq` Prelude.rnf versions
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf currentDefaultVersion `Prelude.seq`
+        Prelude.rnf nextMarker `Prelude.seq`
+          Prelude.rnf versions `Prelude.seq`
+            Prelude.rnf httpStatus

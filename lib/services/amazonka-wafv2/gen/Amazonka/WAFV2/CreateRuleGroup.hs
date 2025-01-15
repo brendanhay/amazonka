@@ -320,14 +320,14 @@ instance Prelude.Hashable CreateRuleGroup where
 
 instance Prelude.NFData CreateRuleGroup where
   rnf CreateRuleGroup' {..} =
-    Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf customResponseBodies `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf rules `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf scope `Prelude.seq`
+                Prelude.rnf capacity `Prelude.seq`
+                  Prelude.rnf visibilityConfig
 
 instance Data.ToHeaders CreateRuleGroup where
   toHeaders =
@@ -416,5 +416,5 @@ createRuleGroupResponse_httpStatus = Lens.lens (\CreateRuleGroupResponse' {httpS
 
 instance Prelude.NFData CreateRuleGroupResponse where
   rnf CreateRuleGroupResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf httpStatus

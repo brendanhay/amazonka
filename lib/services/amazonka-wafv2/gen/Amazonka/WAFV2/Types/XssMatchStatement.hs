@@ -107,8 +107,8 @@ instance Prelude.Hashable XssMatchStatement where
 
 instance Prelude.NFData XssMatchStatement where
   rnf XssMatchStatement' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformations
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf textTransformations
 
 instance Data.ToJSON XssMatchStatement where
   toJSON XssMatchStatement' {..} =

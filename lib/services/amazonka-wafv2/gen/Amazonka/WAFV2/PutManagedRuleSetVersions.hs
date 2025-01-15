@@ -263,12 +263,12 @@ instance Prelude.Hashable PutManagedRuleSetVersions where
 
 instance Prelude.NFData PutManagedRuleSetVersions where
   rnf PutManagedRuleSetVersions' {..} =
-    Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf versionsToPublish
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf recommendedVersion `Prelude.seq`
+      Prelude.rnf versionsToPublish `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lockToken
 
 instance Data.ToHeaders PutManagedRuleSetVersions where
   toHeaders =
@@ -371,5 +371,5 @@ instance
     PutManagedRuleSetVersionsResponse
   where
   rnf PutManagedRuleSetVersionsResponse' {..} =
-    Prelude.rnf nextLockToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextLockToken `Prelude.seq`
+      Prelude.rnf httpStatus

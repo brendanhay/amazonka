@@ -86,8 +86,8 @@ instance Prelude.Hashable QueryArgProfile where
 
 instance Prelude.NFData QueryArgProfile where
   rnf QueryArgProfile' {..} =
-    Prelude.rnf queryArg
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf queryArg `Prelude.seq`
+      Prelude.rnf profileId
 
 instance Data.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =

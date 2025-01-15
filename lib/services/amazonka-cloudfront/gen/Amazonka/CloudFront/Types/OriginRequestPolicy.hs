@@ -119,6 +119,6 @@ instance Prelude.Hashable OriginRequestPolicy where
 
 instance Prelude.NFData OriginRequestPolicy where
   rnf OriginRequestPolicy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf originRequestPolicyConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf originRequestPolicyConfig

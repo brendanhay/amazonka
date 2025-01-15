@@ -167,6 +167,6 @@ getKeyGroupConfigResponse_httpStatus = Lens.lens (\GetKeyGroupConfigResponse' {h
 
 instance Prelude.NFData GetKeyGroupConfigResponse where
   rnf GetKeyGroupConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf keyGroupConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf keyGroupConfig `Prelude.seq`
+        Prelude.rnf httpStatus

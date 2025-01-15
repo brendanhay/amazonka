@@ -109,6 +109,6 @@ instance Prelude.Hashable FieldLevelEncryption where
 
 instance Prelude.NFData FieldLevelEncryption where
   rnf FieldLevelEncryption' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf fieldLevelEncryptionConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf fieldLevelEncryptionConfig

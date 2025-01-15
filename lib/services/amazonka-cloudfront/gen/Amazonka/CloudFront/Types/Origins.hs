@@ -71,9 +71,7 @@ instance Data.FromXML Origins where
   parseXML x =
     Origins'
       Prelude.<$> (x Data..@ "Quantity")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList1 "Origin"
                   )
 
@@ -85,8 +83,8 @@ instance Prelude.Hashable Origins where
 
 instance Prelude.NFData Origins where
   rnf Origins' {..} =
-    Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf quantity `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToXML Origins where
   toXML Origins' {..} =

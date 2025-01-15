@@ -200,7 +200,7 @@ createCachePolicyResponse_httpStatus = Lens.lens (\CreateCachePolicyResponse' {h
 
 instance Prelude.NFData CreateCachePolicyResponse where
   rnf CreateCachePolicyResponse' {..} =
-    Prelude.rnf cachePolicy
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cachePolicy `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

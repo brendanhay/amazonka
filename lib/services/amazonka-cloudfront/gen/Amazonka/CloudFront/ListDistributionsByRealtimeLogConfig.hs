@@ -173,10 +173,10 @@ instance
     ListDistributionsByRealtimeLogConfig
   where
   rnf ListDistributionsByRealtimeLogConfig' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
-      `Prelude.seq` Prelude.rnf realtimeLogConfigName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf realtimeLogConfigArn `Prelude.seq`
+          Prelude.rnf realtimeLogConfigName
 
 instance
   Data.ToElement
@@ -263,5 +263,5 @@ instance
     ListDistributionsByRealtimeLogConfigResponse
   where
   rnf ListDistributionsByRealtimeLogConfigResponse' {..} =
-    Prelude.rnf distributionList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionList `Prelude.seq`
+      Prelude.rnf httpStatus

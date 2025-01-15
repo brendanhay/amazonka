@@ -75,9 +75,7 @@ encryptionEntities_quantity = Lens.lens (\EncryptionEntities' {quantity} -> quan
 instance Data.FromXML EncryptionEntities where
   parseXML x =
     EncryptionEntities'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EncryptionEntity")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -90,8 +88,8 @@ instance Prelude.Hashable EncryptionEntities where
 
 instance Prelude.NFData EncryptionEntities where
   rnf EncryptionEntities' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML EncryptionEntities where
   toXML EncryptionEntities' {..} =

@@ -182,5 +182,5 @@ publishFunctionResponse_httpStatus = Lens.lens (\PublishFunctionResponse' {httpS
 
 instance Prelude.NFData PublishFunctionResponse where
   rnf PublishFunctionResponse' {..} =
-    Prelude.rnf functionSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionSummary `Prelude.seq`
+      Prelude.rnf httpStatus

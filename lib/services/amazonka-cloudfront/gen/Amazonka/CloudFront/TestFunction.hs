@@ -172,10 +172,10 @@ instance Prelude.Hashable TestFunction where
 
 instance Prelude.NFData TestFunction where
   rnf TestFunction' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf eventObject
+    Prelude.rnf stage `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ifMatch `Prelude.seq`
+          Prelude.rnf eventObject
 
 instance Data.ToElement TestFunction where
   toElement =
@@ -244,5 +244,5 @@ testFunctionResponse_httpStatus = Lens.lens (\TestFunctionResponse' {httpStatus}
 
 instance Prelude.NFData TestFunctionResponse where
   rnf TestFunctionResponse' {..} =
-    Prelude.rnf testResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf testResult `Prelude.seq`
+      Prelude.rnf httpStatus

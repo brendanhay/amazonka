@@ -106,6 +106,6 @@ instance Prelude.Hashable PublicKey where
 
 instance Prelude.NFData PublicKey where
   rnf PublicKey' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf publicKeyConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf publicKeyConfig

@@ -703,24 +703,24 @@ instance Prelude.Hashable DefaultCacheBehavior where
 
 instance Prelude.NFData DefaultCacheBehavior where
   rnf DefaultCacheBehavior' {..} =
-    Prelude.rnf allowedMethods
-      `Prelude.seq` Prelude.rnf cachePolicyId
-      `Prelude.seq` Prelude.rnf compress
-      `Prelude.seq` Prelude.rnf defaultTTL
-      `Prelude.seq` Prelude.rnf fieldLevelEncryptionId
-      `Prelude.seq` Prelude.rnf forwardedValues
-      `Prelude.seq` Prelude.rnf functionAssociations
-      `Prelude.seq` Prelude.rnf lambdaFunctionAssociations
-      `Prelude.seq` Prelude.rnf maxTTL
-      `Prelude.seq` Prelude.rnf minTTL
-      `Prelude.seq` Prelude.rnf originRequestPolicyId
-      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
-      `Prelude.seq` Prelude.rnf responseHeadersPolicyId
-      `Prelude.seq` Prelude.rnf smoothStreaming
-      `Prelude.seq` Prelude.rnf trustedKeyGroups
-      `Prelude.seq` Prelude.rnf trustedSigners
-      `Prelude.seq` Prelude.rnf targetOriginId
-      `Prelude.seq` Prelude.rnf viewerProtocolPolicy
+    Prelude.rnf allowedMethods `Prelude.seq`
+      Prelude.rnf cachePolicyId `Prelude.seq`
+        Prelude.rnf compress `Prelude.seq`
+          Prelude.rnf defaultTTL `Prelude.seq`
+            Prelude.rnf fieldLevelEncryptionId `Prelude.seq`
+              Prelude.rnf forwardedValues `Prelude.seq`
+                Prelude.rnf functionAssociations `Prelude.seq`
+                  Prelude.rnf lambdaFunctionAssociations `Prelude.seq`
+                    Prelude.rnf maxTTL `Prelude.seq`
+                      Prelude.rnf minTTL `Prelude.seq`
+                        Prelude.rnf originRequestPolicyId `Prelude.seq`
+                          Prelude.rnf realtimeLogConfigArn `Prelude.seq`
+                            Prelude.rnf responseHeadersPolicyId `Prelude.seq`
+                              Prelude.rnf smoothStreaming `Prelude.seq`
+                                Prelude.rnf trustedKeyGroups `Prelude.seq`
+                                  Prelude.rnf trustedSigners `Prelude.seq`
+                                    Prelude.rnf targetOriginId `Prelude.seq`
+                                      Prelude.rnf viewerProtocolPolicy
 
 instance Data.ToXML DefaultCacheBehavior where
   toXML DefaultCacheBehavior' {..} =

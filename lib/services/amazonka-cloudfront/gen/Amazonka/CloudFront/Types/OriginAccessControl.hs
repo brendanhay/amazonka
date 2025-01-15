@@ -80,5 +80,5 @@ instance Prelude.Hashable OriginAccessControl where
 
 instance Prelude.NFData OriginAccessControl where
   rnf OriginAccessControl' {..} =
-    Prelude.rnf originAccessControlConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf originAccessControlConfig `Prelude.seq`
+      Prelude.rnf id

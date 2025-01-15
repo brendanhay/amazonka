@@ -71,9 +71,7 @@ cacheBehaviors_quantity = Lens.lens (\CacheBehaviors' {quantity} -> quantity) (\
 instance Data.FromXML CacheBehaviors where
   parseXML x =
     CacheBehaviors'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheBehavior")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -86,8 +84,8 @@ instance Prelude.Hashable CacheBehaviors where
 
 instance Prelude.NFData CacheBehaviors where
   rnf CacheBehaviors' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML CacheBehaviors where
   toXML CacheBehaviors' {..} =

@@ -67,9 +67,7 @@ queryStringNames_quantity = Lens.lens (\QueryStringNames' {quantity} -> quantity
 instance Data.FromXML QueryStringNames where
   parseXML x =
     QueryStringNames'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -82,8 +80,8 @@ instance Prelude.Hashable QueryStringNames where
 
 instance Prelude.NFData QueryStringNames where
   rnf QueryStringNames' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML QueryStringNames where
   toXML QueryStringNames' {..} =

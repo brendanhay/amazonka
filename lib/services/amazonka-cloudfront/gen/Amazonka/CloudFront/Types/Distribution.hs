@@ -248,13 +248,13 @@ instance Prelude.Hashable Distribution where
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
-    Prelude.rnf activeTrustedKeyGroups
-      `Prelude.seq` Prelude.rnf activeTrustedSigners
-      `Prelude.seq` Prelude.rnf aliasICPRecordals
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf inProgressInvalidationBatches
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf distributionConfig
+    Prelude.rnf activeTrustedKeyGroups `Prelude.seq`
+      Prelude.rnf activeTrustedSigners `Prelude.seq`
+        Prelude.rnf aliasICPRecordals `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf inProgressInvalidationBatches `Prelude.seq`
+                    Prelude.rnf domainName `Prelude.seq`
+                      Prelude.rnf distributionConfig

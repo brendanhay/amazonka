@@ -150,9 +150,9 @@ instance Prelude.Hashable UpdateResponseHeadersPolicy where
 
 instance Prelude.NFData UpdateResponseHeadersPolicy where
   rnf UpdateResponseHeadersPolicy' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf responseHeadersPolicyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf responseHeadersPolicyConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateResponseHeadersPolicy where
   toElement UpdateResponseHeadersPolicy' {..} =
@@ -228,6 +228,6 @@ instance
     UpdateResponseHeadersPolicyResponse
   where
   rnf UpdateResponseHeadersPolicyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf responseHeadersPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf responseHeadersPolicy `Prelude.seq`
+        Prelude.rnf httpStatus

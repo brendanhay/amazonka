@@ -105,9 +105,7 @@ instance Data.FromXML AllowedMethods where
     AllowedMethods'
       Prelude.<$> (x Data..@? "CachedMethods")
       Prelude.<*> (x Data..@ "Quantity")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "Method"
                   )
 
@@ -120,9 +118,9 @@ instance Prelude.Hashable AllowedMethods where
 
 instance Prelude.NFData AllowedMethods where
   rnf AllowedMethods' {..} =
-    Prelude.rnf cachedMethods
-      `Prelude.seq` Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf cachedMethods `Prelude.seq`
+      Prelude.rnf quantity `Prelude.seq`
+        Prelude.rnf items
 
 instance Data.ToXML AllowedMethods where
   toXML AllowedMethods' {..} =

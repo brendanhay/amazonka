@@ -147,9 +147,9 @@ instance Prelude.Hashable ListDistributionsByWebACLId where
 
 instance Prelude.NFData ListDistributionsByWebACLId where
   rnf ListDistributionsByWebACLId' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf webACLId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf webACLId
 
 instance Data.ToHeaders ListDistributionsByWebACLId where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,5 +215,5 @@ instance
     ListDistributionsByWebACLIdResponse
   where
   rnf ListDistributionsByWebACLIdResponse' {..} =
-    Prelude.rnf distributionList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionList `Prelude.seq`
+      Prelude.rnf httpStatus

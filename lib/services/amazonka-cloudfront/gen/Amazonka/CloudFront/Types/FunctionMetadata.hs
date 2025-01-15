@@ -125,7 +125,7 @@ instance Prelude.Hashable FunctionMetadata where
 
 instance Prelude.NFData FunctionMetadata where
   rnf FunctionMetadata' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf functionARN
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf stage `Prelude.seq`
+        Prelude.rnf functionARN `Prelude.seq`
+          Prelude.rnf lastModifiedTime

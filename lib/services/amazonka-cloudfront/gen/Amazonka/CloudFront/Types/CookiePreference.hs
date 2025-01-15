@@ -233,8 +233,8 @@ instance Prelude.Hashable CookiePreference where
 
 instance Prelude.NFData CookiePreference where
   rnf CookiePreference' {..} =
-    Prelude.rnf whitelistedNames
-      `Prelude.seq` Prelude.rnf forward
+    Prelude.rnf whitelistedNames `Prelude.seq`
+      Prelude.rnf forward
 
 instance Data.ToXML CookiePreference where
   toXML CookiePreference' {..} =

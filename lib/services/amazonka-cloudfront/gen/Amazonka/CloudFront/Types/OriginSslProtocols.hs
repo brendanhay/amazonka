@@ -74,9 +74,7 @@ instance Data.FromXML OriginSslProtocols where
   parseXML x =
     OriginSslProtocols'
       Prelude.<$> (x Data..@ "Quantity")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "SslProtocol"
                   )
 
@@ -88,8 +86,8 @@ instance Prelude.Hashable OriginSslProtocols where
 
 instance Prelude.NFData OriginSslProtocols where
   rnf OriginSslProtocols' {..} =
-    Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf quantity `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToXML OriginSslProtocols where
   toXML OriginSslProtocols' {..} =

@@ -148,8 +148,8 @@ instance
     FieldLevelEncryptionProfileSummary
   where
   rnf FieldLevelEncryptionProfileSummary' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf encryptionEntities
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf encryptionEntities

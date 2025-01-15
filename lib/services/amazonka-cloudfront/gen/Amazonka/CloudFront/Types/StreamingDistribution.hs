@@ -218,10 +218,10 @@ instance Prelude.Hashable StreamingDistribution where
 
 instance Prelude.NFData StreamingDistribution where
   rnf StreamingDistribution' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf activeTrustedSigners
-      `Prelude.seq` Prelude.rnf streamingDistributionConfig
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf activeTrustedSigners `Prelude.seq`
+                Prelude.rnf streamingDistributionConfig

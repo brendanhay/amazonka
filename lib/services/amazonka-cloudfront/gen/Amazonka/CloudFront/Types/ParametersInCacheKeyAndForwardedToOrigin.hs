@@ -349,11 +349,11 @@ instance
     ParametersInCacheKeyAndForwardedToOrigin
   where
   rnf ParametersInCacheKeyAndForwardedToOrigin' {..} =
-    Prelude.rnf enableAcceptEncodingBrotli
-      `Prelude.seq` Prelude.rnf enableAcceptEncodingGzip
-      `Prelude.seq` Prelude.rnf headersConfig
-      `Prelude.seq` Prelude.rnf cookiesConfig
-      `Prelude.seq` Prelude.rnf queryStringsConfig
+    Prelude.rnf enableAcceptEncodingBrotli `Prelude.seq`
+      Prelude.rnf enableAcceptEncodingGzip `Prelude.seq`
+        Prelude.rnf headersConfig `Prelude.seq`
+          Prelude.rnf cookiesConfig `Prelude.seq`
+            Prelude.rnf queryStringsConfig
 
 instance
   Data.ToXML

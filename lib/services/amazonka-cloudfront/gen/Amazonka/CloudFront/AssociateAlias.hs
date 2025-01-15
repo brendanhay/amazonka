@@ -116,8 +116,8 @@ instance Prelude.Hashable AssociateAlias where
 
 instance Prelude.NFData AssociateAlias where
   rnf AssociateAlias' {..} =
-    Prelude.rnf targetDistributionId
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf targetDistributionId `Prelude.seq`
+      Prelude.rnf alias
 
 instance Data.ToHeaders AssociateAlias where
   toHeaders = Prelude.const Prelude.mempty

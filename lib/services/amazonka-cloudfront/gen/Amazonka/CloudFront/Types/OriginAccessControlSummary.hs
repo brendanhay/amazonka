@@ -190,9 +190,9 @@ instance Prelude.Hashable OriginAccessControlSummary where
 
 instance Prelude.NFData OriginAccessControlSummary where
   rnf OriginAccessControlSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signingProtocol
-      `Prelude.seq` Prelude.rnf signingBehavior
-      `Prelude.seq` Prelude.rnf originAccessControlOriginType
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf signingProtocol `Prelude.seq`
+            Prelude.rnf signingBehavior `Prelude.seq`
+              Prelude.rnf originAccessControlOriginType

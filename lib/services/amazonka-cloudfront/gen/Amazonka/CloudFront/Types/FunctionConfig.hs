@@ -84,8 +84,8 @@ instance Prelude.Hashable FunctionConfig where
 
 instance Prelude.NFData FunctionConfig where
   rnf FunctionConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf runtime
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf runtime
 
 instance Data.ToXML FunctionConfig where
   toXML FunctionConfig' {..} =

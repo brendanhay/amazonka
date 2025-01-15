@@ -94,9 +94,7 @@ fieldLevelEncryptionList_quantity = Lens.lens (\FieldLevelEncryptionList' {quant
 instance Data.FromXML FieldLevelEncryptionList where
   parseXML x =
     FieldLevelEncryptionList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "FieldLevelEncryptionSummary")
                   )
@@ -114,7 +112,7 @@ instance Prelude.Hashable FieldLevelEncryptionList where
 
 instance Prelude.NFData FieldLevelEncryptionList where
   rnf FieldLevelEncryptionList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

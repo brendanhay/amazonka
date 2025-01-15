@@ -164,9 +164,7 @@ instance
   where
   parseXML x =
     CloudFrontOriginAccessIdentityList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "CloudFrontOriginAccessIdentitySummary"
@@ -198,9 +196,9 @@ instance
     CloudFrontOriginAccessIdentityList
   where
   rnf CloudFrontOriginAccessIdentityList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf quantity

@@ -85,5 +85,5 @@ instance Prelude.Hashable CachePolicySummary where
 
 instance Prelude.NFData CachePolicySummary where
   rnf CachePolicySummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf cachePolicy
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf cachePolicy

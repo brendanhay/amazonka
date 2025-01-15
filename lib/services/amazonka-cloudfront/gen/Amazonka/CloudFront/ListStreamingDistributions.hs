@@ -105,13 +105,13 @@ instance Core.AWSPager ListStreamingDistributions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamingDistributions_marker
-          Lens..~ rs
-          Lens.^? listStreamingDistributionsResponse_streamingDistributionList
-          Prelude.. streamingDistributionList_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamingDistributions_marker
+              Lens..~ rs
+              Lens.^? listStreamingDistributionsResponse_streamingDistributionList
+              Prelude.. streamingDistributionList_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingDistributions where
   type
@@ -135,8 +135,8 @@ instance Prelude.Hashable ListStreamingDistributions where
 
 instance Prelude.NFData ListStreamingDistributions where
   rnf ListStreamingDistributions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListStreamingDistributions where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,5 +203,5 @@ instance
     ListStreamingDistributionsResponse
   where
   rnf ListStreamingDistributionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamingDistributionList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf streamingDistributionList

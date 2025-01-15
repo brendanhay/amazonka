@@ -143,9 +143,9 @@ instance Prelude.Hashable ListDistributionsByKeyGroup where
 
 instance Prelude.NFData ListDistributionsByKeyGroup where
   rnf ListDistributionsByKeyGroup' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf keyGroupId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf keyGroupId
 
 instance Data.ToHeaders ListDistributionsByKeyGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ instance
     ListDistributionsByKeyGroupResponse
   where
   rnf ListDistributionsByKeyGroupResponse' {..} =
-    Prelude.rnf distributionIdList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionIdList `Prelude.seq`
+      Prelude.rnf httpStatus

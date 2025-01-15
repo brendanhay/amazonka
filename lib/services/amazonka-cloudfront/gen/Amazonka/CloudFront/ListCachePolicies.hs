@@ -161,9 +161,9 @@ instance Prelude.Hashable ListCachePolicies where
 
 instance Prelude.NFData ListCachePolicies where
   rnf ListCachePolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders ListCachePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,5 +220,5 @@ listCachePoliciesResponse_httpStatus = Lens.lens (\ListCachePoliciesResponse' {h
 
 instance Prelude.NFData ListCachePoliciesResponse where
   rnf ListCachePoliciesResponse' {..} =
-    Prelude.rnf cachePolicyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cachePolicyList `Prelude.seq`
+      Prelude.rnf httpStatus

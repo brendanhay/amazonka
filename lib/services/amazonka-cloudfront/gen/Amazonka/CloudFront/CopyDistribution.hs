@@ -167,10 +167,10 @@ instance Prelude.Hashable CopyDistribution where
 
 instance Prelude.NFData CopyDistribution where
   rnf CopyDistribution' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf staging
-      `Prelude.seq` Prelude.rnf primaryDistributionId
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf staging `Prelude.seq`
+        Prelude.rnf primaryDistributionId `Prelude.seq`
+          Prelude.rnf callerReference
 
 instance Data.ToElement CopyDistribution where
   toElement =
@@ -261,7 +261,7 @@ copyDistributionResponse_httpStatus = Lens.lens (\CopyDistributionResponse' {htt
 
 instance Prelude.NFData CopyDistributionResponse where
   rnf CopyDistributionResponse' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

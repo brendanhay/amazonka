@@ -183,6 +183,6 @@ instance
     GetFieldLevelEncryptionProfileResponse
   where
   rnf GetFieldLevelEncryptionProfileResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf fieldLevelEncryptionProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf fieldLevelEncryptionProfile `Prelude.seq`
+        Prelude.rnf httpStatus

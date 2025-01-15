@@ -147,8 +147,8 @@ instance
     CloudFrontOriginAccessIdentityConfig
   where
   rnf CloudFrontOriginAccessIdentityConfig' {..} =
-    Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf callerReference `Prelude.seq`
+      Prelude.rnf comment
 
 instance
   Data.ToXML

@@ -141,8 +141,8 @@ instance Prelude.Hashable InvalidationBatch where
 
 instance Prelude.NFData InvalidationBatch where
   rnf InvalidationBatch' {..} =
-    Prelude.rnf paths
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf paths `Prelude.seq`
+      Prelude.rnf callerReference
 
 instance Data.ToXML InvalidationBatch where
   toXML InvalidationBatch' {..} =

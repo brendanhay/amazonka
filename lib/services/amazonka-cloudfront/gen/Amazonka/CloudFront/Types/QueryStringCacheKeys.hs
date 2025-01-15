@@ -88,9 +88,7 @@ queryStringCacheKeys_quantity = Lens.lens (\QueryStringCacheKeys' {quantity} -> 
 instance Data.FromXML QueryStringCacheKeys where
   parseXML x =
     QueryStringCacheKeys'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -103,8 +101,8 @@ instance Prelude.Hashable QueryStringCacheKeys where
 
 instance Prelude.NFData QueryStringCacheKeys where
   rnf QueryStringCacheKeys' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML QueryStringCacheKeys where
   toXML QueryStringCacheKeys' {..} =

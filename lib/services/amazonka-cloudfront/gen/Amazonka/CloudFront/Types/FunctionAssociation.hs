@@ -88,8 +88,8 @@ instance Prelude.Hashable FunctionAssociation where
 
 instance Prelude.NFData FunctionAssociation where
   rnf FunctionAssociation' {..} =
-    Prelude.rnf functionARN
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf functionARN `Prelude.seq`
+      Prelude.rnf eventType
 
 instance Data.ToXML FunctionAssociation where
   toXML FunctionAssociation' {..} =

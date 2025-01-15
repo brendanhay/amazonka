@@ -148,9 +148,9 @@ instance Prelude.Hashable UpdateCachePolicy where
 
 instance Prelude.NFData UpdateCachePolicy where
   rnf UpdateCachePolicy' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf cachePolicyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf cachePolicyConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateCachePolicy where
   toElement UpdateCachePolicy' {..} =
@@ -220,6 +220,6 @@ updateCachePolicyResponse_httpStatus = Lens.lens (\UpdateCachePolicyResponse' {h
 
 instance Prelude.NFData UpdateCachePolicyResponse where
   rnf UpdateCachePolicyResponse' {..} =
-    Prelude.rnf cachePolicy
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cachePolicy `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

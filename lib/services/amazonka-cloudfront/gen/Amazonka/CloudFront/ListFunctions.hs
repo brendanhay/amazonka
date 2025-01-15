@@ -143,9 +143,9 @@ instance Prelude.Hashable ListFunctions where
 
 instance Prelude.NFData ListFunctions where
   rnf ListFunctions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf stage
 
 instance Data.ToHeaders ListFunctions where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ listFunctionsResponse_httpStatus = Lens.lens (\ListFunctionsResponse' {httpStatu
 
 instance Prelude.NFData ListFunctionsResponse where
   rnf ListFunctionsResponse' {..} =
-    Prelude.rnf functionList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionList `Prelude.seq`
+      Prelude.rnf httpStatus

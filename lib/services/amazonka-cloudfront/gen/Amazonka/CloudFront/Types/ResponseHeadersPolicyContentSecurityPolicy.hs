@@ -110,8 +110,8 @@ instance
     ResponseHeadersPolicyContentSecurityPolicy
   where
   rnf ResponseHeadersPolicyContentSecurityPolicy' {..} =
-    Prelude.rnf override
-      `Prelude.seq` Prelude.rnf contentSecurityPolicy
+    Prelude.rnf override `Prelude.seq`
+      Prelude.rnf contentSecurityPolicy
 
 instance
   Data.ToXML

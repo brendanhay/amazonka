@@ -209,6 +209,6 @@ instance
     GetResponseHeadersPolicyConfigResponse
   where
   rnf GetResponseHeadersPolicyConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf responseHeadersPolicyConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf responseHeadersPolicyConfig `Prelude.seq`
+        Prelude.rnf httpStatus

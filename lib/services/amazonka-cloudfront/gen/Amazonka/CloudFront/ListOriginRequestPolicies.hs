@@ -165,9 +165,9 @@ instance Prelude.Hashable ListOriginRequestPolicies where
 
 instance Prelude.NFData ListOriginRequestPolicies where
   rnf ListOriginRequestPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders ListOriginRequestPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ instance
     ListOriginRequestPoliciesResponse
   where
   rnf ListOriginRequestPoliciesResponse' {..} =
-    Prelude.rnf originRequestPolicyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf originRequestPolicyList `Prelude.seq`
+      Prelude.rnf httpStatus

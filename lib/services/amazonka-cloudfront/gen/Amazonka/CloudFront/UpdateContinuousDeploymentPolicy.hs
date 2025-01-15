@@ -162,9 +162,9 @@ instance
     UpdateContinuousDeploymentPolicy
   where
   rnf UpdateContinuousDeploymentPolicy' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf continuousDeploymentPolicyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf continuousDeploymentPolicyConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToElement
@@ -252,6 +252,6 @@ instance
     UpdateContinuousDeploymentPolicyResponse
   where
   rnf UpdateContinuousDeploymentPolicyResponse' {..} =
-    Prelude.rnf continuousDeploymentPolicy
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf continuousDeploymentPolicy `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

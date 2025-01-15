@@ -165,10 +165,10 @@ instance Prelude.Hashable CreateRealtimeLogConfig where
 
 instance Prelude.NFData CreateRealtimeLogConfig where
   rnf CreateRealtimeLogConfig' {..} =
-    Prelude.rnf endPoints
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf samplingRate
+    Prelude.rnf endPoints `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf samplingRate
 
 instance Data.ToElement CreateRealtimeLogConfig where
   toElement =
@@ -239,5 +239,5 @@ instance
     CreateRealtimeLogConfigResponse
   where
   rnf CreateRealtimeLogConfigResponse' {..} =
-    Prelude.rnf realtimeLogConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf realtimeLogConfig `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,9 +141,9 @@ instance
     UpdateFieldLevelEncryptionConfig
   where
   rnf UpdateFieldLevelEncryptionConfig' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf fieldLevelEncryptionConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf fieldLevelEncryptionConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToElement
@@ -233,6 +233,6 @@ instance
     UpdateFieldLevelEncryptionConfigResponse
   where
   rnf UpdateFieldLevelEncryptionConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf fieldLevelEncryption
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf fieldLevelEncryption `Prelude.seq`
+        Prelude.rnf httpStatus

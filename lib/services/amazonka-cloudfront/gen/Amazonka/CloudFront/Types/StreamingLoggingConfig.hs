@@ -124,9 +124,9 @@ instance Prelude.Hashable StreamingLoggingConfig where
 
 instance Prelude.NFData StreamingLoggingConfig where
   rnf StreamingLoggingConfig' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf prefix
 
 instance Data.ToXML StreamingLoggingConfig where
   toXML StreamingLoggingConfig' {..} =

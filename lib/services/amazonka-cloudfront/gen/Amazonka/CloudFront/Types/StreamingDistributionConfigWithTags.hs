@@ -88,8 +88,8 @@ instance
     StreamingDistributionConfigWithTags
   where
   rnf StreamingDistributionConfigWithTags' {..} =
-    Prelude.rnf streamingDistributionConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf streamingDistributionConfig `Prelude.seq`
+      Prelude.rnf tags
 
 instance
   Data.ToXML

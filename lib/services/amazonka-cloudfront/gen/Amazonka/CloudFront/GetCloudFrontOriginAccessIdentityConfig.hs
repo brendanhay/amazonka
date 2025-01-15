@@ -194,6 +194,6 @@ instance
   where
   rnf
     GetCloudFrontOriginAccessIdentityConfigResponse' {..} =
-      Prelude.rnf cloudFrontOriginAccessIdentityConfig
-        `Prelude.seq` Prelude.rnf eTag
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf cloudFrontOriginAccessIdentityConfig `Prelude.seq`
+        Prelude.rnf eTag `Prelude.seq`
+          Prelude.rnf httpStatus

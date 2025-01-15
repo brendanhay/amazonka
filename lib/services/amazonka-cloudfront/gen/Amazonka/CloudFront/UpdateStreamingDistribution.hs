@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateStreamingDistribution where
 
 instance Prelude.NFData UpdateStreamingDistribution where
   rnf UpdateStreamingDistribution' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf streamingDistributionConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf streamingDistributionConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateStreamingDistribution where
   toElement UpdateStreamingDistribution' {..} =
@@ -213,6 +213,6 @@ instance
     UpdateStreamingDistributionResponse
   where
   rnf UpdateStreamingDistributionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf streamingDistribution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf streamingDistribution `Prelude.seq`
+        Prelude.rnf httpStatus

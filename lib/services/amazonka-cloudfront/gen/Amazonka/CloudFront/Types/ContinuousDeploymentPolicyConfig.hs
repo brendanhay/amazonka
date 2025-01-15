@@ -123,9 +123,9 @@ instance
     ContinuousDeploymentPolicyConfig
   where
   rnf ContinuousDeploymentPolicyConfig' {..} =
-    Prelude.rnf trafficConfig
-      `Prelude.seq` Prelude.rnf stagingDistributionDnsNames
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf trafficConfig `Prelude.seq`
+      Prelude.rnf stagingDistributionDnsNames `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToXML ContinuousDeploymentPolicyConfig where
   toXML ContinuousDeploymentPolicyConfig' {..} =

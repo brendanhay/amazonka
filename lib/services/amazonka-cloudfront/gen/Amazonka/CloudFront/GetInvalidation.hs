@@ -115,8 +115,8 @@ instance Prelude.Hashable GetInvalidation where
 
 instance Prelude.NFData GetInvalidation where
   rnf GetInvalidation' {..} =
-    Prelude.rnf distributionId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf distributionId `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders GetInvalidation where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,5 +179,5 @@ getInvalidationResponse_httpStatus = Lens.lens (\GetInvalidationResponse' {httpS
 
 instance Prelude.NFData GetInvalidationResponse where
   rnf GetInvalidationResponse' {..} =
-    Prelude.rnf invalidation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invalidation `Prelude.seq`
+      Prelude.rnf httpStatus

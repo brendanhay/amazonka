@@ -134,8 +134,8 @@ instance
     ListFieldLevelEncryptionProfiles
   where
   rnf ListFieldLevelEncryptionProfiles' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance
   Data.ToHeaders
@@ -206,5 +206,5 @@ instance
     ListFieldLevelEncryptionProfilesResponse
   where
   rnf ListFieldLevelEncryptionProfilesResponse' {..} =
-    Prelude.rnf fieldLevelEncryptionProfileList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fieldLevelEncryptionProfileList `Prelude.seq`
+      Prelude.rnf httpStatus

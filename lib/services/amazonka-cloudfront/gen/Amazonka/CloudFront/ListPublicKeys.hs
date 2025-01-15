@@ -119,8 +119,8 @@ instance Prelude.Hashable ListPublicKeys where
 
 instance Prelude.NFData ListPublicKeys where
   rnf ListPublicKeys' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListPublicKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,5 +179,5 @@ listPublicKeysResponse_httpStatus = Lens.lens (\ListPublicKeysResponse' {httpSta
 
 instance Prelude.NFData ListPublicKeysResponse where
   rnf ListPublicKeysResponse' {..} =
-    Prelude.rnf publicKeyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publicKeyList `Prelude.seq`
+      Prelude.rnf httpStatus

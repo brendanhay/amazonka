@@ -74,9 +74,7 @@ aliases_quantity = Lens.lens (\Aliases' {quantity} -> quantity) (\s@Aliases' {} 
 instance Data.FromXML Aliases where
   parseXML x =
     Aliases'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CNAME")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -89,8 +87,8 @@ instance Prelude.Hashable Aliases where
 
 instance Prelude.NFData Aliases where
   rnf Aliases' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML Aliases where
   toXML Aliases' {..} =

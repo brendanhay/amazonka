@@ -170,9 +170,9 @@ instance Prelude.Hashable LambdaFunctionAssociation where
 
 instance Prelude.NFData LambdaFunctionAssociation where
   rnf LambdaFunctionAssociation' {..} =
-    Prelude.rnf includeBody
-      `Prelude.seq` Prelude.rnf lambdaFunctionARN
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf includeBody `Prelude.seq`
+      Prelude.rnf lambdaFunctionARN `Prelude.seq`
+        Prelude.rnf eventType
 
 instance Data.ToXML LambdaFunctionAssociation where
   toXML LambdaFunctionAssociation' {..} =

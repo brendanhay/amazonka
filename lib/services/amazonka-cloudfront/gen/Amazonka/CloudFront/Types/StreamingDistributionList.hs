@@ -138,9 +138,7 @@ streamingDistributionList_quantity = Lens.lens (\StreamingDistributionList' {qua
 instance Data.FromXML StreamingDistributionList where
   parseXML x =
     StreamingDistributionList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "StreamingDistributionSummary")
                   )
@@ -162,9 +160,9 @@ instance Prelude.Hashable StreamingDistributionList where
 
 instance Prelude.NFData StreamingDistributionList where
   rnf StreamingDistributionList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf quantity

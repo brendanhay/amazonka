@@ -109,6 +109,6 @@ instance
     CloudFrontOriginAccessIdentity
   where
   rnf CloudFrontOriginAccessIdentity' {..} =
-    Prelude.rnf cloudFrontOriginAccessIdentityConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf s3CanonicalUserId
+    Prelude.rnf cloudFrontOriginAccessIdentityConfig `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf s3CanonicalUserId

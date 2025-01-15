@@ -135,8 +135,8 @@ instance
   where
   rnf
     ResponseHeadersPolicyServerTimingHeadersConfig' {..} =
-      Prelude.rnf samplingRate
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf samplingRate `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToXML

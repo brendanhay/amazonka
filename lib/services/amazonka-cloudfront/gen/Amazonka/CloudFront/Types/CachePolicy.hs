@@ -116,6 +116,6 @@ instance Prelude.Hashable CachePolicy where
 
 instance Prelude.NFData CachePolicy where
   rnf CachePolicy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf cachePolicyConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf cachePolicyConfig

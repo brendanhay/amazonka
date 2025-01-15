@@ -77,5 +77,5 @@ instance Prelude.Hashable KGKeyPairIds where
 
 instance Prelude.NFData KGKeyPairIds where
   rnf KGKeyPairIds' {..} =
-    Prelude.rnf keyGroupId
-      `Prelude.seq` Prelude.rnf keyPairIds
+    Prelude.rnf keyGroupId `Prelude.seq`
+      Prelude.rnf keyPairIds

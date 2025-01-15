@@ -98,6 +98,6 @@ instance Prelude.Hashable ContinuousDeploymentPolicy where
 
 instance Prelude.NFData ContinuousDeploymentPolicy where
   rnf ContinuousDeploymentPolicy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf continuousDeploymentPolicyConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf continuousDeploymentPolicyConfig

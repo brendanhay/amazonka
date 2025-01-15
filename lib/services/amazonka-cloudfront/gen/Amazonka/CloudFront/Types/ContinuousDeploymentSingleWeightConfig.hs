@@ -93,8 +93,8 @@ instance
     ContinuousDeploymentSingleWeightConfig
   where
   rnf ContinuousDeploymentSingleWeightConfig' {..} =
-    Prelude.rnf sessionStickinessConfig
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf sessionStickinessConfig `Prelude.seq`
+      Prelude.rnf weight
 
 instance
   Data.ToXML

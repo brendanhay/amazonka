@@ -91,9 +91,7 @@ instance Data.FromXML CachedMethods where
   parseXML x =
     CachedMethods'
       Prelude.<$> (x Data..@ "Quantity")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "Method"
                   )
 
@@ -105,8 +103,8 @@ instance Prelude.Hashable CachedMethods where
 
 instance Prelude.NFData CachedMethods where
   rnf CachedMethods' {..} =
-    Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf quantity `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToXML CachedMethods where
   toXML CachedMethods' {..} =

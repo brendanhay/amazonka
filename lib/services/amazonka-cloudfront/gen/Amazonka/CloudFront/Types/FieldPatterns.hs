@@ -68,9 +68,7 @@ fieldPatterns_quantity = Lens.lens (\FieldPatterns' {quantity} -> quantity) (\s@
 instance Data.FromXML FieldPatterns where
   parseXML x =
     FieldPatterns'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "FieldPattern")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -83,8 +81,8 @@ instance Prelude.Hashable FieldPatterns where
 
 instance Prelude.NFData FieldPatterns where
   rnf FieldPatterns' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML FieldPatterns where
   toXML FieldPatterns' {..} =

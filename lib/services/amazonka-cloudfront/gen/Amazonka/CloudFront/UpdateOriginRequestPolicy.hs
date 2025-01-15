@@ -156,9 +156,9 @@ instance Prelude.Hashable UpdateOriginRequestPolicy where
 
 instance Prelude.NFData UpdateOriginRequestPolicy where
   rnf UpdateOriginRequestPolicy' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf originRequestPolicyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf originRequestPolicyConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateOriginRequestPolicy where
   toElement UpdateOriginRequestPolicy' {..} =
@@ -231,6 +231,6 @@ instance
     UpdateOriginRequestPolicyResponse
   where
   rnf UpdateOriginRequestPolicyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf originRequestPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf originRequestPolicy `Prelude.seq`
+        Prelude.rnf httpStatus

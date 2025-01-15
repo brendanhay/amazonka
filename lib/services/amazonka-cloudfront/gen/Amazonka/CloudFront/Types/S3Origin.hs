@@ -135,8 +135,8 @@ instance Prelude.Hashable S3Origin where
 
 instance Prelude.NFData S3Origin where
   rnf S3Origin' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf originAccessIdentity
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf originAccessIdentity
 
 instance Data.ToXML S3Origin where
   toXML S3Origin' {..} =

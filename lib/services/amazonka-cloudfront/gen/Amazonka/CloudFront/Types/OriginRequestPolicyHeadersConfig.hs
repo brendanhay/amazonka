@@ -143,8 +143,8 @@ instance
     OriginRequestPolicyHeadersConfig
   where
   rnf OriginRequestPolicyHeadersConfig' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf headerBehavior
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf headerBehavior
 
 instance Data.ToXML OriginRequestPolicyHeadersConfig where
   toXML OriginRequestPolicyHeadersConfig' {..} =

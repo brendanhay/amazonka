@@ -154,6 +154,6 @@ getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus}
 
 instance Prelude.NFData GetPublicKeyResponse where
   rnf GetPublicKeyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf publicKey `Prelude.seq`
+        Prelude.rnf httpStatus

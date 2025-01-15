@@ -185,7 +185,7 @@ createKeyGroupResponse_httpStatus = Lens.lens (\CreateKeyGroupResponse' {httpSta
 
 instance Prelude.NFData CreateKeyGroupResponse where
   rnf CreateKeyGroupResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf keyGroup
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf keyGroup `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

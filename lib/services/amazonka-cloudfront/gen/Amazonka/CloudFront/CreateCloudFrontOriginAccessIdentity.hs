@@ -222,7 +222,7 @@ instance
     CreateCloudFrontOriginAccessIdentityResponse
   where
   rnf CreateCloudFrontOriginAccessIdentityResponse' {..} =
-    Prelude.rnf cloudFrontOriginAccessIdentity
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFrontOriginAccessIdentity `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

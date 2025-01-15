@@ -159,10 +159,10 @@ instance Prelude.Hashable LoggingConfig where
 
 instance Prelude.NFData LoggingConfig where
   rnf LoggingConfig' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf includeCookies
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf includeCookies `Prelude.seq`
+        Prelude.rnf bucket `Prelude.seq`
+          Prelude.rnf prefix
 
 instance Data.ToXML LoggingConfig where
   toXML LoggingConfig' {..} =

@@ -223,14 +223,14 @@ instance Prelude.Hashable StreamingDistributionConfig where
 
 instance Prelude.NFData StreamingDistributionConfig where
   rnf StreamingDistributionConfig' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf priceClass
-      `Prelude.seq` Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf s3Origin
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf trustedSigners
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf logging `Prelude.seq`
+        Prelude.rnf priceClass `Prelude.seq`
+          Prelude.rnf callerReference `Prelude.seq`
+            Prelude.rnf s3Origin `Prelude.seq`
+              Prelude.rnf comment `Prelude.seq`
+                Prelude.rnf trustedSigners `Prelude.seq`
+                  Prelude.rnf enabled
 
 instance Data.ToXML StreamingDistributionConfig where
   toXML StreamingDistributionConfig' {..} =

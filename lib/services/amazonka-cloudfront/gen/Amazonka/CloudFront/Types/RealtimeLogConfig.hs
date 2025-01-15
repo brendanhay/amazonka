@@ -132,14 +132,10 @@ instance Data.FromXML RealtimeLogConfig where
       Prelude.<$> (x Data..@ "ARN")
       Prelude.<*> (x Data..@ "Name")
       Prelude.<*> (x Data..@ "SamplingRate")
-      Prelude.<*> ( x
-                      Data..@? "EndPoints"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "EndPoints" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x
-                      Data..@? "Fields"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Fields" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "Field"
                   )
 
@@ -154,8 +150,8 @@ instance Prelude.Hashable RealtimeLogConfig where
 
 instance Prelude.NFData RealtimeLogConfig where
   rnf RealtimeLogConfig' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf samplingRate
-      `Prelude.seq` Prelude.rnf endPoints
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf samplingRate `Prelude.seq`
+          Prelude.rnf endPoints `Prelude.seq`
+            Prelude.rnf fields

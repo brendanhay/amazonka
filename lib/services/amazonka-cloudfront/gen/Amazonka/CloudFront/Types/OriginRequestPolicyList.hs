@@ -97,9 +97,7 @@ originRequestPolicyList_quantity = Lens.lens (\OriginRequestPolicyList' {quantit
 instance Data.FromXML OriginRequestPolicyList where
   parseXML x =
     OriginRequestPolicyList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "OriginRequestPolicySummary")
                   )
@@ -117,7 +115,7 @@ instance Prelude.Hashable OriginRequestPolicyList where
 
 instance Prelude.NFData OriginRequestPolicyList where
   rnf OriginRequestPolicyList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

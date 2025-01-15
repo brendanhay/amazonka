@@ -167,13 +167,13 @@ instance Prelude.Hashable ResponseHeadersPolicyConfig where
 
 instance Prelude.NFData ResponseHeadersPolicyConfig where
   rnf ResponseHeadersPolicyConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf corsConfig
-      `Prelude.seq` Prelude.rnf customHeadersConfig
-      `Prelude.seq` Prelude.rnf removeHeadersConfig
-      `Prelude.seq` Prelude.rnf securityHeadersConfig
-      `Prelude.seq` Prelude.rnf serverTimingHeadersConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf corsConfig `Prelude.seq`
+        Prelude.rnf customHeadersConfig `Prelude.seq`
+          Prelude.rnf removeHeadersConfig `Prelude.seq`
+            Prelude.rnf securityHeadersConfig `Prelude.seq`
+              Prelude.rnf serverTimingHeadersConfig `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToXML ResponseHeadersPolicyConfig where
   toXML ResponseHeadersPolicyConfig' {..} =

@@ -97,9 +97,7 @@ responseHeadersPolicyList_quantity = Lens.lens (\ResponseHeadersPolicyList' {qua
 instance Data.FromXML ResponseHeadersPolicyList where
   parseXML x =
     ResponseHeadersPolicyList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ResponseHeadersPolicySummary")
                   )
@@ -117,7 +115,7 @@ instance Prelude.Hashable ResponseHeadersPolicyList where
 
 instance Prelude.NFData ResponseHeadersPolicyList where
   rnf ResponseHeadersPolicyList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

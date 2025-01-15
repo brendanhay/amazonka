@@ -288,14 +288,14 @@ instance
 
 instance Prelude.NFData StreamingDistributionSummary where
   rnf StreamingDistributionSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf s3Origin
-      `Prelude.seq` Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf trustedSigners
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf priceClass
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf s3Origin `Prelude.seq`
+                Prelude.rnf aliases `Prelude.seq`
+                  Prelude.rnf trustedSigners `Prelude.seq`
+                    Prelude.rnf comment `Prelude.seq`
+                      Prelude.rnf priceClass `Prelude.seq`
+                        Prelude.rnf enabled

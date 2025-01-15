@@ -179,7 +179,7 @@ createPublicKeyResponse_httpStatus = Lens.lens (\CreatePublicKeyResponse' {httpS
 
 instance Prelude.NFData CreatePublicKeyResponse where
   rnf CreatePublicKeyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf publicKey `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -143,9 +143,9 @@ instance
     UpdateCloudFrontOriginAccessIdentity
   where
   rnf UpdateCloudFrontOriginAccessIdentity' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentityConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf cloudFrontOriginAccessIdentityConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToElement
@@ -236,6 +236,6 @@ instance
     UpdateCloudFrontOriginAccessIdentityResponse
   where
   rnf UpdateCloudFrontOriginAccessIdentityResponse' {..} =
-    Prelude.rnf cloudFrontOriginAccessIdentity
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFrontOriginAccessIdentity `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

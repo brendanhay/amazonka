@@ -119,10 +119,10 @@ instance Prelude.Hashable FieldLevelEncryptionConfig where
 
 instance Prelude.NFData FieldLevelEncryptionConfig where
   rnf FieldLevelEncryptionConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf contentTypeProfileConfig
-      `Prelude.seq` Prelude.rnf queryArgProfileConfig
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf contentTypeProfileConfig `Prelude.seq`
+        Prelude.rnf queryArgProfileConfig `Prelude.seq`
+          Prelude.rnf callerReference
 
 instance Data.ToXML FieldLevelEncryptionConfig where
   toXML FieldLevelEncryptionConfig' {..} =

@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData CreateMonitoringSubscription where
   rnf CreateMonitoringSubscription' {..} =
-    Prelude.rnf monitoringSubscription
-      `Prelude.seq` Prelude.rnf distributionId
+    Prelude.rnf monitoringSubscription `Prelude.seq`
+      Prelude.rnf distributionId
 
 instance Data.ToElement CreateMonitoringSubscription where
   toElement CreateMonitoringSubscription' {..} =
@@ -200,5 +200,5 @@ instance
     CreateMonitoringSubscriptionResponse
   where
   rnf CreateMonitoringSubscriptionResponse' {..} =
-    Prelude.rnf monitoringSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitoringSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

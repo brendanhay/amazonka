@@ -141,10 +141,10 @@ instance
     ResponseHeadersPolicyStrictTransportSecurity
   where
   rnf ResponseHeadersPolicyStrictTransportSecurity' {..} =
-    Prelude.rnf includeSubdomains
-      `Prelude.seq` Prelude.rnf preload
-      `Prelude.seq` Prelude.rnf override
-      `Prelude.seq` Prelude.rnf accessControlMaxAgeSec
+    Prelude.rnf includeSubdomains `Prelude.seq`
+      Prelude.rnf preload `Prelude.seq`
+        Prelude.rnf override `Prelude.seq`
+          Prelude.rnf accessControlMaxAgeSec
 
 instance
   Data.ToXML

@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdatePublicKey where
 
 instance Prelude.NFData UpdatePublicKey where
   rnf UpdatePublicKey' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf publicKeyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf publicKeyConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdatePublicKey where
   toElement UpdatePublicKey' {..} =
@@ -198,6 +198,6 @@ updatePublicKeyResponse_httpStatus = Lens.lens (\UpdatePublicKeyResponse' {httpS
 
 instance Prelude.NFData UpdatePublicKeyResponse where
   rnf UpdatePublicKeyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf publicKey `Prelude.seq`
+        Prelude.rnf httpStatus

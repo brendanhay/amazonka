@@ -132,8 +132,8 @@ instance
     OriginRequestPolicyCookiesConfig
   where
   rnf OriginRequestPolicyCookiesConfig' {..} =
-    Prelude.rnf cookies
-      `Prelude.seq` Prelude.rnf cookieBehavior
+    Prelude.rnf cookies `Prelude.seq`
+      Prelude.rnf cookieBehavior
 
 instance Data.ToXML OriginRequestPolicyCookiesConfig where
   toXML OriginRequestPolicyCookiesConfig' {..} =

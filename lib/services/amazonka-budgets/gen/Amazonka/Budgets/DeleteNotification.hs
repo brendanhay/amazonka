@@ -132,9 +132,9 @@ instance Prelude.Hashable DeleteNotification where
 
 instance Prelude.NFData DeleteNotification where
   rnf DeleteNotification' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notification
 
 instance Data.ToHeaders DeleteNotification where
   toHeaders =

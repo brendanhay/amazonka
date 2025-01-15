@@ -103,9 +103,9 @@ instance Prelude.Hashable AutoAdjustData where
 
 instance Prelude.NFData AutoAdjustData where
   rnf AutoAdjustData' {..} =
-    Prelude.rnf historicalOptions
-      `Prelude.seq` Prelude.rnf lastAutoAdjustTime
-      `Prelude.seq` Prelude.rnf autoAdjustType
+    Prelude.rnf historicalOptions `Prelude.seq`
+      Prelude.rnf lastAutoAdjustTime `Prelude.seq`
+        Prelude.rnf autoAdjustType
 
 instance Data.ToJSON AutoAdjustData where
   toJSON AutoAdjustData' {..} =

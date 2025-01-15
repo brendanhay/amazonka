@@ -128,9 +128,9 @@ instance Prelude.Hashable DeleteBudgetAction where
 
 instance Prelude.NFData DeleteBudgetAction where
   rnf DeleteBudgetAction' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf actionId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf actionId
 
 instance Data.ToHeaders DeleteBudgetAction where
   toHeaders =
@@ -229,7 +229,7 @@ deleteBudgetActionResponse_action = Lens.lens (\DeleteBudgetActionResponse' {act
 
 instance Prelude.NFData DeleteBudgetActionResponse where
   rnf DeleteBudgetActionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf budgetName `Prelude.seq`
+          Prelude.rnf action

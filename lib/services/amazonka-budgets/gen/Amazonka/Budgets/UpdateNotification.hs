@@ -143,10 +143,10 @@ instance Prelude.Hashable UpdateNotification where
 
 instance Prelude.NFData UpdateNotification where
   rnf UpdateNotification' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf oldNotification
-      `Prelude.seq` Prelude.rnf newNotification'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf oldNotification `Prelude.seq`
+          Prelude.rnf newNotification'
 
 instance Data.ToHeaders UpdateNotification where
   toHeaders =

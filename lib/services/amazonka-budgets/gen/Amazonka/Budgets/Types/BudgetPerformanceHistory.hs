@@ -139,9 +139,9 @@ instance Prelude.Hashable BudgetPerformanceHistory where
 
 instance Prelude.NFData BudgetPerformanceHistory where
   rnf BudgetPerformanceHistory' {..} =
-    Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf budgetType
-      `Prelude.seq` Prelude.rnf budgetedAndActualAmountsList
-      `Prelude.seq` Prelude.rnf costFilters
-      `Prelude.seq` Prelude.rnf costTypes
-      `Prelude.seq` Prelude.rnf timeUnit
+    Prelude.rnf budgetName `Prelude.seq`
+      Prelude.rnf budgetType `Prelude.seq`
+        Prelude.rnf budgetedAndActualAmountsList `Prelude.seq`
+          Prelude.rnf costFilters `Prelude.seq`
+            Prelude.rnf costTypes `Prelude.seq`
+              Prelude.rnf timeUnit

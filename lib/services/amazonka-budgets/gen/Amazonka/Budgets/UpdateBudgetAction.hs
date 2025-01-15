@@ -196,15 +196,15 @@ instance Prelude.Hashable UpdateBudgetAction where
 
 instance Prelude.NFData UpdateBudgetAction where
   rnf UpdateBudgetAction' {..} =
-    Prelude.rnf actionThreshold
-      `Prelude.seq` Prelude.rnf approvalModel
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf actionId
+    Prelude.rnf actionThreshold `Prelude.seq`
+      Prelude.rnf approvalModel `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf notificationType `Prelude.seq`
+              Prelude.rnf subscribers `Prelude.seq`
+                Prelude.rnf accountId `Prelude.seq`
+                  Prelude.rnf budgetName `Prelude.seq`
+                    Prelude.rnf actionId
 
 instance Data.ToHeaders UpdateBudgetAction where
   toHeaders =
@@ -325,8 +325,8 @@ updateBudgetActionResponse_newAction = Lens.lens (\UpdateBudgetActionResponse' {
 
 instance Prelude.NFData UpdateBudgetActionResponse where
   rnf UpdateBudgetActionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf oldAction
-      `Prelude.seq` Prelude.rnf newAction'
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf budgetName `Prelude.seq`
+          Prelude.rnf oldAction `Prelude.seq`
+            Prelude.rnf newAction'

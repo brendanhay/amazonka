@@ -140,12 +140,12 @@ instance Core.AWSPager DescribeNotificationsForBudget where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNotificationsForBudget_nextToken
-          Lens..~ rs
-          Lens.^? describeNotificationsForBudgetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNotificationsForBudget_nextToken
+              Lens..~ rs
+              Lens.^? describeNotificationsForBudgetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -183,10 +183,10 @@ instance
     DescribeNotificationsForBudget
   where
   rnf DescribeNotificationsForBudget' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf budgetName
 
 instance
   Data.ToHeaders
@@ -282,6 +282,6 @@ instance
     DescribeNotificationsForBudgetResponse
   where
   rnf DescribeNotificationsForBudgetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notifications `Prelude.seq`
+        Prelude.rnf httpStatus

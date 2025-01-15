@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateSubscriber where
 
 instance Prelude.NFData CreateSubscriber where
   rnf CreateSubscriber' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf subscriber
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notification `Prelude.seq`
+          Prelude.rnf subscriber
 
 instance Data.ToHeaders CreateSubscriber where
   toHeaders =

@@ -153,8 +153,8 @@ instance Prelude.Hashable HistoricalOptions where
 
 instance Prelude.NFData HistoricalOptions where
   rnf HistoricalOptions' {..} =
-    Prelude.rnf lookBackAvailablePeriods
-      `Prelude.seq` Prelude.rnf budgetAdjustmentPeriod
+    Prelude.rnf lookBackAvailablePeriods `Prelude.seq`
+      Prelude.rnf budgetAdjustmentPeriod
 
 instance Data.ToJSON HistoricalOptions where
   toJSON HistoricalOptions' {..} =

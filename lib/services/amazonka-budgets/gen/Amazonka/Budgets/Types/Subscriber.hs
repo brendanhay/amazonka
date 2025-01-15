@@ -104,8 +104,8 @@ instance Prelude.Hashable Subscriber where
 
 instance Prelude.NFData Subscriber where
   rnf Subscriber' {..} =
-    Prelude.rnf subscriptionType
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf subscriptionType `Prelude.seq`
+      Prelude.rnf address
 
 instance Data.ToJSON Subscriber where
   toJSON Subscriber' {..} =

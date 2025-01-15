@@ -144,10 +144,10 @@ instance Prelude.Hashable ExecuteBudgetAction where
 
 instance Prelude.NFData ExecuteBudgetAction where
   rnf ExecuteBudgetAction' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf executionType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf actionId `Prelude.seq`
+          Prelude.rnf executionType
 
 instance Data.ToHeaders ExecuteBudgetAction where
   toHeaders =
@@ -261,8 +261,8 @@ executeBudgetActionResponse_executionType = Lens.lens (\ExecuteBudgetActionRespo
 
 instance Prelude.NFData ExecuteBudgetActionResponse where
   rnf ExecuteBudgetActionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf executionType
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf budgetName `Prelude.seq`
+          Prelude.rnf actionId `Prelude.seq`
+            Prelude.rnf executionType

@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteBudget where
 
 instance Prelude.NFData DeleteBudget where
   rnf DeleteBudget' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName
 
 instance Data.ToHeaders DeleteBudget where
   toHeaders =

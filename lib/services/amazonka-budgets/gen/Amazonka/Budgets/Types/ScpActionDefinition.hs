@@ -84,8 +84,8 @@ instance Prelude.Hashable ScpActionDefinition where
 
 instance Prelude.NFData ScpActionDefinition where
   rnf ScpActionDefinition' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf targetIds
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf targetIds
 
 instance Data.ToJSON ScpActionDefinition where
   toJSON ScpActionDefinition' {..} =

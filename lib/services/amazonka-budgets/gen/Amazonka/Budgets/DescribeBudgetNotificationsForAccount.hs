@@ -120,12 +120,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBudgetNotificationsForAccount_nextToken
-          Lens..~ rs
-          Lens.^? describeBudgetNotificationsForAccountResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBudgetNotificationsForAccount_nextToken
+              Lens..~ rs
+              Lens.^? describeBudgetNotificationsForAccountResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -166,9 +166,9 @@ instance
     DescribeBudgetNotificationsForAccount
   where
   rnf DescribeBudgetNotificationsForAccount' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId
 
 instance
   Data.ToHeaders
@@ -267,6 +267,6 @@ instance
   where
   rnf
     DescribeBudgetNotificationsForAccountResponse' {..} =
-      Prelude.rnf budgetNotificationsForAccount
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf budgetNotificationsForAccount `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

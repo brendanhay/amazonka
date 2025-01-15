@@ -185,11 +185,11 @@ instance Prelude.Hashable Notification where
 
 instance Prelude.NFData Notification where
   rnf Notification' {..} =
-    Prelude.rnf notificationState
-      `Prelude.seq` Prelude.rnf thresholdType
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf notificationState `Prelude.seq`
+      Prelude.rnf thresholdType `Prelude.seq`
+        Prelude.rnf notificationType `Prelude.seq`
+          Prelude.rnf comparisonOperator `Prelude.seq`
+            Prelude.rnf threshold
 
 instance Data.ToJSON Notification where
   toJSON Notification' {..} =

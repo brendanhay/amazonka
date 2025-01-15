@@ -96,8 +96,8 @@ instance Prelude.Hashable CalculatedSpend where
 
 instance Prelude.NFData CalculatedSpend where
   rnf CalculatedSpend' {..} =
-    Prelude.rnf forecastedSpend
-      `Prelude.seq` Prelude.rnf actualSpend
+    Prelude.rnf forecastedSpend `Prelude.seq`
+      Prelude.rnf actualSpend
 
 instance Data.ToJSON CalculatedSpend where
   toJSON CalculatedSpend' {..} =

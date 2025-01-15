@@ -185,5 +185,5 @@ getJobUnlockCodeResponse_httpStatus = Lens.lens (\GetJobUnlockCodeResponse' {htt
 
 instance Prelude.NFData GetJobUnlockCodeResponse where
   rnf GetJobUnlockCodeResponse' {..} =
-    Prelude.rnf unlockCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unlockCode `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -89,8 +89,8 @@ instance Prelude.Hashable KeyRange where
 
 instance Prelude.NFData KeyRange where
   rnf KeyRange' {..} =
-    Prelude.rnf beginMarker
-      `Prelude.seq` Prelude.rnf endMarker
+    Prelude.rnf beginMarker `Prelude.seq`
+      Prelude.rnf endMarker
 
 instance Data.ToJSON KeyRange where
   toJSON KeyRange' {..} =

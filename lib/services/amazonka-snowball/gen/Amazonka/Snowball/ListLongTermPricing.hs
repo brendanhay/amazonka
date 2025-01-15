@@ -105,12 +105,12 @@ instance Core.AWSPager ListLongTermPricing where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLongTermPricing_nextToken
-          Lens..~ rs
-          Lens.^? listLongTermPricingResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLongTermPricing_nextToken
+              Lens..~ rs
+              Lens.^? listLongTermPricingResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLongTermPricing where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListLongTermPricing where
 
 instance Prelude.NFData ListLongTermPricing where
   rnf ListLongTermPricing' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLongTermPricing where
   toHeaders =
@@ -227,6 +227,6 @@ listLongTermPricingResponse_httpStatus = Lens.lens (\ListLongTermPricingResponse
 
 instance Prelude.NFData ListLongTermPricingResponse where
   rnf ListLongTermPricingResponse' {..} =
-    Prelude.rnf longTermPricingEntries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf longTermPricingEntries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

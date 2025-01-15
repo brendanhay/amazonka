@@ -164,10 +164,10 @@ instance Prelude.Hashable JobListEntry where
 
 instance Prelude.NFData JobListEntry where
   rnf JobListEntry' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isMaster
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobState
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf snowballType
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isMaster `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobState `Prelude.seq`
+              Prelude.rnf jobType `Prelude.seq`
+                Prelude.rnf snowballType

@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateLongTermPricing where
 
 instance Prelude.NFData UpdateLongTermPricing where
   rnf UpdateLongTermPricing' {..} =
-    Prelude.rnf isLongTermPricingAutoRenew
-      `Prelude.seq` Prelude.rnf replacementJob
-      `Prelude.seq` Prelude.rnf longTermPricingId
+    Prelude.rnf isLongTermPricingAutoRenew `Prelude.seq`
+      Prelude.rnf replacementJob `Prelude.seq`
+        Prelude.rnf longTermPricingId
 
 instance Data.ToHeaders UpdateLongTermPricing where
   toHeaders =

@@ -172,5 +172,5 @@ createAddressResponse_httpStatus = Lens.lens (\CreateAddressResponse' {httpStatu
 
 instance Prelude.NFData CreateAddressResponse where
   rnf CreateAddressResponse' {..} =
-    Prelude.rnf addressId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -116,9 +116,9 @@ instance Prelude.Hashable S3Resource where
 
 instance Prelude.NFData S3Resource where
   rnf S3Resource' {..} =
-    Prelude.rnf bucketArn
-      `Prelude.seq` Prelude.rnf keyRange
-      `Prelude.seq` Prelude.rnf targetOnDeviceServices
+    Prelude.rnf bucketArn `Prelude.seq`
+      Prelude.rnf keyRange `Prelude.seq`
+        Prelude.rnf targetOnDeviceServices
 
 instance Data.ToJSON S3Resource where
   toJSON S3Resource' {..} =

@@ -113,7 +113,7 @@ instance Prelude.Hashable ClusterListEntry where
 
 instance Prelude.NFData ClusterListEntry where
   rnf ClusterListEntry' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf clusterState
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf clusterState `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf description

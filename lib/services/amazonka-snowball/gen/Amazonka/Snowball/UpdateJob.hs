@@ -240,16 +240,16 @@ instance Prelude.Hashable UpdateJob where
 
 instance Prelude.NFData UpdateJob where
   rnf UpdateJob' {..} =
-    Prelude.rnf addressId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf forwardingAddressId
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf snowballCapacityPreference
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf addressId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf forwardingAddressId `Prelude.seq`
+          Prelude.rnf notification `Prelude.seq`
+            Prelude.rnf onDeviceServiceConfiguration `Prelude.seq`
+              Prelude.rnf resources `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf shippingOption `Prelude.seq`
+                    Prelude.rnf snowballCapacityPreference `Prelude.seq`
+                      Prelude.rnf jobId
 
 instance Data.ToHeaders UpdateJob where
   toHeaders =

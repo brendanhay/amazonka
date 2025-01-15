@@ -198,7 +198,7 @@ instance
     DescribeReturnShippingLabelResponse
   where
   rnf DescribeReturnShippingLabelResponse' {..} =
-    Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf returnShippingLabelURI
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expirationDate `Prelude.seq`
+      Prelude.rnf returnShippingLabelURI `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

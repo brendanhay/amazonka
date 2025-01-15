@@ -101,8 +101,8 @@ instance
     TGWOnDeviceServiceConfiguration
   where
   rnf TGWOnDeviceServiceConfiguration' {..} =
-    Prelude.rnf storageLimit
-      `Prelude.seq` Prelude.rnf storageUnit
+    Prelude.rnf storageLimit `Prelude.seq`
+      Prelude.rnf storageUnit
 
 instance Data.ToJSON TGWOnDeviceServiceConfiguration where
   toJSON TGWOnDeviceServiceConfiguration' {..} =

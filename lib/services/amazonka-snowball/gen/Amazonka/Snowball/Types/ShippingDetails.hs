@@ -148,6 +148,6 @@ instance Prelude.Hashable ShippingDetails where
 
 instance Prelude.NFData ShippingDetails where
   rnf ShippingDetails' {..} =
-    Prelude.rnf inboundShipment
-      `Prelude.seq` Prelude.rnf outboundShipment
-      `Prelude.seq` Prelude.rnf shippingOption
+    Prelude.rnf inboundShipment `Prelude.seq`
+      Prelude.rnf outboundShipment `Prelude.seq`
+        Prelude.rnf shippingOption

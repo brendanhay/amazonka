@@ -433,19 +433,19 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf forwardingAddressId
-      `Prelude.seq` Prelude.rnf kmsKeyARN
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
-      `Prelude.seq` Prelude.rnf remoteManagement
-      `Prelude.seq` Prelude.rnf taxDocuments
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf addressId
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf shippingOption
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf forwardingAddressId `Prelude.seq`
+        Prelude.rnf kmsKeyARN `Prelude.seq`
+          Prelude.rnf notification `Prelude.seq`
+            Prelude.rnf onDeviceServiceConfiguration `Prelude.seq`
+              Prelude.rnf remoteManagement `Prelude.seq`
+                Prelude.rnf taxDocuments `Prelude.seq`
+                  Prelude.rnf jobType `Prelude.seq`
+                    Prelude.rnf resources `Prelude.seq`
+                      Prelude.rnf addressId `Prelude.seq`
+                        Prelude.rnf roleARN `Prelude.seq`
+                          Prelude.rnf snowballType `Prelude.seq`
+                            Prelude.rnf shippingOption
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -532,5 +532,5 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf httpStatus

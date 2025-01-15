@@ -101,8 +101,8 @@ instance
     NFSOnDeviceServiceConfiguration
   where
   rnf NFSOnDeviceServiceConfiguration' {..} =
-    Prelude.rnf storageLimit
-      `Prelude.seq` Prelude.rnf storageUnit
+    Prelude.rnf storageLimit `Prelude.seq`
+      Prelude.rnf storageUnit
 
 instance Data.ToJSON NFSOnDeviceServiceConfiguration where
   toJSON NFSOnDeviceServiceConfiguration' {..} =

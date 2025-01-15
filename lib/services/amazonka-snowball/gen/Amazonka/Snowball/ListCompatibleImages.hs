@@ -116,12 +116,12 @@ instance Core.AWSPager ListCompatibleImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCompatibleImages_nextToken
-          Lens..~ rs
-          Lens.^? listCompatibleImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCompatibleImages_nextToken
+              Lens..~ rs
+              Lens.^? listCompatibleImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCompatibleImages where
   type
@@ -149,8 +149,8 @@ instance Prelude.Hashable ListCompatibleImages where
 
 instance Prelude.NFData ListCompatibleImages where
   rnf ListCompatibleImages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCompatibleImages where
   toHeaders =
@@ -238,6 +238,6 @@ listCompatibleImagesResponse_httpStatus = Lens.lens (\ListCompatibleImagesRespon
 
 instance Prelude.NFData ListCompatibleImagesResponse where
   rnf ListCompatibleImagesResponse' {..} =
-    Prelude.rnf compatibleImages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleImages `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

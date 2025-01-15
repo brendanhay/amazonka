@@ -163,6 +163,6 @@ getSnowballUsageResponse_httpStatus = Lens.lens (\GetSnowballUsageResponse' {htt
 
 instance Prelude.NFData GetSnowballUsageResponse where
   rnf GetSnowballUsageResponse' {..} =
-    Prelude.rnf snowballLimit
-      `Prelude.seq` Prelude.rnf snowballsInUse
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snowballLimit `Prelude.seq`
+      Prelude.rnf snowballsInUse `Prelude.seq`
+        Prelude.rnf httpStatus

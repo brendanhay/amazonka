@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData OnDeviceServiceConfiguration where
   rnf OnDeviceServiceConfiguration' {..} =
-    Prelude.rnf nFSOnDeviceService
-      `Prelude.seq` Prelude.rnf tGWOnDeviceService
+    Prelude.rnf nFSOnDeviceService `Prelude.seq`
+      Prelude.rnf tGWOnDeviceService
 
 instance Data.ToJSON OnDeviceServiceConfiguration where
   toJSON OnDeviceServiceConfiguration' {..} =

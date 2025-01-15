@@ -122,8 +122,8 @@ instance Prelude.Hashable CreateReturnShippingLabel where
 
 instance Prelude.NFData CreateReturnShippingLabel where
   rnf CreateReturnShippingLabel' {..} =
-    Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf shippingOption `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders CreateReturnShippingLabel where
   toHeaders =
@@ -203,5 +203,5 @@ instance
     CreateReturnShippingLabelResponse
   where
   rnf CreateReturnShippingLabelResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

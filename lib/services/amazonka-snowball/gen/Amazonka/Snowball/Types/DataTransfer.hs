@@ -117,7 +117,7 @@ instance Prelude.Hashable DataTransfer where
 
 instance Prelude.NFData DataTransfer where
   rnf DataTransfer' {..} =
-    Prelude.rnf bytesTransferred
-      `Prelude.seq` Prelude.rnf objectsTransferred
-      `Prelude.seq` Prelude.rnf totalBytes
-      `Prelude.seq` Prelude.rnf totalObjects
+    Prelude.rnf bytesTransferred `Prelude.seq`
+      Prelude.rnf objectsTransferred `Prelude.seq`
+        Prelude.rnf totalBytes `Prelude.seq`
+          Prelude.rnf totalObjects

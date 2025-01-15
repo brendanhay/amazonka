@@ -159,9 +159,9 @@ instance
     ListJournalKinesisStreamsForLedger
   where
   rnf ListJournalKinesisStreamsForLedger' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ledgerName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf ledgerName
 
 instance
   Data.ToHeaders
@@ -270,6 +270,6 @@ instance
     ListJournalKinesisStreamsForLedgerResponse
   where
   rnf ListJournalKinesisStreamsForLedgerResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streams
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf streams `Prelude.seq`
+        Prelude.rnf httpStatus

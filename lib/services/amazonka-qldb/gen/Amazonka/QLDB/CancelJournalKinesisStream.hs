@@ -119,8 +119,8 @@ instance Prelude.Hashable CancelJournalKinesisStream where
 
 instance Prelude.NFData CancelJournalKinesisStream where
   rnf CancelJournalKinesisStream' {..} =
-    Prelude.rnf ledgerName
-      `Prelude.seq` Prelude.rnf streamId
+    Prelude.rnf ledgerName `Prelude.seq`
+      Prelude.rnf streamId
 
 instance Data.ToHeaders CancelJournalKinesisStream where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     CancelJournalKinesisStreamResponse
   where
   rnf CancelJournalKinesisStreamResponse' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamId `Prelude.seq`
+      Prelude.rnf httpStatus

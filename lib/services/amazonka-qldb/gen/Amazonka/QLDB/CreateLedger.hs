@@ -385,11 +385,11 @@ instance Prelude.Hashable CreateLedger where
 
 instance Prelude.NFData CreateLedger where
   rnf CreateLedger' {..} =
-    Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionsMode
+    Prelude.rnf deletionProtection `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf permissionsMode
 
 instance Data.ToHeaders CreateLedger where
   toHeaders =
@@ -546,11 +546,11 @@ createLedgerResponse_httpStatus = Lens.lens (\CreateLedgerResponse' {httpStatus}
 
 instance Prelude.NFData CreateLedgerResponse where
   rnf CreateLedgerResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionsMode
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf deletionProtection `Prelude.seq`
+          Prelude.rnf kmsKeyArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf permissionsMode `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf httpStatus

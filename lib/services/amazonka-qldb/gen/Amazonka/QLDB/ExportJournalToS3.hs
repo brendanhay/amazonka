@@ -280,12 +280,12 @@ instance Prelude.Hashable ExportJournalToS3 where
 
 instance Prelude.NFData ExportJournalToS3 where
   rnf ExportJournalToS3' {..} =
-    Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inclusiveStartTime
-      `Prelude.seq` Prelude.rnf exclusiveEndTime
-      `Prelude.seq` Prelude.rnf s3ExportConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf outputFormat `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf inclusiveStartTime `Prelude.seq`
+          Prelude.rnf exclusiveEndTime `Prelude.seq`
+            Prelude.rnf s3ExportConfiguration `Prelude.seq`
+              Prelude.rnf roleArn
 
 instance Data.ToHeaders ExportJournalToS3 where
   toHeaders =
@@ -378,5 +378,5 @@ exportJournalToS3Response_exportId = Lens.lens (\ExportJournalToS3Response' {exp
 
 instance Prelude.NFData ExportJournalToS3Response where
   rnf ExportJournalToS3Response' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exportId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exportId

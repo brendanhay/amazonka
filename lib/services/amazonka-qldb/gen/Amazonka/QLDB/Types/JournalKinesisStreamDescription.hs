@@ -248,14 +248,14 @@ instance
     JournalKinesisStreamDescription
   where
   rnf JournalKinesisStreamDescription' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf errorCause
-      `Prelude.seq` Prelude.rnf exclusiveEndTime
-      `Prelude.seq` Prelude.rnf inclusiveStartTime
-      `Prelude.seq` Prelude.rnf ledgerName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf kinesisConfiguration
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf errorCause `Prelude.seq`
+          Prelude.rnf exclusiveEndTime `Prelude.seq`
+            Prelude.rnf inclusiveStartTime `Prelude.seq`
+              Prelude.rnf ledgerName `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf streamId `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf kinesisConfiguration `Prelude.seq`
+                        Prelude.rnf streamName

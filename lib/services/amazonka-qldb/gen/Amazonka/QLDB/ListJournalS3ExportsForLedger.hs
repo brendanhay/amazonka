@@ -156,9 +156,9 @@ instance
 
 instance Prelude.NFData ListJournalS3ExportsForLedger where
   rnf ListJournalS3ExportsForLedger' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders ListJournalS3ExportsForLedger where
   toHeaders =
@@ -254,6 +254,6 @@ instance
     ListJournalS3ExportsForLedgerResponse
   where
   rnf ListJournalS3ExportsForLedgerResponse' {..} =
-    Prelude.rnf journalS3Exports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf journalS3Exports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

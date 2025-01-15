@@ -202,5 +202,5 @@ instance
     DescribeJournalS3ExportResponse
   where
   rnf DescribeJournalS3ExportResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exportDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exportDescription

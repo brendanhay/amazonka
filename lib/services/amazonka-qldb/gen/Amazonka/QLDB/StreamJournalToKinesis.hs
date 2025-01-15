@@ -274,13 +274,13 @@ instance Prelude.Hashable StreamJournalToKinesis where
 
 instance Prelude.NFData StreamJournalToKinesis where
   rnf StreamJournalToKinesis' {..} =
-    Prelude.rnf exclusiveEndTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ledgerName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inclusiveStartTime
-      `Prelude.seq` Prelude.rnf kinesisConfiguration
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf exclusiveEndTime `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf ledgerName `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf inclusiveStartTime `Prelude.seq`
+              Prelude.rnf kinesisConfiguration `Prelude.seq`
+                Prelude.rnf streamName
 
 instance Data.ToHeaders StreamJournalToKinesis where
   toHeaders =
@@ -369,5 +369,5 @@ instance
     StreamJournalToKinesisResponse
   where
   rnf StreamJournalToKinesisResponse' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamId `Prelude.seq`
+      Prelude.rnf httpStatus

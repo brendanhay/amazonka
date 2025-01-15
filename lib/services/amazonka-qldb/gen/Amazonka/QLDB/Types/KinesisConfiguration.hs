@@ -111,8 +111,8 @@ instance Prelude.Hashable KinesisConfiguration where
 
 instance Prelude.NFData KinesisConfiguration where
   rnf KinesisConfiguration' {..} =
-    Prelude.rnf aggregationEnabled
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf aggregationEnabled `Prelude.seq`
+      Prelude.rnf streamArn
 
 instance Data.ToJSON KinesisConfiguration where
   toJSON KinesisConfiguration' {..} =

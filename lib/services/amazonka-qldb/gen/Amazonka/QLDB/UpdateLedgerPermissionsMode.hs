@@ -197,8 +197,8 @@ instance Prelude.Hashable UpdateLedgerPermissionsMode where
 
 instance Prelude.NFData UpdateLedgerPermissionsMode where
   rnf UpdateLedgerPermissionsMode' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionsMode
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf permissionsMode
 
 instance Data.ToHeaders UpdateLedgerPermissionsMode where
   toHeaders =
@@ -290,7 +290,7 @@ instance
     UpdateLedgerPermissionsModeResponse
   where
   rnf UpdateLedgerPermissionsModeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionsMode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf permissionsMode `Prelude.seq`
+          Prelude.rnf httpStatus

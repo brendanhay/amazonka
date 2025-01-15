@@ -99,6 +99,6 @@ instance Prelude.Hashable LedgerSummary where
 
 instance Prelude.NFData LedgerSummary where
   rnf LedgerSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf state

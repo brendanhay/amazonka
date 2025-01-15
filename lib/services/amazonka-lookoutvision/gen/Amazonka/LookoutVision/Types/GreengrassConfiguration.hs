@@ -199,14 +199,14 @@ instance Prelude.Hashable GreengrassConfiguration where
 
 instance Prelude.NFData GreengrassConfiguration where
   rnf GreengrassConfiguration' {..} =
-    Prelude.rnf compilerOptions
-      `Prelude.seq` Prelude.rnf componentDescription
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetDevice
-      `Prelude.seq` Prelude.rnf targetPlatform
-      `Prelude.seq` Prelude.rnf s3OutputLocation
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf compilerOptions `Prelude.seq`
+      Prelude.rnf componentDescription `Prelude.seq`
+        Prelude.rnf componentVersion `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf targetDevice `Prelude.seq`
+              Prelude.rnf targetPlatform `Prelude.seq`
+                Prelude.rnf s3OutputLocation `Prelude.seq`
+                  Prelude.rnf componentName
 
 instance Data.ToJSON GreengrassConfiguration where
   toJSON GreengrassConfiguration' {..} =

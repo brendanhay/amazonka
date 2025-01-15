@@ -213,11 +213,11 @@ instance Prelude.Hashable StartModel where
 
 instance Prelude.NFData StartModel where
   rnf StartModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf maxInferenceUnits
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf minInferenceUnits
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf maxInferenceUnits `Prelude.seq`
+        Prelude.rnf projectName `Prelude.seq`
+          Prelude.rnf modelVersion `Prelude.seq`
+            Prelude.rnf minInferenceUnits
 
 instance Data.ToHeaders StartModel where
   toHeaders StartModel' {..} =
@@ -291,5 +291,5 @@ startModelResponse_httpStatus = Lens.lens (\StartModelResponse' {httpStatus} -> 
 
 instance Prelude.NFData StartModelResponse where
   rnf StartModelResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

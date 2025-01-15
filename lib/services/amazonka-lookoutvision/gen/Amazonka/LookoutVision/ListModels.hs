@@ -139,12 +139,12 @@ instance Core.AWSPager ListModels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModels_nextToken
-          Lens..~ rs
-          Lens.^? listModelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModels_nextToken
+              Lens..~ rs
+              Lens.^? listModelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListModels where
 
 instance Prelude.NFData ListModels where
   rnf ListModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders ListModels where
   toHeaders =
@@ -253,6 +253,6 @@ listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListModelsResponse where
   rnf ListModelsResponse' {..} =
-    Prelude.rnf models
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf models `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

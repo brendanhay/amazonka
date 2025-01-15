@@ -92,6 +92,6 @@ instance Prelude.Hashable ProjectMetadata where
 
 instance Prelude.NFData ProjectMetadata where
   rnf ProjectMetadata' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf projectArn `Prelude.seq`
+        Prelude.rnf projectName

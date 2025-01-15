@@ -238,17 +238,17 @@ instance Prelude.Hashable ModelDescription where
 
 instance Prelude.NFData ModelDescription where
   rnf ModelDescription' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf evaluationEndTimestamp
-      `Prelude.seq` Prelude.rnf evaluationManifest
-      `Prelude.seq` Prelude.rnf evaluationResult
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf maxInferenceUnits
-      `Prelude.seq` Prelude.rnf minInferenceUnits
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf performance
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf evaluationEndTimestamp `Prelude.seq`
+          Prelude.rnf evaluationManifest `Prelude.seq`
+            Prelude.rnf evaluationResult `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf maxInferenceUnits `Prelude.seq`
+                  Prelude.rnf minInferenceUnits `Prelude.seq`
+                    Prelude.rnf modelArn `Prelude.seq`
+                      Prelude.rnf modelVersion `Prelude.seq`
+                        Prelude.rnf outputConfig `Prelude.seq`
+                          Prelude.rnf performance `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf statusMessage

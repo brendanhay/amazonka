@@ -184,9 +184,9 @@ instance Prelude.Hashable DeleteDataset where
 
 instance Prelude.NFData DeleteDataset where
   rnf DeleteDataset' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf datasetType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf datasetType
 
 instance Data.ToHeaders DeleteDataset where
   toHeaders DeleteDataset' {..} =

@@ -224,12 +224,12 @@ instance Core.AWSPager ListDatasetEntries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDatasetEntries_nextToken
-          Lens..~ rs
-          Lens.^? listDatasetEntriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDatasetEntries_nextToken
+              Lens..~ rs
+              Lens.^? listDatasetEntriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetEntries where
   type
@@ -261,15 +261,15 @@ instance Prelude.Hashable ListDatasetEntries where
 
 instance Prelude.NFData ListDatasetEntries where
   rnf ListDatasetEntries' {..} =
-    Prelude.rnf afterCreationDate
-      `Prelude.seq` Prelude.rnf anomalyClass
-      `Prelude.seq` Prelude.rnf beforeCreationDate
-      `Prelude.seq` Prelude.rnf labeled
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourceRefContains
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf datasetType
+    Prelude.rnf afterCreationDate `Prelude.seq`
+      Prelude.rnf anomalyClass `Prelude.seq`
+        Prelude.rnf beforeCreationDate `Prelude.seq`
+          Prelude.rnf labeled `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sourceRefContains `Prelude.seq`
+                  Prelude.rnf projectName `Prelude.seq`
+                    Prelude.rnf datasetType
 
 instance Data.ToHeaders ListDatasetEntries where
   toHeaders =
@@ -360,6 +360,6 @@ listDatasetEntriesResponse_httpStatus = Lens.lens (\ListDatasetEntriesResponse' 
 
 instance Prelude.NFData ListDatasetEntriesResponse where
   rnf ListDatasetEntriesResponse' {..} =
-    Prelude.rnf datasetEntries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetEntries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

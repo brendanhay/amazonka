@@ -91,6 +91,6 @@ instance Prelude.Hashable ModelPerformance where
 
 instance Prelude.NFData ModelPerformance where
   rnf ModelPerformance' {..} =
-    Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf recall
+    Prelude.rnf f1Score `Prelude.seq`
+      Prelude.rnf precision `Prelude.seq`
+        Prelude.rnf recall

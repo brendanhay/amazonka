@@ -140,10 +140,10 @@ instance Prelude.Hashable ModelMetadata where
 
 instance Prelude.NFData ModelMetadata where
   rnf ModelMetadata' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf performance
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelArn `Prelude.seq`
+          Prelude.rnf modelVersion `Prelude.seq`
+            Prelude.rnf performance `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusMessage

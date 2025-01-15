@@ -105,7 +105,7 @@ instance Prelude.Hashable ProjectDescription where
 
 instance Prelude.NFData ProjectDescription where
   rnf ProjectDescription' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf datasets
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf datasets `Prelude.seq`
+        Prelude.rnf projectArn `Prelude.seq`
+          Prelude.rnf projectName

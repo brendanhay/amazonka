@@ -140,12 +140,12 @@ instance Core.AWSPager ListModelPackagingJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelPackagingJobs_nextToken
-          Lens..~ rs
-          Lens.^? listModelPackagingJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelPackagingJobs_nextToken
+              Lens..~ rs
+              Lens.^? listModelPackagingJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackagingJobs where
   type
@@ -174,9 +174,9 @@ instance Prelude.Hashable ListModelPackagingJobs where
 
 instance Prelude.NFData ListModelPackagingJobs where
   rnf ListModelPackagingJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders ListModelPackagingJobs where
   toHeaders =
@@ -269,6 +269,6 @@ instance
     ListModelPackagingJobsResponse
   where
   rnf ListModelPackagingJobsResponse' {..} =
-    Prelude.rnf modelPackagingJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelPackagingJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

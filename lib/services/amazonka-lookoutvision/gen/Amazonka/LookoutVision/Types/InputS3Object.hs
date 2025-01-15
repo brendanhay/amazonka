@@ -84,9 +84,9 @@ instance Prelude.Hashable InputS3Object where
 
 instance Prelude.NFData InputS3Object where
   rnf InputS3Object' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON InputS3Object where
   toJSON InputS3Object' {..} =

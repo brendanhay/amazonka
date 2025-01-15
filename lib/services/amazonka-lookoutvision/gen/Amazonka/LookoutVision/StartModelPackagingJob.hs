@@ -243,12 +243,12 @@ instance Prelude.Hashable StartModelPackagingJob where
 
 instance Prelude.NFData StartModelPackagingJob where
   rnf StartModelPackagingJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf projectName `Prelude.seq`
+            Prelude.rnf modelVersion `Prelude.seq`
+              Prelude.rnf configuration
 
 instance Data.ToHeaders StartModelPackagingJob where
   toHeaders StartModelPackagingJob' {..} =
@@ -331,5 +331,5 @@ instance
     StartModelPackagingJobResponse
   where
   rnf StartModelPackagingJobResponse' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -158,8 +158,8 @@ instance Prelude.Hashable DeleteProject where
 
 instance Prelude.NFData DeleteProject where
   rnf DeleteProject' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName
 
 instance Data.ToHeaders DeleteProject where
   toHeaders DeleteProject' {..} =
@@ -218,5 +218,5 @@ deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatu
 
 instance Prelude.NFData DeleteProjectResponse where
   rnf DeleteProjectResponse' {..} =
-    Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectArn `Prelude.seq`
+      Prelude.rnf httpStatus

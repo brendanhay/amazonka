@@ -151,8 +151,8 @@ instance Prelude.Hashable CreateProject where
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName
 
 instance Data.ToHeaders CreateProject where
   toHeaders CreateProject' {..} =
@@ -216,5 +216,5 @@ createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatu
 
 instance Prelude.NFData CreateProjectResponse where
   rnf CreateProjectResponse' {..} =
-    Prelude.rnf projectMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

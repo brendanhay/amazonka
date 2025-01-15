@@ -111,8 +111,8 @@ instance Prelude.Hashable DeletePlacement where
 
 instance Prelude.NFData DeletePlacement where
   rnf DeletePlacement' {..} =
-    Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf placementName `Prelude.seq`
+      Prelude.rnf projectName
 
 instance Data.ToHeaders DeletePlacement where
   toHeaders =

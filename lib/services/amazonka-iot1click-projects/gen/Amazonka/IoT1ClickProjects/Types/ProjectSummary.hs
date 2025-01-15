@@ -132,8 +132,8 @@ instance Prelude.Hashable ProjectSummary where
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf projectName `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf updatedDate

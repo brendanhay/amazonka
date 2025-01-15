@@ -154,10 +154,10 @@ instance Prelude.Hashable CreateProject where
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf placementTemplate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf placementTemplate `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf projectName
 
 instance Data.ToHeaders CreateProject where
   toHeaders =

@@ -112,8 +112,8 @@ instance Prelude.Hashable GetDevicesInPlacement where
 
 instance Prelude.NFData GetDevicesInPlacement where
   rnf GetDevicesInPlacement' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf placementName
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf placementName
 
 instance Data.ToHeaders GetDevicesInPlacement where
   toHeaders =
@@ -180,5 +180,5 @@ getDevicesInPlacementResponse_devices = Lens.lens (\GetDevicesInPlacementRespons
 
 instance Prelude.NFData GetDevicesInPlacementResponse where
   rnf GetDevicesInPlacementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf devices

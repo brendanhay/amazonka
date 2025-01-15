@@ -151,10 +151,10 @@ instance
 
 instance Prelude.NFData AssociateDeviceWithPlacement where
   rnf AssociateDeviceWithPlacement' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf deviceTemplateName
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf placementName `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf deviceTemplateName
 
 instance Data.ToHeaders AssociateDeviceWithPlacement where
   toHeaders =

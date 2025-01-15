@@ -155,10 +155,10 @@ instance Prelude.Hashable ProjectDescription where
 
 instance Prelude.NFData ProjectDescription where
   rnf ProjectDescription' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf placementTemplate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf placementTemplate `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf projectName `Prelude.seq`
+              Prelude.rnf createdDate `Prelude.seq`
+                Prelude.rnf updatedDate

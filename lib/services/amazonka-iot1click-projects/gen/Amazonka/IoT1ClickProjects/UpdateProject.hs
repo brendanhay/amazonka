@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateProject where
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf placementTemplate
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf placementTemplate `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateProject where
   toHeaders =

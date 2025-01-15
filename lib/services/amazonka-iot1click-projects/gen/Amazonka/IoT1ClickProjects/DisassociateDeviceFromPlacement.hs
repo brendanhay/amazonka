@@ -136,9 +136,9 @@ instance
     DisassociateDeviceFromPlacement
   where
   rnf DisassociateDeviceFromPlacement' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf deviceTemplateName
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf placementName `Prelude.seq`
+        Prelude.rnf deviceTemplateName
 
 instance
   Data.ToHeaders

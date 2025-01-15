@@ -88,8 +88,8 @@ instance Prelude.Hashable DeviceTemplate where
 
 instance Prelude.NFData DeviceTemplate where
   rnf DeviceTemplate' {..} =
-    Prelude.rnf callbackOverrides
-      `Prelude.seq` Prelude.rnf deviceType
+    Prelude.rnf callbackOverrides `Prelude.seq`
+      Prelude.rnf deviceType
 
 instance Data.ToJSON DeviceTemplate where
   toJSON DeviceTemplate' {..} =

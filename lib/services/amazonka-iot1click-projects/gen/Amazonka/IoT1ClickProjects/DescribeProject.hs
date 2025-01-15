@@ -156,5 +156,5 @@ describeProjectResponse_project = Lens.lens (\DescribeProjectResponse' {project}
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf project

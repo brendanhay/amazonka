@@ -94,8 +94,8 @@ instance Prelude.Hashable PlacementTemplate where
 
 instance Prelude.NFData PlacementTemplate where
   rnf PlacementTemplate' {..} =
-    Prelude.rnf defaultAttributes
-      `Prelude.seq` Prelude.rnf deviceTemplates
+    Prelude.rnf defaultAttributes `Prelude.seq`
+      Prelude.rnf deviceTemplates
 
 instance Data.ToJSON PlacementTemplate where
   toJSON PlacementTemplate' {..} =

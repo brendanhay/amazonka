@@ -194,6 +194,6 @@ instance
     GetPortalServiceProviderMetadataResponse
   where
   rnf GetPortalServiceProviderMetadataResponse' {..} =
-    Prelude.rnf serviceProviderSamlMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf serviceProviderSamlMetadata `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf portalArn

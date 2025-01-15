@@ -159,5 +159,5 @@ getUserSettingsResponse_httpStatus = Lens.lens (\GetUserSettingsResponse' {httpS
 
 instance Prelude.NFData GetUserSettingsResponse where
   rnf GetUserSettingsResponse' {..} =
-    Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userSettings `Prelude.seq`
+      Prelude.rnf httpStatus

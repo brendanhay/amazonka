@@ -164,11 +164,11 @@ instance Prelude.Hashable CreatePortal where
 
 instance Prelude.NFData CreatePortal where
   rnf CreatePortal' {..} =
-    Prelude.rnf additionalEncryptionContext
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf customerManagedKey
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf additionalEncryptionContext `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf customerManagedKey `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf tags
 
 instance Data.ToHeaders CreatePortal where
   toHeaders =
@@ -260,6 +260,6 @@ createPortalResponse_portalEndpoint = Lens.lens (\CreatePortalResponse' {portalE
 
 instance Prelude.NFData CreatePortalResponse where
   rnf CreatePortalResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf portalEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalArn `Prelude.seq`
+        Prelude.rnf portalEndpoint

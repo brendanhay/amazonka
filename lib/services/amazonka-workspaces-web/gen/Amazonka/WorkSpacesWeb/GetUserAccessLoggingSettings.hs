@@ -169,5 +169,5 @@ instance
     GetUserAccessLoggingSettingsResponse
   where
   rnf GetUserAccessLoggingSettingsResponse' {..} =
-    Prelude.rnf userAccessLoggingSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userAccessLoggingSettings `Prelude.seq`
+      Prelude.rnf httpStatus

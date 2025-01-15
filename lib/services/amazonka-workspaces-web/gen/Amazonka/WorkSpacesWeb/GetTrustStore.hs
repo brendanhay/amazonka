@@ -155,5 +155,5 @@ getTrustStoreResponse_httpStatus = Lens.lens (\GetTrustStoreResponse' {httpStatu
 
 instance Prelude.NFData GetTrustStoreResponse where
   rnf GetTrustStoreResponse' {..} =
-    Prelude.rnf trustStore
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trustStore `Prelude.seq`
+      Prelude.rnf httpStatus

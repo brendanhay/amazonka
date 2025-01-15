@@ -112,8 +112,8 @@ instance Prelude.Hashable AssociateTrustStore where
 
 instance Prelude.NFData AssociateTrustStore where
   rnf AssociateTrustStore' {..} =
-    Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf portalArn `Prelude.seq`
+      Prelude.rnf trustStoreArn
 
 instance Data.ToHeaders AssociateTrustStore where
   toHeaders =
@@ -196,6 +196,6 @@ associateTrustStoreResponse_trustStoreArn = Lens.lens (\AssociateTrustStoreRespo
 
 instance Prelude.NFData AssociateTrustStoreResponse where
   rnf AssociateTrustStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalArn `Prelude.seq`
+        Prelude.rnf trustStoreArn

@@ -144,9 +144,9 @@ instance Prelude.Hashable CreateTrustStore where
 
 instance Prelude.NFData CreateTrustStore where
   rnf CreateTrustStore' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateList
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf certificateList
 
 instance Data.ToHeaders CreateTrustStore where
   toHeaders =
@@ -221,5 +221,5 @@ createTrustStoreResponse_trustStoreArn = Lens.lens (\CreateTrustStoreResponse' {
 
 instance Prelude.NFData CreateTrustStoreResponse where
   rnf CreateTrustStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trustStoreArn

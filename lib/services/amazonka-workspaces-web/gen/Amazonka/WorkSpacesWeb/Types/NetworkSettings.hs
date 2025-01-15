@@ -130,8 +130,8 @@ instance Prelude.Hashable NetworkSettings where
 
 instance Prelude.NFData NetworkSettings where
   rnf NetworkSettings' {..} =
-    Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf networkSettingsArn
+    Prelude.rnf associatedPortalArns `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vpcId `Prelude.seq`
+            Prelude.rnf networkSettingsArn

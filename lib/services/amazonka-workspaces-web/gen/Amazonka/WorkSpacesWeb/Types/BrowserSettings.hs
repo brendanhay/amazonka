@@ -103,6 +103,6 @@ instance Prelude.Hashable BrowserSettings where
 
 instance Prelude.NFData BrowserSettings where
   rnf BrowserSettings' {..} =
-    Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf browserPolicy
-      `Prelude.seq` Prelude.rnf browserSettingsArn
+    Prelude.rnf associatedPortalArns `Prelude.seq`
+      Prelude.rnf browserPolicy `Prelude.seq`
+        Prelude.rnf browserSettingsArn

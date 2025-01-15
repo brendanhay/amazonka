@@ -168,11 +168,11 @@ instance Prelude.Hashable UserSettingsSummary where
 
 instance Prelude.NFData UserSettingsSummary where
   rnf UserSettingsSummary' {..} =
-    Prelude.rnf copyAllowed
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf downloadAllowed
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf pasteAllowed
-      `Prelude.seq` Prelude.rnf printAllowed
-      `Prelude.seq` Prelude.rnf uploadAllowed
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf copyAllowed `Prelude.seq`
+      Prelude.rnf disconnectTimeoutInMinutes `Prelude.seq`
+        Prelude.rnf downloadAllowed `Prelude.seq`
+          Prelude.rnf idleDisconnectTimeoutInMinutes `Prelude.seq`
+            Prelude.rnf pasteAllowed `Prelude.seq`
+              Prelude.rnf printAllowed `Prelude.seq`
+                Prelude.rnf uploadAllowed `Prelude.seq`
+                  Prelude.rnf userSettingsArn

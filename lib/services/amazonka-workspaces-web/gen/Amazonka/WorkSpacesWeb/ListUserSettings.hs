@@ -111,8 +111,8 @@ instance Prelude.Hashable ListUserSettings where
 
 instance Prelude.NFData ListUserSettings where
   rnf ListUserSettings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUserSettings where
   toHeaders =
@@ -188,6 +188,6 @@ listUserSettingsResponse_httpStatus = Lens.lens (\ListUserSettingsResponse' {htt
 
 instance Prelude.NFData ListUserSettingsResponse where
   rnf ListUserSettingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userSettings `Prelude.seq`
+        Prelude.rnf httpStatus

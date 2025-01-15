@@ -130,9 +130,9 @@ instance Prelude.Hashable ListTrustStoreCertificates where
 
 instance Prelude.NFData ListTrustStoreCertificates where
   rnf ListTrustStoreCertificates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf trustStoreArn
 
 instance Data.ToHeaders ListTrustStoreCertificates where
   toHeaders =
@@ -225,7 +225,7 @@ instance
     ListTrustStoreCertificatesResponse
   where
   rnf ListTrustStoreCertificatesResponse' {..} =
-    Prelude.rnf certificateList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trustStoreArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf trustStoreArn `Prelude.seq`
+          Prelude.rnf httpStatus

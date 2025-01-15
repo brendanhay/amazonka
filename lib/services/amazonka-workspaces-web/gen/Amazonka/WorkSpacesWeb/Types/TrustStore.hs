@@ -89,5 +89,5 @@ instance Prelude.Hashable TrustStore where
 
 instance Prelude.NFData TrustStore where
   rnf TrustStore' {..} =
-    Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf associatedPortalArns `Prelude.seq`
+      Prelude.rnf trustStoreArn

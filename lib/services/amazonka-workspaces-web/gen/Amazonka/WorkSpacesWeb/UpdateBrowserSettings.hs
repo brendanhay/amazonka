@@ -144,9 +144,9 @@ instance Prelude.Hashable UpdateBrowserSettings where
 
 instance Prelude.NFData UpdateBrowserSettings where
   rnf UpdateBrowserSettings' {..} =
-    Prelude.rnf browserPolicy
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf browserSettingsArn
+    Prelude.rnf browserPolicy `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf browserSettingsArn
 
 instance Data.ToHeaders UpdateBrowserSettings where
   toHeaders =
@@ -221,5 +221,5 @@ updateBrowserSettingsResponse_browserSettings = Lens.lens (\UpdateBrowserSetting
 
 instance Prelude.NFData UpdateBrowserSettingsResponse where
   rnf UpdateBrowserSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf browserSettings
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf browserSettings

@@ -210,16 +210,16 @@ instance Prelude.Hashable Portal where
 
 instance Prelude.NFData Portal where
   rnf Portal' {..} =
-    Prelude.rnf browserSettingsArn
-      `Prelude.seq` Prelude.rnf browserType
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf networkSettingsArn
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf portalEndpoint
-      `Prelude.seq` Prelude.rnf portalStatus
-      `Prelude.seq` Prelude.rnf rendererType
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf trustStoreArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf browserSettingsArn `Prelude.seq`
+      Prelude.rnf browserType `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf networkSettingsArn `Prelude.seq`
+              Prelude.rnf portalArn `Prelude.seq`
+                Prelude.rnf portalEndpoint `Prelude.seq`
+                  Prelude.rnf portalStatus `Prelude.seq`
+                    Prelude.rnf rendererType `Prelude.seq`
+                      Prelude.rnf statusReason `Prelude.seq`
+                        Prelude.rnf trustStoreArn `Prelude.seq`
+                          Prelude.rnf userAccessLoggingSettingsArn `Prelude.seq`
+                            Prelude.rnf userSettingsArn

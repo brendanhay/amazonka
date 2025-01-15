@@ -185,11 +185,11 @@ instance Prelude.Hashable CreateNetworkSettings where
 
 instance Prelude.NFData CreateNetworkSettings where
   rnf CreateNetworkSettings' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateNetworkSettings where
   toHeaders =
@@ -266,5 +266,5 @@ createNetworkSettingsResponse_networkSettingsArn = Lens.lens (\CreateNetworkSett
 
 instance Prelude.NFData CreateNetworkSettingsResponse where
   rnf CreateNetworkSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf networkSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf networkSettingsArn

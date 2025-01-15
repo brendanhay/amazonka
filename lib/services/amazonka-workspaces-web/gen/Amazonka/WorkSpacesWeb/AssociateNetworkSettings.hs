@@ -115,8 +115,8 @@ instance Prelude.Hashable AssociateNetworkSettings where
 
 instance Prelude.NFData AssociateNetworkSettings where
   rnf AssociateNetworkSettings' {..} =
-    Prelude.rnf networkSettingsArn
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf networkSettingsArn `Prelude.seq`
+      Prelude.rnf portalArn
 
 instance Data.ToHeaders AssociateNetworkSettings where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     AssociateNetworkSettingsResponse
   where
   rnf AssociateNetworkSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf networkSettingsArn
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf networkSettingsArn `Prelude.seq`
+        Prelude.rnf portalArn

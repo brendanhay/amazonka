@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdatePortal where
 
 instance Prelude.NFData UpdatePortal where
   rnf UpdatePortal' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf portalArn
 
 instance Data.ToHeaders UpdatePortal where
   toHeaders =
@@ -177,5 +177,5 @@ updatePortalResponse_httpStatus = Lens.lens (\UpdatePortalResponse' {httpStatus}
 
 instance Prelude.NFData UpdatePortalResponse where
   rnf UpdatePortalResponse' {..} =
-    Prelude.rnf portal
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portal `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -115,8 +115,8 @@ instance Prelude.Hashable AssociateBrowserSettings where
 
 instance Prelude.NFData AssociateBrowserSettings where
   rnf AssociateBrowserSettings' {..} =
-    Prelude.rnf browserSettingsArn
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf browserSettingsArn `Prelude.seq`
+      Prelude.rnf portalArn
 
 instance Data.ToHeaders AssociateBrowserSettings where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     AssociateBrowserSettingsResponse
   where
   rnf AssociateBrowserSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf browserSettingsArn
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf browserSettingsArn `Prelude.seq`
+        Prelude.rnf portalArn

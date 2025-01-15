@@ -127,8 +127,8 @@ instance
     AssociateUserAccessLoggingSettings
   where
   rnf AssociateUserAccessLoggingSettings' {..} =
-    Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf portalArn `Prelude.seq`
+      Prelude.rnf userAccessLoggingSettingsArn
 
 instance
   Data.ToHeaders
@@ -232,6 +232,6 @@ instance
     AssociateUserAccessLoggingSettingsResponse
   where
   rnf AssociateUserAccessLoggingSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalArn `Prelude.seq`
+        Prelude.rnf userAccessLoggingSettingsArn

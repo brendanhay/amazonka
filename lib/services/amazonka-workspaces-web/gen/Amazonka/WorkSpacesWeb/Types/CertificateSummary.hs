@@ -113,8 +113,8 @@ instance Prelude.Hashable CertificateSummary where
 
 instance Prelude.NFData CertificateSummary where
   rnf CertificateSummary' {..} =
-    Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf notValidBefore
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf thumbprint
+    Prelude.rnf issuer `Prelude.seq`
+      Prelude.rnf notValidAfter `Prelude.seq`
+        Prelude.rnf notValidBefore `Prelude.seq`
+          Prelude.rnf subject `Prelude.seq`
+            Prelude.rnf thumbprint

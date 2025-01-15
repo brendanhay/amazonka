@@ -246,15 +246,15 @@ instance Prelude.Hashable CreateUserSettings where
 
 instance Prelude.NFData CreateUserSettings where
   rnf CreateUserSettings' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf copyAllowed
-      `Prelude.seq` Prelude.rnf downloadAllowed
-      `Prelude.seq` Prelude.rnf pasteAllowed
-      `Prelude.seq` Prelude.rnf printAllowed
-      `Prelude.seq` Prelude.rnf uploadAllowed
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf disconnectTimeoutInMinutes `Prelude.seq`
+        Prelude.rnf idleDisconnectTimeoutInMinutes `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf copyAllowed `Prelude.seq`
+              Prelude.rnf downloadAllowed `Prelude.seq`
+                Prelude.rnf pasteAllowed `Prelude.seq`
+                  Prelude.rnf printAllowed `Prelude.seq`
+                    Prelude.rnf uploadAllowed
 
 instance Data.ToHeaders CreateUserSettings where
   toHeaders =
@@ -338,5 +338,5 @@ createUserSettingsResponse_userSettingsArn = Lens.lens (\CreateUserSettingsRespo
 
 instance Prelude.NFData CreateUserSettingsResponse where
   rnf CreateUserSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userSettingsArn

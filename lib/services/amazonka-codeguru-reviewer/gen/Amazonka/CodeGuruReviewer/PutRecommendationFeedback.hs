@@ -136,9 +136,9 @@ instance Prelude.Hashable PutRecommendationFeedback where
 
 instance Prelude.NFData PutRecommendationFeedback where
   rnf PutRecommendationFeedback' {..} =
-    Prelude.rnf codeReviewArn
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf reactions
+    Prelude.rnf codeReviewArn `Prelude.seq`
+      Prelude.rnf recommendationId `Prelude.seq`
+        Prelude.rnf reactions
 
 instance Data.ToHeaders PutRecommendationFeedback where
   toHeaders =

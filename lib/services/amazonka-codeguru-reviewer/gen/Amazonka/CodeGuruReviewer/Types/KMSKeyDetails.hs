@@ -97,8 +97,8 @@ instance Prelude.Hashable KMSKeyDetails where
 
 instance Prelude.NFData KMSKeyDetails where
   rnf KMSKeyDetails' {..} =
-    Prelude.rnf encryptionOption
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf encryptionOption `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToJSON KMSKeyDetails where
   toJSON KMSKeyDetails' {..} =

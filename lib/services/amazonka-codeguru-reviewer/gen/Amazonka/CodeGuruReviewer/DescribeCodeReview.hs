@@ -166,5 +166,5 @@ describeCodeReviewResponse_httpStatus = Lens.lens (\DescribeCodeReviewResponse' 
 
 instance Prelude.NFData DescribeCodeReviewResponse where
   rnf DescribeCodeReviewResponse' {..} =
-    Prelude.rnf codeReview
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeReview `Prelude.seq`
+      Prelude.rnf httpStatus

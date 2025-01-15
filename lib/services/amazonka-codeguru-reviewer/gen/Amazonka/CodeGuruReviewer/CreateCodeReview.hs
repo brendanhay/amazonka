@@ -173,10 +173,10 @@ instance Prelude.Hashable CreateCodeReview where
 
 instance Prelude.NFData CreateCodeReview where
   rnf CreateCodeReview' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf repositoryAssociationArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf repositoryAssociationArn `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders CreateCodeReview where
   toHeaders =
@@ -250,5 +250,5 @@ createCodeReviewResponse_httpStatus = Lens.lens (\CreateCodeReviewResponse' {htt
 
 instance Prelude.NFData CreateCodeReviewResponse where
   rnf CreateCodeReviewResponse' {..} =
-    Prelude.rnf codeReview
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeReview `Prelude.seq`
+      Prelude.rnf httpStatus

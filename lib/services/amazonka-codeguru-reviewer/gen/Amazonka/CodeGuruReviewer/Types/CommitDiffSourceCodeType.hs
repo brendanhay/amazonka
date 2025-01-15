@@ -102,9 +102,9 @@ instance Prelude.Hashable CommitDiffSourceCodeType where
 
 instance Prelude.NFData CommitDiffSourceCodeType where
   rnf CommitDiffSourceCodeType' {..} =
-    Prelude.rnf destinationCommit
-      `Prelude.seq` Prelude.rnf mergeBaseCommit
-      `Prelude.seq` Prelude.rnf sourceCommit
+    Prelude.rnf destinationCommit `Prelude.seq`
+      Prelude.rnf mergeBaseCommit `Prelude.seq`
+        Prelude.rnf sourceCommit
 
 instance Data.ToJSON CommitDiffSourceCodeType where
   toJSON CommitDiffSourceCodeType' {..} =

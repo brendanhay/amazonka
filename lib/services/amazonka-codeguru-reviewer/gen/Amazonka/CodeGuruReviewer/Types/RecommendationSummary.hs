@@ -177,11 +177,11 @@ instance Prelude.Hashable RecommendationSummary where
 
 instance Prelude.NFData RecommendationSummary where
   rnf RecommendationSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endLine
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf recommendationCategory
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf ruleMetadata
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf startLine
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf endLine `Prelude.seq`
+        Prelude.rnf filePath `Prelude.seq`
+          Prelude.rnf recommendationCategory `Prelude.seq`
+            Prelude.rnf recommendationId `Prelude.seq`
+              Prelude.rnf ruleMetadata `Prelude.seq`
+                Prelude.rnf severity `Prelude.seq`
+                  Prelude.rnf startLine

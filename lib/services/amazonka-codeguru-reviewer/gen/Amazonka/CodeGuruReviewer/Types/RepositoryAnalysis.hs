@@ -81,8 +81,8 @@ instance Prelude.Hashable RepositoryAnalysis where
 
 instance Prelude.NFData RepositoryAnalysis where
   rnf RepositoryAnalysis' {..} =
-    Prelude.rnf repositoryHead
-      `Prelude.seq` Prelude.rnf sourceCodeType
+    Prelude.rnf repositoryHead `Prelude.seq`
+      Prelude.rnf sourceCodeType
 
 instance Data.ToJSON RepositoryAnalysis where
   toJSON RepositoryAnalysis' {..} =

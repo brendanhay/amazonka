@@ -106,8 +106,8 @@ instance Prelude.Hashable CodeArtifacts where
 
 instance Prelude.NFData CodeArtifacts where
   rnf CodeArtifacts' {..} =
-    Prelude.rnf buildArtifactsObjectKey
-      `Prelude.seq` Prelude.rnf sourceCodeArtifactsObjectKey
+    Prelude.rnf buildArtifactsObjectKey `Prelude.seq`
+      Prelude.rnf sourceCodeArtifactsObjectKey
 
 instance Data.ToJSON CodeArtifacts where
   toJSON CodeArtifacts' {..} =

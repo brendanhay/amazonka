@@ -156,9 +156,9 @@ instance Prelude.Hashable RecommendationFeedback where
 
 instance Prelude.NFData RecommendationFeedback where
   rnf RecommendationFeedback' {..} =
-    Prelude.rnf codeReviewArn
-      `Prelude.seq` Prelude.rnf createdTimeStamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf reactions
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf codeReviewArn `Prelude.seq`
+      Prelude.rnf createdTimeStamp `Prelude.seq`
+        Prelude.rnf lastUpdatedTimeStamp `Prelude.seq`
+          Prelude.rnf reactions `Prelude.seq`
+            Prelude.rnf recommendationId `Prelude.seq`
+              Prelude.rnf userId

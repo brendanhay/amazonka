@@ -323,19 +323,19 @@ instance Prelude.Hashable CodeReview where
 
 instance Prelude.NFData CodeReview where
   rnf CodeReview' {..} =
-    Prelude.rnf analysisTypes
-      `Prelude.seq` Prelude.rnf associationArn
-      `Prelude.seq` Prelude.rnf codeReviewArn
-      `Prelude.seq` Prelude.rnf configFileState
-      `Prelude.seq` Prelude.rnf createdTimeStamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCodeType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf analysisTypes `Prelude.seq`
+      Prelude.rnf associationArn `Prelude.seq`
+        Prelude.rnf codeReviewArn `Prelude.seq`
+          Prelude.rnf configFileState `Prelude.seq`
+            Prelude.rnf createdTimeStamp `Prelude.seq`
+              Prelude.rnf lastUpdatedTimeStamp `Prelude.seq`
+                Prelude.rnf metrics `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf owner `Prelude.seq`
+                      Prelude.rnf providerType `Prelude.seq`
+                        Prelude.rnf pullRequestId `Prelude.seq`
+                          Prelude.rnf repositoryName `Prelude.seq`
+                            Prelude.rnf sourceCodeType `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf stateReason `Prelude.seq`
+                                  Prelude.rnf type'

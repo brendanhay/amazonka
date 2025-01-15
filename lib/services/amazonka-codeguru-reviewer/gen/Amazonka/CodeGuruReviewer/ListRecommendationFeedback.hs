@@ -192,11 +192,11 @@ instance Prelude.Hashable ListRecommendationFeedback where
 
 instance Prelude.NFData ListRecommendationFeedback where
   rnf ListRecommendationFeedback' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf codeReviewArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recommendationIds `Prelude.seq`
+          Prelude.rnf userIds `Prelude.seq`
+            Prelude.rnf codeReviewArn
 
 instance Data.ToHeaders ListRecommendationFeedback where
   toHeaders =
@@ -295,6 +295,6 @@ instance
     ListRecommendationFeedbackResponse
   where
   rnf ListRecommendationFeedbackResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationFeedbackSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationFeedbackSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -210,6 +210,6 @@ instance
     DisassociateRepositoryResponse
   where
   rnf DisassociateRepositoryResponse' {..} =
-    Prelude.rnf repositoryAssociation
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repositoryAssociation `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

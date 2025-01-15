@@ -165,11 +165,11 @@ instance Prelude.Hashable SourceCodeType where
 
 instance Prelude.NFData SourceCodeType where
   rnf SourceCodeType' {..} =
-    Prelude.rnf branchDiff
-      `Prelude.seq` Prelude.rnf commitDiff
-      `Prelude.seq` Prelude.rnf repositoryHead
-      `Prelude.seq` Prelude.rnf requestMetadata
-      `Prelude.seq` Prelude.rnf s3BucketRepository
+    Prelude.rnf branchDiff `Prelude.seq`
+      Prelude.rnf commitDiff `Prelude.seq`
+        Prelude.rnf repositoryHead `Prelude.seq`
+          Prelude.rnf requestMetadata `Prelude.seq`
+            Prelude.rnf s3BucketRepository
 
 instance Data.ToJSON SourceCodeType where
   toJSON SourceCodeType' {..} =

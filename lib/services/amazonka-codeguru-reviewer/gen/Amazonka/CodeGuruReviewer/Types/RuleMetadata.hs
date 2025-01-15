@@ -116,8 +116,8 @@ instance Prelude.Hashable RuleMetadata where
 
 instance Prelude.NFData RuleMetadata where
   rnf RuleMetadata' {..} =
-    Prelude.rnf longDescription
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf ruleTags
-      `Prelude.seq` Prelude.rnf shortDescription
+    Prelude.rnf longDescription `Prelude.seq`
+      Prelude.rnf ruleId `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf ruleTags `Prelude.seq`
+            Prelude.rnf shortDescription

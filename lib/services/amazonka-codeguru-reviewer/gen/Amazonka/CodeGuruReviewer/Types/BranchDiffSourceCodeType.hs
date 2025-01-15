@@ -90,8 +90,8 @@ instance Prelude.Hashable BranchDiffSourceCodeType where
 
 instance Prelude.NFData BranchDiffSourceCodeType where
   rnf BranchDiffSourceCodeType' {..} =
-    Prelude.rnf sourceBranchName
-      `Prelude.seq` Prelude.rnf destinationBranchName
+    Prelude.rnf sourceBranchName `Prelude.seq`
+      Prelude.rnf destinationBranchName
 
 instance Data.ToJSON BranchDiffSourceCodeType where
   toJSON BranchDiffSourceCodeType' {..} =

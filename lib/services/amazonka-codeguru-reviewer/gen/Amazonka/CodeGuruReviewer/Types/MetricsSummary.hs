@@ -166,6 +166,6 @@ instance Prelude.Hashable MetricsSummary where
 
 instance Prelude.NFData MetricsSummary where
   rnf MetricsSummary' {..} =
-    Prelude.rnf findingsCount
-      `Prelude.seq` Prelude.rnf meteredLinesOfCodeCount
-      `Prelude.seq` Prelude.rnf suppressedLinesOfCodeCount
+    Prelude.rnf findingsCount `Prelude.seq`
+      Prelude.rnf meteredLinesOfCodeCount `Prelude.seq`
+        Prelude.rnf suppressedLinesOfCodeCount

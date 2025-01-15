@@ -251,15 +251,15 @@ instance Prelude.Hashable CodeReviewSummary where
 
 instance Prelude.NFData CodeReviewSummary where
   rnf CodeReviewSummary' {..} =
-    Prelude.rnf codeReviewArn
-      `Prelude.seq` Prelude.rnf createdTimeStamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf metricsSummary
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCodeType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf codeReviewArn `Prelude.seq`
+      Prelude.rnf createdTimeStamp `Prelude.seq`
+        Prelude.rnf lastUpdatedTimeStamp `Prelude.seq`
+          Prelude.rnf metricsSummary `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf providerType `Prelude.seq`
+                  Prelude.rnf pullRequestId `Prelude.seq`
+                    Prelude.rnf repositoryName `Prelude.seq`
+                      Prelude.rnf sourceCodeType `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf type'

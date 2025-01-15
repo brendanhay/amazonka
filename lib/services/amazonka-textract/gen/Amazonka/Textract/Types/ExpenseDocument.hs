@@ -114,7 +114,7 @@ instance Prelude.Hashable ExpenseDocument where
 
 instance Prelude.NFData ExpenseDocument where
   rnf ExpenseDocument' {..} =
-    Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf expenseIndex
-      `Prelude.seq` Prelude.rnf lineItemGroups
-      `Prelude.seq` Prelude.rnf summaryFields
+    Prelude.rnf blocks `Prelude.seq`
+      Prelude.rnf expenseIndex `Prelude.seq`
+        Prelude.rnf lineItemGroups `Prelude.seq`
+          Prelude.rnf summaryFields

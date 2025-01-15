@@ -82,5 +82,5 @@ instance Prelude.Hashable NormalizedValue where
 
 instance Prelude.NFData NormalizedValue where
   rnf NormalizedValue' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf valueType
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf valueType

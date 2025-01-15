@@ -210,9 +210,9 @@ instance Prelude.Hashable GetDocumentAnalysis where
 
 instance Prelude.NFData GetDocumentAnalysis where
   rnf GetDocumentAnalysis' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetDocumentAnalysis where
   toHeaders =
@@ -353,11 +353,11 @@ getDocumentAnalysisResponse_httpStatus = Lens.lens (\GetDocumentAnalysisResponse
 
 instance Prelude.NFData GetDocumentAnalysisResponse where
   rnf GetDocumentAnalysisResponse' {..} =
-    Prelude.rnf analyzeDocumentModelVersion
-      `Prelude.seq` Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeDocumentModelVersion `Prelude.seq`
+      Prelude.rnf blocks `Prelude.seq`
+        Prelude.rnf documentMetadata `Prelude.seq`
+          Prelude.rnf jobStatus `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf warnings `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -97,6 +97,6 @@ instance Prelude.Hashable AnalyzeIDDetections where
 
 instance Prelude.NFData AnalyzeIDDetections where
   rnf AnalyzeIDDetections' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf normalizedValue
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf normalizedValue `Prelude.seq`
+        Prelude.rnf text

@@ -218,12 +218,12 @@ instance Prelude.Hashable StartExpenseAnalysis where
 
 instance Prelude.NFData StartExpenseAnalysis where
   rnf StartExpenseAnalysis' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf documentLocation
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf outputConfig `Prelude.seq`
+              Prelude.rnf documentLocation
 
 instance Data.ToHeaders StartExpenseAnalysis where
   toHeaders =
@@ -306,5 +306,5 @@ startExpenseAnalysisResponse_httpStatus = Lens.lens (\StartExpenseAnalysisRespon
 
 instance Prelude.NFData StartExpenseAnalysisResponse where
   rnf StartExpenseAnalysisResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

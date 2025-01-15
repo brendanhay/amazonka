@@ -81,5 +81,5 @@ instance Prelude.Hashable ExpenseType where
 
 instance Prelude.NFData ExpenseType where
   rnf ExpenseType' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf text

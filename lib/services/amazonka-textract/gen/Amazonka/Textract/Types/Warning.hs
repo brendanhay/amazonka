@@ -82,5 +82,5 @@ instance Prelude.Hashable Warning where
 
 instance Prelude.NFData Warning where
   rnf Warning' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf pages
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf pages

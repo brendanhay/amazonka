@@ -92,6 +92,6 @@ instance Prelude.Hashable ExpenseDetection where
 
 instance Prelude.NFData ExpenseDetection where
   rnf ExpenseDetection' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf geometry `Prelude.seq`
+        Prelude.rnf text

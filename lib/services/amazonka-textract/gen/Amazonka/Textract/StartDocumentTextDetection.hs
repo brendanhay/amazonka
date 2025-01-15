@@ -217,12 +217,12 @@ instance Prelude.Hashable StartDocumentTextDetection where
 
 instance Prelude.NFData StartDocumentTextDetection where
   rnf StartDocumentTextDetection' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf documentLocation
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf outputConfig `Prelude.seq`
+              Prelude.rnf documentLocation
 
 instance Data.ToHeaders StartDocumentTextDetection where
   toHeaders =
@@ -311,5 +311,5 @@ instance
     StartDocumentTextDetectionResponse
   where
   rnf StartDocumentTextDetectionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -82,8 +82,8 @@ instance Prelude.Hashable NotificationChannel where
 
 instance Prelude.NFData NotificationChannel where
   rnf NotificationChannel' {..} =
-    Prelude.rnf sNSTopicArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf sNSTopicArn `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON NotificationChannel where
   toJSON NotificationChannel' {..} =

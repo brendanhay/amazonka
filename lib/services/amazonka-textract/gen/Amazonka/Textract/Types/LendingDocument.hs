@@ -86,5 +86,5 @@ instance Prelude.Hashable LendingDocument where
 
 instance Prelude.NFData LendingDocument where
   rnf LendingDocument' {..} =
-    Prelude.rnf lendingFields
-      `Prelude.seq` Prelude.rnf signatureDetections
+    Prelude.rnf lendingFields `Prelude.seq`
+      Prelude.rnf signatureDetections

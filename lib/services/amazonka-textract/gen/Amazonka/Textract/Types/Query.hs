@@ -145,9 +145,9 @@ instance Prelude.Hashable Query where
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf pages
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf pages `Prelude.seq`
+        Prelude.rnf text
 
 instance Data.ToJSON Query where
   toJSON Query' {..} =

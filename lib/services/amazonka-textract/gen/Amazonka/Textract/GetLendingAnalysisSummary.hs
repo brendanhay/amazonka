@@ -246,10 +246,10 @@ instance
     GetLendingAnalysisSummaryResponse
   where
   rnf GetLendingAnalysisSummaryResponse' {..} =
-    Prelude.rnf analyzeLendingModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeLendingModelVersion `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf jobStatus `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf summary `Prelude.seq`
+              Prelude.rnf warnings `Prelude.seq`
+                Prelude.rnf httpStatus

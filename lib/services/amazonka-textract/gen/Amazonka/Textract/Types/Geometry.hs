@@ -90,5 +90,5 @@ instance Prelude.Hashable Geometry where
 
 instance Prelude.NFData Geometry where
   rnf Geometry' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf polygon
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf polygon

@@ -106,6 +106,6 @@ instance Prelude.Hashable IdentityDocument where
 
 instance Prelude.NFData IdentityDocument where
   rnf IdentityDocument' {..} =
-    Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf documentIndex
-      `Prelude.seq` Prelude.rnf identityDocumentFields
+    Prelude.rnf blocks `Prelude.seq`
+      Prelude.rnf documentIndex `Prelude.seq`
+        Prelude.rnf identityDocumentFields

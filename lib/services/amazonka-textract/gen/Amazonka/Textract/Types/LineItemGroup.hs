@@ -89,5 +89,5 @@ instance Prelude.Hashable LineItemGroup where
 
 instance Prelude.NFData LineItemGroup where
   rnf LineItemGroup' {..} =
-    Prelude.rnf lineItemGroupIndex
-      `Prelude.seq` Prelude.rnf lineItems
+    Prelude.rnf lineItemGroupIndex `Prelude.seq`
+      Prelude.rnf lineItems

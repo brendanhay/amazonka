@@ -90,5 +90,5 @@ instance Prelude.Hashable PageClassification where
 
 instance Prelude.NFData PageClassification where
   rnf PageClassification' {..} =
-    Prelude.rnf pageType
-      `Prelude.seq` Prelude.rnf pageNumber
+    Prelude.rnf pageType `Prelude.seq`
+      Prelude.rnf pageNumber

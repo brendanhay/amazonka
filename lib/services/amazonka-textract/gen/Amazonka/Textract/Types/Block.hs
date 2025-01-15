@@ -513,18 +513,18 @@ instance Prelude.Hashable Block where
 
 instance Prelude.NFData Block where
   rnf Block' {..} =
-    Prelude.rnf blockType
-      `Prelude.seq` Prelude.rnf columnIndex
-      `Prelude.seq` Prelude.rnf columnSpan
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf relationships
-      `Prelude.seq` Prelude.rnf rowIndex
-      `Prelude.seq` Prelude.rnf rowSpan
-      `Prelude.seq` Prelude.rnf selectionStatus
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf textType
+    Prelude.rnf blockType `Prelude.seq`
+      Prelude.rnf columnIndex `Prelude.seq`
+        Prelude.rnf columnSpan `Prelude.seq`
+          Prelude.rnf confidence `Prelude.seq`
+            Prelude.rnf entityTypes `Prelude.seq`
+              Prelude.rnf geometry `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf page `Prelude.seq`
+                    Prelude.rnf query `Prelude.seq`
+                      Prelude.rnf relationships `Prelude.seq`
+                        Prelude.rnf rowIndex `Prelude.seq`
+                          Prelude.rnf rowSpan `Prelude.seq`
+                            Prelude.rnf selectionStatus `Prelude.seq`
+                              Prelude.rnf text `Prelude.seq`
+                                Prelude.rnf textType

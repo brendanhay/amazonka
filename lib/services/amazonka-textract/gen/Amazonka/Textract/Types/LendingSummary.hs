@@ -85,5 +85,5 @@ instance Prelude.Hashable LendingSummary where
 
 instance Prelude.NFData LendingSummary where
   rnf LendingSummary' {..} =
-    Prelude.rnf documentGroups
-      `Prelude.seq` Prelude.rnf undetectedDocumentTypes
+    Prelude.rnf documentGroups `Prelude.seq`
+      Prelude.rnf undetectedDocumentTypes

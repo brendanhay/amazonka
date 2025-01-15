@@ -196,7 +196,7 @@ analyzeIDResponse_httpStatus = Lens.lens (\AnalyzeIDResponse' {httpStatus} -> ht
 
 instance Prelude.NFData AnalyzeIDResponse where
   rnf AnalyzeIDResponse' {..} =
-    Prelude.rnf analyzeIDModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf identityDocuments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeIDModelVersion `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf identityDocuments `Prelude.seq`
+          Prelude.rnf httpStatus

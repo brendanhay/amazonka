@@ -157,10 +157,10 @@ instance Prelude.Hashable StopPipelineExecution where
 
 instance Prelude.NFData StopPipelineExecution where
   rnf StopPipelineExecution' {..} =
-    Prelude.rnf abandon
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
+    Prelude.rnf abandon `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf pipelineName `Prelude.seq`
+          Prelude.rnf pipelineExecutionId
 
 instance Data.ToHeaders StopPipelineExecution where
   toHeaders =
@@ -239,5 +239,5 @@ stopPipelineExecutionResponse_httpStatus = Lens.lens (\StopPipelineExecutionResp
 
 instance Prelude.NFData StopPipelineExecutionResponse where
   rnf StopPipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

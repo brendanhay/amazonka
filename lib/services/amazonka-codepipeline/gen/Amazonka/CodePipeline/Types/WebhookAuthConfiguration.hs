@@ -90,8 +90,8 @@ instance Prelude.Hashable WebhookAuthConfiguration where
 
 instance Prelude.NFData WebhookAuthConfiguration where
   rnf WebhookAuthConfiguration' {..} =
-    Prelude.rnf allowedIPRange
-      `Prelude.seq` Prelude.rnf secretToken
+    Prelude.rnf allowedIPRange `Prelude.seq`
+      Prelude.rnf secretToken
 
 instance Data.ToJSON WebhookAuthConfiguration where
   toJSON WebhookAuthConfiguration' {..} =

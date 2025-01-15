@@ -86,9 +86,9 @@ instance Prelude.Hashable FailureDetails where
 
 instance Prelude.NFData FailureDetails where
   rnf FailureDetails' {..} =
-    Prelude.rnf externalExecutionId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf externalExecutionId `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf message
 
 instance Data.ToJSON FailureDetails where
   toJSON FailureDetails' {..} =

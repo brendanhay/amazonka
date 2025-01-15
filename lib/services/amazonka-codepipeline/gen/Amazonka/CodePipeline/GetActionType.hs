@@ -188,10 +188,10 @@ instance Prelude.Hashable GetActionType where
 
 instance Prelude.NFData GetActionType where
   rnf GetActionType' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf provider `Prelude.seq`
+          Prelude.rnf version
 
 instance Data.ToHeaders GetActionType where
   toHeaders =
@@ -269,5 +269,5 @@ getActionTypeResponse_httpStatus = Lens.lens (\GetActionTypeResponse' {httpStatu
 
 instance Prelude.NFData GetActionTypeResponse where
   rnf GetActionTypeResponse' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -150,10 +150,10 @@ instance Prelude.Hashable ActionTypeExecutor where
 
 instance Prelude.NFData ActionTypeExecutor where
   rnf ActionTypeExecutor' {..} =
-    Prelude.rnf jobTimeout
-      `Prelude.seq` Prelude.rnf policyStatementsTemplate
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf jobTimeout `Prelude.seq`
+      Prelude.rnf policyStatementsTemplate `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON ActionTypeExecutor where
   toJSON ActionTypeExecutor' {..} =

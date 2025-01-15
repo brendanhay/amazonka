@@ -201,13 +201,13 @@ instance Prelude.Hashable ActionExecution where
 
 instance Prelude.NFData ActionExecution where
   rnf ActionExecution' {..} =
-    Prelude.rnf actionExecutionId
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf externalExecutionId
-      `Prelude.seq` Prelude.rnf externalExecutionUrl
-      `Prelude.seq` Prelude.rnf lastStatusChange
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf percentComplete
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf actionExecutionId `Prelude.seq`
+      Prelude.rnf errorDetails `Prelude.seq`
+        Prelude.rnf externalExecutionId `Prelude.seq`
+          Prelude.rnf externalExecutionUrl `Prelude.seq`
+            Prelude.rnf lastStatusChange `Prelude.seq`
+              Prelude.rnf lastUpdatedBy `Prelude.seq`
+                Prelude.rnf percentComplete `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf summary `Prelude.seq`
+                      Prelude.rnf token

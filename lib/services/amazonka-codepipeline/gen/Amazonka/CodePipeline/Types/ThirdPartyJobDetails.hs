@@ -99,6 +99,6 @@ instance Prelude.Hashable ThirdPartyJobDetails where
 
 instance Prelude.NFData ThirdPartyJobDetails where
   rnf ThirdPartyJobDetails' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nonce
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf nonce

@@ -82,5 +82,5 @@ instance Prelude.Hashable ArtifactDetail where
 
 instance Prelude.NFData ArtifactDetail where
   rnf ArtifactDetail' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3location
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf s3location

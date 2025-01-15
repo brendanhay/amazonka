@@ -78,8 +78,8 @@ instance Prelude.Hashable ApprovalResult where
 
 instance Prelude.NFData ApprovalResult where
   rnf ApprovalResult' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON ApprovalResult where
   toJSON ApprovalResult' {..} =

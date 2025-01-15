@@ -160,10 +160,10 @@ instance Prelude.Hashable ListWebhookItem where
 
 instance Prelude.NFData ListWebhookItem where
   rnf ListWebhookItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastTriggered
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf lastTriggered `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf definition `Prelude.seq`
+                Prelude.rnf url

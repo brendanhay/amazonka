@@ -105,6 +105,6 @@ instance Prelude.Hashable AWSSessionCredentials where
 
 instance Prelude.NFData AWSSessionCredentials where
   rnf AWSSessionCredentials' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf secretAccessKey `Prelude.seq`
+        Prelude.rnf sessionToken

@@ -95,6 +95,6 @@ instance Prelude.Hashable JobDetails where
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf id

@@ -201,11 +201,11 @@ instance Prelude.Hashable ThirdPartyJobData where
 
 instance Prelude.NFData ThirdPartyJobData where
   rnf ThirdPartyJobData' {..} =
-    Prelude.rnf actionConfiguration
-      `Prelude.seq` Prelude.rnf actionTypeId
-      `Prelude.seq` Prelude.rnf artifactCredentials
-      `Prelude.seq` Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf inputArtifacts
-      `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf pipelineContext
+    Prelude.rnf actionConfiguration `Prelude.seq`
+      Prelude.rnf actionTypeId `Prelude.seq`
+        Prelude.rnf artifactCredentials `Prelude.seq`
+          Prelude.rnf continuationToken `Prelude.seq`
+            Prelude.rnf encryptionKey `Prelude.seq`
+              Prelude.rnf inputArtifacts `Prelude.seq`
+                Prelude.rnf outputArtifacts `Prelude.seq`
+                  Prelude.rnf pipelineContext

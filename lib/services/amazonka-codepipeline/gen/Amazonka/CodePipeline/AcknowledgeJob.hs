@@ -193,5 +193,5 @@ acknowledgeJobResponse_httpStatus = Lens.lens (\AcknowledgeJobResponse' {httpSta
 
 instance Prelude.NFData AcknowledgeJobResponse where
   rnf AcknowledgeJobResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

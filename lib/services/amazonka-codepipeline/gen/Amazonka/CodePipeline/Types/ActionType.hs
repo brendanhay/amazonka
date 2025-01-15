@@ -130,8 +130,8 @@ instance Prelude.Hashable ActionType where
 
 instance Prelude.NFData ActionType where
   rnf ActionType' {..} =
-    Prelude.rnf actionConfigurationProperties
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputArtifactDetails
-      `Prelude.seq` Prelude.rnf outputArtifactDetails
+    Prelude.rnf actionConfigurationProperties `Prelude.seq`
+      Prelude.rnf settings `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf inputArtifactDetails `Prelude.seq`
+            Prelude.rnf outputArtifactDetails

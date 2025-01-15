@@ -125,8 +125,8 @@ instance Prelude.Hashable WebhookFilterRule where
 
 instance Prelude.NFData WebhookFilterRule where
   rnf WebhookFilterRule' {..} =
-    Prelude.rnf matchEquals
-      `Prelude.seq` Prelude.rnf jsonPath
+    Prelude.rnf matchEquals `Prelude.seq`
+      Prelude.rnf jsonPath
 
 instance Data.ToJSON WebhookFilterRule where
   toJSON WebhookFilterRule' {..} =

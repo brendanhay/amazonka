@@ -191,13 +191,13 @@ instance Prelude.Hashable ActionConfigurationProperty where
 
 instance Prelude.NFData ActionConfigurationProperty where
   rnf ActionConfigurationProperty' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf queryable
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf secret
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf queryable `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf required `Prelude.seq`
+              Prelude.rnf key `Prelude.seq`
+                Prelude.rnf secret
 
 instance Data.ToJSON ActionConfigurationProperty where
   toJSON ActionConfigurationProperty' {..} =

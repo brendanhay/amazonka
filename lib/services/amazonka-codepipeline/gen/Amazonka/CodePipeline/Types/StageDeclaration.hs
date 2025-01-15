@@ -95,9 +95,9 @@ instance Prelude.Hashable StageDeclaration where
 
 instance Prelude.NFData StageDeclaration where
   rnf StageDeclaration' {..} =
-    Prelude.rnf blockers
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf blockers `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf actions
 
 instance Data.ToJSON StageDeclaration where
   toJSON StageDeclaration' {..} =

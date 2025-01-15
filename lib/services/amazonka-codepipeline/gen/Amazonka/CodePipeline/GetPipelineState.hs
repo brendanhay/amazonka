@@ -229,9 +229,9 @@ getPipelineStateResponse_httpStatus = Lens.lens (\GetPipelineStateResponse' {htt
 
 instance Prelude.NFData GetPipelineStateResponse where
   rnf GetPipelineStateResponse' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineVersion
-      `Prelude.seq` Prelude.rnf stageStates
-      `Prelude.seq` Prelude.rnf updated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf pipelineName `Prelude.seq`
+        Prelude.rnf pipelineVersion `Prelude.seq`
+          Prelude.rnf stageStates `Prelude.seq`
+            Prelude.rnf updated `Prelude.seq`
+              Prelude.rnf httpStatus

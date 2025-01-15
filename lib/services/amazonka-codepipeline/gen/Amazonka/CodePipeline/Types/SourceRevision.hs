@@ -129,7 +129,7 @@ instance Prelude.Hashable SourceRevision where
 
 instance Prelude.NFData SourceRevision where
   rnf SourceRevision' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf revisionSummary
-      `Prelude.seq` Prelude.rnf revisionUrl
-      `Prelude.seq` Prelude.rnf actionName
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf revisionSummary `Prelude.seq`
+        Prelude.rnf revisionUrl `Prelude.seq`
+          Prelude.rnf actionName

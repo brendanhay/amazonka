@@ -125,8 +125,8 @@ instance Prelude.Hashable PipelineContext where
 
 instance Prelude.NFData PipelineContext where
   rnf PipelineContext' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf pipelineArn `Prelude.seq`
+        Prelude.rnf pipelineExecutionId `Prelude.seq`
+          Prelude.rnf pipelineName `Prelude.seq`
+            Prelude.rnf stage

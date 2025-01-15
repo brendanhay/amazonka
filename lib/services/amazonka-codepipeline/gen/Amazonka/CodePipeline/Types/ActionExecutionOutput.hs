@@ -110,6 +110,6 @@ instance Prelude.Hashable ActionExecutionOutput where
 
 instance Prelude.NFData ActionExecutionOutput where
   rnf ActionExecutionOutput' {..} =
-    Prelude.rnf executionResult
-      `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf outputVariables
+    Prelude.rnf executionResult `Prelude.seq`
+      Prelude.rnf outputArtifacts `Prelude.seq`
+        Prelude.rnf outputVariables

@@ -157,10 +157,10 @@ instance Prelude.Hashable ActionTypeIdentifier where
 
 instance Prelude.NFData ActionTypeIdentifier where
   rnf ActionTypeIdentifier' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf owner `Prelude.seq`
+        Prelude.rnf provider `Prelude.seq`
+          Prelude.rnf version
 
 instance Data.ToJSON ActionTypeIdentifier where
   toJSON ActionTypeIdentifier' {..} =

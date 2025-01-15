@@ -154,10 +154,10 @@ instance Prelude.Hashable RetryStageExecution where
 
 instance Prelude.NFData RetryStageExecution where
   rnf RetryStageExecution' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf retryMode
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf pipelineExecutionId `Prelude.seq`
+          Prelude.rnf retryMode
 
 instance Data.ToHeaders RetryStageExecution where
   toHeaders =
@@ -235,5 +235,5 @@ retryStageExecutionResponse_httpStatus = Lens.lens (\RetryStageExecutionResponse
 
 instance Prelude.NFData RetryStageExecutionResponse where
   rnf RetryStageExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

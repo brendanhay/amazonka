@@ -119,12 +119,12 @@ instance Core.AWSPager ListActionTypes where
         (rs Lens.^. listActionTypesResponse_actionTypes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listActionTypes_nextToken
-          Lens..~ rs
-          Lens.^? listActionTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listActionTypes_nextToken
+              Lens..~ rs
+              Lens.^? listActionTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActionTypes where
   type
@@ -150,9 +150,9 @@ instance Prelude.Hashable ListActionTypes where
 
 instance Prelude.NFData ListActionTypes where
   rnf ListActionTypes' {..} =
-    Prelude.rnf actionOwnerFilter
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionFilter
+    Prelude.rnf actionOwnerFilter `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf regionFilter
 
 instance Data.ToHeaders ListActionTypes where
   toHeaders =
@@ -244,6 +244,6 @@ listActionTypesResponse_actionTypes = Lens.lens (\ListActionTypesResponse' {acti
 
 instance Prelude.NFData ListActionTypesResponse where
   rnf ListActionTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionTypes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf actionTypes

@@ -174,12 +174,12 @@ instance Prelude.Hashable PipelineDeclaration where
 
 instance Prelude.NFData PipelineDeclaration where
   rnf PipelineDeclaration' {..} =
-    Prelude.rnf artifactStore
-      `Prelude.seq` Prelude.rnf artifactStores
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf stages
+    Prelude.rnf artifactStore `Prelude.seq`
+      Prelude.rnf artifactStores `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf stages
 
 instance Data.ToJSON PipelineDeclaration where
   toJSON PipelineDeclaration' {..} =

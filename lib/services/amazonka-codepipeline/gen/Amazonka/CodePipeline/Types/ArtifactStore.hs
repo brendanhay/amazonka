@@ -119,9 +119,9 @@ instance Prelude.Hashable ArtifactStore where
 
 instance Prelude.NFData ArtifactStore where
   rnf ArtifactStore' {..} =
-    Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf encryptionKey `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf location
 
 instance Data.ToJSON ArtifactStore where
   toJSON ArtifactStore' {..} =

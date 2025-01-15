@@ -120,8 +120,8 @@ instance Prelude.Hashable GetPipelineExecution where
 
 instance Prelude.NFData GetPipelineExecution where
   rnf GetPipelineExecution' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf pipelineExecutionId
 
 instance Data.ToHeaders GetPipelineExecution where
   toHeaders =
@@ -197,5 +197,5 @@ getPipelineExecutionResponse_httpStatus = Lens.lens (\GetPipelineExecutionRespon
 
 instance Prelude.NFData GetPipelineExecutionResponse where
   rnf GetPipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecution `Prelude.seq`
+      Prelude.rnf httpStatus

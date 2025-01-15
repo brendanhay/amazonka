@@ -151,10 +151,10 @@ instance Prelude.Hashable PutActionRevision where
 
 instance Prelude.NFData PutActionRevision where
   rnf PutActionRevision' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionRevision
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf actionName `Prelude.seq`
+          Prelude.rnf actionRevision
 
 instance Data.ToHeaders PutActionRevision where
   toHeaders =
@@ -244,6 +244,6 @@ putActionRevisionResponse_httpStatus = Lens.lens (\PutActionRevisionResponse' {h
 
 instance Prelude.NFData PutActionRevisionResponse where
   rnf PutActionRevisionResponse' {..} =
-    Prelude.rnf newRevision'
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf newRevision' `Prelude.seq`
+      Prelude.rnf pipelineExecutionId `Prelude.seq`
+        Prelude.rnf httpStatus

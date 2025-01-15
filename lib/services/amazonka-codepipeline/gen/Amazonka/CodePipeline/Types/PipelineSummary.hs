@@ -105,7 +105,7 @@ instance Prelude.Hashable PipelineSummary where
 
 instance Prelude.NFData PipelineSummary where
   rnf PipelineSummary' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updated
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf updated `Prelude.seq`
+          Prelude.rnf version

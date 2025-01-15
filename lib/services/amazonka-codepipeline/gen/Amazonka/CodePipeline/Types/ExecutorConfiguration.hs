@@ -85,8 +85,8 @@ instance Prelude.Hashable ExecutorConfiguration where
 
 instance Prelude.NFData ExecutorConfiguration where
   rnf ExecutorConfiguration' {..} =
-    Prelude.rnf jobWorkerExecutorConfiguration
-      `Prelude.seq` Prelude.rnf lambdaExecutorConfiguration
+    Prelude.rnf jobWorkerExecutorConfiguration `Prelude.seq`
+      Prelude.rnf lambdaExecutorConfiguration
 
 instance Data.ToJSON ExecutorConfiguration where
   toJSON ExecutorConfiguration' {..} =

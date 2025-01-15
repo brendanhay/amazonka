@@ -138,9 +138,9 @@ instance Prelude.Hashable EnableStageTransition where
 
 instance Prelude.NFData EnableStageTransition where
   rnf EnableStageTransition' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf transitionType
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf transitionType
 
 instance Data.ToHeaders EnableStageTransition where
   toHeaders =

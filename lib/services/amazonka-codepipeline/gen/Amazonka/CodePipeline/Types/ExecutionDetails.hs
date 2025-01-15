@@ -88,9 +88,9 @@ instance Prelude.Hashable ExecutionDetails where
 
 instance Prelude.NFData ExecutionDetails where
   rnf ExecutionDetails' {..} =
-    Prelude.rnf externalExecutionId
-      `Prelude.seq` Prelude.rnf percentComplete
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf externalExecutionId `Prelude.seq`
+      Prelude.rnf percentComplete `Prelude.seq`
+        Prelude.rnf summary
 
 instance Data.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =

@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteCustomActionType where
 
 instance Prelude.NFData DeleteCustomActionType where
   rnf DeleteCustomActionType' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf provider `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToHeaders DeleteCustomActionType where
   toHeaders =

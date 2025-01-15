@@ -150,12 +150,12 @@ instance Prelude.Hashable ActionTypeProperty where
 
 instance Prelude.NFData ActionTypeProperty where
   rnf ActionTypeProperty' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf queryable
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf optional
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf noEcho
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf queryable `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf optional `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf noEcho
 
 instance Data.ToJSON ActionTypeProperty where
   toJSON ActionTypeProperty' {..} =

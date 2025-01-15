@@ -136,9 +136,9 @@ instance
 
 instance Prelude.NFData PutThirdPartyJobFailureResult where
   rnf PutThirdPartyJobFailureResult' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf failureDetails
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf failureDetails
 
 instance Data.ToHeaders PutThirdPartyJobFailureResult where
   toHeaders =

@@ -115,8 +115,8 @@ instance Prelude.Hashable StartPipelineExecution where
 
 instance Prelude.NFData StartPipelineExecution where
   rnf StartPipelineExecution' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders StartPipelineExecution where
   toHeaders =
@@ -198,5 +198,5 @@ instance
     StartPipelineExecutionResponse
   where
   rnf StartPipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

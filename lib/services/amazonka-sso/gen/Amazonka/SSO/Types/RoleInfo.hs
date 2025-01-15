@@ -80,5 +80,5 @@ instance Prelude.Hashable RoleInfo where
 
 instance Prelude.NFData RoleInfo where
   rnf RoleInfo' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf roleName

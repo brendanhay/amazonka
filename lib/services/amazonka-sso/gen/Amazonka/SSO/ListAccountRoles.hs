@@ -138,12 +138,12 @@ instance Core.AWSPager ListAccountRoles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountRoles_nextToken
-          Lens..~ rs
-          Lens.^? listAccountRolesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountRoles_nextToken
+              Lens..~ rs
+              Lens.^? listAccountRolesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountRoles where
   type
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListAccountRoles where
 
 instance Prelude.NFData ListAccountRoles where
   rnf ListAccountRoles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accessToken `Prelude.seq`
+          Prelude.rnf accountId
 
 instance Data.ToHeaders ListAccountRoles where
   toHeaders ListAccountRoles' {..} =
@@ -247,6 +247,6 @@ listAccountRolesResponse_httpStatus = Lens.lens (\ListAccountRolesResponse' {htt
 
 instance Prelude.NFData ListAccountRolesResponse where
   rnf ListAccountRolesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roleList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf roleList `Prelude.seq`
+        Prelude.rnf httpStatus

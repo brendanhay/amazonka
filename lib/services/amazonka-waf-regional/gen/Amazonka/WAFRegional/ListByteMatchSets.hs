@@ -141,8 +141,8 @@ instance Prelude.Hashable ListByteMatchSets where
 
 instance Prelude.NFData ListByteMatchSets where
   rnf ListByteMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListByteMatchSets where
   toHeaders =
@@ -236,6 +236,6 @@ listByteMatchSetsResponse_httpStatus = Lens.lens (\ListByteMatchSetsResponse' {h
 
 instance Prelude.NFData ListByteMatchSetsResponse where
   rnf ListByteMatchSetsResponse' {..} =
-    Prelude.rnf byteMatchSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byteMatchSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -150,8 +150,8 @@ instance Prelude.Hashable ListSqlInjectionMatchSets where
 
 instance Prelude.NFData ListSqlInjectionMatchSets where
   rnf ListSqlInjectionMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
@@ -253,6 +253,6 @@ instance
     ListSqlInjectionMatchSetsResponse
   where
   rnf ListSqlInjectionMatchSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf sqlInjectionMatchSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf sqlInjectionMatchSets `Prelude.seq`
+        Prelude.rnf httpStatus

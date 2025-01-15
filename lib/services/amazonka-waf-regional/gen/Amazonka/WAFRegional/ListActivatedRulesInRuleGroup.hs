@@ -162,9 +162,9 @@ instance
 
 instance Prelude.NFData ListActivatedRulesInRuleGroup where
   rnf ListActivatedRulesInRuleGroup' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf ruleGroupId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf ruleGroupId
 
 instance Data.ToHeaders ListActivatedRulesInRuleGroup where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     ListActivatedRulesInRuleGroupResponse
   where
   rnf ListActivatedRulesInRuleGroupResponse' {..} =
-    Prelude.rnf activatedRules
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activatedRules `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,8 +125,8 @@ instance Prelude.Hashable ListResourcesForWebACL where
 
 instance Prelude.NFData ListResourcesForWebACL where
   rnf ListResourcesForWebACL' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf webACLId
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf webACLId
 
 instance Data.ToHeaders ListResourcesForWebACL where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     ListResourcesForWebACLResponse
   where
   rnf ListResourcesForWebACLResponse' {..} =
-    Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceArns `Prelude.seq`
+      Prelude.rnf httpStatus

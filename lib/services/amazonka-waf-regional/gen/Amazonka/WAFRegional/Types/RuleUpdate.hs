@@ -92,8 +92,8 @@ instance Prelude.Hashable RuleUpdate where
 
 instance Prelude.NFData RuleUpdate where
   rnf RuleUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf predicate
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf predicate
 
 instance Data.ToJSON RuleUpdate where
   toJSON RuleUpdate' {..} =

@@ -96,5 +96,5 @@ instance Prelude.Hashable TagInfoForResource where
 
 instance Prelude.NFData TagInfoForResource where
   rnf TagInfoForResource' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf tagList
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf tagList

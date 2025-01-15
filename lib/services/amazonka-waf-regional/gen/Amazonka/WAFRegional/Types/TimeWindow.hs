@@ -139,8 +139,8 @@ instance Prelude.Hashable TimeWindow where
 
 instance Prelude.NFData TimeWindow where
   rnf TimeWindow' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToJSON TimeWindow where
   toJSON TimeWindow' {..} =

@@ -115,5 +115,5 @@ instance Prelude.Hashable XssMatchSetSummary where
 
 instance Prelude.NFData XssMatchSetSummary where
   rnf XssMatchSetSummary' {..} =
-    Prelude.rnf xssMatchSetId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf xssMatchSetId `Prelude.seq`
+      Prelude.rnf name

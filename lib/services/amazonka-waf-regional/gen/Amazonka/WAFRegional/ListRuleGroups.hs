@@ -141,8 +141,8 @@ instance Prelude.Hashable ListRuleGroups where
 
 instance Prelude.NFData ListRuleGroups where
   rnf ListRuleGroups' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListRuleGroups where
   toHeaders =
@@ -236,6 +236,6 @@ listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpSta
 
 instance Prelude.NFData ListRuleGroupsResponse where
   rnf ListRuleGroupsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf ruleGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf ruleGroups `Prelude.seq`
+        Prelude.rnf httpStatus

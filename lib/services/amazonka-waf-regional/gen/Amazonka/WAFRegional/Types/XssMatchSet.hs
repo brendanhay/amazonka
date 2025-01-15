@@ -135,6 +135,6 @@ instance Prelude.Hashable XssMatchSet where
 
 instance Prelude.NFData XssMatchSet where
   rnf XssMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf xssMatchSetId
-      `Prelude.seq` Prelude.rnf xssMatchTuples
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf xssMatchSetId `Prelude.seq`
+        Prelude.rnf xssMatchTuples

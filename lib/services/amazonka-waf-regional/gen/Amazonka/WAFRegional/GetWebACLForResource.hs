@@ -209,5 +209,5 @@ getWebACLForResourceResponse_httpStatus = Lens.lens (\GetWebACLForResourceRespon
 
 instance Prelude.NFData GetWebACLForResourceResponse where
   rnf GetWebACLForResourceResponse' {..} =
-    Prelude.rnf webACLSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf webACLSummary `Prelude.seq`
+      Prelude.rnf httpStatus

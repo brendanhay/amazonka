@@ -214,5 +214,5 @@ getByteMatchSetResponse_httpStatus = Lens.lens (\GetByteMatchSetResponse' {httpS
 
 instance Prelude.NFData GetByteMatchSetResponse where
   rnf GetByteMatchSetResponse' {..} =
-    Prelude.rnf byteMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byteMatchSet `Prelude.seq`
+      Prelude.rnf httpStatus

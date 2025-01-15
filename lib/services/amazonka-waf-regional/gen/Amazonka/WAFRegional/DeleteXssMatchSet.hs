@@ -143,8 +143,8 @@ instance Prelude.Hashable DeleteXssMatchSet where
 
 instance Prelude.NFData DeleteXssMatchSet where
   rnf DeleteXssMatchSet' {..} =
-    Prelude.rnf xssMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf xssMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteXssMatchSet where
   toHeaders =
@@ -226,5 +226,5 @@ deleteXssMatchSetResponse_httpStatus = Lens.lens (\DeleteXssMatchSetResponse' {h
 
 instance Prelude.NFData DeleteXssMatchSetResponse where
   rnf DeleteXssMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -200,9 +200,9 @@ instance Prelude.Hashable UpdateGeoMatchSet where
 
 instance Prelude.NFData UpdateGeoMatchSet where
   rnf UpdateGeoMatchSet' {..} =
-    Prelude.rnf geoMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf geoMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateGeoMatchSet where
   toHeaders =
@@ -283,5 +283,5 @@ updateGeoMatchSetResponse_httpStatus = Lens.lens (\UpdateGeoMatchSetResponse' {h
 
 instance Prelude.NFData UpdateGeoMatchSetResponse where
   rnf UpdateGeoMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -89,8 +89,8 @@ instance Prelude.Hashable GeoMatchSetUpdate where
 
 instance Prelude.NFData GeoMatchSetUpdate where
   rnf GeoMatchSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf geoMatchConstraint
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf geoMatchConstraint
 
 instance Data.ToJSON GeoMatchSetUpdate where
   toJSON GeoMatchSetUpdate' {..} =

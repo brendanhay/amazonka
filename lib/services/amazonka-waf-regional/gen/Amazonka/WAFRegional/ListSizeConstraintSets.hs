@@ -150,8 +150,8 @@ instance Prelude.Hashable ListSizeConstraintSets where
 
 instance Prelude.NFData ListSizeConstraintSets where
   rnf ListSizeConstraintSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListSizeConstraintSets where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListSizeConstraintSetsResponse
   where
   rnf ListSizeConstraintSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf sizeConstraintSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf sizeConstraintSets `Prelude.seq`
+        Prelude.rnf httpStatus

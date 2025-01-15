@@ -214,11 +214,11 @@ instance Prelude.Hashable CreateWebACL where
 
 instance Prelude.NFData CreateWebACL where
   rnf CreateWebACL' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf defaultAction `Prelude.seq`
+            Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateWebACL where
   toHeaders =
@@ -309,6 +309,6 @@ createWebACLResponse_httpStatus = Lens.lens (\CreateWebACLResponse' {httpStatus}
 
 instance Prelude.NFData CreateWebACLResponse where
   rnf CreateWebACLResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf webACL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf webACL `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -213,9 +213,9 @@ instance Prelude.Hashable UpdateSqlInjectionMatchSet where
 
 instance Prelude.NFData UpdateSqlInjectionMatchSet where
   rnf UpdateSqlInjectionMatchSet' {..} =
-    Prelude.rnf sqlInjectionMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf sqlInjectionMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateSqlInjectionMatchSet where
   toHeaders =
@@ -306,5 +306,5 @@ instance
     UpdateSqlInjectionMatchSetResponse
   where
   rnf UpdateSqlInjectionMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

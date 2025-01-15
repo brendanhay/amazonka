@@ -130,8 +130,8 @@ instance Prelude.Hashable DeleteRegexPatternSet where
 
 instance Prelude.NFData DeleteRegexPatternSet where
   rnf DeleteRegexPatternSet' {..} =
-    Prelude.rnf regexPatternSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf regexPatternSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteRegexPatternSet where
   toHeaders =
@@ -211,5 +211,5 @@ deleteRegexPatternSetResponse_httpStatus = Lens.lens (\DeleteRegexPatternSetResp
 
 instance Prelude.NFData DeleteRegexPatternSetResponse where
   rnf DeleteRegexPatternSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

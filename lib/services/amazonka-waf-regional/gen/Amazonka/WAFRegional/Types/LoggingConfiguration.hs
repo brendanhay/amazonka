@@ -119,9 +119,9 @@ instance Prelude.Hashable LoggingConfiguration where
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf redactedFields
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf logDestinationConfigs
+    Prelude.rnf redactedFields `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf logDestinationConfigs
 
 instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =

@@ -316,8 +316,8 @@ instance Prelude.Hashable XssMatchTuple where
 
 instance Prelude.NFData XssMatchTuple where
   rnf XssMatchTuple' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformation
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf textTransformation
 
 instance Data.ToJSON XssMatchTuple where
   toJSON XssMatchTuple' {..} =

@@ -147,6 +147,6 @@ instance Prelude.Hashable RuleGroup where
 
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleGroupId
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleGroupId

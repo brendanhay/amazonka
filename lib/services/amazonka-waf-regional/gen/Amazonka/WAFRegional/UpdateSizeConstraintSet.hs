@@ -216,9 +216,9 @@ instance Prelude.Hashable UpdateSizeConstraintSet where
 
 instance Prelude.NFData UpdateSizeConstraintSet where
   rnf UpdateSizeConstraintSet' {..} =
-    Prelude.rnf sizeConstraintSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf sizeConstraintSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateSizeConstraintSet where
   toHeaders =
@@ -302,5 +302,5 @@ instance
     UpdateSizeConstraintSetResponse
   where
   rnf UpdateSizeConstraintSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

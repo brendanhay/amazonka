@@ -191,5 +191,5 @@ getIPSetResponse_httpStatus = Lens.lens (\GetIPSetResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetIPSetResponse where
   rnf GetIPSetResponse' {..} =
-    Prelude.rnf iPSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iPSet `Prelude.seq`
+      Prelude.rnf httpStatus

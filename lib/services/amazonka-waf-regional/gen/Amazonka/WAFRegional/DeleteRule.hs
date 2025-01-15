@@ -135,8 +135,8 @@ instance Prelude.Hashable DeleteRule where
 
 instance Prelude.NFData DeleteRule where
   rnf DeleteRule' {..} =
-    Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf ruleId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteRule where
   toHeaders =
@@ -214,5 +214,5 @@ deleteRuleResponse_httpStatus = Lens.lens (\DeleteRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteRuleResponse where
   rnf DeleteRuleResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

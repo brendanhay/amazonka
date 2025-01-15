@@ -240,12 +240,12 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf ingestEndpoint
-      `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackUrl
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorized `Prelude.seq`
+        Prelude.rnf ingestEndpoint `Prelude.seq`
+          Prelude.rnf latencyMode `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf playbackUrl `Prelude.seq`
+                Prelude.rnf recordingConfigurationArn `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf type'

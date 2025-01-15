@@ -111,7 +111,7 @@ instance Prelude.Hashable StreamSessionSummary where
 
 instance Prelude.NFData StreamSessionSummary where
   rnf StreamSessionSummary' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf hasErrorEvent
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf streamId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf hasErrorEvent `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf streamId

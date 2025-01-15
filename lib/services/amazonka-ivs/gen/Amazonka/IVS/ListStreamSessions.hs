@@ -128,9 +128,9 @@ instance Prelude.Hashable ListStreamSessions where
 
 instance Prelude.NFData ListStreamSessions where
   rnf ListStreamSessions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf channelArn
 
 instance Data.ToHeaders ListStreamSessions where
   toHeaders =
@@ -212,6 +212,6 @@ listStreamSessionsResponse_streamSessions = Lens.lens (\ListStreamSessionsRespon
 
 instance Prelude.NFData ListStreamSessionsResponse where
   rnf ListStreamSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamSessions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf streamSessions

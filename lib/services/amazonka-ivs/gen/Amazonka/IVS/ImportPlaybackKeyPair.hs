@@ -139,9 +139,9 @@ instance Prelude.Hashable ImportPlaybackKeyPair where
 
 instance Prelude.NFData ImportPlaybackKeyPair where
   rnf ImportPlaybackKeyPair' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf publicKeyMaterial
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf publicKeyMaterial
 
 instance Data.ToHeaders ImportPlaybackKeyPair where
   toHeaders =
@@ -210,5 +210,5 @@ importPlaybackKeyPairResponse_httpStatus = Lens.lens (\ImportPlaybackKeyPairResp
 
 instance Prelude.NFData ImportPlaybackKeyPairResponse where
   rnf ImportPlaybackKeyPairResponse' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPair `Prelude.seq`
+      Prelude.rnf httpStatus

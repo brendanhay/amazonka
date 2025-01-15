@@ -161,5 +161,5 @@ instance
     GetRecordingConfigurationResponse
   where
   rnf GetRecordingConfigurationResponse' {..} =
-    Prelude.rnf recordingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordingConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

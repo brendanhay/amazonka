@@ -108,12 +108,12 @@ instance Core.AWSPager ListPlaybackKeyPairs where
         (rs Lens.^. listPlaybackKeyPairsResponse_keyPairs) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlaybackKeyPairs_nextToken
-          Lens..~ rs
-          Lens.^? listPlaybackKeyPairsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlaybackKeyPairs_nextToken
+              Lens..~ rs
+              Lens.^? listPlaybackKeyPairsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlaybackKeyPairs where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListPlaybackKeyPairs where
 
 instance Prelude.NFData ListPlaybackKeyPairs where
   rnf ListPlaybackKeyPairs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaybackKeyPairs where
   toHeaders =
@@ -220,6 +220,6 @@ listPlaybackKeyPairsResponse_keyPairs = Lens.lens (\ListPlaybackKeyPairsResponse
 
 instance Prelude.NFData ListPlaybackKeyPairsResponse where
   rnf ListPlaybackKeyPairsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyPairs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf keyPairs

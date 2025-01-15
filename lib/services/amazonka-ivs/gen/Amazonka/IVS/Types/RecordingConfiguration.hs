@@ -181,10 +181,10 @@ instance Prelude.Hashable RecordingConfiguration where
 
 instance Prelude.NFData RecordingConfiguration where
   rnf RecordingConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thumbnailConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf destinationConfiguration
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf recordingReconnectWindowSeconds `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf thumbnailConfiguration `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf destinationConfiguration `Prelude.seq`
+                Prelude.rnf state

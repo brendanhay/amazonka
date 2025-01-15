@@ -127,8 +127,8 @@ instance Prelude.Hashable CreateStreamKey where
 
 instance Prelude.NFData CreateStreamKey where
   rnf CreateStreamKey' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf channelArn
 
 instance Data.ToHeaders CreateStreamKey where
   toHeaders =
@@ -197,5 +197,5 @@ createStreamKeyResponse_httpStatus = Lens.lens (\CreateStreamKeyResponse' {httpS
 
 instance Prelude.NFData CreateStreamKeyResponse where
   rnf CreateStreamKeyResponse' {..} =
-    Prelude.rnf streamKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamKey `Prelude.seq`
+      Prelude.rnf httpStatus

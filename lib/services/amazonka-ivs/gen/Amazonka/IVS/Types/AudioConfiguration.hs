@@ -107,7 +107,7 @@ instance Prelude.Hashable AudioConfiguration where
 
 instance Prelude.NFData AudioConfiguration where
   rnf AudioConfiguration' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf targetBitrate
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf codec `Prelude.seq`
+        Prelude.rnf sampleRate `Prelude.seq`
+          Prelude.rnf targetBitrate

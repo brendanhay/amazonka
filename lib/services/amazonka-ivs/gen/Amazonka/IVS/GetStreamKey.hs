@@ -154,5 +154,5 @@ getStreamKeyResponse_httpStatus = Lens.lens (\GetStreamKeyResponse' {httpStatus}
 
 instance Prelude.NFData GetStreamKeyResponse where
   rnf GetStreamKeyResponse' {..} =
-    Prelude.rnf streamKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamKey `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -227,12 +227,12 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf authorized `Prelude.seq`
+      Prelude.rnf latencyMode `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recordingConfigurationArn `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToHeaders CreateChannel where
   toHeaders =
@@ -310,6 +310,6 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf streamKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf streamKey `Prelude.seq`
+        Prelude.rnf httpStatus

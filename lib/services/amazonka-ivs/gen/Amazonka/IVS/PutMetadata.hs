@@ -107,8 +107,8 @@ instance Prelude.Hashable PutMetadata where
 
 instance Prelude.NFData PutMetadata where
   rnf PutMetadata' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf metadata
 
 instance Data.ToHeaders PutMetadata where
   toHeaders =

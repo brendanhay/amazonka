@@ -114,8 +114,8 @@ instance Prelude.Hashable GetStreamSession where
 
 instance Prelude.NFData GetStreamSession where
   rnf GetStreamSession' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf streamId `Prelude.seq`
+      Prelude.rnf channelArn
 
 instance Data.ToHeaders GetStreamSession where
   toHeaders =
@@ -184,5 +184,5 @@ getStreamSessionResponse_httpStatus = Lens.lens (\GetStreamSessionResponse' {htt
 
 instance Prelude.NFData GetStreamSessionResponse where
   rnf GetStreamSessionResponse' {..} =
-    Prelude.rnf streamSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamSession `Prelude.seq`
+      Prelude.rnf httpStatus

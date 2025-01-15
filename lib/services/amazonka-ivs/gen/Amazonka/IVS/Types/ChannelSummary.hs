@@ -155,9 +155,9 @@ instance Prelude.Hashable ChannelSummary where
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorized `Prelude.seq`
+        Prelude.rnf latencyMode `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf recordingConfigurationArn `Prelude.seq`
+              Prelude.rnf tags

@@ -117,7 +117,7 @@ instance
     DirectoryVpcSettingsDescription
   where
   rnf DirectoryVpcSettingsDescription' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf securityGroupId `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vpcId

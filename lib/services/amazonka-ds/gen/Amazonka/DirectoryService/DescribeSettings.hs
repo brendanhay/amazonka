@@ -127,9 +127,9 @@ instance Prelude.Hashable DescribeSettings where
 
 instance Prelude.NFData DescribeSettings where
   rnf DescribeSettings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeSettings where
   toHeaders =
@@ -242,7 +242,7 @@ describeSettingsResponse_httpStatus = Lens.lens (\DescribeSettingsResponse' {htt
 
 instance Prelude.NFData DescribeSettingsResponse where
   rnf DescribeSettingsResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf settingEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf settingEntries `Prelude.seq`
+          Prelude.rnf httpStatus

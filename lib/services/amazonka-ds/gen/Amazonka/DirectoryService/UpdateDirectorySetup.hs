@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateDirectorySetup where
 
 instance Prelude.NFData UpdateDirectorySetup where
   rnf UpdateDirectorySetup' {..} =
-    Prelude.rnf createSnapshotBeforeUpdate
-      `Prelude.seq` Prelude.rnf oSUpdateSettings
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf updateType
+    Prelude.rnf createSnapshotBeforeUpdate `Prelude.seq`
+      Prelude.rnf oSUpdateSettings `Prelude.seq`
+        Prelude.rnf directoryId `Prelude.seq`
+          Prelude.rnf updateType
 
 instance Data.ToHeaders UpdateDirectorySetup where
   toHeaders =

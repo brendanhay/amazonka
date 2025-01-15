@@ -80,8 +80,8 @@ instance Prelude.Hashable IpRoute where
 
 instance Prelude.NFData IpRoute where
   rnf IpRoute' {..} =
-    Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf cidrIp `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToJSON IpRoute where
   toJSON IpRoute' {..} =

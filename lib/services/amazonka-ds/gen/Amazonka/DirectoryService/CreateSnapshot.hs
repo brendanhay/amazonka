@@ -113,8 +113,8 @@ instance Prelude.Hashable CreateSnapshot where
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf directoryId
 
 instance Data.ToHeaders CreateSnapshot where
   toHeaders =
@@ -189,5 +189,5 @@ createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpSta
 
 instance Prelude.NFData CreateSnapshotResponse where
   rnf CreateSnapshotResponse' {..} =
-    Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshotId `Prelude.seq`
+      Prelude.rnf httpStatus

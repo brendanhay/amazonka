@@ -138,9 +138,9 @@ instance Prelude.Hashable CreateConditionalForwarder where
 
 instance Prelude.NFData CreateConditionalForwarder where
   rnf CreateConditionalForwarder' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf remoteDomainName
-      `Prelude.seq` Prelude.rnf dnsIpAddrs
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf remoteDomainName `Prelude.seq`
+        Prelude.rnf dnsIpAddrs
 
 instance Data.ToHeaders CreateConditionalForwarder where
   toHeaders =

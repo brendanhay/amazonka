@@ -267,13 +267,13 @@ instance Prelude.Hashable CreateDirectory where
 
 instance Prelude.NFData CreateDirectory where
   rnf CreateDirectory' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf shortName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSettings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf shortName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vpcSettings `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf password `Prelude.seq`
+                Prelude.rnf size
 
 instance Data.ToHeaders CreateDirectory where
   toHeaders =
@@ -353,5 +353,5 @@ createDirectoryResponse_httpStatus = Lens.lens (\CreateDirectoryResponse' {httpS
 
 instance Prelude.NFData CreateDirectoryResponse where
   rnf CreateDirectoryResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf httpStatus

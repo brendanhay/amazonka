@@ -211,13 +211,13 @@ instance Prelude.Hashable CreateMicrosoftAD where
 
 instance Prelude.NFData CreateMicrosoftAD where
   rnf CreateMicrosoftAD' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf shortName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf vpcSettings
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf edition `Prelude.seq`
+        Prelude.rnf shortName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf password `Prelude.seq`
+                Prelude.rnf vpcSettings
 
 instance Data.ToHeaders CreateMicrosoftAD where
   toHeaders =
@@ -297,5 +297,5 @@ createMicrosoftADResponse_httpStatus = Lens.lens (\CreateMicrosoftADResponse' {h
 
 instance Prelude.NFData CreateMicrosoftADResponse where
   rnf CreateMicrosoftADResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -187,13 +187,13 @@ instance Prelude.Hashable ConnectDirectory where
 
 instance Prelude.NFData ConnectDirectory where
   rnf ConnectDirectory' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf shortName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf connectSettings
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf shortName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf password `Prelude.seq`
+              Prelude.rnf size `Prelude.seq`
+                Prelude.rnf connectSettings
 
 instance Data.ToHeaders ConnectDirectory where
   toHeaders =
@@ -274,5 +274,5 @@ connectDirectoryResponse_httpStatus = Lens.lens (\ConnectDirectoryResponse' {htt
 
 instance Prelude.NFData ConnectDirectoryResponse where
   rnf ConnectDirectoryResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf httpStatus

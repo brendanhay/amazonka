@@ -125,9 +125,9 @@ instance Prelude.Hashable IpRouteInfo where
 
 instance Prelude.NFData IpRouteInfo where
   rnf IpRouteInfo' {..} =
-    Prelude.rnf addedDateTime
-      `Prelude.seq` Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf ipRouteStatusMsg
-      `Prelude.seq` Prelude.rnf ipRouteStatusReason
+    Prelude.rnf addedDateTime `Prelude.seq`
+      Prelude.rnf cidrIp `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf directoryId `Prelude.seq`
+            Prelude.rnf ipRouteStatusMsg `Prelude.seq`
+              Prelude.rnf ipRouteStatusReason

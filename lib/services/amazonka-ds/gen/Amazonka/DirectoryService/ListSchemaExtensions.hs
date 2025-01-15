@@ -120,12 +120,12 @@ instance Core.AWSPager ListSchemaExtensions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSchemaExtensions_nextToken
-          Lens..~ rs
-          Lens.^? listSchemaExtensionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSchemaExtensions_nextToken
+              Lens..~ rs
+              Lens.^? listSchemaExtensionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchemaExtensions where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListSchemaExtensions where
 
 instance Prelude.NFData ListSchemaExtensions where
   rnf ListSchemaExtensions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf directoryId
 
 instance Data.ToHeaders ListSchemaExtensions where
   toHeaders =
@@ -245,6 +245,6 @@ listSchemaExtensionsResponse_httpStatus = Lens.lens (\ListSchemaExtensionsRespon
 
 instance Prelude.NFData ListSchemaExtensionsResponse where
   rnf ListSchemaExtensionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaExtensionsInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemaExtensionsInfo `Prelude.seq`
+        Prelude.rnf httpStatus

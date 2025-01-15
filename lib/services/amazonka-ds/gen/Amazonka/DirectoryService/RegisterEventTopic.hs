@@ -124,8 +124,8 @@ instance Prelude.Hashable RegisterEventTopic where
 
 instance Prelude.NFData RegisterEventTopic where
   rnf RegisterEventTopic' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf topicName
 
 instance Data.ToHeaders RegisterEventTopic where
   toHeaders =

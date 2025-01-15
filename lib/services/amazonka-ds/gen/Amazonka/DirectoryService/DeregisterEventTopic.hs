@@ -118,8 +118,8 @@ instance Prelude.Hashable DeregisterEventTopic where
 
 instance Prelude.NFData DeregisterEventTopic where
   rnf DeregisterEventTopic' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf topicName
 
 instance Data.ToHeaders DeregisterEventTopic where
   toHeaders =

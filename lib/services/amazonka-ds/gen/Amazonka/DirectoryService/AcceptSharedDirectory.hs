@@ -174,5 +174,5 @@ acceptSharedDirectoryResponse_httpStatus = Lens.lens (\AcceptSharedDirectoryResp
 
 instance Prelude.NFData AcceptSharedDirectoryResponse where
   rnf AcceptSharedDirectoryResponse' {..} =
-    Prelude.rnf sharedDirectory
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sharedDirectory `Prelude.seq`
+      Prelude.rnf httpStatus

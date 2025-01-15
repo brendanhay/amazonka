@@ -129,8 +129,8 @@ instance Prelude.Hashable CreateAlias where
 
 instance Prelude.NFData CreateAlias where
   rnf CreateAlias' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf alias
 
 instance Data.ToHeaders CreateAlias where
   toHeaders =
@@ -213,6 +213,6 @@ createAliasResponse_httpStatus = Lens.lens (\CreateAliasResponse' {httpStatus} -
 
 instance Prelude.NFData CreateAliasResponse where
   rnf CreateAliasResponse' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf httpStatus

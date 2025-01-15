@@ -171,13 +171,13 @@ instance Prelude.Hashable DomainController where
 
 instance Prelude.NFData DomainController where
   rnf DomainController' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf dnsIpAddr
-      `Prelude.seq` Prelude.rnf domainControllerId
-      `Prelude.seq` Prelude.rnf launchTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusLastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf dnsIpAddr `Prelude.seq`
+          Prelude.rnf domainControllerId `Prelude.seq`
+            Prelude.rnf launchTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusLastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf statusReason `Prelude.seq`
+                    Prelude.rnf subnetId `Prelude.seq`
+                      Prelude.rnf vpcId

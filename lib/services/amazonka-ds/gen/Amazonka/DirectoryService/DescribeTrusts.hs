@@ -148,12 +148,12 @@ instance Core.AWSPager DescribeTrusts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTrusts_nextToken
-          Lens..~ rs
-          Lens.^? describeTrustsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTrusts_nextToken
+              Lens..~ rs
+              Lens.^? describeTrustsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTrusts where
   type
@@ -180,10 +180,10 @@ instance Prelude.Hashable DescribeTrusts where
 
 instance Prelude.NFData DescribeTrusts where
   rnf DescribeTrusts' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trustIds
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf trustIds
 
 instance Data.ToHeaders DescribeTrusts where
   toHeaders =
@@ -290,6 +290,6 @@ describeTrustsResponse_httpStatus = Lens.lens (\DescribeTrustsResponse' {httpSta
 
 instance Prelude.NFData DescribeTrustsResponse where
   rnf DescribeTrustsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trusts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trusts `Prelude.seq`
+        Prelude.rnf httpStatus

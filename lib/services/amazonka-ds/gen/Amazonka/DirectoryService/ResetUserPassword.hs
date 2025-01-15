@@ -144,9 +144,9 @@ instance Prelude.Hashable ResetUserPassword where
 
 instance Prelude.NFData ResetUserPassword where
   rnf ResetUserPassword' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf newPassword'
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf newPassword'
 
 instance Data.ToHeaders ResetUserPassword where
   toHeaders =

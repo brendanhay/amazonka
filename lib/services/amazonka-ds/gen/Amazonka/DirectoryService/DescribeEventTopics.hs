@@ -130,8 +130,8 @@ instance Prelude.Hashable DescribeEventTopics where
 
 instance Prelude.NFData DescribeEventTopics where
   rnf DescribeEventTopics' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf topicNames
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf topicNames
 
 instance Data.ToHeaders DescribeEventTopics where
   toHeaders =
@@ -209,5 +209,5 @@ describeEventTopicsResponse_httpStatus = Lens.lens (\DescribeEventTopicsResponse
 
 instance Prelude.NFData DescribeEventTopicsResponse where
   rnf DescribeEventTopicsResponse' {..} =
-    Prelude.rnf eventTopics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTopics `Prelude.seq`
+      Prelude.rnf httpStatus

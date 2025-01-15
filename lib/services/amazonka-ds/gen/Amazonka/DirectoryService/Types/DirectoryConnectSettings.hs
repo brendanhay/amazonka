@@ -127,10 +127,10 @@ instance Prelude.Hashable DirectoryConnectSettings where
 
 instance Prelude.NFData DirectoryConnectSettings where
   rnf DirectoryConnectSettings' {..} =
-    Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf customerDnsIps
-      `Prelude.seq` Prelude.rnf customerUserName
+    Prelude.rnf vpcId `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf customerDnsIps `Prelude.seq`
+          Prelude.rnf customerUserName
 
 instance Data.ToJSON DirectoryConnectSettings where
   toJSON DirectoryConnectSettings' {..} =

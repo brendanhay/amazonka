@@ -123,12 +123,12 @@ instance Core.AWSPager ListIpRoutes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIpRoutes_nextToken
-          Lens..~ rs
-          Lens.^? listIpRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIpRoutes_nextToken
+              Lens..~ rs
+              Lens.^? listIpRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIpRoutes where
   type AWSResponse ListIpRoutes = ListIpRoutesResponse
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListIpRoutes where
 
 instance Prelude.NFData ListIpRoutes where
   rnf ListIpRoutes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf directoryId
 
 instance Data.ToHeaders ListIpRoutes where
   toHeaders =
@@ -243,6 +243,6 @@ listIpRoutesResponse_httpStatus = Lens.lens (\ListIpRoutesResponse' {httpStatus}
 
 instance Prelude.NFData ListIpRoutesResponse where
   rnf ListIpRoutesResponse' {..} =
-    Prelude.rnf ipRoutesInfo
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipRoutesInfo `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

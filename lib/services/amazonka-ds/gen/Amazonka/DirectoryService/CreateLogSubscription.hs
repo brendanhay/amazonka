@@ -116,8 +116,8 @@ instance Prelude.Hashable CreateLogSubscription where
 
 instance Prelude.NFData CreateLogSubscription where
   rnf CreateLogSubscription' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf logGroupName
 
 instance Data.ToHeaders CreateLogSubscription where
   toHeaders =

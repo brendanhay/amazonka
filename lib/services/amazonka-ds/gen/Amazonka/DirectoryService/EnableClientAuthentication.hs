@@ -119,8 +119,8 @@ instance Prelude.Hashable EnableClientAuthentication where
 
 instance Prelude.NFData EnableClientAuthentication where
   rnf EnableClientAuthentication' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToHeaders EnableClientAuthentication where
   toHeaders =

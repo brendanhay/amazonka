@@ -117,8 +117,8 @@ instance Prelude.Hashable UnshareDirectory where
 
 instance Prelude.NFData UnshareDirectory where
   rnf UnshareDirectory' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf unshareTarget
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf unshareTarget
 
 instance Data.ToHeaders UnshareDirectory where
   toHeaders =
@@ -195,5 +195,5 @@ unshareDirectoryResponse_httpStatus = Lens.lens (\UnshareDirectoryResponse' {htt
 
 instance Prelude.NFData UnshareDirectoryResponse where
   rnf UnshareDirectoryResponse' {..} =
-    Prelude.rnf sharedDirectoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sharedDirectoryId `Prelude.seq`
+      Prelude.rnf httpStatus

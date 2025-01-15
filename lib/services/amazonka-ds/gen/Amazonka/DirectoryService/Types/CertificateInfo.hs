@@ -121,8 +121,8 @@ instance Prelude.Hashable CertificateInfo where
 
 instance Prelude.NFData CertificateInfo where
   rnf CertificateInfo' {..} =
-    Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf commonName
-      `Prelude.seq` Prelude.rnf expiryDateTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf certificateId `Prelude.seq`
+      Prelude.rnf commonName `Prelude.seq`
+        Prelude.rnf expiryDateTime `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf type'

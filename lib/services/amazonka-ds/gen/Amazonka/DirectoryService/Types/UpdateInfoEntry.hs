@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateInfoEntry where
 
 instance Prelude.NFData UpdateInfoEntry where
   rnf UpdateInfoEntry' {..} =
-    Prelude.rnf initiatedBy
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf newValue'
-      `Prelude.seq` Prelude.rnf previousValue
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf initiatedBy `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf newValue' `Prelude.seq`
+          Prelude.rnf previousValue `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusReason

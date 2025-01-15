@@ -190,14 +190,14 @@ instance Prelude.Hashable Trust where
 
 instance Prelude.NFData Trust where
   rnf Trust' {..} =
-    Prelude.rnf createdDateTime
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf remoteDomainName
-      `Prelude.seq` Prelude.rnf selectiveAuth
-      `Prelude.seq` Prelude.rnf stateLastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf trustDirection
-      `Prelude.seq` Prelude.rnf trustId
-      `Prelude.seq` Prelude.rnf trustState
-      `Prelude.seq` Prelude.rnf trustStateReason
-      `Prelude.seq` Prelude.rnf trustType
+    Prelude.rnf createdDateTime `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf remoteDomainName `Prelude.seq`
+            Prelude.rnf selectiveAuth `Prelude.seq`
+              Prelude.rnf stateLastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf trustDirection `Prelude.seq`
+                  Prelude.rnf trustId `Prelude.seq`
+                    Prelude.rnf trustState `Prelude.seq`
+                      Prelude.rnf trustStateReason `Prelude.seq`
+                        Prelude.rnf trustType

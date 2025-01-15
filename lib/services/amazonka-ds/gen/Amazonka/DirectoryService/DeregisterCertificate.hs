@@ -111,8 +111,8 @@ instance Prelude.Hashable DeregisterCertificate where
 
 instance Prelude.NFData DeregisterCertificate where
   rnf DeregisterCertificate' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders DeregisterCertificate where
   toHeaders =

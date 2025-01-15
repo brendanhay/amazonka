@@ -151,5 +151,5 @@ getDirectoryLimitsResponse_httpStatus = Lens.lens (\GetDirectoryLimitsResponse' 
 
 instance Prelude.NFData GetDirectoryLimitsResponse where
   rnf GetDirectoryLimitsResponse' {..} =
-    Prelude.rnf directoryLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryLimits `Prelude.seq`
+      Prelude.rnf httpStatus

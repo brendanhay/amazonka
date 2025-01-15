@@ -156,10 +156,10 @@ instance Prelude.Hashable StartSchemaExtension where
 
 instance Prelude.NFData StartSchemaExtension where
   rnf StartSchemaExtension' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf createSnapshotBeforeSchemaExtension
-      `Prelude.seq` Prelude.rnf ldifContent
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf createSnapshotBeforeSchemaExtension `Prelude.seq`
+        Prelude.rnf ldifContent `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders StartSchemaExtension where
   toHeaders =
@@ -237,5 +237,5 @@ startSchemaExtensionResponse_httpStatus = Lens.lens (\StartSchemaExtensionRespon
 
 instance Prelude.NFData StartSchemaExtensionResponse where
   rnf StartSchemaExtensionResponse' {..} =
-    Prelude.rnf schemaExtensionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaExtensionId `Prelude.seq`
+      Prelude.rnf httpStatus

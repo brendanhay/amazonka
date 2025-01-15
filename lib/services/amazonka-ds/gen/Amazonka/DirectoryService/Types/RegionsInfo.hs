@@ -90,5 +90,5 @@ instance Prelude.Hashable RegionsInfo where
 
 instance Prelude.NFData RegionsInfo where
   rnf RegionsInfo' {..} =
-    Prelude.rnf additionalRegions
-      `Prelude.seq` Prelude.rnf primaryRegion
+    Prelude.rnf additionalRegions `Prelude.seq`
+      Prelude.rnf primaryRegion

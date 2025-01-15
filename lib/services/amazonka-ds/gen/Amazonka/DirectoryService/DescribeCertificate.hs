@@ -111,8 +111,8 @@ instance Prelude.Hashable DescribeCertificate where
 
 instance Prelude.NFData DescribeCertificate where
   rnf DescribeCertificate' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders DescribeCertificate where
   toHeaders =
@@ -192,5 +192,5 @@ describeCertificateResponse_httpStatus = Lens.lens (\DescribeCertificateResponse
 
 instance Prelude.NFData DescribeCertificateResponse where
   rnf DescribeCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf httpStatus

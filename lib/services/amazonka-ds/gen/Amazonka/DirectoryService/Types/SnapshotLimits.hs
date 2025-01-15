@@ -92,6 +92,6 @@ instance Prelude.Hashable SnapshotLimits where
 
 instance Prelude.NFData SnapshotLimits where
   rnf SnapshotLimits' {..} =
-    Prelude.rnf manualSnapshotsCurrentCount
-      `Prelude.seq` Prelude.rnf manualSnapshotsLimit
-      `Prelude.seq` Prelude.rnf manualSnapshotsLimitReached
+    Prelude.rnf manualSnapshotsCurrentCount `Prelude.seq`
+      Prelude.rnf manualSnapshotsLimit `Prelude.seq`
+        Prelude.rnf manualSnapshotsLimitReached

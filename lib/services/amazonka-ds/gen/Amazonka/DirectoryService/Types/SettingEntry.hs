@@ -194,13 +194,13 @@ instance Prelude.Hashable SettingEntry where
 
 instance Prelude.NFData SettingEntry where
   rnf SettingEntry' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf appliedValue
-      `Prelude.seq` Prelude.rnf lastRequestedDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestDetailedStatus
-      `Prelude.seq` Prelude.rnf requestStatus
-      `Prelude.seq` Prelude.rnf requestStatusMessage
-      `Prelude.seq` Prelude.rnf requestedValue
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf appliedValue `Prelude.seq`
+        Prelude.rnf lastRequestedDateTime `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf requestDetailedStatus `Prelude.seq`
+                Prelude.rnf requestStatus `Prelude.seq`
+                  Prelude.rnf requestStatusMessage `Prelude.seq`
+                    Prelude.rnf requestedValue `Prelude.seq`
+                      Prelude.rnf type'

@@ -125,9 +125,9 @@ instance Prelude.Hashable AddRegion where
 
 instance Prelude.NFData AddRegion where
   rnf AddRegion' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf vPCSettings
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf regionName `Prelude.seq`
+        Prelude.rnf vPCSettings
 
 instance Data.ToHeaders AddRegion where
   toHeaders =

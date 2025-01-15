@@ -92,6 +92,6 @@ instance Prelude.Hashable LDAPSSettingInfo where
 
 instance Prelude.NFData LDAPSSettingInfo where
   rnf LDAPSSettingInfo' {..} =
-    Prelude.rnf lDAPSStatus
-      `Prelude.seq` Prelude.rnf lDAPSStatusReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+    Prelude.rnf lDAPSStatus `Prelude.seq`
+      Prelude.rnf lDAPSStatusReason `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime

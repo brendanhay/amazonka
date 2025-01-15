@@ -139,9 +139,9 @@ instance
     DirectoryConnectSettingsDescription
   where
   rnf DirectoryConnectSettingsDescription' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf connectIps
-      `Prelude.seq` Prelude.rnf customerUserName
-      `Prelude.seq` Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf connectIps `Prelude.seq`
+        Prelude.rnf customerUserName `Prelude.seq`
+          Prelude.rnf securityGroupId `Prelude.seq`
+            Prelude.rnf subnetIds `Prelude.seq`
+              Prelude.rnf vpcId

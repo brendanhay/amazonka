@@ -142,10 +142,10 @@ instance Prelude.Hashable SchemaExtensionInfo where
 
 instance Prelude.NFData SchemaExtensionInfo where
   rnf SchemaExtensionInfo' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf schemaExtensionId
-      `Prelude.seq` Prelude.rnf schemaExtensionStatus
-      `Prelude.seq` Prelude.rnf schemaExtensionStatusReason
-      `Prelude.seq` Prelude.rnf startDateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf endDateTime `Prelude.seq`
+          Prelude.rnf schemaExtensionId `Prelude.seq`
+            Prelude.rnf schemaExtensionStatus `Prelude.seq`
+              Prelude.rnf schemaExtensionStatusReason `Prelude.seq`
+                Prelude.rnf startDateTime

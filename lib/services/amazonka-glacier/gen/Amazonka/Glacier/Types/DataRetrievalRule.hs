@@ -98,8 +98,8 @@ instance Prelude.Hashable DataRetrievalRule where
 
 instance Prelude.NFData DataRetrievalRule where
   rnf DataRetrievalRule' {..} =
-    Prelude.rnf bytesPerHour
-      `Prelude.seq` Prelude.rnf strategy
+    Prelude.rnf bytesPerHour `Prelude.seq`
+      Prelude.rnf strategy
 
 instance Data.ToJSON DataRetrievalRule where
   toJSON DataRetrievalRule' {..} =

@@ -167,8 +167,8 @@ instance
     InventoryRetrievalJobDescription
   where
   rnf InventoryRetrievalJobDescription' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf startDate

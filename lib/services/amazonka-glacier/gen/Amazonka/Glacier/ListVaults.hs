@@ -163,12 +163,12 @@ instance Core.AWSPager ListVaults where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVaults_marker
-          Lens..~ rs
-          Lens.^? listVaultsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVaults_marker
+              Lens..~ rs
+              Lens.^? listVaultsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVaults where
   type AWSResponse ListVaults = ListVaultsResponse
@@ -193,9 +193,9 @@ instance Prelude.Hashable ListVaults where
 
 instance Prelude.NFData ListVaults where
   rnf ListVaults' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf accountId
 
 instance Data.ToHeaders ListVaults where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +267,6 @@ listVaultsResponse_httpStatus = Lens.lens (\ListVaultsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListVaultsResponse where
   rnf ListVaultsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf vaultList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf vaultList `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -174,9 +174,9 @@ instance Prelude.Hashable DescribeJob where
 
 instance Prelude.NFData DescribeJob where
   rnf DescribeJob' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeJob where
   toHeaders = Prelude.const Prelude.mempty

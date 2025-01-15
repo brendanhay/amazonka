@@ -128,8 +128,8 @@ instance Prelude.Hashable ListTagsForVault where
 
 instance Prelude.NFData ListTagsForVault where
   rnf ListTagsForVault' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders ListTagsForVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,5 +192,5 @@ listTagsForVaultResponse_httpStatus = Lens.lens (\ListTagsForVaultResponse' {htt
 
 instance Prelude.NFData ListTagsForVaultResponse where
   rnf ListTagsForVaultResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

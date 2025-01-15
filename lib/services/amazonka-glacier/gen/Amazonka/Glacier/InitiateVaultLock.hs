@@ -174,9 +174,9 @@ instance Prelude.Hashable InitiateVaultLock where
 
 instance Prelude.NFData InitiateVaultLock where
   rnf InitiateVaultLock' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders InitiateVaultLock where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,5 +240,5 @@ initiateVaultLockResponse_httpStatus = Lens.lens (\InitiateVaultLockResponse' {h
 
 instance Prelude.NFData InitiateVaultLockResponse where
   rnf InitiateVaultLockResponse' {..} =
-    Prelude.rnf lockId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lockId `Prelude.seq`
+      Prelude.rnf httpStatus

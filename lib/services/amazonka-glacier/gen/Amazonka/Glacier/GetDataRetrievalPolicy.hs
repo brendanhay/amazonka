@@ -178,5 +178,5 @@ instance
     GetDataRetrievalPolicyResponse
   where
   rnf GetDataRetrievalPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

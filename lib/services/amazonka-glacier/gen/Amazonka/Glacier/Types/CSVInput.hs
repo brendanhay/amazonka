@@ -141,12 +141,12 @@ instance Prelude.Hashable CSVInput where
 
 instance Prelude.NFData CSVInput where
   rnf CSVInput' {..} =
-    Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf fieldDelimiter
-      `Prelude.seq` Prelude.rnf fileHeaderInfo
-      `Prelude.seq` Prelude.rnf quoteCharacter
-      `Prelude.seq` Prelude.rnf quoteEscapeCharacter
-      `Prelude.seq` Prelude.rnf recordDelimiter
+    Prelude.rnf comments `Prelude.seq`
+      Prelude.rnf fieldDelimiter `Prelude.seq`
+        Prelude.rnf fileHeaderInfo `Prelude.seq`
+          Prelude.rnf quoteCharacter `Prelude.seq`
+            Prelude.rnf quoteEscapeCharacter `Prelude.seq`
+              Prelude.rnf recordDelimiter
 
 instance Data.ToJSON CSVInput where
   toJSON CSVInput' {..} =

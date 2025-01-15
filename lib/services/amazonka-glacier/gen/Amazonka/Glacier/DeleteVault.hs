@@ -137,8 +137,8 @@ instance Prelude.Hashable DeleteVault where
 
 instance Prelude.NFData DeleteVault where
   rnf DeleteVault' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders DeleteVault where
   toHeaders = Prelude.const Prelude.mempty

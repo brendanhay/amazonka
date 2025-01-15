@@ -99,6 +99,6 @@ instance Prelude.Hashable ArchiveCreationOutput where
 
 instance Prelude.NFData ArchiveCreationOutput where
   rnf ArchiveCreationOutput' {..} =
-    Prelude.rnf archiveId
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf archiveId `Prelude.seq`
+      Prelude.rnf checksum `Prelude.seq`
+        Prelude.rnf location

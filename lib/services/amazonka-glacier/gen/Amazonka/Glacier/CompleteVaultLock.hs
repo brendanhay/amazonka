@@ -151,9 +151,9 @@ instance Prelude.Hashable CompleteVaultLock where
 
 instance Prelude.NFData CompleteVaultLock where
   rnf CompleteVaultLock' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf lockId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName `Prelude.seq`
+        Prelude.rnf lockId
 
 instance Data.ToHeaders CompleteVaultLock where
   toHeaders = Prelude.const Prelude.mempty

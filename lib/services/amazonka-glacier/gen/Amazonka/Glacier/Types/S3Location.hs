@@ -157,14 +157,14 @@ instance Prelude.Hashable S3Location where
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf cannedACL
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf tagging
-      `Prelude.seq` Prelude.rnf userMetadata
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf cannedACL `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf prefix `Prelude.seq`
+              Prelude.rnf storageClass `Prelude.seq`
+                Prelude.rnf tagging `Prelude.seq`
+                  Prelude.rnf userMetadata
 
 instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =

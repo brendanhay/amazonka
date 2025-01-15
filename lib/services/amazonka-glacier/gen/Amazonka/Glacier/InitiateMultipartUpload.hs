@@ -210,10 +210,10 @@ instance Prelude.Hashable InitiateMultipartUpload where
 
 instance Prelude.NFData InitiateMultipartUpload where
   rnf InitiateMultipartUpload' {..} =
-    Prelude.rnf archiveDescription
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf partSize
+    Prelude.rnf archiveDescription `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName `Prelude.seq`
+          Prelude.rnf partSize
 
 instance Data.ToHeaders InitiateMultipartUpload where
   toHeaders InitiateMultipartUpload' {..} =
@@ -304,6 +304,6 @@ instance
     InitiateMultipartUploadResponse
   where
   rnf InitiateMultipartUploadResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf uploadId

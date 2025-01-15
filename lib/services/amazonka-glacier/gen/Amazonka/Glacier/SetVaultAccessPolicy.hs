@@ -133,9 +133,9 @@ instance Prelude.Hashable SetVaultAccessPolicy where
 
 instance Prelude.NFData SetVaultAccessPolicy where
   rnf SetVaultAccessPolicy' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders SetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty

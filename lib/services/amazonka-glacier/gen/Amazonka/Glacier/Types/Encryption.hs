@@ -105,9 +105,9 @@ instance Prelude.Hashable Encryption where
 
 instance Prelude.NFData Encryption where
   rnf Encryption' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf kmsContext
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf encryptionType `Prelude.seq`
+      Prelude.rnf kmsContext `Prelude.seq`
+        Prelude.rnf kmsKeyId
 
 instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =

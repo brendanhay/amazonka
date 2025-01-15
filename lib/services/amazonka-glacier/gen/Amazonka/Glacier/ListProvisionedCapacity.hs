@@ -168,5 +168,5 @@ instance
     ListProvisionedCapacityResponse
   where
   rnf ListProvisionedCapacityResponse' {..} =
-    Prelude.rnf provisionedCapacityList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf provisionedCapacityList `Prelude.seq`
+      Prelude.rnf httpStatus

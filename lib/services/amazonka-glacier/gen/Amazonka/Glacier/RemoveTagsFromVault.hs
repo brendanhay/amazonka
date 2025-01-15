@@ -131,9 +131,9 @@ instance Prelude.Hashable RemoveTagsFromVault where
 
 instance Prelude.NFData RemoveTagsFromVault where
   rnf RemoveTagsFromVault' {..} =
-    Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf tagKeys `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders RemoveTagsFromVault where
   toHeaders = Prelude.const Prelude.mempty

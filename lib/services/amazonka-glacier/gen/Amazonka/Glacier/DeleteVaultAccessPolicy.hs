@@ -126,8 +126,8 @@ instance Prelude.Hashable DeleteVaultAccessPolicy where
 
 instance Prelude.NFData DeleteVaultAccessPolicy where
   rnf DeleteVaultAccessPolicy' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders DeleteVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty

@@ -170,5 +170,5 @@ instance
     PurchaseProvisionedCapacityResponse
   where
   rnf PurchaseProvisionedCapacityResponse' {..} =
-    Prelude.rnf capacityId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -92,8 +92,8 @@ instance Prelude.Hashable JobOutputDataConfig where
 
 instance Prelude.NFData JobOutputDataConfig where
   rnf JobOutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3Path
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3Path
 
 instance Data.ToJSON JobOutputDataConfig where
   toJSON JobOutputDataConfig' {..} =

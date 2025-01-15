@@ -130,8 +130,8 @@ instance Prelude.Hashable DeviceSummary where
 
 instance Prelude.NFData DeviceSummary where
   rnf DeviceSummary' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceStatus
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf deviceStatus `Prelude.seq`
+          Prelude.rnf deviceType `Prelude.seq`
+            Prelude.rnf providerName

@@ -87,9 +87,9 @@ instance Prelude.Hashable SearchJobsFilter where
 
 instance Prelude.NFData SearchJobsFilter where
   rnf SearchJobsFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SearchJobsFilter where
   toJSON SearchJobsFilter' {..} =

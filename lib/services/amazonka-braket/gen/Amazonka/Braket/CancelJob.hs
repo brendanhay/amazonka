@@ -172,6 +172,6 @@ cancelJobResponse_jobArn = Lens.lens (\CancelJobResponse' {jobArn} -> jobArn) (\
 
 instance Prelude.NFData CancelJobResponse where
   rnf CancelJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cancellationStatus
-      `Prelude.seq` Prelude.rnf jobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cancellationStatus `Prelude.seq`
+        Prelude.rnf jobArn

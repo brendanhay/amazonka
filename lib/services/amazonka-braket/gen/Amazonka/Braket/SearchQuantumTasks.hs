@@ -115,12 +115,12 @@ instance Core.AWSPager SearchQuantumTasks where
         (rs Lens.^. searchQuantumTasksResponse_quantumTasks) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchQuantumTasks_nextToken
-          Lens..~ rs
-          Lens.^? searchQuantumTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchQuantumTasks_nextToken
+              Lens..~ rs
+              Lens.^? searchQuantumTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchQuantumTasks where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable SearchQuantumTasks where
 
 instance Prelude.NFData SearchQuantumTasks where
   rnf SearchQuantumTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf filters
 
 instance Data.ToHeaders SearchQuantumTasks where
   toHeaders =
@@ -236,6 +236,6 @@ searchQuantumTasksResponse_quantumTasks = Lens.lens (\SearchQuantumTasksResponse
 
 instance Prelude.NFData SearchQuantumTasksResponse where
   rnf SearchQuantumTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf quantumTasks
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf quantumTasks

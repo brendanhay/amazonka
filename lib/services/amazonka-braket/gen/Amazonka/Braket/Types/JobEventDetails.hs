@@ -96,6 +96,6 @@ instance Prelude.Hashable JobEventDetails where
 
 instance Prelude.NFData JobEventDetails where
   rnf JobEventDetails' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timeOfEvent
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf timeOfEvent

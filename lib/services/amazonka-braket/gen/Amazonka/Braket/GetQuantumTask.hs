@@ -300,16 +300,16 @@ getQuantumTaskResponse_status = Lens.lens (\GetQuantumTaskResponse' {status} -> 
 
 instance Prelude.NFData GetQuantumTaskResponse where
   rnf GetQuantumTaskResponse' {..} =
-    Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceParameters
-      `Prelude.seq` Prelude.rnf outputS3Bucket
-      `Prelude.seq` Prelude.rnf outputS3Directory
-      `Prelude.seq` Prelude.rnf quantumTaskArn
-      `Prelude.seq` Prelude.rnf shots
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endedAt `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf jobArn `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf deviceArn `Prelude.seq`
+                  Prelude.rnf deviceParameters `Prelude.seq`
+                    Prelude.rnf outputS3Bucket `Prelude.seq`
+                      Prelude.rnf outputS3Directory `Prelude.seq`
+                        Prelude.rnf quantumTaskArn `Prelude.seq`
+                          Prelude.rnf shots `Prelude.seq`
+                            Prelude.rnf status

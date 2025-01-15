@@ -424,23 +424,23 @@ getJobResponse_status = Lens.lens (\GetJobResponse' {status} -> status) (\s@GetJ
 
 instance Prelude.NFData GetJobResponse where
   rnf GetJobResponse' {..} =
-    Prelude.rnf billableDuration
-      `Prelude.seq` Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf deviceConfig
-      `Prelude.seq` Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf algorithmSpecification
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf instanceConfig
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf billableDuration `Prelude.seq`
+      Prelude.rnf checkpointConfig `Prelude.seq`
+        Prelude.rnf deviceConfig `Prelude.seq`
+          Prelude.rnf endedAt `Prelude.seq`
+            Prelude.rnf events `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf hyperParameters `Prelude.seq`
+                  Prelude.rnf inputDataConfig `Prelude.seq`
+                    Prelude.rnf startedAt `Prelude.seq`
+                      Prelude.rnf stoppingCondition `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf httpStatus `Prelude.seq`
+                            Prelude.rnf algorithmSpecification `Prelude.seq`
+                              Prelude.rnf createdAt `Prelude.seq`
+                                Prelude.rnf instanceConfig `Prelude.seq`
+                                  Prelude.rnf jobArn `Prelude.seq`
+                                    Prelude.rnf jobName `Prelude.seq`
+                                      Prelude.rnf outputDataConfig `Prelude.seq`
+                                        Prelude.rnf roleArn `Prelude.seq`
+                                          Prelude.rnf status

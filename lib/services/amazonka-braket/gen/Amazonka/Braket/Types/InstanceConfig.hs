@@ -103,9 +103,9 @@ instance Prelude.Hashable InstanceConfig where
 
 instance Prelude.NFData InstanceConfig where
   rnf InstanceConfig' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf volumeSizeInGb
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf volumeSizeInGb
 
 instance Data.ToJSON InstanceConfig where
   toJSON InstanceConfig' {..} =

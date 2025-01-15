@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData IdentityPoolShortDescription where
   rnf IdentityPoolShortDescription' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityPoolName
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityPoolName

@@ -183,5 +183,5 @@ deleteIdentitiesResponse_httpStatus = Lens.lens (\DeleteIdentitiesResponse' {htt
 
 instance Prelude.NFData DeleteIdentitiesResponse where
   rnf DeleteIdentitiesResponse' {..} =
-    Prelude.rnf unprocessedIdentityIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedIdentityIds `Prelude.seq`
+      Prelude.rnf httpStatus

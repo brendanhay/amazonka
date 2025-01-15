@@ -103,7 +103,7 @@ instance Prelude.Hashable IdentityDescription where
 
 instance Prelude.NFData IdentityDescription where
   rnf IdentityDescription' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf logins
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf logins

@@ -190,11 +190,11 @@ instance Prelude.Hashable LookupDeveloperIdentity where
 
 instance Prelude.NFData LookupDeveloperIdentity where
   rnf LookupDeveloperIdentity' {..} =
-    Prelude.rnf developerUserIdentifier
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityPoolId
+    Prelude.rnf developerUserIdentifier `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf identityPoolId
 
 instance Data.ToHeaders LookupDeveloperIdentity where
   toHeaders =
@@ -316,7 +316,7 @@ instance
     LookupDeveloperIdentityResponse
   where
   rnf LookupDeveloperIdentityResponse' {..} =
-    Prelude.rnf developerUserIdentifierList
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf developerUserIdentifierList `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -210,7 +210,7 @@ getIdentityPoolRolesResponse_httpStatus = Lens.lens (\GetIdentityPoolRolesRespon
 
 instance Prelude.NFData GetIdentityPoolRolesResponse where
   rnf GetIdentityPoolRolesResponse' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf roleMappings
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf roleMappings `Prelude.seq`
+        Prelude.rnf roles `Prelude.seq`
+          Prelude.rnf httpStatus

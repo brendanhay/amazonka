@@ -133,9 +133,9 @@ instance Prelude.Hashable RoleMapping where
 
 instance Prelude.NFData RoleMapping where
   rnf RoleMapping' {..} =
-    Prelude.rnf ambiguousRoleResolution
-      `Prelude.seq` Prelude.rnf rulesConfiguration
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf ambiguousRoleResolution `Prelude.seq`
+      Prelude.rnf rulesConfiguration `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =

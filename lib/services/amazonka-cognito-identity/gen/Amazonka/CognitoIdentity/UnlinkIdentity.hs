@@ -119,9 +119,9 @@ instance Prelude.Hashable UnlinkIdentity where
 
 instance Prelude.NFData UnlinkIdentity where
   rnf UnlinkIdentity' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf logins
-      `Prelude.seq` Prelude.rnf loginsToRemove
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf logins `Prelude.seq`
+        Prelude.rnf loginsToRemove
 
 instance Data.ToHeaders UnlinkIdentity where
   toHeaders =

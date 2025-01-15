@@ -146,10 +146,10 @@ instance Prelude.Hashable ListIdentities where
 
 instance Prelude.NFData ListIdentities where
   rnf ListIdentities' {..} =
-    Prelude.rnf hideDisabled
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf hideDisabled `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf identityPoolId `Prelude.seq`
+          Prelude.rnf maxResults
 
 instance Data.ToHeaders ListIdentities where
   toHeaders =
@@ -245,7 +245,7 @@ listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpSta
 
 instance Prelude.NFData ListIdentitiesResponse where
   rnf ListIdentitiesResponse' {..} =
-    Prelude.rnf identities
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identities `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

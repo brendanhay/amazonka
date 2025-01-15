@@ -121,10 +121,10 @@ instance Prelude.Hashable MappingRule where
 
 instance Prelude.NFData MappingRule where
   rnf MappingRule' {..} =
-    Prelude.rnf claim
-      `Prelude.seq` Prelude.rnf matchType
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf claim `Prelude.seq`
+      Prelude.rnf matchType `Prelude.seq`
+        Prelude.rnf value `Prelude.seq`
+          Prelude.rnf roleARN
 
 instance Data.ToJSON MappingRule where
   toJSON MappingRule' {..} =

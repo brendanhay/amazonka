@@ -130,8 +130,8 @@ instance Prelude.Hashable GetOpenIdToken where
 
 instance Prelude.NFData GetOpenIdToken where
   rnf GetOpenIdToken' {..} =
-    Prelude.rnf logins
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf logins `Prelude.seq`
+      Prelude.rnf identityId
 
 instance Data.ToHeaders GetOpenIdToken where
   toHeaders =
@@ -218,6 +218,6 @@ getOpenIdTokenResponse_httpStatus = Lens.lens (\GetOpenIdTokenResponse' {httpSta
 
 instance Prelude.NFData GetOpenIdTokenResponse where
   rnf GetOpenIdTokenResponse' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf httpStatus

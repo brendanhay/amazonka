@@ -137,9 +137,9 @@ instance Prelude.Hashable SetIdentityPoolRoles where
 
 instance Prelude.NFData SetIdentityPoolRoles where
   rnf SetIdentityPoolRoles' {..} =
-    Prelude.rnf roleMappings
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf roles
+    Prelude.rnf roleMappings `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf roles
 
 instance Data.ToHeaders SetIdentityPoolRoles where
   toHeaders =

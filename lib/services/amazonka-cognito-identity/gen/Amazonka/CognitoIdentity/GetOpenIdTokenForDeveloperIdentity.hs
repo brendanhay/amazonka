@@ -234,11 +234,11 @@ instance
     GetOpenIdTokenForDeveloperIdentity
   where
   rnf GetOpenIdTokenForDeveloperIdentity' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf principalTags
-      `Prelude.seq` Prelude.rnf tokenDuration
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf logins
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf principalTags `Prelude.seq`
+        Prelude.rnf tokenDuration `Prelude.seq`
+          Prelude.rnf identityPoolId `Prelude.seq`
+            Prelude.rnf logins
 
 instance
   Data.ToHeaders
@@ -343,6 +343,6 @@ instance
     GetOpenIdTokenForDeveloperIdentityResponse
   where
   rnf GetOpenIdTokenForDeveloperIdentityResponse' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf httpStatus

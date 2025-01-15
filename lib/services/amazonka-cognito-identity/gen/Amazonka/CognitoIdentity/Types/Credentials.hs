@@ -102,7 +102,7 @@ instance Prelude.Hashable Credentials where
 
 instance Prelude.NFData Credentials where
   rnf Credentials' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf secretKey
-      `Prelude.seq` Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf secretKey `Prelude.seq`
+          Prelude.rnf sessionToken

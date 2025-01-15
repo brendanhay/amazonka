@@ -101,8 +101,8 @@ instance
 
 instance Prelude.NFData ListAccountAssociationsFilter where
   rnf ListAccountAssociationsFilter' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf association
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf association
 
 instance Data.ToJSON ListAccountAssociationsFilter where
   toJSON ListAccountAssociationsFilter' {..} =

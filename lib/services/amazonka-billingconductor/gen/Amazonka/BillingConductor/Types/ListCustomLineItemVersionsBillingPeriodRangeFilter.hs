@@ -88,8 +88,8 @@ instance
   where
   rnf
     ListCustomLineItemVersionsBillingPeriodRangeFilter' {..} =
-      Prelude.rnf endBillingPeriod
-        `Prelude.seq` Prelude.rnf startBillingPeriod
+      Prelude.rnf endBillingPeriod `Prelude.seq`
+        Prelude.rnf startBillingPeriod
 
 instance
   Data.ToJSON

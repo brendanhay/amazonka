@@ -145,12 +145,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourcesAssociatedToCustomLineItem_nextToken
-          Lens..~ rs
-          Lens.^? listResourcesAssociatedToCustomLineItemResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourcesAssociatedToCustomLineItem_nextToken
+              Lens..~ rs
+              Lens.^? listResourcesAssociatedToCustomLineItemResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -194,11 +194,11 @@ instance
     ListResourcesAssociatedToCustomLineItem
   where
   rnf ListResourcesAssociatedToCustomLineItem' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf arn
 
 instance
   Data.ToHeaders
@@ -315,7 +315,7 @@ instance
   where
   rnf
     ListResourcesAssociatedToCustomLineItemResponse' {..} =
-      Prelude.rnf arn
-        `Prelude.seq` Prelude.rnf associatedResources
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf associatedResources `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

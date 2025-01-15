@@ -88,8 +88,8 @@ instance
     UpdateCustomLineItemChargeDetails
   where
   rnf UpdateCustomLineItemChargeDetails' {..} =
-    Prelude.rnf flat
-      `Prelude.seq` Prelude.rnf percentage
+    Prelude.rnf flat `Prelude.seq`
+      Prelude.rnf percentage
 
 instance
   Data.ToJSON

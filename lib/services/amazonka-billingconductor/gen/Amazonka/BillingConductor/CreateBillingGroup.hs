@@ -184,13 +184,13 @@ instance Prelude.Hashable CreateBillingGroup where
 
 instance Prelude.NFData CreateBillingGroup where
   rnf CreateBillingGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf primaryAccountId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf accountGrouping
-      `Prelude.seq` Prelude.rnf computationPreference
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf primaryAccountId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf accountGrouping `Prelude.seq`
+                Prelude.rnf computationPreference
 
 instance Data.ToHeaders CreateBillingGroup where
   toHeaders CreateBillingGroup' {..} =
@@ -264,5 +264,5 @@ createBillingGroupResponse_httpStatus = Lens.lens (\CreateBillingGroupResponse' 
 
 instance Prelude.NFData CreateBillingGroupResponse where
   rnf CreateBillingGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

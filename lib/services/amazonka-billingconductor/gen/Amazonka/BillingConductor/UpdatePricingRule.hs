@@ -175,12 +175,12 @@ instance Prelude.Hashable UpdatePricingRule where
 
 instance Prelude.NFData UpdatePricingRule where
   rnf UpdatePricingRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modifierPercentage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tiering
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf modifierPercentage `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tiering `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf arn
 
 instance Data.ToHeaders UpdatePricingRule where
   toHeaders =
@@ -358,15 +358,15 @@ updatePricingRuleResponse_httpStatus = Lens.lens (\UpdatePricingRuleResponse' {h
 
 instance Prelude.NFData UpdatePricingRuleResponse where
   rnf UpdatePricingRuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associatedPricingPlanCount
-      `Prelude.seq` Prelude.rnf billingEntity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modifierPercentage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf tiering
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associatedPricingPlanCount `Prelude.seq`
+        Prelude.rnf billingEntity `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf modifierPercentage `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf scope `Prelude.seq`
+                    Prelude.rnf service `Prelude.seq`
+                      Prelude.rnf tiering `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf httpStatus

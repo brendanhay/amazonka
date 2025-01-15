@@ -130,12 +130,12 @@ instance Core.AWSPager ListBillingGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBillingGroups_nextToken
-          Lens..~ rs
-          Lens.^? listBillingGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBillingGroups_nextToken
+              Lens..~ rs
+              Lens.^? listBillingGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBillingGroups where
   type
@@ -162,10 +162,10 @@ instance Prelude.Hashable ListBillingGroups where
 
 instance Prelude.NFData ListBillingGroups where
   rnf ListBillingGroups' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBillingGroups where
   toHeaders =
@@ -248,6 +248,6 @@ listBillingGroupsResponse_httpStatus = Lens.lens (\ListBillingGroupsResponse' {h
 
 instance Prelude.NFData ListBillingGroupsResponse where
   rnf ListBillingGroupsResponse' {..} =
-    Prelude.rnf billingGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf billingGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

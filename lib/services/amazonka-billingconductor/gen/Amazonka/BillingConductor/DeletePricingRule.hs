@@ -163,5 +163,5 @@ deletePricingRuleResponse_httpStatus = Lens.lens (\DeletePricingRuleResponse' {h
 
 instance Prelude.NFData DeletePricingRuleResponse where
   rnf DeletePricingRuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

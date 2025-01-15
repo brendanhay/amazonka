@@ -81,5 +81,5 @@ instance Prelude.Hashable AssociateResourceError where
 
 instance Prelude.NFData AssociateResourceError where
   rnf AssociateResourceError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf reason

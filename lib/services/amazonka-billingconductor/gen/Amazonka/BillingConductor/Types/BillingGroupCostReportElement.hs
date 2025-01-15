@@ -133,9 +133,9 @@ instance
 
 instance Prelude.NFData BillingGroupCostReportElement where
   rnf BillingGroupCostReportElement' {..} =
-    Prelude.rnf aWSCost
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf margin
-      `Prelude.seq` Prelude.rnf marginPercentage
-      `Prelude.seq` Prelude.rnf proformaCost
+    Prelude.rnf aWSCost `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf currency `Prelude.seq`
+          Prelude.rnf margin `Prelude.seq`
+            Prelude.rnf marginPercentage `Prelude.seq`
+              Prelude.rnf proformaCost

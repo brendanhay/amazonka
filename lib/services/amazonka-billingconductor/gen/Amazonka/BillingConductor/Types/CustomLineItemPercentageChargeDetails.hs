@@ -89,8 +89,8 @@ instance
     CustomLineItemPercentageChargeDetails
   where
   rnf CustomLineItemPercentageChargeDetails' {..} =
-    Prelude.rnf associatedValues
-      `Prelude.seq` Prelude.rnf percentageValue
+    Prelude.rnf associatedValues `Prelude.seq`
+      Prelude.rnf percentageValue
 
 instance
   Data.ToJSON

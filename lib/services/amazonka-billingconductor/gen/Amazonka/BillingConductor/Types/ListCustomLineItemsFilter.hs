@@ -81,9 +81,9 @@ instance Prelude.Hashable ListCustomLineItemsFilter where
 
 instance Prelude.NFData ListCustomLineItemsFilter where
   rnf ListCustomLineItemsFilter' {..} =
-    Prelude.rnf arns
-      `Prelude.seq` Prelude.rnf billingGroups
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf arns `Prelude.seq`
+      Prelude.rnf billingGroups `Prelude.seq`
+        Prelude.rnf names
 
 instance Data.ToJSON ListCustomLineItemsFilter where
   toJSON ListCustomLineItemsFilter' {..} =

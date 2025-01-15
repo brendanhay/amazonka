@@ -90,8 +90,8 @@ instance
     CustomLineItemBillingPeriodRange
   where
   rnf CustomLineItemBillingPeriodRange' {..} =
-    Prelude.rnf exclusiveEndBillingPeriod
-      `Prelude.seq` Prelude.rnf inclusiveStartBillingPeriod
+    Prelude.rnf exclusiveEndBillingPeriod `Prelude.seq`
+      Prelude.rnf inclusiveStartBillingPeriod
 
 instance Data.ToJSON CustomLineItemBillingPeriodRange where
   toJSON CustomLineItemBillingPeriodRange' {..} =

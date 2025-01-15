@@ -154,11 +154,11 @@ instance Prelude.Hashable CreatePricingPlan where
 
 instance Prelude.NFData CreatePricingPlan where
   rnf CreatePricingPlan' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingRuleArns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf pricingRuleArns `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreatePricingPlan where
   toHeaders CreatePricingPlan' {..} =
@@ -226,5 +226,5 @@ createPricingPlanResponse_httpStatus = Lens.lens (\CreatePricingPlanResponse' {h
 
 instance Prelude.NFData CreatePricingPlanResponse where
   rnf CreatePricingPlanResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

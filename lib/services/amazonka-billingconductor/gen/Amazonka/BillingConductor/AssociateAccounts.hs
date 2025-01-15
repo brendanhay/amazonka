@@ -117,8 +117,8 @@ instance Prelude.Hashable AssociateAccounts where
 
 instance Prelude.NFData AssociateAccounts where
   rnf AssociateAccounts' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders AssociateAccounts where
   toHeaders =
@@ -189,5 +189,5 @@ associateAccountsResponse_httpStatus = Lens.lens (\AssociateAccountsResponse' {h
 
 instance Prelude.NFData AssociateAccountsResponse where
   rnf AssociateAccountsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

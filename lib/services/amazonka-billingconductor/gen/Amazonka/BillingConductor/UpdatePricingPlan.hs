@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdatePricingPlan where
 
 instance Prelude.NFData UpdatePricingPlan where
   rnf UpdatePricingPlan' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders UpdatePricingPlan where
   toHeaders =
@@ -246,9 +246,9 @@ updatePricingPlanResponse_httpStatus = Lens.lens (\UpdatePricingPlanResponse' {h
 
 instance Prelude.NFData UpdatePricingPlanResponse where
   rnf UpdatePricingPlanResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf size `Prelude.seq`
+              Prelude.rnf httpStatus

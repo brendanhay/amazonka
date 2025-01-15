@@ -96,9 +96,9 @@ instance Prelude.Hashable CustomLineItemChargeDetails where
 
 instance Prelude.NFData CustomLineItemChargeDetails where
   rnf CustomLineItemChargeDetails' {..} =
-    Prelude.rnf flat
-      `Prelude.seq` Prelude.rnf percentage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf flat `Prelude.seq`
+      Prelude.rnf percentage `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON CustomLineItemChargeDetails where
   toJSON CustomLineItemChargeDetails' {..} =

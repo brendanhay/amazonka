@@ -192,13 +192,13 @@ instance Prelude.Hashable CreateCustomLineItem where
 
 instance Prelude.NFData CreateCustomLineItem where
   rnf CreateCustomLineItem' {..} =
-    Prelude.rnf billingPeriodRange
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf chargeDetails
+    Prelude.rnf billingPeriodRange `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf billingGroupArn `Prelude.seq`
+                Prelude.rnf chargeDetails
 
 instance Data.ToHeaders CreateCustomLineItem where
   toHeaders CreateCustomLineItem' {..} =
@@ -271,5 +271,5 @@ createCustomLineItemResponse_httpStatus = Lens.lens (\CreateCustomLineItemRespon
 
 instance Prelude.NFData CreateCustomLineItemResponse where
   rnf CreateCustomLineItemResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

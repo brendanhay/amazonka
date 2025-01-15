@@ -134,12 +134,12 @@ instance Core.AWSPager ListCustomLineItems where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomLineItems_nextToken
-          Lens..~ rs
-          Lens.^? listCustomLineItemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomLineItems_nextToken
+              Lens..~ rs
+              Lens.^? listCustomLineItemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomLineItems where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable ListCustomLineItems where
 
 instance Prelude.NFData ListCustomLineItems where
   rnf ListCustomLineItems' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomLineItems where
   toHeaders =
@@ -255,6 +255,6 @@ listCustomLineItemsResponse_httpStatus = Lens.lens (\ListCustomLineItemsResponse
 
 instance Prelude.NFData ListCustomLineItemsResponse where
   rnf ListCustomLineItemsResponse' {..} =
-    Prelude.rnf customLineItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customLineItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

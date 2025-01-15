@@ -113,8 +113,8 @@ instance Prelude.Hashable AssociatePricingRules where
 
 instance Prelude.NFData AssociatePricingRules where
   rnf AssociatePricingRules' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf pricingRuleArns
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf pricingRuleArns
 
 instance Data.ToHeaders AssociatePricingRules where
   toHeaders =
@@ -184,5 +184,5 @@ associatePricingRulesResponse_httpStatus = Lens.lens (\AssociatePricingRulesResp
 
 instance Prelude.NFData AssociatePricingRulesResponse where
   rnf AssociatePricingRulesResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

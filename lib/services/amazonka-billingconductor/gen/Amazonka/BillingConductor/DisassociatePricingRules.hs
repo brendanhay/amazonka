@@ -117,8 +117,8 @@ instance Prelude.Hashable DisassociatePricingRules where
 
 instance Prelude.NFData DisassociatePricingRules where
   rnf DisassociatePricingRules' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf pricingRuleArns
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf pricingRuleArns
 
 instance Data.ToHeaders DisassociatePricingRules where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     DisassociatePricingRulesResponse
   where
   rnf DisassociatePricingRulesResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

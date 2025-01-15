@@ -130,9 +130,9 @@ instance Prelude.Hashable PricingPlanListElement where
 
 instance Prelude.NFData PricingPlanListElement where
   rnf PricingPlanListElement' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf size

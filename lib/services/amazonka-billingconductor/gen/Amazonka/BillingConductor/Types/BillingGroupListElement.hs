@@ -172,13 +172,13 @@ instance Prelude.Hashable BillingGroupListElement where
 
 instance Prelude.NFData BillingGroupListElement where
   rnf BillingGroupListElement' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf computationPreference
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf primaryAccountId
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf computationPreference `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf primaryAccountId `Prelude.seq`
+                  Prelude.rnf size `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusReason

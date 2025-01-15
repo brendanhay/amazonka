@@ -113,10 +113,10 @@ instance Prelude.Hashable SchemaDefinition where
 
 instance Prelude.NFData SchemaDefinition where
   rnf SchemaDefinition' {..} =
-    Prelude.rnf clusteringKeys
-      `Prelude.seq` Prelude.rnf staticColumns
-      `Prelude.seq` Prelude.rnf allColumns
-      `Prelude.seq` Prelude.rnf partitionKeys
+    Prelude.rnf clusteringKeys `Prelude.seq`
+      Prelude.rnf staticColumns `Prelude.seq`
+        Prelude.rnf allColumns `Prelude.seq`
+          Prelude.rnf partitionKeys
 
 instance Data.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =

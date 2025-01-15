@@ -361,15 +361,15 @@ instance Prelude.Hashable RestoreTable where
 
 instance Prelude.NFData RestoreTable where
   rnf RestoreTable' {..} =
-    Prelude.rnf capacitySpecificationOverride
-      `Prelude.seq` Prelude.rnf encryptionSpecificationOverride
-      `Prelude.seq` Prelude.rnf pointInTimeRecoveryOverride
-      `Prelude.seq` Prelude.rnf restoreTimestamp
-      `Prelude.seq` Prelude.rnf tagsOverride
-      `Prelude.seq` Prelude.rnf sourceKeyspaceName
-      `Prelude.seq` Prelude.rnf sourceTableName
-      `Prelude.seq` Prelude.rnf targetKeyspaceName
-      `Prelude.seq` Prelude.rnf targetTableName
+    Prelude.rnf capacitySpecificationOverride `Prelude.seq`
+      Prelude.rnf encryptionSpecificationOverride `Prelude.seq`
+        Prelude.rnf pointInTimeRecoveryOverride `Prelude.seq`
+          Prelude.rnf restoreTimestamp `Prelude.seq`
+            Prelude.rnf tagsOverride `Prelude.seq`
+              Prelude.rnf sourceKeyspaceName `Prelude.seq`
+                Prelude.rnf sourceTableName `Prelude.seq`
+                  Prelude.rnf targetKeyspaceName `Prelude.seq`
+                    Prelude.rnf targetTableName
 
 instance Data.ToHeaders RestoreTable where
   toHeaders =
@@ -460,5 +460,5 @@ restoreTableResponse_restoredTableARN = Lens.lens (\RestoreTableResponse' {resto
 
 instance Prelude.NFData RestoreTableResponse where
   rnf RestoreTableResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf restoredTableARN
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf restoredTableARN

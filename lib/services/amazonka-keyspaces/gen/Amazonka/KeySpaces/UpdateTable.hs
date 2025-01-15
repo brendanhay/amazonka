@@ -351,14 +351,14 @@ instance Prelude.Hashable UpdateTable where
 
 instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
-    Prelude.rnf addColumns
-      `Prelude.seq` Prelude.rnf capacitySpecification
-      `Prelude.seq` Prelude.rnf defaultTimeToLive
-      `Prelude.seq` Prelude.rnf encryptionSpecification
-      `Prelude.seq` Prelude.rnf pointInTimeRecovery
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf addColumns `Prelude.seq`
+      Prelude.rnf capacitySpecification `Prelude.seq`
+        Prelude.rnf defaultTimeToLive `Prelude.seq`
+          Prelude.rnf encryptionSpecification `Prelude.seq`
+            Prelude.rnf pointInTimeRecovery `Prelude.seq`
+              Prelude.rnf ttl `Prelude.seq`
+                Prelude.rnf keyspaceName `Prelude.seq`
+                  Prelude.rnf tableName
 
 instance Data.ToHeaders UpdateTable where
   toHeaders =
@@ -442,5 +442,5 @@ updateTableResponse_resourceArn = Lens.lens (\UpdateTableResponse' {resourceArn}
 
 instance Prelude.NFData UpdateTableResponse where
   rnf UpdateTableResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceArn

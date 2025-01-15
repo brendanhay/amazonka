@@ -130,8 +130,8 @@ instance Prelude.Hashable CreateKeyspace where
 
 instance Prelude.NFData CreateKeyspace where
   rnf CreateKeyspace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf keyspaceName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf keyspaceName
 
 instance Data.ToHeaders CreateKeyspace where
   toHeaders =
@@ -208,5 +208,5 @@ createKeyspaceResponse_resourceArn = Lens.lens (\CreateKeyspaceResponse' {resour
 
 instance Prelude.NFData CreateKeyspaceResponse where
   rnf CreateKeyspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceArn

@@ -159,7 +159,7 @@ instance
 
 instance Prelude.NFData CapacitySpecificationSummary where
   rnf CapacitySpecificationSummary' {..} =
-    Prelude.rnf lastUpdateToPayPerRequestTimestamp
-      `Prelude.seq` Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
-      `Prelude.seq` Prelude.rnf throughputMode
+    Prelude.rnf lastUpdateToPayPerRequestTimestamp `Prelude.seq`
+      Prelude.rnf readCapacityUnits `Prelude.seq`
+        Prelude.rnf writeCapacityUnits `Prelude.seq`
+          Prelude.rnf throughputMode

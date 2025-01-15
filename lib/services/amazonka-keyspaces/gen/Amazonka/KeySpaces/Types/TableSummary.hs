@@ -105,6 +105,6 @@ instance Prelude.Hashable TableSummary where
 
 instance Prelude.NFData TableSummary where
   rnf TableSummary' {..} =
-    Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf keyspaceName `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf resourceArn

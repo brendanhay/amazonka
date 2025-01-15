@@ -480,16 +480,16 @@ instance Prelude.Hashable CreateTable where
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf capacitySpecification
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf defaultTimeToLive
-      `Prelude.seq` Prelude.rnf encryptionSpecification
-      `Prelude.seq` Prelude.rnf pointInTimeRecovery
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf schemaDefinition
+    Prelude.rnf capacitySpecification `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf defaultTimeToLive `Prelude.seq`
+          Prelude.rnf encryptionSpecification `Prelude.seq`
+            Prelude.rnf pointInTimeRecovery `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf ttl `Prelude.seq`
+                  Prelude.rnf keyspaceName `Prelude.seq`
+                    Prelude.rnf tableName `Prelude.seq`
+                      Prelude.rnf schemaDefinition
 
 instance Data.ToHeaders CreateTable where
   toHeaders =
@@ -579,5 +579,5 @@ createTableResponse_resourceArn = Lens.lens (\CreateTableResponse' {resourceArn}
 
 instance Prelude.NFData CreateTableResponse where
   rnf CreateTableResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceArn

@@ -87,5 +87,5 @@ instance Prelude.Hashable KeyspaceSummary where
 
 instance Prelude.NFData KeyspaceSummary where
   rnf KeyspaceSummary' {..} =
-    Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf keyspaceName `Prelude.seq`
+      Prelude.rnf resourceArn

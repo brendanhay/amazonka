@@ -153,9 +153,9 @@ instance Prelude.Hashable RestoreStatus where
 
 instance Prelude.NFData RestoreStatus where
   rnf RestoreStatus' {..} =
-    Prelude.rnf currentRestoreRateInMegaBytesPerSecond
-      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
-      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
-      `Prelude.seq` Prelude.rnf snapshotSizeInMegaBytes
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf currentRestoreRateInMegaBytesPerSecond `Prelude.seq`
+      Prelude.rnf elapsedTimeInSeconds `Prelude.seq`
+        Prelude.rnf estimatedTimeToCompletionInSeconds `Prelude.seq`
+          Prelude.rnf progressInMegaBytes `Prelude.seq`
+            Prelude.rnf snapshotSizeInMegaBytes `Prelude.seq`
+              Prelude.rnf status

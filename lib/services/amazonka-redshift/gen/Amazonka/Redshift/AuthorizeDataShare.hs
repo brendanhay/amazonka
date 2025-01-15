@@ -122,8 +122,8 @@ instance Prelude.Hashable AuthorizeDataShare where
 
 instance Prelude.NFData AuthorizeDataShare where
   rnf AuthorizeDataShare' {..} =
-    Prelude.rnf dataShareArn
-      `Prelude.seq` Prelude.rnf consumerIdentifier
+    Prelude.rnf dataShareArn `Prelude.seq`
+      Prelude.rnf consumerIdentifier
 
 instance Data.ToHeaders AuthorizeDataShare where
   toHeaders = Prelude.const Prelude.mempty

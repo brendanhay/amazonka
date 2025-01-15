@@ -93,6 +93,6 @@ instance Prelude.Hashable UpdateTarget where
 
 instance Prelude.NFData UpdateTarget where
   rnf UpdateTarget' {..} =
-    Prelude.rnf databaseVersion
-      `Prelude.seq` Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf supportedOperations
+    Prelude.rnf databaseVersion `Prelude.seq`
+      Prelude.rnf maintenanceTrackName `Prelude.seq`
+        Prelude.rnf supportedOperations

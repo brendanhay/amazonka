@@ -204,9 +204,7 @@ instance Data.FromXML ScheduledAction where
     ScheduledAction'
       Prelude.<$> (x Data..@? "EndTime")
       Prelude.<*> (x Data..@? "IamRole")
-      Prelude.<*> ( x
-                      Data..@? "NextInvocations"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ScheduledActionTime")
                   )
       Prelude.<*> (x Data..@? "Schedule")
@@ -231,12 +229,12 @@ instance Prelude.Hashable ScheduledAction where
 
 instance Prelude.NFData ScheduledAction where
   rnf ScheduledAction' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf nextInvocations
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf scheduledActionDescription
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf targetAction
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf iamRole `Prelude.seq`
+        Prelude.rnf nextInvocations `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf scheduledActionDescription `Prelude.seq`
+              Prelude.rnf scheduledActionName `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf targetAction

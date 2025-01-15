@@ -110,9 +110,9 @@ instance
     NodeConfigurationOptionsFilter
   where
   rnf NodeConfigurationOptionsFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToQuery NodeConfigurationOptionsFilter where
   toQuery NodeConfigurationOptionsFilter' {..} =

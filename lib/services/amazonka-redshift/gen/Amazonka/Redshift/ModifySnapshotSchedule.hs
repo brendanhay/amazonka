@@ -118,8 +118,8 @@ instance Prelude.Hashable ModifySnapshotSchedule where
 
 instance Prelude.NFData ModifySnapshotSchedule where
   rnf ModifySnapshotSchedule' {..} =
-    Prelude.rnf scheduleIdentifier
-      `Prelude.seq` Prelude.rnf scheduleDefinitions
+    Prelude.rnf scheduleIdentifier `Prelude.seq`
+      Prelude.rnf scheduleDefinitions
 
 instance Data.ToHeaders ModifySnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty

@@ -121,8 +121,8 @@ instance Prelude.Hashable DeauthorizeDataShare where
 
 instance Prelude.NFData DeauthorizeDataShare where
   rnf DeauthorizeDataShare' {..} =
-    Prelude.rnf dataShareArn
-      `Prelude.seq` Prelude.rnf consumerIdentifier
+    Prelude.rnf dataShareArn `Prelude.seq`
+      Prelude.rnf consumerIdentifier
 
 instance Data.ToHeaders DeauthorizeDataShare where
   toHeaders = Prelude.const Prelude.mempty

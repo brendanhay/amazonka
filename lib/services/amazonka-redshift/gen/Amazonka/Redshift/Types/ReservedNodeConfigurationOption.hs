@@ -100,6 +100,6 @@ instance
     ReservedNodeConfigurationOption
   where
   rnf ReservedNodeConfigurationOption' {..} =
-    Prelude.rnf sourceReservedNode
-      `Prelude.seq` Prelude.rnf targetReservedNodeCount
-      `Prelude.seq` Prelude.rnf targetReservedNodeOffering
+    Prelude.rnf sourceReservedNode `Prelude.seq`
+      Prelude.rnf targetReservedNodeCount `Prelude.seq`
+        Prelude.rnf targetReservedNodeOffering

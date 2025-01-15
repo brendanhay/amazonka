@@ -95,5 +95,5 @@ instance
     ClusterParameterGroupNameMessage
   where
   rnf ClusterParameterGroupNameMessage' {..} =
-    Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf parameterGroupStatus
+    Prelude.rnf parameterGroupName `Prelude.seq`
+      Prelude.rnf parameterGroupStatus

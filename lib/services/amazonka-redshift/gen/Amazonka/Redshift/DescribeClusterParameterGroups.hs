@@ -237,12 +237,12 @@ instance Core.AWSPager DescribeClusterParameterGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterParameterGroups_marker
-          Lens..~ rs
-          Lens.^? describeClusterParameterGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterParameterGroups_marker
+              Lens..~ rs
+              Lens.^? describeClusterParameterGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -259,9 +259,7 @@ instance
       ( \s h x ->
           DescribeClusterParameterGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "ParameterGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ParameterGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ClusterParameterGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -286,11 +284,11 @@ instance
     DescribeClusterParameterGroups
   where
   rnf DescribeClusterParameterGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf parameterGroupName `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance
   Data.ToHeaders
@@ -395,6 +393,6 @@ instance
     DescribeClusterParameterGroupsResponse
   where
   rnf DescribeClusterParameterGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameterGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf parameterGroups `Prelude.seq`
+        Prelude.rnf httpStatus

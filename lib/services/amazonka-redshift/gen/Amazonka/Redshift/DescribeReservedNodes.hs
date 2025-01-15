@@ -153,12 +153,12 @@ instance Core.AWSPager DescribeReservedNodes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedNodes_marker
-          Lens..~ rs
-          Lens.^? describeReservedNodesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedNodes_marker
+              Lens..~ rs
+              Lens.^? describeReservedNodesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReservedNodes where
   type
@@ -172,9 +172,7 @@ instance Core.AWSRequest DescribeReservedNodes where
       ( \s h x ->
           DescribeReservedNodesResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "ReservedNodes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ReservedNodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ReservedNode")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -189,9 +187,9 @@ instance Prelude.Hashable DescribeReservedNodes where
 
 instance Prelude.NFData DescribeReservedNodes where
   rnf DescribeReservedNodes' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf reservedNodeId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf reservedNodeId
 
 instance Data.ToHeaders DescribeReservedNodes where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,6 +276,6 @@ describeReservedNodesResponse_httpStatus = Lens.lens (\DescribeReservedNodesResp
 
 instance Prelude.NFData DescribeReservedNodesResponse where
   rnf DescribeReservedNodesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedNodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedNodes `Prelude.seq`
+        Prelude.rnf httpStatus

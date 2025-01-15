@@ -403,12 +403,12 @@ instance Core.AWSPager DescribeClusterSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterSnapshots_marker
-          Lens..~ rs
-          Lens.^? describeClusterSnapshotsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterSnapshots_marker
+              Lens..~ rs
+              Lens.^? describeClusterSnapshotsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterSnapshots where
   type
@@ -422,9 +422,7 @@ instance Core.AWSRequest DescribeClusterSnapshots where
       ( \s h x ->
           DescribeClusterSnapshotsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Snapshots"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -449,19 +447,19 @@ instance Prelude.Hashable DescribeClusterSnapshots where
 
 instance Prelude.NFData DescribeClusterSnapshots where
   rnf DescribeClusterSnapshots' {..} =
-    Prelude.rnf clusterExists
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf snapshotType
-      `Prelude.seq` Prelude.rnf sortingEntities
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf clusterExists `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords `Prelude.seq`
+              Prelude.rnf ownerAccount `Prelude.seq`
+                Prelude.rnf snapshotArn `Prelude.seq`
+                  Prelude.rnf snapshotIdentifier `Prelude.seq`
+                    Prelude.rnf snapshotType `Prelude.seq`
+                      Prelude.rnf sortingEntities `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf tagKeys `Prelude.seq`
+                            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -569,6 +567,6 @@ instance
     DescribeClusterSnapshotsResponse
   where
   rnf DescribeClusterSnapshotsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

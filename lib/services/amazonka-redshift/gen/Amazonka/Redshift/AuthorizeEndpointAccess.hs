@@ -124,9 +124,9 @@ instance Prelude.Hashable AuthorizeEndpointAccess where
 
 instance Prelude.NFData AuthorizeEndpointAccess where
   rnf AuthorizeEndpointAccess' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf vpcIds
-      `Prelude.seq` Prelude.rnf account
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf vpcIds `Prelude.seq`
+        Prelude.rnf account
 
 instance Data.ToHeaders AuthorizeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

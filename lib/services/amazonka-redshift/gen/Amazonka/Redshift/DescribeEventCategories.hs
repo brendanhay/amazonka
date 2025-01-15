@@ -181,5 +181,5 @@ instance
     DescribeEventCategoriesResponse
   where
   rnf DescribeEventCategoriesResponse' {..} =
-    Prelude.rnf eventCategoriesMapList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventCategoriesMapList `Prelude.seq`
+      Prelude.rnf httpStatus

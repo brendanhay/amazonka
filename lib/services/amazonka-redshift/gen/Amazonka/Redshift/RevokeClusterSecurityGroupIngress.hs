@@ -186,10 +186,10 @@ instance
     RevokeClusterSecurityGroupIngress
   where
   rnf RevokeClusterSecurityGroupIngress' {..} =
-    Prelude.rnf cidrip
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+    Prelude.rnf cidrip `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+          Prelude.rnf clusterSecurityGroupName
 
 instance
   Data.ToHeaders
@@ -267,5 +267,5 @@ instance
     RevokeClusterSecurityGroupIngressResponse
   where
   rnf RevokeClusterSecurityGroupIngressResponse' {..} =
-    Prelude.rnf clusterSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

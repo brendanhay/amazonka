@@ -153,10 +153,10 @@ instance
 
 instance Prelude.NFData DisassociateDataShareConsumer where
   rnf DisassociateDataShareConsumer' {..} =
-    Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf consumerRegion
-      `Prelude.seq` Prelude.rnf disassociateEntireAccount
-      `Prelude.seq` Prelude.rnf dataShareArn
+    Prelude.rnf consumerArn `Prelude.seq`
+      Prelude.rnf consumerRegion `Prelude.seq`
+        Prelude.rnf disassociateEntireAccount `Prelude.seq`
+          Prelude.rnf dataShareArn
 
 instance Data.ToHeaders DisassociateDataShareConsumer where
   toHeaders = Prelude.const Prelude.mempty

@@ -115,5 +115,5 @@ instance Prelude.Hashable ClusterIamRole where
 
 instance Prelude.NFData ClusterIamRole where
   rnf ClusterIamRole' {..} =
-    Prelude.rnf applyStatus
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf applyStatus `Prelude.seq`
+      Prelude.rnf iamRoleArn

@@ -70,9 +70,7 @@ eventCategoriesMap_sourceType = Lens.lens (\EventCategoriesMap' {sourceType} -> 
 instance Data.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Prelude.<$> ( x
-                      Data..@? "Events"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Events" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EventInfoMap")
                   )
       Prelude.<*> (x Data..@? "SourceType")
@@ -85,5 +83,5 @@ instance Prelude.Hashable EventCategoriesMap where
 
 instance Prelude.NFData EventCategoriesMap where
   rnf EventCategoriesMap' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf sourceType

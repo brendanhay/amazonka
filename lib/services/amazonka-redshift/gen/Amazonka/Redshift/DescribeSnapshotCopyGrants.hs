@@ -218,12 +218,12 @@ instance Core.AWSPager DescribeSnapshotCopyGrants where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSnapshotCopyGrants_marker
-          Lens..~ rs
-          Lens.^? describeSnapshotCopyGrantsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSnapshotCopyGrants_marker
+              Lens..~ rs
+              Lens.^? describeSnapshotCopyGrantsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshotCopyGrants where
   type
@@ -256,11 +256,11 @@ instance Prelude.Hashable DescribeSnapshotCopyGrants where
 
 instance Prelude.NFData DescribeSnapshotCopyGrants where
   rnf DescribeSnapshotCopyGrants' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf snapshotCopyGrantName `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeSnapshotCopyGrants where
   toHeaders = Prelude.const Prelude.mempty
@@ -366,6 +366,6 @@ instance
     DescribeSnapshotCopyGrantsResponse
   where
   rnf DescribeSnapshotCopyGrantsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshotCopyGrants
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf snapshotCopyGrants `Prelude.seq`
+        Prelude.rnf httpStatus

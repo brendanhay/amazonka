@@ -156,10 +156,10 @@ instance Prelude.Hashable RevokeSnapshotAccess where
 
 instance Prelude.NFData RevokeSnapshotAccess where
   rnf RevokeSnapshotAccess' {..} =
-    Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf accountWithRestoreAccess
+    Prelude.rnf snapshotArn `Prelude.seq`
+      Prelude.rnf snapshotClusterIdentifier `Prelude.seq`
+        Prelude.rnf snapshotIdentifier `Prelude.seq`
+          Prelude.rnf accountWithRestoreAccess
 
 instance Data.ToHeaders RevokeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ revokeSnapshotAccessResponse_httpStatus = Lens.lens (\RevokeSnapshotAccessRespon
 
 instance Prelude.NFData RevokeSnapshotAccessResponse where
   rnf RevokeSnapshotAccessResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -132,8 +132,8 @@ instance Prelude.Hashable DataShare where
 
 instance Prelude.NFData DataShare where
   rnf DataShare' {..} =
-    Prelude.rnf allowPubliclyAccessibleConsumers
-      `Prelude.seq` Prelude.rnf dataShareArn
-      `Prelude.seq` Prelude.rnf dataShareAssociations
-      `Prelude.seq` Prelude.rnf managedBy
-      `Prelude.seq` Prelude.rnf producerArn
+    Prelude.rnf allowPubliclyAccessibleConsumers `Prelude.seq`
+      Prelude.rnf dataShareArn `Prelude.seq`
+        Prelude.rnf dataShareAssociations `Prelude.seq`
+          Prelude.rnf managedBy `Prelude.seq`
+            Prelude.rnf producerArn

@@ -170,13 +170,13 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDefaultClusterParameters_marker
-          Lens..~ rs
-          Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-          Prelude.. defaultClusterParameters_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDefaultClusterParameters_marker
+              Lens..~ rs
+              Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
+              Prelude.. defaultClusterParameters_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -213,9 +213,9 @@ instance
     DescribeDefaultClusterParameters
   where
   rnf DescribeDefaultClusterParameters' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf parameterGroupFamily
 
 instance
   Data.ToHeaders
@@ -291,5 +291,5 @@ instance
     DescribeDefaultClusterParametersResponse
   where
   rnf DescribeDefaultClusterParametersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf defaultClusterParameters
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf defaultClusterParameters

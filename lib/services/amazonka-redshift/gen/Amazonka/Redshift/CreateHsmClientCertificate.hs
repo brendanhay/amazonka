@@ -129,8 +129,8 @@ instance Prelude.Hashable CreateHsmClientCertificate where
 
 instance Prelude.NFData CreateHsmClientCertificate where
   rnf CreateHsmClientCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf hsmClientCertificateIdentifier
 
 instance Data.ToHeaders CreateHsmClientCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ instance
     CreateHsmClientCertificateResponse
   where
   rnf CreateHsmClientCertificateResponse' {..} =
-    Prelude.rnf hsmClientCertificate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmClientCertificate `Prelude.seq`
+      Prelude.rnf httpStatus

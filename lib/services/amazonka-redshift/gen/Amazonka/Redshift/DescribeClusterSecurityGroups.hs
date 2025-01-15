@@ -244,12 +244,12 @@ instance Core.AWSPager DescribeClusterSecurityGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterSecurityGroups_marker
-          Lens..~ rs
-          Lens.^? describeClusterSecurityGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterSecurityGroups_marker
+              Lens..~ rs
+              Lens.^? describeClusterSecurityGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -288,11 +288,11 @@ instance
 
 instance Prelude.NFData DescribeClusterSecurityGroups where
   rnf DescribeClusterSecurityGroups' {..} =
-    Prelude.rnf clusterSecurityGroupName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf clusterSecurityGroupName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeClusterSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -391,6 +391,6 @@ instance
     DescribeClusterSecurityGroupsResponse
   where
   rnf DescribeClusterSecurityGroupsResponse' {..} =
-    Prelude.rnf clusterSecurityGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSecurityGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

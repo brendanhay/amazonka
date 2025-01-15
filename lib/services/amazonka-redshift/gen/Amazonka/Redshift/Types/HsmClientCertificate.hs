@@ -84,9 +84,7 @@ instance Data.FromXML HsmClientCertificate where
     HsmClientCertificate'
       Prelude.<$> (x Data..@? "HsmClientCertificateIdentifier")
       Prelude.<*> (x Data..@? "HsmClientCertificatePublicKey")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -99,6 +97,6 @@ instance Prelude.Hashable HsmClientCertificate where
 
 instance Prelude.NFData HsmClientCertificate where
   rnf HsmClientCertificate' {..} =
-    Prelude.rnf hsmClientCertificateIdentifier
-      `Prelude.seq` Prelude.rnf hsmClientCertificatePublicKey
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf hsmClientCertificateIdentifier `Prelude.seq`
+      Prelude.rnf hsmClientCertificatePublicKey `Prelude.seq`
+        Prelude.rnf tags

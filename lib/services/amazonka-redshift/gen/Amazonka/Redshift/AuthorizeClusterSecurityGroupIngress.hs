@@ -182,10 +182,10 @@ instance
     AuthorizeClusterSecurityGroupIngress
   where
   rnf AuthorizeClusterSecurityGroupIngress' {..} =
-    Prelude.rnf cidrip
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+    Prelude.rnf cidrip `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+          Prelude.rnf clusterSecurityGroupName
 
 instance
   Data.ToHeaders
@@ -263,5 +263,5 @@ instance
     AuthorizeClusterSecurityGroupIngressResponse
   where
   rnf AuthorizeClusterSecurityGroupIngressResponse' {..} =
-    Prelude.rnf clusterSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

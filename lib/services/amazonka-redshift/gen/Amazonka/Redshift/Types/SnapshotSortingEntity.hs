@@ -75,8 +75,8 @@ instance Prelude.Hashable SnapshotSortingEntity where
 
 instance Prelude.NFData SnapshotSortingEntity where
   rnf SnapshotSortingEntity' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf sortOrder `Prelude.seq`
+      Prelude.rnf attribute
 
 instance Data.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =

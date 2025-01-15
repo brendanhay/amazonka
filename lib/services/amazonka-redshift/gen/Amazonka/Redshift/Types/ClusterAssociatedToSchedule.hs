@@ -75,5 +75,5 @@ instance Prelude.Hashable ClusterAssociatedToSchedule where
 
 instance Prelude.NFData ClusterAssociatedToSchedule where
   rnf ClusterAssociatedToSchedule' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf scheduleAssociationState
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf scheduleAssociationState

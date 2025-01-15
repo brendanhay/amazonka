@@ -205,13 +205,13 @@ instance Prelude.Hashable CreateHsmConfiguration where
 
 instance Prelude.NFData CreateHsmConfiguration where
   rnf CreateHsmConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hsmIpAddress
-      `Prelude.seq` Prelude.rnf hsmPartitionName
-      `Prelude.seq` Prelude.rnf hsmPartitionPassword
-      `Prelude.seq` Prelude.rnf hsmServerPublicCertificate
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf hsmConfigurationIdentifier `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf hsmIpAddress `Prelude.seq`
+            Prelude.rnf hsmPartitionName `Prelude.seq`
+              Prelude.rnf hsmPartitionPassword `Prelude.seq`
+                Prelude.rnf hsmServerPublicCertificate
 
 instance Data.ToHeaders CreateHsmConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,5 +282,5 @@ instance
     CreateHsmConfigurationResponse
   where
   rnf CreateHsmConfigurationResponse' {..} =
-    Prelude.rnf hsmConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -243,10 +243,10 @@ instance Prelude.Hashable CopyClusterSnapshot where
 
 instance Prelude.NFData CopyClusterSnapshot where
   rnf CopyClusterSnapshot' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf sourceSnapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf sourceSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf targetSnapshotIdentifier
+    Prelude.rnf manualSnapshotRetentionPeriod `Prelude.seq`
+      Prelude.rnf sourceSnapshotClusterIdentifier `Prelude.seq`
+        Prelude.rnf sourceSnapshotIdentifier `Prelude.seq`
+          Prelude.rnf targetSnapshotIdentifier
 
 instance Data.ToHeaders CopyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -311,5 +311,5 @@ copyClusterSnapshotResponse_httpStatus = Lens.lens (\CopyClusterSnapshotResponse
 
 instance Prelude.NFData CopyClusterSnapshotResponse where
   rnf CopyClusterSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -127,9 +127,9 @@ instance Prelude.Hashable ModifyUsageLimit where
 
 instance Prelude.NFData ModifyUsageLimit where
   rnf ModifyUsageLimit' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf usageLimitId
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf breachAction `Prelude.seq`
+        Prelude.rnf usageLimitId
 
 instance Data.ToHeaders ModifyUsageLimit where
   toHeaders = Prelude.const Prelude.mempty

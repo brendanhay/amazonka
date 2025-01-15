@@ -68,9 +68,7 @@ instance Data.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
       Prelude.<$> (x Data..@? "AttributeName")
-      Prelude.<*> ( x
-                      Data..@? "AttributeValues"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AttributeValueTarget")
                   )
 
@@ -82,5 +80,5 @@ instance Prelude.Hashable AccountAttribute where
 
 instance Prelude.NFData AccountAttribute where
   rnf AccountAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValues
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValues

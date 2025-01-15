@@ -208,13 +208,13 @@ instance Prelude.Hashable ResizeCluster where
 
 instance Prelude.NFData ResizeCluster where
   rnf ResizeCluster' {..} =
-    Prelude.rnf classic
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf reservedNodeId
-      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf classic `Prelude.seq`
+      Prelude.rnf clusterType `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf numberOfNodes `Prelude.seq`
+            Prelude.rnf reservedNodeId `Prelude.seq`
+              Prelude.rnf targetReservedNodeOfferingId `Prelude.seq`
+                Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders ResizeCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,5 +278,5 @@ resizeClusterResponse_httpStatus = Lens.lens (\ResizeClusterResponse' {httpStatu
 
 instance Prelude.NFData ResizeClusterResponse where
   rnf ResizeClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

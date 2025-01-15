@@ -155,5 +155,5 @@ pauseClusterResponse_httpStatus = Lens.lens (\PauseClusterResponse' {httpStatus}
 
 instance Prelude.NFData PauseClusterResponse where
   rnf PauseClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

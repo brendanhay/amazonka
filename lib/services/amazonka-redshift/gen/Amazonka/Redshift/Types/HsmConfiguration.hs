@@ -106,9 +106,7 @@ instance Data.FromXML HsmConfiguration where
       Prelude.<*> (x Data..@? "HsmConfigurationIdentifier")
       Prelude.<*> (x Data..@? "HsmIpAddress")
       Prelude.<*> (x Data..@? "HsmPartitionName")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -123,8 +121,8 @@ instance Prelude.Hashable HsmConfiguration where
 
 instance Prelude.NFData HsmConfiguration where
   rnf HsmConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf hsmIpAddress
-      `Prelude.seq` Prelude.rnf hsmPartitionName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf hsmConfigurationIdentifier `Prelude.seq`
+        Prelude.rnf hsmIpAddress `Prelude.seq`
+          Prelude.rnf hsmPartitionName `Prelude.seq`
+            Prelude.rnf tags

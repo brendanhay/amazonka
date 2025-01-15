@@ -160,9 +160,9 @@ instance
 
 instance Prelude.NFData GetClusterCredentialsWithIAM where
   rnf GetClusterCredentialsWithIAM' {..} =
-    Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf dbName `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders GetClusterCredentialsWithIAM where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,8 +261,8 @@ instance
     GetClusterCredentialsWithIAMResponse
   where
   rnf GetClusterCredentialsWithIAMResponse' {..} =
-    Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf nextRefreshTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbPassword `Prelude.seq`
+      Prelude.rnf dbUser `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf nextRefreshTime `Prelude.seq`
+            Prelude.rnf httpStatus

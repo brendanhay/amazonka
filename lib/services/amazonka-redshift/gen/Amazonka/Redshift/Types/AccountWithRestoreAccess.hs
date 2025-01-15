@@ -88,5 +88,5 @@ instance Prelude.Hashable AccountWithRestoreAccess where
 
 instance Prelude.NFData AccountWithRestoreAccess where
   rnf AccountWithRestoreAccess' {..} =
-    Prelude.rnf accountAlias
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountAlias `Prelude.seq`
+      Prelude.rnf accountId

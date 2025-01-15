@@ -170,12 +170,12 @@ instance Core.AWSPager DescribeClusterDbRevisions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterDbRevisions_marker
-          Lens..~ rs
-          Lens.^? describeClusterDbRevisionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterDbRevisions_marker
+              Lens..~ rs
+              Lens.^? describeClusterDbRevisionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterDbRevisions where
   type
@@ -206,9 +206,9 @@ instance Prelude.Hashable DescribeClusterDbRevisions where
 
 instance Prelude.NFData DescribeClusterDbRevisions where
   rnf DescribeClusterDbRevisions' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeClusterDbRevisions where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +293,6 @@ instance
     DescribeClusterDbRevisionsResponse
   where
   rnf DescribeClusterDbRevisionsResponse' {..} =
-    Prelude.rnf clusterDbRevisions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterDbRevisions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

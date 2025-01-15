@@ -113,14 +113,10 @@ instance Data.FromXML ClusterSecurityGroup where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> ( x
-                      Data..@? "IPRanges"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -135,8 +131,8 @@ instance Prelude.Hashable ClusterSecurityGroup where
 
 instance Prelude.NFData ClusterSecurityGroup where
   rnf ClusterSecurityGroup' {..} =
-    Prelude.rnf clusterSecurityGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eC2SecurityGroups
-      `Prelude.seq` Prelude.rnf iPRanges
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clusterSecurityGroupName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eC2SecurityGroups `Prelude.seq`
+          Prelude.rnf iPRanges `Prelude.seq`
+            Prelude.rnf tags

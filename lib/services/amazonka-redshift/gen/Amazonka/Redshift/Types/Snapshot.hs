@@ -522,9 +522,7 @@ instance Data.FromXML Snapshot where
       Prelude.<*> (x Data..@? "SnapshotType")
       Prelude.<*> (x Data..@? "SourceRegion")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TotalBackupSizeInMegaBytes")

@@ -161,6 +161,6 @@ instance Prelude.Hashable ClusterParameterStatus where
 
 instance Prelude.NFData ClusterParameterStatus where
   rnf ClusterParameterStatus' {..} =
-    Prelude.rnf parameterApplyErrorDescription
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
-      `Prelude.seq` Prelude.rnf parameterName
+    Prelude.rnf parameterApplyErrorDescription `Prelude.seq`
+      Prelude.rnf parameterApplyStatus `Prelude.seq`
+        Prelude.rnf parameterName

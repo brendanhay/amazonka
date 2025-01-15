@@ -132,9 +132,9 @@ instance Prelude.Hashable DataTransferProgress where
 
 instance Prelude.NFData DataTransferProgress where
   rnf DataTransferProgress' {..} =
-    Prelude.rnf currentRateInMegaBytesPerSecond
-      `Prelude.seq` Prelude.rnf dataTransferredInMegaBytes
-      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
-      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf totalDataInMegaBytes
+    Prelude.rnf currentRateInMegaBytesPerSecond `Prelude.seq`
+      Prelude.rnf dataTransferredInMegaBytes `Prelude.seq`
+        Prelude.rnf elapsedTimeInSeconds `Prelude.seq`
+          Prelude.rnf estimatedTimeToCompletionInSeconds `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf totalDataInMegaBytes

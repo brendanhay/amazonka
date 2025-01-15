@@ -93,9 +93,9 @@ instance Prelude.Hashable ScheduledActionType where
 
 instance Prelude.NFData ScheduledActionType where
   rnf ScheduledActionType' {..} =
-    Prelude.rnf pauseCluster
-      `Prelude.seq` Prelude.rnf resizeCluster
-      `Prelude.seq` Prelude.rnf resumeCluster
+    Prelude.rnf pauseCluster `Prelude.seq`
+      Prelude.rnf resizeCluster `Prelude.seq`
+        Prelude.rnf resumeCluster
 
 instance Data.ToQuery ScheduledActionType where
   toQuery ScheduledActionType' {..} =

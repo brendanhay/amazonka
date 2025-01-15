@@ -160,12 +160,12 @@ instance Core.AWSPager DescribeDataSharesForConsumer where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDataSharesForConsumer_marker
-          Lens..~ rs
-          Lens.^? describeDataSharesForConsumerResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDataSharesForConsumer_marker
+              Lens..~ rs
+              Lens.^? describeDataSharesForConsumerResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -181,9 +181,7 @@ instance
       "DescribeDataSharesForConsumerResult"
       ( \s h x ->
           DescribeDataSharesForConsumerResponse'
-            Prelude.<$> ( x
-                            Data..@? "DataShares"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -203,10 +201,10 @@ instance
 
 instance Prelude.NFData DescribeDataSharesForConsumer where
   rnf DescribeDataSharesForConsumer' {..} =
-    Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf consumerArn `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders DescribeDataSharesForConsumer where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,6 +295,6 @@ instance
     DescribeDataSharesForConsumerResponse
   where
   rnf DescribeDataSharesForConsumerResponse' {..} =
-    Prelude.rnf dataShares
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataShares `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

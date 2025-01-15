@@ -150,6 +150,6 @@ describeStorageResponse_httpStatus = Lens.lens (\DescribeStorageResponse' {httpS
 
 instance Prelude.NFData DescribeStorageResponse where
   rnf DescribeStorageResponse' {..} =
-    Prelude.rnf totalBackupSizeInMegaBytes
-      `Prelude.seq` Prelude.rnf totalProvisionedStorageInMegaBytes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf totalBackupSizeInMegaBytes `Prelude.seq`
+      Prelude.rnf totalProvisionedStorageInMegaBytes `Prelude.seq`
+        Prelude.rnf httpStatus

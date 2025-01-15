@@ -132,9 +132,7 @@ instance Data.FromXML LoggingStatus where
       Prelude.<*> (x Data..@? "LastFailureTime")
       Prelude.<*> (x Data..@? "LastSuccessfulDeliveryTime")
       Prelude.<*> (x Data..@? "LogDestinationType")
-      Prelude.<*> ( x
-                      Data..@? "LogExports"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "LogExports" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LoggingEnabled")
@@ -154,11 +152,11 @@ instance Prelude.Hashable LoggingStatus where
 
 instance Prelude.NFData LoggingStatus where
   rnf LoggingStatus' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf lastFailureMessage
-      `Prelude.seq` Prelude.rnf lastFailureTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulDeliveryTime
-      `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf loggingEnabled
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf lastFailureMessage `Prelude.seq`
+        Prelude.rnf lastFailureTime `Prelude.seq`
+          Prelude.rnf lastSuccessfulDeliveryTime `Prelude.seq`
+            Prelude.rnf logDestinationType `Prelude.seq`
+              Prelude.rnf logExports `Prelude.seq`
+                Prelude.rnf loggingEnabled `Prelude.seq`
+                  Prelude.rnf s3KeyPrefix

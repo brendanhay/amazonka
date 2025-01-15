@@ -226,12 +226,12 @@ instance Core.AWSPager DescribeEventSubscriptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEventSubscriptions_marker
-          Lens..~ rs
-          Lens.^? describeEventSubscriptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEventSubscriptions_marker
+              Lens..~ rs
+              Lens.^? describeEventSubscriptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventSubscriptions where
   type
@@ -264,11 +264,11 @@ instance Prelude.Hashable DescribeEventSubscriptions where
 
 instance Prelude.NFData DescribeEventSubscriptions where
   rnf DescribeEventSubscriptions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf subscriptionName `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeEventSubscriptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -364,6 +364,6 @@ instance
     DescribeEventSubscriptionsResponse
   where
   rnf DescribeEventSubscriptionsResponse' {..} =
-    Prelude.rnf eventSubscriptionsList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSubscriptionsList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

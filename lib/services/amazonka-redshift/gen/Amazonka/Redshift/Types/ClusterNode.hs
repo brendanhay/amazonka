@@ -88,6 +88,6 @@ instance Prelude.Hashable ClusterNode where
 
 instance Prelude.NFData ClusterNode where
   rnf ClusterNode' {..} =
-    Prelude.rnf nodeRole
-      `Prelude.seq` Prelude.rnf privateIPAddress
-      `Prelude.seq` Prelude.rnf publicIPAddress
+    Prelude.rnf nodeRole `Prelude.seq`
+      Prelude.rnf privateIPAddress `Prelude.seq`
+        Prelude.rnf publicIPAddress

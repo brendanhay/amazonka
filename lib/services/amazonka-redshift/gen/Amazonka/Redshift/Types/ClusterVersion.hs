@@ -90,6 +90,6 @@ instance Prelude.Hashable ClusterVersion where
 
 instance Prelude.NFData ClusterVersion where
   rnf ClusterVersion' {..} =
-    Prelude.rnf clusterParameterGroupFamily
-      `Prelude.seq` Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf clusterParameterGroupFamily `Prelude.seq`
+      Prelude.rnf clusterVersion `Prelude.seq`
+        Prelude.rnf description

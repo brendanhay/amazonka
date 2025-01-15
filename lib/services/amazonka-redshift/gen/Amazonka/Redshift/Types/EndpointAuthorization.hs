@@ -139,9 +139,7 @@ instance Data.FromXML EndpointAuthorization where
   parseXML x =
     EndpointAuthorization'
       Prelude.<$> (x Data..@? "AllowedAllVPCs")
-      Prelude.<*> ( x
-                      Data..@? "AllowedVPCs"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AllowedVPCs" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcIdentifier")
                   )
       Prelude.<*> (x Data..@? "AuthorizeTime")
@@ -167,12 +165,12 @@ instance Prelude.Hashable EndpointAuthorization where
 
 instance Prelude.NFData EndpointAuthorization where
   rnf EndpointAuthorization' {..} =
-    Prelude.rnf allowedAllVPCs
-      `Prelude.seq` Prelude.rnf allowedVPCs
-      `Prelude.seq` Prelude.rnf authorizeTime
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf clusterStatus
-      `Prelude.seq` Prelude.rnf endpointCount
-      `Prelude.seq` Prelude.rnf grantee
-      `Prelude.seq` Prelude.rnf grantor
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf allowedAllVPCs `Prelude.seq`
+      Prelude.rnf allowedVPCs `Prelude.seq`
+        Prelude.rnf authorizeTime `Prelude.seq`
+          Prelude.rnf clusterIdentifier `Prelude.seq`
+            Prelude.rnf clusterStatus `Prelude.seq`
+              Prelude.rnf endpointCount `Prelude.seq`
+                Prelude.rnf grantee `Prelude.seq`
+                  Prelude.rnf grantor `Prelude.seq`
+                    Prelude.rnf status

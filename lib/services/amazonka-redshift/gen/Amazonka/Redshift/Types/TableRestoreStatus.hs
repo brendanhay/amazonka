@@ -232,17 +232,17 @@ instance Prelude.Hashable TableRestoreStatus where
 
 instance Prelude.NFData TableRestoreStatus where
   rnf TableRestoreStatus' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf newTableName'
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
-      `Prelude.seq` Prelude.rnf requestTime
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf sourceDatabaseName
-      `Prelude.seq` Prelude.rnf sourceSchemaName
-      `Prelude.seq` Prelude.rnf sourceTableName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tableRestoreRequestId
-      `Prelude.seq` Prelude.rnf targetDatabaseName
-      `Prelude.seq` Prelude.rnf targetSchemaName
-      `Prelude.seq` Prelude.rnf totalDataInMegaBytes
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf newTableName' `Prelude.seq`
+          Prelude.rnf progressInMegaBytes `Prelude.seq`
+            Prelude.rnf requestTime `Prelude.seq`
+              Prelude.rnf snapshotIdentifier `Prelude.seq`
+                Prelude.rnf sourceDatabaseName `Prelude.seq`
+                  Prelude.rnf sourceSchemaName `Prelude.seq`
+                    Prelude.rnf sourceTableName `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tableRestoreRequestId `Prelude.seq`
+                          Prelude.rnf targetDatabaseName `Prelude.seq`
+                            Prelude.rnf targetSchemaName `Prelude.seq`
+                              Prelude.rnf totalDataInMegaBytes

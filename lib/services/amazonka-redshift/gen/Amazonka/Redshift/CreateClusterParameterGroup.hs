@@ -215,10 +215,10 @@ instance Prelude.Hashable CreateClusterParameterGroup where
 
 instance Prelude.NFData CreateClusterParameterGroup where
   rnf CreateClusterParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf parameterGroupName `Prelude.seq`
+        Prelude.rnf parameterGroupFamily `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders CreateClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,5 +286,5 @@ instance
     CreateClusterParameterGroupResponse
   where
   rnf CreateClusterParameterGroupResponse' {..} =
-    Prelude.rnf clusterParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

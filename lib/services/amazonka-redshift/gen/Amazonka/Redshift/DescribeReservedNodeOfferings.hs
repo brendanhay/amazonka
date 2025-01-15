@@ -164,12 +164,12 @@ instance Core.AWSPager DescribeReservedNodeOfferings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedNodeOfferings_marker
-          Lens..~ rs
-          Lens.^? describeReservedNodeOfferingsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedNodeOfferings_marker
+              Lens..~ rs
+              Lens.^? describeReservedNodeOfferingsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,9 +206,9 @@ instance
 
 instance Prelude.NFData DescribeReservedNodeOfferings where
   rnf DescribeReservedNodeOfferings' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf reservedNodeOfferingId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf reservedNodeOfferingId
 
 instance Data.ToHeaders DescribeReservedNodeOfferings where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,6 +302,6 @@ instance
     DescribeReservedNodeOfferingsResponse
   where
   rnf DescribeReservedNodeOfferingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedNodeOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedNodeOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

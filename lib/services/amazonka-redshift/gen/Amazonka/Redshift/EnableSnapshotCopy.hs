@@ -210,11 +210,11 @@ instance Prelude.Hashable EnableSnapshotCopy where
 
 instance Prelude.NFData EnableSnapshotCopy where
   rnf EnableSnapshotCopy' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf manualSnapshotRetentionPeriod `Prelude.seq`
+      Prelude.rnf retentionPeriod `Prelude.seq`
+        Prelude.rnf snapshotCopyGrantName `Prelude.seq`
+          Prelude.rnf clusterIdentifier `Prelude.seq`
+            Prelude.rnf destinationRegion
 
 instance Data.ToHeaders EnableSnapshotCopy where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,5 +278,5 @@ enableSnapshotCopyResponse_httpStatus = Lens.lens (\EnableSnapshotCopyResponse' 
 
 instance Prelude.NFData EnableSnapshotCopyResponse where
   rnf EnableSnapshotCopyResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

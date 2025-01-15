@@ -168,9 +168,9 @@ instance Prelude.Hashable CreateClusterSecurityGroup where
 
 instance Prelude.NFData CreateClusterSecurityGroup where
   rnf CreateClusterSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf clusterSecurityGroupName `Prelude.seq`
+        Prelude.rnf description
 
 instance Data.ToHeaders CreateClusterSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,5 +236,5 @@ instance
     CreateClusterSecurityGroupResponse
   where
   rnf CreateClusterSecurityGroupResponse' {..} =
-    Prelude.rnf clusterSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

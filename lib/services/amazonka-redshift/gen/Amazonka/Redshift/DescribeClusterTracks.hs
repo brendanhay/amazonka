@@ -128,12 +128,12 @@ instance Core.AWSPager DescribeClusterTracks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterTracks_marker
-          Lens..~ rs
-          Lens.^? describeClusterTracksResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterTracks_marker
+              Lens..~ rs
+              Lens.^? describeClusterTracksResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterTracks where
   type
@@ -164,9 +164,9 @@ instance Prelude.Hashable DescribeClusterTracks where
 
 instance Prelude.NFData DescribeClusterTracks where
   rnf DescribeClusterTracks' {..} =
-    Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf maintenanceTrackName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeClusterTracks where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,6 +245,6 @@ describeClusterTracksResponse_httpStatus = Lens.lens (\DescribeClusterTracksResp
 
 instance Prelude.NFData DescribeClusterTracksResponse where
   rnf DescribeClusterTracksResponse' {..} =
-    Prelude.rnf maintenanceTracks
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf maintenanceTracks `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

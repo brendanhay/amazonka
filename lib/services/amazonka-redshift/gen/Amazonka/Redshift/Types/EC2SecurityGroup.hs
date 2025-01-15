@@ -92,9 +92,7 @@ instance Data.FromXML EC2SecurityGroup where
       Prelude.<$> (x Data..@? "EC2SecurityGroupName")
       Prelude.<*> (x Data..@? "EC2SecurityGroupOwnerId")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -108,7 +106,7 @@ instance Prelude.Hashable EC2SecurityGroup where
 
 instance Prelude.NFData EC2SecurityGroup where
   rnf EC2SecurityGroup' {..} =
-    Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tags

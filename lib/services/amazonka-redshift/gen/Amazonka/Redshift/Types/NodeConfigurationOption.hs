@@ -101,7 +101,7 @@ instance Prelude.Hashable NodeConfigurationOption where
 
 instance Prelude.NFData NodeConfigurationOption where
   rnf NodeConfigurationOption' {..} =
-    Prelude.rnf estimatedDiskUtilizationPercent
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf numberOfNodes
+    Prelude.rnf estimatedDiskUtilizationPercent `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf numberOfNodes

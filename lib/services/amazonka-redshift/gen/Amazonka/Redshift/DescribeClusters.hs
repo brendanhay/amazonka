@@ -237,12 +237,12 @@ instance Core.AWSPager DescribeClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusters_marker
-          Lens..~ rs
-          Lens.^? describeClustersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusters_marker
+              Lens..~ rs
+              Lens.^? describeClustersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusters where
   type
@@ -255,9 +255,7 @@ instance Core.AWSRequest DescribeClusters where
       "DescribeClustersResult"
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> ( x
-                            Data..@? "Clusters"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Clusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Cluster")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -275,11 +273,11 @@ instance Prelude.Hashable DescribeClusters where
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -372,6 +370,6 @@ describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {htt
 
 instance Prelude.NFData DescribeClustersResponse where
   rnf DescribeClustersResponse' {..} =
-    Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

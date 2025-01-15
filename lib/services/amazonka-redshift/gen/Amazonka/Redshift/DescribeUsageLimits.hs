@@ -244,12 +244,12 @@ instance Core.AWSPager DescribeUsageLimits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUsageLimits_marker
-          Lens..~ rs
-          Lens.^? describeUsageLimitsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUsageLimits_marker
+              Lens..~ rs
+              Lens.^? describeUsageLimitsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsageLimits where
   type
@@ -263,9 +263,7 @@ instance Core.AWSRequest DescribeUsageLimits where
       ( \s h x ->
           DescribeUsageLimitsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "UsageLimits"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "UsageLimits" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -284,13 +282,13 @@ instance Prelude.Hashable DescribeUsageLimits where
 
 instance Prelude.NFData DescribeUsageLimits where
   rnf DescribeUsageLimits' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf featureType
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf usageLimitId
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf featureType `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf tagKeys `Prelude.seq`
+              Prelude.rnf tagValues `Prelude.seq`
+                Prelude.rnf usageLimitId
 
 instance Data.ToHeaders DescribeUsageLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -383,6 +381,6 @@ describeUsageLimitsResponse_httpStatus = Lens.lens (\DescribeUsageLimitsResponse
 
 instance Prelude.NFData DescribeUsageLimitsResponse where
   rnf DescribeUsageLimitsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf usageLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf usageLimits `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -164,9 +164,7 @@ instance Data.FromXML UsageLimit where
       Prelude.<*> (x Data..@? "FeatureType")
       Prelude.<*> (x Data..@? "LimitType")
       Prelude.<*> (x Data..@? "Period")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "UsageLimitId")
@@ -185,11 +183,11 @@ instance Prelude.Hashable UsageLimit where
 
 instance Prelude.NFData UsageLimit where
   rnf UsageLimit' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf featureType
-      `Prelude.seq` Prelude.rnf limitType
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usageLimitId
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf breachAction `Prelude.seq`
+        Prelude.rnf clusterIdentifier `Prelude.seq`
+          Prelude.rnf featureType `Prelude.seq`
+            Prelude.rnf limitType `Prelude.seq`
+              Prelude.rnf period `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf usageLimitId

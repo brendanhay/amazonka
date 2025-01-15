@@ -229,12 +229,12 @@ instance Core.AWSPager DescribeHsmConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeHsmConfigurations_marker
-          Lens..~ rs
-          Lens.^? describeHsmConfigurationsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeHsmConfigurations_marker
+              Lens..~ rs
+              Lens.^? describeHsmConfigurationsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHsmConfigurations where
   type
@@ -267,11 +267,11 @@ instance Prelude.Hashable DescribeHsmConfigurations where
 
 instance Prelude.NFData DescribeHsmConfigurations where
   rnf DescribeHsmConfigurations' {..} =
-    Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf hsmConfigurationIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeHsmConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -368,6 +368,6 @@ instance
     DescribeHsmConfigurationsResponse
   where
   rnf DescribeHsmConfigurationsResponse' {..} =
-    Prelude.rnf hsmConfigurations
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmConfigurations `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

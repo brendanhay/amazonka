@@ -166,12 +166,12 @@ instance Core.AWSPager DescribeEndpointAuthorization where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEndpointAuthorization_marker
-          Lens..~ rs
-          Lens.^? describeEndpointAuthorizationResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEndpointAuthorization_marker
+              Lens..~ rs
+              Lens.^? describeEndpointAuthorizationResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,11 +210,11 @@ instance
 
 instance Prelude.NFData DescribeEndpointAuthorization where
   rnf DescribeEndpointAuthorization' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf grantee
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf grantee `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeEndpointAuthorization where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,6 +300,6 @@ instance
     DescribeEndpointAuthorizationResponse
   where
   rnf DescribeEndpointAuthorizationResponse' {..} =
-    Prelude.rnf endpointAuthorizationList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointAuthorizationList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -1004,5 +1004,5 @@ modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatu
 
 instance Prelude.NFData ModifyClusterResponse where
   rnf ModifyClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

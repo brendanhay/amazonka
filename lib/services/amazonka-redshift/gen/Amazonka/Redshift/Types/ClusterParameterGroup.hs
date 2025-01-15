@@ -92,9 +92,7 @@ instance Data.FromXML ClusterParameterGroup where
       Prelude.<$> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "ParameterGroupFamily")
       Prelude.<*> (x Data..@? "ParameterGroupName")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -108,7 +106,7 @@ instance Prelude.Hashable ClusterParameterGroup where
 
 instance Prelude.NFData ClusterParameterGroup where
   rnf ClusterParameterGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameterGroupFamily `Prelude.seq`
+        Prelude.rnf parameterGroupName `Prelude.seq`
+          Prelude.rnf tags

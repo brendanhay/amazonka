@@ -141,10 +141,10 @@ instance Prelude.Hashable DeletePartner where
 
 instance Prelude.NFData DeletePartner where
   rnf DeletePartner' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf partnerName
 
 instance Data.ToHeaders DeletePartner where
   toHeaders = Prelude.const Prelude.mempty

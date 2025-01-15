@@ -87,6 +87,6 @@ instance Prelude.Hashable Subnet where
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf subnetIdentifier
-      `Prelude.seq` Prelude.rnf subnetStatus
+    Prelude.rnf subnetAvailabilityZone `Prelude.seq`
+      Prelude.rnf subnetIdentifier `Prelude.seq`
+        Prelude.rnf subnetStatus

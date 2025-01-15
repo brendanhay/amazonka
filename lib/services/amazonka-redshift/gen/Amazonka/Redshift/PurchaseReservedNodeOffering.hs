@@ -135,8 +135,8 @@ instance
 
 instance Prelude.NFData PurchaseReservedNodeOffering where
   rnf PurchaseReservedNodeOffering' {..} =
-    Prelude.rnf nodeCount
-      `Prelude.seq` Prelude.rnf reservedNodeOfferingId
+    Prelude.rnf nodeCount `Prelude.seq`
+      Prelude.rnf reservedNodeOfferingId
 
 instance Data.ToHeaders PurchaseReservedNodeOffering where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ instance
     PurchaseReservedNodeOfferingResponse
   where
   rnf PurchaseReservedNodeOfferingResponse' {..} =
-    Prelude.rnf reservedNode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedNode `Prelude.seq`
+      Prelude.rnf httpStatus

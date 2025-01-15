@@ -149,10 +149,10 @@ instance Prelude.Hashable AssociateDataShareConsumer where
 
 instance Prelude.NFData AssociateDataShareConsumer where
   rnf AssociateDataShareConsumer' {..} =
-    Prelude.rnf associateEntireAccount
-      `Prelude.seq` Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf consumerRegion
-      `Prelude.seq` Prelude.rnf dataShareArn
+    Prelude.rnf associateEntireAccount `Prelude.seq`
+      Prelude.rnf consumerArn `Prelude.seq`
+        Prelude.rnf consumerRegion `Prelude.seq`
+          Prelude.rnf dataShareArn
 
 instance Data.ToHeaders AssociateDataShareConsumer where
   toHeaders = Prelude.const Prelude.mempty

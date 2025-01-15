@@ -100,7 +100,7 @@ instance Prelude.Hashable SnapshotErrorMessage where
 
 instance Prelude.NFData SnapshotErrorMessage where
   rnf SnapshotErrorMessage' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf snapshotClusterIdentifier `Prelude.seq`
+          Prelude.rnf snapshotIdentifier

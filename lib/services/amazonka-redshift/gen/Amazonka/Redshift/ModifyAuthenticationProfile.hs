@@ -123,8 +123,8 @@ instance Prelude.Hashable ModifyAuthenticationProfile where
 
 instance Prelude.NFData ModifyAuthenticationProfile where
   rnf ModifyAuthenticationProfile' {..} =
-    Prelude.rnf authenticationProfileName
-      `Prelude.seq` Prelude.rnf authenticationProfileContent
+    Prelude.rnf authenticationProfileName `Prelude.seq`
+      Prelude.rnf authenticationProfileContent
 
 instance Data.ToHeaders ModifyAuthenticationProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ instance
     ModifyAuthenticationProfileResponse
   where
   rnf ModifyAuthenticationProfileResponse' {..} =
-    Prelude.rnf authenticationProfileContent
-      `Prelude.seq` Prelude.rnf authenticationProfileName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationProfileContent `Prelude.seq`
+      Prelude.rnf authenticationProfileName `Prelude.seq`
+        Prelude.rnf httpStatus

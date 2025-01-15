@@ -170,5 +170,5 @@ rotateEncryptionKeyResponse_httpStatus = Lens.lens (\RotateEncryptionKeyResponse
 
 instance Prelude.NFData RotateEncryptionKeyResponse where
   rnf RotateEncryptionKeyResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

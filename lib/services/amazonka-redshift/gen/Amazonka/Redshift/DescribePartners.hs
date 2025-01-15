@@ -151,10 +151,10 @@ instance Prelude.Hashable DescribePartners where
 
 instance Prelude.NFData DescribePartners where
   rnf DescribePartners' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf partnerName `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders DescribePartners where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,5 +216,5 @@ describePartnersResponse_httpStatus = Lens.lens (\DescribePartnersResponse' {htt
 
 instance Prelude.NFData DescribePartnersResponse where
   rnf DescribePartnersResponse' {..} =
-    Prelude.rnf partnerIntegrationInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf partnerIntegrationInfoList `Prelude.seq`
+      Prelude.rnf httpStatus

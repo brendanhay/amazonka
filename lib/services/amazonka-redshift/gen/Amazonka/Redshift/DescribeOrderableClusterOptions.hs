@@ -200,12 +200,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOrderableClusterOptions_marker
-          Lens..~ rs
-          Lens.^? describeOrderableClusterOptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOrderableClusterOptions_marker
+              Lens..~ rs
+              Lens.^? describeOrderableClusterOptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -249,10 +249,10 @@ instance
     DescribeOrderableClusterOptions
   where
   rnf DescribeOrderableClusterOptions' {..} =
-    Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nodeType
+    Prelude.rnf clusterVersion `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf nodeType
 
 instance
   Data.ToHeaders
@@ -353,6 +353,6 @@ instance
     DescribeOrderableClusterOptionsResponse
   where
   rnf DescribeOrderableClusterOptionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf orderableClusterOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf orderableClusterOptions `Prelude.seq`
+        Prelude.rnf httpStatus

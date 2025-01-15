@@ -202,12 +202,12 @@ instance Core.AWSPager DescribeClusterVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterVersions_marker
-          Lens..~ rs
-          Lens.^? describeClusterVersionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterVersions_marker
+              Lens..~ rs
+              Lens.^? describeClusterVersionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterVersions where
   type
@@ -220,9 +220,7 @@ instance Core.AWSRequest DescribeClusterVersions where
       "DescribeClusterVersionsResult"
       ( \s h x ->
           DescribeClusterVersionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "ClusterVersions"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ClusterVersions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ClusterVersion")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -239,10 +237,10 @@ instance Prelude.Hashable DescribeClusterVersions where
 
 instance Prelude.NFData DescribeClusterVersions where
   rnf DescribeClusterVersions' {..} =
-    Prelude.rnf clusterParameterGroupFamily
-      `Prelude.seq` Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf clusterParameterGroupFamily `Prelude.seq`
+      Prelude.rnf clusterVersion `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeClusterVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -334,6 +332,6 @@ instance
     DescribeClusterVersionsResponse
   where
   rnf DescribeClusterVersionsResponse' {..} =
-    Prelude.rnf clusterVersions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterVersions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -253,10 +253,10 @@ instance Prelude.Hashable DeleteCluster where
 
 instance Prelude.NFData DeleteCluster where
   rnf DeleteCluster' {..} =
-    Prelude.rnf finalClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf finalClusterSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf skipFinalClusterSnapshot
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf finalClusterSnapshotIdentifier `Prelude.seq`
+      Prelude.rnf finalClusterSnapshotRetentionPeriod `Prelude.seq`
+        Prelude.rnf skipFinalClusterSnapshot `Prelude.seq`
+          Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders DeleteCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -319,5 +319,5 @@ deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatu
 
 instance Prelude.NFData DeleteClusterResponse where
   rnf DeleteClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

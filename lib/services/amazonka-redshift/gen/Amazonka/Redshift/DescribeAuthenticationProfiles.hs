@@ -184,5 +184,5 @@ instance
     DescribeAuthenticationProfilesResponse
   where
   rnf DescribeAuthenticationProfilesResponse' {..} =
-    Prelude.rnf authenticationProfiles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationProfiles `Prelude.seq`
+      Prelude.rnf httpStatus

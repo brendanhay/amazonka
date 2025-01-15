@@ -1,3 +1,9 @@
+# ($) is heavily used in Gen.Tree to force ormolu to make a better layout
+- ignore:
+    name: "Redundant $"
+    within:
+      - Gen.Tree
+
 # Ignore camel-case warnings for modules containing explicit lenses
 - ignore:
     name: "Use camelCase"

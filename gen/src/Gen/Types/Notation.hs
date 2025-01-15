@@ -38,7 +38,7 @@ parseNotation t = mappend msg `first` Atto.parseOnly expr1 t
     choice =
       Choice
         <$> expr0
-          <* Atto.string "||"
+        <* Atto.string "||"
         <*> expr1
 
     isEmptyList =
@@ -67,7 +67,7 @@ parseNotation t = mappend msg `first` Atto.parseOnly expr1 t
     key1 =
       (Each <$> label <* Atto.string "[]")
         <|> (Last <$> label <* Atto.string "[-1]")
-    key0 = (Key <$> label)
+    key0 = Key <$> label
 
     label =
       strip $ do

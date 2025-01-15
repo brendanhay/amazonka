@@ -184,8 +184,8 @@ otherModules = Lens.to f
         <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.each)
 
     shapeNS x = \case
-      s@Prod {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-      s@Sum {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      s@Prod {} -> Just $ (x ^. typesNS) <> mkNS (typeId (identifier s))
+      s@Sum {} -> Just $ (x ^. typesNS) <> mkNS (typeId (identifier s))
       Fun {} -> Nothing
 
 exposedModules :: Getter Library [NS]

@@ -10,7 +10,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.KeyMap as Aeson.KeyMap
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.List as List
-import qualified Data.Set as Set
+import Data.Set.Lens (setOf)
 import qualified Data.Text as Text
 import Gen.Import
 import qualified Gen.JSON as JSON
@@ -59,13 +59,9 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
           Dir "gen" $
             [ Dir "Amazonka" $
                 [ Dir svc $
-                    [ Dir
-                        "Types"
-                        ( concat
-                            [ mapMaybe shape $ l ^.. shapes . traverse,
-                              mapMaybe bootShape $ l ^.. shapes . traverse
-                            ]
-                        ),
+                    [ Dir "Types" $
+                        mapMaybe shape (l ^.. shapes . traverse)
+                          ++ mapMaybe bootShape (l ^.. shapes . traverse),
                       mod (l ^. typesNS) (typeImports l) typesTemplate,
                       mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
                       mod (l ^. lensNS) (lensImports l) lensTemplate
@@ -113,20 +109,25 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
     shape s = (\t -> write $ shape' l t s) <$> template
       where
         template = case s of
-          Prod _ _ _ -> Just productTemplate
-          Sum _ _ _ -> Just sumTemplate
-          Fun _ -> Nothing
+          Prod {} -> Just productTemplate
+          Sum {} -> Just sumTemplate
+          Fun {} -> Nothing
 
     bootShape :: SData -> Maybe (DirTree (Either String Touch))
     bootShape s = (\t -> write $ bootShape' l t s) <$> template
       where
         template = case s of
           Prod _ p _
-            | _prodName p `elem` Set.map snd (l ^. sourceImports') ->
-                Just bootProductTemplate
-            | _prodName p `elem` (l ^. extraBootShapes) ->
+            | _prodName p `elem` shapesNeedingBootHs ->
                 Just bootProductTemplate
           _ -> Nothing
+
+        shapesNeedingBootHs =
+          setOf
+            ( sourceImports' . Lens.folded . Lens._2
+                <> extraBootShapes . Lens.folded
+            )
+            l
 
     fixture :: Operation Identity SData a -> [DirTree (Either String Touch)]
     fixture o =
@@ -176,14 +177,14 @@ shape' ::
 shape' l template s =
   module'
     Module
-      { name = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s),
+      { name = l ^. typesNS <> mkNS (typeId (identifier s)),
         imports = imports s,
         template,
         env
       }
   where
     imports (Prod _ prod _) = productImports l prod
-    imports (Sum _ _ _) = sumImports l
+    imports Sum {} = sumImports l
     imports _ = []
 
     env = pure $! Aeson.object ["shape" .= s]
@@ -196,7 +197,7 @@ bootShape' ::
 bootShape' l template s =
   bootModule'
     Module
-      { name = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s),
+      { name = l ^. typesNS <> mkNS (typeId (identifier s)),
         imports =
           [ "qualified Amazonka.Data as Data",
             "qualified Amazonka.Prelude as Prelude"
@@ -255,7 +256,7 @@ render p tmpl a =
 touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
   File (Text.unpack f) $
-    bimap id Left (EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env))
+    Left <$> EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env)
 
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)

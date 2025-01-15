@@ -27,7 +27,7 @@ import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
 
 operationData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   Config ->
   a ->
   Operation Identity Ref (Pager Id) ->
@@ -50,8 +50,8 @@ operationData cfg m o = do
       . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
-  pure
-    $! o
+  pure $!
+    o
       { _opInput = Identity $ Prod (xa & relShared .~ 0) xd xis',
         _opOutput = Identity $ Prod ya yd yis'
       }
@@ -72,7 +72,7 @@ operationData cfg m o = do
     yn = identifier yr
 
 shapeData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Shape Solved ->
   Either String (Maybe SData)
@@ -88,7 +88,7 @@ shapeData m (a :< s) = case s of
     p = m ^. protocol
     r = a ^. relMode
 
-addInstances :: TypeOf a => a -> [Field] -> [Inst] -> [Inst]
+addInstances :: (TypeOf a) => a -> [Field] -> [Inst] -> [Inst]
 addInstances s fs =
   cons isHashable (IsHashable fs)
     . cons isNFData (IsNFData fs)
@@ -98,7 +98,7 @@ addInstances s fs =
       | otherwise = id
 
 errorData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Solved ->
   Info ->
@@ -163,7 +163,7 @@ sumData p s i vs = Sum s <$> mk <*> fmap HashMap.keys insts
     n = s ^. annId
 
 prodData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Solved ->
   StructF (Shape Solved) ->
@@ -258,7 +258,8 @@ prodData m s st = (,fields) <$> mk
       pp None $
         Exts.Deriving () Nothing $
           map (Exts.IRule () Nothing Nothing) $
-            mapMaybe deriveInstHead $ derivingOf s
+            mapMaybe deriveInstHead $
+              derivingOf s
 
     deriveInstHead :: Derive -> Maybe (Exts.InstHead ())
     deriveInstHead d = do
@@ -305,8 +306,8 @@ prodData m s st = (,fields) <$> mk
 
     dependencies = foldMap go fields
       where
-        go :: TypeOf a => a -> Set.Set Text
-        go f = case (typeOf f) of
+        go :: (TypeOf a) => a -> Set.Set Text
+        go f = case typeOf f of
           TType x _ -> tTypeDep x
           TLit _ -> Set.empty
           TNatural -> Set.empty
@@ -319,7 +320,7 @@ prodData m s st = (,fields) <$> mk
 
         tTypeDep :: Text -> Set.Set Text
         tTypeDep x =
-          if (stripped /= typeId n)
+          if stripped /= typeId n
             then Set.singleton stripped
             else Set.empty
           where
@@ -333,7 +334,7 @@ renderInsts p n = fmap HashMap.fromList . traverse go
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
 serviceData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Retry ->
   Either String Fun
@@ -352,7 +353,7 @@ serviceData m r =
           <> " configuration."
 
 waiterData ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   HashMap Id (Operation Identity Ref b) ->
   Id ->
@@ -370,7 +371,8 @@ waiterData m os n w = do
   pure $! WData (typeId n) (_opName o) c
   where
     missingErr i xs =
-      "Missing operation " ++ Text.unpack (memberId i)
+      "Missing operation "
+        ++ Text.unpack (memberId i)
         ++ " when rendering waiter "
         ++ ", possible matches: "
         ++ partial i xs
@@ -391,7 +393,7 @@ waiterData m os n w = do
     key = _waitOperation w
 
 waiterFields ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Operation Identity Ref b ->
   Waiter Id ->
@@ -406,7 +408,7 @@ waiterFields m o = Lens.traverseOf (waitAcceptors . Lens.each) go
       pure $! x & acceptArgument .~ n
 
 pagerFields ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Operation Identity Ref (Pager Id) ->
   Either String (Maybe (Pager Field))
@@ -428,7 +430,7 @@ pagerFields m o = traverse go (o ^. opPager)
         <*> notation m out y
 
 notation ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Shape Solved ->
   Notation Id ->
@@ -493,9 +495,8 @@ data PP
   | None
   deriving stock (Eq)
 
-pp :: Pretty a => PP -> a -> Either String Rendered
-pp i d
-  | otherwise = pure (Text.Lazy.fromStrict (Text.Encoding.decodeUtf8 printed))
+pp :: (Pretty a) => PP -> a -> Either String Rendered
+pp i d = pure (Text.Lazy.fromStrict (Text.Encoding.decodeUtf8 printed))
   where
     printed =
       ByteString.Char8.dropWhile Char.isSpace . ByteString.Char8.pack $
@@ -508,9 +509,9 @@ pp i d
           Exts.ribbonsPerLine = 1.5
         }
 
-    mode
-      | i == Print = Exts.defaultMode
-      | otherwise =
+    mode = case i of
+      Print -> Exts.defaultMode
+      None ->
         Exts.defaultMode
           { Exts.layout = Exts.PPNoLayout,
             Exts.spacing = False

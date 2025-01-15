@@ -84,7 +84,7 @@ toXMap, toQMap :: Exp
 toXMap = var "Data.toXMLMap"
 toQMap = var "Data.toQueryMap"
 
-ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
+ctorS :: (HasMetadata a Identity) => a -> Id -> [Field] -> Decl
 ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
   where
     ty = foldr (Exts.TyFun ()) (tycon (typeId n)) ps
@@ -111,7 +111,7 @@ fieldUpdate f = field (unqual (fieldAccessor f)) rhs
 
     pat = Exts.Var () (Exts.UnQual () (fieldParamName f))
 
-lensS :: HasMetadata a Identity => a -> TType -> Field -> Decl
+lensS :: (HasMetadata a Identity) => a -> TType -> Field -> Decl
 lensS m type' f =
   Exts.TypeSig () [ident (fieldLens f)] $
     tyapp
@@ -147,7 +147,7 @@ errorS n =
           `tyapp` tyvar "a"
           `tyapp` tycon "Core.ServiceError"
 
-errorD :: HasMetadata a Identity => a -> Text -> Maybe Int -> Text -> Decl
+errorD :: (HasMetadata a Identity) => a -> Text -> Maybe Int -> Text -> Decl
 errorD m n s c =
   Exts.sfun (ident n) [] (unguarded (maybe rhs status s)) Exts.noBinds
   where
@@ -177,7 +177,7 @@ dataD n fs cs = Exts.DataDecl () arity Nothing head' fs [derives]
     rule c =
       Exts.IRule () Nothing Nothing (Exts.IHCon () (unqual c))
 
-recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
+recordD :: (HasMetadata a Identity) => a -> Id -> [Field] -> QualConDecl
 recordD m n =
   conD . \case
     [] -> Exts.ConDecl () c []
@@ -191,10 +191,10 @@ recordD m n =
 conD :: ConDecl -> QualConDecl
 conD = Exts.QualConDecl () Nothing Nothing
 
-serviceS :: HasMetadata a Identity => a -> Decl
+serviceS :: (HasMetadata a Identity) => a -> Decl
 serviceS m = Exts.TypeSig () [ident (m ^. serviceConfig)] (tycon "Core.Service")
 
-serviceD :: HasMetadata a Identity => a -> Retry -> Decl
+serviceD :: (HasMetadata a Identity) => a -> Retry -> Decl
 serviceD m r = Exts.patBindWhere (pvar n) rhs bs
   where
     bs = [try Exts.noBinds, chk Exts.noBinds]
@@ -345,7 +345,7 @@ notationE' withLensIso = \case
     accessors f
       | not withLensIso = var (fieldLens f)
       | otherwise =
-          foldl' (\a b -> Exts.infixApp a "Prelude.." b) (var (fieldLens f)) $
+          foldl' (`Exts.infixApp` "Prelude..") (var (fieldLens f)) $
             lensIso (typeOf f)
 
     lensIso = \case
@@ -354,7 +354,7 @@ notationE' withLensIso = \case
       _other -> []
 
 requestD ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   Config ->
   a ->
   HTTP ->
@@ -465,7 +465,7 @@ hashableD n fs =
           foldl' hashWithSaltE (Exts.var "_salt") $
             var . fieldAccessor <$> fs
 
-    hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
+    hashWithSaltE = (`Exts.infixApp` "`Prelude.hashWithSalt`")
 
 nfDataD :: Id -> [Field] -> Decl
 nfDataD n fs =
@@ -481,9 +481,9 @@ nfDataD n fs =
       Nothing -> Exts.tuple []
       Just rnfs -> foldr1 seqE rnfs
 
-    rnfE = Exts.app (var "Prelude.rnf")
+    rnfE = (var "Prelude.rnf" `Exts.app`)
 
-    seqE l r = Exts.infixApp l "`Prelude.seq`" r
+    seqE = (`Exts.infixApp` "`Prelude.seq`")
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl
@@ -787,7 +787,7 @@ inputNames p f = Proto.nestedNames p Input (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
 requestF ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   Config ->
   a ->
   HTTP ->
@@ -840,7 +840,7 @@ responseF p r fs
   | any fieldStream fs = var "Response.receiveBody"
   | any fieldLitPayload fs = var "Response.receiveBytes"
   | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
-  | all (not . fieldBody) fs = var "Response.receiveEmpty"
+  | not $ any fieldBody fs = var "Response.receiveEmpty"
   | otherwise = var suf
   where
     suf = "Response.receive" <> Proto.suffix p
@@ -901,10 +901,10 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
             \y -> Exts.infixApp y "Prelude.." (Exts.app (var "Lens.to") (var "Data.toTextCI"))
           _ -> id
 
-signature :: HasMetadata a Identity => a -> TType -> Type
+signature :: (HasMetadata a Identity) => a -> TType -> Type
 signature m = directed False m Nothing
 
-internal, external :: HasMetadata a Identity => a -> Field -> Type
+internal, external :: (HasMetadata a Identity) => a -> Field -> Type
 internal m f = directed True m (_fieldDirection f) f
 external m f = directed False m (_fieldDirection f) f
 

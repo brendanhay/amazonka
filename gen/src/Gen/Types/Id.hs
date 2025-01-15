@@ -73,7 +73,7 @@ mkId t = Id t (format t)
 format :: Text -> Text
 format = upperHead . Text.dropWhile (not . Char.isAlpha)
 
-partial :: Show a => Id -> HashMap Id a -> String
+partial :: (Show a) => Id -> HashMap Id a -> String
 partial p m =
   let text = Text.take 3 (memberId p)
       matches = HashMap.filterWithKey (const . Text.isPrefixOf text . memberId) m
@@ -105,7 +105,7 @@ accessorId :: Id -> Text
 accessorId = renameReserved . lowerHead . memberId
 
 lensId :: Maybe Text -> Id -> Text
-lensId p = accessor p
+lensId = accessor
 
 accessor :: Maybe Text -> Id -> Text
 accessor Nothing = lowerHead . Lens.view representation

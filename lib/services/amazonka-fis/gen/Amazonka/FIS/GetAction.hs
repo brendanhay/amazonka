@@ -150,5 +150,5 @@ getActionResponse_httpStatus = Lens.lens (\GetActionResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetActionResponse where
   rnf GetActionResponse' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf httpStatus

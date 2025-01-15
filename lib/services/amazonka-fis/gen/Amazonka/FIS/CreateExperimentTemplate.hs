@@ -206,14 +206,14 @@ instance Prelude.Hashable CreateExperimentTemplate where
 
 instance Prelude.NFData CreateExperimentTemplate where
   rnf CreateExperimentTemplate' {..} =
-    Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf stopConditions
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf logConfiguration `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf targets `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf stopConditions `Prelude.seq`
+                Prelude.rnf actions `Prelude.seq`
+                  Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateExperimentTemplate where
   toHeaders =
@@ -293,5 +293,5 @@ instance
     CreateExperimentTemplateResponse
   where
   rnf CreateExperimentTemplateResponse' {..} =
-    Prelude.rnf experimentTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

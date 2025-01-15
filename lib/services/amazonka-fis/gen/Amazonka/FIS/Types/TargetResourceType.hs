@@ -92,6 +92,6 @@ instance Prelude.Hashable TargetResourceType where
 
 instance Prelude.NFData TargetResourceType where
   rnf TargetResourceType' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf resourceType

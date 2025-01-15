@@ -167,13 +167,13 @@ instance Prelude.Hashable UpdateExperimentTemplate where
 
 instance Prelude.NFData UpdateExperimentTemplate where
   rnf UpdateExperimentTemplate' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf stopConditions
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf logConfiguration `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf stopConditions `Prelude.seq`
+              Prelude.rnf targets `Prelude.seq`
+                Prelude.rnf id
 
 instance Data.ToHeaders UpdateExperimentTemplate where
   toHeaders =
@@ -253,5 +253,5 @@ instance
     UpdateExperimentTemplateResponse
   where
   rnf UpdateExperimentTemplateResponse' {..} =
-    Prelude.rnf experimentTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

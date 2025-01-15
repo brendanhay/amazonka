@@ -114,8 +114,8 @@ instance Prelude.Hashable ExperimentSummary where
 
 instance Prelude.NFData ExperimentSummary where
   rnf ExperimentSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf experimentTemplateId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf experimentTemplateId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags

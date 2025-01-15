@@ -118,8 +118,8 @@ instance Prelude.Hashable ListTargetResourceTypes where
 
 instance Prelude.NFData ListTargetResourceTypes where
   rnf ListTargetResourceTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTargetResourceTypes where
   toHeaders =
@@ -198,6 +198,6 @@ instance
     ListTargetResourceTypesResponse
   where
   rnf ListTargetResourceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetResourceTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf targetResourceTypes `Prelude.seq`
+        Prelude.rnf httpStatus

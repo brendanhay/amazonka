@@ -117,8 +117,8 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf targets

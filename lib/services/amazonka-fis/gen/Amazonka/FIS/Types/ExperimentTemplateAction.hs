@@ -117,8 +117,8 @@ instance Prelude.Hashable ExperimentTemplateAction where
 
 instance Prelude.NFData ExperimentTemplateAction where
   rnf ExperimentTemplateAction' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf startAfter `Prelude.seq`
+            Prelude.rnf targets

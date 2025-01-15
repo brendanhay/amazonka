@@ -103,7 +103,7 @@ instance Prelude.Hashable ActionSummary where
 
 instance Prelude.NFData ActionSummary where
   rnf ActionSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf targets

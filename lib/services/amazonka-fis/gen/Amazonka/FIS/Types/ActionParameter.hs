@@ -80,5 +80,5 @@ instance Prelude.Hashable ActionParameter where
 
 instance Prelude.NFData ActionParameter where
   rnf ActionParameter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf required

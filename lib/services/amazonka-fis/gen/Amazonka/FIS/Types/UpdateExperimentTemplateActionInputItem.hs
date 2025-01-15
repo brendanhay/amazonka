@@ -115,11 +115,11 @@ instance
     UpdateExperimentTemplateActionInputItem
   where
   rnf UpdateExperimentTemplateActionInputItem' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf startAfter `Prelude.seq`
+            Prelude.rnf targets
 
 instance
   Data.ToJSON

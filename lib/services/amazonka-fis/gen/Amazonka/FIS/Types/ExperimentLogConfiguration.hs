@@ -94,6 +94,6 @@ instance Prelude.Hashable ExperimentLogConfiguration where
 
 instance Prelude.NFData ExperimentLogConfiguration where
   rnf ExperimentLogConfiguration' {..} =
-    Prelude.rnf cloudWatchLogsConfiguration
-      `Prelude.seq` Prelude.rnf logSchemaVersion
-      `Prelude.seq` Prelude.rnf s3Configuration
+    Prelude.rnf cloudWatchLogsConfiguration `Prelude.seq`
+      Prelude.rnf logSchemaVersion `Prelude.seq`
+        Prelude.rnf s3Configuration

@@ -114,8 +114,8 @@ instance Prelude.Hashable ExperimentTemplateSummary where
 
 instance Prelude.NFData ExperimentTemplateSummary where
   rnf ExperimentTemplateSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf tags

@@ -112,8 +112,8 @@ instance Prelude.Hashable ListActions where
 
 instance Prelude.NFData ListActions where
   rnf ListActions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListActions where
   toHeaders =
@@ -188,6 +188,6 @@ listActionsResponse_httpStatus = Lens.lens (\ListActionsResponse' {httpStatus} -
 
 instance Prelude.NFData ListActionsResponse where
   rnf ListActionsResponse' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

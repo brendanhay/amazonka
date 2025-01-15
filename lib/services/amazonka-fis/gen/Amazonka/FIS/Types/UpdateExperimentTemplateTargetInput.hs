@@ -134,12 +134,12 @@ instance
     UpdateExperimentTemplateTargetInput
   where
   rnf UpdateExperimentTemplateTargetInput' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf selectionMode
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf resourceArns `Prelude.seq`
+          Prelude.rnf resourceTags `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf selectionMode
 
 instance
   Data.ToJSON

@@ -139,10 +139,10 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf applicationDescription `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =

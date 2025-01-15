@@ -213,15 +213,15 @@ instance Prelude.Hashable Insight where
 
 instance Prelude.NFData Insight where
   rnf Insight' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf clientRequestImpactStatistics
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf rootCauseServiceId
-      `Prelude.seq` Prelude.rnf rootCauseServiceRequestImpactStatistics
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf topAnomalousServices
+    Prelude.rnf categories `Prelude.seq`
+      Prelude.rnf clientRequestImpactStatistics `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf groupARN `Prelude.seq`
+            Prelude.rnf groupName `Prelude.seq`
+              Prelude.rnf insightId `Prelude.seq`
+                Prelude.rnf rootCauseServiceId `Prelude.seq`
+                  Prelude.rnf rootCauseServiceRequestImpactStatistics `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf summary `Prelude.seq`
+                          Prelude.rnf topAnomalousServices

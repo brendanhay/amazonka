@@ -130,9 +130,9 @@ instance Prelude.Hashable GetInsightEvents where
 
 instance Prelude.NFData GetInsightEvents where
   rnf GetInsightEvents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf insightId
 
 instance Data.ToHeaders GetInsightEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,6 +209,6 @@ getInsightEventsResponse_httpStatus = Lens.lens (\GetInsightEventsResponse' {htt
 
 instance Prelude.NFData GetInsightEventsResponse where
   rnf GetInsightEventsResponse' {..} =
-    Prelude.rnf insightEvents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightEvents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

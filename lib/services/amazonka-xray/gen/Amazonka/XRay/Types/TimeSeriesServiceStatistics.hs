@@ -119,8 +119,8 @@ instance Prelude.Hashable TimeSeriesServiceStatistics where
 
 instance Prelude.NFData TimeSeriesServiceStatistics where
   rnf TimeSeriesServiceStatistics' {..} =
-    Prelude.rnf edgeSummaryStatistics
-      `Prelude.seq` Prelude.rnf responseTimeHistogram
-      `Prelude.seq` Prelude.rnf serviceForecastStatistics
-      `Prelude.seq` Prelude.rnf serviceSummaryStatistics
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf edgeSummaryStatistics `Prelude.seq`
+      Prelude.rnf responseTimeHistogram `Prelude.seq`
+        Prelude.rnf serviceForecastStatistics `Prelude.seq`
+          Prelude.rnf serviceSummaryStatistics `Prelude.seq`
+            Prelude.rnf timestamp

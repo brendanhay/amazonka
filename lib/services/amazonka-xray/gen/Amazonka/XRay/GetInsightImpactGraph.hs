@@ -169,10 +169,10 @@ instance Prelude.Hashable GetInsightImpactGraph where
 
 instance Prelude.NFData GetInsightImpactGraph where
   rnf GetInsightImpactGraph' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf insightId `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime
 
 instance Data.ToHeaders GetInsightImpactGraph where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,11 +289,11 @@ getInsightImpactGraphResponse_httpStatus = Lens.lens (\GetInsightImpactGraphResp
 
 instance Prelude.NFData GetInsightImpactGraphResponse where
   rnf GetInsightImpactGraphResponse' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceGraphEndTime
-      `Prelude.seq` Prelude.rnf serviceGraphStartTime
-      `Prelude.seq` Prelude.rnf services
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf insightId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceGraphEndTime `Prelude.seq`
+            Prelude.rnf serviceGraphStartTime `Prelude.seq`
+              Prelude.rnf services `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf httpStatus

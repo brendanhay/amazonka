@@ -81,5 +81,5 @@ instance Prelude.Hashable TraceUser where
 
 instance Prelude.NFData TraceUser where
   rnf TraceUser' {..} =
-    Prelude.rnf serviceIds
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serviceIds `Prelude.seq`
+      Prelude.rnf userName

@@ -122,8 +122,8 @@ instance Prelude.Hashable ServiceStatistics where
 
 instance Prelude.NFData ServiceStatistics where
   rnf ServiceStatistics' {..} =
-    Prelude.rnf errorStatistics
-      `Prelude.seq` Prelude.rnf faultStatistics
-      `Prelude.seq` Prelude.rnf okCount
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf totalResponseTime
+    Prelude.rnf errorStatistics `Prelude.seq`
+      Prelude.rnf faultStatistics `Prelude.seq`
+        Prelude.rnf okCount `Prelude.seq`
+          Prelude.rnf totalCount `Prelude.seq`
+            Prelude.rnf totalResponseTime

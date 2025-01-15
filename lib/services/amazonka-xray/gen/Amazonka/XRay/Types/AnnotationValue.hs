@@ -92,6 +92,6 @@ instance Prelude.Hashable AnnotationValue where
 
 instance Prelude.NFData AnnotationValue where
   rnf AnnotationValue' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf numberValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf numberValue `Prelude.seq`
+        Prelude.rnf stringValue

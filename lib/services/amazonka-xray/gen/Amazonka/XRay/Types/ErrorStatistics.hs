@@ -98,6 +98,6 @@ instance Prelude.Hashable ErrorStatistics where
 
 instance Prelude.NFData ErrorStatistics where
   rnf ErrorStatistics' {..} =
-    Prelude.rnf otherCount
-      `Prelude.seq` Prelude.rnf throttleCount
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf otherCount `Prelude.seq`
+      Prelude.rnf throttleCount `Prelude.seq`
+        Prelude.rnf totalCount

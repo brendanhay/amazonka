@@ -254,16 +254,16 @@ instance Prelude.Hashable ServiceInfo where
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf durationHistogram
-      `Prelude.seq` Prelude.rnf edges
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf responseTimeHistogram
-      `Prelude.seq` Prelude.rnf root
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf summaryStatistics
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf durationHistogram `Prelude.seq`
+        Prelude.rnf edges `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf names `Prelude.seq`
+                Prelude.rnf referenceId `Prelude.seq`
+                  Prelude.rnf responseTimeHistogram `Prelude.seq`
+                    Prelude.rnf root `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf summaryStatistics `Prelude.seq`
+                            Prelude.rnf type'

@@ -198,10 +198,10 @@ instance Prelude.Hashable PutResourcePolicy where
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf bypassPolicyLockoutCheck
-      `Prelude.seq` Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf bypassPolicyLockoutCheck `Prelude.seq`
+      Prelude.rnf policyRevisionId `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutResourcePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,5 +270,5 @@ putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {h
 
 instance Prelude.NFData PutResourcePolicyResponse where
   rnf PutResourcePolicyResponse' {..} =
-    Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourcePolicy `Prelude.seq`
+      Prelude.rnf httpStatus

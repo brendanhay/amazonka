@@ -93,6 +93,6 @@ instance Prelude.Hashable ErrorRootCauseEntity where
 
 instance Prelude.NFData ErrorRootCauseEntity where
   rnf ErrorRootCauseEntity' {..} =
-    Prelude.rnf exceptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf remote
+    Prelude.rnf exceptions `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf remote

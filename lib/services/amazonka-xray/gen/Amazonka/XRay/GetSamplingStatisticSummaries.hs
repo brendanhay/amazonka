@@ -94,12 +94,12 @@ instance Core.AWSPager GetSamplingStatisticSummaries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSamplingStatisticSummaries_nextToken
-          Lens..~ rs
-          Lens.^? getSamplingStatisticSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSamplingStatisticSummaries_nextToken
+              Lens..~ rs
+              Lens.^? getSamplingStatisticSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,6 +206,6 @@ instance
     GetSamplingStatisticSummariesResponse
   where
   rnf GetSamplingStatisticSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf samplingStatisticSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf samplingStatisticSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

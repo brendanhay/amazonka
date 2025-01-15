@@ -91,12 +91,12 @@ instance Core.AWSPager ListResourcePolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourcePolicies_nextToken
-          Lens..~ rs
-          Lens.^? listResourcePoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourcePolicies_nextToken
+              Lens..~ rs
+              Lens.^? listResourcePoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourcePolicies where
   type
@@ -189,6 +189,6 @@ listResourcePoliciesResponse_httpStatus = Lens.lens (\ListResourcePoliciesRespon
 
 instance Prelude.NFData ListResourcePoliciesResponse where
   rnf ListResourcePoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourcePolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourcePolicies `Prelude.seq`
+        Prelude.rnf httpStatus

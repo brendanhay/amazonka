@@ -123,8 +123,8 @@ instance Prelude.Hashable SamplingTargetDocument where
 
 instance Prelude.NFData SamplingTargetDocument where
   rnf SamplingTargetDocument' {..} =
-    Prelude.rnf fixedRate
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf reservoirQuota
-      `Prelude.seq` Prelude.rnf reservoirQuotaTTL
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf fixedRate `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf reservoirQuota `Prelude.seq`
+          Prelude.rnf reservoirQuotaTTL `Prelude.seq`
+            Prelude.rnf ruleName

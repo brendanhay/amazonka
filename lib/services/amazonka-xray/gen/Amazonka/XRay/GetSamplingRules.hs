@@ -90,12 +90,12 @@ instance Core.AWSPager GetSamplingRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSamplingRules_nextToken
-          Lens..~ rs
-          Lens.^? getSamplingRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSamplingRules_nextToken
+              Lens..~ rs
+              Lens.^? getSamplingRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSamplingRules where
   type
@@ -188,6 +188,6 @@ getSamplingRulesResponse_httpStatus = Lens.lens (\GetSamplingRulesResponse' {htt
 
 instance Prelude.NFData GetSamplingRulesResponse where
   rnf GetSamplingRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf samplingRuleRecords
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf samplingRuleRecords `Prelude.seq`
+        Prelude.rnf httpStatus

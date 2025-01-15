@@ -136,8 +136,8 @@ instance Prelude.Hashable InsightEvent where
 
 instance Prelude.NFData InsightEvent where
   rnf InsightEvent' {..} =
-    Prelude.rnf clientRequestImpactStatistics
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf rootCauseServiceRequestImpactStatistics
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf topAnomalousServices
+    Prelude.rnf clientRequestImpactStatistics `Prelude.seq`
+      Prelude.rnf eventTime `Prelude.seq`
+        Prelude.rnf rootCauseServiceRequestImpactStatistics `Prelude.seq`
+          Prelude.rnf summary `Prelude.seq`
+            Prelude.rnf topAnomalousServices

@@ -167,11 +167,11 @@ instance Prelude.Hashable Edge where
 
 instance Prelude.NFData Edge where
   rnf Edge' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf edgeType
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf receivedEventAgeHistogram
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf responseTimeHistogram
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf summaryStatistics
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf edgeType `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf receivedEventAgeHistogram `Prelude.seq`
+            Prelude.rnf referenceId `Prelude.seq`
+              Prelude.rnf responseTimeHistogram `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf summaryStatistics

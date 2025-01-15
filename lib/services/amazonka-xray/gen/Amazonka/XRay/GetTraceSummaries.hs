@@ -190,12 +190,12 @@ instance Core.AWSPager GetTraceSummaries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTraceSummaries_nextToken
-          Lens..~ rs
-          Lens.^? getTraceSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTraceSummaries_nextToken
+              Lens..~ rs
+              Lens.^? getTraceSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTraceSummaries where
   type
@@ -227,13 +227,13 @@ instance Prelude.Hashable GetTraceSummaries where
 
 instance Prelude.NFData GetTraceSummaries where
   rnf GetTraceSummaries' {..} =
-    Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sampling
-      `Prelude.seq` Prelude.rnf samplingStrategy
-      `Prelude.seq` Prelude.rnf timeRangeType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf filterExpression `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sampling `Prelude.seq`
+          Prelude.rnf samplingStrategy `Prelude.seq`
+            Prelude.rnf timeRangeType `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf endTime
 
 instance Data.ToHeaders GetTraceSummaries where
   toHeaders = Prelude.const Prelude.mempty
@@ -340,8 +340,8 @@ getTraceSummariesResponse_httpStatus = Lens.lens (\GetTraceSummariesResponse' {h
 
 instance Prelude.NFData GetTraceSummariesResponse where
   rnf GetTraceSummariesResponse' {..} =
-    Prelude.rnf approximateTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf traceSummaries
-      `Prelude.seq` Prelude.rnf tracesProcessedCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateTime `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf traceSummaries `Prelude.seq`
+          Prelude.rnf tracesProcessedCount `Prelude.seq`
+            Prelude.rnf httpStatus

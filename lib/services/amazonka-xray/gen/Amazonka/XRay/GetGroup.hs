@@ -104,8 +104,8 @@ instance Prelude.Hashable GetGroup where
 
 instance Prelude.NFData GetGroup where
   rnf GetGroup' {..} =
-    Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupARN `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToHeaders GetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,5 +171,5 @@ getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetGroupResponse where
   rnf GetGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf httpStatus

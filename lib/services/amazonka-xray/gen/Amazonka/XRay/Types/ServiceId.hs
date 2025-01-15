@@ -94,7 +94,7 @@ instance Prelude.Hashable ServiceId where
 
 instance Prelude.NFData ServiceId where
   rnf ServiceId' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf names `Prelude.seq`
+          Prelude.rnf type'

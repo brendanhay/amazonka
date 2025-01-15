@@ -124,7 +124,7 @@ instance Prelude.Hashable GroupSummary where
 
 instance Prelude.NFData GroupSummary where
   rnf GroupSummary' {..} =
-    Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf insightsConfiguration
+    Prelude.rnf filterExpression `Prelude.seq`
+      Prelude.rnf groupARN `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf insightsConfiguration

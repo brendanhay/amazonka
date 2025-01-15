@@ -92,6 +92,6 @@ instance Prelude.Hashable UnprocessedTraceSegment where
 
 instance Prelude.NFData UnprocessedTraceSegment where
   rnf UnprocessedTraceSegment' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf message

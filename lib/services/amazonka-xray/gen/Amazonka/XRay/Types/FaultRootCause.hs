@@ -84,5 +84,5 @@ instance Prelude.Hashable FaultRootCause where
 
 instance Prelude.NFData FaultRootCause where
   rnf FaultRootCause' {..} =
-    Prelude.rnf clientImpacting
-      `Prelude.seq` Prelude.rnf services
+    Prelude.rnf clientImpacting `Prelude.seq`
+      Prelude.rnf services

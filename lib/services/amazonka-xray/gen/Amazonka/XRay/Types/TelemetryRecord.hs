@@ -102,12 +102,12 @@ instance Prelude.Hashable TelemetryRecord where
 
 instance Prelude.NFData TelemetryRecord where
   rnf TelemetryRecord' {..} =
-    Prelude.rnf backendConnectionErrors
-      `Prelude.seq` Prelude.rnf segmentsReceivedCount
-      `Prelude.seq` Prelude.rnf segmentsRejectedCount
-      `Prelude.seq` Prelude.rnf segmentsSentCount
-      `Prelude.seq` Prelude.rnf segmentsSpilloverCount
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf backendConnectionErrors `Prelude.seq`
+      Prelude.rnf segmentsReceivedCount `Prelude.seq`
+        Prelude.rnf segmentsRejectedCount `Prelude.seq`
+          Prelude.rnf segmentsSentCount `Prelude.seq`
+            Prelude.rnf segmentsSpilloverCount `Prelude.seq`
+              Prelude.rnf timestamp
 
 instance Data.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =

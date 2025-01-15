@@ -140,10 +140,10 @@ instance Prelude.Hashable ListApplicationInstances where
 
 instance Prelude.NFData ListApplicationInstances where
   rnf ListApplicationInstances' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListApplicationInstances where
   toHeaders =
@@ -221,6 +221,6 @@ instance
     ListApplicationInstancesResponse
   where
   rnf ListApplicationInstancesResponse' {..} =
-    Prelude.rnf applicationInstances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInstances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

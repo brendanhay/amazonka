@@ -126,8 +126,8 @@ instance
     SignalApplicationInstanceNodeInstances
   where
   rnf SignalApplicationInstanceNodeInstances' {..} =
-    Prelude.rnf applicationInstanceId
-      `Prelude.seq` Prelude.rnf nodeSignals
+    Prelude.rnf applicationInstanceId `Prelude.seq`
+      Prelude.rnf nodeSignals
 
 instance
   Data.ToHeaders
@@ -220,5 +220,5 @@ instance
   where
   rnf
     SignalApplicationInstanceNodeInstancesResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf applicationInstanceId
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf applicationInstanceId

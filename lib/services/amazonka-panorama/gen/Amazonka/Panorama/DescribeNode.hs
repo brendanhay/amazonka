@@ -132,8 +132,8 @@ instance Prelude.Hashable DescribeNode where
 
 instance Prelude.NFData DescribeNode where
   rnf DescribeNode' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf nodeId
+    Prelude.rnf ownerAccount `Prelude.seq`
+      Prelude.rnf nodeId
 
 instance Data.ToHeaders DescribeNode where
   toHeaders =
@@ -350,18 +350,18 @@ describeNodeResponse_patchVersion = Lens.lens (\DescribeNodeResponse' {patchVers
 
 instance Prelude.NFData DescribeNodeResponse where
   rnf DescribeNodeResponse' {..} =
-    Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf packageArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf nodeInterface
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
+    Prelude.rnf assetName `Prelude.seq`
+      Prelude.rnf packageArn `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf category `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf nodeId `Prelude.seq`
+                      Prelude.rnf nodeInterface `Prelude.seq`
+                        Prelude.rnf ownerAccount `Prelude.seq`
+                          Prelude.rnf packageId `Prelude.seq`
+                            Prelude.rnf packageName `Prelude.seq`
+                              Prelude.rnf packageVersion `Prelude.seq`
+                                Prelude.rnf patchVersion

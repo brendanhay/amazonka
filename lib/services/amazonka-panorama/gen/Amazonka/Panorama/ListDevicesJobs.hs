@@ -122,9 +122,9 @@ instance Prelude.Hashable ListDevicesJobs where
 
 instance Prelude.NFData ListDevicesJobs where
   rnf ListDevicesJobs' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDevicesJobs where
   toHeaders =
@@ -198,6 +198,6 @@ listDevicesJobsResponse_httpStatus = Lens.lens (\ListDevicesJobsResponse' {httpS
 
 instance Prelude.NFData ListDevicesJobsResponse where
   rnf ListDevicesJobsResponse' {..} =
-    Prelude.rnf deviceJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -147,11 +147,11 @@ instance Prelude.Hashable RegisterPackageVersion where
 
 instance Prelude.NFData RegisterPackageVersion where
   rnf RegisterPackageVersion' {..} =
-    Prelude.rnf markLatest
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
+    Prelude.rnf markLatest `Prelude.seq`
+      Prelude.rnf ownerAccount `Prelude.seq`
+        Prelude.rnf packageId `Prelude.seq`
+          Prelude.rnf packageVersion `Prelude.seq`
+            Prelude.rnf patchVersion
 
 instance Data.ToHeaders RegisterPackageVersion where
   toHeaders =

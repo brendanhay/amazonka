@@ -325,19 +325,19 @@ instance
     DescribeApplicationInstanceResponse
   where
   rnf DescribeApplicationInstanceResponse' {..} =
-    Prelude.rnf applicationInstanceId
-      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeContextStates
-      `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInstanceId `Prelude.seq`
+      Prelude.rnf applicationInstanceIdToReplace `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf defaultRuntimeContextDevice `Prelude.seq`
+              Prelude.rnf defaultRuntimeContextDeviceName `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf healthStatus `Prelude.seq`
+                    Prelude.rnf lastUpdatedTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf runtimeContextStates `Prelude.seq`
+                          Prelude.rnf runtimeRoleArn `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf statusDescription `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf httpStatus

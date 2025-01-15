@@ -109,8 +109,8 @@ instance Prelude.Hashable ListPackages where
 
 instance Prelude.NFData ListPackages where
   rnf ListPackages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackages where
   toHeaders =
@@ -182,6 +182,6 @@ listPackagesResponse_httpStatus = Lens.lens (\ListPackagesResponse' {httpStatus}
 
 instance Prelude.NFData ListPackagesResponse where
   rnf ListPackagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf packages `Prelude.seq`
+        Prelude.rnf httpStatus

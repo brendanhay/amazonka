@@ -212,16 +212,16 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf brand
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf currentSoftware
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceAggregatedStatus
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf latestDeviceJob
-      `Prelude.seq` Prelude.rnf leaseExpirationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf brand `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf currentSoftware `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf deviceAggregatedStatus `Prelude.seq`
+              Prelude.rnf deviceId `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf latestDeviceJob `Prelude.seq`
+                    Prelude.rnf leaseExpirationTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf provisioningStatus `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf type'

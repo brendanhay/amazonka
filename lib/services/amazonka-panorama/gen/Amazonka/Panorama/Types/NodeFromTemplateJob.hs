@@ -126,9 +126,9 @@ instance Prelude.Hashable NodeFromTemplateJob where
 
 instance Prelude.NFData NodeFromTemplateJob where
   rnf NodeFromTemplateJob' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf nodeName `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf templateType

@@ -92,6 +92,6 @@ instance Prelude.Hashable EthernetStatus where
 
 instance Prelude.NFData EthernetStatus where
   rnf EthernetStatus' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf hwAddress
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf hwAddress `Prelude.seq`
+        Prelude.rnf ipAddress

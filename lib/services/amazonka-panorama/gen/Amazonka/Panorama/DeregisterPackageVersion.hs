@@ -147,11 +147,11 @@ instance Prelude.Hashable DeregisterPackageVersion where
 
 instance Prelude.NFData DeregisterPackageVersion where
   rnf DeregisterPackageVersion' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf updatedLatestPatchVersion
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
+    Prelude.rnf ownerAccount `Prelude.seq`
+      Prelude.rnf updatedLatestPatchVersion `Prelude.seq`
+        Prelude.rnf packageId `Prelude.seq`
+          Prelude.rnf packageVersion `Prelude.seq`
+            Prelude.rnf patchVersion
 
 instance Data.ToHeaders DeregisterPackageVersion where
   toHeaders =

@@ -114,8 +114,8 @@ instance Prelude.Hashable DeviceJob where
 
 instance Prelude.NFData DeviceJob where
   rnf DeviceJob' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf deviceName `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobType

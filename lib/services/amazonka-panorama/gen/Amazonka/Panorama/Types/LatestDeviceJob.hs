@@ -93,6 +93,6 @@ instance Prelude.Hashable LatestDeviceJob where
 
 instance Prelude.NFData LatestDeviceJob where
   rnf LatestDeviceJob' {..} =
-    Prelude.rnf imageVersion
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf imageVersion `Prelude.seq`
+      Prelude.rnf jobType `Prelude.seq`
+        Prelude.rnf status

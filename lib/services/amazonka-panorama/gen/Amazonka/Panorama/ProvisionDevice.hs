@@ -143,10 +143,10 @@ instance Prelude.Hashable ProvisionDevice where
 
 instance Prelude.NFData ProvisionDevice where
   rnf ProvisionDevice' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkingConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf networkingConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders ProvisionDevice where
   toHeaders =
@@ -269,9 +269,9 @@ provisionDeviceResponse_status = Lens.lens (\ProvisionDeviceResponse' {status} -
 
 instance Prelude.NFData ProvisionDeviceResponse where
   rnf ProvisionDeviceResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf iotThingName
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf iotThingName `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf status

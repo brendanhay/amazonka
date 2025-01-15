@@ -114,8 +114,8 @@ instance Prelude.Hashable NodeInputPort where
 
 instance Prelude.NFData NodeInputPort where
   rnf NodeInputPort' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxConnections
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxConnections `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'

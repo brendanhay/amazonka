@@ -118,7 +118,7 @@ instance Prelude.Hashable ReportedRuntimeContextState where
 
 instance Prelude.NFData ReportedRuntimeContextState where
   rnf ReportedRuntimeContextState' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf deviceReportedStatus
-      `Prelude.seq` Prelude.rnf deviceReportedTime
-      `Prelude.seq` Prelude.rnf runtimeContextName
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf deviceReportedStatus `Prelude.seq`
+        Prelude.rnf deviceReportedTime `Prelude.seq`
+          Prelude.rnf runtimeContextName

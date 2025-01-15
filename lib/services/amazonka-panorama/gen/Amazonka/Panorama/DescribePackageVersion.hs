@@ -153,10 +153,10 @@ instance Prelude.Hashable DescribePackageVersion where
 
 instance Prelude.NFData DescribePackageVersion where
   rnf DescribePackageVersion' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf patchVersion
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf ownerAccount `Prelude.seq`
+      Prelude.rnf patchVersion `Prelude.seq`
+        Prelude.rnf packageId `Prelude.seq`
+          Prelude.rnf packageVersion
 
 instance Data.ToHeaders DescribePackageVersion where
   toHeaders =
@@ -329,14 +329,14 @@ instance
     DescribePackageVersionResponse
   where
   rnf DescribePackageVersionResponse' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf packageArn
-      `Prelude.seq` Prelude.rnf registeredTime
-      `Prelude.seq` Prelude.rnf statusDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf isLatestPatch
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ownerAccount `Prelude.seq`
+      Prelude.rnf packageArn `Prelude.seq`
+        Prelude.rnf registeredTime `Prelude.seq`
+          Prelude.rnf statusDescription `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf isLatestPatch `Prelude.seq`
+                Prelude.rnf packageId `Prelude.seq`
+                  Prelude.rnf packageName `Prelude.seq`
+                    Prelude.rnf packageVersion `Prelude.seq`
+                      Prelude.rnf patchVersion `Prelude.seq`
+                        Prelude.rnf status

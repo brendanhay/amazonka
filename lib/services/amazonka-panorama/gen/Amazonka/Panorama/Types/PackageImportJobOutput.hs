@@ -116,7 +116,7 @@ instance Prelude.Hashable PackageImportJobOutput where
 
 instance Prelude.NFData PackageImportJobOutput where
   rnf PackageImportJobOutput' {..} =
-    Prelude.rnf outputS3Location
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
+    Prelude.rnf outputS3Location `Prelude.seq`
+      Prelude.rnf packageId `Prelude.seq`
+        Prelude.rnf packageVersion `Prelude.seq`
+          Prelude.rnf patchVersion

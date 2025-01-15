@@ -123,9 +123,9 @@ instance Prelude.Hashable CreateJobForDevices where
 
 instance Prelude.NFData CreateJobForDevices where
   rnf CreateJobForDevices' {..} =
-    Prelude.rnf deviceJobConfig
-      `Prelude.seq` Prelude.rnf deviceIds
-      `Prelude.seq` Prelude.rnf jobType
+    Prelude.rnf deviceJobConfig `Prelude.seq`
+      Prelude.rnf deviceIds `Prelude.seq`
+        Prelude.rnf jobType
 
 instance Data.ToHeaders CreateJobForDevices where
   toHeaders =
@@ -196,5 +196,5 @@ createJobForDevicesResponse_jobs = Lens.lens (\CreateJobForDevicesResponse' {job
 
 instance Prelude.NFData CreateJobForDevicesResponse where
   rnf CreateJobForDevicesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobs
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobs

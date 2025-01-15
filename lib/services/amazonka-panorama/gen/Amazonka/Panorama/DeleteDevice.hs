@@ -151,5 +151,5 @@ deleteDeviceResponse_httpStatus = Lens.lens (\DeleteDeviceResponse' {httpStatus}
 
 instance Prelude.NFData DeleteDeviceResponse where
   rnf DeleteDeviceResponse' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf httpStatus

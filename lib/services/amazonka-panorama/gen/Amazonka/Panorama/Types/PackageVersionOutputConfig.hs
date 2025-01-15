@@ -98,9 +98,9 @@ instance Prelude.Hashable PackageVersionOutputConfig where
 
 instance Prelude.NFData PackageVersionOutputConfig where
   rnf PackageVersionOutputConfig' {..} =
-    Prelude.rnf markLatest
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf markLatest `Prelude.seq`
+      Prelude.rnf packageName `Prelude.seq`
+        Prelude.rnf packageVersion
 
 instance Data.ToJSON PackageVersionOutputConfig where
   toJSON PackageVersionOutputConfig' {..} =

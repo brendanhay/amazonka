@@ -118,8 +118,8 @@ instance Prelude.Hashable ListPackageImportJobs where
 
 instance Prelude.NFData ListPackageImportJobs where
   rnf ListPackageImportJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackageImportJobs where
   toHeaders =
@@ -192,6 +192,6 @@ listPackageImportJobsResponse_packageImportJobs = Lens.lens (\ListPackageImportJ
 
 instance Prelude.NFData ListPackageImportJobsResponse where
   rnf ListPackageImportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf packageImportJobs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf packageImportJobs

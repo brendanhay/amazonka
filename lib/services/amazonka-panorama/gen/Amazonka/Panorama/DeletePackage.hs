@@ -112,8 +112,8 @@ instance Prelude.Hashable DeletePackage where
 
 instance Prelude.NFData DeletePackage where
   rnf DeletePackage' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf packageId
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf packageId
 
 instance Data.ToHeaders DeletePackage where
   toHeaders =

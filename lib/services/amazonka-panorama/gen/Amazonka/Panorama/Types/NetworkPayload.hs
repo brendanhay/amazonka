@@ -93,9 +93,9 @@ instance Prelude.Hashable NetworkPayload where
 
 instance Prelude.NFData NetworkPayload where
   rnf NetworkPayload' {..} =
-    Prelude.rnf ethernet0
-      `Prelude.seq` Prelude.rnf ethernet1
-      `Prelude.seq` Prelude.rnf ntp
+    Prelude.rnf ethernet0 `Prelude.seq`
+      Prelude.rnf ethernet1 `Prelude.seq`
+        Prelude.rnf ntp
 
 instance Data.ToJSON NetworkPayload where
   toJSON NetworkPayload' {..} =

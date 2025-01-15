@@ -92,6 +92,6 @@ instance Prelude.Hashable NodeOutputPort where
 
 instance Prelude.NFData NodeOutputPort where
   rnf NodeOutputPort' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

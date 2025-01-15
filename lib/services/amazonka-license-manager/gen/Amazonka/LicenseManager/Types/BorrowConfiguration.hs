@@ -87,8 +87,8 @@ instance Prelude.Hashable BorrowConfiguration where
 
 instance Prelude.NFData BorrowConfiguration where
   rnf BorrowConfiguration' {..} =
-    Prelude.rnf allowEarlyCheckIn
-      `Prelude.seq` Prelude.rnf maxTimeToLiveInMinutes
+    Prelude.rnf allowEarlyCheckIn `Prelude.seq`
+      Prelude.rnf maxTimeToLiveInMinutes
 
 instance Data.ToJSON BorrowConfiguration where
   toJSON BorrowConfiguration' {..} =

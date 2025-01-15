@@ -210,13 +210,13 @@ instance
     CreateLicenseManagerReportGenerator
   where
   rnf CreateLicenseManagerReportGenerator' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf reportGeneratorName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf reportContext
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf reportGeneratorName `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf reportContext `Prelude.seq`
+              Prelude.rnf reportFrequency `Prelude.seq`
+                Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -312,5 +312,5 @@ instance
     CreateLicenseManagerReportGeneratorResponse
   where
   rnf CreateLicenseManagerReportGeneratorResponse' {..} =
-    Prelude.rnf licenseManagerReportGeneratorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseManagerReportGeneratorArn `Prelude.seq`
+      Prelude.rnf httpStatus

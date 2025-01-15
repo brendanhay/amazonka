@@ -198,9 +198,9 @@ getServiceSettingsResponse_httpStatus = Lens.lens (\GetServiceSettingsResponse' 
 
 instance Prelude.NFData GetServiceSettingsResponse where
   rnf GetServiceSettingsResponse' {..} =
-    Prelude.rnf enableCrossAccountsDiscovery
-      `Prelude.seq` Prelude.rnf licenseManagerResourceShareArn
-      `Prelude.seq` Prelude.rnf organizationConfiguration
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf enableCrossAccountsDiscovery `Prelude.seq`
+      Prelude.rnf licenseManagerResourceShareArn `Prelude.seq`
+        Prelude.rnf organizationConfiguration `Prelude.seq`
+          Prelude.rnf s3BucketArn `Prelude.seq`
+            Prelude.rnf snsTopicArn `Prelude.seq`
+              Prelude.rnf httpStatus

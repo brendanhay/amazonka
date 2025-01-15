@@ -103,9 +103,9 @@ instance Prelude.Hashable ProductInformationFilter where
 
 instance Prelude.NFData ProductInformationFilter where
   rnf ProductInformationFilter' {..} =
-    Prelude.rnf productInformationFilterValue
-      `Prelude.seq` Prelude.rnf productInformationFilterName
-      `Prelude.seq` Prelude.rnf productInformationFilterComparator
+    Prelude.rnf productInformationFilterValue `Prelude.seq`
+      Prelude.rnf productInformationFilterName `Prelude.seq`
+        Prelude.rnf productInformationFilterComparator
 
 instance Data.ToJSON ProductInformationFilter where
   toJSON ProductInformationFilter' {..} =

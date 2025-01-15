@@ -156,10 +156,10 @@ instance
     ListReceivedGrantsForOrganization
   where
   rnf ListReceivedGrantsForOrganization' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenseArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf licenseArn
 
 instance
   Data.ToHeaders
@@ -259,6 +259,6 @@ instance
     ListReceivedGrantsForOrganizationResponse
   where
   rnf ListReceivedGrantsForOrganizationResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

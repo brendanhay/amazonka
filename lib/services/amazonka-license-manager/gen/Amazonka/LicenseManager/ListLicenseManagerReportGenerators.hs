@@ -140,9 +140,9 @@ instance
     ListLicenseManagerReportGenerators
   where
   rnf ListLicenseManagerReportGenerators' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -245,6 +245,6 @@ instance
     ListLicenseManagerReportGeneratorsResponse
   where
   rnf ListLicenseManagerReportGeneratorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportGenerators
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reportGenerators `Prelude.seq`
+        Prelude.rnf httpStatus

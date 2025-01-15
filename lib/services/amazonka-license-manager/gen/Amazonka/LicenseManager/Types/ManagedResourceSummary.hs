@@ -82,5 +82,5 @@ instance Prelude.Hashable ManagedResourceSummary where
 
 instance Prelude.NFData ManagedResourceSummary where
   rnf ManagedResourceSummary' {..} =
-    Prelude.rnf associationCount
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf associationCount `Prelude.seq`
+      Prelude.rnf resourceType

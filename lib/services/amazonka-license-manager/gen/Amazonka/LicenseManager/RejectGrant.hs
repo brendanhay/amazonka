@@ -183,7 +183,7 @@ rejectGrantResponse_httpStatus = Lens.lens (\RejectGrantResponse' {httpStatus} -
 
 instance Prelude.NFData RejectGrantResponse where
   rnf RejectGrantResponse' {..} =
-    Prelude.rnf grantArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grantArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf httpStatus

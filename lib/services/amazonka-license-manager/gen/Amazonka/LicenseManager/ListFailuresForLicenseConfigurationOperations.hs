@@ -140,9 +140,9 @@ instance
   where
   rnf
     ListFailuresForLicenseConfigurationOperations' {..} =
-      Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf licenseConfigurationArn
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf licenseConfigurationArn
 
 instance
   Data.ToHeaders
@@ -248,6 +248,6 @@ instance
   where
   rnf
     ListFailuresForLicenseConfigurationOperationsResponse' {..} =
-      Prelude.rnf licenseOperationFailureList
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf licenseOperationFailureList `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

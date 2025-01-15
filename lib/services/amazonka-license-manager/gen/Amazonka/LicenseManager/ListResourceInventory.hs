@@ -178,12 +178,12 @@ instance Core.AWSPager ListResourceInventory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceInventory_nextToken
-          Lens..~ rs
-          Lens.^? listResourceInventoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceInventory_nextToken
+              Lens..~ rs
+              Lens.^? listResourceInventoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceInventory where
   type
@@ -212,9 +212,9 @@ instance Prelude.Hashable ListResourceInventory where
 
 instance Prelude.NFData ListResourceInventory where
   rnf ListResourceInventory' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceInventory where
   toHeaders =
@@ -297,6 +297,6 @@ listResourceInventoryResponse_httpStatus = Lens.lens (\ListResourceInventoryResp
 
 instance Prelude.NFData ListResourceInventoryResponse where
   rnf ListResourceInventoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceInventoryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceInventoryList `Prelude.seq`
+        Prelude.rnf httpStatus

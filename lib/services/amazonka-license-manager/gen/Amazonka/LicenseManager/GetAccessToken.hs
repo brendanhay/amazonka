@@ -109,8 +109,8 @@ instance Prelude.Hashable GetAccessToken where
 
 instance Prelude.NFData GetAccessToken where
   rnf GetAccessToken' {..} =
-    Prelude.rnf tokenProperties
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf tokenProperties `Prelude.seq`
+      Prelude.rnf token
 
 instance Data.ToHeaders GetAccessToken where
   toHeaders =
@@ -184,5 +184,5 @@ getAccessTokenResponse_httpStatus = Lens.lens (\GetAccessTokenResponse' {httpSta
 
 instance Prelude.NFData GetAccessTokenResponse where
   rnf GetAccessTokenResponse' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf httpStatus

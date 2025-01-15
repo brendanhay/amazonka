@@ -149,11 +149,11 @@ instance Prelude.Hashable LicenseOperationFailure where
 
 instance Prelude.NFData LicenseOperationFailure where
   rnf LicenseOperationFailure' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf failureTime
-      `Prelude.seq` Prelude.rnf metadataList
-      `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf operationRequestedBy
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf failureTime `Prelude.seq`
+        Prelude.rnf metadataList `Prelude.seq`
+          Prelude.rnf operationName `Prelude.seq`
+            Prelude.rnf operationRequestedBy `Prelude.seq`
+              Prelude.rnf resourceArn `Prelude.seq`
+                Prelude.rnf resourceOwnerId `Prelude.seq`
+                  Prelude.rnf resourceType

@@ -143,9 +143,9 @@ instance
     ListReceivedLicensesForOrganization
   where
   rnf ListReceivedLicensesForOrganization' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -244,6 +244,6 @@ instance
     ListReceivedLicensesForOrganizationResponse
   where
   rnf ListReceivedLicensesForOrganizationResponse' {..} =
-    Prelude.rnf licenses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

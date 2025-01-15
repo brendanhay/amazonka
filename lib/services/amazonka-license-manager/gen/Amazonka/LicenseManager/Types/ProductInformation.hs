@@ -242,8 +242,8 @@ instance Prelude.Hashable ProductInformation where
 
 instance Prelude.NFData ProductInformation where
   rnf ProductInformation' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf productInformationFilterList
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf productInformationFilterList
 
 instance Data.ToJSON ProductInformation where
   toJSON ProductInformation' {..} =

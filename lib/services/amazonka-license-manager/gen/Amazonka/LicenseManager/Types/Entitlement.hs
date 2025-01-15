@@ -129,12 +129,12 @@ instance Prelude.Hashable Entitlement where
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf allowCheckIn
-      `Prelude.seq` Prelude.rnf maxCount
-      `Prelude.seq` Prelude.rnf overage
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf allowCheckIn `Prelude.seq`
+      Prelude.rnf maxCount `Prelude.seq`
+        Prelude.rnf overage `Prelude.seq`
+          Prelude.rnf value `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf unit
 
 instance Data.ToJSON Entitlement where
   toJSON Entitlement' {..} =

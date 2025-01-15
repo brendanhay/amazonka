@@ -138,10 +138,10 @@ instance Prelude.Hashable TokenData where
 
 instance Prelude.NFData TokenData where
   rnf TokenData' {..} =
-    Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokenId
-      `Prelude.seq` Prelude.rnf tokenProperties
-      `Prelude.seq` Prelude.rnf tokenType
+    Prelude.rnf expirationTime `Prelude.seq`
+      Prelude.rnf licenseArn `Prelude.seq`
+        Prelude.rnf roleArns `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tokenId `Prelude.seq`
+              Prelude.rnf tokenProperties `Prelude.seq`
+                Prelude.rnf tokenType

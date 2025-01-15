@@ -261,18 +261,18 @@ instance Prelude.Hashable CreateLicenseVersion where
 
 instance Prelude.NFData CreateLicenseVersion where
   rnf CreateLicenseVersion' {..} =
-    Prelude.rnf licenseMetadata
-      `Prelude.seq` Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf licenseName
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf validity
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf consumptionConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf licenseMetadata `Prelude.seq`
+      Prelude.rnf sourceVersion `Prelude.seq`
+        Prelude.rnf licenseArn `Prelude.seq`
+          Prelude.rnf licenseName `Prelude.seq`
+            Prelude.rnf productName `Prelude.seq`
+              Prelude.rnf issuer `Prelude.seq`
+                Prelude.rnf homeRegion `Prelude.seq`
+                  Prelude.rnf validity `Prelude.seq`
+                    Prelude.rnf entitlements `Prelude.seq`
+                      Prelude.rnf consumptionConfiguration `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateLicenseVersion where
   toHeaders =
@@ -377,7 +377,7 @@ createLicenseVersionResponse_httpStatus = Lens.lens (\CreateLicenseVersionRespon
 
 instance Prelude.NFData CreateLicenseVersionResponse where
   rnf CreateLicenseVersionResponse' {..} =
-    Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -80,5 +80,5 @@ instance Prelude.Hashable S3Location where
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf keyPrefix
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf keyPrefix

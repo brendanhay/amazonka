@@ -96,9 +96,9 @@ instance Prelude.Hashable EntitlementData where
 
 instance Prelude.NFData EntitlementData where
   rnf EntitlementData' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf unit
 
 instance Data.ToJSON EntitlementData where
   toJSON EntitlementData' {..} =

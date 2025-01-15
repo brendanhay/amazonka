@@ -106,8 +106,8 @@ instance Prelude.Hashable GetLicense where
 
 instance Prelude.NFData GetLicense where
   rnf GetLicense' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf licenseArn
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf licenseArn
 
 instance Data.ToHeaders GetLicense where
   toHeaders =
@@ -179,5 +179,5 @@ getLicenseResponse_httpStatus = Lens.lens (\GetLicenseResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetLicenseResponse where
   rnf GetLicenseResponse' {..} =
-    Prelude.rnf license
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf license `Prelude.seq`
+      Prelude.rnf httpStatus

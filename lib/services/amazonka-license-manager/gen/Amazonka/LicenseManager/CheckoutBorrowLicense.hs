@@ -192,12 +192,12 @@ instance Prelude.Hashable CheckoutBorrowLicense where
 
 instance Prelude.NFData CheckoutBorrowLicense where
   rnf CheckoutBorrowLicense' {..} =
-    Prelude.rnf checkoutMetadata
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf digitalSignatureMethod
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf checkoutMetadata `Prelude.seq`
+      Prelude.rnf nodeId `Prelude.seq`
+        Prelude.rnf licenseArn `Prelude.seq`
+          Prelude.rnf entitlements `Prelude.seq`
+            Prelude.rnf digitalSignatureMethod `Prelude.seq`
+              Prelude.rnf clientToken
 
 instance Data.ToHeaders CheckoutBorrowLicense where
   toHeaders =
@@ -341,12 +341,12 @@ checkoutBorrowLicenseResponse_httpStatus = Lens.lens (\CheckoutBorrowLicenseResp
 
 instance Prelude.NFData CheckoutBorrowLicenseResponse where
   rnf CheckoutBorrowLicenseResponse' {..} =
-    Prelude.rnf checkoutMetadata
-      `Prelude.seq` Prelude.rnf entitlementsAllowed
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf issuedAt
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf signedToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checkoutMetadata `Prelude.seq`
+      Prelude.rnf entitlementsAllowed `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf issuedAt `Prelude.seq`
+            Prelude.rnf licenseArn `Prelude.seq`
+              Prelude.rnf licenseConsumptionToken `Prelude.seq`
+                Prelude.rnf nodeId `Prelude.seq`
+                  Prelude.rnf signedToken `Prelude.seq`
+                    Prelude.rnf httpStatus

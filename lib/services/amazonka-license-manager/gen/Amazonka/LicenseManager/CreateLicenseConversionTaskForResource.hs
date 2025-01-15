@@ -162,9 +162,9 @@ instance
     CreateLicenseConversionTaskForResource
   where
   rnf CreateLicenseConversionTaskForResource' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf sourceLicenseContext
-      `Prelude.seq` Prelude.rnf destinationLicenseContext
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf sourceLicenseContext `Prelude.seq`
+        Prelude.rnf destinationLicenseContext
 
 instance
   Data.ToHeaders
@@ -261,5 +261,5 @@ instance
   where
   rnf
     CreateLicenseConversionTaskForResourceResponse' {..} =
-      Prelude.rnf licenseConversionTaskId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf licenseConversionTaskId `Prelude.seq`
+        Prelude.rnf httpStatus

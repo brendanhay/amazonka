@@ -138,9 +138,9 @@ instance
     UpdateLicenseSpecificationsForResource
   where
   rnf UpdateLicenseSpecificationsForResource' {..} =
-    Prelude.rnf addLicenseSpecifications
-      `Prelude.seq` Prelude.rnf removeLicenseSpecifications
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf addLicenseSpecifications `Prelude.seq`
+      Prelude.rnf removeLicenseSpecifications `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance
   Data.ToHeaders

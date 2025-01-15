@@ -95,9 +95,9 @@ instance Prelude.Hashable ConsumptionConfiguration where
 
 instance Prelude.NFData ConsumptionConfiguration where
   rnf ConsumptionConfiguration' {..} =
-    Prelude.rnf borrowConfiguration
-      `Prelude.seq` Prelude.rnf provisionalConfiguration
-      `Prelude.seq` Prelude.rnf renewType
+    Prelude.rnf borrowConfiguration `Prelude.seq`
+      Prelude.rnf provisionalConfiguration `Prelude.seq`
+        Prelude.rnf renewType
 
 instance Data.ToJSON ConsumptionConfiguration where
   toJSON ConsumptionConfiguration' {..} =

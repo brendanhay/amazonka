@@ -162,12 +162,12 @@ instance Core.AWSPager ListLicenseConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLicenseConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listLicenseConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLicenseConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listLicenseConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLicenseConfigurations where
   type
@@ -197,10 +197,10 @@ instance Prelude.Hashable ListLicenseConfigurations where
 
 instance Prelude.NFData ListLicenseConfigurations where
   rnf ListLicenseConfigurations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf licenseConfigurationArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf licenseConfigurationArns `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLicenseConfigurations where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     ListLicenseConfigurationsResponse
   where
   rnf ListLicenseConfigurationsResponse' {..} =
-    Prelude.rnf licenseConfigurations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseConfigurations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

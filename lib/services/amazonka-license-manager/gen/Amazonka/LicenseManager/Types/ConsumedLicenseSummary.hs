@@ -82,5 +82,5 @@ instance Prelude.Hashable ConsumedLicenseSummary where
 
 instance Prelude.NFData ConsumedLicenseSummary where
   rnf ConsumedLicenseSummary' {..} =
-    Prelude.rnf consumedLicenses
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf consumedLicenses `Prelude.seq`
+      Prelude.rnf resourceType

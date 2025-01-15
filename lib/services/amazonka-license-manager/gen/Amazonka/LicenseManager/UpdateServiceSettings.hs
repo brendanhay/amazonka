@@ -133,10 +133,10 @@ instance Prelude.Hashable UpdateServiceSettings where
 
 instance Prelude.NFData UpdateServiceSettings where
   rnf UpdateServiceSettings' {..} =
-    Prelude.rnf enableCrossAccountsDiscovery
-      `Prelude.seq` Prelude.rnf organizationConfiguration
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf enableCrossAccountsDiscovery `Prelude.seq`
+      Prelude.rnf organizationConfiguration `Prelude.seq`
+        Prelude.rnf s3BucketArn `Prelude.seq`
+          Prelude.rnf snsTopicArn
 
 instance Data.ToHeaders UpdateServiceSettings where
   toHeaders =

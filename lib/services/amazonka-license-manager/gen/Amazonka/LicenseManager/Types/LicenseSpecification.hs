@@ -83,8 +83,8 @@ instance Prelude.Hashable LicenseSpecification where
 
 instance Prelude.NFData LicenseSpecification where
   rnf LicenseSpecification' {..} =
-    Prelude.rnf amiAssociationScope
-      `Prelude.seq` Prelude.rnf licenseConfigurationArn
+    Prelude.rnf amiAssociationScope `Prelude.seq`
+      Prelude.rnf licenseConfigurationArn
 
 instance Data.ToJSON LicenseSpecification where
   toJSON LicenseSpecification' {..} =

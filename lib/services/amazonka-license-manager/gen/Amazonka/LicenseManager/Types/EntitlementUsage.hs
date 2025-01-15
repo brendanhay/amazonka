@@ -109,7 +109,7 @@ instance Prelude.Hashable EntitlementUsage where
 
 instance Prelude.NFData EntitlementUsage where
   rnf EntitlementUsage' {..} =
-    Prelude.rnf maxCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf consumedValue
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf maxCount `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf consumedValue `Prelude.seq`
+          Prelude.rnf unit

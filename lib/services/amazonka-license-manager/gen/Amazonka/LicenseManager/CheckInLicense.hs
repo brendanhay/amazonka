@@ -107,8 +107,8 @@ instance Prelude.Hashable CheckInLicense where
 
 instance Prelude.NFData CheckInLicense where
   rnf CheckInLicense' {..} =
-    Prelude.rnf beneficiary
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
+    Prelude.rnf beneficiary `Prelude.seq`
+      Prelude.rnf licenseConsumptionToken
 
 instance Data.ToHeaders CheckInLicense where
   toHeaders =

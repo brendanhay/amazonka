@@ -196,13 +196,13 @@ instance Prelude.Hashable CheckoutLicense where
 
 instance Prelude.NFData CheckoutLicense where
   rnf CheckoutLicense' {..} =
-    Prelude.rnf beneficiary
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf productSKU
-      `Prelude.seq` Prelude.rnf checkoutType
-      `Prelude.seq` Prelude.rnf keyFingerprint
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf beneficiary `Prelude.seq`
+      Prelude.rnf nodeId `Prelude.seq`
+        Prelude.rnf productSKU `Prelude.seq`
+          Prelude.rnf checkoutType `Prelude.seq`
+            Prelude.rnf keyFingerprint `Prelude.seq`
+              Prelude.rnf entitlements `Prelude.seq`
+                Prelude.rnf clientToken
 
 instance Data.ToHeaders CheckoutLicense where
   toHeaders =
@@ -344,12 +344,12 @@ checkoutLicenseResponse_httpStatus = Lens.lens (\CheckoutLicenseResponse' {httpS
 
 instance Prelude.NFData CheckoutLicenseResponse where
   rnf CheckoutLicenseResponse' {..} =
-    Prelude.rnf checkoutType
-      `Prelude.seq` Prelude.rnf entitlementsAllowed
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf issuedAt
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf signedToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checkoutType `Prelude.seq`
+      Prelude.rnf entitlementsAllowed `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf issuedAt `Prelude.seq`
+            Prelude.rnf licenseArn `Prelude.seq`
+              Prelude.rnf licenseConsumptionToken `Prelude.seq`
+                Prelude.rnf nodeId `Prelude.seq`
+                  Prelude.rnf signedToken `Prelude.seq`
+                    Prelude.rnf httpStatus

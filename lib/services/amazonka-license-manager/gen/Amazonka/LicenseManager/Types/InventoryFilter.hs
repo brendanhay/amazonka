@@ -85,9 +85,9 @@ instance Prelude.Hashable InventoryFilter where
 
 instance Prelude.NFData InventoryFilter where
   rnf InventoryFilter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf condition
 
 instance Data.ToJSON InventoryFilter where
   toJSON InventoryFilter' {..} =

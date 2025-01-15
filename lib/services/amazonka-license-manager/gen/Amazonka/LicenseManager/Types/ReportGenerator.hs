@@ -206,16 +206,16 @@ instance Prelude.Hashable ReportGenerator where
 
 instance Prelude.NFData ReportGenerator where
   rnf ReportGenerator' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastReportGenerationTime
-      `Prelude.seq` Prelude.rnf lastRunFailureReason
-      `Prelude.seq` Prelude.rnf lastRunStatus
-      `Prelude.seq` Prelude.rnf licenseManagerReportGeneratorArn
-      `Prelude.seq` Prelude.rnf reportContext
-      `Prelude.seq` Prelude.rnf reportCreatorAccount
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf reportGeneratorName
-      `Prelude.seq` Prelude.rnf reportType
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastReportGenerationTime `Prelude.seq`
+          Prelude.rnf lastRunFailureReason `Prelude.seq`
+            Prelude.rnf lastRunStatus `Prelude.seq`
+              Prelude.rnf licenseManagerReportGeneratorArn `Prelude.seq`
+                Prelude.rnf reportContext `Prelude.seq`
+                  Prelude.rnf reportCreatorAccount `Prelude.seq`
+                    Prelude.rnf reportFrequency `Prelude.seq`
+                      Prelude.rnf reportGeneratorName `Prelude.seq`
+                        Prelude.rnf reportType `Prelude.seq`
+                          Prelude.rnf s3Location `Prelude.seq`
+                            Prelude.rnf tags

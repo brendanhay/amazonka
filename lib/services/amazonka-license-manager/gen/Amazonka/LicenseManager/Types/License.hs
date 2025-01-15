@@ -224,17 +224,17 @@ instance Prelude.Hashable License where
 
 instance Prelude.NFData License where
   rnf License' {..} =
-    Prelude.rnf beneficiary
-      `Prelude.seq` Prelude.rnf consumptionConfiguration
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf licenseMetadata
-      `Prelude.seq` Prelude.rnf licenseName
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf productSKU
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf validity
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf beneficiary `Prelude.seq`
+      Prelude.rnf consumptionConfiguration `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf entitlements `Prelude.seq`
+            Prelude.rnf homeRegion `Prelude.seq`
+              Prelude.rnf issuer `Prelude.seq`
+                Prelude.rnf licenseArn `Prelude.seq`
+                  Prelude.rnf licenseMetadata `Prelude.seq`
+                    Prelude.rnf licenseName `Prelude.seq`
+                      Prelude.rnf productName `Prelude.seq`
+                        Prelude.rnf productSKU `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf validity `Prelude.seq`
+                              Prelude.rnf version

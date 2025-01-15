@@ -164,5 +164,5 @@ getLicenseUsageResponse_httpStatus = Lens.lens (\GetLicenseUsageResponse' {httpS
 
 instance Prelude.NFData GetLicenseUsageResponse where
   rnf GetLicenseUsageResponse' {..} =
-    Prelude.rnf licenseUsage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseUsage `Prelude.seq`
+      Prelude.rnf httpStatus

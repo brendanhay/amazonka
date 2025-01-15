@@ -325,12 +325,12 @@ instance Prelude.Hashable UpdateResource where
 
 instance Prelude.NFData UpdateResource where
   rnf UpdateResource' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf patchDocument
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf typeVersionId `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf identifier `Prelude.seq`
+              Prelude.rnf patchDocument
 
 instance Data.ToHeaders UpdateResource where
   toHeaders =
@@ -420,5 +420,5 @@ updateResourceResponse_httpStatus = Lens.lens (\UpdateResourceResponse' {httpSta
 
 instance Prelude.NFData UpdateResourceResponse where
   rnf UpdateResourceResponse' {..} =
-    Prelude.rnf progressEvent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf progressEvent `Prelude.seq`
+      Prelude.rnf httpStatus

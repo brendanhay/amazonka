@@ -92,5 +92,5 @@ instance Prelude.Hashable ResourceDescription where
 
 instance Prelude.NFData ResourceDescription where
   rnf ResourceDescription' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf properties

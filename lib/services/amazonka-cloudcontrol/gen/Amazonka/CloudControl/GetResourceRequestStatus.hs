@@ -186,5 +186,5 @@ instance
     GetResourceRequestStatusResponse
   where
   rnf GetResourceRequestStatusResponse' {..} =
-    Prelude.rnf progressEvent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf progressEvent `Prelude.seq`
+      Prelude.rnf httpStatus

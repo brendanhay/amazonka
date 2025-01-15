@@ -176,5 +176,5 @@ cancelResourceRequestResponse_httpStatus = Lens.lens (\CancelResourceRequestResp
 
 instance Prelude.NFData CancelResourceRequestResponse where
   rnf CancelResourceRequestResponse' {..} =
-    Prelude.rnf progressEvent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf progressEvent `Prelude.seq`
+      Prelude.rnf httpStatus

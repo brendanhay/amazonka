@@ -124,6 +124,8 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
           Prod _ p _
             | _prodName p `elem` Set.map snd (l ^. sourceImports') ->
                 Just bootProductTemplate
+            | _prodName p `elem` (l ^. extraBootShapes) ->
+                Just bootProductTemplate
           _ -> Nothing
 
     fixture :: Operation Identity SData a -> [DirTree (Either String Touch)]

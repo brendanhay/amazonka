@@ -110,5 +110,5 @@ instance Prelude.Hashable MonitorInfo where
 
 instance Prelude.NFData MonitorInfo where
   rnf MonitorInfo' {..} =
-    Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf monitorArn `Prelude.seq`
+      Prelude.rnf status

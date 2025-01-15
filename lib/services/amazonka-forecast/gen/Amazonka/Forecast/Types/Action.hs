@@ -135,9 +135,9 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

@@ -124,9 +124,9 @@ instance Prelude.Hashable S3Config where
 
 instance Prelude.NFData S3Config where
   rnf S3Config' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON S3Config where
   toJSON S3Config' {..} =

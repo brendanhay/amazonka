@@ -129,8 +129,8 @@ instance Prelude.Hashable ExplainabilityConfig where
 
 instance Prelude.NFData ExplainabilityConfig where
   rnf ExplainabilityConfig' {..} =
-    Prelude.rnf timeSeriesGranularity
-      `Prelude.seq` Prelude.rnf timePointGranularity
+    Prelude.rnf timeSeriesGranularity `Prelude.seq`
+      Prelude.rnf timePointGranularity
 
 instance Data.ToJSON ExplainabilityConfig where
   toJSON ExplainabilityConfig' {..} =

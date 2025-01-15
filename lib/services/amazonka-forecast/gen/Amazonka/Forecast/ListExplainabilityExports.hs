@@ -165,12 +165,12 @@ instance Core.AWSPager ListExplainabilityExports where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExplainabilityExports_nextToken
-          Lens..~ rs
-          Lens.^? listExplainabilityExportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExplainabilityExports_nextToken
+              Lens..~ rs
+              Lens.^? listExplainabilityExportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExplainabilityExports where
   type
@@ -199,9 +199,9 @@ instance Prelude.Hashable ListExplainabilityExports where
 
 instance Prelude.NFData ListExplainabilityExports where
   rnf ListExplainabilityExports' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExplainabilityExports where
   toHeaders =
@@ -293,6 +293,6 @@ instance
     ListExplainabilityExportsResponse
   where
   rnf ListExplainabilityExportsResponse' {..} =
-    Prelude.rnf explainabilityExports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf explainabilityExports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

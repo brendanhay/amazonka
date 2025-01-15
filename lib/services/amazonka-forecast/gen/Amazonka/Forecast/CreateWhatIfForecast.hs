@@ -207,11 +207,11 @@ instance Prelude.Hashable CreateWhatIfForecast where
 
 instance Prelude.NFData CreateWhatIfForecast where
   rnf CreateWhatIfForecast' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeSeriesReplacementsDataSource
-      `Prelude.seq` Prelude.rnf timeSeriesTransformations
-      `Prelude.seq` Prelude.rnf whatIfForecastName
-      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf timeSeriesReplacementsDataSource `Prelude.seq`
+        Prelude.rnf timeSeriesTransformations `Prelude.seq`
+          Prelude.rnf whatIfForecastName `Prelude.seq`
+            Prelude.rnf whatIfAnalysisArn
 
 instance Data.ToHeaders CreateWhatIfForecast where
   toHeaders =
@@ -291,5 +291,5 @@ createWhatIfForecastResponse_httpStatus = Lens.lens (\CreateWhatIfForecastRespon
 
 instance Prelude.NFData CreateWhatIfForecastResponse where
   rnf CreateWhatIfForecastResponse' {..} =
-    Prelude.rnf whatIfForecastArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf whatIfForecastArn `Prelude.seq`
+      Prelude.rnf httpStatus

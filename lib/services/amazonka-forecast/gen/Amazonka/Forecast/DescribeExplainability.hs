@@ -388,18 +388,18 @@ instance
     DescribeExplainabilityResponse
   where
   rnf DescribeExplainabilityResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf enableVisualization
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf explainabilityConfig
-      `Prelude.seq` Prelude.rnf explainabilityName
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dataSource `Prelude.seq`
+        Prelude.rnf enableVisualization `Prelude.seq`
+          Prelude.rnf endDateTime `Prelude.seq`
+            Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+              Prelude.rnf explainabilityArn `Prelude.seq`
+                Prelude.rnf explainabilityConfig `Prelude.seq`
+                  Prelude.rnf explainabilityName `Prelude.seq`
+                    Prelude.rnf lastModificationTime `Prelude.seq`
+                      Prelude.rnf message `Prelude.seq`
+                        Prelude.rnf resourceArn `Prelude.seq`
+                          Prelude.rnf schema `Prelude.seq`
+                            Prelude.rnf startDateTime `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf httpStatus

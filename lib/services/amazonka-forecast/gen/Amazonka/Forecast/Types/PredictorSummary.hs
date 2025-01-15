@@ -232,12 +232,12 @@ instance Prelude.Hashable PredictorSummary where
 
 instance Prelude.NFData PredictorSummary where
   rnf PredictorSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf isAutoPredictor
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf predictorName
-      `Prelude.seq` Prelude.rnf referencePredictorSummary
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf isAutoPredictor `Prelude.seq`
+          Prelude.rnf lastModificationTime `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf predictorArn `Prelude.seq`
+                Prelude.rnf predictorName `Prelude.seq`
+                  Prelude.rnf referencePredictorSummary `Prelude.seq`
+                    Prelude.rnf status

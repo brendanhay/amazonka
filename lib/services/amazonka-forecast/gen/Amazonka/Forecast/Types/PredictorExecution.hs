@@ -87,5 +87,5 @@ instance Prelude.Hashable PredictorExecution where
 
 instance Prelude.NFData PredictorExecution where
   rnf PredictorExecution' {..} =
-    Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf testWindows
+    Prelude.rnf algorithmArn `Prelude.seq`
+      Prelude.rnf testWindows

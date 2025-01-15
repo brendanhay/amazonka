@@ -209,10 +209,10 @@ instance Prelude.Hashable ForecastExportJobSummary where
 
 instance Prelude.NFData ForecastExportJobSummary where
   rnf ForecastExportJobSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf forecastExportJobArn
-      `Prelude.seq` Prelude.rnf forecastExportJobName
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf forecastExportJobArn `Prelude.seq`
+          Prelude.rnf forecastExportJobName `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf status

@@ -372,15 +372,15 @@ instance Prelude.Hashable CreateExplainability where
 
 instance Prelude.NFData CreateExplainability where
   rnf CreateExplainability' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf enableVisualization
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf explainabilityName
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf explainabilityConfig
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf enableVisualization `Prelude.seq`
+        Prelude.rnf endDateTime `Prelude.seq`
+          Prelude.rnf schema `Prelude.seq`
+            Prelude.rnf startDateTime `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf explainabilityName `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf explainabilityConfig
 
 instance Data.ToHeaders CreateExplainability where
   toHeaders =
@@ -465,5 +465,5 @@ createExplainabilityResponse_httpStatus = Lens.lens (\CreateExplainabilityRespon
 
 instance Prelude.NFData CreateExplainabilityResponse where
   rnf CreateExplainabilityResponse' {..} =
-    Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf explainabilityArn `Prelude.seq`
+      Prelude.rnf httpStatus

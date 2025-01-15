@@ -434,15 +434,15 @@ instance Prelude.Hashable CreateDatasetImportJob where
 
 instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf geolocationFormat
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf timestampFormat
-      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
-      `Prelude.seq` Prelude.rnf datasetImportJobName
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf geolocationFormat `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf timeZone `Prelude.seq`
+            Prelude.rnf timestampFormat `Prelude.seq`
+              Prelude.rnf useGeolocationForTimeZone `Prelude.seq`
+                Prelude.rnf datasetImportJobName `Prelude.seq`
+                  Prelude.rnf datasetArn `Prelude.seq`
+                    Prelude.rnf dataSource
 
 instance Data.ToHeaders CreateDatasetImportJob where
   toHeaders =
@@ -531,5 +531,5 @@ instance
     CreateDatasetImportJobResponse
   where
   rnf CreateDatasetImportJobResponse' {..} =
-    Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetImportJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

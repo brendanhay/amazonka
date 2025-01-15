@@ -187,12 +187,12 @@ instance Core.AWSPager ListWhatIfForecastExports where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWhatIfForecastExports_nextToken
-          Lens..~ rs
-          Lens.^? listWhatIfForecastExportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWhatIfForecastExports_nextToken
+              Lens..~ rs
+              Lens.^? listWhatIfForecastExportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWhatIfForecastExports where
   type
@@ -221,9 +221,9 @@ instance Prelude.Hashable ListWhatIfForecastExports where
 
 instance Prelude.NFData ListWhatIfForecastExports where
   rnf ListWhatIfForecastExports' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWhatIfForecastExports where
   toHeaders =
@@ -315,6 +315,6 @@ instance
     ListWhatIfForecastExportsResponse
   where
   rnf ListWhatIfForecastExportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf whatIfForecastExports
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf whatIfForecastExports `Prelude.seq`
+        Prelude.rnf httpStatus

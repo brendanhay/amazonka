@@ -93,9 +93,9 @@ instance Prelude.Hashable TimeSeriesIdentifiers where
 
 instance Prelude.NFData TimeSeriesIdentifiers where
   rnf TimeSeriesIdentifiers' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf schema
 
 instance Data.ToJSON TimeSeriesIdentifiers where
   toJSON TimeSeriesIdentifiers' {..} =

@@ -88,5 +88,5 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf testWindows
+    Prelude.rnf algorithmArn `Prelude.seq`
+      Prelude.rnf testWindows

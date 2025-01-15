@@ -483,19 +483,19 @@ instance Prelude.Hashable CreateAutoPredictor where
 
 instance Prelude.NFData CreateAutoPredictor where
   rnf CreateAutoPredictor' {..} =
-    Prelude.rnf dataConfig
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf explainPredictor
-      `Prelude.seq` Prelude.rnf forecastDimensions
-      `Prelude.seq` Prelude.rnf forecastFrequency
-      `Prelude.seq` Prelude.rnf forecastHorizon
-      `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf monitorConfig
-      `Prelude.seq` Prelude.rnf optimizationMetric
-      `Prelude.seq` Prelude.rnf referencePredictorArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeAlignmentBoundary
-      `Prelude.seq` Prelude.rnf predictorName
+    Prelude.rnf dataConfig `Prelude.seq`
+      Prelude.rnf encryptionConfig `Prelude.seq`
+        Prelude.rnf explainPredictor `Prelude.seq`
+          Prelude.rnf forecastDimensions `Prelude.seq`
+            Prelude.rnf forecastFrequency `Prelude.seq`
+              Prelude.rnf forecastHorizon `Prelude.seq`
+                Prelude.rnf forecastTypes `Prelude.seq`
+                  Prelude.rnf monitorConfig `Prelude.seq`
+                    Prelude.rnf optimizationMetric `Prelude.seq`
+                      Prelude.rnf referencePredictorArn `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf timeAlignmentBoundary `Prelude.seq`
+                            Prelude.rnf predictorName
 
 instance Data.ToHeaders CreateAutoPredictor where
   toHeaders =
@@ -588,5 +588,5 @@ createAutoPredictorResponse_httpStatus = Lens.lens (\CreateAutoPredictorResponse
 
 instance Prelude.NFData CreateAutoPredictorResponse where
   rnf CreateAutoPredictorResponse' {..} =
-    Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf predictorArn `Prelude.seq`
+      Prelude.rnf httpStatus

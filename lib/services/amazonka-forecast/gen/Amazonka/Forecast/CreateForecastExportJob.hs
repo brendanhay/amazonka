@@ -277,11 +277,11 @@ instance Prelude.Hashable CreateForecastExportJob where
 
 instance Prelude.NFData CreateForecastExportJob where
   rnf CreateForecastExportJob' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf forecastExportJobName
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf forecastExportJobName `Prelude.seq`
+          Prelude.rnf forecastArn `Prelude.seq`
+            Prelude.rnf destination
 
 instance Data.ToHeaders CreateForecastExportJob where
   toHeaders =
@@ -363,5 +363,5 @@ instance
     CreateForecastExportJobResponse
   where
   rnf CreateForecastExportJobResponse' {..} =
-    Prelude.rnf forecastExportJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecastExportJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

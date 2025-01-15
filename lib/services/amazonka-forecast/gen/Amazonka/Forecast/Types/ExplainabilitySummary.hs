@@ -217,11 +217,11 @@ instance Prelude.Hashable ExplainabilitySummary where
 
 instance Prelude.NFData ExplainabilitySummary where
   rnf ExplainabilitySummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf explainabilityConfig
-      `Prelude.seq` Prelude.rnf explainabilityName
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf explainabilityArn `Prelude.seq`
+        Prelude.rnf explainabilityConfig `Prelude.seq`
+          Prelude.rnf explainabilityName `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf status

@@ -181,9 +181,9 @@ instance Prelude.Hashable FeaturizationConfig where
 
 instance Prelude.NFData FeaturizationConfig where
   rnf FeaturizationConfig' {..} =
-    Prelude.rnf featurizations
-      `Prelude.seq` Prelude.rnf forecastDimensions
-      `Prelude.seq` Prelude.rnf forecastFrequency
+    Prelude.rnf featurizations `Prelude.seq`
+      Prelude.rnf forecastDimensions `Prelude.seq`
+        Prelude.rnf forecastFrequency
 
 instance Data.ToJSON FeaturizationConfig where
   toJSON FeaturizationConfig' {..} =

@@ -634,21 +634,21 @@ instance Prelude.Hashable CreatePredictor where
 
 instance Prelude.NFData CreatePredictor where
   rnf CreatePredictor' {..} =
-    Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf evaluationParameters
-      `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf hPOConfig
-      `Prelude.seq` Prelude.rnf optimizationMetric
-      `Prelude.seq` Prelude.rnf performAutoML
-      `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingParameters
-      `Prelude.seq` Prelude.rnf predictorName
-      `Prelude.seq` Prelude.rnf forecastHorizon
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf featurizationConfig
+    Prelude.rnf algorithmArn `Prelude.seq`
+      Prelude.rnf autoMLOverrideStrategy `Prelude.seq`
+        Prelude.rnf encryptionConfig `Prelude.seq`
+          Prelude.rnf evaluationParameters `Prelude.seq`
+            Prelude.rnf forecastTypes `Prelude.seq`
+              Prelude.rnf hPOConfig `Prelude.seq`
+                Prelude.rnf optimizationMetric `Prelude.seq`
+                  Prelude.rnf performAutoML `Prelude.seq`
+                    Prelude.rnf performHPO `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf trainingParameters `Prelude.seq`
+                          Prelude.rnf predictorName `Prelude.seq`
+                            Prelude.rnf forecastHorizon `Prelude.seq`
+                              Prelude.rnf inputDataConfig `Prelude.seq`
+                                Prelude.rnf featurizationConfig
 
 instance Data.ToHeaders CreatePredictor where
   toHeaders =
@@ -742,5 +742,5 @@ createPredictorResponse_httpStatus = Lens.lens (\CreatePredictorResponse' {httpS
 
 instance Prelude.NFData CreatePredictorResponse where
   rnf CreatePredictorResponse' {..} =
-    Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf predictorArn `Prelude.seq`
+      Prelude.rnf httpStatus

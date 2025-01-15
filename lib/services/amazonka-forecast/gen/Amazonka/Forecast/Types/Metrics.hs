@@ -124,7 +124,7 @@ instance Prelude.Hashable Metrics where
 
 instance Prelude.NFData Metrics where
   rnf Metrics' {..} =
-    Prelude.rnf averageWeightedQuantileLoss
-      `Prelude.seq` Prelude.rnf errorMetrics
-      `Prelude.seq` Prelude.rnf rmse
-      `Prelude.seq` Prelude.rnf weightedQuantileLosses
+    Prelude.rnf averageWeightedQuantileLoss `Prelude.seq`
+      Prelude.rnf errorMetrics `Prelude.seq`
+        Prelude.rnf rmse `Prelude.seq`
+          Prelude.rnf weightedQuantileLosses

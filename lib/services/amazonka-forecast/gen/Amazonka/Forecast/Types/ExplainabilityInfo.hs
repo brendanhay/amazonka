@@ -105,5 +105,5 @@ instance Prelude.Hashable ExplainabilityInfo where
 
 instance Prelude.NFData ExplainabilityInfo where
   rnf ExplainabilityInfo' {..} =
-    Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf explainabilityArn `Prelude.seq`
+      Prelude.rnf status

@@ -208,10 +208,10 @@ instance Prelude.Hashable WhatIfForecastSummary where
 
 instance Prelude.NFData WhatIfForecastSummary where
   rnf WhatIfForecastSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
-      `Prelude.seq` Prelude.rnf whatIfForecastArn
-      `Prelude.seq` Prelude.rnf whatIfForecastName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModificationTime `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf whatIfAnalysisArn `Prelude.seq`
+              Prelude.rnf whatIfForecastArn `Prelude.seq`
+                Prelude.rnf whatIfForecastName

@@ -114,8 +114,8 @@ instance Prelude.Hashable ErrorMetric where
 
 instance Prelude.NFData ErrorMetric where
   rnf ErrorMetric' {..} =
-    Prelude.rnf forecastType
-      `Prelude.seq` Prelude.rnf mape
-      `Prelude.seq` Prelude.rnf mase
-      `Prelude.seq` Prelude.rnf rmse
-      `Prelude.seq` Prelude.rnf wape
+    Prelude.rnf forecastType `Prelude.seq`
+      Prelude.rnf mape `Prelude.seq`
+        Prelude.rnf mase `Prelude.seq`
+          Prelude.rnf rmse `Prelude.seq`
+            Prelude.rnf wape

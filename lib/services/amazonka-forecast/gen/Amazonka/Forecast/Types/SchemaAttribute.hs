@@ -96,8 +96,8 @@ instance Prelude.Hashable SchemaAttribute where
 
 instance Prelude.NFData SchemaAttribute where
   rnf SchemaAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeType
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeType
 
 instance Data.ToJSON SchemaAttribute where
   toJSON SchemaAttribute' {..} =

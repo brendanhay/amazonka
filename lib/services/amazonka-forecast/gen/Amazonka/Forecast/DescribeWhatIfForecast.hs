@@ -391,15 +391,15 @@ instance
     DescribeWhatIfForecastResponse
   where
   rnf DescribeWhatIfForecastResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeSeriesReplacementsDataSource
-      `Prelude.seq` Prelude.rnf timeSeriesTransformations
-      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
-      `Prelude.seq` Prelude.rnf whatIfForecastArn
-      `Prelude.seq` Prelude.rnf whatIfForecastName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+        Prelude.rnf forecastTypes `Prelude.seq`
+          Prelude.rnf lastModificationTime `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf timeSeriesReplacementsDataSource `Prelude.seq`
+                  Prelude.rnf timeSeriesTransformations `Prelude.seq`
+                    Prelude.rnf whatIfAnalysisArn `Prelude.seq`
+                      Prelude.rnf whatIfForecastArn `Prelude.seq`
+                        Prelude.rnf whatIfForecastName `Prelude.seq`
+                          Prelude.rnf httpStatus

@@ -131,8 +131,8 @@ instance Prelude.Hashable WindowSummary where
 
 instance Prelude.NFData WindowSummary where
   rnf WindowSummary' {..} =
-    Prelude.rnf evaluationType
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf testWindowEnd
-      `Prelude.seq` Prelude.rnf testWindowStart
+    Prelude.rnf evaluationType `Prelude.seq`
+      Prelude.rnf itemCount `Prelude.seq`
+        Prelude.rnf metrics `Prelude.seq`
+          Prelude.rnf testWindowEnd `Prelude.seq`
+            Prelude.rnf testWindowStart

@@ -89,5 +89,5 @@ instance Prelude.Hashable PredictorEvent where
 
 instance Prelude.NFData PredictorEvent where
   rnf PredictorEvent' {..} =
-    Prelude.rnf datetime
-      `Prelude.seq` Prelude.rnf detail
+    Prelude.rnf datetime `Prelude.seq`
+      Prelude.rnf detail

@@ -311,11 +311,11 @@ instance Prelude.Hashable CreateForecast where
 
 instance Prelude.NFData CreateForecast where
   rnf CreateForecast' {..} =
-    Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeSeriesSelector
-      `Prelude.seq` Prelude.rnf forecastName
-      `Prelude.seq` Prelude.rnf predictorArn
+    Prelude.rnf forecastTypes `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf timeSeriesSelector `Prelude.seq`
+          Prelude.rnf forecastName `Prelude.seq`
+            Prelude.rnf predictorArn
 
 instance Data.ToHeaders CreateForecast where
   toHeaders =
@@ -392,5 +392,5 @@ createForecastResponse_httpStatus = Lens.lens (\CreateForecastResponse' {httpSta
 
 instance Prelude.NFData CreateForecastResponse where
   rnf CreateForecastResponse' {..} =
-    Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecastArn `Prelude.seq`
+      Prelude.rnf httpStatus

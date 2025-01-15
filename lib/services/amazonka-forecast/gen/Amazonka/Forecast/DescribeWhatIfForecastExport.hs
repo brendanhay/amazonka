@@ -373,14 +373,14 @@ instance
     DescribeWhatIfForecastExportResponse
   where
   rnf DescribeWhatIfForecastExportResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf whatIfForecastArns
-      `Prelude.seq` Prelude.rnf whatIfForecastExportArn
-      `Prelude.seq` Prelude.rnf whatIfForecastExportName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf lastModificationTime `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf whatIfForecastArns `Prelude.seq`
+                    Prelude.rnf whatIfForecastExportArn `Prelude.seq`
+                      Prelude.rnf whatIfForecastExportName `Prelude.seq`
+                        Prelude.rnf httpStatus

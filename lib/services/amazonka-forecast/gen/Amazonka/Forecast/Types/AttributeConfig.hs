@@ -191,8 +191,8 @@ instance Prelude.Hashable AttributeConfig where
 
 instance Prelude.NFData AttributeConfig where
   rnf AttributeConfig' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf transformations
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf transformations
 
 instance Data.ToJSON AttributeConfig where
   toJSON AttributeConfig' {..} =

@@ -112,7 +112,7 @@ instance Prelude.Hashable StatusCodes where
 
 instance Prelude.NFData StatusCodes where
   rnf StatusCodes' {..} =
-    Prelude.rnf status2xx
-      `Prelude.seq` Prelude.rnf status3xx
-      `Prelude.seq` Prelude.rnf status4xx
-      `Prelude.seq` Prelude.rnf status5xx
+    Prelude.rnf status2xx `Prelude.seq`
+      Prelude.rnf status3xx `Prelude.seq`
+        Prelude.rnf status4xx `Prelude.seq`
+          Prelude.rnf status5xx

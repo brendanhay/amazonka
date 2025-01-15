@@ -184,6 +184,6 @@ checkDNSAvailabilityResponse_httpStatus = Lens.lens (\CheckDNSAvailabilityRespon
 
 instance Prelude.NFData CheckDNSAvailabilityResponse where
   rnf CheckDNSAvailabilityResponse' {..} =
-    Prelude.rnf available
-      `Prelude.seq` Prelude.rnf fullyQualifiedCNAME
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf available `Prelude.seq`
+      Prelude.rnf fullyQualifiedCNAME `Prelude.seq`
+        Prelude.rnf httpStatus

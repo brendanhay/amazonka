@@ -137,9 +137,9 @@ instance
 
 instance Prelude.NFData ApplyEnvironmentManagedAction where
   rnf ApplyEnvironmentManagedAction' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf actionId
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf actionId
 
 instance Data.ToHeaders ApplyEnvironmentManagedAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,8 +234,8 @@ instance
     ApplyEnvironmentManagedActionResponse
   where
   rnf ApplyEnvironmentManagedActionResponse' {..} =
-    Prelude.rnf actionDescription
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionDescription `Prelude.seq`
+      Prelude.rnf actionId `Prelude.seq`
+        Prelude.rnf actionType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

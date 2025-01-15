@@ -409,20 +409,20 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf cNAMEPrefix
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf operationsRole
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf optionsToRemove
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf versionLabel
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf cNAMEPrefix `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf operationsRole `Prelude.seq`
+              Prelude.rnf optionSettings `Prelude.seq`
+                Prelude.rnf optionsToRemove `Prelude.seq`
+                  Prelude.rnf platformArn `Prelude.seq`
+                    Prelude.rnf solutionStackName `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf templateName `Prelude.seq`
+                          Prelude.rnf tier `Prelude.seq`
+                            Prelude.rnf versionLabel `Prelude.seq`
+                              Prelude.rnf applicationName
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

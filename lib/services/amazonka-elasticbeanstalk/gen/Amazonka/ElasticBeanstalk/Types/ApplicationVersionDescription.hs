@@ -240,13 +240,13 @@ instance
 
 instance Prelude.NFData ApplicationVersionDescription where
   rnf ApplicationVersionDescription' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationVersionArn
-      `Prelude.seq` Prelude.rnf buildArn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sourceBuildInformation
-      `Prelude.seq` Prelude.rnf sourceBundle
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf applicationVersionArn `Prelude.seq`
+        Prelude.rnf buildArn `Prelude.seq`
+          Prelude.rnf dateCreated `Prelude.seq`
+            Prelude.rnf dateUpdated `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf sourceBuildInformation `Prelude.seq`
+                  Prelude.rnf sourceBundle `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf versionLabel

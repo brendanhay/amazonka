@@ -112,9 +112,7 @@ instance
       "DescribeEnvironmentManagedActionsResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "ManagedActions"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ManagedActions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList1 "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,9 +135,9 @@ instance
     DescribeEnvironmentManagedActions
   where
   rnf DescribeEnvironmentManagedActions' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf status
 
 instance
   Data.ToHeaders
@@ -217,5 +215,5 @@ instance
     DescribeEnvironmentManagedActionsResponse
   where
   rnf DescribeEnvironmentManagedActionsResponse' {..} =
-    Prelude.rnf managedActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedActions `Prelude.seq`
+      Prelude.rnf httpStatus

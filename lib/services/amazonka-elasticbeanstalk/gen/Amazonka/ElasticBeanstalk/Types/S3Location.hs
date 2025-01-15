@@ -76,8 +76,8 @@ instance Prelude.Hashable S3Location where
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key
 
 instance Data.ToQuery S3Location where
   toQuery S3Location' {..} =

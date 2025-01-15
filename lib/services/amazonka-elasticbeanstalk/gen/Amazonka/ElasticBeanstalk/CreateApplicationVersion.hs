@@ -297,15 +297,15 @@ instance Prelude.Hashable CreateApplicationVersion where
 
 instance Prelude.NFData CreateApplicationVersion where
   rnf CreateApplicationVersion' {..} =
-    Prelude.rnf autoCreateApplication
-      `Prelude.seq` Prelude.rnf buildConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf process
-      `Prelude.seq` Prelude.rnf sourceBuildInformation
-      `Prelude.seq` Prelude.rnf sourceBundle
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf autoCreateApplication `Prelude.seq`
+      Prelude.rnf buildConfiguration `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf process `Prelude.seq`
+            Prelude.rnf sourceBuildInformation `Prelude.seq`
+              Prelude.rnf sourceBundle `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf applicationName `Prelude.seq`
+                    Prelude.rnf versionLabel
 
 instance Data.ToHeaders CreateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty

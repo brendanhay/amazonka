@@ -101,9 +101,9 @@ instance Prelude.Hashable SearchFilter where
 
 instance Prelude.NFData SearchFilter where
   rnf SearchFilter' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToQuery SearchFilter where
   toQuery SearchFilter' {..} =

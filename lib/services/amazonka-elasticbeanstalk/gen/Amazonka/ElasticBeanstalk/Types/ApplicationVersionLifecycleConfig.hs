@@ -102,8 +102,8 @@ instance
     ApplicationVersionLifecycleConfig
   where
   rnf ApplicationVersionLifecycleConfig' {..} =
-    Prelude.rnf maxAgeRule
-      `Prelude.seq` Prelude.rnf maxCountRule
+    Prelude.rnf maxAgeRule `Prelude.seq`
+      Prelude.rnf maxCountRule
 
 instance
   Data.ToQuery

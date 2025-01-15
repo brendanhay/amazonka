@@ -101,9 +101,7 @@ instance Core.AWSRequest ListTagsForResource where
       ( \s h x ->
           ListTagsForResourceResponse'
             Prelude.<$> (x Data..@? "ResourceArn")
-            Prelude.<*> ( x
-                            Data..@? "ResourceTags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ResourceTags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -186,6 +184,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf resourceTags `Prelude.seq`
+        Prelude.rnf httpStatus

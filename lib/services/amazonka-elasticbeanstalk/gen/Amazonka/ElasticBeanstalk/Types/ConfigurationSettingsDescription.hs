@@ -197,9 +197,7 @@ instance
       Prelude.<*> (x Data..@? "DeploymentStatus")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "EnvironmentName")
-      Prelude.<*> ( x
-                      Data..@? "OptionSettings"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PlatformArn")
@@ -230,13 +228,13 @@ instance
     ConfigurationSettingsDescription
   where
   rnf ConfigurationSettingsDescription' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf deploymentStatus `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf environmentName `Prelude.seq`
+                Prelude.rnf optionSettings `Prelude.seq`
+                  Prelude.rnf platformArn `Prelude.seq`
+                    Prelude.rnf solutionStackName `Prelude.seq`
+                      Prelude.rnf templateName

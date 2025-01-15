@@ -145,9 +145,7 @@ instance
       "ValidateConfigurationSettingsResult"
       ( \s h x ->
           ValidateConfigurationSettingsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Messages"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Messages" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,10 +164,10 @@ instance
 
 instance Prelude.NFData ValidateConfigurationSettings where
   rnf ValidateConfigurationSettings' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf optionSettings
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf templateName `Prelude.seq`
+        Prelude.rnf applicationName `Prelude.seq`
+          Prelude.rnf optionSettings
 
 instance Data.ToHeaders ValidateConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -239,5 +237,5 @@ instance
     ValidateConfigurationSettingsResponse
   where
   rnf ValidateConfigurationSettingsResponse' {..} =
-    Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messages `Prelude.seq`
+      Prelude.rnf httpStatus

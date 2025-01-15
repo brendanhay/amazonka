@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteConfigurationTemplate where
 
 instance Prelude.NFData DeleteConfigurationTemplate where
   rnf DeleteConfigurationTemplate' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders DeleteConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty

@@ -157,9 +157,7 @@ instance Core.AWSRequest RetrieveEnvironmentInfo where
       "RetrieveEnvironmentInfoResult"
       ( \s h x ->
           RetrieveEnvironmentInfoResponse'
-            Prelude.<$> ( x
-                            Data..@? "EnvironmentInfo"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "EnvironmentInfo" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -174,9 +172,9 @@ instance Prelude.Hashable RetrieveEnvironmentInfo where
 
 instance Prelude.NFData RetrieveEnvironmentInfo where
   rnf RetrieveEnvironmentInfo' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf infoType
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf infoType
 
 instance Data.ToHeaders RetrieveEnvironmentInfo where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,5 +241,5 @@ instance
     RetrieveEnvironmentInfoResponse
   where
   rnf RetrieveEnvironmentInfoResponse' {..} =
-    Prelude.rnf environmentInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentInfo `Prelude.seq`
+      Prelude.rnf httpStatus

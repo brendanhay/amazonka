@@ -76,9 +76,7 @@ instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
       Prelude.<$> (x Data..@? "Domain")
-      Prelude.<*> ( x
-                      Data..@? "Listeners"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LoadBalancerName")
@@ -92,6 +90,6 @@ instance Prelude.Hashable LoadBalancerDescription where
 
 instance Prelude.NFData LoadBalancerDescription where
   rnf LoadBalancerDescription' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf listeners
-      `Prelude.seq` Prelude.rnf loadBalancerName
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf listeners `Prelude.seq`
+        Prelude.rnf loadBalancerName

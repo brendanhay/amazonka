@@ -144,9 +144,9 @@ instance Prelude.Hashable UpdateApplicationVersion where
 
 instance Prelude.NFData UpdateApplicationVersion where
   rnf UpdateApplicationVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf versionLabel
 
 instance Data.ToHeaders UpdateApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty

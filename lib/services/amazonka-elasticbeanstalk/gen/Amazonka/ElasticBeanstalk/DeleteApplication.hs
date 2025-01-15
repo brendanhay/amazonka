@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteApplication where
 
 instance Prelude.NFData DeleteApplication where
   rnf DeleteApplication' {..} =
-    Prelude.rnf terminateEnvByForce
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf terminateEnvByForce `Prelude.seq`
+      Prelude.rnf applicationName
 
 instance Data.ToHeaders DeleteApplication where
   toHeaders = Prelude.const Prelude.mempty

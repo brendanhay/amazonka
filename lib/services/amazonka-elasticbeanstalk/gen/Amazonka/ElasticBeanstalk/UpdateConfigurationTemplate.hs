@@ -193,11 +193,11 @@ instance Prelude.Hashable UpdateConfigurationTemplate where
 
 instance Prelude.NFData UpdateConfigurationTemplate where
   rnf UpdateConfigurationTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf optionsToRemove
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf optionSettings `Prelude.seq`
+        Prelude.rnf optionsToRemove `Prelude.seq`
+          Prelude.rnf applicationName `Prelude.seq`
+            Prelude.rnf templateName
 
 instance Data.ToHeaders UpdateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty

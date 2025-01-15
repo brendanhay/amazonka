@@ -155,5 +155,5 @@ deletePlatformVersionResponse_httpStatus = Lens.lens (\DeletePlatformVersionResp
 
 instance Prelude.NFData DeletePlatformVersionResponse where
   rnf DeletePlatformVersionResponse' {..} =
-    Prelude.rnf platformSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf platformSummary `Prelude.seq`
+      Prelude.rnf httpStatus

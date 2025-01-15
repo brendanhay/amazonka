@@ -136,9 +136,7 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
       ( \s h x ->
           DescribeEnvironmentHealthResponse'
             Prelude.<$> (x Data..@? "ApplicationMetrics")
-            Prelude.<*> ( x
-                            Data..@? "Causes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Causes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Color")
@@ -159,9 +157,9 @@ instance Prelude.Hashable DescribeEnvironmentHealth where
 
 instance Prelude.NFData DescribeEnvironmentHealth where
   rnf DescribeEnvironmentHealth' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf environmentName
 
 instance Data.ToHeaders DescribeEnvironmentHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,12 +310,12 @@ instance
     DescribeEnvironmentHealthResponse
   where
   rnf DescribeEnvironmentHealthResponse' {..} =
-    Prelude.rnf applicationMetrics
-      `Prelude.seq` Prelude.rnf causes
-      `Prelude.seq` Prelude.rnf color
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf instancesHealth
-      `Prelude.seq` Prelude.rnf refreshedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationMetrics `Prelude.seq`
+      Prelude.rnf causes `Prelude.seq`
+        Prelude.rnf color `Prelude.seq`
+          Prelude.rnf environmentName `Prelude.seq`
+            Prelude.rnf healthStatus `Prelude.seq`
+              Prelude.rnf instancesHealth `Prelude.seq`
+                Prelude.rnf refreshedAt `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf httpStatus

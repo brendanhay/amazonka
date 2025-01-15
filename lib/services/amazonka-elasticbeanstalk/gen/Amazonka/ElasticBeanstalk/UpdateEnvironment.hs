@@ -337,18 +337,18 @@ instance Prelude.Hashable UpdateEnvironment where
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf optionsToRemove
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf environmentId `Prelude.seq`
+          Prelude.rnf environmentName `Prelude.seq`
+            Prelude.rnf groupName `Prelude.seq`
+              Prelude.rnf optionSettings `Prelude.seq`
+                Prelude.rnf optionsToRemove `Prelude.seq`
+                  Prelude.rnf platformArn `Prelude.seq`
+                    Prelude.rnf solutionStackName `Prelude.seq`
+                      Prelude.rnf templateName `Prelude.seq`
+                        Prelude.rnf tier `Prelude.seq`
+                          Prelude.rnf versionLabel
 
 instance Data.ToHeaders UpdateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

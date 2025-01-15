@@ -146,11 +146,11 @@ instance Prelude.Hashable ManagedActionHistoryItem where
 
 instance Prelude.NFData ManagedActionHistoryItem where
   rnf ManagedActionHistoryItem' {..} =
-    Prelude.rnf actionDescription
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf executedTime
-      `Prelude.seq` Prelude.rnf failureDescription
-      `Prelude.seq` Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf finishedTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionDescription `Prelude.seq`
+      Prelude.rnf actionId `Prelude.seq`
+        Prelude.rnf actionType `Prelude.seq`
+          Prelude.rnf executedTime `Prelude.seq`
+            Prelude.rnf failureDescription `Prelude.seq`
+              Prelude.rnf failureType `Prelude.seq`
+                Prelude.rnf finishedTime `Prelude.seq`
+                  Prelude.rnf status

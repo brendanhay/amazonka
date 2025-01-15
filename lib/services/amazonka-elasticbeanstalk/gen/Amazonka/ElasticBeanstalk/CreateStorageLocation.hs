@@ -145,5 +145,5 @@ createStorageLocationResponse_httpStatus = Lens.lens (\CreateStorageLocationResp
 
 instance Prelude.NFData CreateStorageLocationResponse where
   rnf CreateStorageLocationResponse' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf httpStatus

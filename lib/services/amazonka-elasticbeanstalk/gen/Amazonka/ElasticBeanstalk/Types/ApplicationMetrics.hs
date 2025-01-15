@@ -118,7 +118,7 @@ instance Prelude.Hashable ApplicationMetrics where
 
 instance Prelude.NFData ApplicationMetrics where
   rnf ApplicationMetrics' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf latency
-      `Prelude.seq` Prelude.rnf requestCount
-      `Prelude.seq` Prelude.rnf statusCodes
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf latency `Prelude.seq`
+        Prelude.rnf requestCount `Prelude.seq`
+          Prelude.rnf statusCodes

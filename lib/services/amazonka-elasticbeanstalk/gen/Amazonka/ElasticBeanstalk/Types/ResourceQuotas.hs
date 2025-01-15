@@ -112,8 +112,8 @@ instance Prelude.Hashable ResourceQuotas where
 
 instance Prelude.NFData ResourceQuotas where
   rnf ResourceQuotas' {..} =
-    Prelude.rnf applicationQuota
-      `Prelude.seq` Prelude.rnf applicationVersionQuota
-      `Prelude.seq` Prelude.rnf configurationTemplateQuota
-      `Prelude.seq` Prelude.rnf customPlatformQuota
-      `Prelude.seq` Prelude.rnf environmentQuota
+    Prelude.rnf applicationQuota `Prelude.seq`
+      Prelude.rnf applicationVersionQuota `Prelude.seq`
+        Prelude.rnf configurationTemplateQuota `Prelude.seq`
+          Prelude.rnf customPlatformQuota `Prelude.seq`
+            Prelude.rnf environmentQuota

@@ -134,9 +134,7 @@ instance Data.FromXML EnvironmentResourceDescription where
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "EnvironmentName")
-      Prelude.<*> ( x
-                      Data..@? "Instances"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
@@ -144,24 +142,16 @@ instance Data.FromXML EnvironmentResourceDescription where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "LaunchTemplates"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "LaunchTemplates" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "LoadBalancers"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Queues"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Queues" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Triggers"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Triggers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -187,11 +177,11 @@ instance
     EnvironmentResourceDescription
   where
   rnf EnvironmentResourceDescription' {..} =
-    Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf launchConfigurations
-      `Prelude.seq` Prelude.rnf launchTemplates
-      `Prelude.seq` Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf queues
-      `Prelude.seq` Prelude.rnf triggers
+    Prelude.rnf autoScalingGroups `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf instances `Prelude.seq`
+          Prelude.rnf launchConfigurations `Prelude.seq`
+            Prelude.rnf launchTemplates `Prelude.seq`
+              Prelude.rnf loadBalancers `Prelude.seq`
+                Prelude.rnf queues `Prelude.seq`
+                  Prelude.rnf triggers

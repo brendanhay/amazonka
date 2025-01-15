@@ -162,9 +162,7 @@ instance Core.AWSRequest DescribeConfigurationOptions where
       "DescribeConfigurationOptionsResult"
       ( \s h x ->
           DescribeConfigurationOptionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Options"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Options" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "PlatformArn")
@@ -187,12 +185,12 @@ instance
 
 instance Prelude.NFData DescribeConfigurationOptions where
   rnf DescribeConfigurationOptions' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf platformArn `Prelude.seq`
+            Prelude.rnf solutionStackName `Prelude.seq`
+              Prelude.rnf templateName
 
 instance Data.ToHeaders DescribeConfigurationOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,7 +281,7 @@ instance
     DescribeConfigurationOptionsResponse
   where
   rnf DescribeConfigurationOptionsResponse' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf platformArn `Prelude.seq`
+        Prelude.rnf solutionStackName `Prelude.seq`
+          Prelude.rnf httpStatus

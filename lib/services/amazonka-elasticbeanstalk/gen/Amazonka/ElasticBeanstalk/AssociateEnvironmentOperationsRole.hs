@@ -126,8 +126,8 @@ instance
     AssociateEnvironmentOperationsRole
   where
   rnf AssociateEnvironmentOperationsRole' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf operationsRole
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf operationsRole
 
 instance
   Data.ToHeaders

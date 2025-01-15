@@ -151,9 +151,9 @@ instance Prelude.Hashable ComposeEnvironments where
 
 instance Prelude.NFData ComposeEnvironments where
   rnf ComposeEnvironments' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf versionLabels
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf versionLabels
 
 instance Data.ToHeaders ComposeEnvironments where
   toHeaders = Prelude.const Prelude.mempty

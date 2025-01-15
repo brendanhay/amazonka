@@ -179,9 +179,9 @@ instance
 
 instance Prelude.NFData DescribeConfigurationSettings where
   rnf DescribeConfigurationSettings' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf templateName `Prelude.seq`
+        Prelude.rnf applicationName
 
 instance Data.ToHeaders DescribeConfigurationSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,5 +250,5 @@ instance
     DescribeConfigurationSettingsResponse
   where
   rnf DescribeConfigurationSettingsResponse' {..} =
-    Prelude.rnf configurationSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSettings `Prelude.seq`
+      Prelude.rnf httpStatus

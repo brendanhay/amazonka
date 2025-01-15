@@ -71,8 +71,8 @@ instance Prelude.Hashable SourceConfiguration where
 
 instance Prelude.NFData SourceConfiguration where
   rnf SourceConfiguration' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToQuery SourceConfiguration where
   toQuery SourceConfiguration' {..} =

@@ -91,9 +91,7 @@ instance Core.AWSRequest DescribeApplications where
       "DescribeApplicationsResult"
       ( \s h x ->
           DescribeApplicationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Applications"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Applications" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,5 +168,5 @@ describeApplicationsResponse_httpStatus = Lens.lens (\DescribeApplicationsRespon
 
 instance Prelude.NFData DescribeApplicationsResponse where
   rnf DescribeApplicationsResponse' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf httpStatus

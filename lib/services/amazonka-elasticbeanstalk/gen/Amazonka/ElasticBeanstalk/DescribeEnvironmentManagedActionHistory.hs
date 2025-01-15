@@ -129,12 +129,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEnvironmentManagedActionHistory_nextToken
-          Lens..~ rs
-          Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEnvironmentManagedActionHistory_nextToken
+              Lens..~ rs
+              Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,10 +178,10 @@ instance
     DescribeEnvironmentManagedActionHistory
   where
   rnf DescribeEnvironmentManagedActionHistory' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -275,6 +275,6 @@ instance
   where
   rnf
     DescribeEnvironmentManagedActionHistoryResponse' {..} =
-      Prelude.rnf managedActionHistoryItems
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf managedActionHistoryItems `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

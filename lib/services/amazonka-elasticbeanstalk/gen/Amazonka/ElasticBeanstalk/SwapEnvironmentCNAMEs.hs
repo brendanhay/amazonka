@@ -176,10 +176,10 @@ instance Prelude.Hashable SwapEnvironmentCNAMEs where
 
 instance Prelude.NFData SwapEnvironmentCNAMEs where
   rnf SwapEnvironmentCNAMEs' {..} =
-    Prelude.rnf destinationEnvironmentId
-      `Prelude.seq` Prelude.rnf destinationEnvironmentName
-      `Prelude.seq` Prelude.rnf sourceEnvironmentId
-      `Prelude.seq` Prelude.rnf sourceEnvironmentName
+    Prelude.rnf destinationEnvironmentId `Prelude.seq`
+      Prelude.rnf destinationEnvironmentName `Prelude.seq`
+        Prelude.rnf sourceEnvironmentId `Prelude.seq`
+          Prelude.rnf sourceEnvironmentName
 
 instance Data.ToHeaders SwapEnvironmentCNAMEs where
   toHeaders = Prelude.const Prelude.mempty

@@ -239,9 +239,9 @@ instance Prelude.Hashable ListPlatformBranches where
 
 instance Prelude.NFData ListPlatformBranches where
   rnf ListPlatformBranches' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlatformBranches where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,6 +316,6 @@ listPlatformBranchesResponse_httpStatus = Lens.lens (\ListPlatformBranchesRespon
 
 instance Prelude.NFData ListPlatformBranchesResponse where
   rnf ListPlatformBranchesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformBranchSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf platformBranchSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

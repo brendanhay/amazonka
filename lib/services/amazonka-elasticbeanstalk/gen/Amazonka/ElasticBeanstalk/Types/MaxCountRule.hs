@@ -93,9 +93,9 @@ instance Prelude.Hashable MaxCountRule where
 
 instance Prelude.NFData MaxCountRule where
   rnf MaxCountRule' {..} =
-    Prelude.rnf deleteSourceFromS3
-      `Prelude.seq` Prelude.rnf maxCount
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf deleteSourceFromS3 `Prelude.seq`
+      Prelude.rnf maxCount `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =

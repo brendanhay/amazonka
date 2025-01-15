@@ -135,9 +135,9 @@ instance Prelude.Hashable EnvironmentTier where
 
 instance Prelude.NFData EnvironmentTier where
   rnf EnvironmentTier' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToQuery EnvironmentTier where
   toQuery EnvironmentTier' {..} =

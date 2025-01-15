@@ -133,9 +133,9 @@ instance
 
 instance Prelude.NFData SimulationApplicationSummary where
   rnf SimulationApplicationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf robotSoftwareSuite `Prelude.seq`
+            Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+              Prelude.rnf version

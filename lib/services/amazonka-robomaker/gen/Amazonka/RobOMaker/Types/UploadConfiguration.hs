@@ -168,9 +168,9 @@ instance Prelude.Hashable UploadConfiguration where
 
 instance Prelude.NFData UploadConfiguration where
   rnf UploadConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf uploadBehavior
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf uploadBehavior
 
 instance Data.ToJSON UploadConfiguration where
   toJSON UploadConfiguration' {..} =

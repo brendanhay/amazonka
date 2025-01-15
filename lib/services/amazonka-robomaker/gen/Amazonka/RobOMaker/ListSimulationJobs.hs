@@ -163,12 +163,12 @@ instance Core.AWSPager ListSimulationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSimulationJobs_nextToken
-          Lens..~ rs
-          Lens.^? listSimulationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSimulationJobs_nextToken
+              Lens..~ rs
+              Lens.^? listSimulationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSimulationJobs where
   type
@@ -197,9 +197,9 @@ instance Prelude.Hashable ListSimulationJobs where
 
 instance Prelude.NFData ListSimulationJobs where
   rnf ListSimulationJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSimulationJobs where
   toHeaders =
@@ -296,6 +296,6 @@ listSimulationJobsResponse_simulationJobSummaries = Lens.lens (\ListSimulationJo
 
 instance Prelude.NFData ListSimulationJobsResponse where
   rnf ListSimulationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf simulationJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf simulationJobSummaries

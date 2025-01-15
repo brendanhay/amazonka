@@ -93,6 +93,6 @@ instance Prelude.Hashable FinishedWorldsSummary where
 
 instance Prelude.NFData FinishedWorldsSummary where
   rnf FinishedWorldsSummary' {..} =
-    Prelude.rnf failureSummary
-      `Prelude.seq` Prelude.rnf finishedCount
-      `Prelude.seq` Prelude.rnf succeededWorlds
+    Prelude.rnf failureSummary `Prelude.seq`
+      Prelude.rnf finishedCount `Prelude.seq`
+        Prelude.rnf succeededWorlds

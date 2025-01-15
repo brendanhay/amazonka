@@ -191,14 +191,14 @@ instance Prelude.Hashable SimulationApplicationConfig where
 
 instance Prelude.NFData SimulationApplicationConfig where
   rnf SimulationApplicationConfig' {..} =
-    Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf uploadConfigurations
-      `Prelude.seq` Prelude.rnf useDefaultTools
-      `Prelude.seq` Prelude.rnf useDefaultUploadConfigurations
-      `Prelude.seq` Prelude.rnf worldConfigs
-      `Prelude.seq` Prelude.rnf application
-      `Prelude.seq` Prelude.rnf launchConfig
+    Prelude.rnf applicationVersion `Prelude.seq`
+      Prelude.rnf tools `Prelude.seq`
+        Prelude.rnf uploadConfigurations `Prelude.seq`
+          Prelude.rnf useDefaultTools `Prelude.seq`
+            Prelude.rnf useDefaultUploadConfigurations `Prelude.seq`
+              Prelude.rnf worldConfigs `Prelude.seq`
+                Prelude.rnf application `Prelude.seq`
+                  Prelude.rnf launchConfig
 
 instance Data.ToJSON SimulationApplicationConfig where
   toJSON SimulationApplicationConfig' {..} =

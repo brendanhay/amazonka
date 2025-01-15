@@ -113,8 +113,8 @@ instance Prelude.Hashable BatchPolicy where
 
 instance Prelude.NFData BatchPolicy where
   rnf BatchPolicy' {..} =
-    Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf maxConcurrency `Prelude.seq`
+      Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON BatchPolicy where
   toJSON BatchPolicy' {..} =

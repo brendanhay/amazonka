@@ -87,8 +87,8 @@ instance Prelude.Hashable WorldCount where
 
 instance Prelude.NFData WorldCount where
   rnf WorldCount' {..} =
-    Prelude.rnf floorplanCount
-      `Prelude.seq` Prelude.rnf interiorCountPerFloorplan
+    Prelude.rnf floorplanCount `Prelude.seq`
+      Prelude.rnf interiorCountPerFloorplan
 
 instance Data.ToJSON WorldCount where
   toJSON WorldCount' {..} =

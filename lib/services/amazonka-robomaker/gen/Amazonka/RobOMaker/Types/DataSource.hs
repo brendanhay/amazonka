@@ -163,8 +163,8 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Keys
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf s3Keys `Prelude.seq`
+            Prelude.rnf type'

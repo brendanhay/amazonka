@@ -103,7 +103,7 @@ instance Prelude.Hashable VPCConfigResponse where
 
 instance Prelude.NFData VPCConfigResponse where
   rnf VPCConfigResponse' {..} =
-    Prelude.rnf assignPublicIp
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf assignPublicIp `Prelude.seq`
+      Prelude.rnf securityGroups `Prelude.seq`
+        Prelude.rnf subnets `Prelude.seq`
+          Prelude.rnf vpcId

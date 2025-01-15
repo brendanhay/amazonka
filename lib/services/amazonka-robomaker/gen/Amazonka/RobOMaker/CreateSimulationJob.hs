@@ -323,18 +323,18 @@ instance Prelude.Hashable CreateSimulationJob where
 
 instance Prelude.NFData CreateSimulationJob where
   rnf CreateSimulationJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf failureBehavior
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf robotApplications
-      `Prelude.seq` Prelude.rnf simulationApplications
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
-      `Prelude.seq` Prelude.rnf iamRole
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf compute `Prelude.seq`
+        Prelude.rnf dataSources `Prelude.seq`
+          Prelude.rnf failureBehavior `Prelude.seq`
+            Prelude.rnf loggingConfig `Prelude.seq`
+              Prelude.rnf outputLocation `Prelude.seq`
+                Prelude.rnf robotApplications `Prelude.seq`
+                  Prelude.rnf simulationApplications `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf vpcConfig `Prelude.seq`
+                        Prelude.rnf maxJobDurationInSeconds `Prelude.seq`
+                          Prelude.rnf iamRole
 
 instance Data.ToHeaders CreateSimulationJob where
   toHeaders =
@@ -726,22 +726,22 @@ createSimulationJobResponse_httpStatus = Lens.lens (\CreateSimulationJobResponse
 
 instance Prelude.NFData CreateSimulationJobResponse where
   rnf CreateSimulationJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf failureBehavior
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf lastStartedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf robotApplications
-      `Prelude.seq` Prelude.rnf simulationApplications
-      `Prelude.seq` Prelude.rnf simulationTimeMillis
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf compute `Prelude.seq`
+          Prelude.rnf dataSources `Prelude.seq`
+            Prelude.rnf failureBehavior `Prelude.seq`
+              Prelude.rnf failureCode `Prelude.seq`
+                Prelude.rnf iamRole `Prelude.seq`
+                  Prelude.rnf lastStartedAt `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt `Prelude.seq`
+                      Prelude.rnf loggingConfig `Prelude.seq`
+                        Prelude.rnf maxJobDurationInSeconds `Prelude.seq`
+                          Prelude.rnf outputLocation `Prelude.seq`
+                            Prelude.rnf robotApplications `Prelude.seq`
+                              Prelude.rnf simulationApplications `Prelude.seq`
+                                Prelude.rnf simulationTimeMillis `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf vpcConfig `Prelude.seq`
+                                        Prelude.rnf httpStatus

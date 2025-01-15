@@ -135,12 +135,12 @@ instance Core.AWSPager ListWorldTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorldTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listWorldTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorldTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listWorldTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorldTemplates where
   type
@@ -168,8 +168,8 @@ instance Prelude.Hashable ListWorldTemplates where
 
 instance Prelude.NFData ListWorldTemplates where
   rnf ListWorldTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorldTemplates where
   toHeaders =
@@ -262,6 +262,6 @@ listWorldTemplatesResponse_httpStatus = Lens.lens (\ListWorldTemplatesResponse' 
 
 instance Prelude.NFData ListWorldTemplatesResponse where
   rnf ListWorldTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templateSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf templateSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

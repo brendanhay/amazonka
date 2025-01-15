@@ -150,12 +150,12 @@ instance Core.AWSPager ListWorldGenerationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorldGenerationJobs_nextToken
-          Lens..~ rs
-          Lens.^? listWorldGenerationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorldGenerationJobs_nextToken
+              Lens..~ rs
+              Lens.^? listWorldGenerationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorldGenerationJobs where
   type
@@ -184,9 +184,9 @@ instance Prelude.Hashable ListWorldGenerationJobs where
 
 instance Prelude.NFData ListWorldGenerationJobs where
   rnf ListWorldGenerationJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorldGenerationJobs where
   toHeaders =
@@ -287,6 +287,6 @@ instance
     ListWorldGenerationJobsResponse
   where
   rnf ListWorldGenerationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf worldGenerationJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf worldGenerationJobSummaries

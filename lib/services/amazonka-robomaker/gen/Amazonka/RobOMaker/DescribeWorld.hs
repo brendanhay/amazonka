@@ -223,10 +223,10 @@ describeWorldResponse_httpStatus = Lens.lens (\DescribeWorldResponse' {httpStatu
 
 instance Prelude.NFData DescribeWorldResponse where
   rnf DescribeWorldResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf generationJob
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf worldDescriptionBody
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf generationJob `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf template `Prelude.seq`
+              Prelude.rnf worldDescriptionBody `Prelude.seq`
+                Prelude.rnf httpStatus

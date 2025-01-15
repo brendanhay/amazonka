@@ -81,9 +81,9 @@ instance Prelude.Hashable SourceConfig where
 
 instance Prelude.NFData SourceConfig where
   rnf SourceConfig' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf s3Bucket `Prelude.seq`
+        Prelude.rnf s3Key
 
 instance Data.ToJSON SourceConfig where
   toJSON SourceConfig' {..} =

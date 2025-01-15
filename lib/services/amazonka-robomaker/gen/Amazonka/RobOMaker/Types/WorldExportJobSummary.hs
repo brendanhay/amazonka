@@ -171,8 +171,8 @@ instance Prelude.Hashable WorldExportJobSummary where
 
 instance Prelude.NFData WorldExportJobSummary where
   rnf WorldExportJobSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf worlds
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf outputLocation `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf worlds

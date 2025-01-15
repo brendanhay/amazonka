@@ -104,6 +104,6 @@ instance Prelude.Hashable ComputeResponse where
 
 instance Prelude.NFData ComputeResponse where
   rnf ComputeResponse' {..} =
-    Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf gpuUnitLimit
-      `Prelude.seq` Prelude.rnf simulationUnitLimit
+    Prelude.rnf computeType `Prelude.seq`
+      Prelude.rnf gpuUnitLimit `Prelude.seq`
+        Prelude.rnf simulationUnitLimit

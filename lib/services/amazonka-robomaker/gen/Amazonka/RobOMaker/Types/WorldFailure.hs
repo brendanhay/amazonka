@@ -146,6 +146,6 @@ instance Prelude.Hashable WorldFailure where
 
 instance Prelude.NFData WorldFailure where
   rnf WorldFailure' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureCount
-      `Prelude.seq` Prelude.rnf sampleFailureReason
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureCount `Prelude.seq`
+        Prelude.rnf sampleFailureReason

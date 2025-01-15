@@ -201,13 +201,13 @@ instance Prelude.Hashable CreateSimulationApplication where
 
 instance Prelude.NFData CreateSimulationApplication where
   rnf CreateSimulationApplication' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+    Prelude.rnf environment `Prelude.seq`
+      Prelude.rnf renderingEngine `Prelude.seq`
+        Prelude.rnf sources `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+                Prelude.rnf robotSoftwareSuite
 
 instance Data.ToHeaders CreateSimulationApplication where
   toHeaders =
@@ -386,15 +386,15 @@ instance
     CreateSimulationApplicationResponse
   where
   rnf CreateSimulationApplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf renderingEngine `Prelude.seq`
+              Prelude.rnf revisionId `Prelude.seq`
+                Prelude.rnf robotSoftwareSuite `Prelude.seq`
+                  Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+                    Prelude.rnf sources `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf version `Prelude.seq`
+                          Prelude.rnf httpStatus

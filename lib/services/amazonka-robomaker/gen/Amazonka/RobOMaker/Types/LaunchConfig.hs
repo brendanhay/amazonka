@@ -158,12 +158,12 @@ instance Prelude.Hashable LaunchConfig where
 
 instance Prelude.NFData LaunchConfig where
   rnf LaunchConfig' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf launchFile
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf portForwardingConfig
-      `Prelude.seq` Prelude.rnf streamUI
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf environmentVariables `Prelude.seq`
+        Prelude.rnf launchFile `Prelude.seq`
+          Prelude.rnf packageName `Prelude.seq`
+            Prelude.rnf portForwardingConfig `Prelude.seq`
+              Prelude.rnf streamUI
 
 instance Data.ToJSON LaunchConfig where
   toJSON LaunchConfig' {..} =

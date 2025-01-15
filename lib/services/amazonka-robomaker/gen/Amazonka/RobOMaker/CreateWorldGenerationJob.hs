@@ -172,11 +172,11 @@ instance Prelude.Hashable CreateWorldGenerationJob where
 
 instance Prelude.NFData CreateWorldGenerationJob where
   rnf CreateWorldGenerationJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worldTags
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf worldCount
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf worldTags `Prelude.seq`
+          Prelude.rnf template `Prelude.seq`
+            Prelude.rnf worldCount
 
 instance Data.ToHeaders CreateWorldGenerationJob where
   toHeaders =
@@ -453,13 +453,13 @@ instance
     CreateWorldGenerationJobResponse
   where
   rnf CreateWorldGenerationJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf worldCount
-      `Prelude.seq` Prelude.rnf worldTags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf failureCode `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf template `Prelude.seq`
+                  Prelude.rnf worldCount `Prelude.seq`
+                    Prelude.rnf worldTags `Prelude.seq`
+                      Prelude.rnf httpStatus

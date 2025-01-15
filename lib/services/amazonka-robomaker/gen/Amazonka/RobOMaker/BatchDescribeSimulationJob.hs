@@ -178,6 +178,6 @@ instance
     BatchDescribeSimulationJobResponse
   where
   rnf BatchDescribeSimulationJobResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf unprocessedJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf unprocessedJobs `Prelude.seq`
+        Prelude.rnf httpStatus

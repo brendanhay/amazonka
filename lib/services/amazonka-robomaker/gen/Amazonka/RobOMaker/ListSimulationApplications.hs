@@ -166,12 +166,12 @@ instance Core.AWSPager ListSimulationApplications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSimulationApplications_nextToken
-          Lens..~ rs
-          Lens.^? listSimulationApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSimulationApplications_nextToken
+              Lens..~ rs
+              Lens.^? listSimulationApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSimulationApplications where
   type
@@ -201,10 +201,10 @@ instance Prelude.Hashable ListSimulationApplications where
 
 instance Prelude.NFData ListSimulationApplications where
   rnf ListSimulationApplications' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionQualifier
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf versionQualifier
 
 instance Data.ToHeaders ListSimulationApplications where
   toHeaders =
@@ -307,6 +307,6 @@ instance
     ListSimulationApplicationsResponse
   where
   rnf ListSimulationApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf simulationApplicationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf simulationApplicationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

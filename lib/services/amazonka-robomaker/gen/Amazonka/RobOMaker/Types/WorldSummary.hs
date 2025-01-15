@@ -102,7 +102,7 @@ instance Prelude.Hashable WorldSummary where
 
 instance Prelude.NFData WorldSummary where
   rnf WorldSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf generationJob
-      `Prelude.seq` Prelude.rnf template
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf generationJob `Prelude.seq`
+          Prelude.rnf template

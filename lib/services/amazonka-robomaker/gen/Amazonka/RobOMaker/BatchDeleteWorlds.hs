@@ -169,5 +169,5 @@ batchDeleteWorldsResponse_httpStatus = Lens.lens (\BatchDeleteWorldsResponse' {h
 
 instance Prelude.NFData BatchDeleteWorldsResponse where
   rnf BatchDeleteWorldsResponse' {..} =
-    Prelude.rnf unprocessedWorlds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedWorlds `Prelude.seq`
+      Prelude.rnf httpStatus

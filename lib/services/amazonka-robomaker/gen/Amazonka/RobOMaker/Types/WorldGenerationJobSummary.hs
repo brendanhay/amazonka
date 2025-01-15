@@ -206,10 +206,10 @@ instance Prelude.Hashable WorldGenerationJobSummary where
 
 instance Prelude.NFData WorldGenerationJobSummary where
   rnf WorldGenerationJobSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failedWorldCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf succeededWorldCount
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf worldCount
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf failedWorldCount `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf succeededWorldCount `Prelude.seq`
+              Prelude.rnf template `Prelude.seq`
+                Prelude.rnf worldCount

@@ -137,8 +137,8 @@ instance
 
 instance Prelude.NFData DescribeSimulationApplication where
   rnf DescribeSimulationApplication' {..} =
-    Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf applicationVersion `Prelude.seq`
+      Prelude.rnf application
 
 instance Data.ToHeaders DescribeSimulationApplication where
   toHeaders =
@@ -321,16 +321,16 @@ instance
     DescribeSimulationApplicationResponse
   where
   rnf DescribeSimulationApplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf imageDigest `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf renderingEngine `Prelude.seq`
+                Prelude.rnf revisionId `Prelude.seq`
+                  Prelude.rnf robotSoftwareSuite `Prelude.seq`
+                    Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+                      Prelude.rnf sources `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf version `Prelude.seq`
+                            Prelude.rnf httpStatus

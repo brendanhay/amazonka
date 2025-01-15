@@ -142,12 +142,12 @@ instance Core.AWSPager ListWorlds where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorlds_nextToken
-          Lens..~ rs
-          Lens.^? listWorldsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorlds_nextToken
+              Lens..~ rs
+              Lens.^? listWorldsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorlds where
   type AWSResponse ListWorlds = ListWorldsResponse
@@ -171,9 +171,9 @@ instance Prelude.Hashable ListWorlds where
 
 instance Prelude.NFData ListWorlds where
   rnf ListWorlds' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorlds where
   toHeaders =
@@ -266,6 +266,6 @@ listWorldsResponse_httpStatus = Lens.lens (\ListWorldsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListWorldsResponse where
   rnf ListWorldsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf worldSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf worldSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

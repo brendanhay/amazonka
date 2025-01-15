@@ -154,11 +154,11 @@ instance Prelude.Hashable CreateWorldTemplate where
 
 instance Prelude.NFData CreateWorldTemplate where
   rnf CreateWorldTemplate' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateLocation
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf templateBody `Prelude.seq`
+            Prelude.rnf templateLocation
 
 instance Data.ToHeaders CreateWorldTemplate where
   toHeaders =
@@ -276,9 +276,9 @@ createWorldTemplateResponse_httpStatus = Lens.lens (\CreateWorldTemplateResponse
 
 instance Prelude.NFData CreateWorldTemplateResponse where
   rnf CreateWorldTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

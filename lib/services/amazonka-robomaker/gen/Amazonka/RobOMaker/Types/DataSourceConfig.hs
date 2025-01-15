@@ -168,11 +168,11 @@ instance Prelude.Hashable DataSourceConfig where
 
 instance Prelude.NFData DataSourceConfig where
   rnf DataSourceConfig' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Keys
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf s3Bucket `Prelude.seq`
+            Prelude.rnf s3Keys
 
 instance Data.ToJSON DataSourceConfig where
   toJSON DataSourceConfig' {..} =

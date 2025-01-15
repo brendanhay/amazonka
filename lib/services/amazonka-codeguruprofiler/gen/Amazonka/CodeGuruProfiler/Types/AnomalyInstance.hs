@@ -128,7 +128,7 @@ instance Prelude.Hashable AnomalyInstance where
 
 instance Prelude.NFData AnomalyInstance where
   rnf AnomalyInstance' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf userFeedback
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf userFeedback `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf startTime

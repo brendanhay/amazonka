@@ -112,9 +112,9 @@ instance Prelude.Hashable FrameMetric where
 
 instance Prelude.NFData FrameMetric where
   rnf FrameMetric' {..} =
-    Prelude.rnf frameName
-      `Prelude.seq` Prelude.rnf threadStates
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf frameName `Prelude.seq`
+      Prelude.rnf threadStates `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON FrameMetric where
   toJSON FrameMetric' {..} =

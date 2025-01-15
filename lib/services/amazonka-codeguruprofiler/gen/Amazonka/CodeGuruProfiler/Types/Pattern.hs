@@ -153,10 +153,10 @@ instance Prelude.Hashable Pattern where
 
 instance Prelude.NFData Pattern where
   rnf Pattern' {..} =
-    Prelude.rnf countersToAggregate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolutionSteps
-      `Prelude.seq` Prelude.rnf targetFrames
-      `Prelude.seq` Prelude.rnf thresholdPercent
+    Prelude.rnf countersToAggregate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf resolutionSteps `Prelude.seq`
+              Prelude.rnf targetFrames `Prelude.seq`
+                Prelude.rnf thresholdPercent

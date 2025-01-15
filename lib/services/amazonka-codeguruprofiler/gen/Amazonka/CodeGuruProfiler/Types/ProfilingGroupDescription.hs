@@ -195,11 +195,11 @@ instance Prelude.Hashable ProfilingGroupDescription where
 
 instance Prelude.NFData ProfilingGroupDescription where
   rnf ProfilingGroupDescription' {..} =
-    Prelude.rnf agentOrchestrationConfig
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf profilingStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf agentOrchestrationConfig `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf computePlatform `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf profilingStatus `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf updatedAt

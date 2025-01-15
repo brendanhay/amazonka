@@ -230,12 +230,12 @@ instance Prelude.Hashable ListFindingsReports where
 
 instance Prelude.NFData ListFindingsReports where
   rnf ListFindingsReports' {..} =
-    Prelude.rnf dailyReportsOnly
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf dailyReportsOnly `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf profilingGroupName `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ListFindingsReports where
   toHeaders =
@@ -327,6 +327,6 @@ listFindingsReportsResponse_findingsReportSummaries = Lens.lens (\ListFindingsRe
 
 instance Prelude.NFData ListFindingsReportsResponse where
   rnf ListFindingsReportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findingsReportSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf findingsReportSummaries

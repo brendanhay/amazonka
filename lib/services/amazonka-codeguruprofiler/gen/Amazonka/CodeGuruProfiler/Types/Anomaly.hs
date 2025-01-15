@@ -111,6 +111,6 @@ instance Prelude.Hashable Anomaly where
 
 instance Prelude.NFData Anomaly where
   rnf Anomaly' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf reason

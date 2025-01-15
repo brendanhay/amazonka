@@ -138,8 +138,8 @@ instance Prelude.Hashable FindingsReportSummary where
 
 instance Prelude.NFData FindingsReportSummary where
   rnf FindingsReportSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf profileEndTime
-      `Prelude.seq` Prelude.rnf profileStartTime
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf totalNumberOfFindings
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf profileEndTime `Prelude.seq`
+        Prelude.rnf profileStartTime `Prelude.seq`
+          Prelude.rnf profilingGroupName `Prelude.seq`
+            Prelude.rnf totalNumberOfFindings

@@ -177,6 +177,6 @@ instance Prelude.Hashable AgentConfiguration where
 
 instance Prelude.NFData AgentConfiguration where
   rnf AgentConfiguration' {..} =
-    Prelude.rnf agentParameters
-      `Prelude.seq` Prelude.rnf periodInSeconds
-      `Prelude.seq` Prelude.rnf shouldProfile
+    Prelude.rnf agentParameters `Prelude.seq`
+      Prelude.rnf periodInSeconds `Prelude.seq`
+        Prelude.rnf shouldProfile

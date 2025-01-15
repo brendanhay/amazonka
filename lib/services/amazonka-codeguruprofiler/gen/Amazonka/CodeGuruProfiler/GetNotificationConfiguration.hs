@@ -181,5 +181,5 @@ instance
     GetNotificationConfigurationResponse
   where
   rnf GetNotificationConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf notificationConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf notificationConfiguration

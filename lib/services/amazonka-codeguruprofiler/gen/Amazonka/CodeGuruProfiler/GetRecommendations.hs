@@ -243,10 +243,10 @@ instance Prelude.Hashable GetRecommendations where
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf profilingGroupName `Prelude.seq`
+          Prelude.rnf startTime
 
 instance Data.ToHeaders GetRecommendations where
   toHeaders =
@@ -384,9 +384,9 @@ getRecommendationsResponse_recommendations = Lens.lens (\GetRecommendationsRespo
 
 instance Prelude.NFData GetRecommendationsResponse where
   rnf GetRecommendationsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf anomalies
-      `Prelude.seq` Prelude.rnf profileEndTime
-      `Prelude.seq` Prelude.rnf profileStartTime
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf recommendations
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf anomalies `Prelude.seq`
+        Prelude.rnf profileEndTime `Prelude.seq`
+          Prelude.rnf profileStartTime `Prelude.seq`
+            Prelude.rnf profilingGroupName `Prelude.seq`
+              Prelude.rnf recommendations

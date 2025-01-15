@@ -214,9 +214,9 @@ instance Prelude.Hashable ConfigureAgent where
 
 instance Prelude.NFData ConfigureAgent where
   rnf ConfigureAgent' {..} =
-    Prelude.rnf fleetInstanceId
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf fleetInstanceId `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders ConfigureAgent where
   toHeaders =
@@ -305,5 +305,5 @@ configureAgentResponse_configuration = Lens.lens (\ConfigureAgentResponse' {conf
 
 instance Prelude.NFData ConfigureAgentResponse where
   rnf ConfigureAgentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf configuration

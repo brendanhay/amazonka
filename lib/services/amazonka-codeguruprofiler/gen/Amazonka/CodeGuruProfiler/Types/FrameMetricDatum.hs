@@ -82,5 +82,5 @@ instance Prelude.Hashable FrameMetricDatum where
 
 instance Prelude.NFData FrameMetricDatum where
   rnf FrameMetricDatum' {..} =
-    Prelude.rnf frameMetric
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf frameMetric `Prelude.seq`
+      Prelude.rnf values

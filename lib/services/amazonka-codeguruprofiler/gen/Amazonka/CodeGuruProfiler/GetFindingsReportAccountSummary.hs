@@ -190,9 +190,9 @@ instance
     GetFindingsReportAccountSummary
   where
   rnf GetFindingsReportAccountSummary' {..} =
-    Prelude.rnf dailyReportsOnly
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dailyReportsOnly `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -296,6 +296,6 @@ instance
     GetFindingsReportAccountSummaryResponse
   where
   rnf GetFindingsReportAccountSummaryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reportSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf reportSummaries

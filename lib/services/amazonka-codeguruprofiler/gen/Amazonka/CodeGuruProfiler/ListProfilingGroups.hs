@@ -180,9 +180,9 @@ instance Prelude.Hashable ListProfilingGroups where
 
 instance Prelude.NFData ListProfilingGroups where
   rnf ListProfilingGroups' {..} =
-    Prelude.rnf includeDescription
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf includeDescription `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProfilingGroups where
   toHeaders =
@@ -300,7 +300,7 @@ listProfilingGroupsResponse_profilingGroupNames = Lens.lens (\ListProfilingGroup
 
 instance Prelude.NFData ListProfilingGroupsResponse where
   rnf ListProfilingGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf profilingGroups
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profilingGroupNames
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf profilingGroups `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf profilingGroupNames

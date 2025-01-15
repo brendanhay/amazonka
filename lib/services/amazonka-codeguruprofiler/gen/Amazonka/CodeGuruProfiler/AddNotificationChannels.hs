@@ -118,8 +118,8 @@ instance Prelude.Hashable AddNotificationChannels where
 
 instance Prelude.NFData AddNotificationChannels where
   rnf AddNotificationChannels' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders AddNotificationChannels where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     AddNotificationChannelsResponse
   where
   rnf AddNotificationChannelsResponse' {..} =
-    Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notificationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

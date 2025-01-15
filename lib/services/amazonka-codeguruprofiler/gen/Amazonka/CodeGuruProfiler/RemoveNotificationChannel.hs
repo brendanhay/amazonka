@@ -117,8 +117,8 @@ instance Prelude.Hashable RemoveNotificationChannel where
 
 instance Prelude.NFData RemoveNotificationChannel where
   rnf RemoveNotificationChannel' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders RemoveNotificationChannel where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     RemoveNotificationChannelResponse
   where
   rnf RemoveNotificationChannelResponse' {..} =
-    Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notificationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

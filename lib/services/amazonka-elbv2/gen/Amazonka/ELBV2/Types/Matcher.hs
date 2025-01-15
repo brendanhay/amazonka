@@ -123,8 +123,8 @@ instance Prelude.Hashable Matcher where
 
 instance Prelude.NFData Matcher where
   rnf Matcher' {..} =
-    Prelude.rnf grpcCode
-      `Prelude.seq` Prelude.rnf httpCode
+    Prelude.rnf grpcCode `Prelude.seq`
+      Prelude.rnf httpCode
 
 instance Data.ToQuery Matcher where
   toQuery Matcher' {..} =

@@ -115,9 +115,7 @@ instance Data.FromXML HttpHeaderConditionConfig where
   parseXML x =
     HttpHeaderConditionConfig'
       Prelude.<$> (x Data..@? "HttpHeaderName")
-      Prelude.<*> ( x
-                      Data..@? "Values"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -129,8 +127,8 @@ instance Prelude.Hashable HttpHeaderConditionConfig where
 
 instance Prelude.NFData HttpHeaderConditionConfig where
   rnf HttpHeaderConditionConfig' {..} =
-    Prelude.rnf httpHeaderName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf httpHeaderName `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToQuery HttpHeaderConditionConfig where
   toQuery HttpHeaderConditionConfig' {..} =

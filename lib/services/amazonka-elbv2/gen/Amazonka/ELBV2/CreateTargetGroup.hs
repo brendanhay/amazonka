@@ -482,9 +482,7 @@ instance Core.AWSRequest CreateTargetGroup where
       "CreateTargetGroupResult"
       ( \s h x ->
           CreateTargetGroupResponse'
-            Prelude.<$> ( x
-                            Data..@? "TargetGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -513,23 +511,23 @@ instance Prelude.Hashable CreateTargetGroup where
 
 instance Prelude.NFData CreateTargetGroup where
   rnf CreateTargetGroup' {..} =
-    Prelude.rnf healthCheckEnabled
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
-      `Prelude.seq` Prelude.rnf healthyThresholdCount
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf matcher
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf protocolVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf healthCheckEnabled `Prelude.seq`
+      Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+        Prelude.rnf healthCheckPath `Prelude.seq`
+          Prelude.rnf healthCheckPort `Prelude.seq`
+            Prelude.rnf healthCheckProtocol `Prelude.seq`
+              Prelude.rnf healthCheckTimeoutSeconds `Prelude.seq`
+                Prelude.rnf healthyThresholdCount `Prelude.seq`
+                  Prelude.rnf ipAddressType `Prelude.seq`
+                    Prelude.rnf matcher `Prelude.seq`
+                      Prelude.rnf port `Prelude.seq`
+                        Prelude.rnf protocol `Prelude.seq`
+                          Prelude.rnf protocolVersion `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf targetType `Prelude.seq`
+                                Prelude.rnf unhealthyThresholdCount `Prelude.seq`
+                                  Prelude.rnf vpcId `Prelude.seq`
+                                    Prelude.rnf name
 
 instance Data.ToHeaders CreateTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -610,5 +608,5 @@ createTargetGroupResponse_httpStatus = Lens.lens (\CreateTargetGroupResponse' {h
 
 instance Prelude.NFData CreateTargetGroupResponse where
   rnf CreateTargetGroupResponse' {..} =
-    Prelude.rnf targetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetGroups `Prelude.seq`
+      Prelude.rnf httpStatus

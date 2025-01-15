@@ -111,9 +111,7 @@ instance Core.AWSRequest AddListenerCertificates where
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Certificates"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,8 +125,8 @@ instance Prelude.Hashable AddListenerCertificates where
 
 instance Prelude.NFData AddListenerCertificates where
   rnf AddListenerCertificates' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf certificates
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf certificates
 
 instance Data.ToHeaders AddListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,5 +190,5 @@ instance
     AddListenerCertificatesResponse
   where
   rnf AddListenerCertificatesResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf httpStatus

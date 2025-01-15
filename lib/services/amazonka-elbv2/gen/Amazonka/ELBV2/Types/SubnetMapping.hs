@@ -96,10 +96,10 @@ instance Prelude.Hashable SubnetMapping where
 
 instance Prelude.NFData SubnetMapping where
   rnf SubnetMapping' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf iPv6Address
-      `Prelude.seq` Prelude.rnf privateIPv4Address
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf iPv6Address `Prelude.seq`
+        Prelude.rnf privateIPv4Address `Prelude.seq`
+          Prelude.rnf subnetId
 
 instance Data.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =

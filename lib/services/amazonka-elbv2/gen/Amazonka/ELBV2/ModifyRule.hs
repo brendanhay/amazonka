@@ -110,9 +110,7 @@ instance Core.AWSRequest ModifyRule where
       "ModifyRuleResult"
       ( \s h x ->
           ModifyRuleResponse'
-            Prelude.<$> ( x
-                            Data..@? "Rules"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,9 +125,9 @@ instance Prelude.Hashable ModifyRule where
 
 instance Prelude.NFData ModifyRule where
   rnf ModifyRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf ruleArn
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf conditions `Prelude.seq`
+        Prelude.rnf ruleArn
 
 instance Data.ToHeaders ModifyRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +191,5 @@ modifyRuleResponse_httpStatus = Lens.lens (\ModifyRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData ModifyRuleResponse where
   rnf ModifyRuleResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

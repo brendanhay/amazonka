@@ -214,14 +214,14 @@ instance
     AuthenticateCognitoActionConfig
   where
   rnf AuthenticateCognitoActionConfig' {..} =
-    Prelude.rnf authenticationRequestExtraParams
-      `Prelude.seq` Prelude.rnf onUnauthenticatedRequest
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf sessionCookieName
-      `Prelude.seq` Prelude.rnf sessionTimeout
-      `Prelude.seq` Prelude.rnf userPoolArn
-      `Prelude.seq` Prelude.rnf userPoolClientId
-      `Prelude.seq` Prelude.rnf userPoolDomain
+    Prelude.rnf authenticationRequestExtraParams `Prelude.seq`
+      Prelude.rnf onUnauthenticatedRequest `Prelude.seq`
+        Prelude.rnf scope `Prelude.seq`
+          Prelude.rnf sessionCookieName `Prelude.seq`
+            Prelude.rnf sessionTimeout `Prelude.seq`
+              Prelude.rnf userPoolArn `Prelude.seq`
+                Prelude.rnf userPoolClientId `Prelude.seq`
+                  Prelude.rnf userPoolDomain
 
 instance Data.ToQuery AuthenticateCognitoActionConfig where
   toQuery AuthenticateCognitoActionConfig' {..} =

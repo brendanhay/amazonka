@@ -129,12 +129,12 @@ instance Core.AWSPager DescribeListenerCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeListenerCertificates_marker
-          Lens..~ rs
-          Lens.^? describeListenerCertificatesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeListenerCertificates_marker
+              Lens..~ rs
+              Lens.^? describeListenerCertificatesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeListenerCertificates where
   type
@@ -147,9 +147,7 @@ instance Core.AWSRequest DescribeListenerCertificates where
       "DescribeListenerCertificatesResult"
       ( \s h x ->
           DescribeListenerCertificatesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Certificates"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextMarker")
@@ -168,9 +166,9 @@ instance
 
 instance Prelude.NFData DescribeListenerCertificates where
   rnf DescribeListenerCertificates' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf listenerArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf listenerArn
 
 instance Data.ToHeaders DescribeListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,6 +246,6 @@ instance
     DescribeListenerCertificatesResponse
   where
   rnf DescribeListenerCertificatesResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

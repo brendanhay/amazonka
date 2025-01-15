@@ -103,9 +103,7 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Attributes"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,8 +120,8 @@ instance
 
 instance Prelude.NFData ModifyLoadBalancerAttributes where
   rnf ModifyLoadBalancerAttributes' {..} =
-    Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf loadBalancerArn `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders ModifyLoadBalancerAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,5 +187,5 @@ instance
     ModifyLoadBalancerAttributesResponse
   where
   rnf ModifyLoadBalancerAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

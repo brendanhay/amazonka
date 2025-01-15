@@ -112,8 +112,8 @@ instance Prelude.Hashable RemoveListenerCertificates where
 
 instance Prelude.NFData RemoveListenerCertificates where
   rnf RemoveListenerCertificates' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf certificates
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf certificates
 
 instance Data.ToHeaders RemoveListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty

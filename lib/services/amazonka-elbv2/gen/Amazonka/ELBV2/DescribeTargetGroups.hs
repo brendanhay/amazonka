@@ -140,12 +140,12 @@ instance Core.AWSPager DescribeTargetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTargetGroups_marker
-          Lens..~ rs
-          Lens.^? describeTargetGroupsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTargetGroups_marker
+              Lens..~ rs
+              Lens.^? describeTargetGroupsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTargetGroups where
   type
@@ -159,9 +159,7 @@ instance Core.AWSRequest DescribeTargetGroups where
       ( \s h x ->
           DescribeTargetGroupsResponse'
             Prelude.<$> (x Data..@? "NextMarker")
-            Prelude.<*> ( x
-                            Data..@? "TargetGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -178,11 +176,11 @@ instance Prelude.Hashable DescribeTargetGroups where
 
 instance Prelude.NFData DescribeTargetGroups where
   rnf DescribeTargetGroups' {..} =
-    Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf targetGroupArns
+    Prelude.rnf loadBalancerArn `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf names `Prelude.seq`
+          Prelude.rnf pageSize `Prelude.seq`
+            Prelude.rnf targetGroupArns
 
 instance Data.ToHeaders DescribeTargetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,6 +261,6 @@ describeTargetGroupsResponse_httpStatus = Lens.lens (\DescribeTargetGroupsRespon
 
 instance Prelude.NFData DescribeTargetGroupsResponse where
   rnf DescribeTargetGroupsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf targetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf targetGroups `Prelude.seq`
+        Prelude.rnf httpStatus

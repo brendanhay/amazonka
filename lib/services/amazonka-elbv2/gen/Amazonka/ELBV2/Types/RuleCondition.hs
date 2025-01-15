@@ -282,9 +282,7 @@ instance Data.FromXML RuleCondition where
       Prelude.<*> (x Data..@? "PathPatternConfig")
       Prelude.<*> (x Data..@? "QueryStringConfig")
       Prelude.<*> (x Data..@? "SourceIpConfig")
-      Prelude.<*> ( x
-                      Data..@? "Values"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -302,14 +300,14 @@ instance Prelude.Hashable RuleCondition where
 
 instance Prelude.NFData RuleCondition where
   rnf RuleCondition' {..} =
-    Prelude.rnf field
-      `Prelude.seq` Prelude.rnf hostHeaderConfig
-      `Prelude.seq` Prelude.rnf httpHeaderConfig
-      `Prelude.seq` Prelude.rnf httpRequestMethodConfig
-      `Prelude.seq` Prelude.rnf pathPatternConfig
-      `Prelude.seq` Prelude.rnf queryStringConfig
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf field `Prelude.seq`
+      Prelude.rnf hostHeaderConfig `Prelude.seq`
+        Prelude.rnf httpHeaderConfig `Prelude.seq`
+          Prelude.rnf httpRequestMethodConfig `Prelude.seq`
+            Prelude.rnf pathPatternConfig `Prelude.seq`
+              Prelude.rnf queryStringConfig `Prelude.seq`
+                Prelude.rnf sourceIpConfig `Prelude.seq`
+                  Prelude.rnf values
 
 instance Data.ToQuery RuleCondition where
   toQuery RuleCondition' {..} =

@@ -370,9 +370,7 @@ instance Core.AWSRequest CreateLoadBalancer where
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> ( x
-                            Data..@? "LoadBalancers"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -393,15 +391,15 @@ instance Prelude.Hashable CreateLoadBalancer where
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf scheme `Prelude.seq`
+          Prelude.rnf securityGroups `Prelude.seq`
+            Prelude.rnf subnetMappings `Prelude.seq`
+              Prelude.rnf subnets `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
@@ -481,5 +479,5 @@ createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' 
 
 instance Prelude.NFData CreateLoadBalancerResponse where
   rnf CreateLoadBalancerResponse' {..} =
-    Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancers `Prelude.seq`
+      Prelude.rnf httpStatus

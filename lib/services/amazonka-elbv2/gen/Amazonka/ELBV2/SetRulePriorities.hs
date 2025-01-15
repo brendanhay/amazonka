@@ -87,9 +87,7 @@ instance Core.AWSRequest SetRulePriorities where
       "SetRulePrioritiesResult"
       ( \s h x ->
           SetRulePrioritiesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Rules"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,5 +158,5 @@ setRulePrioritiesResponse_httpStatus = Lens.lens (\SetRulePrioritiesResponse' {h
 
 instance Prelude.NFData SetRulePrioritiesResponse where
   rnf SetRulePrioritiesResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

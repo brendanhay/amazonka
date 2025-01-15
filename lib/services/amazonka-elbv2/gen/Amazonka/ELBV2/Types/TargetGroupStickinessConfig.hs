@@ -83,8 +83,8 @@ instance Prelude.Hashable TargetGroupStickinessConfig where
 
 instance Prelude.NFData TargetGroupStickinessConfig where
   rnf TargetGroupStickinessConfig' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =

@@ -77,8 +77,8 @@ instance Prelude.Hashable TargetGroupTuple where
 
 instance Prelude.NFData TargetGroupTuple where
   rnf TargetGroupTuple' {..} =
-    Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf targetGroupArn `Prelude.seq`
+      Prelude.rnf weight
 
 instance Data.ToQuery TargetGroupTuple where
   toQuery TargetGroupTuple' {..} =

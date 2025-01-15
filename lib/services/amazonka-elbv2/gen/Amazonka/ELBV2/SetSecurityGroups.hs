@@ -119,8 +119,8 @@ instance Prelude.Hashable SetSecurityGroups where
 
 instance Prelude.NFData SetSecurityGroups where
   rnf SetSecurityGroups' {..} =
-    Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf securityGroups
+    Prelude.rnf loadBalancerArn `Prelude.seq`
+      Prelude.rnf securityGroups
 
 instance Data.ToHeaders SetSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ setSecurityGroupsResponse_httpStatus = Lens.lens (\SetSecurityGroupsResponse' {h
 
 instance Prelude.NFData SetSecurityGroupsResponse where
   rnf SetSecurityGroupsResponse' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf httpStatus

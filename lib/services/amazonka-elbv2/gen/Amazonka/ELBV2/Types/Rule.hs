@@ -109,14 +109,10 @@ rule_ruleArn = Lens.lens (\Rule' {ruleArn} -> ruleArn) (\s@Rule' {} a -> s {rule
 instance Data.FromXML Rule where
   parseXML x =
     Rule'
-      Prelude.<$> ( x
-                      Data..@? "Actions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Actions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Conditions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Conditions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "IsDefault")
@@ -134,8 +130,8 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleArn
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf conditions `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf ruleArn

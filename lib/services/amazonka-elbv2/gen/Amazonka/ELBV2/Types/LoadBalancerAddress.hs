@@ -105,7 +105,7 @@ instance Prelude.Hashable LoadBalancerAddress where
 
 instance Prelude.NFData LoadBalancerAddress where
   rnf LoadBalancerAddress' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf iPv6Address
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf privateIPv4Address
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf iPv6Address `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf privateIPv4Address

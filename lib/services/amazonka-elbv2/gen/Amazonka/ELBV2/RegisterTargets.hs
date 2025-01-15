@@ -121,8 +121,8 @@ instance Prelude.Hashable RegisterTargets where
 
 instance Prelude.NFData RegisterTargets where
   rnf RegisterTargets' {..} =
-    Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf targetGroupArn `Prelude.seq`
+      Prelude.rnf targets
 
 instance Data.ToHeaders RegisterTargets where
   toHeaders = Prelude.const Prelude.mempty

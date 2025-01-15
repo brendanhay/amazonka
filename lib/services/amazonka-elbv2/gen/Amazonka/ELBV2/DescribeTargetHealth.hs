@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeTargetHealth where
 
 instance Prelude.NFData DescribeTargetHealth where
   rnf DescribeTargetHealth' {..} =
-    Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf targetGroupArn
+    Prelude.rnf targets `Prelude.seq`
+      Prelude.rnf targetGroupArn
 
 instance Data.ToHeaders DescribeTargetHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,5 +176,5 @@ describeTargetHealthResponse_httpStatus = Lens.lens (\DescribeTargetHealthRespon
 
 instance Prelude.NFData DescribeTargetHealthResponse where
   rnf DescribeTargetHealthResponse' {..} =
-    Prelude.rnf targetHealthDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetHealthDescriptions `Prelude.seq`
+      Prelude.rnf httpStatus

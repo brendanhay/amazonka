@@ -165,12 +165,12 @@ instance Prelude.Hashable RedirectActionConfig where
 
 instance Prelude.NFData RedirectActionConfig where
   rnf RedirectActionConfig' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf query `Prelude.seq`
+              Prelude.rnf statusCode
 
 instance Data.ToQuery RedirectActionConfig where
   toQuery RedirectActionConfig' {..} =

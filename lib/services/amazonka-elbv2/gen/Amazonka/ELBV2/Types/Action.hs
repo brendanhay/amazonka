@@ -197,14 +197,14 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf authenticateCognitoConfig
-      `Prelude.seq` Prelude.rnf authenticateOidcConfig
-      `Prelude.seq` Prelude.rnf fixedResponseConfig
-      `Prelude.seq` Prelude.rnf forwardConfig
-      `Prelude.seq` Prelude.rnf order
-      `Prelude.seq` Prelude.rnf redirectConfig
-      `Prelude.seq` Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf authenticateCognitoConfig `Prelude.seq`
+      Prelude.rnf authenticateOidcConfig `Prelude.seq`
+        Prelude.rnf fixedResponseConfig `Prelude.seq`
+          Prelude.rnf forwardConfig `Prelude.seq`
+            Prelude.rnf order `Prelude.seq`
+              Prelude.rnf redirectConfig `Prelude.seq`
+                Prelude.rnf targetGroupArn `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToQuery Action where
   toQuery Action' {..} =

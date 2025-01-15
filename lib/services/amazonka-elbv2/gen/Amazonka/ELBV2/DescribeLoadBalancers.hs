@@ -129,12 +129,12 @@ instance Core.AWSPager DescribeLoadBalancers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLoadBalancers_marker
-          Lens..~ rs
-          Lens.^? describeLoadBalancersResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLoadBalancers_marker
+              Lens..~ rs
+              Lens.^? describeLoadBalancersResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -147,9 +147,7 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x
-                            Data..@? "LoadBalancers"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextMarker")
@@ -166,10 +164,10 @@ instance Prelude.Hashable DescribeLoadBalancers where
 
 instance Prelude.NFData DescribeLoadBalancers where
   rnf DescribeLoadBalancers' {..} =
-    Prelude.rnf loadBalancerArns
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf loadBalancerArns `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf names `Prelude.seq`
+          Prelude.rnf pageSize
 
 instance Data.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,6 +247,6 @@ describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResp
 
 instance Prelude.NFData DescribeLoadBalancersResponse where
   rnf DescribeLoadBalancersResponse' {..} =
-    Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancers `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

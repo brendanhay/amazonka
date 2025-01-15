@@ -128,12 +128,12 @@ instance Core.AWSPager DescribeListeners where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeListeners_marker
-          Lens..~ rs
-          Lens.^? describeListenersResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeListeners_marker
+              Lens..~ rs
+              Lens.^? describeListenersResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeListeners where
   type
@@ -146,9 +146,7 @@ instance Core.AWSRequest DescribeListeners where
       "DescribeListenersResult"
       ( \s h x ->
           DescribeListenersResponse'
-            Prelude.<$> ( x
-                            Data..@? "Listeners"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextMarker")
@@ -165,10 +163,10 @@ instance Prelude.Hashable DescribeListeners where
 
 instance Prelude.NFData DescribeListeners where
   rnf DescribeListeners' {..} =
-    Prelude.rnf listenerArns
-      `Prelude.seq` Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf listenerArns `Prelude.seq`
+      Prelude.rnf loadBalancerArn `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf pageSize
 
 instance Data.ToHeaders DescribeListeners where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,6 +242,6 @@ describeListenersResponse_httpStatus = Lens.lens (\DescribeListenersResponse' {h
 
 instance Prelude.NFData DescribeListenersResponse where
   rnf DescribeListenersResponse' {..} =
-    Prelude.rnf listeners
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listeners `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

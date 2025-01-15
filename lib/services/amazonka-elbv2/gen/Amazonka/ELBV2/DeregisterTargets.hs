@@ -116,8 +116,8 @@ instance Prelude.Hashable DeregisterTargets where
 
 instance Prelude.NFData DeregisterTargets where
   rnf DeregisterTargets' {..} =
-    Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf targetGroupArn `Prelude.seq`
+      Prelude.rnf targets
 
 instance Data.ToHeaders DeregisterTargets where
   toHeaders = Prelude.const Prelude.mempty

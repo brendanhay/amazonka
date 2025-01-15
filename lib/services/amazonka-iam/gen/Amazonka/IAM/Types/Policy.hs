@@ -265,9 +265,7 @@ instance Data.FromXML Policy where
       Prelude.<*> (x Data..@? "PermissionsBoundaryUsageCount")
       Prelude.<*> (x Data..@? "PolicyId")
       Prelude.<*> (x Data..@? "PolicyName")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "UpdateDate")
@@ -290,15 +288,15 @@ instance Prelude.Hashable Policy where
 
 instance Prelude.NFData Policy where
   rnf Policy' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachmentCount
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isAttachable
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attachmentCount `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf defaultVersionId `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isAttachable `Prelude.seq`
+                Prelude.rnf path `Prelude.seq`
+                  Prelude.rnf permissionsBoundaryUsageCount `Prelude.seq`
+                    Prelude.rnf policyId `Prelude.seq`
+                      Prelude.rnf policyName `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf updateDate

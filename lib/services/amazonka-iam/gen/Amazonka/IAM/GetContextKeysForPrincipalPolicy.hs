@@ -207,8 +207,8 @@ instance
     GetContextKeysForPrincipalPolicy
   where
   rnf GetContextKeysForPrincipalPolicy' {..} =
-    Prelude.rnf policyInputList
-      `Prelude.seq` Prelude.rnf policySourceArn
+    Prelude.rnf policyInputList `Prelude.seq`
+      Prelude.rnf policySourceArn
 
 instance
   Data.ToHeaders

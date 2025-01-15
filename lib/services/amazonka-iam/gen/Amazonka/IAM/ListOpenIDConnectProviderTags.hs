@@ -176,9 +176,7 @@ instance
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -195,9 +193,9 @@ instance
 
 instance Prelude.NFData ListOpenIDConnectProviderTags where
   rnf ListOpenIDConnectProviderTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf openIDConnectProviderArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf openIDConnectProviderArn
 
 instance Data.ToHeaders ListOpenIDConnectProviderTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -315,7 +313,7 @@ instance
     ListOpenIDConnectProviderTagsResponse
   where
   rnf ListOpenIDConnectProviderTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

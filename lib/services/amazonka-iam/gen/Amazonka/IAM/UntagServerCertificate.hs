@@ -132,8 +132,8 @@ instance Prelude.Hashable UntagServerCertificate where
 
 instance Prelude.NFData UntagServerCertificate where
   rnf UntagServerCertificate' {..} =
-    Prelude.rnf serverCertificateName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf serverCertificateName `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagServerCertificate where
   toHeaders = Prelude.const Prelude.mempty

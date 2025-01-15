@@ -110,5 +110,5 @@ instance Prelude.Hashable RoleLastUsed where
 
 instance Prelude.NFData RoleLastUsed where
   rnf RoleLastUsed' {..} =
-    Prelude.rnf lastUsedDate
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf lastUsedDate `Prelude.seq`
+      Prelude.rnf region

@@ -112,9 +112,7 @@ instance Core.AWSRequest GetSAMLProvider where
           GetSAMLProviderResponse'
             Prelude.<$> (x Data..@? "CreateDate")
             Prelude.<*> (x Data..@? "SAMLMetadataDocument")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ValidUntil")
@@ -230,8 +228,8 @@ getSAMLProviderResponse_httpStatus = Lens.lens (\GetSAMLProviderResponse' {httpS
 
 instance Prelude.NFData GetSAMLProviderResponse where
   rnf GetSAMLProviderResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf sAMLMetadataDocument
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf validUntil
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf sAMLMetadataDocument `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf validUntil `Prelude.seq`
+            Prelude.rnf httpStatus

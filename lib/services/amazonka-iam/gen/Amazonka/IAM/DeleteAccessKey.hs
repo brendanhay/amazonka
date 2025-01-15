@@ -136,8 +136,8 @@ instance Prelude.Hashable DeleteAccessKey where
 
 instance Prelude.NFData DeleteAccessKey where
   rnf DeleteAccessKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf accessKeyId
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf accessKeyId
 
 instance Data.ToHeaders DeleteAccessKey where
   toHeaders = Prelude.const Prelude.mempty

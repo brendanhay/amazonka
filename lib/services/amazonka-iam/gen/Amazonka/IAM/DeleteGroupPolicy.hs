@@ -141,8 +141,8 @@ instance Prelude.Hashable DeleteGroupPolicy where
 
 instance Prelude.NFData DeleteGroupPolicy where
   rnf DeleteGroupPolicy' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders DeleteGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty

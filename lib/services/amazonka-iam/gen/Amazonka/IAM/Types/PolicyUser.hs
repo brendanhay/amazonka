@@ -92,5 +92,5 @@ instance Prelude.Hashable PolicyUser where
 
 instance Prelude.NFData PolicyUser where
   rnf PolicyUser' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf userName

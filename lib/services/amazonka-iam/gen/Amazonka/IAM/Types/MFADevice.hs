@@ -99,6 +99,6 @@ instance Prelude.Hashable MFADevice where
 
 instance Prelude.NFData MFADevice where
   rnf MFADevice' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf enableDate
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serialNumber `Prelude.seq`
+        Prelude.rnf enableDate

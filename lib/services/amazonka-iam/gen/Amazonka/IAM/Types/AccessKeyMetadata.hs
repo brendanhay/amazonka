@@ -106,7 +106,7 @@ instance Prelude.Hashable AccessKeyMetadata where
 
 instance Prelude.NFData AccessKeyMetadata where
   rnf AccessKeyMetadata' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf userName

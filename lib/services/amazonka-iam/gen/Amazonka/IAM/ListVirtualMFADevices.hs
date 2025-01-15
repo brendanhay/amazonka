@@ -164,12 +164,12 @@ instance Core.AWSPager ListVirtualMFADevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualMFADevices_marker
-          Lens..~ rs
-          Lens.^? listVirtualMFADevicesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualMFADevices_marker
+              Lens..~ rs
+              Lens.^? listVirtualMFADevicesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualMFADevices where
   type
@@ -201,9 +201,9 @@ instance Prelude.Hashable ListVirtualMFADevices where
 
 instance Prelude.NFData ListVirtualMFADevices where
   rnf ListVirtualMFADevices' {..} =
-    Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf assignmentStatus `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems
 
 instance Data.ToHeaders ListVirtualMFADevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -311,7 +311,7 @@ listVirtualMFADevicesResponse_virtualMFADevices = Lens.lens (\ListVirtualMFADevi
 
 instance Prelude.NFData ListVirtualMFADevicesResponse where
   rnf ListVirtualMFADevicesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualMFADevices
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf virtualMFADevices

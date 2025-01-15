@@ -159,5 +159,5 @@ instance
     ListOpenIDConnectProvidersResponse
   where
   rnf ListOpenIDConnectProvidersResponse' {..} =
-    Prelude.rnf openIDConnectProviderList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf openIDConnectProviderList `Prelude.seq`
+      Prelude.rnf httpStatus

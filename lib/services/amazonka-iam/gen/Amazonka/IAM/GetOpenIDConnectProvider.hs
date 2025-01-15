@@ -112,20 +112,14 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Prelude.<$> ( x
-                            Data..@? "ClientIDList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ClientIDList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CreateDate")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "ThumbprintList"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ThumbprintList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Url")
@@ -270,9 +264,9 @@ instance
     GetOpenIDConnectProviderResponse
   where
   rnf GetOpenIDConnectProviderResponse' {..} =
-    Prelude.rnf clientIDList
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thumbprintList
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientIDList `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf thumbprintList `Prelude.seq`
+            Prelude.rnf url `Prelude.seq`
+              Prelude.rnf httpStatus

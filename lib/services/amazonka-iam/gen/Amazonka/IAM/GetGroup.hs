@@ -165,12 +165,12 @@ instance Core.AWSPager GetGroup where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getGroup_marker
-          Lens..~ rs
-          Lens.^? getGroupResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getGroup_marker
+              Lens..~ rs
+              Lens.^? getGroupResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
@@ -185,9 +185,7 @@ instance Core.AWSRequest GetGroup where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Group")
-            Prelude.<*> ( x
-                            Data..@? "Users"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Users" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -201,9 +199,9 @@ instance Prelude.Hashable GetGroup where
 
 instance Prelude.NFData GetGroup where
   rnf GetGroup' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf groupName
 
 instance Data.ToHeaders GetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,8 +315,8 @@ getGroupResponse_users = Lens.lens (\GetGroupResponse' {users} -> users) (\s@Get
 
 instance Prelude.NFData GetGroupResponse where
   rnf GetGroupResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf users
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf users

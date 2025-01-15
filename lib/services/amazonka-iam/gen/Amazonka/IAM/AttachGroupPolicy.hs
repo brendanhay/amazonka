@@ -140,8 +140,8 @@ instance Prelude.Hashable AttachGroupPolicy where
 
 instance Prelude.NFData AttachGroupPolicy where
   rnf AttachGroupPolicy' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders AttachGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty

@@ -307,9 +307,7 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
       ( \s h x ->
           CreateOpenIDConnectProviderResponse'
             Prelude.<$> (x Data..@? "OpenIDConnectProviderArn")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -325,10 +323,10 @@ instance Prelude.Hashable CreateOpenIDConnectProvider where
 
 instance Prelude.NFData CreateOpenIDConnectProvider where
   rnf CreateOpenIDConnectProvider' {..} =
-    Prelude.rnf clientIDList
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf thumbprintList
+    Prelude.rnf clientIDList `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf thumbprintList
 
 instance Data.ToHeaders CreateOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -430,6 +428,6 @@ instance
     CreateOpenIDConnectProviderResponse
   where
   rnf CreateOpenIDConnectProviderResponse' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

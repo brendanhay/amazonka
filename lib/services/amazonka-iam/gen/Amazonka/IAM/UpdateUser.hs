@@ -181,9 +181,9 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf newPath'
-      `Prelude.seq` Prelude.rnf newUserName'
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf newPath' `Prelude.seq`
+      Prelude.rnf newUserName' `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders UpdateUser where
   toHeaders = Prelude.const Prelude.mempty

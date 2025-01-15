@@ -216,9 +216,9 @@ instance Prelude.Hashable PutUserPolicy where
 
 instance Prelude.NFData PutUserPolicy where
   rnf PutUserPolicy' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutUserPolicy where
   toHeaders = Prelude.const Prelude.mempty

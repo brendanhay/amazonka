@@ -153,8 +153,8 @@ instance Prelude.Hashable AddRoleToInstanceProfile where
 
 instance Prelude.NFData AddRoleToInstanceProfile where
   rnf AddRoleToInstanceProfile' {..} =
-    Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf instanceProfileName `Prelude.seq`
+      Prelude.rnf roleName
 
 instance Data.ToHeaders AddRoleToInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty

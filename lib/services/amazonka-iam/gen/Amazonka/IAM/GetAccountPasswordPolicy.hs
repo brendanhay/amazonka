@@ -152,5 +152,5 @@ instance
     GetAccountPasswordPolicyResponse
   where
   rnf GetAccountPasswordPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf passwordPolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf passwordPolicy

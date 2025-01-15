@@ -178,12 +178,12 @@ instance Core.AWSPager ListAccessKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccessKeys_marker
-          Lens..~ rs
-          Lens.^? listAccessKeysResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccessKeys_marker
+              Lens..~ rs
+              Lens.^? listAccessKeysResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessKeys where
   type
@@ -215,9 +215,9 @@ instance Prelude.Hashable ListAccessKeys where
 
 instance Prelude.NFData ListAccessKeys where
   rnf ListAccessKeys' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListAccessKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,7 +322,7 @@ listAccessKeysResponse_accessKeyMetadata = Lens.lens (\ListAccessKeysResponse' {
 
 instance Prelude.NFData ListAccessKeysResponse where
   rnf ListAccessKeysResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessKeyMetadata
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf accessKeyMetadata

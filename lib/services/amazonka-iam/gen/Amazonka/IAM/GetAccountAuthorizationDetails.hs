@@ -182,12 +182,12 @@ instance Core.AWSPager GetAccountAuthorizationDetails where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAccountAuthorizationDetails_marker
-          Lens..~ rs
-          Lens.^? getAccountAuthorizationDetailsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAccountAuthorizationDetails_marker
+              Lens..~ rs
+              Lens.^? getAccountAuthorizationDetailsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -203,26 +203,18 @@ instance
       "GetAccountAuthorizationDetailsResult"
       ( \s h x ->
           GetAccountAuthorizationDetailsResponse'
-            Prelude.<$> ( x
-                            Data..@? "GroupDetailList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "GroupDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Policies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "RoleDetailList"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "RoleDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "UserDetailList"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "UserDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -245,9 +237,9 @@ instance
     GetAccountAuthorizationDetails
   where
   rnf GetAccountAuthorizationDetails' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems
 
 instance
   Data.ToHeaders
@@ -391,10 +383,10 @@ instance
     GetAccountAuthorizationDetailsResponse
   where
   rnf GetAccountAuthorizationDetailsResponse' {..} =
-    Prelude.rnf groupDetailList
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf roleDetailList
-      `Prelude.seq` Prelude.rnf userDetailList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupDetailList `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf policies `Prelude.seq`
+            Prelude.rnf roleDetailList `Prelude.seq`
+              Prelude.rnf userDetailList `Prelude.seq`
+                Prelude.rnf httpStatus

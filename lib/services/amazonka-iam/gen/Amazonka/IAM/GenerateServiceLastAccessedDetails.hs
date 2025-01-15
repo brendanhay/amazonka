@@ -200,8 +200,8 @@ instance
     GenerateServiceLastAccessedDetails
   where
   rnf GenerateServiceLastAccessedDetails' {..} =
-    Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf granularity `Prelude.seq`
+      Prelude.rnf arn
 
 instance
   Data.ToHeaders
@@ -288,5 +288,5 @@ instance
     GenerateServiceLastAccessedDetailsResponse
   where
   rnf GenerateServiceLastAccessedDetailsResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

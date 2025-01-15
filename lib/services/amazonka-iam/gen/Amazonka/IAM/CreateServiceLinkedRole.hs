@@ -183,9 +183,9 @@ instance Prelude.Hashable CreateServiceLinkedRole where
 
 instance Prelude.NFData CreateServiceLinkedRole where
   rnf CreateServiceLinkedRole' {..} =
-    Prelude.rnf customSuffix
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf aWSServiceName
+    Prelude.rnf customSuffix `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf aWSServiceName
 
 instance Data.ToHeaders CreateServiceLinkedRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,5 +249,5 @@ instance
     CreateServiceLinkedRoleResponse
   where
   rnf CreateServiceLinkedRoleResponse' {..} =
-    Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf role' `Prelude.seq`
+      Prelude.rnf httpStatus

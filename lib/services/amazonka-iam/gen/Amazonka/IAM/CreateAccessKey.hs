@@ -188,5 +188,5 @@ createAccessKeyResponse_accessKey = Lens.lens (\CreateAccessKeyResponse' {access
 
 instance Prelude.NFData CreateAccessKeyResponse where
   rnf CreateAccessKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessKey
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessKey

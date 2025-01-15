@@ -126,8 +126,8 @@ instance Prelude.Hashable UntagOpenIDConnectProvider where
 
 instance Prelude.NFData UntagOpenIDConnectProvider where
   rnf UntagOpenIDConnectProvider' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty

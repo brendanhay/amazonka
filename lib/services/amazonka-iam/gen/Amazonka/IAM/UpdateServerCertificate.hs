@@ -197,9 +197,9 @@ instance Prelude.Hashable UpdateServerCertificate where
 
 instance Prelude.NFData UpdateServerCertificate where
   rnf UpdateServerCertificate' {..} =
-    Prelude.rnf newPath'
-      `Prelude.seq` Prelude.rnf newServerCertificateName'
-      `Prelude.seq` Prelude.rnf serverCertificateName
+    Prelude.rnf newPath' `Prelude.seq`
+      Prelude.rnf newServerCertificateName' `Prelude.seq`
+        Prelude.rnf serverCertificateName
 
 instance Data.ToHeaders UpdateServerCertificate where
   toHeaders = Prelude.const Prelude.mempty

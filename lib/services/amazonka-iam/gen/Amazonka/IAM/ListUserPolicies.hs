@@ -174,12 +174,12 @@ instance Core.AWSPager ListUserPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserPolicies_marker
-          Lens..~ rs
-          Lens.^? listUserPoliciesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserPolicies_marker
+              Lens..~ rs
+              Lens.^? listUserPoliciesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserPolicies where
   type
@@ -195,9 +195,7 @@ instance Core.AWSRequest ListUserPolicies where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "PolicyNames"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -211,9 +209,9 @@ instance Prelude.Hashable ListUserPolicies where
 
 instance Prelude.NFData ListUserPolicies where
   rnf ListUserPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListUserPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,7 +316,7 @@ listUserPoliciesResponse_policyNames = Lens.lens (\ListUserPoliciesResponse' {po
 
 instance Prelude.NFData ListUserPoliciesResponse where
   rnf ListUserPoliciesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf policyNames

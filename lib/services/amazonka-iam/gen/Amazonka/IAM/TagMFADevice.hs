@@ -150,8 +150,8 @@ instance Prelude.Hashable TagMFADevice where
 
 instance Prelude.NFData TagMFADevice where
   rnf TagMFADevice' {..} =
-    Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf serialNumber `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagMFADevice where
   toHeaders = Prelude.const Prelude.mempty

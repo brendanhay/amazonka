@@ -117,8 +117,8 @@ instance Prelude.Hashable UntagRole where
 
 instance Prelude.NFData UntagRole where
   rnf UntagRole' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagRole where
   toHeaders = Prelude.const Prelude.mempty

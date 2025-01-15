@@ -219,12 +219,12 @@ instance Core.AWSPager ListAttachedGroupPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedGroupPolicies_marker
-          Lens..~ rs
-          Lens.^? listAttachedGroupPoliciesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedGroupPolicies_marker
+              Lens..~ rs
+              Lens.^? listAttachedGroupPoliciesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedGroupPolicies where
   type
@@ -257,10 +257,10 @@ instance Prelude.Hashable ListAttachedGroupPolicies where
 
 instance Prelude.NFData ListAttachedGroupPolicies where
   rnf ListAttachedGroupPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix `Prelude.seq`
+          Prelude.rnf groupName
 
 instance Data.ToHeaders ListAttachedGroupPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -369,7 +369,7 @@ instance
     ListAttachedGroupPoliciesResponse
   where
   rnf ListAttachedGroupPoliciesResponse' {..} =
-    Prelude.rnf attachedPolicies
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedPolicies `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

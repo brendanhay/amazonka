@@ -281,12 +281,12 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf evalDecisionDetails
-      `Prelude.seq` Prelude.rnf evalResourceName
-      `Prelude.seq` Prelude.rnf matchedStatements
-      `Prelude.seq` Prelude.rnf missingContextValues
-      `Prelude.seq` Prelude.rnf organizationsDecisionDetail
-      `Prelude.seq` Prelude.rnf permissionsBoundaryDecisionDetail
-      `Prelude.seq` Prelude.rnf resourceSpecificResults
-      `Prelude.seq` Prelude.rnf evalActionName
-      `Prelude.seq` Prelude.rnf evalDecision
+    Prelude.rnf evalDecisionDetails `Prelude.seq`
+      Prelude.rnf evalResourceName `Prelude.seq`
+        Prelude.rnf matchedStatements `Prelude.seq`
+          Prelude.rnf missingContextValues `Prelude.seq`
+            Prelude.rnf organizationsDecisionDetail `Prelude.seq`
+              Prelude.rnf permissionsBoundaryDecisionDetail `Prelude.seq`
+                Prelude.rnf resourceSpecificResults `Prelude.seq`
+                  Prelude.rnf evalActionName `Prelude.seq`
+                    Prelude.rnf evalDecision

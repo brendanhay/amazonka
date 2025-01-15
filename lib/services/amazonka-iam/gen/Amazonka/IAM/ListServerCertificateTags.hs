@@ -172,9 +172,7 @@ instance Core.AWSRequest ListServerCertificateTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -188,9 +186,9 @@ instance Prelude.Hashable ListServerCertificateTags where
 
 instance Prelude.NFData ListServerCertificateTags where
   rnf ListServerCertificateTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf serverCertificateName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf serverCertificateName
 
 instance Data.ToHeaders ListServerCertificateTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,7 +304,7 @@ instance
     ListServerCertificateTagsResponse
   where
   rnf ListServerCertificateTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

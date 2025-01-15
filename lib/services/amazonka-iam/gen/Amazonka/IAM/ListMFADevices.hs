@@ -168,12 +168,12 @@ instance Core.AWSPager ListMFADevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMFADevices_marker
-          Lens..~ rs
-          Lens.^? listMFADevicesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMFADevices_marker
+              Lens..~ rs
+              Lens.^? listMFADevicesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMFADevices where
   type
@@ -189,9 +189,7 @@ instance Core.AWSRequest ListMFADevices where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "MFADevices"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "MFADevices" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -205,9 +203,9 @@ instance Prelude.Hashable ListMFADevices where
 
 instance Prelude.NFData ListMFADevices where
   rnf ListMFADevices' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListMFADevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,7 +310,7 @@ listMFADevicesResponse_mfaDevices = Lens.lens (\ListMFADevicesResponse' {mfaDevi
 
 instance Prelude.NFData ListMFADevicesResponse where
   rnf ListMFADevicesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mfaDevices
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf mfaDevices

@@ -130,8 +130,8 @@ instance
     AddClientIDToOpenIDConnectProvider
   where
   rnf AddClientIDToOpenIDConnectProvider' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf clientID
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf clientID
 
 instance
   Data.ToHeaders

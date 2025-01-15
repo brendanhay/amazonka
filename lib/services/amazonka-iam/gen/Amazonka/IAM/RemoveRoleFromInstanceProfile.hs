@@ -151,8 +151,8 @@ instance
 
 instance Prelude.NFData RemoveRoleFromInstanceProfile where
   rnf RemoveRoleFromInstanceProfile' {..} =
-    Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf instanceProfileName `Prelude.seq`
+      Prelude.rnf roleName
 
 instance Data.ToHeaders RemoveRoleFromInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty

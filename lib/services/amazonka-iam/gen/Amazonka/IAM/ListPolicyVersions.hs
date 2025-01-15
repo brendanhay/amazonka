@@ -169,12 +169,12 @@ instance Core.AWSPager ListPolicyVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPolicyVersions_marker
-          Lens..~ rs
-          Lens.^? listPolicyVersionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPolicyVersions_marker
+              Lens..~ rs
+              Lens.^? listPolicyVersionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicyVersions where
   type
@@ -189,9 +189,7 @@ instance Core.AWSRequest ListPolicyVersions where
           ListPolicyVersionsResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Versions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Versions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -206,9 +204,9 @@ instance Prelude.Hashable ListPolicyVersions where
 
 instance Prelude.NFData ListPolicyVersions where
   rnf ListPolicyVersions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf policyArn
 
 instance Data.ToHeaders ListPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,7 +323,7 @@ listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' 
 
 instance Prelude.NFData ListPolicyVersionsResponse where
   rnf ListPolicyVersionsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf versions `Prelude.seq`
+          Prelude.rnf httpStatus

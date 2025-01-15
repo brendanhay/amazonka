@@ -208,9 +208,9 @@ instance Prelude.Hashable CreateInstanceProfile where
 
 instance Prelude.NFData CreateInstanceProfile where
   rnf CreateInstanceProfile' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceProfileName
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceProfileName
 
 instance Data.ToHeaders CreateInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,5 +279,5 @@ createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfil
 
 instance Prelude.NFData CreateInstanceProfileResponse where
   rnf CreateInstanceProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceProfile
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf instanceProfile

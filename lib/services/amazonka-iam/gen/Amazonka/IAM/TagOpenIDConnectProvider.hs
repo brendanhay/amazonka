@@ -154,8 +154,8 @@ instance Prelude.Hashable TagOpenIDConnectProvider where
 
 instance Prelude.NFData TagOpenIDConnectProvider where
   rnf TagOpenIDConnectProvider' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty

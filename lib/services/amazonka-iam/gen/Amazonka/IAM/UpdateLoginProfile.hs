@@ -184,9 +184,9 @@ instance Prelude.Hashable UpdateLoginProfile where
 
 instance Prelude.NFData UpdateLoginProfile where
   rnf UpdateLoginProfile' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf passwordResetRequired
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf passwordResetRequired `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders UpdateLoginProfile where
   toHeaders = Prelude.const Prelude.mempty

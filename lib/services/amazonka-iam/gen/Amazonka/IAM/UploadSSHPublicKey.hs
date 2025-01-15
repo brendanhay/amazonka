@@ -178,8 +178,8 @@ instance Prelude.Hashable UploadSSHPublicKey where
 
 instance Prelude.NFData UploadSSHPublicKey where
   rnf UploadSSHPublicKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf sSHPublicKeyBody
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf sSHPublicKeyBody
 
 instance Data.ToHeaders UploadSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ uploadSSHPublicKeyResponse_httpStatus = Lens.lens (\UploadSSHPublicKeyResponse' 
 
 instance Prelude.NFData UploadSSHPublicKeyResponse where
   rnf UploadSSHPublicKeyResponse' {..} =
-    Prelude.rnf sSHPublicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sSHPublicKey `Prelude.seq`
+      Prelude.rnf httpStatus

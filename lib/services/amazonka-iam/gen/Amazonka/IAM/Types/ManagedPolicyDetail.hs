@@ -286,15 +286,15 @@ instance Prelude.Hashable ManagedPolicyDetail where
 
 instance Prelude.NFData ManagedPolicyDetail where
   rnf ManagedPolicyDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachmentCount
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isAttachable
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionList
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attachmentCount `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf defaultVersionId `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isAttachable `Prelude.seq`
+                Prelude.rnf path `Prelude.seq`
+                  Prelude.rnf permissionsBoundaryUsageCount `Prelude.seq`
+                    Prelude.rnf policyId `Prelude.seq`
+                      Prelude.rnf policyName `Prelude.seq`
+                        Prelude.rnf policyVersionList `Prelude.seq`
+                          Prelude.rnf updateDate

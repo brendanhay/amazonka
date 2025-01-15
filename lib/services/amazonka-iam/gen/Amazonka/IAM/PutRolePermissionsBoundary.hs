@@ -123,8 +123,8 @@ instance Prelude.Hashable PutRolePermissionsBoundary where
 
 instance Prelude.NFData PutRolePermissionsBoundary where
   rnf PutRolePermissionsBoundary' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf permissionsBoundary
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf permissionsBoundary
 
 instance Data.ToHeaders PutRolePermissionsBoundary where
   toHeaders = Prelude.const Prelude.mempty

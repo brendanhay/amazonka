@@ -168,9 +168,9 @@ instance Prelude.Hashable GetSSHPublicKey where
 
 instance Prelude.NFData GetSSHPublicKey where
   rnf GetSSHPublicKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf sSHPublicKeyId
-      `Prelude.seq` Prelude.rnf encoding
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf sSHPublicKeyId `Prelude.seq`
+        Prelude.rnf encoding
 
 instance Data.ToHeaders GetSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,5 +233,5 @@ getSSHPublicKeyResponse_httpStatus = Lens.lens (\GetSSHPublicKeyResponse' {httpS
 
 instance Prelude.NFData GetSSHPublicKeyResponse where
   rnf GetSSHPublicKeyResponse' {..} =
-    Prelude.rnf sSHPublicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sSHPublicKey `Prelude.seq`
+      Prelude.rnf httpStatus

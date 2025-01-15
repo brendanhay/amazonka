@@ -165,9 +165,9 @@ instance
     UpdateServiceSpecificCredential
   where
   rnf UpdateServiceSpecificCredential' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serviceSpecificCredentialId `Prelude.seq`
+        Prelude.rnf status
 
 instance
   Data.ToHeaders

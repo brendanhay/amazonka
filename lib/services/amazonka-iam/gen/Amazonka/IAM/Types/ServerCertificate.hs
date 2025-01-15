@@ -109,9 +109,7 @@ instance Data.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
       Prelude.<$> (x Data..@? "CertificateChain")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "ServerCertificateMetadata")
@@ -127,7 +125,7 @@ instance Prelude.Hashable ServerCertificate where
 
 instance Prelude.NFData ServerCertificate where
   rnf ServerCertificate' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverCertificateMetadata
-      `Prelude.seq` Prelude.rnf certificateBody
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf serverCertificateMetadata `Prelude.seq`
+          Prelude.rnf certificateBody

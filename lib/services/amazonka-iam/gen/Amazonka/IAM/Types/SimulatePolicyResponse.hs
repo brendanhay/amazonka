@@ -118,6 +118,6 @@ instance Prelude.Hashable SimulatePolicyResponse where
 
 instance Prelude.NFData SimulatePolicyResponse where
   rnf SimulatePolicyResponse' {..} =
-    Prelude.rnf evaluationResults
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf evaluationResults `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf marker

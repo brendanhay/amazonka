@@ -146,8 +146,8 @@ instance
     RemoveClientIDFromOpenIDConnectProvider
   where
   rnf RemoveClientIDFromOpenIDConnectProvider' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf clientID
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf clientID
 
 instance
   Data.ToHeaders

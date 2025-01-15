@@ -153,8 +153,8 @@ instance Prelude.Hashable TagSAMLProvider where
 
 instance Prelude.NFData TagSAMLProvider where
   rnf TagSAMLProvider' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf sAMLProviderArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty

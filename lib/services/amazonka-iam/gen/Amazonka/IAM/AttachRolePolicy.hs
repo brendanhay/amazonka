@@ -145,8 +145,8 @@ instance Prelude.Hashable AttachRolePolicy where
 
 instance Prelude.NFData AttachRolePolicy where
   rnf AttachRolePolicy' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders AttachRolePolicy where
   toHeaders = Prelude.const Prelude.mempty

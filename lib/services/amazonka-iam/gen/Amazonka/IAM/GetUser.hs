@@ -230,5 +230,5 @@ getUserResponse_user = Lens.lens (\GetUserResponse' {user} -> user) (\s@GetUserR
 
 instance Prelude.NFData GetUserResponse where
   rnf GetUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf user

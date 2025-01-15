@@ -140,12 +140,12 @@ instance Core.AWSPager ListAccountAliases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountAliases_marker
-          Lens..~ rs
-          Lens.^? listAccountAliasesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountAliases_marker
+              Lens..~ rs
+              Lens.^? listAccountAliasesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountAliases where
   type
@@ -161,9 +161,7 @@ instance Core.AWSRequest ListAccountAliases where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "AccountAliases"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "AccountAliases" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -176,8 +174,8 @@ instance Prelude.Hashable ListAccountAliases where
 
 instance Prelude.NFData ListAccountAliases where
   rnf ListAccountAliases' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListAccountAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,7 +282,7 @@ listAccountAliasesResponse_accountAliases = Lens.lens (\ListAccountAliasesRespon
 
 instance Prelude.NFData ListAccountAliasesResponse where
   rnf ListAccountAliasesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountAliases
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf accountAliases

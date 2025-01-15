@@ -92,5 +92,5 @@ instance Prelude.Hashable PolicyGroup where
 
 instance Prelude.NFData PolicyGroup where
   rnf PolicyGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName

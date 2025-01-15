@@ -145,8 +145,8 @@ instance Prelude.Hashable ChangePassword where
 
 instance Prelude.NFData ChangePassword where
   rnf ChangePassword' {..} =
-    Prelude.rnf oldPassword
-      `Prelude.seq` Prelude.rnf newPassword'
+    Prelude.rnf oldPassword `Prelude.seq`
+      Prelude.rnf newPassword'
 
 instance Data.ToHeaders ChangePassword where
   toHeaders = Prelude.const Prelude.mempty

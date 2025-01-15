@@ -160,9 +160,9 @@ instance Prelude.Hashable UpdateSSHPublicKey where
 
 instance Prelude.NFData UpdateSSHPublicKey where
   rnf UpdateSSHPublicKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf sSHPublicKeyId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf sSHPublicKeyId `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty

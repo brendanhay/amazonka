@@ -221,9 +221,9 @@ instance Prelude.Hashable CreateVirtualMFADevice where
 
 instance Prelude.NFData CreateVirtualMFADevice where
   rnf CreateVirtualMFADevice' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf virtualMFADeviceName
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf virtualMFADeviceName
 
 instance Data.ToHeaders CreateVirtualMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,5 +295,5 @@ instance
     CreateVirtualMFADeviceResponse
   where
   rnf CreateVirtualMFADeviceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualMFADevice
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualMFADevice

@@ -158,6 +158,6 @@ instance
     GenerateCredentialReportResponse
   where
   rnf GenerateCredentialReportResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

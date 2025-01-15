@@ -121,8 +121,8 @@ instance Prelude.Hashable UntagInstanceProfile where
 
 instance Prelude.NFData UntagInstanceProfile where
   rnf UntagInstanceProfile' {..} =
-    Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf instanceProfileName `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty

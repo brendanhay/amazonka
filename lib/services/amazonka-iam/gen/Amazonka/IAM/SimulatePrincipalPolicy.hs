@@ -733,12 +733,12 @@ instance Core.AWSPager SimulatePrincipalPolicy where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& simulatePrincipalPolicy_marker
-          Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& simulatePrincipalPolicy_marker
+              Lens..~ rs
+              Lens.^? simulatePolicyResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SimulatePrincipalPolicy where
   type
@@ -769,18 +769,18 @@ instance Prelude.Hashable SimulatePrincipalPolicy where
 
 instance Prelude.NFData SimulatePrincipalPolicy where
   rnf SimulatePrincipalPolicy' {..} =
-    Prelude.rnf callerArn
-      `Prelude.seq` Prelude.rnf contextEntries
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf permissionsBoundaryPolicyInputList
-      `Prelude.seq` Prelude.rnf policyInputList
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf resourceHandlingOption
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf policySourceArn
-      `Prelude.seq` Prelude.rnf actionNames
+    Prelude.rnf callerArn `Prelude.seq`
+      Prelude.rnf contextEntries `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf permissionsBoundaryPolicyInputList `Prelude.seq`
+              Prelude.rnf policyInputList `Prelude.seq`
+                Prelude.rnf resourceArns `Prelude.seq`
+                  Prelude.rnf resourceHandlingOption `Prelude.seq`
+                    Prelude.rnf resourceOwner `Prelude.seq`
+                      Prelude.rnf resourcePolicy `Prelude.seq`
+                        Prelude.rnf policySourceArn `Prelude.seq`
+                          Prelude.rnf actionNames
 
 instance Data.ToHeaders SimulatePrincipalPolicy where
   toHeaders = Prelude.const Prelude.mempty

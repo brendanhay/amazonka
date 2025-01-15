@@ -182,5 +182,5 @@ getInstanceProfileResponse_instanceProfile = Lens.lens (\GetInstanceProfileRespo
 
 instance Prelude.NFData GetInstanceProfileResponse where
   rnf GetInstanceProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceProfile
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf instanceProfile

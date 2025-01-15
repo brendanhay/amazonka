@@ -201,9 +201,7 @@ instance Core.AWSRequest CreateSAMLProvider where
       ( \s h x ->
           CreateSAMLProviderResponse'
             Prelude.<$> (x Data..@? "SAMLProviderArn")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -218,9 +216,9 @@ instance Prelude.Hashable CreateSAMLProvider where
 
 instance Prelude.NFData CreateSAMLProvider where
   rnf CreateSAMLProvider' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sAMLMetadataDocument
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sAMLMetadataDocument `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,6 +304,6 @@ createSAMLProviderResponse_httpStatus = Lens.lens (\CreateSAMLProviderResponse' 
 
 instance Prelude.NFData CreateSAMLProviderResponse where
   rnf CreateSAMLProviderResponse' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sAMLProviderArn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

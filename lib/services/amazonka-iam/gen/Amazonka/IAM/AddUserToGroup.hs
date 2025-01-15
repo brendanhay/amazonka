@@ -131,8 +131,8 @@ instance Prelude.Hashable AddUserToGroup where
 
 instance Prelude.NFData AddUserToGroup where
   rnf AddUserToGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf userName
 
 instance Data.ToHeaders AddUserToGroup where
   toHeaders = Prelude.const Prelude.mempty

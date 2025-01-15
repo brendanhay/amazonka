@@ -279,8 +279,8 @@ instance
     GenerateOrganizationsAccessReport
   where
   rnf GenerateOrganizationsAccessReport' {..} =
-    Prelude.rnf organizationsPolicyId
-      `Prelude.seq` Prelude.rnf entityPath
+    Prelude.rnf organizationsPolicyId `Prelude.seq`
+      Prelude.rnf entityPath
 
 instance
   Data.ToHeaders
@@ -359,5 +359,5 @@ instance
     GenerateOrganizationsAccessReportResponse
   where
   rnf GenerateOrganizationsAccessReportResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

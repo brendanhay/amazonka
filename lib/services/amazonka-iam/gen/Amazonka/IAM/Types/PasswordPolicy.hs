@@ -222,13 +222,13 @@ instance Prelude.Hashable PasswordPolicy where
 
 instance Prelude.NFData PasswordPolicy where
   rnf PasswordPolicy' {..} =
-    Prelude.rnf allowUsersToChangePassword
-      `Prelude.seq` Prelude.rnf expirePasswords
-      `Prelude.seq` Prelude.rnf hardExpiry
-      `Prelude.seq` Prelude.rnf maxPasswordAge
-      `Prelude.seq` Prelude.rnf minimumPasswordLength
-      `Prelude.seq` Prelude.rnf passwordReusePrevention
-      `Prelude.seq` Prelude.rnf requireLowercaseCharacters
-      `Prelude.seq` Prelude.rnf requireNumbers
-      `Prelude.seq` Prelude.rnf requireSymbols
-      `Prelude.seq` Prelude.rnf requireUppercaseCharacters
+    Prelude.rnf allowUsersToChangePassword `Prelude.seq`
+      Prelude.rnf expirePasswords `Prelude.seq`
+        Prelude.rnf hardExpiry `Prelude.seq`
+          Prelude.rnf maxPasswordAge `Prelude.seq`
+            Prelude.rnf minimumPasswordLength `Prelude.seq`
+              Prelude.rnf passwordReusePrevention `Prelude.seq`
+                Prelude.rnf requireLowercaseCharacters `Prelude.seq`
+                  Prelude.rnf requireNumbers `Prelude.seq`
+                    Prelude.rnf requireSymbols `Prelude.seq`
+                      Prelude.rnf requireUppercaseCharacters

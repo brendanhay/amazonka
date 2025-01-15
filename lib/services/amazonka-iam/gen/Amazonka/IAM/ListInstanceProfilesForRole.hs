@@ -170,12 +170,12 @@ instance Core.AWSPager ListInstanceProfilesForRole where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstanceProfilesForRole_marker
-          Lens..~ rs
-          Lens.^? listInstanceProfilesForRoleResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstanceProfilesForRole_marker
+              Lens..~ rs
+              Lens.^? listInstanceProfilesForRoleResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceProfilesForRole where
   type
@@ -207,9 +207,9 @@ instance Prelude.Hashable ListInstanceProfilesForRole where
 
 instance Prelude.NFData ListInstanceProfilesForRole where
   rnf ListInstanceProfilesForRole' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf roleName
 
 instance Data.ToHeaders ListInstanceProfilesForRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,7 +320,7 @@ instance
     ListInstanceProfilesForRoleResponse
   where
   rnf ListInstanceProfilesForRoleResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceProfiles
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf instanceProfiles

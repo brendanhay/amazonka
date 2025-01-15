@@ -162,8 +162,8 @@ instance Prelude.Hashable GetGroupPolicy where
 
 instance Prelude.NFData GetGroupPolicy where
   rnf GetGroupPolicy' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders GetGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,7 +267,7 @@ getGroupPolicyResponse_policyDocument = Lens.lens (\GetGroupPolicyResponse' {pol
 
 instance Prelude.NFData GetGroupPolicyResponse where
   rnf GetGroupPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyDocument

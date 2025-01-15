@@ -178,5 +178,5 @@ getRoleResponse_role = Lens.lens (\GetRoleResponse' {role'} -> role') (\s@GetRol
 
 instance Prelude.NFData GetRoleResponse where
   rnf GetRoleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf role'

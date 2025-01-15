@@ -156,9 +156,9 @@ instance Prelude.Hashable UpdateSigningCertificate where
 
 instance Prelude.NFData UpdateSigningCertificate where
   rnf UpdateSigningCertificate' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty

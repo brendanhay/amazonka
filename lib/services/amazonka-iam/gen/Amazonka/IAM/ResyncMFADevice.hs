@@ -179,10 +179,10 @@ instance Prelude.Hashable ResyncMFADevice where
 
 instance Prelude.NFData ResyncMFADevice where
   rnf ResyncMFADevice' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf authenticationCode1
-      `Prelude.seq` Prelude.rnf authenticationCode2
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serialNumber `Prelude.seq`
+        Prelude.rnf authenticationCode1 `Prelude.seq`
+          Prelude.rnf authenticationCode2
 
 instance Data.ToHeaders ResyncMFADevice where
   toHeaders = Prelude.const Prelude.mempty

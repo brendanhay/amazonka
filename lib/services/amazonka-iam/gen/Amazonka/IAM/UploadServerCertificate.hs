@@ -383,9 +383,7 @@ instance Core.AWSRequest UploadServerCertificate where
       ( \s h x ->
           UploadServerCertificateResponse'
             Prelude.<$> (x Data..@? "ServerCertificateMetadata")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -403,12 +401,12 @@ instance Prelude.Hashable UploadServerCertificate where
 
 instance Prelude.NFData UploadServerCertificate where
   rnf UploadServerCertificate' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverCertificateName
-      `Prelude.seq` Prelude.rnf certificateBody
-      `Prelude.seq` Prelude.rnf privateKey
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf serverCertificateName `Prelude.seq`
+            Prelude.rnf certificateBody `Prelude.seq`
+              Prelude.rnf privateKey
 
 instance Data.ToHeaders UploadServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -504,6 +502,6 @@ instance
     UploadServerCertificateResponse
   where
   rnf UploadServerCertificateResponse' {..} =
-    Prelude.rnf serverCertificateMetadata
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serverCertificateMetadata `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -166,8 +166,8 @@ instance Prelude.Hashable GetPolicyVersion where
 
 instance Prelude.NFData GetPolicyVersion where
   rnf GetPolicyVersion' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf versionId
 
 instance Data.ToHeaders GetPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,5 +229,5 @@ getPolicyVersionResponse_httpStatus = Lens.lens (\GetPolicyVersionResponse' {htt
 
 instance Prelude.NFData GetPolicyVersionResponse where
   rnf GetPolicyVersionResponse' {..} =
-    Prelude.rnf policyVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyVersion `Prelude.seq`
+      Prelude.rnf httpStatus

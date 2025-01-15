@@ -223,9 +223,9 @@ instance Prelude.Hashable PutRolePolicy where
 
 instance Prelude.NFData PutRolePolicy where
   rnf PutRolePolicy' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutRolePolicy where
   toHeaders = Prelude.const Prelude.mempty

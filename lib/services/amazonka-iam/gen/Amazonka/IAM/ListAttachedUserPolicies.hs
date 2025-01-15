@@ -218,12 +218,12 @@ instance Core.AWSPager ListAttachedUserPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedUserPolicies_marker
-          Lens..~ rs
-          Lens.^? listAttachedUserPoliciesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedUserPolicies_marker
+              Lens..~ rs
+              Lens.^? listAttachedUserPoliciesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedUserPolicies where
   type
@@ -256,10 +256,10 @@ instance Prelude.Hashable ListAttachedUserPolicies where
 
 instance Prelude.NFData ListAttachedUserPolicies where
   rnf ListAttachedUserPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix `Prelude.seq`
+          Prelude.rnf userName
 
 instance Data.ToHeaders ListAttachedUserPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -368,7 +368,7 @@ instance
     ListAttachedUserPoliciesResponse
   where
   rnf ListAttachedUserPoliciesResponse' {..} =
-    Prelude.rnf attachedPolicies
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedPolicies `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

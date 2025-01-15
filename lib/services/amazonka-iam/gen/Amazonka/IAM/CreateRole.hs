@@ -357,13 +357,13 @@ instance Prelude.Hashable CreateRole where
 
 instance Prelude.NFData CreateRole where
   rnf CreateRole' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxSessionDuration
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf maxSessionDuration `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf permissionsBoundary `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf roleName `Prelude.seq`
+                Prelude.rnf assumeRolePolicyDocument
 
 instance Data.ToHeaders CreateRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -434,5 +434,5 @@ createRoleResponse_role = Lens.lens (\CreateRoleResponse' {role'} -> role') (\s@
 
 instance Prelude.NFData CreateRoleResponse where
   rnf CreateRoleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf role'

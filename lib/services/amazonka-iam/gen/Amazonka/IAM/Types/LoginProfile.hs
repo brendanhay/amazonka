@@ -101,6 +101,6 @@ instance Prelude.Hashable LoginProfile where
 
 instance Prelude.NFData LoginProfile where
   rnf LoginProfile' {..} =
-    Prelude.rnf passwordResetRequired
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf passwordResetRequired `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf createDate

@@ -145,9 +145,7 @@ instance Data.FromXML GroupDetail where
       Prelude.<*> (x Data..@? "CreateDate")
       Prelude.<*> (x Data..@? "GroupId")
       Prelude.<*> (x Data..@? "GroupName")
-      Prelude.<*> ( x
-                      Data..@? "GroupPolicyList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "GroupPolicyList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Path")
@@ -165,10 +163,10 @@ instance Prelude.Hashable GroupDetail where
 
 instance Prelude.NFData GroupDetail where
   rnf GroupDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupPolicyList
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attachedManagedPolicies `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf groupId `Prelude.seq`
+            Prelude.rnf groupName `Prelude.seq`
+              Prelude.rnf groupPolicyList `Prelude.seq`
+                Prelude.rnf path

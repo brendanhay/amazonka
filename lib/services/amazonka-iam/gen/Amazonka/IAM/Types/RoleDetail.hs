@@ -251,14 +251,10 @@ instance Data.FromXML RoleDetail where
       Prelude.<*> (x Data..@? "RoleId")
       Prelude.<*> (x Data..@? "RoleLastUsed")
       Prelude.<*> (x Data..@? "RoleName")
-      Prelude.<*> ( x
-                      Data..@? "RolePolicyList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "RolePolicyList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -280,15 +276,15 @@ instance Prelude.Hashable RoleDetail where
 
 instance Prelude.NFData RoleDetail where
   rnf RoleDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf instanceProfileList
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf roleId
-      `Prelude.seq` Prelude.rnf roleLastUsed
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf rolePolicyList
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf assumeRolePolicyDocument `Prelude.seq`
+        Prelude.rnf attachedManagedPolicies `Prelude.seq`
+          Prelude.rnf createDate `Prelude.seq`
+            Prelude.rnf instanceProfileList `Prelude.seq`
+              Prelude.rnf path `Prelude.seq`
+                Prelude.rnf permissionsBoundary `Prelude.seq`
+                  Prelude.rnf roleId `Prelude.seq`
+                    Prelude.rnf roleLastUsed `Prelude.seq`
+                      Prelude.rnf roleName `Prelude.seq`
+                        Prelude.rnf rolePolicyList `Prelude.seq`
+                          Prelude.rnf tags

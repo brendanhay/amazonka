@@ -193,23 +193,17 @@ instance Data.FromXML UserDetail where
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreateDate")
-      Prelude.<*> ( x
-                      Data..@? "GroupList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "GroupList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Path")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "UserId")
       Prelude.<*> (x Data..@? "UserName")
-      Prelude.<*> ( x
-                      Data..@? "UserPolicyList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserPolicyList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -229,13 +223,13 @@ instance Prelude.Hashable UserDetail where
 
 instance Prelude.NFData UserDetail where
   rnf UserDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf groupList
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userPolicyList
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attachedManagedPolicies `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf groupList `Prelude.seq`
+            Prelude.rnf path `Prelude.seq`
+              Prelude.rnf permissionsBoundary `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf userId `Prelude.seq`
+                    Prelude.rnf userName `Prelude.seq`
+                      Prelude.rnf userPolicyList

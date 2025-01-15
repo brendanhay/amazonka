@@ -171,8 +171,8 @@ instance Prelude.Hashable UpdateAssumeRolePolicy where
 
 instance Prelude.NFData UpdateAssumeRolePolicy where
   rnf UpdateAssumeRolePolicy' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf policyDocument
 
 instance Data.ToHeaders UpdateAssumeRolePolicy where
   toHeaders = Prelude.const Prelude.mempty

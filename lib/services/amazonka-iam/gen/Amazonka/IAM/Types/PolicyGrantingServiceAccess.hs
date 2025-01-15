@@ -163,8 +163,8 @@ instance Prelude.Hashable PolicyGrantingServiceAccess where
 
 instance Prelude.NFData PolicyGrantingServiceAccess where
   rnf PolicyGrantingServiceAccess' {..} =
-    Prelude.rnf entityName
-      `Prelude.seq` Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf entityName `Prelude.seq`
+      Prelude.rnf entityType `Prelude.seq`
+        Prelude.rnf policyArn `Prelude.seq`
+          Prelude.rnf policyName `Prelude.seq`
+            Prelude.rnf policyType

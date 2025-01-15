@@ -277,12 +277,12 @@ instance Core.AWSPager ListEntitiesForPolicy where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEntitiesForPolicy_marker
-          Lens..~ rs
-          Lens.^? listEntitiesForPolicyResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEntitiesForPolicy_marker
+              Lens..~ rs
+              Lens.^? listEntitiesForPolicyResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntitiesForPolicy where
   type
@@ -297,19 +297,13 @@ instance Core.AWSRequest ListEntitiesForPolicy where
           ListEntitiesForPolicyResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "PolicyGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PolicyGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "PolicyRoles"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PolicyRoles" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "PolicyUsers"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PolicyUsers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -327,12 +321,12 @@ instance Prelude.Hashable ListEntitiesForPolicy where
 
 instance Prelude.NFData ListEntitiesForPolicy where
   rnf ListEntitiesForPolicy' {..} =
-    Prelude.rnf entityFilter
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf policyUsageFilter
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf entityFilter `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf pathPrefix `Prelude.seq`
+            Prelude.rnf policyUsageFilter `Prelude.seq`
+              Prelude.rnf policyArn
 
 instance Data.ToHeaders ListEntitiesForPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -458,9 +452,9 @@ listEntitiesForPolicyResponse_httpStatus = Lens.lens (\ListEntitiesForPolicyResp
 
 instance Prelude.NFData ListEntitiesForPolicyResponse where
   rnf ListEntitiesForPolicyResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf policyGroups
-      `Prelude.seq` Prelude.rnf policyRoles
-      `Prelude.seq` Prelude.rnf policyUsers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf policyGroups `Prelude.seq`
+          Prelude.rnf policyRoles `Prelude.seq`
+            Prelude.rnf policyUsers `Prelude.seq`
+              Prelude.rnf httpStatus

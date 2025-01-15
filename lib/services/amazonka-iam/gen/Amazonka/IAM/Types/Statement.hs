@@ -104,7 +104,7 @@ instance Prelude.Hashable Statement where
 
 instance Prelude.NFData Statement where
   rnf Statement' {..} =
-    Prelude.rnf endPosition
-      `Prelude.seq` Prelude.rnf sourcePolicyId
-      `Prelude.seq` Prelude.rnf sourcePolicyType
-      `Prelude.seq` Prelude.rnf startPosition
+    Prelude.rnf endPosition `Prelude.seq`
+      Prelude.rnf sourcePolicyId `Prelude.seq`
+        Prelude.rnf sourcePolicyType `Prelude.seq`
+          Prelude.rnf startPosition

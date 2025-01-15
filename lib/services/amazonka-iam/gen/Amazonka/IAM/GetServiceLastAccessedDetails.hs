@@ -239,9 +239,9 @@ instance
 
 instance Prelude.NFData GetServiceLastAccessedDetails where
   rnf GetServiceLastAccessedDetails' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetServiceLastAccessedDetails where
   toHeaders = Prelude.const Prelude.mempty
@@ -439,12 +439,12 @@ instance
     GetServiceLastAccessedDetailsResponse
   where
   rnf GetServiceLastAccessedDetailsResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobCreationDate
-      `Prelude.seq` Prelude.rnf servicesLastAccessed
-      `Prelude.seq` Prelude.rnf jobCompletionDate
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf jobType `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf jobStatus `Prelude.seq`
+                Prelude.rnf jobCreationDate `Prelude.seq`
+                  Prelude.rnf servicesLastAccessed `Prelude.seq`
+                    Prelude.rnf jobCompletionDate

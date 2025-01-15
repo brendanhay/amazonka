@@ -220,9 +220,9 @@ instance Prelude.Hashable AccessDetail where
 
 instance Prelude.NFData AccessDetail where
   rnf AccessDetail' {..} =
-    Prelude.rnf entityPath
-      `Prelude.seq` Prelude.rnf lastAuthenticatedTime
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf totalAuthenticatedEntities
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf entityPath `Prelude.seq`
+      Prelude.rnf lastAuthenticatedTime `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf totalAuthenticatedEntities `Prelude.seq`
+            Prelude.rnf serviceName `Prelude.seq`
+              Prelude.rnf serviceNamespace

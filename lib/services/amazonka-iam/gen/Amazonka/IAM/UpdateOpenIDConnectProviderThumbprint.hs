@@ -162,8 +162,8 @@ instance
     UpdateOpenIDConnectProviderThumbprint
   where
   rnf UpdateOpenIDConnectProviderThumbprint' {..} =
-    Prelude.rnf openIDConnectProviderArn
-      `Prelude.seq` Prelude.rnf thumbprintList
+    Prelude.rnf openIDConnectProviderArn `Prelude.seq`
+      Prelude.rnf thumbprintList
 
 instance
   Data.ToHeaders

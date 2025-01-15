@@ -189,5 +189,5 @@ getLoginProfileResponse_loginProfile = Lens.lens (\GetLoginProfileResponse' {log
 
 instance Prelude.NFData GetLoginProfileResponse where
   rnf GetLoginProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf loginProfile
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf loginProfile

@@ -157,8 +157,8 @@ instance Prelude.Hashable TagServerCertificate where
 
 instance Prelude.NFData TagServerCertificate where
   rnf TagServerCertificate' {..} =
-    Prelude.rnf serverCertificateName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf serverCertificateName `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagServerCertificate where
   toHeaders = Prelude.const Prelude.mempty

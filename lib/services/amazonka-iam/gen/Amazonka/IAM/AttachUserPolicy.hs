@@ -143,8 +143,8 @@ instance Prelude.Hashable AttachUserPolicy where
 
 instance Prelude.NFData AttachUserPolicy where
   rnf AttachUserPolicy' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders AttachUserPolicy where
   toHeaders = Prelude.const Prelude.mempty

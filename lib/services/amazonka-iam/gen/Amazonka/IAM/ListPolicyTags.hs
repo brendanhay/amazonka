@@ -164,9 +164,7 @@ instance Core.AWSRequest ListPolicyTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -180,9 +178,9 @@ instance Prelude.Hashable ListPolicyTags where
 
 instance Prelude.NFData ListPolicyTags where
   rnf ListPolicyTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf policyArn
 
 instance Data.ToHeaders ListPolicyTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,7 +292,7 @@ listPolicyTagsResponse_tags = Lens.lens (\ListPolicyTagsResponse' {tags} -> tags
 
 instance Prelude.NFData ListPolicyTagsResponse where
   rnf ListPolicyTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

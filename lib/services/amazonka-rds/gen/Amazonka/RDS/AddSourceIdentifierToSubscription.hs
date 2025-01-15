@@ -200,8 +200,8 @@ instance
     AddSourceIdentifierToSubscription
   where
   rnf AddSourceIdentifierToSubscription' {..} =
-    Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf sourceIdentifier
+    Prelude.rnf subscriptionName `Prelude.seq`
+      Prelude.rnf sourceIdentifier
 
 instance
   Data.ToHeaders
@@ -275,5 +275,5 @@ instance
     AddSourceIdentifierToSubscriptionResponse
   where
   rnf AddSourceIdentifierToSubscriptionResponse' {..} =
-    Prelude.rnf eventSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

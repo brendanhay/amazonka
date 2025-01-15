@@ -224,12 +224,12 @@ instance Core.AWSPager DownloadDBLogFilePortion where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& downloadDBLogFilePortion_marker
-          Lens..~ rs
-          Lens.^? downloadDBLogFilePortionResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& downloadDBLogFilePortion_marker
+              Lens..~ rs
+              Lens.^? downloadDBLogFilePortionResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DownloadDBLogFilePortion where
   type
@@ -258,10 +258,10 @@ instance Prelude.Hashable DownloadDBLogFilePortion where
 
 instance Prelude.NFData DownloadDBLogFilePortion where
   rnf DownloadDBLogFilePortion' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf numberOfLines
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf logFileName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf numberOfLines `Prelude.seq`
+        Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+          Prelude.rnf logFileName
 
 instance Data.ToHeaders DownloadDBLogFilePortion where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,7 +353,7 @@ instance
     DownloadDBLogFilePortionResponse
   where
   rnf DownloadDBLogFilePortionResponse' {..} =
-    Prelude.rnf additionalDataPending
-      `Prelude.seq` Prelude.rnf logFileData
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf additionalDataPending `Prelude.seq`
+      Prelude.rnf logFileData `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

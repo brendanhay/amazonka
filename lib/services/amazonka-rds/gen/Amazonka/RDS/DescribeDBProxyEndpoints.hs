@@ -172,12 +172,12 @@ instance Core.AWSPager DescribeDBProxyEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBProxyEndpoints_marker
-          Lens..~ rs
-          Lens.^? describeDBProxyEndpointsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBProxyEndpoints_marker
+              Lens..~ rs
+              Lens.^? describeDBProxyEndpointsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxyEndpoints where
   type
@@ -210,11 +210,11 @@ instance Prelude.Hashable DescribeDBProxyEndpoints where
 
 instance Prelude.NFData DescribeDBProxyEndpoints where
   rnf DescribeDBProxyEndpoints' {..} =
-    Prelude.rnf dbProxyEndpointName
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbProxyEndpointName `Prelude.seq`
+      Prelude.rnf dbProxyName `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBProxyEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,6 +297,6 @@ instance
     DescribeDBProxyEndpointsResponse
   where
   rnf DescribeDBProxyEndpointsResponse' {..} =
-    Prelude.rnf dbProxyEndpoints
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxyEndpoints `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

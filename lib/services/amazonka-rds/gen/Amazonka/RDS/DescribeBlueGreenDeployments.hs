@@ -237,12 +237,12 @@ instance Core.AWSPager DescribeBlueGreenDeployments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBlueGreenDeployments_marker
-          Lens..~ rs
-          Lens.^? describeBlueGreenDeploymentsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBlueGreenDeployments_marker
+              Lens..~ rs
+              Lens.^? describeBlueGreenDeploymentsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBlueGreenDeployments where
   type
@@ -277,10 +277,10 @@ instance
 
 instance Prelude.NFData DescribeBlueGreenDeployments where
   rnf DescribeBlueGreenDeployments' {..} =
-    Prelude.rnf blueGreenDeploymentIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf blueGreenDeploymentIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeBlueGreenDeployments where
   toHeaders = Prelude.const Prelude.mempty
@@ -362,6 +362,6 @@ instance
     DescribeBlueGreenDeploymentsResponse
   where
   rnf DescribeBlueGreenDeploymentsResponse' {..} =
-    Prelude.rnf blueGreenDeployments
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueGreenDeployments `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

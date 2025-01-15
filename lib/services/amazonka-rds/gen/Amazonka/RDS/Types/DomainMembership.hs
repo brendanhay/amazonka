@@ -105,7 +105,7 @@ instance Prelude.Hashable DomainMembership where
 
 instance Prelude.NFData DomainMembership where
   rnf DomainMembership' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf iAMRoleName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf fqdn `Prelude.seq`
+        Prelude.rnf iAMRoleName `Prelude.seq`
+          Prelude.rnf status

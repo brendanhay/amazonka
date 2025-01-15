@@ -145,9 +145,7 @@ instance Data.FromXML Option where
                   )
       Prelude.<*> (x Data..@? "OptionDescription")
       Prelude.<*> (x Data..@? "OptionName")
-      Prelude.<*> ( x
-                      Data..@? "OptionSettings"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionSetting")
                   )
       Prelude.<*> (x Data..@? "OptionVersion")
@@ -176,12 +174,12 @@ instance Prelude.Hashable Option where
 
 instance Prelude.NFData Option where
   rnf Option' {..} =
-    Prelude.rnf dbSecurityGroupMemberships
-      `Prelude.seq` Prelude.rnf optionDescription
-      `Prelude.seq` Prelude.rnf optionName
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf optionVersion
-      `Prelude.seq` Prelude.rnf permanent
-      `Prelude.seq` Prelude.rnf persistent
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupMemberships
+    Prelude.rnf dbSecurityGroupMemberships `Prelude.seq`
+      Prelude.rnf optionDescription `Prelude.seq`
+        Prelude.rnf optionName `Prelude.seq`
+          Prelude.rnf optionSettings `Prelude.seq`
+            Prelude.rnf optionVersion `Prelude.seq`
+              Prelude.rnf permanent `Prelude.seq`
+                Prelude.rnf persistent `Prelude.seq`
+                  Prelude.rnf port `Prelude.seq`
+                    Prelude.rnf vpcSecurityGroupMemberships

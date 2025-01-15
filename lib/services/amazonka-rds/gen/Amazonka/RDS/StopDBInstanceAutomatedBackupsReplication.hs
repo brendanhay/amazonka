@@ -200,5 +200,5 @@ instance
   where
   rnf
     StopDBInstanceAutomatedBackupsReplicationResponse' {..} =
-      Prelude.rnf dbInstanceAutomatedBackup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf dbInstanceAutomatedBackup `Prelude.seq`
+        Prelude.rnf httpStatus

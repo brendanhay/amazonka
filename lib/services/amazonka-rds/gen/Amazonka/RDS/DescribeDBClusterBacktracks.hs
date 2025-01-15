@@ -290,12 +290,12 @@ instance Core.AWSPager DescribeDBClusterBacktracks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusterBacktracks_marker
-          Lens..~ rs
-          Lens.^? describeDBClusterBacktracksResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusterBacktracks_marker
+              Lens..~ rs
+              Lens.^? describeDBClusterBacktracksResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
@@ -328,11 +328,11 @@ instance Prelude.Hashable DescribeDBClusterBacktracks where
 
 instance Prelude.NFData DescribeDBClusterBacktracks where
   rnf DescribeDBClusterBacktracks' {..} =
-    Prelude.rnf backtrackIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf backtrackIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders DescribeDBClusterBacktracks where
   toHeaders = Prelude.const Prelude.mempty
@@ -417,6 +417,6 @@ instance
     DescribeDBClusterBacktracksResponse
   where
   rnf DescribeDBClusterBacktracksResponse' {..} =
-    Prelude.rnf dbClusterBacktracks
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterBacktracks `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

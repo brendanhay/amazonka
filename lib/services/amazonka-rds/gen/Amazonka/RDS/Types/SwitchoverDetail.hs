@@ -135,6 +135,6 @@ instance Prelude.Hashable SwitchoverDetail where
 
 instance Prelude.NFData SwitchoverDetail where
   rnf SwitchoverDetail' {..} =
-    Prelude.rnf sourceMember
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetMember
+    Prelude.rnf sourceMember `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf targetMember

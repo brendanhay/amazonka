@@ -163,11 +163,11 @@ instance Prelude.Hashable OptionGroupOptionSetting where
 
 instance Prelude.NFData OptionGroupOptionSetting where
   rnf OptionGroupOptionSetting' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf applyType
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf minimumEngineVersionPerAllowedValue
-      `Prelude.seq` Prelude.rnf settingDescription
-      `Prelude.seq` Prelude.rnf settingName
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf applyType `Prelude.seq`
+        Prelude.rnf defaultValue `Prelude.seq`
+          Prelude.rnf isModifiable `Prelude.seq`
+            Prelude.rnf isRequired `Prelude.seq`
+              Prelude.rnf minimumEngineVersionPerAllowedValue `Prelude.seq`
+                Prelude.rnf settingDescription `Prelude.seq`
+                  Prelude.rnf settingName

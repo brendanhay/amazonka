@@ -178,12 +178,12 @@ instance Core.AWSPager DescribeSourceRegions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSourceRegions_marker
-          Lens..~ rs
-          Lens.^? describeSourceRegionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSourceRegions_marker
+              Lens..~ rs
+              Lens.^? describeSourceRegionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSourceRegions where
   type
@@ -197,9 +197,7 @@ instance Core.AWSRequest DescribeSourceRegions where
       ( \s h x ->
           DescribeSourceRegionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "SourceRegions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "SourceRegions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "SourceRegion")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -215,10 +213,10 @@ instance Prelude.Hashable DescribeSourceRegions where
 
 instance Prelude.NFData DescribeSourceRegions where
   rnf DescribeSourceRegions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf regionName
 
 instance Data.ToHeaders DescribeSourceRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,6 +304,6 @@ describeSourceRegionsResponse_httpStatus = Lens.lens (\DescribeSourceRegionsResp
 
 instance Prelude.NFData DescribeSourceRegionsResponse where
   rnf DescribeSourceRegionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf sourceRegions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf sourceRegions `Prelude.seq`
+        Prelude.rnf httpStatus

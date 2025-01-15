@@ -155,5 +155,5 @@ deleteDBProxyResponse_httpStatus = Lens.lens (\DeleteDBProxyResponse' {httpStatu
 
 instance Prelude.NFData DeleteDBProxyResponse where
   rnf DeleteDBProxyResponse' {..} =
-    Prelude.rnf dbProxy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxy `Prelude.seq`
+      Prelude.rnf httpStatus

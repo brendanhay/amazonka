@@ -253,12 +253,12 @@ instance Prelude.Hashable ScalingConfiguration where
 
 instance Prelude.NFData ScalingConfiguration where
   rnf ScalingConfiguration' {..} =
-    Prelude.rnf autoPause
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
-      `Prelude.seq` Prelude.rnf secondsUntilAutoPause
-      `Prelude.seq` Prelude.rnf timeoutAction
+    Prelude.rnf autoPause `Prelude.seq`
+      Prelude.rnf maxCapacity `Prelude.seq`
+        Prelude.rnf minCapacity `Prelude.seq`
+          Prelude.rnf secondsBeforeTimeout `Prelude.seq`
+            Prelude.rnf secondsUntilAutoPause `Prelude.seq`
+              Prelude.rnf timeoutAction
 
 instance Data.ToQuery ScalingConfiguration where
   toQuery ScalingConfiguration' {..} =

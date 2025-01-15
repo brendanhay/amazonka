@@ -201,11 +201,11 @@ instance
 
 instance Prelude.NFData RevokeDBSecurityGroupIngress where
   rnf RevokeDBSecurityGroupIngress' {..} =
-    Prelude.rnf cidrip
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupId
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
+    Prelude.rnf cidrip `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupId `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+          Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+            Prelude.rnf dbSecurityGroupName
 
 instance Data.ToHeaders RevokeDBSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,5 +273,5 @@ instance
     RevokeDBSecurityGroupIngressResponse
   where
   rnf RevokeDBSecurityGroupIngressResponse' {..} =
-    Prelude.rnf dbSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

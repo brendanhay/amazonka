@@ -88,6 +88,6 @@ instance Prelude.Hashable DescribeDBLogFilesDetails where
 
 instance Prelude.NFData DescribeDBLogFilesDetails where
   rnf DescribeDBLogFilesDetails' {..} =
-    Prelude.rnf lastWritten
-      `Prelude.seq` Prelude.rnf logFileName
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf lastWritten `Prelude.seq`
+      Prelude.rnf logFileName `Prelude.seq`
+        Prelude.rnf size

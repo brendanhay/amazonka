@@ -137,9 +137,9 @@ instance Prelude.Hashable RemoveRoleFromDBCluster where
 
 instance Prelude.NFData RemoveRoleFromDBCluster where
   rnf RemoveRoleFromDBCluster' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToHeaders RemoveRoleFromDBCluster where
   toHeaders = Prelude.const Prelude.mempty

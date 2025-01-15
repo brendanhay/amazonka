@@ -618,16 +618,16 @@ instance Prelude.Hashable CopyDBSnapshot where
 
 instance Prelude.NFData CopyDBSnapshot where
   rnf CopyDBSnapshot' {..} =
-    Prelude.rnf copyOptionGroup
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetCustomAvailabilityZone
-      `Prelude.seq` Prelude.rnf sourceDBSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf targetDBSnapshotIdentifier
+    Prelude.rnf copyOptionGroup `Prelude.seq`
+      Prelude.rnf copyTags `Prelude.seq`
+        Prelude.rnf destinationRegion `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf optionGroupName `Prelude.seq`
+              Prelude.rnf preSignedUrl `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf targetCustomAvailabilityZone `Prelude.seq`
+                    Prelude.rnf sourceDBSnapshotIdentifier `Prelude.seq`
+                      Prelude.rnf targetDBSnapshotIdentifier
 
 instance Data.ToHeaders CopyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -699,5 +699,5 @@ copyDBSnapshotResponse_httpStatus = Lens.lens (\CopyDBSnapshotResponse' {httpSta
 
 instance Prelude.NFData CopyDBSnapshotResponse where
   rnf CopyDBSnapshotResponse' {..} =
-    Prelude.rnf dbSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

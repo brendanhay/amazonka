@@ -180,9 +180,9 @@ instance Prelude.Hashable CreateDBSecurityGroup where
 
 instance Prelude.NFData CreateDBSecurityGroup where
   rnf CreateDBSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
-      `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbSecurityGroupName `Prelude.seq`
+        Prelude.rnf dbSecurityGroupDescription
 
 instance Data.ToHeaders CreateDBSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,5 +245,5 @@ createDBSecurityGroupResponse_httpStatus = Lens.lens (\CreateDBSecurityGroupResp
 
 instance Prelude.NFData CreateDBSecurityGroupResponse where
   rnf CreateDBSecurityGroupResponse' {..} =
-    Prelude.rnf dbSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

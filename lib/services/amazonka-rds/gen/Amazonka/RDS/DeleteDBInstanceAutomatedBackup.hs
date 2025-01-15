@@ -137,8 +137,8 @@ instance
     DeleteDBInstanceAutomatedBackup
   where
   rnf DeleteDBInstanceAutomatedBackup' {..} =
-    Prelude.rnf dbInstanceAutomatedBackupsArn
-      `Prelude.seq` Prelude.rnf dbiResourceId
+    Prelude.rnf dbInstanceAutomatedBackupsArn `Prelude.seq`
+      Prelude.rnf dbiResourceId
 
 instance
   Data.ToHeaders
@@ -207,5 +207,5 @@ instance
     DeleteDBInstanceAutomatedBackupResponse
   where
   rnf DeleteDBInstanceAutomatedBackupResponse' {..} =
-    Prelude.rnf dbInstanceAutomatedBackup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstanceAutomatedBackup `Prelude.seq`
+      Prelude.rnf httpStatus

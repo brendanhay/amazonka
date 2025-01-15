@@ -205,9 +205,9 @@ instance Prelude.Hashable ModifyDBSnapshot where
 
 instance Prelude.NFData ModifyDBSnapshot where
   rnf ModifyDBSnapshot' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+    Prelude.rnf engineVersion `Prelude.seq`
+      Prelude.rnf optionGroupName `Prelude.seq`
+        Prelude.rnf dbSnapshotIdentifier
 
 instance Data.ToHeaders ModifyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,5 +267,5 @@ modifyDBSnapshotResponse_httpStatus = Lens.lens (\ModifyDBSnapshotResponse' {htt
 
 instance Prelude.NFData ModifyDBSnapshotResponse where
   rnf ModifyDBSnapshotResponse' {..} =
-    Prelude.rnf dbSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

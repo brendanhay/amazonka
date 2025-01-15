@@ -167,12 +167,12 @@ instance Core.AWSPager DescribeDBSecurityGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBSecurityGroups_marker
-          Lens..~ rs
-          Lens.^? describeDBSecurityGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBSecurityGroups_marker
+              Lens..~ rs
+              Lens.^? describeDBSecurityGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBSecurityGroups where
   type
@@ -204,10 +204,10 @@ instance Prelude.Hashable DescribeDBSecurityGroups where
 
 instance Prelude.NFData DescribeDBSecurityGroups where
   rnf DescribeDBSecurityGroups' {..} =
-    Prelude.rnf dbSecurityGroupName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbSecurityGroupName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,6 +292,6 @@ instance
     DescribeDBSecurityGroupsResponse
   where
   rnf DescribeDBSecurityGroupsResponse' {..} =
-    Prelude.rnf dbSecurityGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSecurityGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

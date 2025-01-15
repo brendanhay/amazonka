@@ -184,5 +184,5 @@ instance
     DeleteDBClusterSnapshotResponse
   where
   rnf DeleteDBClusterSnapshotResponse' {..} =
-    Prelude.rnf dbClusterSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

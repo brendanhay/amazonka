@@ -136,8 +136,8 @@ instance Prelude.Hashable ModifyActivityStream where
 
 instance Prelude.NFData ModifyActivityStream where
   rnf ModifyActivityStream' {..} =
-    Prelude.rnf auditPolicyState
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf auditPolicyState `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders ModifyActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,10 +254,10 @@ modifyActivityStreamResponse_httpStatus = Lens.lens (\ModifyActivityStreamRespon
 
 instance Prelude.NFData ModifyActivityStreamResponse where
   rnf ModifyActivityStreamResponse' {..} =
-    Prelude.rnf engineNativeAuditFieldsIncluded
-      `Prelude.seq` Prelude.rnf kinesisStreamName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf policyStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf engineNativeAuditFieldsIncluded `Prelude.seq`
+      Prelude.rnf kinesisStreamName `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf mode `Prelude.seq`
+            Prelude.rnf policyStatus `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

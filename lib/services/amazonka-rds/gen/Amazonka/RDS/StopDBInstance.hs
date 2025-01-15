@@ -123,8 +123,8 @@ instance Prelude.Hashable StopDBInstance where
 
 instance Prelude.NFData StopDBInstance where
   rnf StopDBInstance' {..} =
-    Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf dbSnapshotIdentifier `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders StopDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ stopDBInstanceResponse_httpStatus = Lens.lens (\StopDBInstanceResponse' {httpSta
 
 instance Prelude.NFData StopDBInstanceResponse where
   rnf StopDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -198,12 +198,12 @@ instance Core.AWSPager DescribeDBLogFiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBLogFiles_marker
-          Lens..~ rs
-          Lens.^? describeDBLogFilesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBLogFiles_marker
+              Lens..~ rs
+              Lens.^? describeDBLogFilesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBLogFiles where
   type
@@ -239,13 +239,13 @@ instance Prelude.Hashable DescribeDBLogFiles where
 
 instance Prelude.NFData DescribeDBLogFiles where
   rnf DescribeDBLogFiles' {..} =
-    Prelude.rnf fileLastWritten
-      `Prelude.seq` Prelude.rnf fileSize
-      `Prelude.seq` Prelude.rnf filenameContains
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf fileLastWritten `Prelude.seq`
+      Prelude.rnf fileSize `Prelude.seq`
+        Prelude.rnf filenameContains `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders DescribeDBLogFiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -326,6 +326,6 @@ describeDBLogFilesResponse_httpStatus = Lens.lens (\DescribeDBLogFilesResponse' 
 
 instance Prelude.NFData DescribeDBLogFilesResponse where
   rnf DescribeDBLogFilesResponse' {..} =
-    Prelude.rnf describeDBLogFiles
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf describeDBLogFiles `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

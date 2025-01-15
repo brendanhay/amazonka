@@ -134,10 +134,10 @@ instance Prelude.Hashable DeregisterDBProxyTargets where
 
 instance Prelude.NFData DeregisterDBProxyTargets where
   rnf DeregisterDBProxyTargets' {..} =
-    Prelude.rnf dbClusterIdentifiers
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifiers
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf dbClusterIdentifiers `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifiers `Prelude.seq`
+        Prelude.rnf targetGroupName `Prelude.seq`
+          Prelude.rnf dbProxyName
 
 instance Data.ToHeaders DeregisterDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty

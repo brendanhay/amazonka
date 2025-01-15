@@ -347,13 +347,13 @@ instance Prelude.Hashable CreateEventSubscription where
 
 instance Prelude.NFData CreateEventSubscription where
   rnf CreateEventSubscription' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf sourceIds
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf eventCategories `Prelude.seq`
+        Prelude.rnf sourceIds `Prelude.seq`
+          Prelude.rnf sourceType `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf subscriptionName `Prelude.seq`
+                Prelude.rnf snsTopicArn
 
 instance Data.ToHeaders CreateEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -428,5 +428,5 @@ instance
     CreateEventSubscriptionResponse
   where
   rnf CreateEventSubscriptionResponse' {..} =
-    Prelude.rnf eventSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

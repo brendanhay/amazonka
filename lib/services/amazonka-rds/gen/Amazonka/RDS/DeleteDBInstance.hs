@@ -282,10 +282,10 @@ instance Prelude.Hashable DeleteDBInstance where
 
 instance Prelude.NFData DeleteDBInstance where
   rnf DeleteDBInstance' {..} =
-    Prelude.rnf deleteAutomatedBackups
-      `Prelude.seq` Prelude.rnf finalDBSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf skipFinalSnapshot
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf deleteAutomatedBackups `Prelude.seq`
+      Prelude.rnf finalDBSnapshotIdentifier `Prelude.seq`
+        Prelude.rnf skipFinalSnapshot `Prelude.seq`
+          Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders DeleteDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -348,5 +348,5 @@ deleteDBInstanceResponse_httpStatus = Lens.lens (\DeleteDBInstanceResponse' {htt
 
 instance Prelude.NFData DeleteDBInstanceResponse where
   rnf DeleteDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

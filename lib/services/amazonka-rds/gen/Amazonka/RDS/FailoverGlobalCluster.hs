@@ -166,8 +166,8 @@ instance Prelude.Hashable FailoverGlobalCluster where
 
 instance Prelude.NFData FailoverGlobalCluster where
   rnf FailoverGlobalCluster' {..} =
-    Prelude.rnf globalClusterIdentifier
-      `Prelude.seq` Prelude.rnf targetDbClusterIdentifier
+    Prelude.rnf globalClusterIdentifier `Prelude.seq`
+      Prelude.rnf targetDbClusterIdentifier
 
 instance Data.ToHeaders FailoverGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ failoverGlobalClusterResponse_httpStatus = Lens.lens (\FailoverGlobalClusterResp
 
 instance Prelude.NFData FailoverGlobalClusterResponse where
   rnf FailoverGlobalClusterResponse' {..} =
-    Prelude.rnf globalCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalCluster `Prelude.seq`
+      Prelude.rnf httpStatus

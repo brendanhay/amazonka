@@ -521,9 +521,7 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
       Prelude.<*> (x Data..@? "SupportsParallelQuery")
       Prelude.<*> (x Data..@? "SupportsReadReplica")
-      Prelude.<*> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> ( x

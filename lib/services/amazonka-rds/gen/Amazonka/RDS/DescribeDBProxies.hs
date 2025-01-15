@@ -155,12 +155,12 @@ instance Core.AWSPager DescribeDBProxies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBProxies_marker
-          Lens..~ rs
-          Lens.^? describeDBProxiesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBProxies_marker
+              Lens..~ rs
+              Lens.^? describeDBProxiesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxies where
   type
@@ -173,9 +173,7 @@ instance Core.AWSRequest DescribeDBProxies where
       "DescribeDBProxiesResult"
       ( \s h x ->
           DescribeDBProxiesResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBProxies"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBProxies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -192,10 +190,10 @@ instance Prelude.Hashable DescribeDBProxies where
 
 instance Prelude.NFData DescribeDBProxies where
   rnf DescribeDBProxies' {..} =
-    Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbProxyName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBProxies where
   toHeaders = Prelude.const Prelude.mempty
@@ -277,6 +275,6 @@ describeDBProxiesResponse_httpStatus = Lens.lens (\DescribeDBProxiesResponse' {h
 
 instance Prelude.NFData DescribeDBProxiesResponse where
   rnf DescribeDBProxiesResponse' {..} =
-    Prelude.rnf dbProxies
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxies `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

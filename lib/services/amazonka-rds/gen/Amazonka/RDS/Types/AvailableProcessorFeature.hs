@@ -96,6 +96,6 @@ instance Prelude.Hashable AvailableProcessorFeature where
 
 instance Prelude.NFData AvailableProcessorFeature where
   rnf AvailableProcessorFeature' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf name

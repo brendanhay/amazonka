@@ -238,10 +238,10 @@ instance Prelude.Hashable BacktrackDBCluster where
 
 instance Prelude.NFData BacktrackDBCluster where
   rnf BacktrackDBCluster' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf useEarliestTimeOnPointInTimeUnavailable
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf backtrackTo
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf useEarliestTimeOnPointInTimeUnavailable `Prelude.seq`
+        Prelude.rnf dbClusterIdentifier `Prelude.seq`
+          Prelude.rnf backtrackTo
 
 instance Data.ToHeaders BacktrackDBCluster where
   toHeaders = Prelude.const Prelude.mempty

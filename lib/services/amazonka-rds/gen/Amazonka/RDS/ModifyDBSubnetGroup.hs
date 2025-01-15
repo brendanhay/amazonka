@@ -142,9 +142,9 @@ instance Prelude.Hashable ModifyDBSubnetGroup where
 
 instance Prelude.NFData ModifyDBSubnetGroup where
   rnf ModifyDBSubnetGroup' {..} =
-    Prelude.rnf dbSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf dbSubnetGroupDescription `Prelude.seq`
+      Prelude.rnf dbSubnetGroupName `Prelude.seq`
+        Prelude.rnf subnetIds
 
 instance Data.ToHeaders ModifyDBSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,5 +206,5 @@ modifyDBSubnetGroupResponse_httpStatus = Lens.lens (\ModifyDBSubnetGroupResponse
 
 instance Prelude.NFData ModifyDBSubnetGroupResponse where
   rnf ModifyDBSubnetGroupResponse' {..} =
-    Prelude.rnf dbSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

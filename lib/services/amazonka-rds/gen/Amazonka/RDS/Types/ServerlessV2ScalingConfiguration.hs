@@ -102,8 +102,8 @@ instance
     ServerlessV2ScalingConfiguration
   where
   rnf ServerlessV2ScalingConfiguration' {..} =
-    Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
+    Prelude.rnf maxCapacity `Prelude.seq`
+      Prelude.rnf minCapacity
 
 instance
   Data.ToQuery

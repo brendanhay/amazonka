@@ -177,12 +177,12 @@ instance Core.AWSPager DescribeGlobalClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGlobalClusters_marker
-          Lens..~ rs
-          Lens.^? describeGlobalClustersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGlobalClusters_marker
+              Lens..~ rs
+              Lens.^? describeGlobalClustersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGlobalClusters where
   type
@@ -195,9 +195,7 @@ instance Core.AWSRequest DescribeGlobalClusters where
       "DescribeGlobalClustersResult"
       ( \s h x ->
           DescribeGlobalClustersResponse'
-            Prelude.<$> ( x
-                            Data..@? "GlobalClusters"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "GlobalClusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -214,10 +212,10 @@ instance Prelude.Hashable DescribeGlobalClusters where
 
 instance Prelude.NFData DescribeGlobalClusters where
   rnf DescribeGlobalClusters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf globalClusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf globalClusterIdentifier `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeGlobalClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,6 +301,6 @@ instance
     DescribeGlobalClustersResponse
   where
   rnf DescribeGlobalClustersResponse' {..} =
-    Prelude.rnf globalClusters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalClusters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

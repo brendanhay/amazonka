@@ -208,9 +208,7 @@ instance Data.FromXML DBProxyEndpoint where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "VpcSubnetIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "VpcSubnetIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -231,14 +229,14 @@ instance Prelude.Hashable DBProxyEndpoint where
 
 instance Prelude.NFData DBProxyEndpoint where
   rnf DBProxyEndpoint' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf dbProxyEndpointArn
-      `Prelude.seq` Prelude.rnf dbProxyEndpointName
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetRole
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf vpcSubnetIds
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf dbProxyEndpointArn `Prelude.seq`
+        Prelude.rnf dbProxyEndpointName `Prelude.seq`
+          Prelude.rnf dbProxyName `Prelude.seq`
+            Prelude.rnf endpoint `Prelude.seq`
+              Prelude.rnf isDefault `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf targetRole `Prelude.seq`
+                    Prelude.rnf vpcId `Prelude.seq`
+                      Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                        Prelude.rnf vpcSubnetIds

@@ -111,7 +111,7 @@ instance Prelude.Hashable EC2SecurityGroup where
 
 instance Prelude.NFData EC2SecurityGroup where
   rnf EC2SecurityGroup' {..} =
-    Prelude.rnf eC2SecurityGroupId
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf eC2SecurityGroupId `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+          Prelude.rnf status

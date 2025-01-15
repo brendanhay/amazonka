@@ -237,9 +237,9 @@ instance Prelude.Hashable PromoteReadReplica where
 
 instance Prelude.NFData PromoteReadReplica where
   rnf PromoteReadReplica' {..} =
-    Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf backupRetentionPeriod `Prelude.seq`
+      Prelude.rnf preferredBackupWindow `Prelude.seq`
+        Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders PromoteReadReplica where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,5 +301,5 @@ promoteReadReplicaResponse_httpStatus = Lens.lens (\PromoteReadReplicaResponse' 
 
 instance Prelude.NFData PromoteReadReplicaResponse where
   rnf PromoteReadReplicaResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

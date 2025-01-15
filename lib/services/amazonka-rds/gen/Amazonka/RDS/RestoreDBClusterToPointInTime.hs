@@ -1370,5 +1370,5 @@ instance
     RestoreDBClusterToPointInTimeResponse
   where
   rnf RestoreDBClusterToPointInTimeResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

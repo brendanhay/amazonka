@@ -1454,5 +1454,5 @@ instance
     RestoreDBClusterFromSnapshotResponse
   where
   rnf RestoreDBClusterFromSnapshotResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

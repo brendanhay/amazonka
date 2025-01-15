@@ -176,12 +176,12 @@ instance Prelude.Hashable UpgradeTarget where
 
 instance Prelude.NFData UpgradeTarget where
   rnf UpgradeTarget' {..} =
-    Prelude.rnf autoUpgrade
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf isMajorVersionUpgrade
-      `Prelude.seq` Prelude.rnf supportedEngineModes
-      `Prelude.seq` Prelude.rnf supportsBabelfish
-      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
-      `Prelude.seq` Prelude.rnf supportsParallelQuery
+    Prelude.rnf autoUpgrade `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf isMajorVersionUpgrade `Prelude.seq`
+              Prelude.rnf supportedEngineModes `Prelude.seq`
+                Prelude.rnf supportsBabelfish `Prelude.seq`
+                  Prelude.rnf supportsGlobalDatabases `Prelude.seq`
+                    Prelude.rnf supportsParallelQuery

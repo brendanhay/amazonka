@@ -145,9 +145,9 @@ instance Prelude.Hashable UserAuthConfigInfo where
 
 instance Prelude.NFData UserAuthConfigInfo where
   rnf UserAuthConfigInfo' {..} =
-    Prelude.rnf authScheme
-      `Prelude.seq` Prelude.rnf clientPasswordAuthType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iAMAuth
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf authScheme `Prelude.seq`
+      Prelude.rnf clientPasswordAuthType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf iAMAuth `Prelude.seq`
+            Prelude.rnf secretArn `Prelude.seq`
+              Prelude.rnf userName

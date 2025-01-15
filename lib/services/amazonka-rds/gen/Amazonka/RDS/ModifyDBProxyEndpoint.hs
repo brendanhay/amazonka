@@ -136,9 +136,9 @@ instance Prelude.Hashable ModifyDBProxyEndpoint where
 
 instance Prelude.NFData ModifyDBProxyEndpoint where
   rnf ModifyDBProxyEndpoint' {..} =
-    Prelude.rnf newDBProxyEndpointName'
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbProxyEndpointName
+    Prelude.rnf newDBProxyEndpointName' `Prelude.seq`
+      Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+        Prelude.rnf dbProxyEndpointName
 
 instance Data.ToHeaders ModifyDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ modifyDBProxyEndpointResponse_httpStatus = Lens.lens (\ModifyDBProxyEndpointResp
 
 instance Prelude.NFData ModifyDBProxyEndpointResponse where
   rnf ModifyDBProxyEndpointResponse' {..} =
-    Prelude.rnf dbProxyEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxyEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

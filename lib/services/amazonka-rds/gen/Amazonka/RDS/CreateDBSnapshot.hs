@@ -177,9 +177,9 @@ instance Prelude.Hashable CreateDBSnapshot where
 
 instance Prelude.NFData CreateDBSnapshot where
   rnf CreateDBSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbSnapshotIdentifier `Prelude.seq`
+        Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders CreateDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ createDBSnapshotResponse_httpStatus = Lens.lens (\CreateDBSnapshotResponse' {htt
 
 instance Prelude.NFData CreateDBSnapshotResponse where
   rnf CreateDBSnapshotResponse' {..} =
-    Prelude.rnf dbSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

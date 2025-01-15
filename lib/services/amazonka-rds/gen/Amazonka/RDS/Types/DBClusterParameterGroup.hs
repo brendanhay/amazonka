@@ -108,7 +108,7 @@ instance Prelude.Hashable DBClusterParameterGroup where
 
 instance Prelude.NFData DBClusterParameterGroup where
   rnf DBClusterParameterGroup' {..} =
-    Prelude.rnf dbClusterParameterGroupArn
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf dbClusterParameterGroupArn `Prelude.seq`
+      Prelude.rnf dbClusterParameterGroupName `Prelude.seq`
+        Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+          Prelude.rnf description

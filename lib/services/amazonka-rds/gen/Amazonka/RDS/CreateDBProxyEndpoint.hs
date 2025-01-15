@@ -184,12 +184,12 @@ instance Prelude.Hashable CreateDBProxyEndpoint where
 
 instance Prelude.NFData CreateDBProxyEndpoint where
   rnf CreateDBProxyEndpoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetRole
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf dbProxyEndpointName
-      `Prelude.seq` Prelude.rnf vpcSubnetIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf targetRole `Prelude.seq`
+        Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+          Prelude.rnf dbProxyName `Prelude.seq`
+            Prelude.rnf dbProxyEndpointName `Prelude.seq`
+              Prelude.rnf vpcSubnetIds
 
 instance Data.ToHeaders CreateDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,5 +269,5 @@ createDBProxyEndpointResponse_httpStatus = Lens.lens (\CreateDBProxyEndpointResp
 
 instance Prelude.NFData CreateDBProxyEndpointResponse where
   rnf CreateDBProxyEndpointResponse' {..} =
-    Prelude.rnf dbProxyEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxyEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

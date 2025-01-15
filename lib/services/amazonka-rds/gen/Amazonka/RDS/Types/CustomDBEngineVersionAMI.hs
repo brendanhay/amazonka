@@ -77,5 +77,5 @@ instance Prelude.Hashable CustomDBEngineVersionAMI where
 
 instance Prelude.NFData CustomDBEngineVersionAMI where
   rnf CustomDBEngineVersionAMI' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf status

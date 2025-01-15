@@ -216,11 +216,11 @@ instance
     AuthorizeDBSecurityGroupIngress
   where
   rnf AuthorizeDBSecurityGroupIngress' {..} =
-    Prelude.rnf cidrip
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupId
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
+    Prelude.rnf cidrip `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupId `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+          Prelude.rnf eC2SecurityGroupOwnerId `Prelude.seq`
+            Prelude.rnf dbSecurityGroupName
 
 instance
   Data.ToHeaders
@@ -292,5 +292,5 @@ instance
     AuthorizeDBSecurityGroupIngressResponse
   where
   rnf AuthorizeDBSecurityGroupIngressResponse' {..} =
-    Prelude.rnf dbSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

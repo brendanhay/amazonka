@@ -185,9 +185,7 @@ instance Data.FromXML OptionGroup where
       Prelude.<*> (x Data..@? "OptionGroupArn")
       Prelude.<*> (x Data..@? "OptionGroupDescription")
       Prelude.<*> (x Data..@? "OptionGroupName")
-      Prelude.<*> ( x
-                      Data..@? "Options"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Options" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Option")
                   )
       Prelude.<*> (x Data..@? "SourceAccountId")
@@ -211,14 +209,14 @@ instance Prelude.Hashable OptionGroup where
 
 instance Prelude.NFData OptionGroup where
   rnf OptionGroup' {..} =
-    Prelude.rnf allowsVpcAndNonVpcInstanceMemberships
-      `Prelude.seq` Prelude.rnf copyTimestamp
-      `Prelude.seq` Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf majorEngineVersion
-      `Prelude.seq` Prelude.rnf optionGroupArn
-      `Prelude.seq` Prelude.rnf optionGroupDescription
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf sourceAccountId
-      `Prelude.seq` Prelude.rnf sourceOptionGroup
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf allowsVpcAndNonVpcInstanceMemberships `Prelude.seq`
+      Prelude.rnf copyTimestamp `Prelude.seq`
+        Prelude.rnf engineName `Prelude.seq`
+          Prelude.rnf majorEngineVersion `Prelude.seq`
+            Prelude.rnf optionGroupArn `Prelude.seq`
+              Prelude.rnf optionGroupDescription `Prelude.seq`
+                Prelude.rnf optionGroupName `Prelude.seq`
+                  Prelude.rnf options `Prelude.seq`
+                    Prelude.rnf sourceAccountId `Prelude.seq`
+                      Prelude.rnf sourceOptionGroup `Prelude.seq`
+                        Prelude.rnf vpcId

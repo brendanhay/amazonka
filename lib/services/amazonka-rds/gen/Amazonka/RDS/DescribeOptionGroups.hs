@@ -255,12 +255,12 @@ instance Core.AWSPager DescribeOptionGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOptionGroups_marker
-          Lens..~ rs
-          Lens.^? describeOptionGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOptionGroups_marker
+              Lens..~ rs
+              Lens.^? describeOptionGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeOptionGroups where
   type
@@ -294,12 +294,12 @@ instance Prelude.Hashable DescribeOptionGroups where
 
 instance Prelude.NFData DescribeOptionGroups where
   rnf DescribeOptionGroups' {..} =
-    Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf majorEngineVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf engineName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf majorEngineVersion `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords `Prelude.seq`
+              Prelude.rnf optionGroupName
 
 instance Data.ToHeaders DescribeOptionGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -382,6 +382,6 @@ describeOptionGroupsResponse_httpStatus = Lens.lens (\DescribeOptionGroupsRespon
 
 instance Prelude.NFData DescribeOptionGroupsResponse where
   rnf DescribeOptionGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf optionGroupsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf optionGroupsList `Prelude.seq`
+        Prelude.rnf httpStatus

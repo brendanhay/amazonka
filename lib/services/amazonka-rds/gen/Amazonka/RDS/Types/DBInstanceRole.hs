@@ -133,6 +133,6 @@ instance Prelude.Hashable DBInstanceRole where
 
 instance Prelude.NFData DBInstanceRole where
   rnf DBInstanceRole' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf status

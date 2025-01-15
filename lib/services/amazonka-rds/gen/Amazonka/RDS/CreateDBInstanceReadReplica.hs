@@ -1869,5 +1869,5 @@ instance
     CreateDBInstanceReadReplicaResponse
   where
   rnf CreateDBInstanceReadReplicaResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

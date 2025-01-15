@@ -264,11 +264,11 @@ instance Prelude.Hashable CreateOptionGroup where
 
 instance Prelude.NFData CreateOptionGroup where
   rnf CreateOptionGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf majorEngineVersion
-      `Prelude.seq` Prelude.rnf optionGroupDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf optionGroupName `Prelude.seq`
+        Prelude.rnf engineName `Prelude.seq`
+          Prelude.rnf majorEngineVersion `Prelude.seq`
+            Prelude.rnf optionGroupDescription
 
 instance Data.ToHeaders CreateOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -333,5 +333,5 @@ createOptionGroupResponse_httpStatus = Lens.lens (\CreateOptionGroupResponse' {h
 
 instance Prelude.NFData CreateOptionGroupResponse where
   rnf CreateOptionGroupResponse' {..} =
-    Prelude.rnf optionGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf optionGroup `Prelude.seq`
+      Prelude.rnf httpStatus

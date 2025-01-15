@@ -1999,5 +1999,5 @@ modifyDBClusterResponse_httpStatus = Lens.lens (\ModifyDBClusterResponse' {httpS
 
 instance Prelude.NFData ModifyDBClusterResponse where
   rnf ModifyDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

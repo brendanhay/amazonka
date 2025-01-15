@@ -266,12 +266,12 @@ instance Core.AWSPager DescribeReservedDBInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedDBInstances_marker
-          Lens..~ rs
-          Lens.^? describeReservedDBInstancesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedDBInstances_marker
+              Lens..~ rs
+              Lens.^? describeReservedDBInstancesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReservedDBInstances where
   type
@@ -310,17 +310,17 @@ instance Prelude.Hashable DescribeReservedDBInstances where
 
 instance Prelude.NFData DescribeReservedDBInstances where
   rnf DescribeReservedDBInstances' {..} =
-    Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf leaseId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf reservedDBInstanceId
-      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+    Prelude.rnf dbInstanceClass `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf leaseId `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf multiAZ `Prelude.seq`
+                  Prelude.rnf offeringType `Prelude.seq`
+                    Prelude.rnf productDescription `Prelude.seq`
+                      Prelude.rnf reservedDBInstanceId `Prelude.seq`
+                        Prelude.rnf reservedDBInstancesOfferingId
 
 instance Data.ToHeaders DescribeReservedDBInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -415,6 +415,6 @@ instance
     DescribeReservedDBInstancesResponse
   where
   rnf DescribeReservedDBInstancesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedDBInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedDBInstances `Prelude.seq`
+        Prelude.rnf httpStatus

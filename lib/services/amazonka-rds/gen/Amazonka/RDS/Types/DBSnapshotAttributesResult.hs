@@ -87,5 +87,5 @@ instance Prelude.Hashable DBSnapshotAttributesResult where
 
 instance Prelude.NFData DBSnapshotAttributesResult where
   rnf DBSnapshotAttributesResult' {..} =
-    Prelude.rnf dbSnapshotAttributes
-      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+    Prelude.rnf dbSnapshotAttributes `Prelude.seq`
+      Prelude.rnf dbSnapshotIdentifier

@@ -199,10 +199,10 @@ instance Prelude.Hashable CopyDBParameterGroup where
 
 instance Prelude.NFData CopyDBParameterGroup where
   rnf CopyDBParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceDBParameterGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetDBParameterGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetDBParameterGroupDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceDBParameterGroupIdentifier `Prelude.seq`
+        Prelude.rnf targetDBParameterGroupIdentifier `Prelude.seq`
+          Prelude.rnf targetDBParameterGroupDescription
 
 instance Data.ToHeaders CopyDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -268,5 +268,5 @@ copyDBParameterGroupResponse_httpStatus = Lens.lens (\CopyDBParameterGroupRespon
 
 instance Prelude.NFData CopyDBParameterGroupResponse where
   rnf CopyDBParameterGroupResponse' {..} =
-    Prelude.rnf dbParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

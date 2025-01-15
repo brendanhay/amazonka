@@ -174,11 +174,11 @@ instance Prelude.Hashable DBProxyTarget where
 
 instance Prelude.NFData DBProxyTarget where
   rnf DBProxyTarget' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf rdsResourceId
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf targetHealth
-      `Prelude.seq` Prelude.rnf trackedClusterId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf rdsResourceId `Prelude.seq`
+          Prelude.rnf role' `Prelude.seq`
+            Prelude.rnf targetArn `Prelude.seq`
+              Prelude.rnf targetHealth `Prelude.seq`
+                Prelude.rnf trackedClusterId `Prelude.seq`
+                  Prelude.rnf type'

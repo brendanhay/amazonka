@@ -168,8 +168,8 @@ instance Prelude.Hashable FailoverDBCluster where
 
 instance Prelude.NFData FailoverDBCluster where
   rnf FailoverDBCluster' {..} =
-    Prelude.rnf targetDBInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf targetDBInstanceIdentifier `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders FailoverDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,5 +229,5 @@ failoverDBClusterResponse_httpStatus = Lens.lens (\FailoverDBClusterResponse' {h
 
 instance Prelude.NFData FailoverDBClusterResponse where
   rnf FailoverDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

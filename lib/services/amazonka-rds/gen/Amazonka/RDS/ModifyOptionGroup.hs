@@ -161,10 +161,10 @@ instance Prelude.Hashable ModifyOptionGroup where
 
 instance Prelude.NFData ModifyOptionGroup where
   rnf ModifyOptionGroup' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf optionsToInclude
-      `Prelude.seq` Prelude.rnf optionsToRemove
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf optionsToInclude `Prelude.seq`
+        Prelude.rnf optionsToRemove `Prelude.seq`
+          Prelude.rnf optionGroupName
 
 instance Data.ToHeaders ModifyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,5 +233,5 @@ modifyOptionGroupResponse_httpStatus = Lens.lens (\ModifyOptionGroupResponse' {h
 
 instance Prelude.NFData ModifyOptionGroupResponse where
   rnf ModifyOptionGroupResponse' {..} =
-    Prelude.rnf optionGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf optionGroup `Prelude.seq`
+      Prelude.rnf httpStatus

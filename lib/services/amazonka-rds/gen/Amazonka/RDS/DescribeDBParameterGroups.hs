@@ -172,12 +172,12 @@ instance Core.AWSPager DescribeDBParameterGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBParameterGroups_marker
-          Lens..~ rs
-          Lens.^? describeDBParameterGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBParameterGroups_marker
+              Lens..~ rs
+              Lens.^? describeDBParameterGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBParameterGroups where
   type
@@ -209,10 +209,10 @@ instance Prelude.Hashable DescribeDBParameterGroups where
 
 instance Prelude.NFData DescribeDBParameterGroups where
   rnf DescribeDBParameterGroups' {..} =
-    Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbParameterGroupName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,6 +297,6 @@ instance
     DescribeDBParameterGroupsResponse
   where
   rnf DescribeDBParameterGroupsResponse' {..} =
-    Prelude.rnf dbParameterGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbParameterGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

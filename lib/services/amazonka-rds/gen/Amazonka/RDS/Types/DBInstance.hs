@@ -1459,9 +1459,7 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "ActivityStreamPolicyStatus")
       Prelude.<*> (x Data..@? "ActivityStreamStatus")
       Prelude.<*> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x
-                      Data..@? "AssociatedRoles"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceRole")
                   )
       Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
@@ -1571,17 +1569,13 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "ReplicaMode")
       Prelude.<*> (x Data..@? "ResumeFullAutomationModeTime")
       Prelude.<*> (x Data..@? "SecondaryAvailabilityZone")
-      Prelude.<*> ( x
-                      Data..@? "StatusInfos"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")
       Prelude.<*> (x Data..@? "StorageThroughput")
       Prelude.<*> (x Data..@? "StorageType")
-      Prelude.<*> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TdeCredentialArn")

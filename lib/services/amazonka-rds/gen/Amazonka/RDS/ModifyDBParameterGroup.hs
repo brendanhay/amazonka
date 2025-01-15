@@ -204,8 +204,8 @@ instance Prelude.Hashable ModifyDBParameterGroup where
 
 instance Prelude.NFData ModifyDBParameterGroup where
   rnf ModifyDBParameterGroup' {..} =
-    Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf dbParameterGroupName `Prelude.seq`
+      Prelude.rnf parameters
 
 instance Data.ToHeaders ModifyDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

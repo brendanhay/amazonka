@@ -314,13 +314,13 @@ instance Prelude.Hashable StartExportTask where
 
 instance Prelude.NFData StartExportTask where
   rnf StartExportTask' {..} =
-    Prelude.rnf exportOnly
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf exportTaskIdentifier
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf exportOnly `Prelude.seq`
+      Prelude.rnf s3Prefix `Prelude.seq`
+        Prelude.rnf exportTaskIdentifier `Prelude.seq`
+          Prelude.rnf sourceArn `Prelude.seq`
+            Prelude.rnf s3BucketName `Prelude.seq`
+              Prelude.rnf iamRoleArn `Prelude.seq`
+                Prelude.rnf kmsKeyId
 
 instance Data.ToHeaders StartExportTask where
   toHeaders = Prelude.const Prelude.mempty

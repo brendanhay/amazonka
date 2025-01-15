@@ -190,10 +190,10 @@ instance Prelude.Hashable CopyOptionGroup where
 
 instance Prelude.NFData CopyOptionGroup where
   rnf CopyOptionGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceOptionGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetOptionGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetOptionGroupDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceOptionGroupIdentifier `Prelude.seq`
+        Prelude.rnf targetOptionGroupIdentifier `Prelude.seq`
+          Prelude.rnf targetOptionGroupDescription
 
 instance Data.ToHeaders CopyOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,5 +259,5 @@ copyOptionGroupResponse_httpStatus = Lens.lens (\CopyOptionGroupResponse' {httpS
 
 instance Prelude.NFData CopyOptionGroupResponse where
   rnf CopyOptionGroupResponse' {..} =
-    Prelude.rnf optionGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf optionGroup `Prelude.seq`
+      Prelude.rnf httpStatus

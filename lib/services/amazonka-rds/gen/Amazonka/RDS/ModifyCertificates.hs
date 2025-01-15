@@ -154,8 +154,8 @@ instance Prelude.Hashable ModifyCertificates where
 
 instance Prelude.NFData ModifyCertificates where
   rnf ModifyCertificates' {..} =
-    Prelude.rnf certificateIdentifier
-      `Prelude.seq` Prelude.rnf removeCustomerOverride
+    Prelude.rnf certificateIdentifier `Prelude.seq`
+      Prelude.rnf removeCustomerOverride
 
 instance Data.ToHeaders ModifyCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,5 +216,5 @@ modifyCertificatesResponse_httpStatus = Lens.lens (\ModifyCertificatesResponse' 
 
 instance Prelude.NFData ModifyCertificatesResponse where
   rnf ModifyCertificatesResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -217,14 +217,14 @@ instance Prelude.Hashable ModifyDBProxy where
 
 instance Prelude.NFData ModifyDBProxy where
   rnf ModifyDBProxy' {..} =
-    Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf debugLogging
-      `Prelude.seq` Prelude.rnf idleClientTimeout
-      `Prelude.seq` Prelude.rnf newDBProxyName'
-      `Prelude.seq` Prelude.rnf requireTLS
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf auth `Prelude.seq`
+      Prelude.rnf debugLogging `Prelude.seq`
+        Prelude.rnf idleClientTimeout `Prelude.seq`
+          Prelude.rnf newDBProxyName' `Prelude.seq`
+            Prelude.rnf requireTLS `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf securityGroups `Prelude.seq`
+                  Prelude.rnf dbProxyName
 
 instance Data.ToHeaders ModifyDBProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,5 +295,5 @@ modifyDBProxyResponse_httpStatus = Lens.lens (\ModifyDBProxyResponse' {httpStatu
 
 instance Prelude.NFData ModifyDBProxyResponse where
   rnf ModifyDBProxyResponse' {..} =
-    Prelude.rnf dbProxy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxy `Prelude.seq`
+      Prelude.rnf httpStatus

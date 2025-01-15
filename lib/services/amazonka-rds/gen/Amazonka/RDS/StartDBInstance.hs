@@ -165,5 +165,5 @@ startDBInstanceResponse_httpStatus = Lens.lens (\StartDBInstanceResponse' {httpS
 
 instance Prelude.NFData StartDBInstanceResponse where
   rnf StartDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -77,9 +77,7 @@ instance Core.AWSRequest DescribeAccountAttributes where
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x
-                            Data..@? "AccountQuotas"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "AccountQuotas" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "AccountQuota")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,5 +159,5 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf accountQuotas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountQuotas `Prelude.seq`
+      Prelude.rnf httpStatus

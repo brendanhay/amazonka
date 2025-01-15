@@ -268,9 +268,7 @@ dbProxy_vpcSubnetIds = Lens.lens (\DBProxy' {vpcSubnetIds} -> vpcSubnetIds) (\s@
 instance Data.FromXML DBProxy where
   parseXML x =
     DBProxy'
-      Prelude.<$> ( x
-                      Data..@? "Auth"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Auth" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreatedDate")
@@ -290,9 +288,7 @@ instance Data.FromXML DBProxy where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "VpcSubnetIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "VpcSubnetIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -317,18 +313,18 @@ instance Prelude.Hashable DBProxy where
 
 instance Prelude.NFData DBProxy where
   rnf DBProxy' {..} =
-    Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf dbProxyArn
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf debugLogging
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf engineFamily
-      `Prelude.seq` Prelude.rnf idleClientTimeout
-      `Prelude.seq` Prelude.rnf requireTLS
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedDate
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf vpcSubnetIds
+    Prelude.rnf auth `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf dbProxyArn `Prelude.seq`
+          Prelude.rnf dbProxyName `Prelude.seq`
+            Prelude.rnf debugLogging `Prelude.seq`
+              Prelude.rnf endpoint `Prelude.seq`
+                Prelude.rnf engineFamily `Prelude.seq`
+                  Prelude.rnf idleClientTimeout `Prelude.seq`
+                    Prelude.rnf requireTLS `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf updatedDate `Prelude.seq`
+                            Prelude.rnf vpcId `Prelude.seq`
+                              Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                                Prelude.rnf vpcSubnetIds

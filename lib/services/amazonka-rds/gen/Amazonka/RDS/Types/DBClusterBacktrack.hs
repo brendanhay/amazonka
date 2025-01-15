@@ -164,9 +164,9 @@ instance Prelude.Hashable DBClusterBacktrack where
 
 instance Prelude.NFData DBClusterBacktrack where
   rnf DBClusterBacktrack' {..} =
-    Prelude.rnf backtrackIdentifier
-      `Prelude.seq` Prelude.rnf backtrackRequestCreationTime
-      `Prelude.seq` Prelude.rnf backtrackTo
-      `Prelude.seq` Prelude.rnf backtrackedFrom
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf backtrackIdentifier `Prelude.seq`
+      Prelude.rnf backtrackRequestCreationTime `Prelude.seq`
+        Prelude.rnf backtrackTo `Prelude.seq`
+          Prelude.rnf backtrackedFrom `Prelude.seq`
+            Prelude.rnf dbClusterIdentifier `Prelude.seq`
+              Prelude.rnf status

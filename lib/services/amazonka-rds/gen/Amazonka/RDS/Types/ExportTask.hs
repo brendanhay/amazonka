@@ -258,9 +258,7 @@ exportTask_warningMessage = Lens.lens (\ExportTask' {warningMessage} -> warningM
 instance Data.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Prelude.<$> ( x
-                      Data..@? "ExportOnly"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "ExportOnly" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ExportTaskIdentifier")
@@ -301,19 +299,19 @@ instance Prelude.Hashable ExportTask where
 
 instance Prelude.NFData ExportTask where
   rnf ExportTask' {..} =
-    Prelude.rnf exportOnly
-      `Prelude.seq` Prelude.rnf exportTaskIdentifier
-      `Prelude.seq` Prelude.rnf failureCause
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf percentProgress
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf snapshotTime
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskEndTime
-      `Prelude.seq` Prelude.rnf taskStartTime
-      `Prelude.seq` Prelude.rnf totalExtractedDataInGB
-      `Prelude.seq` Prelude.rnf warningMessage
+    Prelude.rnf exportOnly `Prelude.seq`
+      Prelude.rnf exportTaskIdentifier `Prelude.seq`
+        Prelude.rnf failureCause `Prelude.seq`
+          Prelude.rnf iamRoleArn `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf percentProgress `Prelude.seq`
+                Prelude.rnf s3Bucket `Prelude.seq`
+                  Prelude.rnf s3Prefix `Prelude.seq`
+                    Prelude.rnf snapshotTime `Prelude.seq`
+                      Prelude.rnf sourceArn `Prelude.seq`
+                        Prelude.rnf sourceType `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf taskEndTime `Prelude.seq`
+                              Prelude.rnf taskStartTime `Prelude.seq`
+                                Prelude.rnf totalExtractedDataInGB `Prelude.seq`
+                                  Prelude.rnf warningMessage

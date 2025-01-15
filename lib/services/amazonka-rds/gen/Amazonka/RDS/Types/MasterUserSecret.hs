@@ -154,6 +154,6 @@ instance Prelude.Hashable MasterUserSecret where
 
 instance Prelude.NFData MasterUserSecret where
   rnf MasterUserSecret' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf secretStatus
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf secretArn `Prelude.seq`
+        Prelude.rnf secretStatus

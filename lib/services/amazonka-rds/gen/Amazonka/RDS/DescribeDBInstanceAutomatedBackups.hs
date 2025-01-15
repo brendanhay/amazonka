@@ -263,12 +263,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBInstanceAutomatedBackups_marker
-          Lens..~ rs
-          Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBInstanceAutomatedBackups_marker
+              Lens..~ rs
+              Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -314,12 +314,12 @@ instance
     DescribeDBInstanceAutomatedBackups
   where
   rnf DescribeDBInstanceAutomatedBackups' {..} =
-    Prelude.rnf dbInstanceAutomatedBackupsArn
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbiResourceId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbInstanceAutomatedBackupsArn `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+        Prelude.rnf dbiResourceId `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -419,6 +419,6 @@ instance
     DescribeDBInstanceAutomatedBackupsResponse
   where
   rnf DescribeDBInstanceAutomatedBackupsResponse' {..} =
-    Prelude.rnf dbInstanceAutomatedBackups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstanceAutomatedBackups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

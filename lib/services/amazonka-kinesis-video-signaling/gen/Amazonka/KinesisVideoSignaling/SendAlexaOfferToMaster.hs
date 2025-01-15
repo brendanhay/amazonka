@@ -135,9 +135,9 @@ instance Prelude.Hashable SendAlexaOfferToMaster where
 
 instance Prelude.NFData SendAlexaOfferToMaster where
   rnf SendAlexaOfferToMaster' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf senderClientId
-      `Prelude.seq` Prelude.rnf messagePayload
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf senderClientId `Prelude.seq`
+        Prelude.rnf messagePayload
 
 instance Data.ToHeaders SendAlexaOfferToMaster where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +205,5 @@ instance
     SendAlexaOfferToMasterResponse
   where
   rnf SendAlexaOfferToMasterResponse' {..} =
-    Prelude.rnf answer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf answer `Prelude.seq`
+      Prelude.rnf httpStatus

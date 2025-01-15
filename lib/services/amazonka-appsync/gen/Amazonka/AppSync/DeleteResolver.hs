@@ -121,9 +121,9 @@ instance Prelude.Hashable DeleteResolver where
 
 instance Prelude.NFData DeleteResolver where
   rnf DeleteResolver' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf fieldName
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf typeName `Prelude.seq`
+        Prelude.rnf fieldName
 
 instance Data.ToHeaders DeleteResolver where
   toHeaders =

@@ -129,8 +129,8 @@ instance Prelude.Hashable EvaluateMappingTemplate where
 
 instance Prelude.NFData EvaluateMappingTemplate where
   rnf EvaluateMappingTemplate' {..} =
-    Prelude.rnf template
-      `Prelude.seq` Prelude.rnf context
+    Prelude.rnf template `Prelude.seq`
+      Prelude.rnf context
 
 instance Data.ToHeaders EvaluateMappingTemplate where
   toHeaders =
@@ -224,7 +224,7 @@ instance
     EvaluateMappingTemplateResponse
   where
   rnf EvaluateMappingTemplateResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf evaluationResult
-      `Prelude.seq` Prelude.rnf logs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf evaluationResult `Prelude.seq`
+        Prelude.rnf logs `Prelude.seq`
+          Prelude.rnf httpStatus

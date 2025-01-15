@@ -125,9 +125,9 @@ instance Prelude.Hashable GetIntrospectionSchema where
 
 instance Prelude.NFData GetIntrospectionSchema where
   rnf GetIntrospectionSchema' {..} =
-    Prelude.rnf includeDirectives
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf includeDirectives `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToHeaders GetIntrospectionSchema where
   toHeaders =
@@ -205,5 +205,5 @@ instance
     GetIntrospectionSchemaResponse
   where
   rnf GetIntrospectionSchemaResponse' {..} =
-    Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schema `Prelude.seq`
+      Prelude.rnf httpStatus

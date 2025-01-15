@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateApiKey where
 
 instance Prelude.NFData CreateApiKey where
   rnf CreateApiKey' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expires `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders CreateApiKey where
   toHeaders =
@@ -199,5 +199,5 @@ createApiKeyResponse_httpStatus = Lens.lens (\CreateApiKeyResponse' {httpStatus}
 
 instance Prelude.NFData CreateApiKeyResponse where
   rnf CreateApiKeyResponse' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiKey `Prelude.seq`
+      Prelude.rnf httpStatus

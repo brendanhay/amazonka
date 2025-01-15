@@ -107,6 +107,6 @@ instance Prelude.Hashable CodeError where
 
 instance Prelude.NFData CodeError where
   rnf CodeError' {..} =
-    Prelude.rnf errorType
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf errorType `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf value

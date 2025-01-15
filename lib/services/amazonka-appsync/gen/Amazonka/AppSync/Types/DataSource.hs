@@ -249,14 +249,14 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dynamodbConfig
-      `Prelude.seq` Prelude.rnf elasticsearchConfig
-      `Prelude.seq` Prelude.rnf httpConfig
-      `Prelude.seq` Prelude.rnf lambdaConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf openSearchServiceConfig
-      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataSourceArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dynamodbConfig `Prelude.seq`
+          Prelude.rnf elasticsearchConfig `Prelude.seq`
+            Prelude.rnf httpConfig `Prelude.seq`
+              Prelude.rnf lambdaConfig `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf openSearchServiceConfig `Prelude.seq`
+                    Prelude.rnf relationalDatabaseConfig `Prelude.seq`
+                      Prelude.rnf serviceRoleArn `Prelude.seq`
+                        Prelude.rnf type'

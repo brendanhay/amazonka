@@ -191,15 +191,15 @@ instance Prelude.Hashable UpdateGraphqlApi where
 
 instance Prelude.NFData UpdateGraphqlApi where
   rnf UpdateGraphqlApi' {..} =
-    Prelude.rnf additionalAuthenticationProviders
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
-      `Prelude.seq` Prelude.rnf logConfig
-      `Prelude.seq` Prelude.rnf openIDConnectConfig
-      `Prelude.seq` Prelude.rnf userPoolConfig
-      `Prelude.seq` Prelude.rnf xrayEnabled
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf additionalAuthenticationProviders `Prelude.seq`
+      Prelude.rnf authenticationType `Prelude.seq`
+        Prelude.rnf lambdaAuthorizerConfig `Prelude.seq`
+          Prelude.rnf logConfig `Prelude.seq`
+            Prelude.rnf openIDConnectConfig `Prelude.seq`
+              Prelude.rnf userPoolConfig `Prelude.seq`
+                Prelude.rnf xrayEnabled `Prelude.seq`
+                  Prelude.rnf apiId `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders UpdateGraphqlApi where
   toHeaders =
@@ -280,5 +280,5 @@ updateGraphqlApiResponse_httpStatus = Lens.lens (\UpdateGraphqlApiResponse' {htt
 
 instance Prelude.NFData UpdateGraphqlApiResponse where
   rnf UpdateGraphqlApiResponse' {..} =
-    Prelude.rnf graphqlApi
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf graphqlApi `Prelude.seq`
+      Prelude.rnf httpStatus

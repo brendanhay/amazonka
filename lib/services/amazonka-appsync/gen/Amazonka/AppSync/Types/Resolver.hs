@@ -238,16 +238,16 @@ instance Prelude.Hashable Resolver where
 
 instance Prelude.NFData Resolver where
   rnf Resolver' {..} =
-    Prelude.rnf cachingConfig
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf pipelineConfig
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf resolverArn
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf syncConfig
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf cachingConfig `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf dataSourceName `Prelude.seq`
+          Prelude.rnf fieldName `Prelude.seq`
+            Prelude.rnf kind `Prelude.seq`
+              Prelude.rnf maxBatchSize `Prelude.seq`
+                Prelude.rnf pipelineConfig `Prelude.seq`
+                  Prelude.rnf requestMappingTemplate `Prelude.seq`
+                    Prelude.rnf resolverArn `Prelude.seq`
+                      Prelude.rnf responseMappingTemplate `Prelude.seq`
+                        Prelude.rnf runtime `Prelude.seq`
+                          Prelude.rnf syncConfig `Prelude.seq`
+                            Prelude.rnf typeName

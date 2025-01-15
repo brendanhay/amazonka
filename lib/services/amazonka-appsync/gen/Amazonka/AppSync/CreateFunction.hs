@@ -227,17 +227,17 @@ instance Prelude.Hashable CreateFunction where
 
 instance Prelude.NFData CreateFunction where
   rnf CreateFunction' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf syncConfig
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataSourceName
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf functionVersion `Prelude.seq`
+          Prelude.rnf maxBatchSize `Prelude.seq`
+            Prelude.rnf requestMappingTemplate `Prelude.seq`
+              Prelude.rnf responseMappingTemplate `Prelude.seq`
+                Prelude.rnf runtime `Prelude.seq`
+                  Prelude.rnf syncConfig `Prelude.seq`
+                    Prelude.rnf apiId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf dataSourceName
 
 instance Data.ToHeaders CreateFunction where
   toHeaders =
@@ -320,5 +320,5 @@ createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpSta
 
 instance Prelude.NFData CreateFunctionResponse where
   rnf CreateFunctionResponse' {..} =
-    Prelude.rnf functionConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

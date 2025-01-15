@@ -125,12 +125,12 @@ instance Core.AWSPager ListApiKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApiKeys_nextToken
-          Lens..~ rs
-          Lens.^? listApiKeysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApiKeys_nextToken
+              Lens..~ rs
+              Lens.^? listApiKeysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApiKeys where
   type AWSResponse ListApiKeys = ListApiKeysResponse
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListApiKeys where
 
 instance Prelude.NFData ListApiKeys where
   rnf ListApiKeys' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders ListApiKeys where
   toHeaders =
@@ -233,6 +233,6 @@ listApiKeysResponse_httpStatus = Lens.lens (\ListApiKeysResponse' {httpStatus} -
 
 instance Prelude.NFData ListApiKeysResponse where
   rnf ListApiKeysResponse' {..} =
-    Prelude.rnf apiKeys
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiKeys `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

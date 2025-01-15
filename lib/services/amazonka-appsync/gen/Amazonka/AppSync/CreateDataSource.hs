@@ -232,17 +232,17 @@ instance Prelude.Hashable CreateDataSource where
 
 instance Prelude.NFData CreateDataSource where
   rnf CreateDataSource' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dynamodbConfig
-      `Prelude.seq` Prelude.rnf elasticsearchConfig
-      `Prelude.seq` Prelude.rnf httpConfig
-      `Prelude.seq` Prelude.rnf lambdaConfig
-      `Prelude.seq` Prelude.rnf openSearchServiceConfig
-      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dynamodbConfig `Prelude.seq`
+        Prelude.rnf elasticsearchConfig `Prelude.seq`
+          Prelude.rnf httpConfig `Prelude.seq`
+            Prelude.rnf lambdaConfig `Prelude.seq`
+              Prelude.rnf openSearchServiceConfig `Prelude.seq`
+                Prelude.rnf relationalDatabaseConfig `Prelude.seq`
+                  Prelude.rnf serviceRoleArn `Prelude.seq`
+                    Prelude.rnf apiId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf type'
 
 instance Data.ToHeaders CreateDataSource where
   toHeaders =
@@ -326,5 +326,5 @@ createDataSourceResponse_httpStatus = Lens.lens (\CreateDataSourceResponse' {htt
 
 instance Prelude.NFData CreateDataSourceResponse where
   rnf CreateDataSourceResponse' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf httpStatus

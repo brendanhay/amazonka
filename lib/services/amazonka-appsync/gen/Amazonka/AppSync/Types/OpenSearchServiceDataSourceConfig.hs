@@ -98,8 +98,8 @@ instance
     OpenSearchServiceDataSourceConfig
   where
   rnf OpenSearchServiceDataSourceConfig' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf awsRegion
 
 instance
   Data.ToJSON

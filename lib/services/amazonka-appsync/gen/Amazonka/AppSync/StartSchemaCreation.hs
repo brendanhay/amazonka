@@ -120,8 +120,8 @@ instance Prelude.Hashable StartSchemaCreation where
 
 instance Prelude.NFData StartSchemaCreation where
   rnf StartSchemaCreation' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf definition
 
 instance Data.ToHeaders StartSchemaCreation where
   toHeaders =
@@ -196,5 +196,5 @@ startSchemaCreationResponse_httpStatus = Lens.lens (\StartSchemaCreationResponse
 
 instance Prelude.NFData StartSchemaCreationResponse where
   rnf StartSchemaCreationResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

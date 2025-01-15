@@ -158,5 +158,5 @@ getApiAssociationResponse_httpStatus = Lens.lens (\GetApiAssociationResponse' {h
 
 instance Prelude.NFData GetApiAssociationResponse where
   rnf GetApiAssociationResponse' {..} =
-    Prelude.rnf apiAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -153,7 +153,7 @@ instance Prelude.Hashable ApiKey where
 
 instance Prelude.NFData ApiKey where
   rnf ApiKey' {..} =
-    Prelude.rnf deletes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf deletes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expires `Prelude.seq`
+          Prelude.rnf id

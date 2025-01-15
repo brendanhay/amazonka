@@ -97,8 +97,8 @@ instance Prelude.Hashable CachingConfig where
 
 instance Prelude.NFData CachingConfig where
   rnf CachingConfig' {..} =
-    Prelude.rnf cachingKeys
-      `Prelude.seq` Prelude.rnf ttl
+    Prelude.rnf cachingKeys `Prelude.seq`
+      Prelude.rnf ttl
 
 instance Data.ToJSON CachingConfig where
   toJSON CachingConfig' {..} =

@@ -274,10 +274,10 @@ instance Prelude.Hashable UpdateApiCache where
 
 instance Prelude.NFData UpdateApiCache where
   rnf UpdateApiCache' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf apiCachingBehavior
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf ttl `Prelude.seq`
+        Prelude.rnf apiCachingBehavior `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders UpdateApiCache where
   toHeaders =
@@ -351,5 +351,5 @@ updateApiCacheResponse_httpStatus = Lens.lens (\UpdateApiCacheResponse' {httpSta
 
 instance Prelude.NFData UpdateApiCacheResponse where
   rnf UpdateApiCacheResponse' {..} =
-    Prelude.rnf apiCache
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiCache `Prelude.seq`
+      Prelude.rnf httpStatus

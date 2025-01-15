@@ -241,18 +241,18 @@ instance Prelude.Hashable UpdateFunction where
 
 instance Prelude.NFData UpdateFunction where
   rnf UpdateFunction' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf syncConfig
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf functionId
-      `Prelude.seq` Prelude.rnf dataSourceName
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf functionVersion `Prelude.seq`
+          Prelude.rnf maxBatchSize `Prelude.seq`
+            Prelude.rnf requestMappingTemplate `Prelude.seq`
+              Prelude.rnf responseMappingTemplate `Prelude.seq`
+                Prelude.rnf runtime `Prelude.seq`
+                  Prelude.rnf syncConfig `Prelude.seq`
+                    Prelude.rnf apiId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf functionId `Prelude.seq`
+                          Prelude.rnf dataSourceName
 
 instance Data.ToHeaders UpdateFunction where
   toHeaders =
@@ -339,5 +339,5 @@ updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpSta
 
 instance Prelude.NFData UpdateFunctionResponse where
   rnf UpdateFunctionResponse' {..} =
-    Prelude.rnf functionConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

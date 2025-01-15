@@ -108,8 +108,8 @@ instance Prelude.Hashable GetFunction where
 
 instance Prelude.NFData GetFunction where
   rnf GetFunction' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf functionId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf functionId
 
 instance Data.ToHeaders GetFunction where
   toHeaders =
@@ -175,5 +175,5 @@ getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -
 
 instance Prelude.NFData GetFunctionResponse where
   rnf GetFunctionResponse' {..} =
-    Prelude.rnf functionConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

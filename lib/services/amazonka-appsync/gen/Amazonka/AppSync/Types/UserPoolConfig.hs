@@ -121,10 +121,10 @@ instance Prelude.Hashable UserPoolConfig where
 
 instance Prelude.NFData UserPoolConfig where
   rnf UserPoolConfig' {..} =
-    Prelude.rnf appIdClientRegex
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf defaultAction
+    Prelude.rnf appIdClientRegex `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf awsRegion `Prelude.seq`
+          Prelude.rnf defaultAction
 
 instance Data.ToJSON UserPoolConfig where
   toJSON UserPoolConfig' {..} =

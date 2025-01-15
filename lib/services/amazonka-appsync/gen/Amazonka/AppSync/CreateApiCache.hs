@@ -303,12 +303,12 @@ instance Prelude.Hashable CreateApiCache where
 
 instance Prelude.NFData CreateApiCache where
   rnf CreateApiCache' {..} =
-    Prelude.rnf atRestEncryptionEnabled
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf apiCachingBehavior
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf atRestEncryptionEnabled `Prelude.seq`
+      Prelude.rnf transitEncryptionEnabled `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf ttl `Prelude.seq`
+            Prelude.rnf apiCachingBehavior `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToHeaders CreateApiCache where
   toHeaders =
@@ -386,5 +386,5 @@ createApiCacheResponse_httpStatus = Lens.lens (\CreateApiCacheResponse' {httpSta
 
 instance Prelude.NFData CreateApiCacheResponse where
   rnf CreateApiCacheResponse' {..} =
-    Prelude.rnf apiCache
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiCache `Prelude.seq`
+      Prelude.rnf httpStatus

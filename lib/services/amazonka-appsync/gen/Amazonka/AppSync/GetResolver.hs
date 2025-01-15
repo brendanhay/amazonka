@@ -121,9 +121,9 @@ instance Prelude.Hashable GetResolver where
 
 instance Prelude.NFData GetResolver where
   rnf GetResolver' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf fieldName
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf typeName `Prelude.seq`
+        Prelude.rnf fieldName
 
 instance Data.ToHeaders GetResolver where
   toHeaders =
@@ -190,5 +190,5 @@ getResolverResponse_httpStatus = Lens.lens (\GetResolverResponse' {httpStatus} -
 
 instance Prelude.NFData GetResolverResponse where
   rnf GetResolverResponse' {..} =
-    Prelude.rnf resolver
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolver `Prelude.seq`
+      Prelude.rnf httpStatus

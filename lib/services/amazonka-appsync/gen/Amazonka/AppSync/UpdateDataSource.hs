@@ -226,17 +226,17 @@ instance Prelude.Hashable UpdateDataSource where
 
 instance Prelude.NFData UpdateDataSource where
   rnf UpdateDataSource' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dynamodbConfig
-      `Prelude.seq` Prelude.rnf elasticsearchConfig
-      `Prelude.seq` Prelude.rnf httpConfig
-      `Prelude.seq` Prelude.rnf lambdaConfig
-      `Prelude.seq` Prelude.rnf openSearchServiceConfig
-      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dynamodbConfig `Prelude.seq`
+        Prelude.rnf elasticsearchConfig `Prelude.seq`
+          Prelude.rnf httpConfig `Prelude.seq`
+            Prelude.rnf lambdaConfig `Prelude.seq`
+              Prelude.rnf openSearchServiceConfig `Prelude.seq`
+                Prelude.rnf relationalDatabaseConfig `Prelude.seq`
+                  Prelude.rnf serviceRoleArn `Prelude.seq`
+                    Prelude.rnf apiId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf type'
 
 instance Data.ToHeaders UpdateDataSource where
   toHeaders =
@@ -323,5 +323,5 @@ updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {htt
 
 instance Prelude.NFData UpdateDataSourceResponse where
   rnf UpdateDataSourceResponse' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf httpStatus

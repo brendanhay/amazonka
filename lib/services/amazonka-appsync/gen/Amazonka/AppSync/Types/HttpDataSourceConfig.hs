@@ -94,8 +94,8 @@ instance Prelude.Hashable HttpDataSourceConfig where
 
 instance Prelude.NFData HttpDataSourceConfig where
   rnf HttpDataSourceConfig' {..} =
-    Prelude.rnf authorizationConfig
-      `Prelude.seq` Prelude.rnf endpoint
+    Prelude.rnf authorizationConfig `Prelude.seq`
+      Prelude.rnf endpoint
 
 instance Data.ToJSON HttpDataSourceConfig where
   toJSON HttpDataSourceConfig' {..} =

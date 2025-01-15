@@ -125,10 +125,10 @@ instance Prelude.Hashable OpenIDConnectConfig where
 
 instance Prelude.NFData OpenIDConnectConfig where
   rnf OpenIDConnectConfig' {..} =
-    Prelude.rnf authTTL
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf iatTTL
-      `Prelude.seq` Prelude.rnf issuer
+    Prelude.rnf authTTL `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf iatTTL `Prelude.seq`
+          Prelude.rnf issuer
 
 instance Data.ToJSON OpenIDConnectConfig where
   toJSON OpenIDConnectConfig' {..} =

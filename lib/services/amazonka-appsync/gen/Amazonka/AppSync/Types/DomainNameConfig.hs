@@ -120,8 +120,8 @@ instance Prelude.Hashable DomainNameConfig where
 
 instance Prelude.NFData DomainNameConfig where
   rnf DomainNameConfig' {..} =
-    Prelude.rnf appsyncDomainName
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf appsyncDomainName `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf hostedZoneId

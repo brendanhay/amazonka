@@ -142,9 +142,9 @@ instance Prelude.Hashable SyncConfig where
 
 instance Prelude.NFData SyncConfig where
   rnf SyncConfig' {..} =
-    Prelude.rnf conflictDetection
-      `Prelude.seq` Prelude.rnf conflictHandler
-      `Prelude.seq` Prelude.rnf lambdaConflictHandlerConfig
+    Prelude.rnf conflictDetection `Prelude.seq`
+      Prelude.rnf conflictHandler `Prelude.seq`
+        Prelude.rnf lambdaConflictHandlerConfig
 
 instance Data.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =

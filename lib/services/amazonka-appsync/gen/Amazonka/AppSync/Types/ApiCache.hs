@@ -295,9 +295,9 @@ instance Prelude.Hashable ApiCache where
 
 instance Prelude.NFData ApiCache where
   rnf ApiCache' {..} =
-    Prelude.rnf apiCachingBehavior
-      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf apiCachingBehavior `Prelude.seq`
+      Prelude.rnf atRestEncryptionEnabled `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf transitEncryptionEnabled `Prelude.seq`
+            Prelude.rnf ttl `Prelude.seq`
+              Prelude.rnf type'

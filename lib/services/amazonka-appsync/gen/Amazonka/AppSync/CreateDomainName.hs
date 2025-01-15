@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateDomainName where
 
 instance Prelude.NFData CreateDomainName where
   rnf CreateDomainName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf certificateArn
 
 instance Data.ToHeaders CreateDomainName where
   toHeaders =
@@ -200,5 +200,5 @@ createDomainNameResponse_httpStatus = Lens.lens (\CreateDomainNameResponse' {htt
 
 instance Prelude.NFData CreateDomainNameResponse where
   rnf CreateDomainNameResponse' {..} =
-    Prelude.rnf domainNameConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainNameConfig `Prelude.seq`
+      Prelude.rnf httpStatus

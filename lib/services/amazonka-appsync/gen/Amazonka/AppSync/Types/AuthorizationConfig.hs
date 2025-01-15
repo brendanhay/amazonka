@@ -92,8 +92,8 @@ instance Prelude.Hashable AuthorizationConfig where
 
 instance Prelude.NFData AuthorizationConfig where
   rnf AuthorizationConfig' {..} =
-    Prelude.rnf awsIamConfig
-      `Prelude.seq` Prelude.rnf authorizationType
+    Prelude.rnf awsIamConfig `Prelude.seq`
+      Prelude.rnf authorizationType
 
 instance Data.ToJSON AuthorizationConfig where
   toJSON AuthorizationConfig' {..} =

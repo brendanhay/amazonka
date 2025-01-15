@@ -203,15 +203,15 @@ instance Prelude.Hashable FunctionConfiguration where
 
 instance Prelude.NFData FunctionConfiguration where
   rnf FunctionConfiguration' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf functionId
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf syncConfig
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf dataSourceName `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf functionArn `Prelude.seq`
+            Prelude.rnf functionId `Prelude.seq`
+              Prelude.rnf functionVersion `Prelude.seq`
+                Prelude.rnf maxBatchSize `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf requestMappingTemplate `Prelude.seq`
+                      Prelude.rnf responseMappingTemplate `Prelude.seq`
+                        Prelude.rnf runtime `Prelude.seq`
+                          Prelude.rnf syncConfig

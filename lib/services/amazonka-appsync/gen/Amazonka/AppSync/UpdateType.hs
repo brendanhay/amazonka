@@ -132,10 +132,10 @@ instance Prelude.Hashable UpdateType where
 
 instance Prelude.NFData UpdateType where
   rnf UpdateType' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf format
 
 instance Data.ToHeaders UpdateType where
   toHeaders =
@@ -209,5 +209,5 @@ updateTypeResponse_httpStatus = Lens.lens (\UpdateTypeResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateTypeResponse where
   rnf UpdateTypeResponse' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf httpStatus

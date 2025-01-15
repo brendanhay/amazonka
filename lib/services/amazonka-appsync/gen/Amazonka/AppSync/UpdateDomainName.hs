@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateDomainName where
 
 instance Prelude.NFData UpdateDomainName where
   rnf UpdateDomainName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainName where
   toHeaders =
@@ -178,5 +178,5 @@ updateDomainNameResponse_httpStatus = Lens.lens (\UpdateDomainNameResponse' {htt
 
 instance Prelude.NFData UpdateDomainNameResponse where
   rnf UpdateDomainNameResponse' {..} =
-    Prelude.rnf domainNameConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainNameConfig `Prelude.seq`
+      Prelude.rnf httpStatus

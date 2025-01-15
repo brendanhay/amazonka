@@ -108,12 +108,12 @@ instance Core.AWSPager ListGraphqlApis where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGraphqlApis_nextToken
-          Lens..~ rs
-          Lens.^? listGraphqlApisResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGraphqlApis_nextToken
+              Lens..~ rs
+              Lens.^? listGraphqlApisResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGraphqlApis where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListGraphqlApis where
 
 instance Prelude.NFData ListGraphqlApis where
   rnf ListGraphqlApis' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGraphqlApis where
   toHeaders =
@@ -215,6 +215,6 @@ listGraphqlApisResponse_httpStatus = Lens.lens (\ListGraphqlApisResponse' {httpS
 
 instance Prelude.NFData ListGraphqlApisResponse where
   rnf ListGraphqlApisResponse' {..} =
-    Prelude.rnf graphqlApis
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf graphqlApis `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

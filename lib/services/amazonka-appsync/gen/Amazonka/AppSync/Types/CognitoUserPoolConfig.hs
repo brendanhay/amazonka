@@ -99,9 +99,9 @@ instance Prelude.Hashable CognitoUserPoolConfig where
 
 instance Prelude.NFData CognitoUserPoolConfig where
   rnf CognitoUserPoolConfig' {..} =
-    Prelude.rnf appIdClientRegex
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf appIdClientRegex `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf awsRegion
 
 instance Data.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =

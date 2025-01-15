@@ -173,5 +173,5 @@ getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatu
 
 instance Prelude.NFData GetDataSourceResponse where
   rnf GetDataSourceResponse' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf httpStatus

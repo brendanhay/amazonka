@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateApi where
 
 instance Prelude.NFData AssociateApi where
   rnf AssociateApi' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf apiId
 
 instance Data.ToHeaders AssociateApi where
   toHeaders =
@@ -181,5 +181,5 @@ associateApiResponse_httpStatus = Lens.lens (\AssociateApiResponse' {httpStatus}
 
 instance Prelude.NFData AssociateApiResponse where
   rnf AssociateApiResponse' {..} =
-    Prelude.rnf apiAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

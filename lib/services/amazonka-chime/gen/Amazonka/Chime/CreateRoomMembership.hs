@@ -139,10 +139,10 @@ instance Prelude.Hashable CreateRoomMembership where
 
 instance Prelude.NFData CreateRoomMembership where
   rnf CreateRoomMembership' {..} =
-    Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf role' `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf roomId `Prelude.seq`
+          Prelude.rnf memberId
 
 instance Data.ToHeaders CreateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ createRoomMembershipResponse_httpStatus = Lens.lens (\CreateRoomMembershipRespon
 
 instance Prelude.NFData CreateRoomMembershipResponse where
   rnf CreateRoomMembershipResponse' {..} =
-    Prelude.rnf roomMembership
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roomMembership `Prelude.seq`
+      Prelude.rnf httpStatus

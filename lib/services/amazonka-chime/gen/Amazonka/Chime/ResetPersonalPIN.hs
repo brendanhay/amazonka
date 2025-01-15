@@ -112,8 +112,8 @@ instance Prelude.Hashable ResetPersonalPIN where
 
 instance Prelude.NFData ResetPersonalPIN where
   rnf ResetPersonalPIN' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders ResetPersonalPIN where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,5 +175,5 @@ resetPersonalPINResponse_httpStatus = Lens.lens (\ResetPersonalPINResponse' {htt
 
 instance Prelude.NFData ResetPersonalPINResponse where
   rnf ResetPersonalPINResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

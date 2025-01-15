@@ -135,10 +135,10 @@ instance Prelude.Hashable CandidateAddress where
 
 instance Prelude.NFData CandidateAddress where
   rnf CandidateAddress' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf postalCodePlus4
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf streetInfo
-      `Prelude.seq` Prelude.rnf streetNumber
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf postalCode `Prelude.seq`
+          Prelude.rnf postalCodePlus4 `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf streetInfo `Prelude.seq`
+                Prelude.rnf streetNumber

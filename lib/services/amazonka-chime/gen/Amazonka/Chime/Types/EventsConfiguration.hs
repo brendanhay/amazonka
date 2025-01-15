@@ -92,6 +92,6 @@ instance Prelude.Hashable EventsConfiguration where
 
 instance Prelude.NFData EventsConfiguration where
   rnf EventsConfiguration' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf lambdaFunctionArn `Prelude.seq`
+        Prelude.rnf outboundEventsHTTPSEndpoint

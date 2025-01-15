@@ -119,9 +119,9 @@ instance Prelude.Hashable InviteUsers where
 
 instance Prelude.NFData InviteUsers where
   rnf InviteUsers' {..} =
-    Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userEmailList
+    Prelude.rnf userType `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf userEmailList
 
 instance Data.ToHeaders InviteUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,5 +185,5 @@ inviteUsersResponse_httpStatus = Lens.lens (\InviteUsersResponse' {httpStatus} -
 
 instance Prelude.NFData InviteUsersResponse where
   rnf InviteUsersResponse' {..} =
-    Prelude.rnf invites
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invites `Prelude.seq`
+      Prelude.rnf httpStatus

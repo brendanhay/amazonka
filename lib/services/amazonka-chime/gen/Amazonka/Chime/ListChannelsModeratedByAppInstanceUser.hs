@@ -150,10 +150,10 @@ instance
     ListChannelsModeratedByAppInstanceUser
   where
   rnf ListChannelsModeratedByAppInstanceUser' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf chimeBearer `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -239,6 +239,6 @@ instance
   where
   rnf
     ListChannelsModeratedByAppInstanceUserResponse' {..} =
-      Prelude.rnf channels
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

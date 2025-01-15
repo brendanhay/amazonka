@@ -112,8 +112,8 @@ instance Prelude.Hashable GetUser where
 
 instance Prelude.NFData GetUser where
   rnf GetUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders GetUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,5 +170,5 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetUserResponse where
   rnf GetUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

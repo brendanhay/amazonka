@@ -163,11 +163,11 @@ instance Prelude.Hashable ListChannels where
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf privacy `Prelude.seq`
+            Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders ListChannels where
   toHeaders ListChannels' {..} =
@@ -238,6 +238,6 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 
 instance Prelude.NFData ListChannelsResponse where
   rnf ListChannelsResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

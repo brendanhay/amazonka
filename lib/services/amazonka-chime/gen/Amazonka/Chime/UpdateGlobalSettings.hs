@@ -99,8 +99,8 @@ instance Prelude.Hashable UpdateGlobalSettings where
 
 instance Prelude.NFData UpdateGlobalSettings where
   rnf UpdateGlobalSettings' {..} =
-    Prelude.rnf businessCalling
-      `Prelude.seq` Prelude.rnf voiceConnector
+    Prelude.rnf businessCalling `Prelude.seq`
+      Prelude.rnf voiceConnector
 
 instance Data.ToHeaders UpdateGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty

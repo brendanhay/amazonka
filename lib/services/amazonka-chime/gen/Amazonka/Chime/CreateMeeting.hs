@@ -184,12 +184,12 @@ instance Prelude.Hashable CreateMeeting where
 
 instance Prelude.NFData CreateMeeting where
   rnf CreateMeeting' {..} =
-    Prelude.rnf externalMeetingId
-      `Prelude.seq` Prelude.rnf mediaRegion
-      `Prelude.seq` Prelude.rnf meetingHostId
-      `Prelude.seq` Prelude.rnf notificationsConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf externalMeetingId `Prelude.seq`
+      Prelude.rnf mediaRegion `Prelude.seq`
+        Prelude.rnf meetingHostId `Prelude.seq`
+          Prelude.rnf notificationsConfiguration `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateMeeting where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,5 +256,5 @@ createMeetingResponse_httpStatus = Lens.lens (\CreateMeetingResponse' {httpStatu
 
 instance Prelude.NFData CreateMeetingResponse where
   rnf CreateMeetingResponse' {..} =
-    Prelude.rnf meeting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf meeting `Prelude.seq`
+      Prelude.rnf httpStatus

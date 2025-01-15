@@ -119,9 +119,9 @@ instance Prelude.Hashable CreateBot where
 
 instance Prelude.NFData CreateBot where
   rnf CreateBot' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf accountId
 
 instance Data.ToHeaders CreateBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ createBotResponse_httpStatus = Lens.lens (\CreateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateBotResponse where
   rnf CreateBotResponse' {..} =
-    Prelude.rnf bot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bot `Prelude.seq`
+      Prelude.rnf httpStatus

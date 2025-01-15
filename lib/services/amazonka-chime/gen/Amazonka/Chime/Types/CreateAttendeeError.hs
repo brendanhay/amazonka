@@ -96,6 +96,6 @@ instance Prelude.Hashable CreateAttendeeError where
 
 instance Prelude.NFData CreateAttendeeError where
   rnf CreateAttendeeError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf externalUserId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf externalUserId

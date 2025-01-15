@@ -119,9 +119,9 @@ instance Prelude.Hashable CreateRoom where
 
 instance Prelude.NFData CreateRoom where
   rnf CreateRoom' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateRoom where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,5 +184,5 @@ createRoomResponse_httpStatus = Lens.lens (\CreateRoomResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateRoomResponse where
   rnf CreateRoomResponse' {..} =
-    Prelude.rnf room
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf room `Prelude.seq`
+      Prelude.rnf httpStatus

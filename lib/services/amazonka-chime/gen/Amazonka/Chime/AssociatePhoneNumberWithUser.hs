@@ -129,9 +129,9 @@ instance
 
 instance Prelude.NFData AssociatePhoneNumberWithUser where
   rnf AssociatePhoneNumberWithUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf e164PhoneNumber
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf e164PhoneNumber
 
 instance Data.ToHeaders AssociatePhoneNumberWithUser where
   toHeaders = Prelude.const Prelude.mempty

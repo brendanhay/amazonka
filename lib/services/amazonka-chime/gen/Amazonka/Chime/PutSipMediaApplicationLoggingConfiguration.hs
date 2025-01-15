@@ -126,8 +126,8 @@ instance
     PutSipMediaApplicationLoggingConfiguration
   where
   rnf PutSipMediaApplicationLoggingConfiguration' {..} =
-    Prelude.rnf sipMediaApplicationLoggingConfiguration
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+    Prelude.rnf sipMediaApplicationLoggingConfiguration `Prelude.seq`
+      Prelude.rnf sipMediaApplicationId
 
 instance
   Data.ToHeaders
@@ -212,5 +212,5 @@ instance
   where
   rnf
     PutSipMediaApplicationLoggingConfigurationResponse' {..} =
-      Prelude.rnf sipMediaApplicationLoggingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf sipMediaApplicationLoggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

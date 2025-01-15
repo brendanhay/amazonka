@@ -125,9 +125,9 @@ instance Prelude.Hashable RedactConversationMessage where
 
 instance Prelude.NFData RedactConversationMessage where
   rnf RedactConversationMessage' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf conversationId
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf conversationId `Prelude.seq`
+        Prelude.rnf messageId
 
 instance Data.ToHeaders RedactConversationMessage where
   toHeaders = Prelude.const Prelude.mempty

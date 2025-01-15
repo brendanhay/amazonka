@@ -114,8 +114,8 @@ instance Prelude.Hashable GetProxySession where
 
 instance Prelude.NFData GetProxySession where
   rnf GetProxySession' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf proxySessionId
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf proxySessionId
 
 instance Data.ToHeaders GetProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,5 +173,5 @@ getProxySessionResponse_httpStatus = Lens.lens (\GetProxySessionResponse' {httpS
 
 instance Prelude.NFData GetProxySessionResponse where
   rnf GetProxySessionResponse' {..} =
-    Prelude.rnf proxySession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proxySession `Prelude.seq`
+      Prelude.rnf httpStatus

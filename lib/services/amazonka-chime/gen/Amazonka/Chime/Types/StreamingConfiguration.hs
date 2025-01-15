@@ -97,9 +97,9 @@ instance Prelude.Hashable StreamingConfiguration where
 
 instance Prelude.NFData StreamingConfiguration where
   rnf StreamingConfiguration' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf streamingNotificationTargets
-      `Prelude.seq` Prelude.rnf dataRetentionInHours
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf streamingNotificationTargets `Prelude.seq`
+        Prelude.rnf dataRetentionInHours
 
 instance Data.ToJSON StreamingConfiguration where
   toJSON StreamingConfiguration' {..} =

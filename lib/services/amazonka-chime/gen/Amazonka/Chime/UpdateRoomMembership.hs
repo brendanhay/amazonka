@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateRoomMembership where
 
 instance Prelude.NFData UpdateRoomMembership where
   rnf UpdateRoomMembership' {..} =
-    Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf role' `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf roomId `Prelude.seq`
+          Prelude.rnf memberId
 
 instance Data.ToHeaders UpdateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ updateRoomMembershipResponse_httpStatus = Lens.lens (\UpdateRoomMembershipRespon
 
 instance Prelude.NFData UpdateRoomMembershipResponse where
   rnf UpdateRoomMembershipResponse' {..} =
-    Prelude.rnf roomMembership
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roomMembership `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -102,9 +102,9 @@ instance Prelude.Hashable TelephonySettings where
 
 instance Prelude.NFData TelephonySettings where
   rnf TelephonySettings' {..} =
-    Prelude.rnf inboundCalling
-      `Prelude.seq` Prelude.rnf outboundCalling
-      `Prelude.seq` Prelude.rnf sms
+    Prelude.rnf inboundCalling `Prelude.seq`
+      Prelude.rnf outboundCalling `Prelude.seq`
+        Prelude.rnf sms
 
 instance Data.ToJSON TelephonySettings where
   toJSON TelephonySettings' {..} =

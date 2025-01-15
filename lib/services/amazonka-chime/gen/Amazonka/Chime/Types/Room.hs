@@ -124,9 +124,9 @@ instance Prelude.Hashable Room where
 
 instance Prelude.NFData Room where
   rnf Room' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf roomId `Prelude.seq`
+              Prelude.rnf updatedTimestamp

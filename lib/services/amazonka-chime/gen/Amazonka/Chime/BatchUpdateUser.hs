@@ -110,8 +110,8 @@ instance Prelude.Hashable BatchUpdateUser where
 
 instance Prelude.NFData BatchUpdateUser where
   rnf BatchUpdateUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf updateUserRequestItems
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf updateUserRequestItems
 
 instance Data.ToHeaders BatchUpdateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ batchUpdateUserResponse_httpStatus = Lens.lens (\BatchUpdateUserResponse' {httpS
 
 instance Prelude.NFData BatchUpdateUserResponse where
   rnf BatchUpdateUserResponse' {..} =
-    Prelude.rnf userErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userErrors `Prelude.seq`
+      Prelude.rnf httpStatus

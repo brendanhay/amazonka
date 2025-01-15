@@ -113,8 +113,8 @@ instance Prelude.Hashable ListVoiceConnectorGroups where
 
 instance Prelude.NFData ListVoiceConnectorGroups where
   rnf ListVoiceConnectorGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVoiceConnectorGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,6 +182,6 @@ instance
     ListVoiceConnectorGroupsResponse
   where
   rnf ListVoiceConnectorGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf voiceConnectorGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf voiceConnectorGroups `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -97,10 +97,10 @@ instance Prelude.Hashable UpdateUserRequestItem where
 
 instance Prelude.NFData UpdateUserRequestItem where
   rnf UpdateUserRequestItem' {..} =
-    Prelude.rnf alexaForBusinessMetadata
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf alexaForBusinessMetadata `Prelude.seq`
+      Prelude.rnf licenseType `Prelude.seq`
+        Prelude.rnf userType `Prelude.seq`
+          Prelude.rnf userId
 
 instance Data.ToJSON UpdateUserRequestItem where
   toJSON UpdateUserRequestItem' {..} =

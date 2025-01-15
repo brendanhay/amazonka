@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteProxySession where
 
 instance Prelude.NFData DeleteProxySession where
   rnf DeleteProxySession' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf proxySessionId
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf proxySessionId
 
 instance Data.ToHeaders DeleteProxySession where
   toHeaders = Prelude.const Prelude.mempty

@@ -123,9 +123,9 @@ instance Prelude.Hashable ListBots where
 
 instance Prelude.NFData ListBots where
   rnf ListBots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId
 
 instance Data.ToHeaders ListBots where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,6 +191,6 @@ listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListBotsResponse where
   rnf ListBotsResponse' {..} =
-    Prelude.rnf bots
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bots `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

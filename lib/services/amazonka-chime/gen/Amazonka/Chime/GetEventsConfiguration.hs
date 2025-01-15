@@ -111,8 +111,8 @@ instance Prelude.Hashable GetEventsConfiguration where
 
 instance Prelude.NFData GetEventsConfiguration where
   rnf GetEventsConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf botId
 
 instance Data.ToHeaders GetEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,5 +174,5 @@ instance
     GetEventsConfigurationResponse
   where
   rnf GetEventsConfigurationResponse' {..} =
-    Prelude.rnf eventsConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventsConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

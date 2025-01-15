@@ -110,8 +110,8 @@ instance Prelude.Hashable ListAttendeeTags where
 
 instance Prelude.NFData ListAttendeeTags where
   rnf ListAttendeeTags' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendeeId
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendeeId
 
 instance Data.ToHeaders ListAttendeeTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,5 +169,5 @@ listAttendeeTagsResponse_httpStatus = Lens.lens (\ListAttendeeTagsResponse' {htt
 
 instance Prelude.NFData ListAttendeeTagsResponse where
   rnf ListAttendeeTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

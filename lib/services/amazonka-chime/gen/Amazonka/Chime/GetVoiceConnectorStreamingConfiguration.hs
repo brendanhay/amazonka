@@ -184,5 +184,5 @@ instance
   where
   rnf
     GetVoiceConnectorStreamingConfigurationResponse' {..} =
-      Prelude.rnf streamingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf streamingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

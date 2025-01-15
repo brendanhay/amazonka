@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateAppInstance where
 
 instance Prelude.NFData UpdateAppInstance where
   rnf UpdateAppInstance' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf appInstanceArn `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateAppInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ updateAppInstanceResponse_httpStatus = Lens.lens (\UpdateAppInstanceResponse' {h
 
 instance Prelude.NFData UpdateAppInstanceResponse where
   rnf UpdateAppInstanceResponse' {..} =
-    Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceArn `Prelude.seq`
+      Prelude.rnf httpStatus

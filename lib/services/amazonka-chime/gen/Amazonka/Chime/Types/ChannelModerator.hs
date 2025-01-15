@@ -103,7 +103,7 @@ instance Prelude.Hashable ChannelModerator where
 
 instance Prelude.NFData ChannelModerator where
   rnf ChannelModerator' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf moderator
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf moderator

@@ -100,9 +100,9 @@ instance Prelude.Hashable ArtifactsConfiguration where
 
 instance Prelude.NFData ArtifactsConfiguration where
   rnf ArtifactsConfiguration' {..} =
-    Prelude.rnf audio
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf audio `Prelude.seq`
+      Prelude.rnf video `Prelude.seq`
+        Prelude.rnf content
 
 instance Data.ToJSON ArtifactsConfiguration where
   toJSON ArtifactsConfiguration' {..} =

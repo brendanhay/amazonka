@@ -152,5 +152,5 @@ getVoiceConnectorResponse_httpStatus = Lens.lens (\GetVoiceConnectorResponse' {h
 
 instance Prelude.NFData GetVoiceConnectorResponse where
   rnf GetVoiceConnectorResponse' {..} =
-    Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnector `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -109,8 +109,8 @@ instance Prelude.Hashable ListMeetings where
 
 instance Prelude.NFData ListMeetings where
   rnf ListMeetings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMeetings where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,6 +174,6 @@ listMeetingsResponse_httpStatus = Lens.lens (\ListMeetingsResponse' {httpStatus}
 
 instance Prelude.NFData ListMeetingsResponse where
   rnf ListMeetingsResponse' {..} =
-    Prelude.rnf meetings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf meetings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

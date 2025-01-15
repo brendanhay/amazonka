@@ -126,9 +126,9 @@ instance Prelude.Hashable DescribeChannelMembership where
 
 instance Prelude.NFData DescribeChannelMembership where
   rnf DescribeChannelMembership' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf memberArn
 
 instance Data.ToHeaders DescribeChannelMembership where
   toHeaders DescribeChannelMembership' {..} =
@@ -191,5 +191,5 @@ instance
     DescribeChannelMembershipResponse
   where
   rnf DescribeChannelMembershipResponse' {..} =
-    Prelude.rnf channelMembership
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelMembership `Prelude.seq`
+      Prelude.rnf httpStatus

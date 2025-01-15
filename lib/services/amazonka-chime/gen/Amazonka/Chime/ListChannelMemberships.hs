@@ -165,11 +165,11 @@ instance Prelude.Hashable ListChannelMemberships where
 
 instance Prelude.NFData ListChannelMemberships where
   rnf ListChannelMemberships' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf channelArn
 
 instance Data.ToHeaders ListChannelMemberships where
   toHeaders ListChannelMemberships' {..} =
@@ -254,7 +254,7 @@ instance
     ListChannelMembershipsResponse
   where
   rnf ListChannelMembershipsResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelMemberships
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelMemberships `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

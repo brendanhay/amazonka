@@ -132,10 +132,10 @@ instance Prelude.Hashable ListProxySessions where
 
 instance Prelude.NFData ListProxySessions where
   rnf ListProxySessions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf voiceConnectorId
 
 instance Data.ToHeaders ListProxySessions where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,6 +206,6 @@ listProxySessionsResponse_httpStatus = Lens.lens (\ListProxySessionsResponse' {h
 
 instance Prelude.NFData ListProxySessionsResponse where
   rnf ListProxySessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proxySessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proxySessions `Prelude.seq`
+        Prelude.rnf httpStatus

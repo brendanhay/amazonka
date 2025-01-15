@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdateProxySession where
 
 instance Prelude.NFData UpdateProxySession where
   rnf UpdateProxySession' {..} =
-    Prelude.rnf expiryMinutes
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf proxySessionId
+    Prelude.rnf expiryMinutes `Prelude.seq`
+      Prelude.rnf capabilities `Prelude.seq`
+        Prelude.rnf voiceConnectorId `Prelude.seq`
+          Prelude.rnf proxySessionId
 
 instance Data.ToHeaders UpdateProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,5 +206,5 @@ updateProxySessionResponse_httpStatus = Lens.lens (\UpdateProxySessionResponse' 
 
 instance Prelude.NFData UpdateProxySessionResponse where
   rnf UpdateProxySessionResponse' {..} =
-    Prelude.rnf proxySession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proxySession `Prelude.seq`
+      Prelude.rnf httpStatus

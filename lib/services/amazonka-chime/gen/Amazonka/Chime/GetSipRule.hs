@@ -145,5 +145,5 @@ getSipRuleResponse_httpStatus = Lens.lens (\GetSipRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetSipRuleResponse where
   rnf GetSipRuleResponse' {..} =
-    Prelude.rnf sipRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipRule `Prelude.seq`
+      Prelude.rnf httpStatus

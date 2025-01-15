@@ -133,9 +133,9 @@ instance Prelude.Hashable CreateChannelBan where
 
 instance Prelude.NFData CreateChannelBan where
   rnf CreateChannelBan' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf memberArn
 
 instance Data.ToHeaders CreateChannelBan where
   toHeaders CreateChannelBan' {..} =
@@ -207,6 +207,6 @@ createChannelBanResponse_httpStatus = Lens.lens (\CreateChannelBanResponse' {htt
 
 instance Prelude.NFData CreateChannelBanResponse where
   rnf CreateChannelBanResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf member
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf member `Prelude.seq`
+        Prelude.rnf httpStatus

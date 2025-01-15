@@ -156,5 +156,5 @@ instance
     GetMediaCapturePipelineResponse
   where
   rnf GetMediaCapturePipelineResponse' {..} =
-    Prelude.rnf mediaCapturePipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaCapturePipeline `Prelude.seq`
+      Prelude.rnf httpStatus

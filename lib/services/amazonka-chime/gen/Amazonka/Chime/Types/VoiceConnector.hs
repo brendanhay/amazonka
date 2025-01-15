@@ -154,11 +154,11 @@ instance Prelude.Hashable VoiceConnector where
 
 instance Prelude.NFData VoiceConnector where
   rnf VoiceConnector' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outboundHostName
-      `Prelude.seq` Prelude.rnf requireEncryption
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf voiceConnectorArn
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf outboundHostName `Prelude.seq`
+            Prelude.rnf requireEncryption `Prelude.seq`
+              Prelude.rnf updatedTimestamp `Prelude.seq`
+                Prelude.rnf voiceConnectorArn `Prelude.seq`
+                  Prelude.rnf voiceConnectorId

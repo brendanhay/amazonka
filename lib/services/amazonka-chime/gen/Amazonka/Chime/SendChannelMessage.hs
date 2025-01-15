@@ -190,13 +190,13 @@ instance Prelude.Hashable SendChannelMessage where
 
 instance Prelude.NFData SendChannelMessage where
   rnf SendChannelMessage' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf persistence
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf channelArn `Prelude.seq`
+          Prelude.rnf content `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf persistence `Prelude.seq`
+                Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders SendChannelMessage where
   toHeaders SendChannelMessage' {..} =
@@ -274,6 +274,6 @@ sendChannelMessageResponse_httpStatus = Lens.lens (\SendChannelMessageResponse' 
 
 instance Prelude.NFData SendChannelMessageResponse where
   rnf SendChannelMessageResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf httpStatus

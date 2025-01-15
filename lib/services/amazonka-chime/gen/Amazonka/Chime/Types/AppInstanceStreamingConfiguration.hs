@@ -100,8 +100,8 @@ instance
     AppInstanceStreamingConfiguration
   where
   rnf AppInstanceStreamingConfiguration' {..} =
-    Prelude.rnf appInstanceDataType
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf appInstanceDataType `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance
   Data.ToJSON

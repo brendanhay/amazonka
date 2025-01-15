@@ -146,5 +146,5 @@ listMeetingTagsResponse_httpStatus = Lens.lens (\ListMeetingTagsResponse' {httpS
 
 instance Prelude.NFData ListMeetingTagsResponse where
   rnf ListMeetingTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

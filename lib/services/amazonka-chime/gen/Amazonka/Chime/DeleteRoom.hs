@@ -98,8 +98,8 @@ instance Prelude.Hashable DeleteRoom where
 
 instance Prelude.NFData DeleteRoom where
   rnf DeleteRoom' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf roomId
 
 instance Data.ToHeaders DeleteRoom where
   toHeaders = Prelude.const Prelude.mempty

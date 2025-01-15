@@ -71,8 +71,8 @@ instance Prelude.Hashable MembershipItem where
 
 instance Prelude.NFData MembershipItem where
   rnf MembershipItem' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf role'
 
 instance Data.ToJSON MembershipItem where
   toJSON MembershipItem' {..} =

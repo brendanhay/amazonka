@@ -92,6 +92,6 @@ instance Prelude.Hashable AppInstanceSummary where
 
 instance Prelude.NFData AppInstanceSummary where
   rnf AppInstanceSummary' {..} =
-    Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appInstanceArn `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf name

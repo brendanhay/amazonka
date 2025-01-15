@@ -161,5 +161,5 @@ instance
     GetVoiceConnectorOriginationResponse
   where
   rnf GetVoiceConnectorOriginationResponse' {..} =
-    Prelude.rnf origination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf origination `Prelude.seq`
+      Prelude.rnf httpStatus

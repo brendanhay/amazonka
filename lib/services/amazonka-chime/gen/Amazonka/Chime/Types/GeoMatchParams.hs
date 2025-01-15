@@ -85,8 +85,8 @@ instance Prelude.Hashable GeoMatchParams where
 
 instance Prelude.NFData GeoMatchParams where
   rnf GeoMatchParams' {..} =
-    Prelude.rnf country
-      `Prelude.seq` Prelude.rnf areaCode
+    Prelude.rnf country `Prelude.seq`
+      Prelude.rnf areaCode
 
 instance Data.ToJSON GeoMatchParams where
   toJSON GeoMatchParams' {..} =

@@ -114,9 +114,9 @@ instance Prelude.Hashable UntagAttendee where
 
 instance Prelude.NFData UntagAttendee where
   rnf UntagAttendee' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf attendeeId
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf tagKeys `Prelude.seq`
+        Prelude.rnf attendeeId
 
 instance Data.ToHeaders UntagAttendee where
   toHeaders = Prelude.const Prelude.mempty

@@ -88,9 +88,9 @@ instance
 
 instance Prelude.NFData UpdatePhoneNumberRequestItem where
   rnf UpdatePhoneNumberRequestItem' {..} =
-    Prelude.rnf callingName
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf phoneNumberId
+    Prelude.rnf callingName `Prelude.seq`
+      Prelude.rnf productType `Prelude.seq`
+        Prelude.rnf phoneNumberId
 
 instance Data.ToJSON UpdatePhoneNumberRequestItem where
   toJSON UpdatePhoneNumberRequestItem' {..} =

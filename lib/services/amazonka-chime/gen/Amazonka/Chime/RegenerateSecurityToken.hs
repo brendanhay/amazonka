@@ -110,8 +110,8 @@ instance Prelude.Hashable RegenerateSecurityToken where
 
 instance Prelude.NFData RegenerateSecurityToken where
   rnf RegenerateSecurityToken' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf botId
 
 instance Data.ToHeaders RegenerateSecurityToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,5 +178,5 @@ instance
     RegenerateSecurityTokenResponse
   where
   rnf RegenerateSecurityTokenResponse' {..} =
-    Prelude.rnf bot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bot `Prelude.seq`
+      Prelude.rnf httpStatus

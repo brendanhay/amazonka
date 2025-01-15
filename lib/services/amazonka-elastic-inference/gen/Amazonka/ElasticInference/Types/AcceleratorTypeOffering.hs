@@ -111,6 +111,6 @@ instance Prelude.Hashable AcceleratorTypeOffering where
 
 instance Prelude.NFData AcceleratorTypeOffering where
   rnf AcceleratorTypeOffering' {..} =
-    Prelude.rnf acceleratorType
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf locationType
+    Prelude.rnf acceleratorType `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf locationType

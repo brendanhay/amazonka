@@ -97,6 +97,6 @@ instance Prelude.Hashable AcceleratorType where
 
 instance Prelude.NFData AcceleratorType where
   rnf AcceleratorType' {..} =
-    Prelude.rnf acceleratorTypeName
-      `Prelude.seq` Prelude.rnf memoryInfo
-      `Prelude.seq` Prelude.rnf throughputInfo
+    Prelude.rnf acceleratorTypeName `Prelude.seq`
+      Prelude.rnf memoryInfo `Prelude.seq`
+        Prelude.rnf throughputInfo

@@ -189,5 +189,5 @@ instance
     DisableDelegatedAdminAccountResponse
   where
   rnf DisableDelegatedAdminAccountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf delegatedAdminAccountId

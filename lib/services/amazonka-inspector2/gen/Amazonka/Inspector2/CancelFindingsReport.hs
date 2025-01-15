@@ -164,5 +164,5 @@ cancelFindingsReportResponse_reportId = Lens.lens (\CancelFindingsReportResponse
 
 instance Prelude.NFData CancelFindingsReportResponse where
   rnf CancelFindingsReportResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reportId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf reportId

@@ -121,12 +121,12 @@ instance Core.AWSPager ListAccountPermissions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountPermissions_nextToken
-          Lens..~ rs
-          Lens.^? listAccountPermissionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountPermissions_nextToken
+              Lens..~ rs
+              Lens.^? listAccountPermissionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountPermissions where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListAccountPermissions where
 
 instance Prelude.NFData ListAccountPermissions where
   rnf ListAccountPermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf service
 
 instance Data.ToHeaders ListAccountPermissions where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListAccountPermissionsResponse
   where
   rnf ListAccountPermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf permissions

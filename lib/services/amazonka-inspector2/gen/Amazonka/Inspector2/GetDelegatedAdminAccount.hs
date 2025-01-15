@@ -148,5 +148,5 @@ instance
     GetDelegatedAdminAccountResponse
   where
   rnf GetDelegatedAdminAccountResponse' {..} =
-    Prelude.rnf delegatedAdmin
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegatedAdmin `Prelude.seq`
+      Prelude.rnf httpStatus

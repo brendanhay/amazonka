@@ -152,12 +152,12 @@ instance Core.AWSPager ListFindingAggregations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFindingAggregations_nextToken
-          Lens..~ rs
-          Lens.^? listFindingAggregationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFindingAggregations_nextToken
+              Lens..~ rs
+              Lens.^? listFindingAggregationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindingAggregations where
   type
@@ -186,11 +186,11 @@ instance Prelude.Hashable ListFindingAggregations where
 
 instance Prelude.NFData ListFindingAggregations where
   rnf ListFindingAggregations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf aggregationRequest
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aggregationType
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf aggregationRequest `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf aggregationType
 
 instance Data.ToHeaders ListFindingAggregations where
   toHeaders =
@@ -298,7 +298,7 @@ instance
     ListFindingAggregationsResponse
   where
   rnf ListFindingAggregationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aggregationType
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf responses `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf aggregationType

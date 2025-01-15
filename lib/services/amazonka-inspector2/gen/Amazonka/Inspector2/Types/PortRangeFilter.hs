@@ -80,8 +80,8 @@ instance Prelude.Hashable PortRangeFilter where
 
 instance Prelude.NFData PortRangeFilter where
   rnf PortRangeFilter' {..} =
-    Prelude.rnf beginInclusive
-      `Prelude.seq` Prelude.rnf endInclusive
+    Prelude.rnf beginInclusive `Prelude.seq`
+      Prelude.rnf endInclusive
 
 instance Data.ToJSON PortRangeFilter where
   toJSON PortRangeFilter' {..} =

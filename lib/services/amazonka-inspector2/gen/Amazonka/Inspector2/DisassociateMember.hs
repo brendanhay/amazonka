@@ -171,5 +171,5 @@ disassociateMemberResponse_accountId = Lens.lens (\DisassociateMemberResponse' {
 
 instance Prelude.NFData DisassociateMemberResponse where
   rnf DisassociateMemberResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountId

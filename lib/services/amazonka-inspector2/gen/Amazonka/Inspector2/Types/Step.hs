@@ -84,5 +84,5 @@ instance Prelude.Hashable Step where
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf componentType
+    Prelude.rnf componentId `Prelude.seq`
+      Prelude.rnf componentType

@@ -82,5 +82,5 @@ instance Prelude.Hashable AccountAggregationResponse where
 
 instance Prelude.NFData AccountAggregationResponse where
   rnf AccountAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf severityCounts
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf severityCounts

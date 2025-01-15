@@ -156,11 +156,11 @@ instance Prelude.Hashable AwsEcrContainerImageDetails where
 
 instance Prelude.NFData AwsEcrContainerImageDetails where
   rnf AwsEcrContainerImageDetails' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf pushedAt
-      `Prelude.seq` Prelude.rnf imageHash
-      `Prelude.seq` Prelude.rnf registry
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf author `Prelude.seq`
+        Prelude.rnf imageTags `Prelude.seq`
+          Prelude.rnf platform `Prelude.seq`
+            Prelude.rnf pushedAt `Prelude.seq`
+              Prelude.rnf imageHash `Prelude.seq`
+                Prelude.rnf registry `Prelude.seq`
+                  Prelude.rnf repositoryName

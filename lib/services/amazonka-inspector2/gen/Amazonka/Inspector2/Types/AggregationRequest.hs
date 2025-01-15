@@ -199,17 +199,17 @@ instance Prelude.Hashable AggregationRequest where
 
 instance Prelude.NFData AggregationRequest where
   rnf AggregationRequest' {..} =
-    Prelude.rnf accountAggregation
-      `Prelude.seq` Prelude.rnf amiAggregation
-      `Prelude.seq` Prelude.rnf awsEcrContainerAggregation
-      `Prelude.seq` Prelude.rnf ec2InstanceAggregation
-      `Prelude.seq` Prelude.rnf findingTypeAggregation
-      `Prelude.seq` Prelude.rnf imageLayerAggregation
-      `Prelude.seq` Prelude.rnf lambdaFunctionAggregation
-      `Prelude.seq` Prelude.rnf lambdaLayerAggregation
-      `Prelude.seq` Prelude.rnf packageAggregation
-      `Prelude.seq` Prelude.rnf repositoryAggregation
-      `Prelude.seq` Prelude.rnf titleAggregation
+    Prelude.rnf accountAggregation `Prelude.seq`
+      Prelude.rnf amiAggregation `Prelude.seq`
+        Prelude.rnf awsEcrContainerAggregation `Prelude.seq`
+          Prelude.rnf ec2InstanceAggregation `Prelude.seq`
+            Prelude.rnf findingTypeAggregation `Prelude.seq`
+              Prelude.rnf imageLayerAggregation `Prelude.seq`
+                Prelude.rnf lambdaFunctionAggregation `Prelude.seq`
+                  Prelude.rnf lambdaLayerAggregation `Prelude.seq`
+                    Prelude.rnf packageAggregation `Prelude.seq`
+                      Prelude.rnf repositoryAggregation `Prelude.seq`
+                        Prelude.rnf titleAggregation
 
 instance Data.ToJSON AggregationRequest where
   toJSON AggregationRequest' {..} =

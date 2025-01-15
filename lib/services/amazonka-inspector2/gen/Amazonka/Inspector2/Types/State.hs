@@ -106,6 +106,6 @@ instance Prelude.Hashable State where
 
 instance Prelude.NFData State where
   rnf State' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf status

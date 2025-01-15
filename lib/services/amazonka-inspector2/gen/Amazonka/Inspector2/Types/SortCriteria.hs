@@ -76,8 +76,8 @@ instance Prelude.Hashable SortCriteria where
 
 instance Prelude.NFData SortCriteria where
   rnf SortCriteria' {..} =
-    Prelude.rnf field
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf field `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =

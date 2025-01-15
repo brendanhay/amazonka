@@ -96,9 +96,9 @@ instance Prelude.Hashable MapFilter where
 
 instance Prelude.NFData MapFilter where
   rnf MapFilter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf comparison `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON MapFilter where
   toJSON MapFilter' {..} =

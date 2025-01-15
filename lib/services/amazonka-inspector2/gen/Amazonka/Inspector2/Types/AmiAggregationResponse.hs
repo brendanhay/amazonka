@@ -106,7 +106,7 @@ instance Prelude.Hashable AmiAggregationResponse where
 
 instance Prelude.NFData AmiAggregationResponse where
   rnf AmiAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf affectedInstances
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf ami
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf affectedInstances `Prelude.seq`
+        Prelude.rnf severityCounts `Prelude.seq`
+          Prelude.rnf ami

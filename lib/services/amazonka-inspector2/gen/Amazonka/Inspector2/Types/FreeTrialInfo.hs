@@ -119,7 +119,7 @@ instance Prelude.Hashable FreeTrialInfo where
 
 instance Prelude.NFData FreeTrialInfo where
   rnf FreeTrialInfo' {..} =
-    Prelude.rnf end
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf end `Prelude.seq`
+      Prelude.rnf start `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf type'

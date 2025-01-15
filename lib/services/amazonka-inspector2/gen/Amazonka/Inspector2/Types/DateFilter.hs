@@ -80,8 +80,8 @@ instance Prelude.Hashable DateFilter where
 
 instance Prelude.NFData DateFilter where
   rnf DateFilter' {..} =
-    Prelude.rnf endInclusive
-      `Prelude.seq` Prelude.rnf startInclusive
+    Prelude.rnf endInclusive `Prelude.seq`
+      Prelude.rnf startInclusive
 
 instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =

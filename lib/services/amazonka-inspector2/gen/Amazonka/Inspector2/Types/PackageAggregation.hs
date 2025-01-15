@@ -84,9 +84,9 @@ instance Prelude.Hashable PackageAggregation where
 
 instance Prelude.NFData PackageAggregation where
   rnf PackageAggregation' {..} =
-    Prelude.rnf packageNames
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf packageNames `Prelude.seq`
+      Prelude.rnf sortBy `Prelude.seq`
+        Prelude.rnf sortOrder
 
 instance Data.ToJSON PackageAggregation where
   toJSON PackageAggregation' {..} =

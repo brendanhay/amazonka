@@ -90,5 +90,5 @@ instance
     FindingTypeAggregationResponse
   where
   rnf FindingTypeAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf severityCounts
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf severityCounts

@@ -115,8 +115,8 @@ instance Prelude.Hashable EnableDelegatedAdminAccount where
 
 instance Prelude.NFData EnableDelegatedAdminAccount where
   rnf EnableDelegatedAdminAccount' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf delegatedAdminAccountId
 
 instance Data.ToHeaders EnableDelegatedAdminAccount where
   toHeaders =
@@ -200,5 +200,5 @@ instance
     EnableDelegatedAdminAccountResponse
   where
   rnf EnableDelegatedAdminAccountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf delegatedAdminAccountId

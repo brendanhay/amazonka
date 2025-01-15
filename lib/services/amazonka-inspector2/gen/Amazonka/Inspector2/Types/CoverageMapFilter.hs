@@ -85,9 +85,9 @@ instance Prelude.Hashable CoverageMapFilter where
 
 instance Prelude.NFData CoverageMapFilter where
   rnf CoverageMapFilter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf comparison `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON CoverageMapFilter where
   toJSON CoverageMapFilter' {..} =

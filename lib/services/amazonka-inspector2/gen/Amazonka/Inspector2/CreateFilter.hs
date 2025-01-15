@@ -163,12 +163,12 @@ instance Prelude.Hashable CreateFilter where
 
 instance Prelude.NFData CreateFilter where
   rnf CreateFilter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf action `Prelude.seq`
+            Prelude.rnf filterCriteria `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateFilter where
   toHeaders =
@@ -243,5 +243,5 @@ createFilterResponse_arn = Lens.lens (\CreateFilterResponse' {arn} -> arn) (\s@C
 
 instance Prelude.NFData CreateFilterResponse where
   rnf CreateFilterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

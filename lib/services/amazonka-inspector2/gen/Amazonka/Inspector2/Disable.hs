@@ -108,8 +108,8 @@ instance Prelude.Hashable Disable where
 
 instance Prelude.NFData Disable where
   rnf Disable' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf resourceTypes
 
 instance Data.ToHeaders Disable where
   toHeaders =
@@ -192,6 +192,6 @@ disableResponse_accounts = Lens.lens (\DisableResponse' {accounts} -> accounts) 
 
 instance Prelude.NFData DisableResponse where
   rnf DisableResponse' {..} =
-    Prelude.rnf failedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf failedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accounts

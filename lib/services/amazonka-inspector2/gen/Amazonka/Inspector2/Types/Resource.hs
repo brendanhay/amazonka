@@ -133,9 +133,9 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf partition `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf type'

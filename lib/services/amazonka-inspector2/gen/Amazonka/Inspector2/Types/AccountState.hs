@@ -103,6 +103,6 @@ instance Prelude.Hashable AccountState where
 
 instance Prelude.NFData AccountState where
   rnf AccountState' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf resourceState
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf resourceState `Prelude.seq`
+        Prelude.rnf state

@@ -192,5 +192,5 @@ instance
     UpdateOrganizationConfigurationResponse
   where
   rnf UpdateOrganizationConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoEnable
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoEnable

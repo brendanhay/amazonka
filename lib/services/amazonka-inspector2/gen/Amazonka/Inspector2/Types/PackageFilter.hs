@@ -139,13 +139,13 @@ instance Prelude.Hashable PackageFilter where
 
 instance Prelude.NFData PackageFilter where
   rnf PackageFilter' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf epoch
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf release
-      `Prelude.seq` Prelude.rnf sourceLambdaLayerArn
-      `Prelude.seq` Prelude.rnf sourceLayerHash
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf epoch `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf release `Prelude.seq`
+            Prelude.rnf sourceLambdaLayerArn `Prelude.seq`
+              Prelude.rnf sourceLayerHash `Prelude.seq`
+                Prelude.rnf version
 
 instance Data.ToJSON PackageFilter where
   toJSON PackageFilter' {..} =

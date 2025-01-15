@@ -135,8 +135,8 @@ instance
     LambdaLayerAggregationResponse
   where
   rnf LambdaLayerAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf layerArn
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf severityCounts `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf functionName `Prelude.seq`
+          Prelude.rnf layerArn `Prelude.seq`
+            Prelude.rnf resourceId

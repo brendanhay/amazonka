@@ -92,6 +92,6 @@ instance Prelude.Hashable Ec2Metadata where
 
 instance Prelude.NFData Ec2Metadata where
   rnf Ec2Metadata' {..} =
-    Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf amiId `Prelude.seq`
+      Prelude.rnf platform `Prelude.seq`
+        Prelude.rnf tags

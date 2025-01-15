@@ -124,9 +124,9 @@ instance Prelude.Hashable CreateFindingsReport where
 
 instance Prelude.NFData CreateFindingsReport where
   rnf CreateFindingsReport' {..} =
-    Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf reportFormat
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf filterCriteria `Prelude.seq`
+      Prelude.rnf reportFormat `Prelude.seq`
+        Prelude.rnf s3Destination
 
 instance Data.ToHeaders CreateFindingsReport where
   toHeaders =
@@ -198,5 +198,5 @@ createFindingsReportResponse_httpStatus = Lens.lens (\CreateFindingsReportRespon
 
 instance Prelude.NFData CreateFindingsReportResponse where
   rnf CreateFindingsReportResponse' {..} =
-    Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportId `Prelude.seq`
+      Prelude.rnf httpStatus

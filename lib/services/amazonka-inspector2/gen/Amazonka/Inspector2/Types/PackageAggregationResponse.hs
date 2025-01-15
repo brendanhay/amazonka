@@ -96,6 +96,6 @@ instance Prelude.Hashable PackageAggregationResponse where
 
 instance Prelude.NFData PackageAggregationResponse where
   rnf PackageAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf packageName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf severityCounts `Prelude.seq`
+        Prelude.rnf packageName

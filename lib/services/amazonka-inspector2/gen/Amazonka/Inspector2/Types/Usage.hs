@@ -104,7 +104,7 @@ instance Prelude.Hashable Usage where
 
 instance Prelude.NFData Usage where
   rnf Usage' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf estimatedMonthlyCost
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf estimatedMonthlyCost `Prelude.seq`
+        Prelude.rnf total `Prelude.seq`
+          Prelude.rnf type'

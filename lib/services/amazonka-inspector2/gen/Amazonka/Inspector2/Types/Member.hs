@@ -106,7 +106,7 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
-      `Prelude.seq` Prelude.rnf relationshipStatus
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf delegatedAdminAccountId `Prelude.seq`
+        Prelude.rnf relationshipStatus `Prelude.seq`
+          Prelude.rnf updatedAt

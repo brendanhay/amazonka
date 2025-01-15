@@ -135,8 +135,8 @@ instance Prelude.Hashable FailedAccount where
 
 instance Prelude.NFData FailedAccount where
   rnf FailedAccount' {..} =
-    Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf resourceStatus `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf errorCode `Prelude.seq`
+            Prelude.rnf errorMessage

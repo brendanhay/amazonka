@@ -105,9 +105,9 @@ instance Prelude.Hashable AutoEnable where
 
 instance Prelude.NFData AutoEnable where
   rnf AutoEnable' {..} =
-    Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf ec2
-      `Prelude.seq` Prelude.rnf ecr
+    Prelude.rnf lambda `Prelude.seq`
+      Prelude.rnf ec2 `Prelude.seq`
+        Prelude.rnf ecr
 
 instance Data.ToJSON AutoEnable where
   toJSON AutoEnable' {..} =

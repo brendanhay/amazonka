@@ -85,5 +85,5 @@ instance Prelude.Hashable DelegatedAdmin where
 
 instance Prelude.NFData DelegatedAdmin where
   rnf DelegatedAdmin' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf relationshipStatus
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf relationshipStatus

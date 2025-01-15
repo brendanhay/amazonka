@@ -103,6 +103,6 @@ instance Prelude.Hashable ResourceDetails where
 
 instance Prelude.NFData ResourceDetails where
   rnf ResourceDetails' {..} =
-    Prelude.rnf awsEc2Instance
-      `Prelude.seq` Prelude.rnf awsEcrContainerImage
-      `Prelude.seq` Prelude.rnf awsLambdaFunction
+    Prelude.rnf awsEc2Instance `Prelude.seq`
+      Prelude.rnf awsEcrContainerImage `Prelude.seq`
+        Prelude.rnf awsLambdaFunction

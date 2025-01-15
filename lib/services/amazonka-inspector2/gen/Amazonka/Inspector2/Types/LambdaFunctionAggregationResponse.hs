@@ -153,10 +153,10 @@ instance
     LambdaFunctionAggregationResponse
   where
   rnf LambdaFunctionAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf lambdaTags
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf functionName `Prelude.seq`
+        Prelude.rnf lambdaTags `Prelude.seq`
+          Prelude.rnf lastModifiedAt `Prelude.seq`
+            Prelude.rnf runtime `Prelude.seq`
+              Prelude.rnf severityCounts `Prelude.seq`
+                Prelude.rnf resourceId

@@ -1,12 +1,15 @@
 module Gen.IO where
 
+import qualified Data.Aeson as Aeson
 import qualified Data.ByteString as ByteString
+import qualified Data.Text as Text
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.IO as Text.Lazy.IO
+import Gen.Output.Template (Template)
+import qualified Gen.Output.Template as Template
 import Gen.Prelude
 import qualified System.FilePath as FilePath
 import qualified System.IO as IO
-import Text.EDE (Template)
 import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
@@ -65,9 +68,21 @@ readTemplate ::
   (MonadIO m) =>
   FilePath ->
   FilePath ->
-  m Template
+  m EDE.Template
 readTemplate dir name =
   liftIO $
     readBSFile (dir </> name)
       >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
       >>= EDE.result (UnliftIO.throwString . show) pure
+
+readTypedTemplate ::
+  (MonadIO m) =>
+  (input -> HashMap Text Aeson.Value) ->
+  FilePath ->
+  FilePath ->
+  m (Template input)
+readTypedTemplate arguments dir name =
+  liftIO $
+    readBSFile (dir </> name)
+      >>= Template.parseWith arguments (EDE.includeFile dir) (Text.pack name)
+      >>= either UnliftIO.throwString pure

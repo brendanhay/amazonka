@@ -163,5 +163,5 @@ instance Prelude.Hashable OutboundConnectionStatus where
 
 instance Prelude.NFData OutboundConnectionStatus where
   rnf OutboundConnectionStatus' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf statusCode

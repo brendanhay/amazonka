@@ -85,5 +85,5 @@ instance Prelude.Hashable LogPublishingOptionsStatus where
 
 instance Prelude.NFData LogPublishingOptionsStatus where
   rnf LogPublishingOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

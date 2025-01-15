@@ -166,5 +166,5 @@ instance
     RejectInboundConnectionResponse
   where
   rnf RejectInboundConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,9 +141,9 @@ instance Prelude.Hashable CreateOutboundConnection where
 
 instance Prelude.NFData CreateOutboundConnection where
   rnf CreateOutboundConnection' {..} =
-    Prelude.rnf localDomainInfo
-      `Prelude.seq` Prelude.rnf remoteDomainInfo
-      `Prelude.seq` Prelude.rnf connectionAlias
+    Prelude.rnf localDomainInfo `Prelude.seq`
+      Prelude.rnf remoteDomainInfo `Prelude.seq`
+        Prelude.rnf connectionAlias
 
 instance Data.ToHeaders CreateOutboundConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,9 +255,9 @@ instance
     CreateOutboundConnectionResponse
   where
   rnf CreateOutboundConnectionResponse' {..} =
-    Prelude.rnf connectionAlias
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf localDomainInfo
-      `Prelude.seq` Prelude.rnf remoteDomainInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionAlias `Prelude.seq`
+      Prelude.rnf connectionId `Prelude.seq`
+        Prelude.rnf connectionStatus `Prelude.seq`
+          Prelude.rnf localDomainInfo `Prelude.seq`
+            Prelude.rnf remoteDomainInfo `Prelude.seq`
+              Prelude.rnf httpStatus

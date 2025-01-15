@@ -141,9 +141,9 @@ instance
     PurchaseReservedInstanceOffering
   where
   rnf PurchaseReservedInstanceOffering' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
-      `Prelude.seq` Prelude.rnf reservationName
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf reservedInstanceOfferingId `Prelude.seq`
+        Prelude.rnf reservationName
 
 instance
   Data.ToHeaders
@@ -233,6 +233,6 @@ instance
     PurchaseReservedInstanceOfferingResponse
   where
   rnf PurchaseReservedInstanceOfferingResponse' {..} =
-    Prelude.rnf reservationName
-      `Prelude.seq` Prelude.rnf reservedInstanceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservationName `Prelude.seq`
+      Prelude.rnf reservedInstanceId `Prelude.seq`
+        Prelude.rnf httpStatus

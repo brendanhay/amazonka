@@ -101,5 +101,5 @@ instance Prelude.Hashable AdditionalLimit where
 
 instance Prelude.NFData AdditionalLimit where
   rnf AdditionalLimit' {..} =
-    Prelude.rnf limitName
-      `Prelude.seq` Prelude.rnf limitValues
+    Prelude.rnf limitName `Prelude.seq`
+      Prelude.rnf limitValues

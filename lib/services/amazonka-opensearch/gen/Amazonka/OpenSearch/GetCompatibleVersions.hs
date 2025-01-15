@@ -166,5 +166,5 @@ getCompatibleVersionsResponse_httpStatus = Lens.lens (\GetCompatibleVersionsResp
 
 instance Prelude.NFData GetCompatibleVersionsResponse where
   rnf GetCompatibleVersionsResponse' {..} =
-    Prelude.rnf compatibleVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleVersions `Prelude.seq`
+      Prelude.rnf httpStatus

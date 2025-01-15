@@ -93,9 +93,9 @@ instance Prelude.Hashable AWSDomainInformation where
 
 instance Prelude.NFData AWSDomainInformation where
   rnf AWSDomainInformation' {..} =
-    Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf ownerId `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToJSON AWSDomainInformation where
   toJSON AWSDomainInformation' {..} =

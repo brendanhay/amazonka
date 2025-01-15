@@ -86,5 +86,5 @@ instance Prelude.Hashable CognitoOptionsStatus where
 
 instance Prelude.NFData CognitoOptionsStatus where
   rnf CognitoOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

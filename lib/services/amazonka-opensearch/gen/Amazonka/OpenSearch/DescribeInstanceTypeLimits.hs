@@ -137,9 +137,9 @@ instance Prelude.Hashable DescribeInstanceTypeLimits where
 
 instance Prelude.NFData DescribeInstanceTypeLimits where
   rnf DescribeInstanceTypeLimits' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf engineVersion
 
 instance Data.ToHeaders DescribeInstanceTypeLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ instance
     DescribeInstanceTypeLimitsResponse
   where
   rnf DescribeInstanceTypeLimitsResponse' {..} =
-    Prelude.rnf limitsByRole
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf limitsByRole `Prelude.seq`
+      Prelude.rnf httpStatus

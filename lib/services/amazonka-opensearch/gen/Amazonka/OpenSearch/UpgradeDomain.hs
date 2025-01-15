@@ -167,10 +167,10 @@ instance Prelude.Hashable UpgradeDomain where
 
 instance Prelude.NFData UpgradeDomain where
   rnf UpgradeDomain' {..} =
-    Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf performCheckOnly
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf targetVersion
+    Prelude.rnf advancedOptions `Prelude.seq`
+      Prelude.rnf performCheckOnly `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf targetVersion
 
 instance Data.ToHeaders UpgradeDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,10 +288,10 @@ upgradeDomainResponse_httpStatus = Lens.lens (\UpgradeDomainResponse' {httpStatu
 
 instance Prelude.NFData UpgradeDomainResponse where
   rnf UpgradeDomainResponse' {..} =
-    Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf changeProgressDetails
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf performCheckOnly
-      `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf upgradeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedOptions `Prelude.seq`
+      Prelude.rnf changeProgressDetails `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf performCheckOnly `Prelude.seq`
+            Prelude.rnf targetVersion `Prelude.seq`
+              Prelude.rnf upgradeId `Prelude.seq`
+                Prelude.rnf httpStatus

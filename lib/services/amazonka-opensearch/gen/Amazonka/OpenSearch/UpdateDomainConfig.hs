@@ -368,21 +368,21 @@ instance Prelude.Hashable UpdateDomainConfig where
 
 instance Prelude.NFData UpdateDomainConfig where
   rnf UpdateDomainConfig' {..} =
-    Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf clusterConfig
-      `Prelude.seq` Prelude.rnf cognitoOptions
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf vPCOptions
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf accessPolicies `Prelude.seq`
+      Prelude.rnf advancedOptions `Prelude.seq`
+        Prelude.rnf advancedSecurityOptions `Prelude.seq`
+          Prelude.rnf autoTuneOptions `Prelude.seq`
+            Prelude.rnf clusterConfig `Prelude.seq`
+              Prelude.rnf cognitoOptions `Prelude.seq`
+                Prelude.rnf domainEndpointOptions `Prelude.seq`
+                  Prelude.rnf dryRun `Prelude.seq`
+                    Prelude.rnf eBSOptions `Prelude.seq`
+                      Prelude.rnf encryptionAtRestOptions `Prelude.seq`
+                        Prelude.rnf logPublishingOptions `Prelude.seq`
+                          Prelude.rnf nodeToNodeEncryptionOptions `Prelude.seq`
+                            Prelude.rnf snapshotOptions `Prelude.seq`
+                              Prelude.rnf vPCOptions `Prelude.seq`
+                                Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -486,6 +486,6 @@ updateDomainConfigResponse_domainConfig = Lens.lens (\UpdateDomainConfigResponse
 
 instance Prelude.NFData UpdateDomainConfigResponse where
   rnf UpdateDomainConfigResponse' {..} =
-    Prelude.rnf dryRunResults
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainConfig
+    Prelude.rnf dryRunResults `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf domainConfig

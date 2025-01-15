@@ -118,8 +118,8 @@ instance Prelude.Hashable ListVersions where
 
 instance Prelude.NFData ListVersions where
   rnf ListVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,6 +196,6 @@ listVersionsResponse_httpStatus = Lens.lens (\ListVersionsResponse' {httpStatus}
 
 instance Prelude.NFData ListVersionsResponse where
   rnf ListVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -86,5 +86,5 @@ instance Prelude.Hashable VersionStatus where
 
 instance Prelude.NFData VersionStatus where
   rnf VersionStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

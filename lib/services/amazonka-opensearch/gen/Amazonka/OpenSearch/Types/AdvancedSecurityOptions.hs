@@ -130,8 +130,8 @@ instance Prelude.Hashable AdvancedSecurityOptions where
 
 instance Prelude.NFData AdvancedSecurityOptions where
   rnf AdvancedSecurityOptions' {..} =
-    Prelude.rnf anonymousAuthDisableDate
-      `Prelude.seq` Prelude.rnf anonymousAuthEnabled
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
-      `Prelude.seq` Prelude.rnf sAMLOptions
+    Prelude.rnf anonymousAuthDisableDate `Prelude.seq`
+      Prelude.rnf anonymousAuthEnabled `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf internalUserDatabaseEnabled `Prelude.seq`
+            Prelude.rnf sAMLOptions

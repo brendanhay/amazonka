@@ -152,10 +152,10 @@ instance Prelude.Hashable ListInstanceTypeDetails where
 
 instance Prelude.NFData ListInstanceTypeDetails where
   rnf ListInstanceTypeDetails' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf engineVersion
 
 instance Data.ToHeaders ListInstanceTypeDetails where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,6 +237,6 @@ instance
     ListInstanceTypeDetailsResponse
   where
   rnf ListInstanceTypeDetailsResponse' {..} =
-    Prelude.rnf instanceTypeDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceTypeDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -134,13 +134,13 @@ instance Prelude.Hashable SAMLOptionsInput where
 
 instance Prelude.NFData SAMLOptionsInput where
   rnf SAMLOptionsInput' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf idp
-      `Prelude.seq` Prelude.rnf masterBackendRole
-      `Prelude.seq` Prelude.rnf masterUserName
-      `Prelude.seq` Prelude.rnf rolesKey
-      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
-      `Prelude.seq` Prelude.rnf subjectKey
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf idp `Prelude.seq`
+        Prelude.rnf masterBackendRole `Prelude.seq`
+          Prelude.rnf masterUserName `Prelude.seq`
+            Prelude.rnf rolesKey `Prelude.seq`
+              Prelude.rnf sessionTimeoutMinutes `Prelude.seq`
+                Prelude.rnf subjectKey
 
 instance Data.ToJSON SAMLOptionsInput where
   toJSON SAMLOptionsInput' {..} =

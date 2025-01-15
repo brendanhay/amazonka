@@ -228,17 +228,17 @@ instance Prelude.Hashable ReservedInstance where
 
 instance Prelude.NFData ReservedInstance where
   rnf ReservedInstance' {..} =
-    Prelude.rnf billingSubscriptionId
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservationName
-      `Prelude.seq` Prelude.rnf reservedInstanceId
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf billingSubscriptionId `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf fixedPrice `Prelude.seq`
+            Prelude.rnf instanceCount `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf paymentOption `Prelude.seq`
+                  Prelude.rnf recurringCharges `Prelude.seq`
+                    Prelude.rnf reservationName `Prelude.seq`
+                      Prelude.rnf reservedInstanceId `Prelude.seq`
+                        Prelude.rnf reservedInstanceOfferingId `Prelude.seq`
+                          Prelude.rnf startTime `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf usagePrice

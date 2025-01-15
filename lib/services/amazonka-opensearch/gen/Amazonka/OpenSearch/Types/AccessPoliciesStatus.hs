@@ -92,5 +92,5 @@ instance Prelude.Hashable AccessPoliciesStatus where
 
 instance Prelude.NFData AccessPoliciesStatus where
   rnf AccessPoliciesStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

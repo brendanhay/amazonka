@@ -89,5 +89,5 @@ instance Prelude.Hashable AuthorizedPrincipal where
 
 instance Prelude.NFData AuthorizedPrincipal where
   rnf AuthorizedPrincipal' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf principalType
+    Prelude.rnf principal `Prelude.seq`
+      Prelude.rnf principalType

@@ -90,8 +90,8 @@ instance Prelude.Hashable LogPublishingOption where
 
 instance Prelude.NFData LogPublishingOption where
   rnf LogPublishingOption' {..} =
-    Prelude.rnf cloudWatchLogsLogGroupArn
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf cloudWatchLogsLogGroupArn `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON LogPublishingOption where
   toJSON LogPublishingOption' {..} =

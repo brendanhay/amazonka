@@ -172,5 +172,5 @@ instance
     StartServiceSoftwareUpdateResponse
   where
   rnf StartServiceSoftwareUpdateResponse' {..} =
-    Prelude.rnf serviceSoftwareOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSoftwareOptions `Prelude.seq`
+      Prelude.rnf httpStatus

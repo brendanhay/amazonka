@@ -86,5 +86,5 @@ instance Prelude.Hashable ClusterConfigStatus where
 
 instance Prelude.NFData ClusterConfigStatus where
   rnf ClusterConfigStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

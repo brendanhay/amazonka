@@ -158,9 +158,9 @@ instance
     DescribeReservedInstanceOfferings
   where
   rnf DescribeReservedInstanceOfferings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedInstanceOfferingId
 
 instance
   Data.ToHeaders
@@ -250,6 +250,6 @@ instance
     DescribeReservedInstanceOfferingsResponse
   where
   rnf DescribeReservedInstanceOfferingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservedInstanceOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

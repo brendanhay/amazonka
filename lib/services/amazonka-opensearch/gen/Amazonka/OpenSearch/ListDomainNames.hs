@@ -153,5 +153,5 @@ listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpS
 
 instance Prelude.NFData ListDomainNamesResponse where
   rnf ListDomainNamesResponse' {..} =
-    Prelude.rnf domainNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainNames `Prelude.seq`
+      Prelude.rnf httpStatus

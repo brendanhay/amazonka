@@ -109,8 +109,8 @@ instance Prelude.Hashable RevokeVpcEndpointAccess where
 
 instance Prelude.NFData RevokeVpcEndpointAccess where
   rnf RevokeVpcEndpointAccess' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf account
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf account
 
 instance Data.ToHeaders RevokeVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

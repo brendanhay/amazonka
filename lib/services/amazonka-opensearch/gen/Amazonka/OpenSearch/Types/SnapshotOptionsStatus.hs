@@ -87,5 +87,5 @@ instance Prelude.Hashable SnapshotOptionsStatus where
 
 instance Prelude.NFData SnapshotOptionsStatus where
   rnf SnapshotOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

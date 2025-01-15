@@ -144,10 +144,10 @@ instance Prelude.Hashable InstanceTypeDetails where
 
 instance Prelude.NFData InstanceTypeDetails where
   rnf InstanceTypeDetails' {..} =
-    Prelude.rnf advancedSecurityEnabled
-      `Prelude.seq` Prelude.rnf appLogsEnabled
-      `Prelude.seq` Prelude.rnf cognitoEnabled
-      `Prelude.seq` Prelude.rnf encryptionEnabled
-      `Prelude.seq` Prelude.rnf instanceRole
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf warmEnabled
+    Prelude.rnf advancedSecurityEnabled `Prelude.seq`
+      Prelude.rnf appLogsEnabled `Prelude.seq`
+        Prelude.rnf cognitoEnabled `Prelude.seq`
+          Prelude.rnf encryptionEnabled `Prelude.seq`
+            Prelude.rnf instanceRole `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf warmEnabled

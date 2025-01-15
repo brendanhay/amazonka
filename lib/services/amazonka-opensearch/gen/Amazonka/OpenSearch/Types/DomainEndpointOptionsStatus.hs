@@ -86,5 +86,5 @@ instance Prelude.Hashable DomainEndpointOptionsStatus where
 
 instance Prelude.NFData DomainEndpointOptionsStatus where
   rnf DomainEndpointOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

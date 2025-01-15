@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData AdvancedSecurityOptionsStatus where
   rnf AdvancedSecurityOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

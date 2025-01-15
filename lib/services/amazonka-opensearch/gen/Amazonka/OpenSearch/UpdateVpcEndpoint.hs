@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateVpcEndpoint where
 
 instance Prelude.NFData UpdateVpcEndpoint where
   rnf UpdateVpcEndpoint' {..} =
-    Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcOptions
+    Prelude.rnf vpcEndpointId `Prelude.seq`
+      Prelude.rnf vpcOptions
 
 instance Data.ToHeaders UpdateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,5 +179,5 @@ updateVpcEndpointResponse_vpcEndpoint = Lens.lens (\UpdateVpcEndpointResponse' {
 
 instance Prelude.NFData UpdateVpcEndpointResponse where
   rnf UpdateVpcEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpoint

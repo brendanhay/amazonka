@@ -92,6 +92,6 @@ instance Prelude.Hashable PackageVersionHistory where
 
 instance Prelude.NFData PackageVersionHistory where
   rnf PackageVersionHistory' {..} =
-    Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf commitMessage `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf packageVersion

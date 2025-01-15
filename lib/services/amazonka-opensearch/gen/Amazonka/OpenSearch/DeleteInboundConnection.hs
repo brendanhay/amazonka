@@ -164,5 +164,5 @@ instance
     DeleteInboundConnectionResponse
   where
   rnf DeleteInboundConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,6 +93,6 @@ instance Prelude.Hashable VpcEndpointError where
 
 instance Prelude.NFData VpcEndpointError where
   rnf VpcEndpointError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf vpcEndpointId

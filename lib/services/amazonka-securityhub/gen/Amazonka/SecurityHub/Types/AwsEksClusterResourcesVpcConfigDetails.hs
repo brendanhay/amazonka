@@ -102,8 +102,8 @@ instance
     AwsEksClusterResourcesVpcConfigDetails
   where
   rnf AwsEksClusterResourcesVpcConfigDetails' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds
 
 instance
   Data.ToJSON

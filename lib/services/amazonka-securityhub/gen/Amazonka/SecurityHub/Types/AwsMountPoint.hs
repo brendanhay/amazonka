@@ -83,8 +83,8 @@ instance Prelude.Hashable AwsMountPoint where
 
 instance Prelude.NFData AwsMountPoint where
   rnf AwsMountPoint' {..} =
-    Prelude.rnf containerPath
-      `Prelude.seq` Prelude.rnf sourceVolume
+    Prelude.rnf containerPath `Prelude.seq`
+      Prelude.rnf sourceVolume
 
 instance Data.ToJSON AwsMountPoint where
   toJSON AwsMountPoint' {..} =

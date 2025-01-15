@@ -88,5 +88,5 @@ instance Prelude.Hashable InsightResultValue where
 
 instance Prelude.NFData InsightResultValue where
   rnf InsightResultValue' {..} =
-    Prelude.rnf groupByAttributeValue
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf groupByAttributeValue `Prelude.seq`
+      Prelude.rnf count

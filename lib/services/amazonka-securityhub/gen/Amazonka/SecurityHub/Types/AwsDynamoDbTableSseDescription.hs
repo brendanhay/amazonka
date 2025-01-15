@@ -129,10 +129,10 @@ instance
     AwsDynamoDbTableSseDescription
   where
   rnf AwsDynamoDbTableSseDescription' {..} =
-    Prelude.rnf inaccessibleEncryptionDateTime
-      `Prelude.seq` Prelude.rnf kmsMasterKeyArn
-      `Prelude.seq` Prelude.rnf sseType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf inaccessibleEncryptionDateTime `Prelude.seq`
+      Prelude.rnf kmsMasterKeyArn `Prelude.seq`
+        Prelude.rnf sseType `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON AwsDynamoDbTableSseDescription where
   toJSON AwsDynamoDbTableSseDescription' {..} =

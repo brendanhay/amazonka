@@ -110,9 +110,9 @@ instance
   where
   rnf
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
-      Prelude.rnf ownerGid
-        `Prelude.seq` Prelude.rnf ownerUid
-        `Prelude.seq` Prelude.rnf permissions
+      Prelude.rnf ownerGid `Prelude.seq`
+        Prelude.rnf ownerUid `Prelude.seq`
+          Prelude.rnf permissions
 
 instance
   Data.ToJSON

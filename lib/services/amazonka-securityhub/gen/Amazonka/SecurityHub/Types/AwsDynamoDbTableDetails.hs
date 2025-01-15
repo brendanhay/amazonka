@@ -344,25 +344,25 @@ instance Prelude.Hashable AwsDynamoDbTableDetails where
 
 instance Prelude.NFData AwsDynamoDbTableDetails where
   rnf AwsDynamoDbTableDetails' {..} =
-    Prelude.rnf attributeDefinitions
-      `Prelude.seq` Prelude.rnf billingModeSummary
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf globalTableVersion
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf latestStreamArn
-      `Prelude.seq` Prelude.rnf latestStreamLabel
-      `Prelude.seq` Prelude.rnf localSecondaryIndexes
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf replicas
-      `Prelude.seq` Prelude.rnf restoreSummary
-      `Prelude.seq` Prelude.rnf sseDescription
-      `Prelude.seq` Prelude.rnf streamSpecification
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableSizeBytes
-      `Prelude.seq` Prelude.rnf tableStatus
+    Prelude.rnf attributeDefinitions `Prelude.seq`
+      Prelude.rnf billingModeSummary `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+            Prelude.rnf globalTableVersion `Prelude.seq`
+              Prelude.rnf itemCount `Prelude.seq`
+                Prelude.rnf keySchema `Prelude.seq`
+                  Prelude.rnf latestStreamArn `Prelude.seq`
+                    Prelude.rnf latestStreamLabel `Prelude.seq`
+                      Prelude.rnf localSecondaryIndexes `Prelude.seq`
+                        Prelude.rnf provisionedThroughput `Prelude.seq`
+                          Prelude.rnf replicas `Prelude.seq`
+                            Prelude.rnf restoreSummary `Prelude.seq`
+                              Prelude.rnf sseDescription `Prelude.seq`
+                                Prelude.rnf streamSpecification `Prelude.seq`
+                                  Prelude.rnf tableId `Prelude.seq`
+                                    Prelude.rnf tableName `Prelude.seq`
+                                      Prelude.rnf tableSizeBytes `Prelude.seq`
+                                        Prelude.rnf tableStatus
 
 instance Data.ToJSON AwsDynamoDbTableDetails where
   toJSON AwsDynamoDbTableDetails' {..} =

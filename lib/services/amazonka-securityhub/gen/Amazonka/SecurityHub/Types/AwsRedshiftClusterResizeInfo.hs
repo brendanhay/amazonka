@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData AwsRedshiftClusterResizeInfo where
   rnf AwsRedshiftClusterResizeInfo' {..} =
-    Prelude.rnf allowCancelResize
-      `Prelude.seq` Prelude.rnf resizeType
+    Prelude.rnf allowCancelResize `Prelude.seq`
+      Prelude.rnf resizeType
 
 instance Data.ToJSON AwsRedshiftClusterResizeInfo where
   toJSON AwsRedshiftClusterResizeInfo' {..} =

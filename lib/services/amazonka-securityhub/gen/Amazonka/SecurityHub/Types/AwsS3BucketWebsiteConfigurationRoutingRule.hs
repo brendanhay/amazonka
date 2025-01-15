@@ -100,8 +100,8 @@ instance
     AwsS3BucketWebsiteConfigurationRoutingRule
   where
   rnf AwsS3BucketWebsiteConfigurationRoutingRule' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf redirect
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf redirect
 
 instance
   Data.ToJSON

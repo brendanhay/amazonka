@@ -196,12 +196,12 @@ instance Prelude.Hashable AwsWafWebAclRule where
 
 instance Prelude.NFData AwsWafWebAclRule where
   rnf AwsWafWebAclRule' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf excludedRules
-      `Prelude.seq` Prelude.rnf overrideAction
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf excludedRules `Prelude.seq`
+        Prelude.rnf overrideAction `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf ruleId `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON AwsWafWebAclRule where
   toJSON AwsWafWebAclRule' {..} =

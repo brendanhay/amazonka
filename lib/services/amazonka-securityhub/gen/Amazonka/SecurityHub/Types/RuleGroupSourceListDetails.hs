@@ -104,9 +104,9 @@ instance Prelude.Hashable RuleGroupSourceListDetails where
 
 instance Prelude.NFData RuleGroupSourceListDetails where
   rnf RuleGroupSourceListDetails' {..} =
-    Prelude.rnf generatedRulesType
-      `Prelude.seq` Prelude.rnf targetTypes
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf generatedRulesType `Prelude.seq`
+      Prelude.rnf targetTypes `Prelude.seq`
+        Prelude.rnf targets
 
 instance Data.ToJSON RuleGroupSourceListDetails where
   toJSON RuleGroupSourceListDetails' {..} =

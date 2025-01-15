@@ -113,9 +113,9 @@ instance
   where
   rnf
     AwsEcsClusterConfigurationExecuteCommandConfigurationDetails' {..} =
-      Prelude.rnf kmsKeyId
-        `Prelude.seq` Prelude.rnf logConfiguration
-        `Prelude.seq` Prelude.rnf logging
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf logConfiguration `Prelude.seq`
+          Prelude.rnf logging
 
 instance
   Data.ToJSON

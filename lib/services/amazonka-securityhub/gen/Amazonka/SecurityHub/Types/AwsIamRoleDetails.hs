@@ -200,16 +200,16 @@ instance Prelude.Hashable AwsIamRoleDetails where
 
 instance Prelude.NFData AwsIamRoleDetails where
   rnf AwsIamRoleDetails' {..} =
-    Prelude.rnf assumeRolePolicyDocument
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf instanceProfileList
-      `Prelude.seq` Prelude.rnf maxSessionDuration
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf roleId
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf rolePolicyList
+    Prelude.rnf assumeRolePolicyDocument `Prelude.seq`
+      Prelude.rnf attachedManagedPolicies `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf instanceProfileList `Prelude.seq`
+            Prelude.rnf maxSessionDuration `Prelude.seq`
+              Prelude.rnf path `Prelude.seq`
+                Prelude.rnf permissionsBoundary `Prelude.seq`
+                  Prelude.rnf roleId `Prelude.seq`
+                    Prelude.rnf roleName `Prelude.seq`
+                      Prelude.rnf rolePolicyList
 
 instance Data.ToJSON AwsIamRoleDetails where
   toJSON AwsIamRoleDetails' {..} =

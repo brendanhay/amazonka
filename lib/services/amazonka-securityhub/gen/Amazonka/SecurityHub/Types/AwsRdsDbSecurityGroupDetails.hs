@@ -147,13 +147,13 @@ instance
 
 instance Prelude.NFData AwsRdsDbSecurityGroupDetails where
   rnf AwsRdsDbSecurityGroupDetails' {..} =
-    Prelude.rnf dbSecurityGroupArn
-      `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
-      `Prelude.seq` Prelude.rnf ec2SecurityGroups
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dbSecurityGroupArn `Prelude.seq`
+      Prelude.rnf dbSecurityGroupDescription `Prelude.seq`
+        Prelude.rnf dbSecurityGroupName `Prelude.seq`
+          Prelude.rnf ec2SecurityGroups `Prelude.seq`
+            Prelude.rnf ipRanges `Prelude.seq`
+              Prelude.rnf ownerId `Prelude.seq`
+                Prelude.rnf vpcId
 
 instance Data.ToJSON AwsRdsDbSecurityGroupDetails where
   toJSON AwsRdsDbSecurityGroupDetails' {..} =

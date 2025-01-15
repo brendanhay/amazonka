@@ -85,8 +85,8 @@ instance
 
 instance Prelude.NFData AwsLambdaFunctionEnvironment where
   rnf AwsLambdaFunctionEnvironment' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf variables
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf variables
 
 instance Data.ToJSON AwsLambdaFunctionEnvironment where
   toJSON AwsLambdaFunctionEnvironment' {..} =

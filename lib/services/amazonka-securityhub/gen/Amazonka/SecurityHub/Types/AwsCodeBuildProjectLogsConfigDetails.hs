@@ -94,8 +94,8 @@ instance
     AwsCodeBuildProjectLogsConfigDetails
   where
   rnf AwsCodeBuildProjectLogsConfigDetails' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf s3Logs
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf s3Logs
 
 instance
   Data.ToJSON

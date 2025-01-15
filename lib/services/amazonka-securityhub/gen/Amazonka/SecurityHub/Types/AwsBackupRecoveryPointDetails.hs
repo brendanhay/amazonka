@@ -396,25 +396,25 @@ instance
 
 instance Prelude.NFData AwsBackupRecoveryPointDetails where
   rnf AwsBackupRecoveryPointDetails' {..} =
-    Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf calculatedLifecycle
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf isEncrypted
-      `Prelude.seq` Prelude.rnf lastRestoreTime
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf backupSizeInBytes `Prelude.seq`
+      Prelude.rnf backupVaultArn `Prelude.seq`
+        Prelude.rnf backupVaultName `Prelude.seq`
+          Prelude.rnf calculatedLifecycle `Prelude.seq`
+            Prelude.rnf completionDate `Prelude.seq`
+              Prelude.rnf createdBy `Prelude.seq`
+                Prelude.rnf creationDate `Prelude.seq`
+                  Prelude.rnf encryptionKeyArn `Prelude.seq`
+                    Prelude.rnf iamRoleArn `Prelude.seq`
+                      Prelude.rnf isEncrypted `Prelude.seq`
+                        Prelude.rnf lastRestoreTime `Prelude.seq`
+                          Prelude.rnf lifecycle `Prelude.seq`
+                            Prelude.rnf recoveryPointArn `Prelude.seq`
+                              Prelude.rnf resourceArn `Prelude.seq`
+                                Prelude.rnf resourceType `Prelude.seq`
+                                  Prelude.rnf sourceBackupVaultArn `Prelude.seq`
+                                    Prelude.rnf status `Prelude.seq`
+                                      Prelude.rnf statusMessage `Prelude.seq`
+                                        Prelude.rnf storageClass
 
 instance Data.ToJSON AwsBackupRecoveryPointDetails where
   toJSON AwsBackupRecoveryPointDetails' {..} =

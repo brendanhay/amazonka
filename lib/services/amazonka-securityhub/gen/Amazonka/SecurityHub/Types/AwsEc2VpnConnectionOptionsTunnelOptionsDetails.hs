@@ -319,22 +319,22 @@ instance
   where
   rnf
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
-      Prelude.rnf dpdTimeoutSeconds
-        `Prelude.seq` Prelude.rnf ikeVersions
-        `Prelude.seq` Prelude.rnf outsideIpAddress
-        `Prelude.seq` Prelude.rnf phase1DhGroupNumbers
-        `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
-        `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
-        `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
-        `Prelude.seq` Prelude.rnf phase2DhGroupNumbers
-        `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
-        `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-        `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
-        `Prelude.seq` Prelude.rnf preSharedKey
-        `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
-        `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
-        `Prelude.seq` Prelude.rnf replayWindowSize
-        `Prelude.seq` Prelude.rnf tunnelInsideCidr
+      Prelude.rnf dpdTimeoutSeconds `Prelude.seq`
+        Prelude.rnf ikeVersions `Prelude.seq`
+          Prelude.rnf outsideIpAddress `Prelude.seq`
+            Prelude.rnf phase1DhGroupNumbers `Prelude.seq`
+              Prelude.rnf phase1EncryptionAlgorithms `Prelude.seq`
+                Prelude.rnf phase1IntegrityAlgorithms `Prelude.seq`
+                  Prelude.rnf phase1LifetimeSeconds `Prelude.seq`
+                    Prelude.rnf phase2DhGroupNumbers `Prelude.seq`
+                      Prelude.rnf phase2EncryptionAlgorithms `Prelude.seq`
+                        Prelude.rnf phase2IntegrityAlgorithms `Prelude.seq`
+                          Prelude.rnf phase2LifetimeSeconds `Prelude.seq`
+                            Prelude.rnf preSharedKey `Prelude.seq`
+                              Prelude.rnf rekeyFuzzPercentage `Prelude.seq`
+                                Prelude.rnf rekeyMarginTimeSeconds `Prelude.seq`
+                                  Prelude.rnf replayWindowSize `Prelude.seq`
+                                    Prelude.rnf tunnelInsideCidr
 
 instance
   Data.ToJSON

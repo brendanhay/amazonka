@@ -107,9 +107,9 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails' {..} =
-      Prelude.rnf enabled
-        `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
-        `Prelude.seq` Prelude.rnf masterUserOptions
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf internalUserDatabaseEnabled `Prelude.seq`
+          Prelude.rnf masterUserOptions
 
 instance
   Data.ToJSON

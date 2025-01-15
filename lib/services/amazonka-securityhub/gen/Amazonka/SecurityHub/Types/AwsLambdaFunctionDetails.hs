@@ -318,26 +318,26 @@ instance Prelude.Hashable AwsLambdaFunctionDetails where
 
 instance Prelude.NFData AwsLambdaFunctionDetails where
   rnf AwsLambdaFunctionDetails' {..} =
-    Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf codeSha256
-      `Prelude.seq` Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf handler
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf masterArn
-      `Prelude.seq` Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf packageType
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tracingConfig
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf architectures `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf codeSha256 `Prelude.seq`
+          Prelude.rnf deadLetterConfig `Prelude.seq`
+            Prelude.rnf environment `Prelude.seq`
+              Prelude.rnf functionName `Prelude.seq`
+                Prelude.rnf handler `Prelude.seq`
+                  Prelude.rnf kmsKeyArn `Prelude.seq`
+                    Prelude.rnf lastModified `Prelude.seq`
+                      Prelude.rnf layers `Prelude.seq`
+                        Prelude.rnf masterArn `Prelude.seq`
+                          Prelude.rnf memorySize `Prelude.seq`
+                            Prelude.rnf packageType `Prelude.seq`
+                              Prelude.rnf revisionId `Prelude.seq`
+                                Prelude.rnf role' `Prelude.seq`
+                                  Prelude.rnf runtime `Prelude.seq`
+                                    Prelude.rnf timeout `Prelude.seq`
+                                      Prelude.rnf tracingConfig `Prelude.seq`
+                                        Prelude.rnf version `Prelude.seq`
+                                          Prelude.rnf vpcConfig
 
 instance Data.ToJSON AwsLambdaFunctionDetails where
   toJSON AwsLambdaFunctionDetails' {..} =

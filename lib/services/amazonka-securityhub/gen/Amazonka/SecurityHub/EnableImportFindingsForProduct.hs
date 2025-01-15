@@ -186,5 +186,5 @@ instance
     EnableImportFindingsForProductResponse
   where
   rnf EnableImportFindingsForProductResponse' {..} =
-    Prelude.rnf productSubscriptionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf productSubscriptionArn `Prelude.seq`
+      Prelude.rnf httpStatus

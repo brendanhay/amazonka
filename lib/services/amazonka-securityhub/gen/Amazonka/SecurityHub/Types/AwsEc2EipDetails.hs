@@ -192,16 +192,16 @@ instance Prelude.Hashable AwsEc2EipDetails where
 
 instance Prelude.NFData AwsEc2EipDetails where
   rnf AwsEc2EipDetails' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkInterfaceOwnerId
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf publicIpv4Pool
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf networkBorderGroup `Prelude.seq`
+              Prelude.rnf networkInterfaceId `Prelude.seq`
+                Prelude.rnf networkInterfaceOwnerId `Prelude.seq`
+                  Prelude.rnf privateIpAddress `Prelude.seq`
+                    Prelude.rnf publicIp `Prelude.seq`
+                      Prelude.rnf publicIpv4Pool
 
 instance Data.ToJSON AwsEc2EipDetails where
   toJSON AwsEc2EipDetails' {..} =

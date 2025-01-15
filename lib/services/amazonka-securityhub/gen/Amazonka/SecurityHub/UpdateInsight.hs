@@ -129,10 +129,10 @@ instance Prelude.Hashable UpdateInsight where
 
 instance Prelude.NFData UpdateInsight where
   rnf UpdateInsight' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupByAttribute
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf insightArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf groupByAttribute `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf insightArn
 
 instance Data.ToHeaders UpdateInsight where
   toHeaders =

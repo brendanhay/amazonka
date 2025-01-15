@@ -116,10 +116,10 @@ instance
     AwsWafRegionalRuleGroupDetails
   where
   rnf AwsWafRegionalRuleGroupDetails' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleGroupId `Prelude.seq`
+          Prelude.rnf rules
 
 instance Data.ToJSON AwsWafRegionalRuleGroupDetails where
   toJSON AwsWafRegionalRuleGroupDetails' {..} =

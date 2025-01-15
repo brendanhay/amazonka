@@ -153,10 +153,10 @@ instance
     AwsEcsServiceLoadBalancersDetails
   where
   rnf AwsEcsServiceLoadBalancersDetails' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf targetGroupArn
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf loadBalancerName `Prelude.seq`
+          Prelude.rnf targetGroupArn
 
 instance
   Data.ToJSON

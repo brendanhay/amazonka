@@ -126,11 +126,11 @@ instance Prelude.Hashable AwsKinesisStreamDetails where
 
 instance Prelude.NFData AwsKinesisStreamDetails where
   rnf AwsKinesisStreamDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retentionPeriodHours
-      `Prelude.seq` Prelude.rnf shardCount
-      `Prelude.seq` Prelude.rnf streamEncryption
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf retentionPeriodHours `Prelude.seq`
+          Prelude.rnf shardCount `Prelude.seq`
+            Prelude.rnf streamEncryption
 
 instance Data.ToJSON AwsKinesisStreamDetails where
   toJSON AwsKinesisStreamDetails' {..} =

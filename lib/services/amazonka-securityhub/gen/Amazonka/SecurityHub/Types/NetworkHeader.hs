@@ -93,9 +93,9 @@ instance Prelude.Hashable NetworkHeader where
 
 instance Prelude.NFData NetworkHeader where
   rnf NetworkHeader' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf protocol `Prelude.seq`
+        Prelude.rnf source
 
 instance Data.ToJSON NetworkHeader where
   toJSON NetworkHeader' {..} =

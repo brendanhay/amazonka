@@ -93,8 +93,8 @@ instance
     AwsElbLoadBalancerListenerDescription
   where
   rnf AwsElbLoadBalancerListenerDescription' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf policyNames
 
 instance
   Data.ToJSON

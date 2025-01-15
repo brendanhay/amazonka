@@ -91,5 +91,5 @@ instance Prelude.Hashable AdminAccount where
 
 instance Prelude.NFData AdminAccount where
   rnf AdminAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf status

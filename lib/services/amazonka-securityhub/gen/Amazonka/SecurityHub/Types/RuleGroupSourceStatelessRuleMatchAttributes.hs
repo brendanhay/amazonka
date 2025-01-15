@@ -150,12 +150,12 @@ instance
     RuleGroupSourceStatelessRuleMatchAttributes
   where
   rnf RuleGroupSourceStatelessRuleMatchAttributes' {..} =
-    Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf sourcePorts
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tcpFlags
+    Prelude.rnf destinationPorts `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf protocols `Prelude.seq`
+          Prelude.rnf sourcePorts `Prelude.seq`
+            Prelude.rnf sources `Prelude.seq`
+              Prelude.rnf tcpFlags
 
 instance
   Data.ToJSON

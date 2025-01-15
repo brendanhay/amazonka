@@ -92,8 +92,8 @@ instance
     AwsRdsDbInstanceVpcSecurityGroup
   where
   rnf AwsRdsDbInstanceVpcSecurityGroup' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupId
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf vpcSecurityGroupId
 
 instance Data.ToJSON AwsRdsDbInstanceVpcSecurityGroup where
   toJSON AwsRdsDbInstanceVpcSecurityGroup' {..} =

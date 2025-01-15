@@ -99,9 +99,9 @@ instance Prelude.Hashable SensitiveDataResult where
 
 instance Prelude.NFData SensitiveDataResult where
   rnf SensitiveDataResult' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf detections `Prelude.seq`
+        Prelude.rnf totalCount
 
 instance Data.ToJSON SensitiveDataResult where
   toJSON SensitiveDataResult' {..} =

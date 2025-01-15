@@ -143,8 +143,8 @@ instance Prelude.Hashable EnableSecurityHub where
 
 instance Prelude.NFData EnableSecurityHub where
   rnf EnableSecurityHub' {..} =
-    Prelude.rnf enableDefaultStandards
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf enableDefaultStandards `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders EnableSecurityHub where
   toHeaders =

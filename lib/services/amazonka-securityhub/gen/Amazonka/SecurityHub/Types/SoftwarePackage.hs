@@ -185,17 +185,17 @@ instance Prelude.Hashable SoftwarePackage where
 
 instance Prelude.NFData SoftwarePackage where
   rnf SoftwarePackage' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf epoch
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf fixedInVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageManager
-      `Prelude.seq` Prelude.rnf release
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf sourceLayerArn
-      `Prelude.seq` Prelude.rnf sourceLayerHash
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf epoch `Prelude.seq`
+        Prelude.rnf filePath `Prelude.seq`
+          Prelude.rnf fixedInVersion `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf packageManager `Prelude.seq`
+                Prelude.rnf release `Prelude.seq`
+                  Prelude.rnf remediation `Prelude.seq`
+                    Prelude.rnf sourceLayerArn `Prelude.seq`
+                      Prelude.rnf sourceLayerHash `Prelude.seq`
+                        Prelude.rnf version
 
 instance Data.ToJSON SoftwarePackage where
   toJSON SoftwarePackage' {..} =

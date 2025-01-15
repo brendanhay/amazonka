@@ -119,10 +119,10 @@ instance Prelude.Hashable AwsElbLoadBalancerAccessLog where
 
 instance Prelude.NFData AwsElbLoadBalancerAccessLog where
   rnf AwsElbLoadBalancerAccessLog' {..} =
-    Prelude.rnf emitInterval
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3BucketPrefix
+    Prelude.rnf emitInterval `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3BucketPrefix
 
 instance Data.ToJSON AwsElbLoadBalancerAccessLog where
   toJSON AwsElbLoadBalancerAccessLog' {..} =

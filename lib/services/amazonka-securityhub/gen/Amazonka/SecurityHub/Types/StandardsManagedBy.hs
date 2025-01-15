@@ -89,5 +89,5 @@ instance Prelude.Hashable StandardsManagedBy where
 
 instance Prelude.NFData StandardsManagedBy where
   rnf StandardsManagedBy' {..} =
-    Prelude.rnf company
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf company `Prelude.seq`
+      Prelude.rnf product

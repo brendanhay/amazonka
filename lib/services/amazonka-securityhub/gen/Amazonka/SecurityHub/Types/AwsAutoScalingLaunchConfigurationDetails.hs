@@ -337,25 +337,25 @@ instance
     AwsAutoScalingLaunchConfigurationDetails
   where
   rnf AwsAutoScalingLaunchConfigurationDetails' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf classicLinkVpcId
-      `Prelude.seq` Prelude.rnf classicLinkVpcSecurityGroups
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceMonitoring
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf metadataOptions
-      `Prelude.seq` Prelude.rnf placementTenancy
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf userData
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf classicLinkVpcId `Prelude.seq`
+          Prelude.rnf classicLinkVpcSecurityGroups `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf ebsOptimized `Prelude.seq`
+                Prelude.rnf iamInstanceProfile `Prelude.seq`
+                  Prelude.rnf imageId `Prelude.seq`
+                    Prelude.rnf instanceMonitoring `Prelude.seq`
+                      Prelude.rnf instanceType `Prelude.seq`
+                        Prelude.rnf kernelId `Prelude.seq`
+                          Prelude.rnf keyName `Prelude.seq`
+                            Prelude.rnf launchConfigurationName `Prelude.seq`
+                              Prelude.rnf metadataOptions `Prelude.seq`
+                                Prelude.rnf placementTenancy `Prelude.seq`
+                                  Prelude.rnf ramdiskId `Prelude.seq`
+                                    Prelude.rnf securityGroups `Prelude.seq`
+                                      Prelude.rnf spotPrice `Prelude.seq`
+                                        Prelude.rnf userData
 
 instance
   Data.ToJSON

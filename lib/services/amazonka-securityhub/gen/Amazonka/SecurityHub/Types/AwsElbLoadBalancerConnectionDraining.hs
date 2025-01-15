@@ -96,8 +96,8 @@ instance
     AwsElbLoadBalancerConnectionDraining
   where
   rnf AwsElbLoadBalancerConnectionDraining' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf timeout
 
 instance
   Data.ToJSON

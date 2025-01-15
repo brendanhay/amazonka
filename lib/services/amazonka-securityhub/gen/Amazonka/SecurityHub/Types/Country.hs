@@ -80,8 +80,8 @@ instance Prelude.Hashable Country where
 
 instance Prelude.NFData Country where
   rnf Country' {..} =
-    Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf countryName
+    Prelude.rnf countryCode `Prelude.seq`
+      Prelude.rnf countryName
 
 instance Data.ToJSON Country where
   toJSON Country' {..} =

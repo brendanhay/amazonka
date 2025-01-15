@@ -71,8 +71,8 @@ instance Prelude.Hashable NoteUpdate where
 
 instance Prelude.NFData NoteUpdate where
   rnf NoteUpdate' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf updatedBy
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf updatedBy
 
 instance Data.ToJSON NoteUpdate where
   toJSON NoteUpdate' {..} =

@@ -101,8 +101,8 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails' {..} =
-      Prelude.rnf days
-        `Prelude.seq` Prelude.rnf storageClass
+      Prelude.rnf days `Prelude.seq`
+        Prelude.rnf storageClass
 
 instance
   Data.ToJSON

@@ -200,13 +200,13 @@ instance Prelude.Hashable StandardsControl where
 
 instance Prelude.NFData StandardsControl where
   rnf StandardsControl' {..} =
-    Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf controlStatus
-      `Prelude.seq` Prelude.rnf controlStatusUpdatedAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disabledReason
-      `Prelude.seq` Prelude.rnf relatedRequirements
-      `Prelude.seq` Prelude.rnf remediationUrl
-      `Prelude.seq` Prelude.rnf severityRating
-      `Prelude.seq` Prelude.rnf standardsControlArn
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf controlId `Prelude.seq`
+      Prelude.rnf controlStatus `Prelude.seq`
+        Prelude.rnf controlStatusUpdatedAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disabledReason `Prelude.seq`
+              Prelude.rnf relatedRequirements `Prelude.seq`
+                Prelude.rnf remediationUrl `Prelude.seq`
+                  Prelude.rnf severityRating `Prelude.seq`
+                    Prelude.rnf standardsControlArn `Prelude.seq`
+                      Prelude.rnf title

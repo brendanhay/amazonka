@@ -193,16 +193,16 @@ instance Prelude.Hashable AwsWafv2WebAclDetails where
 
 instance Prelude.NFData AwsWafv2WebAclDetails where
   rnf AwsWafv2WebAclDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf managedbyFirewallManager
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf capacity `Prelude.seq`
+        Prelude.rnf captchaConfig `Prelude.seq`
+          Prelude.rnf defaultAction `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf managedbyFirewallManager `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf rules `Prelude.seq`
+                      Prelude.rnf visibilityConfig
 
 instance Data.ToJSON AwsWafv2WebAclDetails where
   toJSON AwsWafv2WebAclDetails' {..} =

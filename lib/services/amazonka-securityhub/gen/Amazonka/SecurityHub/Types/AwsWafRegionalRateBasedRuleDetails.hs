@@ -158,12 +158,12 @@ instance
     AwsWafRegionalRateBasedRuleDetails
   where
   rnf AwsWafRegionalRateBasedRuleDetails' {..} =
-    Prelude.rnf matchPredicates
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rateKey
-      `Prelude.seq` Prelude.rnf rateLimit
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf matchPredicates `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf rateKey `Prelude.seq`
+            Prelude.rnf rateLimit `Prelude.seq`
+              Prelude.rnf ruleId
 
 instance
   Data.ToJSON

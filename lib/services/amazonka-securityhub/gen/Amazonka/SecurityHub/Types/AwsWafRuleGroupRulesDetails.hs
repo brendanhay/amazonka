@@ -111,10 +111,10 @@ instance Prelude.Hashable AwsWafRuleGroupRulesDetails where
 
 instance Prelude.NFData AwsWafRuleGroupRulesDetails where
   rnf AwsWafRuleGroupRulesDetails' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON AwsWafRuleGroupRulesDetails where
   toJSON AwsWafRuleGroupRulesDetails' {..} =

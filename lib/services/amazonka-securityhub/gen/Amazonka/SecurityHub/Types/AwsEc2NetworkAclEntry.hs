@@ -158,14 +158,14 @@ instance Prelude.Hashable AwsEc2NetworkAclEntry where
 
 instance Prelude.NFData AwsEc2NetworkAclEntry where
   rnf AwsEc2NetworkAclEntry' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf icmpTypeCode
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf egress `Prelude.seq`
+        Prelude.rnf icmpTypeCode `Prelude.seq`
+          Prelude.rnf ipv6CidrBlock `Prelude.seq`
+            Prelude.rnf portRange `Prelude.seq`
+              Prelude.rnf protocol `Prelude.seq`
+                Prelude.rnf ruleAction `Prelude.seq`
+                  Prelude.rnf ruleNumber
 
 instance Data.ToJSON AwsEc2NetworkAclEntry where
   toJSON AwsEc2NetworkAclEntry' {..} =

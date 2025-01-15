@@ -124,8 +124,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
-      Prelude.rnf condition
-        `Prelude.seq` Prelude.rnf containerName
+      Prelude.rnf condition `Prelude.seq`
+        Prelude.rnf containerName
 
 instance
   Data.ToJSON

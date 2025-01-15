@@ -267,21 +267,21 @@ instance
     AwsOpenSearchServiceDomainDetails
   where
   rnf AwsOpenSearchServiceDomainDetails' {..} =
-    Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clusterConfig
-      `Prelude.seq` Prelude.rnf domainEndpoint
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf domainEndpoints
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
-      `Prelude.seq` Prelude.rnf vpcOptions
+    Prelude.rnf accessPolicies `Prelude.seq`
+      Prelude.rnf advancedSecurityOptions `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf clusterConfig `Prelude.seq`
+            Prelude.rnf domainEndpoint `Prelude.seq`
+              Prelude.rnf domainEndpointOptions `Prelude.seq`
+                Prelude.rnf domainEndpoints `Prelude.seq`
+                  Prelude.rnf domainName `Prelude.seq`
+                    Prelude.rnf encryptionAtRestOptions `Prelude.seq`
+                      Prelude.rnf engineVersion `Prelude.seq`
+                        Prelude.rnf id `Prelude.seq`
+                          Prelude.rnf logPublishingOptions `Prelude.seq`
+                            Prelude.rnf nodeToNodeEncryptionOptions `Prelude.seq`
+                              Prelude.rnf serviceSoftwareOptions `Prelude.seq`
+                                Prelude.rnf vpcOptions
 
 instance
   Data.ToJSON

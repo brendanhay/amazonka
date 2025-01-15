@@ -112,10 +112,10 @@ instance Prelude.Hashable AwsSqsQueueDetails where
 
 instance Prelude.NFData AwsSqsQueueDetails where
   rnf AwsSqsQueueDetails' {..} =
-    Prelude.rnf deadLetterTargetArn
-      `Prelude.seq` Prelude.rnf kmsDataKeyReusePeriodSeconds
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf queueName
+    Prelude.rnf deadLetterTargetArn `Prelude.seq`
+      Prelude.rnf kmsDataKeyReusePeriodSeconds `Prelude.seq`
+        Prelude.rnf kmsMasterKeyId `Prelude.seq`
+          Prelude.rnf queueName
 
 instance Data.ToJSON AwsSqsQueueDetails where
   toJSON AwsSqsQueueDetails' {..} =

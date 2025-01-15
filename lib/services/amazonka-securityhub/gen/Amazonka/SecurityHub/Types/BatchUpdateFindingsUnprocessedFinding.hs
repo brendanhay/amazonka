@@ -225,6 +225,6 @@ instance
     BatchUpdateFindingsUnprocessedFinding
   where
   rnf BatchUpdateFindingsUnprocessedFinding' {..} =
-    Prelude.rnf findingIdentifier
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf findingIdentifier `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

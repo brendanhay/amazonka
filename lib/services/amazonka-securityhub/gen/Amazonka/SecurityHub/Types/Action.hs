@@ -162,11 +162,11 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf awsApiCallAction
-      `Prelude.seq` Prelude.rnf dnsRequestAction
-      `Prelude.seq` Prelude.rnf networkConnectionAction
-      `Prelude.seq` Prelude.rnf portProbeAction
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf awsApiCallAction `Prelude.seq`
+        Prelude.rnf dnsRequestAction `Prelude.seq`
+          Prelude.rnf networkConnectionAction `Prelude.seq`
+            Prelude.rnf portProbeAction
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

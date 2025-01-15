@@ -361,16 +361,16 @@ instance Prelude.Hashable BatchUpdateFindings where
 
 instance Prelude.NFData BatchUpdateFindings where
   rnf BatchUpdateFindings' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf criticality
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf relatedFindings
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf userDefinedFields
-      `Prelude.seq` Prelude.rnf verificationState
-      `Prelude.seq` Prelude.rnf workflow
-      `Prelude.seq` Prelude.rnf findingIdentifiers
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf criticality `Prelude.seq`
+        Prelude.rnf note `Prelude.seq`
+          Prelude.rnf relatedFindings `Prelude.seq`
+            Prelude.rnf severity `Prelude.seq`
+              Prelude.rnf types `Prelude.seq`
+                Prelude.rnf userDefinedFields `Prelude.seq`
+                  Prelude.rnf verificationState `Prelude.seq`
+                    Prelude.rnf workflow `Prelude.seq`
+                      Prelude.rnf findingIdentifiers
 
 instance Data.ToHeaders BatchUpdateFindings where
   toHeaders =
@@ -460,6 +460,6 @@ batchUpdateFindingsResponse_unprocessedFindings = Lens.lens (\BatchUpdateFinding
 
 instance Prelude.NFData BatchUpdateFindingsResponse where
   rnf BatchUpdateFindingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf processedFindings
-      `Prelude.seq` Prelude.rnf unprocessedFindings
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf processedFindings `Prelude.seq`
+        Prelude.rnf unprocessedFindings

@@ -172,14 +172,14 @@ instance Prelude.Hashable AwsWafv2RuleGroupDetails where
 
 instance Prelude.NFData AwsWafv2RuleGroupDetails where
   rnf AwsWafv2RuleGroupDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf capacity `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf rules `Prelude.seq`
+                Prelude.rnf scope `Prelude.seq`
+                  Prelude.rnf visibilityConfig
 
 instance Data.ToJSON AwsWafv2RuleGroupDetails where
   toJSON AwsWafv2RuleGroupDetails' {..} =

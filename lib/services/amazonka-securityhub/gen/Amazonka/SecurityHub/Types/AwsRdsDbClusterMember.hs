@@ -109,10 +109,10 @@ instance Prelude.Hashable AwsRdsDbClusterMember where
 
 instance Prelude.NFData AwsRdsDbClusterMember where
   rnf AwsRdsDbClusterMember' {..} =
-    Prelude.rnf dbClusterParameterGroupStatus
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf isClusterWriter
-      `Prelude.seq` Prelude.rnf promotionTier
+    Prelude.rnf dbClusterParameterGroupStatus `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+        Prelude.rnf isClusterWriter `Prelude.seq`
+          Prelude.rnf promotionTier
 
 instance Data.ToJSON AwsRdsDbClusterMember where
   toJSON AwsRdsDbClusterMember' {..} =

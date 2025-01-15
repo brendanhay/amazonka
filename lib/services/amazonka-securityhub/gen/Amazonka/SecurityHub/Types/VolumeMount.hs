@@ -80,8 +80,8 @@ instance Prelude.Hashable VolumeMount where
 
 instance Prelude.NFData VolumeMount where
   rnf VolumeMount' {..} =
-    Prelude.rnf mountPath
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf mountPath `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON VolumeMount where
   toJSON VolumeMount' {..} =

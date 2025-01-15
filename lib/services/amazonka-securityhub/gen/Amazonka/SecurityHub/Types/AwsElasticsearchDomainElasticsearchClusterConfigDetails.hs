@@ -212,13 +212,13 @@ instance
   where
   rnf
     AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
-      Prelude.rnf dedicatedMasterCount
-        `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
-        `Prelude.seq` Prelude.rnf dedicatedMasterType
-        `Prelude.seq` Prelude.rnf instanceCount
-        `Prelude.seq` Prelude.rnf instanceType
-        `Prelude.seq` Prelude.rnf zoneAwarenessConfig
-        `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+      Prelude.rnf dedicatedMasterCount `Prelude.seq`
+        Prelude.rnf dedicatedMasterEnabled `Prelude.seq`
+          Prelude.rnf dedicatedMasterType `Prelude.seq`
+            Prelude.rnf instanceCount `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf zoneAwarenessConfig `Prelude.seq`
+                  Prelude.rnf zoneAwarenessEnabled
 
 instance
   Data.ToJSON

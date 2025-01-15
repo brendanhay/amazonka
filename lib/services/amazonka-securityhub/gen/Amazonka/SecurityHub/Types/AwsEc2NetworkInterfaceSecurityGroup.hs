@@ -92,8 +92,8 @@ instance
     AwsEc2NetworkInterfaceSecurityGroup
   where
   rnf AwsEc2NetworkInterfaceSecurityGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName
 
 instance
   Data.ToJSON

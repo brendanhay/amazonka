@@ -122,11 +122,11 @@ instance Prelude.Hashable ActionRemoteIpDetails where
 
 instance Prelude.NFData ActionRemoteIpDetails where
   rnf ActionRemoteIpDetails' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf geoLocation
-      `Prelude.seq` Prelude.rnf ipAddressV4
-      `Prelude.seq` Prelude.rnf organization
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf geoLocation `Prelude.seq`
+          Prelude.rnf ipAddressV4 `Prelude.seq`
+            Prelude.rnf organization
 
 instance Data.ToJSON ActionRemoteIpDetails where
   toJSON ActionRemoteIpDetails' {..} =

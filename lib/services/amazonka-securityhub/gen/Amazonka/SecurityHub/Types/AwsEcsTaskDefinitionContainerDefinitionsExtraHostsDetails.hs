@@ -95,8 +95,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {..} =
-      Prelude.rnf hostname
-        `Prelude.seq` Prelude.rnf ipAddress
+      Prelude.rnf hostname `Prelude.seq`
+        Prelude.rnf ipAddress
 
 instance
   Data.ToJSON

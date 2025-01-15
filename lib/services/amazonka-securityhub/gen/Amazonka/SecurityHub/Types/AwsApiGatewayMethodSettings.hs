@@ -270,19 +270,19 @@ instance Prelude.Hashable AwsApiGatewayMethodSettings where
 
 instance Prelude.NFData AwsApiGatewayMethodSettings where
   rnf AwsApiGatewayMethodSettings' {..} =
-    Prelude.rnf cacheDataEncrypted
-      `Prelude.seq` Prelude.rnf cacheTtlInSeconds
-      `Prelude.seq` Prelude.rnf cachingEnabled
-      `Prelude.seq` Prelude.rnf dataTraceEnabled
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf loggingLevel
-      `Prelude.seq` Prelude.rnf metricsEnabled
-      `Prelude.seq` Prelude.rnf requireAuthorizationForCacheControl
-      `Prelude.seq` Prelude.rnf resourcePath
-      `Prelude.seq` Prelude.rnf throttlingBurstLimit
-      `Prelude.seq` Prelude.rnf throttlingRateLimit
-      `Prelude.seq` Prelude.rnf
-        unauthorizedCacheControlHeaderStrategy
+    Prelude.rnf cacheDataEncrypted `Prelude.seq`
+      Prelude.rnf cacheTtlInSeconds `Prelude.seq`
+        Prelude.rnf cachingEnabled `Prelude.seq`
+          Prelude.rnf dataTraceEnabled `Prelude.seq`
+            Prelude.rnf httpMethod `Prelude.seq`
+              Prelude.rnf loggingLevel `Prelude.seq`
+                Prelude.rnf metricsEnabled `Prelude.seq`
+                  Prelude.rnf requireAuthorizationForCacheControl `Prelude.seq`
+                    Prelude.rnf resourcePath `Prelude.seq`
+                      Prelude.rnf throttlingBurstLimit `Prelude.seq`
+                        Prelude.rnf throttlingRateLimit `Prelude.seq`
+                          Prelude.rnf
+                            unauthorizedCacheControlHeaderStrategy
 
 instance Data.ToJSON AwsApiGatewayMethodSettings where
   toJSON AwsApiGatewayMethodSettings' {..} =

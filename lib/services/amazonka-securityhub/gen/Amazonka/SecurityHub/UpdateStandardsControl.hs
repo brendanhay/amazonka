@@ -122,9 +122,9 @@ instance Prelude.Hashable UpdateStandardsControl where
 
 instance Prelude.NFData UpdateStandardsControl where
   rnf UpdateStandardsControl' {..} =
-    Prelude.rnf controlStatus
-      `Prelude.seq` Prelude.rnf disabledReason
-      `Prelude.seq` Prelude.rnf standardsControlArn
+    Prelude.rnf controlStatus `Prelude.seq`
+      Prelude.rnf disabledReason `Prelude.seq`
+        Prelude.rnf standardsControlArn
 
 instance Data.ToHeaders UpdateStandardsControl where
   toHeaders =

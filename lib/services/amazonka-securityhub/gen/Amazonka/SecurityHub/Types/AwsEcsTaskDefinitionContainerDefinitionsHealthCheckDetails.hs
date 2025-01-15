@@ -146,11 +146,11 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails' {..} =
-      Prelude.rnf command
-        `Prelude.seq` Prelude.rnf interval
-        `Prelude.seq` Prelude.rnf retries
-        `Prelude.seq` Prelude.rnf startPeriod
-        `Prelude.seq` Prelude.rnf timeout
+      Prelude.rnf command `Prelude.seq`
+        Prelude.rnf interval `Prelude.seq`
+          Prelude.rnf retries `Prelude.seq`
+            Prelude.rnf startPeriod `Prelude.seq`
+              Prelude.rnf timeout
 
 instance
   Data.ToJSON

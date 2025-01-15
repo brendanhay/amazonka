@@ -200,8 +200,8 @@ getFindingAggregatorResponse_httpStatus = Lens.lens (\GetFindingAggregatorRespon
 
 instance Prelude.NFData GetFindingAggregatorResponse where
   rnf GetFindingAggregatorResponse' {..} =
-    Prelude.rnf findingAggregationRegion
-      `Prelude.seq` Prelude.rnf findingAggregatorArn
-      `Prelude.seq` Prelude.rnf regionLinkingMode
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf findingAggregationRegion `Prelude.seq`
+      Prelude.rnf findingAggregatorArn `Prelude.seq`
+        Prelude.rnf regionLinkingMode `Prelude.seq`
+          Prelude.rnf regions `Prelude.seq`
+            Prelude.rnf httpStatus

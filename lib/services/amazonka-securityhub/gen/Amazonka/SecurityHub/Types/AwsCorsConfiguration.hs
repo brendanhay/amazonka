@@ -129,12 +129,12 @@ instance Prelude.Hashable AwsCorsConfiguration where
 
 instance Prelude.NFData AwsCorsConfiguration where
   rnf AwsCorsConfiguration' {..} =
-    Prelude.rnf allowCredentials
-      `Prelude.seq` Prelude.rnf allowHeaders
-      `Prelude.seq` Prelude.rnf allowMethods
-      `Prelude.seq` Prelude.rnf allowOrigins
-      `Prelude.seq` Prelude.rnf exposeHeaders
-      `Prelude.seq` Prelude.rnf maxAge
+    Prelude.rnf allowCredentials `Prelude.seq`
+      Prelude.rnf allowHeaders `Prelude.seq`
+        Prelude.rnf allowMethods `Prelude.seq`
+          Prelude.rnf allowOrigins `Prelude.seq`
+            Prelude.rnf exposeHeaders `Prelude.seq`
+              Prelude.rnf maxAge
 
 instance Data.ToJSON AwsCorsConfiguration where
   toJSON AwsCorsConfiguration' {..} =

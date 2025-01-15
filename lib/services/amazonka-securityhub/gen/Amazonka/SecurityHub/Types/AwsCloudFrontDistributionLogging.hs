@@ -118,10 +118,10 @@ instance
     AwsCloudFrontDistributionLogging
   where
   rnf AwsCloudFrontDistributionLogging' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf includeCookies
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf includeCookies `Prelude.seq`
+          Prelude.rnf prefix
 
 instance Data.ToJSON AwsCloudFrontDistributionLogging where
   toJSON AwsCloudFrontDistributionLogging' {..} =

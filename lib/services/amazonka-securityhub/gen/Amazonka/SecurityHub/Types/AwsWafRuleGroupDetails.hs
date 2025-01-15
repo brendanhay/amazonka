@@ -108,10 +108,10 @@ instance Prelude.Hashable AwsWafRuleGroupDetails where
 
 instance Prelude.NFData AwsWafRuleGroupDetails where
   rnf AwsWafRuleGroupDetails' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleGroupId `Prelude.seq`
+          Prelude.rnf rules
 
 instance Data.ToJSON AwsWafRuleGroupDetails where
   toJSON AwsWafRuleGroupDetails' {..} =

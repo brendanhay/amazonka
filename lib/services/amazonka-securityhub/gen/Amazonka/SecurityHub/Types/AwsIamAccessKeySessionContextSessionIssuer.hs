@@ -131,11 +131,11 @@ instance
     AwsIamAccessKeySessionContextSessionIssuer
   where
   rnf AwsIamAccessKeySessionContextSessionIssuer' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf userName
 
 instance
   Data.ToJSON

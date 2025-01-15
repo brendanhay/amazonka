@@ -129,11 +129,11 @@ instance
     AwsEc2VpcPeeringConnectionDetails
   where
   rnf AwsEc2VpcPeeringConnectionDetails' {..} =
-    Prelude.rnf accepterVpcInfo
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf requesterVpcInfo
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf accepterVpcInfo `Prelude.seq`
+      Prelude.rnf expirationTime `Prelude.seq`
+        Prelude.rnf requesterVpcInfo `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf vpcPeeringConnectionId
 
 instance
   Data.ToJSON

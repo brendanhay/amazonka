@@ -95,8 +95,8 @@ instance
     AwsKinesisStreamStreamEncryptionDetails
   where
   rnf AwsKinesisStreamStreamEncryptionDetails' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf encryptionType `Prelude.seq`
+      Prelude.rnf keyId
 
 instance
   Data.ToJSON

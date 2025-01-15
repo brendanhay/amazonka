@@ -84,8 +84,8 @@ instance
 
 instance Prelude.NFData AwsRdsDbOptionGroupMembership where
   rnf AwsRdsDbOptionGroupMembership' {..} =
-    Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf optionGroupName `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbOptionGroupMembership where
   toJSON AwsRdsDbOptionGroupMembership' {..} =

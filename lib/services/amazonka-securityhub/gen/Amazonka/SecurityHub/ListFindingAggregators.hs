@@ -111,12 +111,12 @@ instance Core.AWSPager ListFindingAggregators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFindingAggregators_nextToken
-          Lens..~ rs
-          Lens.^? listFindingAggregatorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFindingAggregators_nextToken
+              Lens..~ rs
+              Lens.^? listFindingAggregatorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindingAggregators where
   type
@@ -144,8 +144,8 @@ instance Prelude.Hashable ListFindingAggregators where
 
 instance Prelude.NFData ListFindingAggregators where
   rnf ListFindingAggregators' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFindingAggregators where
   toHeaders =
@@ -233,6 +233,6 @@ instance
     ListFindingAggregatorsResponse
   where
   rnf ListFindingAggregatorsResponse' {..} =
-    Prelude.rnf findingAggregators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf findingAggregators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

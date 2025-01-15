@@ -92,8 +92,8 @@ instance
     AwsDynamoDbTableAttributeDefinition
   where
   rnf AwsDynamoDbTableAttributeDefinition' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeType
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeType
 
 instance
   Data.ToJSON

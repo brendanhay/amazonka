@@ -95,8 +95,8 @@ instance
     AwsEcrRepositoryLifecyclePolicyDetails
   where
   rnf AwsEcrRepositoryLifecyclePolicyDetails' {..} =
-    Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf lifecyclePolicyText `Prelude.seq`
+      Prelude.rnf registryId
 
 instance
   Data.ToJSON

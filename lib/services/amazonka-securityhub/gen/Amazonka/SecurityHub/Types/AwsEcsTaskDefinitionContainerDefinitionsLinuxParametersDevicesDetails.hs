@@ -112,9 +112,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
-      Prelude.rnf containerPath
-        `Prelude.seq` Prelude.rnf hostPath
-        `Prelude.seq` Prelude.rnf permissions
+      Prelude.rnf containerPath `Prelude.seq`
+        Prelude.rnf hostPath `Prelude.seq`
+          Prelude.rnf permissions
 
 instance
   Data.ToJSON

@@ -81,8 +81,8 @@ instance Prelude.Hashable AwsIamAttachedManagedPolicy where
 
 instance Prelude.NFData AwsIamAttachedManagedPolicy where
   rnf AwsIamAttachedManagedPolicy' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToJSON AwsIamAttachedManagedPolicy where
   toJSON AwsIamAttachedManagedPolicy' {..} =

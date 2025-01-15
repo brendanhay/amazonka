@@ -213,17 +213,17 @@ instance Prelude.Hashable AwsElbv2LoadBalancerDetails where
 
 instance Prelude.NFData AwsElbv2LoadBalancerDetails where
   rnf AwsElbv2LoadBalancerDetails' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf canonicalHostedZoneId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf loadBalancerAttributes
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf canonicalHostedZoneId `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf dNSName `Prelude.seq`
+            Prelude.rnf ipAddressType `Prelude.seq`
+              Prelude.rnf loadBalancerAttributes `Prelude.seq`
+                Prelude.rnf scheme `Prelude.seq`
+                  Prelude.rnf securityGroups `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf vpcId
 
 instance Data.ToJSON AwsElbv2LoadBalancerDetails where
   toJSON AwsElbv2LoadBalancerDetails' {..} =

@@ -259,17 +259,17 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
-      Prelude.rnf abortIncompleteMultipartUpload
-        `Prelude.seq` Prelude.rnf expirationDate
-        `Prelude.seq` Prelude.rnf expirationInDays
-        `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
-        `Prelude.seq` Prelude.rnf filter'
-        `Prelude.seq` Prelude.rnf id
-        `Prelude.seq` Prelude.rnf noncurrentVersionExpirationInDays
-        `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
-        `Prelude.seq` Prelude.rnf prefix
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf transitions
+      Prelude.rnf abortIncompleteMultipartUpload `Prelude.seq`
+        Prelude.rnf expirationDate `Prelude.seq`
+          Prelude.rnf expirationInDays `Prelude.seq`
+            Prelude.rnf expiredObjectDeleteMarker `Prelude.seq`
+              Prelude.rnf filter' `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf noncurrentVersionExpirationInDays `Prelude.seq`
+                    Prelude.rnf noncurrentVersionTransitions `Prelude.seq`
+                      Prelude.rnf prefix `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf transitions
 
 instance
   Data.ToJSON

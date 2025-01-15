@@ -187,15 +187,15 @@ instance Prelude.Hashable AwsIamAccessKeyDetails where
 
 instance Prelude.NFData AwsIamAccessKeyDetails where
   rnf AwsIamAccessKeyDetails' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf principalName
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf sessionContext
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf principalName `Prelude.seq`
+              Prelude.rnf principalType `Prelude.seq`
+                Prelude.rnf sessionContext `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf userName
 
 instance Data.ToJSON AwsIamAccessKeyDetails where
   toJSON AwsIamAccessKeyDetails' {..} =

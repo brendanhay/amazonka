@@ -236,12 +236,12 @@ instance
   where
   rnf
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {..} =
-      Prelude.rnf deleteOnTermination
-        `Prelude.seq` Prelude.rnf encrypted
-        `Prelude.seq` Prelude.rnf iops
-        `Prelude.seq` Prelude.rnf snapshotId
-        `Prelude.seq` Prelude.rnf volumeSize
-        `Prelude.seq` Prelude.rnf volumeType
+      Prelude.rnf deleteOnTermination `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf iops `Prelude.seq`
+            Prelude.rnf snapshotId `Prelude.seq`
+              Prelude.rnf volumeSize `Prelude.seq`
+                Prelude.rnf volumeType
 
 instance
   Data.ToJSON

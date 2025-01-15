@@ -97,8 +97,8 @@ instance
     AwsDynamoDbTableReplicaGlobalSecondaryIndex
   where
   rnf AwsDynamoDbTableReplicaGlobalSecondaryIndex' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf provisionedThroughputOverride
 
 instance
   Data.ToJSON

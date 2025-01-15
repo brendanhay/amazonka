@@ -211,12 +211,12 @@ instance Prelude.Hashable Product where
 
 instance Prelude.NFData Product where
   rnf Product' {..} =
-    Prelude.rnf activationUrl
-      `Prelude.seq` Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf companyName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf integrationTypes
-      `Prelude.seq` Prelude.rnf marketplaceUrl
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf productSubscriptionResourcePolicy
-      `Prelude.seq` Prelude.rnf productArn
+    Prelude.rnf activationUrl `Prelude.seq`
+      Prelude.rnf categories `Prelude.seq`
+        Prelude.rnf companyName `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf integrationTypes `Prelude.seq`
+              Prelude.rnf marketplaceUrl `Prelude.seq`
+                Prelude.rnf productName `Prelude.seq`
+                  Prelude.rnf productSubscriptionResourcePolicy `Prelude.seq`
+                    Prelude.rnf productArn

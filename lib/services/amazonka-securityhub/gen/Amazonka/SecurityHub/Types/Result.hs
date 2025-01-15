@@ -80,5 +80,5 @@ instance Prelude.Hashable Result where
 
 instance Prelude.NFData Result where
   rnf Result' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf processingResult
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf processingResult

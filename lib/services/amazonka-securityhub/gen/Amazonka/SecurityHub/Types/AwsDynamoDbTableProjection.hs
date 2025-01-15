@@ -109,8 +109,8 @@ instance Prelude.Hashable AwsDynamoDbTableProjection where
 
 instance Prelude.NFData AwsDynamoDbTableProjection where
   rnf AwsDynamoDbTableProjection' {..} =
-    Prelude.rnf nonKeyAttributes
-      `Prelude.seq` Prelude.rnf projectionType
+    Prelude.rnf nonKeyAttributes `Prelude.seq`
+      Prelude.rnf projectionType
 
 instance Data.ToJSON AwsDynamoDbTableProjection where
   toJSON AwsDynamoDbTableProjection' {..} =

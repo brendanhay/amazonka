@@ -95,9 +95,9 @@ instance Prelude.Hashable AwsRdsDbInstanceEndpoint where
 
 instance Prelude.NFData AwsRdsDbInstanceEndpoint where
   rnf AwsRdsDbInstanceEndpoint' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf port
 
 instance Data.ToJSON AwsRdsDbInstanceEndpoint where
   toJSON AwsRdsDbInstanceEndpoint' {..} =

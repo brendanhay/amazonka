@@ -82,8 +82,8 @@ instance Prelude.Hashable DataClassificationDetails where
 
 instance Prelude.NFData DataClassificationDetails where
   rnf DataClassificationDetails' {..} =
-    Prelude.rnf detailedResultsLocation
-      `Prelude.seq` Prelude.rnf result
+    Prelude.rnf detailedResultsLocation `Prelude.seq`
+      Prelude.rnf result
 
 instance Data.ToJSON DataClassificationDetails where
   toJSON DataClassificationDetails' {..} =

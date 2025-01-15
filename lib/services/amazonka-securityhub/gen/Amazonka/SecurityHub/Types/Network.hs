@@ -201,18 +201,18 @@ instance Prelude.Hashable Network where
 
 instance Prelude.NFData Network where
   rnf Network' {..} =
-    Prelude.rnf destinationDomain
-      `Prelude.seq` Prelude.rnf destinationIpV4
-      `Prelude.seq` Prelude.rnf destinationIpV6
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf openPortRange
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sourceDomain
-      `Prelude.seq` Prelude.rnf sourceIpV4
-      `Prelude.seq` Prelude.rnf sourceIpV6
-      `Prelude.seq` Prelude.rnf sourceMac
-      `Prelude.seq` Prelude.rnf sourcePort
+    Prelude.rnf destinationDomain `Prelude.seq`
+      Prelude.rnf destinationIpV4 `Prelude.seq`
+        Prelude.rnf destinationIpV6 `Prelude.seq`
+          Prelude.rnf destinationPort `Prelude.seq`
+            Prelude.rnf direction `Prelude.seq`
+              Prelude.rnf openPortRange `Prelude.seq`
+                Prelude.rnf protocol `Prelude.seq`
+                  Prelude.rnf sourceDomain `Prelude.seq`
+                    Prelude.rnf sourceIpV4 `Prelude.seq`
+                      Prelude.rnf sourceIpV6 `Prelude.seq`
+                        Prelude.rnf sourceMac `Prelude.seq`
+                          Prelude.rnf sourcePort
 
 instance Data.ToJSON Network where
   toJSON Network' {..} =

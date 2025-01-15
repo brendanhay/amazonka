@@ -151,12 +151,12 @@ instance Prelude.Hashable AwsS3ObjectDetails where
 
 instance Prelude.NFData AwsS3ObjectDetails where
   rnf AwsS3ObjectDetails' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf sSEKMSKeyId `Prelude.seq`
+            Prelude.rnf serverSideEncryption `Prelude.seq`
+              Prelude.rnf versionId
 
 instance Data.ToJSON AwsS3ObjectDetails where
   toJSON AwsS3ObjectDetails' {..} =

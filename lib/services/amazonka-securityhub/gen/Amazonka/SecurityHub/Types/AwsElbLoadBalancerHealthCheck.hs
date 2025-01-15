@@ -166,11 +166,11 @@ instance
 
 instance Prelude.NFData AwsElbLoadBalancerHealthCheck where
   rnf AwsElbLoadBalancerHealthCheck' {..} =
-    Prelude.rnf healthyThreshold
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
+    Prelude.rnf healthyThreshold `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf target `Prelude.seq`
+          Prelude.rnf timeout `Prelude.seq`
+            Prelude.rnf unhealthyThreshold
 
 instance Data.ToJSON AwsElbLoadBalancerHealthCheck where
   toJSON AwsElbLoadBalancerHealthCheck' {..} =

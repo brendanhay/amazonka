@@ -147,11 +147,11 @@ instance
     AwsCloudFrontDistributionOriginItem
   where
   rnf AwsCloudFrontDistributionOriginItem' {..} =
-    Prelude.rnf customOriginConfig
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf originPath
-      `Prelude.seq` Prelude.rnf s3OriginConfig
+    Prelude.rnf customOriginConfig `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf originPath `Prelude.seq`
+            Prelude.rnf s3OriginConfig
 
 instance
   Data.ToJSON

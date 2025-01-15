@@ -115,8 +115,8 @@ instance
     AwsElasticsearchDomainDomainEndpointOptions
   where
   rnf AwsElasticsearchDomainDomainEndpointOptions' {..} =
-    Prelude.rnf enforceHTTPS
-      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+    Prelude.rnf enforceHTTPS `Prelude.seq`
+      Prelude.rnf tLSSecurityPolicy
 
 instance
   Data.ToJSON

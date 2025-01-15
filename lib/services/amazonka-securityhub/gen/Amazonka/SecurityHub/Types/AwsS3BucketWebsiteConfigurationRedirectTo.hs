@@ -98,8 +98,8 @@ instance
     AwsS3BucketWebsiteConfigurationRedirectTo
   where
   rnf AwsS3BucketWebsiteConfigurationRedirectTo' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf protocol
 
 instance
   Data.ToJSON

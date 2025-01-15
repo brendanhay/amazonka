@@ -171,14 +171,14 @@ instance Prelude.Hashable AwsIamUserDetails where
 
 instance Prelude.NFData AwsIamUserDetails where
   rnf AwsIamUserDetails' {..} =
-    Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf groupList
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userPolicyList
+    Prelude.rnf attachedManagedPolicies `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf groupList `Prelude.seq`
+          Prelude.rnf path `Prelude.seq`
+            Prelude.rnf permissionsBoundary `Prelude.seq`
+              Prelude.rnf userId `Prelude.seq`
+                Prelude.rnf userName `Prelude.seq`
+                  Prelude.rnf userPolicyList
 
 instance Data.ToJSON AwsIamUserDetails where
   toJSON AwsIamUserDetails' {..} =

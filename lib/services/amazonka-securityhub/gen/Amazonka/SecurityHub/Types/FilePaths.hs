@@ -109,10 +109,10 @@ instance Prelude.Hashable FilePaths where
 
 instance Prelude.NFData FilePaths where
   rnf FilePaths' {..} =
-    Prelude.rnf fileName
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf hash
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf fileName `Prelude.seq`
+      Prelude.rnf filePath `Prelude.seq`
+        Prelude.rnf hash `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToJSON FilePaths where
   toJSON FilePaths' {..} =

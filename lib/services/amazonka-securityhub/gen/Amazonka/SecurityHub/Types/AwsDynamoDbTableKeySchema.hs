@@ -85,8 +85,8 @@ instance Prelude.Hashable AwsDynamoDbTableKeySchema where
 
 instance Prelude.NFData AwsDynamoDbTableKeySchema where
   rnf AwsDynamoDbTableKeySchema' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf keyType
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf keyType
 
 instance Data.ToJSON AwsDynamoDbTableKeySchema where
   toJSON AwsDynamoDbTableKeySchema' {..} =

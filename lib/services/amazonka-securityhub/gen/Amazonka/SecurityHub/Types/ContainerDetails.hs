@@ -155,13 +155,13 @@ instance Prelude.Hashable ContainerDetails where
 
 instance Prelude.NFData ContainerDetails where
   rnf ContainerDetails' {..} =
-    Prelude.rnf containerRuntime
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf launchedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf privileged
-      `Prelude.seq` Prelude.rnf volumeMounts
+    Prelude.rnf containerRuntime `Prelude.seq`
+      Prelude.rnf imageId `Prelude.seq`
+        Prelude.rnf imageName `Prelude.seq`
+          Prelude.rnf launchedAt `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf privileged `Prelude.seq`
+                Prelude.rnf volumeMounts
 
 instance Data.ToJSON ContainerDetails where
   toJSON ContainerDetails' {..} =

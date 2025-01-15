@@ -124,10 +124,10 @@ instance
     AwsElasticsearchDomainVPCOptions
   where
   rnf AwsElasticsearchDomainVPCOptions' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vPCId
 
 instance Data.ToJSON AwsElasticsearchDomainVPCOptions where
   toJSON AwsElasticsearchDomainVPCOptions' {..} =

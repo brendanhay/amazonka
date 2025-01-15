@@ -95,8 +95,8 @@ instance
     AwsEc2VpnConnectionRoutesDetails
   where
   rnf AwsEc2VpnConnectionRoutesDetails' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf state
 
 instance Data.ToJSON AwsEc2VpnConnectionRoutesDetails where
   toJSON AwsEc2VpnConnectionRoutesDetails' {..} =

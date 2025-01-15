@@ -96,8 +96,8 @@ instance
     AwsElbAppCookieStickinessPolicy
   where
   rnf AwsElbAppCookieStickinessPolicy' {..} =
-    Prelude.rnf cookieName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf cookieName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToJSON AwsElbAppCookieStickinessPolicy where
   toJSON AwsElbAppCookieStickinessPolicy' {..} =

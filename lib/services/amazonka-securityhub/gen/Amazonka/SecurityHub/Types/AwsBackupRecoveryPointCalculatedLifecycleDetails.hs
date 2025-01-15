@@ -101,8 +101,8 @@ instance
   where
   rnf
     AwsBackupRecoveryPointCalculatedLifecycleDetails' {..} =
-      Prelude.rnf deleteAt
-        `Prelude.seq` Prelude.rnf moveToColdStorageAt
+      Prelude.rnf deleteAt `Prelude.seq`
+        Prelude.rnf moveToColdStorageAt
 
 instance
   Data.ToJSON

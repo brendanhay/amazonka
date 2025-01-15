@@ -182,10 +182,10 @@ instance
   where
   rnf
     AwsCertificateManagerCertificateRenewalSummary' {..} =
-      Prelude.rnf domainValidationOptions
-        `Prelude.seq` Prelude.rnf renewalStatus
-        `Prelude.seq` Prelude.rnf renewalStatusReason
-        `Prelude.seq` Prelude.rnf updatedAt
+      Prelude.rnf domainValidationOptions `Prelude.seq`
+        Prelude.rnf renewalStatus `Prelude.seq`
+          Prelude.rnf renewalStatusReason `Prelude.seq`
+            Prelude.rnf updatedAt
 
 instance
   Data.ToJSON

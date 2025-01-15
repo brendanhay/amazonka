@@ -99,9 +99,9 @@ instance Prelude.Hashable Page where
 
 instance Prelude.NFData Page where
   rnf Page' {..} =
-    Prelude.rnf lineRange
-      `Prelude.seq` Prelude.rnf offsetRange
-      `Prelude.seq` Prelude.rnf pageNumber
+    Prelude.rnf lineRange `Prelude.seq`
+      Prelude.rnf offsetRange `Prelude.seq`
+        Prelude.rnf pageNumber
 
 instance Data.ToJSON Page where
   toJSON Page' {..} =

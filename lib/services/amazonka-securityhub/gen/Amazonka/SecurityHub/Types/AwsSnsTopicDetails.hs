@@ -209,17 +209,17 @@ instance Prelude.Hashable AwsSnsTopicDetails where
 
 instance Prelude.NFData AwsSnsTopicDetails where
   rnf AwsSnsTopicDetails' {..} =
-    Prelude.rnf applicationSuccessFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf firehoseFailureFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf firehoseSuccessFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf httpFailureFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf httpSuccessFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf sqsFailureFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf sqsSuccessFeedbackRoleArn
-      `Prelude.seq` Prelude.rnf subscription
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf applicationSuccessFeedbackRoleArn `Prelude.seq`
+      Prelude.rnf firehoseFailureFeedbackRoleArn `Prelude.seq`
+        Prelude.rnf firehoseSuccessFeedbackRoleArn `Prelude.seq`
+          Prelude.rnf httpFailureFeedbackRoleArn `Prelude.seq`
+            Prelude.rnf httpSuccessFeedbackRoleArn `Prelude.seq`
+              Prelude.rnf kmsMasterKeyId `Prelude.seq`
+                Prelude.rnf owner `Prelude.seq`
+                  Prelude.rnf sqsFailureFeedbackRoleArn `Prelude.seq`
+                    Prelude.rnf sqsSuccessFeedbackRoleArn `Prelude.seq`
+                      Prelude.rnf subscription `Prelude.seq`
+                        Prelude.rnf topicName
 
 instance Data.ToJSON AwsSnsTopicDetails where
   toJSON AwsSnsTopicDetails' {..} =

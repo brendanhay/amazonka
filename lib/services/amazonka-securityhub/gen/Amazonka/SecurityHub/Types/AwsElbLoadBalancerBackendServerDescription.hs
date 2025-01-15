@@ -93,8 +93,8 @@ instance
     AwsElbLoadBalancerBackendServerDescription
   where
   rnf AwsElbLoadBalancerBackendServerDescription' {..} =
-    Prelude.rnf instancePort
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf instancePort `Prelude.seq`
+      Prelude.rnf policyNames
 
 instance
   Data.ToJSON

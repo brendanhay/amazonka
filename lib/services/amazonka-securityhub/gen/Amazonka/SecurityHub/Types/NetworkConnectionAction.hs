@@ -131,12 +131,12 @@ instance Prelude.Hashable NetworkConnectionAction where
 
 instance Prelude.NFData NetworkConnectionAction where
   rnf NetworkConnectionAction' {..} =
-    Prelude.rnf blocked
-      `Prelude.seq` Prelude.rnf connectionDirection
-      `Prelude.seq` Prelude.rnf localPortDetails
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf remoteIpDetails
-      `Prelude.seq` Prelude.rnf remotePortDetails
+    Prelude.rnf blocked `Prelude.seq`
+      Prelude.rnf connectionDirection `Prelude.seq`
+        Prelude.rnf localPortDetails `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf remoteIpDetails `Prelude.seq`
+              Prelude.rnf remotePortDetails
 
 instance Data.ToJSON NetworkConnectionAction where
   toJSON NetworkConnectionAction' {..} =

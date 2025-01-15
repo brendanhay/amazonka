@@ -131,10 +131,10 @@ instance
     AwsS3AccountPublicAccessBlockDetails
   where
   rnf AwsS3AccountPublicAccessBlockDetails' {..} =
-    Prelude.rnf blockPublicAcls
-      `Prelude.seq` Prelude.rnf blockPublicPolicy
-      `Prelude.seq` Prelude.rnf ignorePublicAcls
-      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+    Prelude.rnf blockPublicAcls `Prelude.seq`
+      Prelude.rnf blockPublicPolicy `Prelude.seq`
+        Prelude.rnf ignorePublicAcls `Prelude.seq`
+          Prelude.rnf restrictPublicBuckets
 
 instance
   Data.ToJSON

@@ -92,8 +92,8 @@ instance
     AwsRdsDbClusterOptionGroupMembership
   where
   rnf AwsRdsDbClusterOptionGroupMembership' {..} =
-    Prelude.rnf dbClusterOptionGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dbClusterOptionGroupName `Prelude.seq`
+      Prelude.rnf status
 
 instance
   Data.ToJSON

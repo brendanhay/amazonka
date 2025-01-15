@@ -177,15 +177,15 @@ instance Prelude.Hashable AwsEcsTaskDetails where
 
 instance Prelude.NFData AwsEcsTaskDetails where
   rnf AwsEcsTaskDetails' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf taskDefinitionArn
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf containers `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf startedAt `Prelude.seq`
+              Prelude.rnf startedBy `Prelude.seq`
+                Prelude.rnf taskDefinitionArn `Prelude.seq`
+                  Prelude.rnf version `Prelude.seq`
+                    Prelude.rnf volumes
 
 instance Data.ToJSON AwsEcsTaskDetails where
   toJSON AwsEcsTaskDetails' {..} =

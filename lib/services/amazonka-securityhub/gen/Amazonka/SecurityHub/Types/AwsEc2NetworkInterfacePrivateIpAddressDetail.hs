@@ -94,8 +94,8 @@ instance
     AwsEc2NetworkInterfacePrivateIpAddressDetail
   where
   rnf AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
-    Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
+    Prelude.rnf privateDnsName `Prelude.seq`
+      Prelude.rnf privateIpAddress
 
 instance
   Data.ToJSON

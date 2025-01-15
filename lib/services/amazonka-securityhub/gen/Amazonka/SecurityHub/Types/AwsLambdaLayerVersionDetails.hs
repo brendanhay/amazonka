@@ -125,9 +125,9 @@ instance
 
 instance Prelude.NFData AwsLambdaLayerVersionDetails where
   rnf AwsLambdaLayerVersionDetails' {..} =
-    Prelude.rnf compatibleRuntimes
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf compatibleRuntimes `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToJSON AwsLambdaLayerVersionDetails where
   toJSON AwsLambdaLayerVersionDetails' {..} =

@@ -118,9 +118,9 @@ instance
     AwsXrayEncryptionConfigDetails
   where
   rnf AwsXrayEncryptionConfigDetails' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON AwsXrayEncryptionConfigDetails where
   toJSON AwsXrayEncryptionConfigDetails' {..} =

@@ -106,10 +106,10 @@ instance Prelude.Hashable AwsEcsContainerDetails where
 
 instance Prelude.NFData AwsEcsContainerDetails where
   rnf AwsEcsContainerDetails' {..} =
-    Prelude.rnf image
-      `Prelude.seq` Prelude.rnf mountPoints
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf privileged
+    Prelude.rnf image `Prelude.seq`
+      Prelude.rnf mountPoints `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf privileged
 
 instance Data.ToJSON AwsEcsContainerDetails where
   toJSON AwsEcsContainerDetails' {..} =

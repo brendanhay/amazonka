@@ -206,18 +206,18 @@ instance Prelude.Hashable AwsEc2TransitGatewayDetails where
 
 instance Prelude.NFData AwsEc2TransitGatewayDetails where
   rnf AwsEc2TransitGatewayDetails' {..} =
-    Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf associationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
-      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
-      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsSupport
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf multicastSupport
-      `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
-      `Prelude.seq` Prelude.rnf vpnEcmpSupport
+    Prelude.rnf amazonSideAsn `Prelude.seq`
+      Prelude.rnf associationDefaultRouteTableId `Prelude.seq`
+        Prelude.rnf autoAcceptSharedAttachments `Prelude.seq`
+          Prelude.rnf defaultRouteTableAssociation `Prelude.seq`
+            Prelude.rnf defaultRouteTablePropagation `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf dnsSupport `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf multicastSupport `Prelude.seq`
+                      Prelude.rnf propagationDefaultRouteTableId `Prelude.seq`
+                        Prelude.rnf transitGatewayCidrBlocks `Prelude.seq`
+                          Prelude.rnf vpnEcmpSupport
 
 instance Data.ToJSON AwsEc2TransitGatewayDetails where
   toJSON AwsEc2TransitGatewayDetails' {..} =

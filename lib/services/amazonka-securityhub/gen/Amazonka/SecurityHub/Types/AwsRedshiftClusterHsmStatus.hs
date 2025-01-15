@@ -115,9 +115,9 @@ instance Prelude.Hashable AwsRedshiftClusterHsmStatus where
 
 instance Prelude.NFData AwsRedshiftClusterHsmStatus where
   rnf AwsRedshiftClusterHsmStatus' {..} =
-    Prelude.rnf hsmClientCertificateIdentifier
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf hsmClientCertificateIdentifier `Prelude.seq`
+      Prelude.rnf hsmConfigurationIdentifier `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON AwsRedshiftClusterHsmStatus where
   toJSON AwsRedshiftClusterHsmStatus' {..} =

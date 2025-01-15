@@ -98,8 +98,8 @@ instance
     AwsRdsPendingCloudWatchLogsExports
   where
   rnf AwsRdsPendingCloudWatchLogsExports' {..} =
-    Prelude.rnf logTypesToDisable
-      `Prelude.seq` Prelude.rnf logTypesToEnable
+    Prelude.rnf logTypesToDisable `Prelude.seq`
+      Prelude.rnf logTypesToEnable
 
 instance
   Data.ToJSON

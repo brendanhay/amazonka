@@ -206,14 +206,14 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
-      Prelude.rnf automatedUpdateDate
-        `Prelude.seq` Prelude.rnf cancellable
-        `Prelude.seq` Prelude.rnf currentVersion
-        `Prelude.seq` Prelude.rnf description
-        `Prelude.seq` Prelude.rnf newVersion'
-        `Prelude.seq` Prelude.rnf optionalDeployment
-        `Prelude.seq` Prelude.rnf updateAvailable
-        `Prelude.seq` Prelude.rnf updateStatus
+      Prelude.rnf automatedUpdateDate `Prelude.seq`
+        Prelude.rnf cancellable `Prelude.seq`
+          Prelude.rnf currentVersion `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf newVersion' `Prelude.seq`
+                Prelude.rnf optionalDeployment `Prelude.seq`
+                  Prelude.rnf updateAvailable `Prelude.seq`
+                    Prelude.rnf updateStatus
 
 instance
   Data.ToJSON

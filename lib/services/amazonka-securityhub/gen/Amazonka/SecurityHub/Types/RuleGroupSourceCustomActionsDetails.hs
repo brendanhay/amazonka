@@ -94,8 +94,8 @@ instance
     RuleGroupSourceCustomActionsDetails
   where
   rnf RuleGroupSourceCustomActionsDetails' {..} =
-    Prelude.rnf actionDefinition
-      `Prelude.seq` Prelude.rnf actionName
+    Prelude.rnf actionDefinition `Prelude.seq`
+      Prelude.rnf actionName
 
 instance
   Data.ToJSON

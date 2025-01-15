@@ -404,26 +404,26 @@ instance
     AwsSageMakerNotebookInstanceDetails
   where
   rnf AwsSageMakerNotebookInstanceDetails' {..} =
-    Prelude.rnf acceleratorTypes
-      `Prelude.seq` Prelude.rnf additionalCodeRepositories
-      `Prelude.seq` Prelude.rnf defaultCodeRepository
-      `Prelude.seq` Prelude.rnf directInternetAccess
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf instanceMetadataServiceConfiguration
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf notebookInstanceArn
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
-      `Prelude.seq` Prelude.rnf notebookInstanceName
-      `Prelude.seq` Prelude.rnf notebookInstanceStatus
-      `Prelude.seq` Prelude.rnf platformIdentifier
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf rootAccess
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf acceleratorTypes `Prelude.seq`
+      Prelude.rnf additionalCodeRepositories `Prelude.seq`
+        Prelude.rnf defaultCodeRepository `Prelude.seq`
+          Prelude.rnf directInternetAccess `Prelude.seq`
+            Prelude.rnf failureReason `Prelude.seq`
+              Prelude.rnf instanceMetadataServiceConfiguration `Prelude.seq`
+                Prelude.rnf instanceType `Prelude.seq`
+                  Prelude.rnf kmsKeyId `Prelude.seq`
+                    Prelude.rnf networkInterfaceId `Prelude.seq`
+                      Prelude.rnf notebookInstanceArn `Prelude.seq`
+                        Prelude.rnf notebookInstanceLifecycleConfigName `Prelude.seq`
+                          Prelude.rnf notebookInstanceName `Prelude.seq`
+                            Prelude.rnf notebookInstanceStatus `Prelude.seq`
+                              Prelude.rnf platformIdentifier `Prelude.seq`
+                                Prelude.rnf roleArn `Prelude.seq`
+                                  Prelude.rnf rootAccess `Prelude.seq`
+                                    Prelude.rnf securityGroups `Prelude.seq`
+                                      Prelude.rnf subnetId `Prelude.seq`
+                                        Prelude.rnf url `Prelude.seq`
+                                          Prelude.rnf volumeSizeInGB
 
 instance
   Data.ToJSON

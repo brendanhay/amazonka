@@ -114,10 +114,10 @@ instance Prelude.Hashable AwsWafRegionalRuleDetails where
 
 instance Prelude.NFData AwsWafRegionalRuleDetails where
   rnf AwsWafRegionalRuleDetails' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf predicateList
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf predicateList `Prelude.seq`
+          Prelude.rnf ruleId
 
 instance Data.ToJSON AwsWafRegionalRuleDetails where
   toJSON AwsWafRegionalRuleDetails' {..} =

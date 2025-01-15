@@ -94,8 +94,8 @@ instance
   where
   rnf
     AwsElasticsearchDomainLogPublishingOptionsLogConfig' {..} =
-      Prelude.rnf cloudWatchLogsLogGroupArn
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf cloudWatchLogsLogGroupArn `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToJSON

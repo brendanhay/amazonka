@@ -100,8 +100,8 @@ instance
   where
   rnf
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails' {..} =
-      Prelude.rnf instanceType
-        `Prelude.seq` Prelude.rnf weightedCapacity
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf weightedCapacity
 
 instance
   Data.ToJSON

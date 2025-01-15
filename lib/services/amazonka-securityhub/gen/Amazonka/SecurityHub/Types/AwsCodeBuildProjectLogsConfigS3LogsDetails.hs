@@ -103,9 +103,9 @@ instance
     AwsCodeBuildProjectLogsConfigS3LogsDetails
   where
   rnf AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
-    Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf encryptionDisabled `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf status
 
 instance
   Data.ToJSON

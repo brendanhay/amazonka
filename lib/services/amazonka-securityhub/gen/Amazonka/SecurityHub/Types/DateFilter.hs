@@ -92,9 +92,9 @@ instance Prelude.Hashable DateFilter where
 
 instance Prelude.NFData DateFilter where
   rnf DateFilter' {..} =
-    Prelude.rnf dateRange
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf start
+    Prelude.rnf dateRange `Prelude.seq`
+      Prelude.rnf end `Prelude.seq`
+        Prelude.rnf start
 
 instance Data.ToJSON DateFilter where
   toJSON DateFilter' {..} =

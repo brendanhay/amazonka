@@ -126,10 +126,10 @@ instance
     AwsDynamoDbTableRestoreSummary
   where
   rnf AwsDynamoDbTableRestoreSummary' {..} =
-    Prelude.rnf restoreDateTime
-      `Prelude.seq` Prelude.rnf restoreInProgress
-      `Prelude.seq` Prelude.rnf sourceBackupArn
-      `Prelude.seq` Prelude.rnf sourceTableArn
+    Prelude.rnf restoreDateTime `Prelude.seq`
+      Prelude.rnf restoreInProgress `Prelude.seq`
+        Prelude.rnf sourceBackupArn `Prelude.seq`
+          Prelude.rnf sourceTableArn
 
 instance Data.ToJSON AwsDynamoDbTableRestoreSummary where
   toJSON AwsDynamoDbTableRestoreSummary' {..} =

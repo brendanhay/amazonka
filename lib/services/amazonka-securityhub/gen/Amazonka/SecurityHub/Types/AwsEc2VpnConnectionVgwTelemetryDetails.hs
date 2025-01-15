@@ -154,12 +154,12 @@ instance
     AwsEc2VpnConnectionVgwTelemetryDetails
   where
   rnf AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
-    Prelude.rnf acceptedRouteCount
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf lastStatusChange
-      `Prelude.seq` Prelude.rnf outsideIpAddress
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf acceptedRouteCount `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf lastStatusChange `Prelude.seq`
+          Prelude.rnf outsideIpAddress `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage
 
 instance
   Data.ToJSON

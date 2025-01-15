@@ -109,10 +109,10 @@ instance Prelude.Hashable AwsRdsDbDomainMembership where
 
 instance Prelude.NFData AwsRdsDbDomainMembership where
   rnf AwsRdsDbDomainMembership' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf iamRoleName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf fqdn `Prelude.seq`
+        Prelude.rnf iamRoleName `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbDomainMembership where
   toJSON AwsRdsDbDomainMembership' {..} =

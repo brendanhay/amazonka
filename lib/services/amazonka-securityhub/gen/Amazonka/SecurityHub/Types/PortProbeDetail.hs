@@ -103,9 +103,9 @@ instance Prelude.Hashable PortProbeDetail where
 
 instance Prelude.NFData PortProbeDetail where
   rnf PortProbeDetail' {..} =
-    Prelude.rnf localIpDetails
-      `Prelude.seq` Prelude.rnf localPortDetails
-      `Prelude.seq` Prelude.rnf remoteIpDetails
+    Prelude.rnf localIpDetails `Prelude.seq`
+      Prelude.rnf localPortDetails `Prelude.seq`
+        Prelude.rnf remoteIpDetails
 
 instance Data.ToJSON PortProbeDetail where
   toJSON PortProbeDetail' {..} =

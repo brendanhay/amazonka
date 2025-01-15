@@ -94,8 +94,8 @@ instance
   where
   rnf
     RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts' {..} =
-      Prelude.rnf fromPort
-        `Prelude.seq` Prelude.rnf toPort
+      Prelude.rnf fromPort `Prelude.seq`
+        Prelude.rnf toPort
 
 instance
   Data.ToJSON

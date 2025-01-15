@@ -111,9 +111,9 @@ instance
   where
   rnf
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
-      Prelude.rnf base
-        `Prelude.seq` Prelude.rnf capacityProvider
-        `Prelude.seq` Prelude.rnf weight
+      Prelude.rnf base `Prelude.seq`
+        Prelude.rnf capacityProvider `Prelude.seq`
+          Prelude.rnf weight
 
 instance
   Data.ToJSON

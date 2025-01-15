@@ -158,12 +158,12 @@ instance
     AwsEc2SecurityGroupUserIdGroupPair
   where
   rnf AwsEc2SecurityGroupUserIdGroupPair' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf peeringStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf peeringStatus `Prelude.seq`
+          Prelude.rnf userId `Prelude.seq`
+            Prelude.rnf vpcId `Prelude.seq`
+              Prelude.rnf vpcPeeringConnectionId
 
 instance
   Data.ToJSON

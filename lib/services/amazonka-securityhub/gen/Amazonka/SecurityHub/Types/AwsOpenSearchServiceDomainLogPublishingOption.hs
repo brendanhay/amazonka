@@ -93,8 +93,8 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainLogPublishingOption' {..} =
-      Prelude.rnf cloudWatchLogsLogGroupArn
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf cloudWatchLogsLogGroupArn `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToJSON

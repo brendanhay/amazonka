@@ -97,8 +97,8 @@ instance
   where
   rnf
     AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails' {..} =
-      Prelude.rnf primary
-        `Prelude.seq` Prelude.rnf privateIpAddress
+      Prelude.rnf primary `Prelude.seq`
+        Prelude.rnf privateIpAddress
 
 instance
   Data.ToJSON

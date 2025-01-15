@@ -94,8 +94,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails' {..} =
-      Prelude.rnf namespace
-        `Prelude.seq` Prelude.rnf value
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf value
 
 instance
   Data.ToJSON

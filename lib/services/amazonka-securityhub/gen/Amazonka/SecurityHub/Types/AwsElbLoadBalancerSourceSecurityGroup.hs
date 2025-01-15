@@ -92,8 +92,8 @@ instance
     AwsElbLoadBalancerSourceSecurityGroup
   where
   rnf AwsElbLoadBalancerSourceSecurityGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf ownerAlias
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf ownerAlias
 
 instance
   Data.ToJSON

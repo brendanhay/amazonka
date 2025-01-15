@@ -138,10 +138,10 @@ instance
     AwsRedshiftClusterClusterSnapshotCopyStatus
   where
   rnf AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
-    Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+    Prelude.rnf destinationRegion `Prelude.seq`
+      Prelude.rnf manualSnapshotRetentionPeriod `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf snapshotCopyGrantName
 
 instance
   Data.ToJSON

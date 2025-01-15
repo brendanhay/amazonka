@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateActionTarget where
 
 instance Prelude.NFData CreateActionTarget where
   rnf CreateActionTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders CreateActionTarget where
   toHeaders =
@@ -205,5 +205,5 @@ createActionTargetResponse_actionTargetArn = Lens.lens (\CreateActionTargetRespo
 
 instance Prelude.NFData CreateActionTargetResponse where
   rnf CreateActionTargetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionTargetArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf actionTargetArn

@@ -123,10 +123,10 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
-      Prelude.rnf operands
-        `Prelude.seq` Prelude.rnf prefix
-        `Prelude.seq` Prelude.rnf tag
-        `Prelude.seq` Prelude.rnf type'
+      Prelude.rnf operands `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf tag `Prelude.seq`
+            Prelude.rnf type'
 
 instance
   Data.ToJSON

@@ -98,8 +98,8 @@ instance
   where
   rnf
     AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails' {..} =
-      Prelude.rnf capacityReservationId
-        `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
+      Prelude.rnf capacityReservationId `Prelude.seq`
+        Prelude.rnf capacityReservationResourceGroupArn
 
 instance
   Data.ToJSON

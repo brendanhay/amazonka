@@ -194,9 +194,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
-      Prelude.rnf logDriver
-        `Prelude.seq` Prelude.rnf options
-        `Prelude.seq` Prelude.rnf secretOptions
+      Prelude.rnf logDriver `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf secretOptions
 
 instance
   Data.ToJSON

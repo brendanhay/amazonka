@@ -140,11 +140,11 @@ instance Prelude.Hashable AwsBackupBackupVaultDetails where
 
 instance Prelude.NFData AwsBackupBackupVaultDetails where
   rnf AwsBackupBackupVaultDetails' {..} =
-    Prelude.rnf accessPolicy
-      `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf notifications
+    Prelude.rnf accessPolicy `Prelude.seq`
+      Prelude.rnf backupVaultArn `Prelude.seq`
+        Prelude.rnf backupVaultName `Prelude.seq`
+          Prelude.rnf encryptionKeyArn `Prelude.seq`
+            Prelude.rnf notifications
 
 instance Data.ToJSON AwsBackupBackupVaultDetails where
   toJSON AwsBackupBackupVaultDetails' {..} =

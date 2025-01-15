@@ -106,9 +106,9 @@ instance Prelude.Hashable AwsElbLoadBalancerPolicies where
 
 instance Prelude.NFData AwsElbLoadBalancerPolicies where
   rnf AwsElbLoadBalancerPolicies' {..} =
-    Prelude.rnf appCookieStickinessPolicies
-      `Prelude.seq` Prelude.rnf lbCookieStickinessPolicies
-      `Prelude.seq` Prelude.rnf otherPolicies
+    Prelude.rnf appCookieStickinessPolicies `Prelude.seq`
+      Prelude.rnf lbCookieStickinessPolicies `Prelude.seq`
+        Prelude.rnf otherPolicies
 
 instance Data.ToJSON AwsElbLoadBalancerPolicies where
   toJSON AwsElbLoadBalancerPolicies' {..} =

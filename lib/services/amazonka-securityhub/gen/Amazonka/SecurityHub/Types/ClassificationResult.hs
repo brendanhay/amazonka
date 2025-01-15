@@ -140,12 +140,12 @@ instance Prelude.Hashable ClassificationResult where
 
 instance Prelude.NFData ClassificationResult where
   rnf ClassificationResult' {..} =
-    Prelude.rnf additionalOccurrences
-      `Prelude.seq` Prelude.rnf customDataIdentifiers
-      `Prelude.seq` Prelude.rnf mimeType
-      `Prelude.seq` Prelude.rnf sensitiveData
-      `Prelude.seq` Prelude.rnf sizeClassified
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf additionalOccurrences `Prelude.seq`
+      Prelude.rnf customDataIdentifiers `Prelude.seq`
+        Prelude.rnf mimeType `Prelude.seq`
+          Prelude.rnf sensitiveData `Prelude.seq`
+            Prelude.rnf sizeClassified `Prelude.seq`
+              Prelude.rnf status
 
 instance Data.ToJSON ClassificationResult where
   toJSON ClassificationResult' {..} =

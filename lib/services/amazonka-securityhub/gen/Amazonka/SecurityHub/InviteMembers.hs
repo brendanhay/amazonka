@@ -181,5 +181,5 @@ inviteMembersResponse_httpStatus = Lens.lens (\InviteMembersResponse' {httpStatu
 
 instance Prelude.NFData InviteMembersResponse where
   rnf InviteMembersResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus

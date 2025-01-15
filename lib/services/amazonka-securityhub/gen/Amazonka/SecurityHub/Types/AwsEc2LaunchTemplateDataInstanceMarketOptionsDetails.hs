@@ -96,8 +96,8 @@ instance
   where
   rnf
     AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails' {..} =
-      Prelude.rnf marketType
-        `Prelude.seq` Prelude.rnf spotOptions
+      Prelude.rnf marketType `Prelude.seq`
+        Prelude.rnf spotOptions
 
 instance
   Data.ToJSON

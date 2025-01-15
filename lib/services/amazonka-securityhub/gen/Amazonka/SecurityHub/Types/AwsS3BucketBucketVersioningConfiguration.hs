@@ -101,8 +101,8 @@ instance
     AwsS3BucketBucketVersioningConfiguration
   where
   rnf AwsS3BucketBucketVersioningConfiguration' {..} =
-    Prelude.rnf isMfaDeleteEnabled
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf isMfaDeleteEnabled `Prelude.seq`
+      Prelude.rnf status
 
 instance
   Data.ToJSON

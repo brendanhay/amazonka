@@ -146,11 +146,11 @@ instance
   where
   rnf
     AwsS3BucketWebsiteConfigurationRoutingRuleRedirect' {..} =
-      Prelude.rnf hostname
-        `Prelude.seq` Prelude.rnf httpRedirectCode
-        `Prelude.seq` Prelude.rnf protocol
-        `Prelude.seq` Prelude.rnf replaceKeyPrefixWith
-        `Prelude.seq` Prelude.rnf replaceKeyWith
+      Prelude.rnf hostname `Prelude.seq`
+        Prelude.rnf httpRedirectCode `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf replaceKeyPrefixWith `Prelude.seq`
+              Prelude.rnf replaceKeyWith
 
 instance
   Data.ToJSON

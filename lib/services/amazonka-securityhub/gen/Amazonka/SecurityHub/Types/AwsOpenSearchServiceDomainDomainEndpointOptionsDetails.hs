@@ -133,11 +133,11 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
-      Prelude.rnf customEndpoint
-        `Prelude.seq` Prelude.rnf customEndpointCertificateArn
-        `Prelude.seq` Prelude.rnf customEndpointEnabled
-        `Prelude.seq` Prelude.rnf enforceHTTPS
-        `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+      Prelude.rnf customEndpoint `Prelude.seq`
+        Prelude.rnf customEndpointCertificateArn `Prelude.seq`
+          Prelude.rnf customEndpointEnabled `Prelude.seq`
+            Prelude.rnf enforceHTTPS `Prelude.seq`
+              Prelude.rnf tLSSecurityPolicy
 
 instance
   Data.ToJSON

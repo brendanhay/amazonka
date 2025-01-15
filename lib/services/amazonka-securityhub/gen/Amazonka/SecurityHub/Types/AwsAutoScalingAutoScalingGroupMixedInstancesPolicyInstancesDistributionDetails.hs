@@ -178,12 +178,12 @@ instance
   where
   rnf
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails' {..} =
-      Prelude.rnf onDemandAllocationStrategy
-        `Prelude.seq` Prelude.rnf onDemandBaseCapacity
-        `Prelude.seq` Prelude.rnf onDemandPercentageAboveBaseCapacity
-        `Prelude.seq` Prelude.rnf spotAllocationStrategy
-        `Prelude.seq` Prelude.rnf spotInstancePools
-        `Prelude.seq` Prelude.rnf spotMaxPrice
+      Prelude.rnf onDemandAllocationStrategy `Prelude.seq`
+        Prelude.rnf onDemandBaseCapacity `Prelude.seq`
+          Prelude.rnf onDemandPercentageAboveBaseCapacity `Prelude.seq`
+            Prelude.rnf spotAllocationStrategy `Prelude.seq`
+              Prelude.rnf spotInstancePools `Prelude.seq`
+                Prelude.rnf spotMaxPrice
 
 instance
   Data.ToJSON

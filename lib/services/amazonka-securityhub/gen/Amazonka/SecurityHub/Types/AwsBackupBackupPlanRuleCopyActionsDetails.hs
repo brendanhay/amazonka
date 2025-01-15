@@ -118,8 +118,8 @@ instance
     AwsBackupBackupPlanRuleCopyActionsDetails
   where
   rnf AwsBackupBackupPlanRuleCopyActionsDetails' {..} =
-    Prelude.rnf destinationBackupVaultArn
-      `Prelude.seq` Prelude.rnf lifecycle
+    Prelude.rnf destinationBackupVaultArn `Prelude.seq`
+      Prelude.rnf lifecycle
 
 instance
   Data.ToJSON

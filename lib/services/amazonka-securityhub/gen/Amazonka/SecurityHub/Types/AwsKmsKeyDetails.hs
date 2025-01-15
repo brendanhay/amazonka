@@ -224,14 +224,14 @@ instance Prelude.Hashable AwsKmsKeyDetails where
 
 instance Prelude.NFData AwsKmsKeyDetails where
   rnf AwsKmsKeyDetails' {..} =
-    Prelude.rnf aWSAccountId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyManager
-      `Prelude.seq` Prelude.rnf keyRotationStatus
-      `Prelude.seq` Prelude.rnf keyState
-      `Prelude.seq` Prelude.rnf origin
+    Prelude.rnf aWSAccountId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf keyId `Prelude.seq`
+            Prelude.rnf keyManager `Prelude.seq`
+              Prelude.rnf keyRotationStatus `Prelude.seq`
+                Prelude.rnf keyState `Prelude.seq`
+                  Prelude.rnf origin
 
 instance Data.ToJSON AwsKmsKeyDetails where
   toJSON AwsKmsKeyDetails' {..} =

@@ -113,9 +113,9 @@ instance
     AwsEfsAccessPointPosixUserDetails
   where
   rnf AwsEfsAccessPointPosixUserDetails' {..} =
-    Prelude.rnf gid
-      `Prelude.seq` Prelude.rnf secondaryGids
-      `Prelude.seq` Prelude.rnf uid
+    Prelude.rnf gid `Prelude.seq`
+      Prelude.rnf secondaryGids `Prelude.seq`
+        Prelude.rnf uid
 
 instance
   Data.ToJSON

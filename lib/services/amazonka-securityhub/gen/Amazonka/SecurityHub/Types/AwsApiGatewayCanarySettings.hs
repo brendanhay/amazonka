@@ -121,10 +121,10 @@ instance Prelude.Hashable AwsApiGatewayCanarySettings where
 
 instance Prelude.NFData AwsApiGatewayCanarySettings where
   rnf AwsApiGatewayCanarySettings' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf percentTraffic
-      `Prelude.seq` Prelude.rnf stageVariableOverrides
-      `Prelude.seq` Prelude.rnf useStageCache
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf percentTraffic `Prelude.seq`
+        Prelude.rnf stageVariableOverrides `Prelude.seq`
+          Prelude.rnf useStageCache
 
 instance Data.ToJSON AwsApiGatewayCanarySettings where
   toJSON AwsApiGatewayCanarySettings' {..} =

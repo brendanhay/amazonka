@@ -97,8 +97,8 @@ instance
   where
   rnf
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
-      Prelude.rnf items
-        `Prelude.seq` Prelude.rnf quantity
+      Prelude.rnf items `Prelude.seq`
+        Prelude.rnf quantity
 
 instance
   Data.ToJSON

@@ -103,9 +103,9 @@ instance
     AwsCloudFormationStackOutputsDetails
   where
   rnf AwsCloudFormationStackOutputsDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf outputValue
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf outputKey `Prelude.seq`
+        Prelude.rnf outputValue
 
 instance
   Data.ToJSON

@@ -244,18 +244,18 @@ instance
     AwsCloudFrontDistributionDetails
   where
   rnf AwsCloudFrontDistributionDetails' {..} =
-    Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf defaultRootObject
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf originGroups
-      `Prelude.seq` Prelude.rnf origins
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf viewerCertificate
-      `Prelude.seq` Prelude.rnf webAclId
+    Prelude.rnf cacheBehaviors `Prelude.seq`
+      Prelude.rnf defaultCacheBehavior `Prelude.seq`
+        Prelude.rnf defaultRootObject `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf eTag `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf logging `Prelude.seq`
+                  Prelude.rnf originGroups `Prelude.seq`
+                    Prelude.rnf origins `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf viewerCertificate `Prelude.seq`
+                          Prelude.rnf webAclId
 
 instance Data.ToJSON AwsCloudFrontDistributionDetails where
   toJSON AwsCloudFrontDistributionDetails' {..} =

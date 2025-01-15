@@ -92,8 +92,8 @@ instance
     AwsRedshiftClusterClusterSecurityGroup
   where
   rnf AwsRedshiftClusterClusterSecurityGroup' {..} =
-    Prelude.rnf clusterSecurityGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterSecurityGroupName `Prelude.seq`
+      Prelude.rnf status
 
 instance
   Data.ToJSON

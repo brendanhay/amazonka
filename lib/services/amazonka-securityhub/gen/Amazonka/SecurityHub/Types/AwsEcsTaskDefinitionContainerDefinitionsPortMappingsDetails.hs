@@ -109,9 +109,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
-      Prelude.rnf containerPort
-        `Prelude.seq` Prelude.rnf hostPort
-        `Prelude.seq` Prelude.rnf protocol
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf hostPort `Prelude.seq`
+          Prelude.rnf protocol
 
 instance
   Data.ToJSON

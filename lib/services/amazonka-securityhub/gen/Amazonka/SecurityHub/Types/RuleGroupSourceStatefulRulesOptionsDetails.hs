@@ -92,8 +92,8 @@ instance
     RuleGroupSourceStatefulRulesOptionsDetails
   where
   rnf RuleGroupSourceStatefulRulesOptionsDetails' {..} =
-    Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf keyword `Prelude.seq`
+      Prelude.rnf settings
 
 instance
   Data.ToJSON

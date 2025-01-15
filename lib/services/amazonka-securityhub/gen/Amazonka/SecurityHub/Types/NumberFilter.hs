@@ -100,9 +100,9 @@ instance Prelude.Hashable NumberFilter where
 
 instance Prelude.NFData NumberFilter where
   rnf NumberFilter' {..} =
-    Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf gte
-      `Prelude.seq` Prelude.rnf lte
+    Prelude.rnf eq `Prelude.seq`
+      Prelude.rnf gte `Prelude.seq`
+        Prelude.rnf lte
 
 instance Data.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =

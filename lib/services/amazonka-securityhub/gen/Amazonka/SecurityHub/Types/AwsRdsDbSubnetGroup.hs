@@ -126,12 +126,12 @@ instance Prelude.Hashable AwsRdsDbSubnetGroup where
 
 instance Prelude.NFData AwsRdsDbSubnetGroup where
   rnf AwsRdsDbSubnetGroup' {..} =
-    Prelude.rnf dbSubnetGroupArn
-      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf subnetGroupStatus
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dbSubnetGroupArn `Prelude.seq`
+      Prelude.rnf dbSubnetGroupDescription `Prelude.seq`
+        Prelude.rnf dbSubnetGroupName `Prelude.seq`
+          Prelude.rnf subnetGroupStatus `Prelude.seq`
+            Prelude.rnf subnets `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance Data.ToJSON AwsRdsDbSubnetGroup where
   toJSON AwsRdsDbSubnetGroup' {..} =

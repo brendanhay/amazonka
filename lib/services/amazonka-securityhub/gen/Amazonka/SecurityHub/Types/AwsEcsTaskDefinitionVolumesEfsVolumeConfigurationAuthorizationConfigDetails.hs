@@ -97,8 +97,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {..} =
-      Prelude.rnf accessPointId
-        `Prelude.seq` Prelude.rnf iam
+      Prelude.rnf accessPointId `Prelude.seq`
+        Prelude.rnf iam
 
 instance
   Data.ToJSON

@@ -285,8 +285,8 @@ instance Prelude.Hashable StringFilter where
 
 instance Prelude.NFData StringFilter where
   rnf StringFilter' {..} =
-    Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparison `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON StringFilter where
   toJSON StringFilter' {..} =

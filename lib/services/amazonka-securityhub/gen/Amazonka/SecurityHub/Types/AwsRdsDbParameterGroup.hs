@@ -81,8 +81,8 @@ instance Prelude.Hashable AwsRdsDbParameterGroup where
 
 instance Prelude.NFData AwsRdsDbParameterGroup where
   rnf AwsRdsDbParameterGroup' {..} =
-    Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
+    Prelude.rnf dbParameterGroupName `Prelude.seq`
+      Prelude.rnf parameterApplyStatus
 
 instance Data.ToJSON AwsRdsDbParameterGroup where
   toJSON AwsRdsDbParameterGroup' {..} =

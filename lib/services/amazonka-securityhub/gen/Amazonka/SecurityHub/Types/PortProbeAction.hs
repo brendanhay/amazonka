@@ -85,8 +85,8 @@ instance Prelude.Hashable PortProbeAction where
 
 instance Prelude.NFData PortProbeAction where
   rnf PortProbeAction' {..} =
-    Prelude.rnf blocked
-      `Prelude.seq` Prelude.rnf portProbeDetails
+    Prelude.rnf blocked `Prelude.seq`
+      Prelude.rnf portProbeDetails
 
 instance Data.ToJSON PortProbeAction where
   toJSON PortProbeAction' {..} =

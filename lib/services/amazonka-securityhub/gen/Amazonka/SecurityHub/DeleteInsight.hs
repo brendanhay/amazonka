@@ -156,5 +156,5 @@ deleteInsightResponse_insightArn = Lens.lens (\DeleteInsightResponse' {insightAr
 
 instance Prelude.NFData DeleteInsightResponse where
   rnf DeleteInsightResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf insightArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf insightArn

@@ -111,10 +111,10 @@ instance Prelude.Hashable RuleGroupSource where
 
 instance Prelude.NFData RuleGroupSource where
   rnf RuleGroupSource' {..} =
-    Prelude.rnf rulesSourceList
-      `Prelude.seq` Prelude.rnf rulesString
-      `Prelude.seq` Prelude.rnf statefulRules
-      `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
+    Prelude.rnf rulesSourceList `Prelude.seq`
+      Prelude.rnf rulesString `Prelude.seq`
+        Prelude.rnf statefulRules `Prelude.seq`
+          Prelude.rnf statelessRulesAndCustomActions
 
 instance Data.ToJSON RuleGroupSource where
   toJSON RuleGroupSource' {..} =

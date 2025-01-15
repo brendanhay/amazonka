@@ -200,16 +200,16 @@ instance
     AwsNetworkFirewallFirewallDetails
   where
   rnf AwsNetworkFirewallFirewallDetails' {..} =
-    Prelude.rnf deleteProtection
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallId
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf deleteProtection `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf firewallArn `Prelude.seq`
+          Prelude.rnf firewallId `Prelude.seq`
+            Prelude.rnf firewallName `Prelude.seq`
+              Prelude.rnf firewallPolicyArn `Prelude.seq`
+                Prelude.rnf firewallPolicyChangeProtection `Prelude.seq`
+                  Prelude.rnf subnetChangeProtection `Prelude.seq`
+                    Prelude.rnf subnetMappings `Prelude.seq`
+                      Prelude.rnf vpcId
 
 instance
   Data.ToJSON

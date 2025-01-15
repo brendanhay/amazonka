@@ -139,12 +139,12 @@ instance Prelude.Hashable AwsEfsAccessPointDetails where
 
 instance Prelude.NFData AwsEfsAccessPointDetails where
   rnf AwsEfsAccessPointDetails' {..} =
-    Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf posixUser
-      `Prelude.seq` Prelude.rnf rootDirectory
+    Prelude.rnf accessPointId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf fileSystemId `Prelude.seq`
+            Prelude.rnf posixUser `Prelude.seq`
+              Prelude.rnf rootDirectory
 
 instance Data.ToJSON AwsEfsAccessPointDetails where
   toJSON AwsEfsAccessPointDetails' {..} =

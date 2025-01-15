@@ -91,8 +91,8 @@ instance Prelude.Hashable StatusReason where
 
 instance Prelude.NFData StatusReason where
   rnf StatusReason' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf reasonCode
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf reasonCode
 
 instance Data.ToJSON StatusReason where
   toJSON StatusReason' {..} =

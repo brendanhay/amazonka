@@ -112,9 +112,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionProxyConfigurationDetails' {..} =
-      Prelude.rnf containerName
-        `Prelude.seq` Prelude.rnf proxyConfigurationProperties
-        `Prelude.seq` Prelude.rnf type'
+      Prelude.rnf containerName `Prelude.seq`
+        Prelude.rnf proxyConfigurationProperties `Prelude.seq`
+          Prelude.rnf type'
 
 instance
   Data.ToJSON

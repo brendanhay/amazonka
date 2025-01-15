@@ -99,8 +99,8 @@ instance
     AwsElbLbCookieStickinessPolicy
   where
   rnf AwsElbLbCookieStickinessPolicy' {..} =
-    Prelude.rnf cookieExpirationPeriod
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf cookieExpirationPeriod `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToJSON AwsElbLbCookieStickinessPolicy where
   toJSON AwsElbLbCookieStickinessPolicy' {..} =

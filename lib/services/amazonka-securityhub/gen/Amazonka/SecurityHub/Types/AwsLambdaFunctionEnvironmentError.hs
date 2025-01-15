@@ -92,8 +92,8 @@ instance
     AwsLambdaFunctionEnvironmentError
   where
   rnf AwsLambdaFunctionEnvironmentError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf message
 
 instance
   Data.ToJSON

@@ -122,12 +122,12 @@ instance Core.AWSPager ListEnabledProductsForImport where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnabledProductsForImport_nextToken
-          Lens..~ rs
-          Lens.^? listEnabledProductsForImportResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnabledProductsForImport_nextToken
+              Lens..~ rs
+              Lens.^? listEnabledProductsForImportResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnabledProductsForImport where
   type
@@ -158,8 +158,8 @@ instance
 
 instance Prelude.NFData ListEnabledProductsForImport where
   rnf ListEnabledProductsForImport' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnabledProductsForImport where
   toHeaders =
@@ -239,6 +239,6 @@ instance
     ListEnabledProductsForImportResponse
   where
   rnf ListEnabledProductsForImportResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productSubscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf productSubscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

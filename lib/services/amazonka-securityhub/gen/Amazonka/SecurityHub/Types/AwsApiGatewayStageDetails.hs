@@ -298,22 +298,22 @@ instance Prelude.Hashable AwsApiGatewayStageDetails where
 
 instance Prelude.NFData AwsApiGatewayStageDetails where
   rnf AwsApiGatewayStageDetails' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf cacheClusterEnabled
-      `Prelude.seq` Prelude.rnf cacheClusterSize
-      `Prelude.seq` Prelude.rnf cacheClusterStatus
-      `Prelude.seq` Prelude.rnf canarySettings
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf documentationVersion
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf methodSettings
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf tracingEnabled
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf webAclArn
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf cacheClusterEnabled `Prelude.seq`
+        Prelude.rnf cacheClusterSize `Prelude.seq`
+          Prelude.rnf cacheClusterStatus `Prelude.seq`
+            Prelude.rnf canarySettings `Prelude.seq`
+              Prelude.rnf clientCertificateId `Prelude.seq`
+                Prelude.rnf createdDate `Prelude.seq`
+                  Prelude.rnf deploymentId `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf documentationVersion `Prelude.seq`
+                        Prelude.rnf lastUpdatedDate `Prelude.seq`
+                          Prelude.rnf methodSettings `Prelude.seq`
+                            Prelude.rnf stageName `Prelude.seq`
+                              Prelude.rnf tracingEnabled `Prelude.seq`
+                                Prelude.rnf variables `Prelude.seq`
+                                  Prelude.rnf webAclArn
 
 instance Data.ToJSON AwsApiGatewayStageDetails where
   toJSON AwsApiGatewayStageDetails' {..} =

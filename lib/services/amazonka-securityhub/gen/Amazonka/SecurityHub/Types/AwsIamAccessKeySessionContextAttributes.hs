@@ -107,8 +107,8 @@ instance
     AwsIamAccessKeySessionContextAttributes
   where
   rnf AwsIamAccessKeySessionContextAttributes' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf mfaAuthenticated
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf mfaAuthenticated
 
 instance
   Data.ToJSON

@@ -107,9 +107,9 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainLogPublishingOptionsDetails' {..} =
-      Prelude.rnf auditLogs
-        `Prelude.seq` Prelude.rnf indexSlowLogs
-        `Prelude.seq` Prelude.rnf searchSlowLogs
+      Prelude.rnf auditLogs `Prelude.seq`
+        Prelude.rnf indexSlowLogs `Prelude.seq`
+          Prelude.rnf searchSlowLogs
 
 instance
   Data.ToJSON

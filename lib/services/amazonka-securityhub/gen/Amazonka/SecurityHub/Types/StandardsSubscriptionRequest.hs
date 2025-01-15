@@ -82,8 +82,8 @@ instance
 
 instance Prelude.NFData StandardsSubscriptionRequest where
   rnf StandardsSubscriptionRequest' {..} =
-    Prelude.rnf standardsInput
-      `Prelude.seq` Prelude.rnf standardsArn
+    Prelude.rnf standardsInput `Prelude.seq`
+      Prelude.rnf standardsArn
 
 instance Data.ToJSON StandardsSubscriptionRequest where
   toJSON StandardsSubscriptionRequest' {..} =

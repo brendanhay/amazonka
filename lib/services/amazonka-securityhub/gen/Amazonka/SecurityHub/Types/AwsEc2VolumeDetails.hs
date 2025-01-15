@@ -234,17 +234,17 @@ instance Prelude.Hashable AwsEc2VolumeDetails where
 
 instance Prelude.NFData AwsEc2VolumeDetails where
   rnf AwsEc2VolumeDetails' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeScanStatus
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf deviceName `Prelude.seq`
+          Prelude.rnf encrypted `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf size `Prelude.seq`
+                Prelude.rnf snapshotId `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf volumeId `Prelude.seq`
+                      Prelude.rnf volumeScanStatus `Prelude.seq`
+                        Prelude.rnf volumeType
 
 instance Data.ToJSON AwsEc2VolumeDetails where
   toJSON AwsEc2VolumeDetails' {..} =

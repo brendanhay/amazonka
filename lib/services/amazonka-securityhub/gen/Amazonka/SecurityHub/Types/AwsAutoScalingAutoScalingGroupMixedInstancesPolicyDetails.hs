@@ -108,8 +108,8 @@ instance
   where
   rnf
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails' {..} =
-      Prelude.rnf instancesDistribution
-        `Prelude.seq` Prelude.rnf launchTemplate
+      Prelude.rnf instancesDistribution `Prelude.seq`
+        Prelude.rnf launchTemplate
 
 instance
   Data.ToJSON

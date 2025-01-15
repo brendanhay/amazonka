@@ -154,12 +154,12 @@ instance Prelude.Hashable ProcessDetails where
 
 instance Prelude.NFData ProcessDetails where
   rnf ProcessDetails' {..} =
-    Prelude.rnf launchedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentPid
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf pid
-      `Prelude.seq` Prelude.rnf terminatedAt
+    Prelude.rnf launchedAt `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentPid `Prelude.seq`
+          Prelude.rnf path `Prelude.seq`
+            Prelude.rnf pid `Prelude.seq`
+              Prelude.rnf terminatedAt
 
 instance Data.ToJSON ProcessDetails where
   toJSON ProcessDetails' {..} =

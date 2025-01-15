@@ -249,21 +249,21 @@ instance
 
 instance Prelude.NFData AwsCloudFormationStackDetails where
   rnf AwsCloudFormationStackDetails' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableRollback
-      `Prelude.seq` Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf enableTerminationProtection
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf stackStatus
-      `Prelude.seq` Prelude.rnf stackStatusReason
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf disableRollback `Prelude.seq`
+            Prelude.rnf driftInformation `Prelude.seq`
+              Prelude.rnf enableTerminationProtection `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf notificationArns `Prelude.seq`
+                    Prelude.rnf outputs `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf stackId `Prelude.seq`
+                          Prelude.rnf stackName `Prelude.seq`
+                            Prelude.rnf stackStatus `Prelude.seq`
+                              Prelude.rnf stackStatusReason `Prelude.seq`
+                                Prelude.rnf timeoutInMinutes
 
 instance Data.ToJSON AwsCloudFormationStackDetails where
   toJSON AwsCloudFormationStackDetails' {..} =

@@ -164,11 +164,11 @@ instance Prelude.Hashable ListObjectChildren where
 
 instance Prelude.NFData ListObjectChildren where
   rnf ListObjectChildren' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf directoryArn `Prelude.seq`
+            Prelude.rnf objectReference
 
 instance Data.ToHeaders ListObjectChildren where
   toHeaders ListObjectChildren' {..} =
@@ -249,6 +249,6 @@ listObjectChildrenResponse_httpStatus = Lens.lens (\ListObjectChildrenResponse' 
 
 instance Prelude.NFData ListObjectChildrenResponse where
   rnf ListObjectChildrenResponse' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

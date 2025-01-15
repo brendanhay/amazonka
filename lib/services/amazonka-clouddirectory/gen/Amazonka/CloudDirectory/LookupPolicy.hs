@@ -139,12 +139,12 @@ instance Core.AWSPager LookupPolicy where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& lookupPolicy_nextToken
-          Lens..~ rs
-          Lens.^? lookupPolicyResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& lookupPolicy_nextToken
+              Lens..~ rs
+              Lens.^? lookupPolicyResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest LookupPolicy where
   type AWSResponse LookupPolicy = LookupPolicyResponse
@@ -172,10 +172,10 @@ instance Prelude.Hashable LookupPolicy where
 
 instance Prelude.NFData LookupPolicy where
   rnf LookupPolicy' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf directoryArn `Prelude.seq`
+          Prelude.rnf objectReference
 
 instance Data.ToHeaders LookupPolicy where
   toHeaders LookupPolicy' {..} =
@@ -256,6 +256,6 @@ lookupPolicyResponse_httpStatus = Lens.lens (\LookupPolicyResponse' {httpStatus}
 
 instance Prelude.NFData LookupPolicyResponse where
   rnf LookupPolicyResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyToPathList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf policyToPathList `Prelude.seq`
+        Prelude.rnf httpStatus

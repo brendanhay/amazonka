@@ -90,5 +90,5 @@ instance
     BatchListObjectParentsResponse
   where
   rnf BatchListObjectParentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parentLinks
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parentLinks

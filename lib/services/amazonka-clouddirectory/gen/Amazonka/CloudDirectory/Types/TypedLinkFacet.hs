@@ -105,9 +105,9 @@ instance Prelude.Hashable TypedLinkFacet where
 
 instance Prelude.NFData TypedLinkFacet where
   rnf TypedLinkFacet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf identityAttributeOrder
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf identityAttributeOrder
 
 instance Data.ToJSON TypedLinkFacet where
   toJSON TypedLinkFacet' {..} =

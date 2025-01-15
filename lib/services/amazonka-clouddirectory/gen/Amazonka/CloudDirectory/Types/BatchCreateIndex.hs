@@ -118,11 +118,11 @@ instance Prelude.Hashable BatchCreateIndex where
 
 instance Prelude.NFData BatchCreateIndex where
   rnf BatchCreateIndex' {..} =
-    Prelude.rnf batchReferenceName
-      `Prelude.seq` Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
-      `Prelude.seq` Prelude.rnf isUnique
+    Prelude.rnf batchReferenceName `Prelude.seq`
+      Prelude.rnf linkName `Prelude.seq`
+        Prelude.rnf parentReference `Prelude.seq`
+          Prelude.rnf orderedIndexedAttributeList `Prelude.seq`
+            Prelude.rnf isUnique
 
 instance Data.ToJSON BatchCreateIndex where
   toJSON BatchCreateIndex' {..} =

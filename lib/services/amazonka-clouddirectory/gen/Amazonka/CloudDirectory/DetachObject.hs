@@ -131,9 +131,9 @@ instance Prelude.Hashable DetachObject where
 
 instance Prelude.NFData DetachObject where
   rnf DetachObject' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf linkName
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf parentReference `Prelude.seq`
+        Prelude.rnf linkName
 
 instance Data.ToHeaders DetachObject where
   toHeaders DetachObject' {..} =
@@ -199,5 +199,5 @@ detachObjectResponse_httpStatus = Lens.lens (\DetachObjectResponse' {httpStatus}
 
 instance Prelude.NFData DetachObjectResponse where
   rnf DetachObjectResponse' {..} =
-    Prelude.rnf detachedObjectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detachedObjectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

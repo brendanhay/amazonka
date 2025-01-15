@@ -114,12 +114,12 @@ instance Core.AWSPager ListFacetNames where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFacetNames_nextToken
-          Lens..~ rs
-          Lens.^? listFacetNamesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFacetNames_nextToken
+              Lens..~ rs
+              Lens.^? listFacetNamesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFacetNames where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ListFacetNames where
 
 instance Prelude.NFData ListFacetNames where
   rnf ListFacetNames' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf schemaArn
 
 instance Data.ToHeaders ListFacetNames where
   toHeaders ListFacetNames' {..} =
@@ -221,6 +221,6 @@ listFacetNamesResponse_httpStatus = Lens.lens (\ListFacetNamesResponse' {httpSta
 
 instance Prelude.NFData ListFacetNamesResponse where
   rnf ListFacetNamesResponse' {..} =
-    Prelude.rnf facetNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf facetNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

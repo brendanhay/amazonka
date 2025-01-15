@@ -103,8 +103,8 @@ instance Prelude.Hashable FacetAttributeReference where
 
 instance Prelude.NFData FacetAttributeReference where
   rnf FacetAttributeReference' {..} =
-    Prelude.rnf targetFacetName
-      `Prelude.seq` Prelude.rnf targetAttributeName
+    Prelude.rnf targetFacetName `Prelude.seq`
+      Prelude.rnf targetAttributeName
 
 instance Data.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =

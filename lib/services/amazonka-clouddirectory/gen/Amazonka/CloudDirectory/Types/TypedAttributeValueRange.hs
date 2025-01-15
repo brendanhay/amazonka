@@ -98,10 +98,10 @@ instance Prelude.Hashable TypedAttributeValueRange where
 
 instance Prelude.NFData TypedAttributeValueRange where
   rnf TypedAttributeValueRange' {..} =
-    Prelude.rnf endValue
-      `Prelude.seq` Prelude.rnf startValue
-      `Prelude.seq` Prelude.rnf startMode
-      `Prelude.seq` Prelude.rnf endMode
+    Prelude.rnf endValue `Prelude.seq`
+      Prelude.rnf startValue `Prelude.seq`
+        Prelude.rnf startMode `Prelude.seq`
+          Prelude.rnf endMode
 
 instance Data.ToJSON TypedAttributeValueRange where
   toJSON TypedAttributeValueRange' {..} =

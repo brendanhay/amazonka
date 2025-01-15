@@ -91,9 +91,9 @@ instance Prelude.Hashable BatchAttachObject where
 
 instance Prelude.NFData BatchAttachObject where
   rnf BatchAttachObject' {..} =
-    Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf childReference
-      `Prelude.seq` Prelude.rnf linkName
+    Prelude.rnf parentReference `Prelude.seq`
+      Prelude.rnf childReference `Prelude.seq`
+        Prelude.rnf linkName
 
 instance Data.ToJSON BatchAttachObject where
   toJSON BatchAttachObject' {..} =

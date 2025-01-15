@@ -85,5 +85,5 @@ instance Prelude.Hashable BatchListIndexResponse where
 
 instance Prelude.NFData BatchListIndexResponse where
   rnf BatchListIndexResponse' {..} =
-    Prelude.rnf indexAttachments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf indexAttachments `Prelude.seq`
+      Prelude.rnf nextToken

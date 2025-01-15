@@ -146,10 +146,10 @@ instance Prelude.Hashable UpdateFacet where
 
 instance Prelude.NFData UpdateFacet where
   rnf UpdateFacet' {..} =
-    Prelude.rnf attributeUpdates
-      `Prelude.seq` Prelude.rnf objectType
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributeUpdates `Prelude.seq`
+      Prelude.rnf objectType `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateFacet where
   toHeaders UpdateFacet' {..} =

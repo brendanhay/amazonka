@@ -143,10 +143,10 @@ instance Prelude.Hashable AddFacetToObject where
 
 instance Prelude.NFData AddFacetToObject where
   rnf AddFacetToObject' {..} =
-    Prelude.rnf objectAttributeList
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf objectAttributeList `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf schemaFacet `Prelude.seq`
+          Prelude.rnf objectReference
 
 instance Data.ToHeaders AddFacetToObject where
   toHeaders AddFacetToObject' {..} =

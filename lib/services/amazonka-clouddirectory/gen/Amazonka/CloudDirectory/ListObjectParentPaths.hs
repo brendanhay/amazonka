@@ -143,12 +143,12 @@ instance Core.AWSPager ListObjectParentPaths where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjectParentPaths_nextToken
-          Lens..~ rs
-          Lens.^? listObjectParentPathsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjectParentPaths_nextToken
+              Lens..~ rs
+              Lens.^? listObjectParentPathsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectParentPaths where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable ListObjectParentPaths where
 
 instance Prelude.NFData ListObjectParentPaths where
   rnf ListObjectParentPaths' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf directoryArn `Prelude.seq`
+          Prelude.rnf objectReference
 
 instance Data.ToHeaders ListObjectParentPaths where
   toHeaders ListObjectParentPaths' {..} =
@@ -261,6 +261,6 @@ listObjectParentPathsResponse_httpStatus = Lens.lens (\ListObjectParentPathsResp
 
 instance Prelude.NFData ListObjectParentPathsResponse where
   rnf ListObjectParentPathsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pathToObjectIdentifiersList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pathToObjectIdentifiersList `Prelude.seq`
+        Prelude.rnf httpStatus

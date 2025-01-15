@@ -105,10 +105,10 @@ instance Prelude.Hashable BatchAttachTypedLink where
 
 instance Prelude.NFData BatchAttachTypedLink where
   rnf BatchAttachTypedLink' {..} =
-    Prelude.rnf sourceObjectReference
-      `Prelude.seq` Prelude.rnf targetObjectReference
-      `Prelude.seq` Prelude.rnf typedLinkFacet
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf sourceObjectReference `Prelude.seq`
+      Prelude.rnf targetObjectReference `Prelude.seq`
+        Prelude.rnf typedLinkFacet `Prelude.seq`
+          Prelude.rnf attributes
 
 instance Data.ToJSON BatchAttachTypedLink where
   toJSON BatchAttachTypedLink' {..} =

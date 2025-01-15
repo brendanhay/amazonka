@@ -110,8 +110,8 @@ instance Prelude.Hashable BatchWrite where
 
 instance Prelude.NFData BatchWrite where
   rnf BatchWrite' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf operations
 
 instance Data.ToHeaders BatchWrite where
   toHeaders BatchWrite' {..} =
@@ -173,5 +173,5 @@ batchWriteResponse_httpStatus = Lens.lens (\BatchWriteResponse' {httpStatus} -> 
 
 instance Prelude.NFData BatchWriteResponse where
   rnf BatchWriteResponse' {..} =
-    Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf responses `Prelude.seq`
+      Prelude.rnf httpStatus

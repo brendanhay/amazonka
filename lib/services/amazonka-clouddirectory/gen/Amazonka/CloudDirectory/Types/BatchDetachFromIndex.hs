@@ -80,8 +80,8 @@ instance Prelude.Hashable BatchDetachFromIndex where
 
 instance Prelude.NFData BatchDetachFromIndex where
   rnf BatchDetachFromIndex' {..} =
-    Prelude.rnf indexReference
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf indexReference `Prelude.seq`
+      Prelude.rnf targetReference
 
 instance Data.ToJSON BatchDetachFromIndex where
   toJSON BatchDetachFromIndex' {..} =

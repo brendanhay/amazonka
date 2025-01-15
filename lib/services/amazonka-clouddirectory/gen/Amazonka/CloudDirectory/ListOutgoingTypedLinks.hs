@@ -177,12 +177,12 @@ instance Core.AWSPager ListOutgoingTypedLinks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOutgoingTypedLinks_nextToken
-          Lens..~ rs
-          Lens.^? listOutgoingTypedLinksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOutgoingTypedLinks_nextToken
+              Lens..~ rs
+              Lens.^? listOutgoingTypedLinksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOutgoingTypedLinks where
   type
@@ -215,13 +215,13 @@ instance Prelude.Hashable ListOutgoingTypedLinks where
 
 instance Prelude.NFData ListOutgoingTypedLinks where
   rnf ListOutgoingTypedLinks' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf filterAttributeRanges
-      `Prelude.seq` Prelude.rnf filterTypedLink
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf filterAttributeRanges `Prelude.seq`
+        Prelude.rnf filterTypedLink `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf directoryArn `Prelude.seq`
+                Prelude.rnf objectReference
 
 instance Data.ToHeaders ListOutgoingTypedLinks where
   toHeaders ListOutgoingTypedLinks' {..} =
@@ -306,6 +306,6 @@ instance
     ListOutgoingTypedLinksResponse
   where
   rnf ListOutgoingTypedLinksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf typedLinkSpecifiers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf typedLinkSpecifiers `Prelude.seq`
+        Prelude.rnf httpStatus

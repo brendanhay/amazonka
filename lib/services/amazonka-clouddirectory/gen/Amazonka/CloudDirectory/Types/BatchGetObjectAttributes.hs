@@ -94,9 +94,9 @@ instance Prelude.Hashable BatchGetObjectAttributes where
 
 instance Prelude.NFData BatchGetObjectAttributes where
   rnf BatchGetObjectAttributes' {..} =
-    Prelude.rnf objectReference
-      `Prelude.seq` Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf objectReference `Prelude.seq`
+      Prelude.rnf schemaFacet `Prelude.seq`
+        Prelude.rnf attributeNames
 
 instance Data.ToJSON BatchGetObjectAttributes where
   toJSON BatchGetObjectAttributes' {..} =

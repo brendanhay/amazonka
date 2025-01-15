@@ -91,8 +91,8 @@ instance Prelude.Hashable TypedLinkSchemaAndFacetName where
 
 instance Prelude.NFData TypedLinkSchemaAndFacetName where
   rnf TypedLinkSchemaAndFacetName' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf typedLinkName
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf typedLinkName
 
 instance Data.ToJSON TypedLinkSchemaAndFacetName where
   toJSON TypedLinkSchemaAndFacetName' {..} =

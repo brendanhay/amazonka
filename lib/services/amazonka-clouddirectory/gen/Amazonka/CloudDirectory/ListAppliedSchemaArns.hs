@@ -129,12 +129,12 @@ instance Core.AWSPager ListAppliedSchemaArns where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAppliedSchemaArns_nextToken
-          Lens..~ rs
-          Lens.^? listAppliedSchemaArnsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAppliedSchemaArns_nextToken
+              Lens..~ rs
+              Lens.^? listAppliedSchemaArnsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppliedSchemaArns where
   type
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListAppliedSchemaArns where
 
 instance Prelude.NFData ListAppliedSchemaArns where
   rnf ListAppliedSchemaArns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf directoryArn
 
 instance Data.ToHeaders ListAppliedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,6 +238,6 @@ listAppliedSchemaArnsResponse_httpStatus = Lens.lens (\ListAppliedSchemaArnsResp
 
 instance Prelude.NFData ListAppliedSchemaArnsResponse where
   rnf ListAppliedSchemaArnsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemaArns `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -108,8 +108,8 @@ instance Prelude.Hashable DetachTypedLink where
 
 instance Prelude.NFData DetachTypedLink where
   rnf DetachTypedLink' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf typedLinkSpecifier
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf typedLinkSpecifier
 
 instance Data.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =

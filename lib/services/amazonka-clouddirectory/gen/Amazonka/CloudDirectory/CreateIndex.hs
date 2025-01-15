@@ -149,11 +149,11 @@ instance Prelude.Hashable CreateIndex where
 
 instance Prelude.NFData CreateIndex where
   rnf CreateIndex' {..} =
-    Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
-      `Prelude.seq` Prelude.rnf isUnique
+    Prelude.rnf linkName `Prelude.seq`
+      Prelude.rnf parentReference `Prelude.seq`
+        Prelude.rnf directoryArn `Prelude.seq`
+          Prelude.rnf orderedIndexedAttributeList `Prelude.seq`
+            Prelude.rnf isUnique
 
 instance Data.ToHeaders CreateIndex where
   toHeaders CreateIndex' {..} =
@@ -224,5 +224,5 @@ createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -
 
 instance Prelude.NFData CreateIndexResponse where
   rnf CreateIndexResponse' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

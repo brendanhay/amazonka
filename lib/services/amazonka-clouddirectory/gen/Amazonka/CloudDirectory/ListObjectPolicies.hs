@@ -151,12 +151,12 @@ instance Core.AWSPager ListObjectPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjectPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listObjectPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjectPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listObjectPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectPolicies where
   type
@@ -187,11 +187,11 @@ instance Prelude.Hashable ListObjectPolicies where
 
 instance Prelude.NFData ListObjectPolicies where
   rnf ListObjectPolicies' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf directoryArn `Prelude.seq`
+            Prelude.rnf objectReference
 
 instance Data.ToHeaders ListObjectPolicies where
   toHeaders ListObjectPolicies' {..} =
@@ -269,6 +269,6 @@ listObjectPoliciesResponse_httpStatus = Lens.lens (\ListObjectPoliciesResponse' 
 
 instance Prelude.NFData ListObjectPoliciesResponse where
   rnf ListObjectPoliciesResponse' {..} =
-    Prelude.rnf attachedPolicyIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedPolicyIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

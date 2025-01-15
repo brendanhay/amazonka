@@ -158,5 +158,5 @@ disableDirectoryResponse_directoryArn = Lens.lens (\DisableDirectoryResponse' {d
 
 instance Prelude.NFData DisableDirectoryResponse where
   rnf DisableDirectoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf directoryArn

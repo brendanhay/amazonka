@@ -80,8 +80,8 @@ instance
 
 instance Prelude.NFData TypedLinkFacetAttributeUpdate where
   rnf TypedLinkFacetAttributeUpdate' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf action
 
 instance Data.ToJSON TypedLinkFacetAttributeUpdate where
   toJSON TypedLinkFacetAttributeUpdate' {..} =

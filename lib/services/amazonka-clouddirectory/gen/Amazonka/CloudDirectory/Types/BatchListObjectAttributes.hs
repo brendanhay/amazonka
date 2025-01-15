@@ -101,10 +101,10 @@ instance Prelude.Hashable BatchListObjectAttributes where
 
 instance Prelude.NFData BatchListObjectAttributes where
   rnf BatchListObjectAttributes' {..} =
-    Prelude.rnf facetFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf facetFilter `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf objectReference
 
 instance Data.ToJSON BatchListObjectAttributes where
   toJSON BatchListObjectAttributes' {..} =

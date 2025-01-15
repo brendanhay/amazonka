@@ -78,8 +78,8 @@ instance Prelude.Hashable BatchUpdateLinkAttributes where
 
 instance Prelude.NFData BatchUpdateLinkAttributes where
   rnf BatchUpdateLinkAttributes' {..} =
-    Prelude.rnf typedLinkSpecifier
-      `Prelude.seq` Prelude.rnf attributeUpdates
+    Prelude.rnf typedLinkSpecifier `Prelude.seq`
+      Prelude.rnf attributeUpdates
 
 instance Data.ToJSON BatchUpdateLinkAttributes where
   toJSON BatchUpdateLinkAttributes' {..} =

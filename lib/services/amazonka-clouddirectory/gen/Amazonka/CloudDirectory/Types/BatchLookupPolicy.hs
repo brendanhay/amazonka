@@ -85,9 +85,9 @@ instance Prelude.Hashable BatchLookupPolicy where
 
 instance Prelude.NFData BatchLookupPolicy where
   rnf BatchLookupPolicy' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToJSON BatchLookupPolicy where
   toJSON BatchLookupPolicy' {..} =

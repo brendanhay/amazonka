@@ -74,8 +74,8 @@ instance Prelude.Hashable LinkAttributeAction where
 
 instance Prelude.NFData LinkAttributeAction where
   rnf LinkAttributeAction' {..} =
-    Prelude.rnf attributeActionType
-      `Prelude.seq` Prelude.rnf attributeUpdateValue
+    Prelude.rnf attributeActionType `Prelude.seq`
+      Prelude.rnf attributeUpdateValue
 
 instance Data.ToJSON LinkAttributeAction where
   toJSON LinkAttributeAction' {..} =

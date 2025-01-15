@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteTypedLinkFacet where
 
 instance Prelude.NFData DeleteTypedLinkFacet where
   rnf DeleteTypedLinkFacet' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteTypedLinkFacet where
   toHeaders DeleteTypedLinkFacet' {..} =

@@ -92,8 +92,8 @@ instance Prelude.Hashable SchemaFacet where
 
 instance Prelude.NFData SchemaFacet where
   rnf SchemaFacet' {..} =
-    Prelude.rnf facetName
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf facetName `Prelude.seq`
+      Prelude.rnf schemaArn
 
 instance Data.ToJSON SchemaFacet where
   toJSON SchemaFacet' {..} =

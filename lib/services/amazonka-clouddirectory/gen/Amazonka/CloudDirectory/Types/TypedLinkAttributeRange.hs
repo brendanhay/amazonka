@@ -74,8 +74,8 @@ instance Prelude.Hashable TypedLinkAttributeRange where
 
 instance Prelude.NFData TypedLinkAttributeRange where
   rnf TypedLinkAttributeRange' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf range
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf range
 
 instance Data.ToJSON TypedLinkAttributeRange where
   toJSON TypedLinkAttributeRange' {..} =

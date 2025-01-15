@@ -122,8 +122,8 @@ instance
 
 instance Prelude.NFData GetTypedLinkFacetInformation where
   rnf GetTypedLinkFacetInformation' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders GetTypedLinkFacetInformation where
   toHeaders GetTypedLinkFacetInformation' {..} =
@@ -216,5 +216,5 @@ instance
     GetTypedLinkFacetInformationResponse
   where
   rnf GetTypedLinkFacetInformationResponse' {..} =
-    Prelude.rnf identityAttributeOrder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityAttributeOrder `Prelude.seq`
+      Prelude.rnf httpStatus

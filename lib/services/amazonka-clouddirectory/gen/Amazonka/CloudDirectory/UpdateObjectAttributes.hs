@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateObjectAttributes where
 
 instance Prelude.NFData UpdateObjectAttributes where
   rnf UpdateObjectAttributes' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
-      `Prelude.seq` Prelude.rnf attributeUpdates
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf objectReference `Prelude.seq`
+        Prelude.rnf attributeUpdates
 
 instance Data.ToHeaders UpdateObjectAttributes where
   toHeaders UpdateObjectAttributes' {..} =
@@ -199,5 +199,5 @@ instance
     UpdateObjectAttributesResponse
   where
   rnf UpdateObjectAttributesResponse' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

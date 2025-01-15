@@ -126,9 +126,9 @@ instance Prelude.Hashable GetObjectInformation where
 
 instance Prelude.NFData GetObjectInformation where
   rnf GetObjectInformation' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToHeaders GetObjectInformation where
   toHeaders GetObjectInformation' {..} =
@@ -213,6 +213,6 @@ getObjectInformationResponse_httpStatus = Lens.lens (\GetObjectInformationRespon
 
 instance Prelude.NFData GetObjectInformationResponse where
   rnf GetObjectInformationResponse' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf schemaFacets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf schemaFacets `Prelude.seq`
+        Prelude.rnf httpStatus

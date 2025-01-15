@@ -129,9 +129,9 @@ instance Prelude.Hashable AttachToIndex where
 
 instance Prelude.NFData AttachToIndex where
   rnf AttachToIndex' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf indexReference
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf indexReference `Prelude.seq`
+        Prelude.rnf targetReference
 
 instance Data.ToHeaders AttachToIndex where
   toHeaders AttachToIndex' {..} =
@@ -198,5 +198,5 @@ attachToIndexResponse_httpStatus = Lens.lens (\AttachToIndexResponse' {httpStatu
 
 instance Prelude.NFData AttachToIndexResponse where
   rnf AttachToIndexResponse' {..} =
-    Prelude.rnf attachedObjectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedObjectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

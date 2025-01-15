@@ -110,10 +110,10 @@ instance Prelude.Hashable FacetAttributeDefinition where
 
 instance Prelude.NFData FacetAttributeDefinition where
   rnf FacetAttributeDefinition' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf isImmutable
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf isImmutable `Prelude.seq`
+        Prelude.rnf rules `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON FacetAttributeDefinition where
   toJSON FacetAttributeDefinition' {..} =

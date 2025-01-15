@@ -73,8 +73,8 @@ instance Prelude.Hashable ObjectAttributeRange where
 
 instance Prelude.NFData ObjectAttributeRange where
   rnf ObjectAttributeRange' {..} =
-    Prelude.rnf attributeKey
-      `Prelude.seq` Prelude.rnf range
+    Prelude.rnf attributeKey `Prelude.seq`
+      Prelude.rnf range
 
 instance Data.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =

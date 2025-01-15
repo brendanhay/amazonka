@@ -123,10 +123,10 @@ instance Prelude.Hashable FacetAttribute where
 
 instance Prelude.NFData FacetAttribute where
   rnf FacetAttribute' {..} =
-    Prelude.rnf attributeDefinition
-      `Prelude.seq` Prelude.rnf attributeReference
-      `Prelude.seq` Prelude.rnf requiredBehavior
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributeDefinition `Prelude.seq`
+      Prelude.rnf attributeReference `Prelude.seq`
+        Prelude.rnf requiredBehavior `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON FacetAttribute where
   toJSON FacetAttribute' {..} =

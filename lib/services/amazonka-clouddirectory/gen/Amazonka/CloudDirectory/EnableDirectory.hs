@@ -156,5 +156,5 @@ enableDirectoryResponse_directoryArn = Lens.lens (\EnableDirectoryResponse' {dir
 
 instance Prelude.NFData EnableDirectoryResponse where
   rnf EnableDirectoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf directoryArn

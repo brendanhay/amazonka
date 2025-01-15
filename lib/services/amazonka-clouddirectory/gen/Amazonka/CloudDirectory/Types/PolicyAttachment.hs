@@ -94,6 +94,6 @@ instance Prelude.Hashable PolicyAttachment where
 
 instance Prelude.NFData PolicyAttachment where
   rnf PolicyAttachment' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf policyId `Prelude.seq`
+        Prelude.rnf policyType

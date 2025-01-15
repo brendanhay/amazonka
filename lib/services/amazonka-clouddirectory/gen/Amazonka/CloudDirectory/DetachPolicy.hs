@@ -128,9 +128,9 @@ instance Prelude.Hashable DetachPolicy where
 
 instance Prelude.NFData DetachPolicy where
   rnf DetachPolicy' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf policyReference
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf policyReference `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToHeaders DetachPolicy where
   toHeaders DetachPolicy' {..} =

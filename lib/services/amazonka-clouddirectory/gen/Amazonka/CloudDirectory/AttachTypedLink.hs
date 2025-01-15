@@ -156,11 +156,11 @@ instance Prelude.Hashable AttachTypedLink where
 
 instance Prelude.NFData AttachTypedLink where
   rnf AttachTypedLink' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf sourceObjectReference
-      `Prelude.seq` Prelude.rnf targetObjectReference
-      `Prelude.seq` Prelude.rnf typedLinkFacet
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf sourceObjectReference `Prelude.seq`
+        Prelude.rnf targetObjectReference `Prelude.seq`
+          Prelude.rnf typedLinkFacet `Prelude.seq`
+            Prelude.rnf attributes
 
 instance Data.ToHeaders AttachTypedLink where
   toHeaders AttachTypedLink' {..} =
@@ -234,5 +234,5 @@ attachTypedLinkResponse_httpStatus = Lens.lens (\AttachTypedLinkResponse' {httpS
 
 instance Prelude.NFData AttachTypedLinkResponse where
   rnf AttachTypedLinkResponse' {..} =
-    Prelude.rnf typedLinkSpecifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf typedLinkSpecifier `Prelude.seq`
+      Prelude.rnf httpStatus

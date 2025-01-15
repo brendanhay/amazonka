@@ -125,8 +125,8 @@ instance Prelude.Hashable CreateDirectory where
 
 instance Prelude.NFData CreateDirectory where
   rnf CreateDirectory' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf schemaArn
 
 instance Data.ToHeaders CreateDirectory where
   toHeaders CreateDirectory' {..} =
@@ -237,8 +237,8 @@ createDirectoryResponse_appliedSchemaArn = Lens.lens (\CreateDirectoryResponse' 
 
 instance Prelude.NFData CreateDirectoryResponse where
   rnf CreateDirectoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf appliedSchemaArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf objectIdentifier `Prelude.seq`
+            Prelude.rnf appliedSchemaArn

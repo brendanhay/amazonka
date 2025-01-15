@@ -86,9 +86,9 @@ instance Prelude.Hashable BatchListPolicyAttachments where
 
 instance Prelude.NFData BatchListPolicyAttachments where
   rnf BatchListPolicyAttachments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf policyReference
 
 instance Data.ToJSON BatchListPolicyAttachments where
   toJSON BatchListPolicyAttachments' {..} =

@@ -95,5 +95,5 @@ instance
     BatchListPolicyAttachmentsResponse
   where
   rnf BatchListPolicyAttachmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectIdentifiers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf objectIdentifiers

@@ -96,10 +96,10 @@ instance Prelude.Hashable BatchListIndex where
 
 instance Prelude.NFData BatchListIndex where
   rnf BatchListIndex' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rangesOnIndexedValues
-      `Prelude.seq` Prelude.rnf indexReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf rangesOnIndexedValues `Prelude.seq`
+          Prelude.rnf indexReference
 
 instance Data.ToJSON BatchListIndex where
   toJSON BatchListIndex' {..} =

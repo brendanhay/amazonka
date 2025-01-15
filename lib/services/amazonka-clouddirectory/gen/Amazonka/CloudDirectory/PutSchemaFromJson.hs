@@ -113,8 +113,8 @@ instance Prelude.Hashable PutSchemaFromJson where
 
 instance Prelude.NFData PutSchemaFromJson where
   rnf PutSchemaFromJson' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf document
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf document
 
 instance Data.ToHeaders PutSchemaFromJson where
   toHeaders PutSchemaFromJson' {..} =
@@ -176,5 +176,5 @@ putSchemaFromJsonResponse_httpStatus = Lens.lens (\PutSchemaFromJsonResponse' {h
 
 instance Prelude.NFData PutSchemaFromJsonResponse where
   rnf PutSchemaFromJsonResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

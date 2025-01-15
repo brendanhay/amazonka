@@ -167,10 +167,10 @@ instance Prelude.Hashable PutAttributes where
 
 instance Prelude.NFData PutAttributes where
   rnf PutAttributes' {..} =
-    Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf itemName
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf expected `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf itemName `Prelude.seq`
+          Prelude.rnf attributes
 
 instance Data.ToHeaders PutAttributes where
   toHeaders = Prelude.const Prelude.mempty

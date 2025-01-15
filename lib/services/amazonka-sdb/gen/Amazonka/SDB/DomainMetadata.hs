@@ -221,11 +221,11 @@ domainMetadataResponse_httpStatus = Lens.lens (\DomainMetadataResponse' {httpSta
 
 instance Prelude.NFData DomainMetadataResponse where
   rnf DomainMetadataResponse' {..} =
-    Prelude.rnf attributeNameCount
-      `Prelude.seq` Prelude.rnf attributeNamesSizeBytes
-      `Prelude.seq` Prelude.rnf attributeValueCount
-      `Prelude.seq` Prelude.rnf attributeValuesSizeBytes
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf itemNamesSizeBytes
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeNameCount `Prelude.seq`
+      Prelude.rnf attributeNamesSizeBytes `Prelude.seq`
+        Prelude.rnf attributeValueCount `Prelude.seq`
+          Prelude.rnf attributeValuesSizeBytes `Prelude.seq`
+            Prelude.rnf itemCount `Prelude.seq`
+              Prelude.rnf itemNamesSizeBytes `Prelude.seq`
+                Prelude.rnf timestamp `Prelude.seq`
+                  Prelude.rnf httpStatus

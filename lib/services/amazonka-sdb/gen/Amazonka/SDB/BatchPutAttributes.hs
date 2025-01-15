@@ -146,8 +146,8 @@ instance Prelude.Hashable BatchPutAttributes where
 
 instance Prelude.NFData BatchPutAttributes where
   rnf BatchPutAttributes' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToHeaders BatchPutAttributes where
   toHeaders = Prelude.const Prelude.mempty

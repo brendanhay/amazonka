@@ -69,8 +69,8 @@ instance Prelude.Hashable DeletableItem where
 
 instance Prelude.NFData DeletableItem where
   rnf DeletableItem' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToQuery DeletableItem where
   toQuery DeletableItem' {..} =

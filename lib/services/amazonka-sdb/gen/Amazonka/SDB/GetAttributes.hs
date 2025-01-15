@@ -151,10 +151,10 @@ instance Prelude.Hashable GetAttributes where
 
 instance Prelude.NFData GetAttributes where
   rnf GetAttributes' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf itemName
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf consistentRead `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf itemName
 
 instance Data.ToHeaders GetAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,5 +219,5 @@ getAttributesResponse_httpStatus = Lens.lens (\GetAttributesResponse' {httpStatu
 
 instance Prelude.NFData GetAttributesResponse where
   rnf GetAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

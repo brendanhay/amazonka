@@ -98,10 +98,10 @@ instance Prelude.Hashable Attribute where
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
-    Prelude.rnf alternateNameEncoding
-      `Prelude.seq` Prelude.rnf alternateValueEncoding
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf alternateNameEncoding `Prelude.seq`
+      Prelude.rnf alternateValueEncoding `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToQuery Attribute where
   toQuery Attribute' {..} =

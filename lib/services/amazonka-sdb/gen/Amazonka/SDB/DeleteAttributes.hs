@@ -147,10 +147,10 @@ instance Prelude.Hashable DeleteAttributes where
 
 instance Prelude.NFData DeleteAttributes where
   rnf DeleteAttributes' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf itemName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf expected `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf itemName
 
 instance Data.ToHeaders DeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty

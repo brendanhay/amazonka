@@ -163,12 +163,12 @@ instance Prelude.Hashable CreateStage where
 
 instance Prelude.NFData CreateStage where
   rnf CreateStage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf gameName `Prelude.seq`
+            Prelude.rnf role' `Prelude.seq`
+              Prelude.rnf stageName
 
 instance Data.ToHeaders CreateStage where
   toHeaders =
@@ -241,5 +241,5 @@ createStageResponse_httpStatus = Lens.lens (\CreateStageResponse' {httpStatus} -
 
 instance Prelude.NFData CreateStageResponse where
   rnf CreateStageResponse' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stage `Prelude.seq`
+      Prelude.rnf httpStatus

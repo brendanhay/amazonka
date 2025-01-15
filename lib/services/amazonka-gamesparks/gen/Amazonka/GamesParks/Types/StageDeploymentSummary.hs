@@ -128,9 +128,9 @@ instance Prelude.Hashable StageDeploymentSummary where
 
 instance Prelude.NFData StageDeploymentSummary where
   rnf StageDeploymentSummary' {..} =
-    Prelude.rnf deploymentAction
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentResult
-      `Prelude.seq` Prelude.rnf deploymentState
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf deploymentAction `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf deploymentResult `Prelude.seq`
+          Prelude.rnf deploymentState `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf snapshotId

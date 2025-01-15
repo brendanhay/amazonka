@@ -128,9 +128,9 @@ instance Prelude.Hashable StartGeneratedCodeJob where
 
 instance Prelude.NFData StartGeneratedCodeJob where
   rnf StartGeneratedCodeJob' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf generator
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf generator `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders StartGeneratedCodeJob where
   toHeaders =
@@ -207,5 +207,5 @@ startGeneratedCodeJobResponse_httpStatus = Lens.lens (\StartGeneratedCodeJobResp
 
 instance Prelude.NFData StartGeneratedCodeJobResponse where
   rnf StartGeneratedCodeJobResponse' {..} =
-    Prelude.rnf generatedCodeJobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf generatedCodeJobId `Prelude.seq`
+      Prelude.rnf httpStatus

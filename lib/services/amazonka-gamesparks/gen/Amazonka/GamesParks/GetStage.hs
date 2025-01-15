@@ -108,8 +108,8 @@ instance Prelude.Hashable GetStage where
 
 instance Prelude.NFData GetStage where
   rnf GetStage' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders GetStage where
   toHeaders =
@@ -174,5 +174,5 @@ getStageResponse_httpStatus = Lens.lens (\GetStageResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetStageResponse where
   rnf GetStageResponse' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stage `Prelude.seq`
+      Prelude.rnf httpStatus

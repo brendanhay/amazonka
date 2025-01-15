@@ -133,10 +133,10 @@ instance Prelude.Hashable UpdateStage where
 
 instance Prelude.NFData UpdateStage where
   rnf UpdateStage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf role' `Prelude.seq`
+        Prelude.rnf gameName `Prelude.seq`
+          Prelude.rnf stageName
 
 instance Data.ToHeaders UpdateStage where
   toHeaders =
@@ -210,5 +210,5 @@ updateStageResponse_httpStatus = Lens.lens (\UpdateStageResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateStageResponse where
   rnf UpdateStageResponse' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stage `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -110,10 +110,10 @@ instance Prelude.Hashable SectionModification where
 
 instance Prelude.NFData SectionModification where
   rnf SectionModification' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf section
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf section
 
 instance Data.ToJSON SectionModification where
   toJSON SectionModification' {..} =

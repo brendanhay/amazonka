@@ -97,6 +97,6 @@ instance Prelude.Hashable GameConfigurationDetails where
 
 instance Prelude.NFData GameConfigurationDetails where
   rnf GameConfigurationDetails' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf sections
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf lastUpdated `Prelude.seq`
+        Prelude.rnf sections

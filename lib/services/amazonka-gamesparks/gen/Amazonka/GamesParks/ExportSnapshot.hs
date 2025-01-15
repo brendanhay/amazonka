@@ -110,8 +110,8 @@ instance Prelude.Hashable ExportSnapshot where
 
 instance Prelude.NFData ExportSnapshot where
   rnf ExportSnapshot' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf snapshotId
 
 instance Data.ToHeaders ExportSnapshot where
   toHeaders =
@@ -189,5 +189,5 @@ exportSnapshotResponse_httpStatus = Lens.lens (\ExportSnapshotResponse' {httpSta
 
 instance Prelude.NFData ExportSnapshotResponse where
   rnf ExportSnapshotResponse' {..} =
-    Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Url `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteStage where
 
 instance Prelude.NFData DeleteStage where
   rnf DeleteStage' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders DeleteStage where
   toHeaders =

@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateGame where
 
 instance Prelude.NFData UpdateGame where
   rnf UpdateGame' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gameName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf gameName
 
 instance Data.ToHeaders UpdateGame where
   toHeaders =
@@ -174,5 +174,5 @@ updateGameResponse_httpStatus = Lens.lens (\UpdateGameResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateGameResponse where
   rnf UpdateGameResponse' {..} =
-    Prelude.rnf game
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf game `Prelude.seq`
+      Prelude.rnf httpStatus

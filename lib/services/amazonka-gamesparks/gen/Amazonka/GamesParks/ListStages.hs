@@ -135,12 +135,12 @@ instance Core.AWSPager ListStages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStages_nextToken
-          Lens..~ rs
-          Lens.^? listStagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStages_nextToken
+              Lens..~ rs
+              Lens.^? listStagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStages where
   type AWSResponse ListStages = ListStagesResponse
@@ -164,9 +164,9 @@ instance Prelude.Hashable ListStages where
 
 instance Prelude.NFData ListStages where
   rnf ListStages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf gameName
 
 instance Data.ToHeaders ListStages where
   toHeaders =
@@ -255,6 +255,6 @@ listStagesResponse_httpStatus = Lens.lens (\ListStagesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListStagesResponse where
   rnf ListStagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stages `Prelude.seq`
+        Prelude.rnf httpStatus

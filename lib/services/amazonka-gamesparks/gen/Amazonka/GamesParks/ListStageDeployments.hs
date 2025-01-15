@@ -147,12 +147,12 @@ instance Core.AWSPager ListStageDeployments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStageDeployments_nextToken
-          Lens..~ rs
-          Lens.^? listStageDeploymentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStageDeployments_nextToken
+              Lens..~ rs
+              Lens.^? listStageDeploymentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStageDeployments where
   type
@@ -182,10 +182,10 @@ instance Prelude.Hashable ListStageDeployments where
 
 instance Prelude.NFData ListStageDeployments where
   rnf ListStageDeployments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf gameName `Prelude.seq`
+          Prelude.rnf stageName
 
 instance Data.ToHeaders ListStageDeployments where
   toHeaders =
@@ -280,6 +280,6 @@ listStageDeploymentsResponse_httpStatus = Lens.lens (\ListStageDeploymentsRespon
 
 instance Prelude.NFData ListStageDeploymentsResponse where
   rnf ListStageDeploymentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stageDeployments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stageDeployments `Prelude.seq`
+        Prelude.rnf httpStatus

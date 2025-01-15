@@ -150,10 +150,10 @@ instance Prelude.Hashable StartStageDeployment where
 
 instance Prelude.NFData StartStageDeployment where
   rnf StartStageDeployment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf gameName `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf stageName
 
 instance Data.ToHeaders StartStageDeployment where
   toHeaders =
@@ -229,5 +229,5 @@ startStageDeploymentResponse_httpStatus = Lens.lens (\StartStageDeploymentRespon
 
 instance Prelude.NFData StartStageDeploymentResponse where
   rnf StartStageDeploymentResponse' {..} =
-    Prelude.rnf stageDeployment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stageDeployment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -181,13 +181,13 @@ instance Prelude.Hashable StageDetails where
 
 instance Prelude.NFData StageDetails where
   rnf StageDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gameKey
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf gameKey `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf logGroup `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf role' `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf tags

@@ -95,9 +95,9 @@ instance Prelude.Hashable Generator where
 
 instance Prelude.NFData Generator where
   rnf Generator' {..} =
-    Prelude.rnf gameSdkVersion
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf targetPlatform
+    Prelude.rnf gameSdkVersion `Prelude.seq`
+      Prelude.rnf language `Prelude.seq`
+        Prelude.rnf targetPlatform
 
 instance Data.ToJSON Generator where
   toJSON Generator' {..} =

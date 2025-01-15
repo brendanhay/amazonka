@@ -123,8 +123,8 @@ instance Prelude.Hashable StageSummary where
 
 instance Prelude.NFData StageSummary where
   rnf StageSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gameKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf gameKey `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags

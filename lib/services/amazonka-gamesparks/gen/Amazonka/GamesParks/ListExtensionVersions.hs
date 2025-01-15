@@ -152,12 +152,12 @@ instance Core.AWSPager ListExtensionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExtensionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listExtensionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExtensionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listExtensionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExtensionVersions where
   type
@@ -187,10 +187,10 @@ instance Prelude.Hashable ListExtensionVersions where
 
 instance Prelude.NFData ListExtensionVersions where
   rnf ListExtensionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders ListExtensionVersions where
   toHeaders =
@@ -282,6 +282,6 @@ listExtensionVersionsResponse_httpStatus = Lens.lens (\ListExtensionVersionsResp
 
 instance Prelude.NFData ListExtensionVersionsResponse where
   rnf ListExtensionVersionsResponse' {..} =
-    Prelude.rnf extensionVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf extensionVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

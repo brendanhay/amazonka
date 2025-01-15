@@ -81,5 +81,5 @@ instance Prelude.Hashable DeploymentResult where
 
 instance Prelude.NFData DeploymentResult where
   rnf DeploymentResult' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resultCode
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf resultCode

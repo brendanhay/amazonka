@@ -102,7 +102,7 @@ instance Prelude.Hashable ExtensionVersionDetails where
 
 instance Prelude.NFData ExtensionVersionDetails where
   rnf ExtensionVersionDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf schema `Prelude.seq`
+          Prelude.rnf version

@@ -103,7 +103,7 @@ instance Prelude.Hashable GameSummary where
 
 instance Prelude.NFData GameSummary where
   rnf GameSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf tags

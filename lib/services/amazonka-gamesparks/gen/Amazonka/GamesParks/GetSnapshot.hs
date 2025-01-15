@@ -119,9 +119,9 @@ instance Prelude.Hashable GetSnapshot where
 
 instance Prelude.NFData GetSnapshot where
   rnf GetSnapshot' {..} =
-    Prelude.rnf sections
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf sections `Prelude.seq`
+      Prelude.rnf gameName `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders GetSnapshot where
   toHeaders =
@@ -191,5 +191,5 @@ getSnapshotResponse_httpStatus = Lens.lens (\GetSnapshotResponse' {httpStatus} -
 
 instance Prelude.NFData GetSnapshotResponse where
   rnf GetSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

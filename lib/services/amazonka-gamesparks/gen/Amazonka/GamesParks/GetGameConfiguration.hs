@@ -108,8 +108,8 @@ instance Prelude.Hashable GetGameConfiguration where
 
 instance Prelude.NFData GetGameConfiguration where
   rnf GetGameConfiguration' {..} =
-    Prelude.rnf sections
-      `Prelude.seq` Prelude.rnf gameName
+    Prelude.rnf sections `Prelude.seq`
+      Prelude.rnf gameName
 
 instance Data.ToHeaders GetGameConfiguration where
   toHeaders =
@@ -176,5 +176,5 @@ getGameConfigurationResponse_httpStatus = Lens.lens (\GetGameConfigurationRespon
 
 instance Prelude.NFData GetGameConfigurationResponse where
   rnf GetGameConfigurationResponse' {..} =
-    Prelude.rnf gameConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

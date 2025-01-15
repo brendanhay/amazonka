@@ -165,11 +165,11 @@ instance Prelude.Hashable StartChangeSet where
 
 instance Prelude.NFData StartChangeSet where
   rnf StartChangeSet' {..} =
-    Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf changeSetTags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf changeSet
+    Prelude.rnf changeSetName `Prelude.seq`
+      Prelude.rnf changeSetTags `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf catalog `Prelude.seq`
+            Prelude.rnf changeSet
 
 instance Data.ToHeaders StartChangeSet where
   toHeaders =
@@ -251,6 +251,6 @@ startChangeSetResponse_httpStatus = Lens.lens (\StartChangeSetResponse' {httpSta
 
 instance Prelude.NFData StartChangeSetResponse where
   rnf StartChangeSetResponse' {..} =
-    Prelude.rnf changeSetArn
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeSetArn `Prelude.seq`
+      Prelude.rnf changeSetId `Prelude.seq`
+        Prelude.rnf httpStatus

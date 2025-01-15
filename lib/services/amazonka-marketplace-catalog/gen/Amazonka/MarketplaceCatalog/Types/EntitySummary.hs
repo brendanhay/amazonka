@@ -141,9 +141,9 @@ instance Prelude.Hashable EntitySummary where
 
 instance Prelude.NFData EntitySummary where
   rnf EntitySummary' {..} =
-    Prelude.rnf entityArn
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf entityArn `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf entityType `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf visibility

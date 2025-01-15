@@ -166,12 +166,12 @@ instance Prelude.Hashable ListEntities where
 
 instance Prelude.NFData ListEntities where
   rnf ListEntities' {..} =
-    Prelude.rnf filterList
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf entityType
+    Prelude.rnf filterList `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sort `Prelude.seq`
+            Prelude.rnf catalog `Prelude.seq`
+              Prelude.rnf entityType
 
 instance Data.ToHeaders ListEntities where
   toHeaders =
@@ -256,6 +256,6 @@ listEntitiesResponse_httpStatus = Lens.lens (\ListEntitiesResponse' {httpStatus}
 
 instance Prelude.NFData ListEntitiesResponse where
   rnf ListEntitiesResponse' {..} =
-    Prelude.rnf entitySummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitySummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

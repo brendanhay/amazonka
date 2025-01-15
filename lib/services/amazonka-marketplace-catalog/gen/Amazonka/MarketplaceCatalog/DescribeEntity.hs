@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribeEntity where
 
 instance Prelude.NFData DescribeEntity where
   rnf DescribeEntity' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf entityId
 
 instance Data.ToHeaders DescribeEntity where
   toHeaders =
@@ -227,9 +227,9 @@ describeEntityResponse_httpStatus = Lens.lens (\DescribeEntityResponse' {httpSta
 
 instance Prelude.NFData DescribeEntityResponse where
   rnf DescribeEntityResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf entityArn
-      `Prelude.seq` Prelude.rnf entityIdentifier
-      `Prelude.seq` Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf entityArn `Prelude.seq`
+        Prelude.rnf entityIdentifier `Prelude.seq`
+          Prelude.rnf entityType `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf httpStatus

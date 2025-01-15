@@ -135,12 +135,12 @@ instance Core.AWSPager ListRateBasedRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRateBasedRules_nextMarker
-          Lens..~ rs
-          Lens.^? listRateBasedRulesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRateBasedRules_nextMarker
+              Lens..~ rs
+              Lens.^? listRateBasedRulesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRateBasedRules where
   type
@@ -165,8 +165,8 @@ instance Prelude.Hashable ListRateBasedRules where
 
 instance Prelude.NFData ListRateBasedRules where
   rnf ListRateBasedRules' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListRateBasedRules where
   toHeaders =
@@ -260,6 +260,6 @@ listRateBasedRulesResponse_httpStatus = Lens.lens (\ListRateBasedRulesResponse' 
 
 instance Prelude.NFData ListRateBasedRulesResponse where
   rnf ListRateBasedRulesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf rules `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -138,12 +138,12 @@ instance Core.AWSPager ListXssMatchSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listXssMatchSets_nextMarker
-          Lens..~ rs
-          Lens.^? listXssMatchSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listXssMatchSets_nextMarker
+              Lens..~ rs
+              Lens.^? listXssMatchSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListXssMatchSets where
   type
@@ -168,8 +168,8 @@ instance Prelude.Hashable ListXssMatchSets where
 
 instance Prelude.NFData ListXssMatchSets where
   rnf ListXssMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListXssMatchSets where
   toHeaders =
@@ -265,6 +265,6 @@ listXssMatchSetsResponse_httpStatus = Lens.lens (\ListXssMatchSetsResponse' {htt
 
 instance Prelude.NFData ListXssMatchSetsResponse where
   rnf ListXssMatchSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf xssMatchSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf xssMatchSets `Prelude.seq`
+        Prelude.rnf httpStatus

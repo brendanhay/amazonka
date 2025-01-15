@@ -254,10 +254,10 @@ instance Prelude.Hashable UpdateWebACL where
 
 instance Prelude.NFData UpdateWebACL where
   rnf UpdateWebACL' {..} =
-    Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf updates
-      `Prelude.seq` Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf defaultAction `Prelude.seq`
+      Prelude.rnf updates `Prelude.seq`
+        Prelude.rnf webACLId `Prelude.seq`
+          Prelude.rnf changeToken
 
 instance Data.ToHeaders UpdateWebACL where
   toHeaders =
@@ -338,5 +338,5 @@ updateWebACLResponse_httpStatus = Lens.lens (\UpdateWebACLResponse' {httpStatus}
 
 instance Prelude.NFData UpdateWebACLResponse where
   rnf UpdateWebACLResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

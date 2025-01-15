@@ -141,12 +141,12 @@ instance Core.AWSPager ListSqlInjectionMatchSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSqlInjectionMatchSets_nextMarker
-          Lens..~ rs
-          Lens.^? listSqlInjectionMatchSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSqlInjectionMatchSets_nextMarker
+              Lens..~ rs
+              Lens.^? listSqlInjectionMatchSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSqlInjectionMatchSets where
   type
@@ -174,8 +174,8 @@ instance Prelude.Hashable ListSqlInjectionMatchSets where
 
 instance Prelude.NFData ListSqlInjectionMatchSets where
   rnf ListSqlInjectionMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
@@ -277,6 +277,6 @@ instance
     ListSqlInjectionMatchSetsResponse
   where
   rnf ListSqlInjectionMatchSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf sqlInjectionMatchSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf sqlInjectionMatchSets `Prelude.seq`
+        Prelude.rnf httpStatus

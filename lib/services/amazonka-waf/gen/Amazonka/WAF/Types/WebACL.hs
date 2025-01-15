@@ -183,9 +183,9 @@ instance Prelude.Hashable WebACL where
 
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf webACLArn
-      `Prelude.seq` Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf webACLArn `Prelude.seq`
+          Prelude.rnf webACLId `Prelude.seq`
+            Prelude.rnf defaultAction `Prelude.seq`
+              Prelude.rnf rules

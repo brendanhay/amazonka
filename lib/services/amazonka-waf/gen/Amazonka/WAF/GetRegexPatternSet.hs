@@ -191,5 +191,5 @@ getRegexPatternSetResponse_httpStatus = Lens.lens (\GetRegexPatternSetResponse' 
 
 instance Prelude.NFData GetRegexPatternSetResponse where
   rnf GetRegexPatternSetResponse' {..} =
-    Prelude.rnf regexPatternSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf regexPatternSet `Prelude.seq`
+      Prelude.rnf httpStatus

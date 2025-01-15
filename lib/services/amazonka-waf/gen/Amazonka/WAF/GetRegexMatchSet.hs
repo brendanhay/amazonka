@@ -188,5 +188,5 @@ getRegexMatchSetResponse_httpStatus = Lens.lens (\GetRegexMatchSetResponse' {htt
 
 instance Prelude.NFData GetRegexMatchSetResponse where
   rnf GetRegexMatchSetResponse' {..} =
-    Prelude.rnf regexMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf regexMatchSet `Prelude.seq`
+      Prelude.rnf httpStatus

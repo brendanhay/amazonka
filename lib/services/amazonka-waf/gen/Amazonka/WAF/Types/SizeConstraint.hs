@@ -454,10 +454,10 @@ instance Prelude.Hashable SizeConstraint where
 
 instance Prelude.NFData SizeConstraint where
   rnf SizeConstraint' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformation
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf textTransformation `Prelude.seq`
+        Prelude.rnf comparisonOperator `Prelude.seq`
+          Prelude.rnf size
 
 instance Data.ToJSON SizeConstraint where
   toJSON SizeConstraint' {..} =

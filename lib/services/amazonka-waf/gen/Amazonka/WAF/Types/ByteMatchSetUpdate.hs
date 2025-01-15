@@ -99,8 +99,8 @@ instance Prelude.Hashable ByteMatchSetUpdate where
 
 instance Prelude.NFData ByteMatchSetUpdate where
   rnf ByteMatchSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf byteMatchTuple
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf byteMatchTuple
 
 instance Data.ToJSON ByteMatchSetUpdate where
   toJSON ByteMatchSetUpdate' {..} =

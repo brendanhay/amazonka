@@ -146,8 +146,8 @@ instance Prelude.Hashable DeleteSqlInjectionMatchSet where
 
 instance Prelude.NFData DeleteSqlInjectionMatchSet where
   rnf DeleteSqlInjectionMatchSet' {..} =
-    Prelude.rnf sqlInjectionMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf sqlInjectionMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteSqlInjectionMatchSet where
   toHeaders =
@@ -237,5 +237,5 @@ instance
     DeleteSqlInjectionMatchSetResponse
   where
   rnf DeleteSqlInjectionMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

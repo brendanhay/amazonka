@@ -148,8 +148,8 @@ instance Prelude.Hashable CreateSizeConstraintSet where
 
 instance Prelude.NFData CreateSizeConstraintSet where
   rnf CreateSizeConstraintSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateSizeConstraintSet where
   toHeaders =
@@ -240,6 +240,6 @@ instance
     CreateSizeConstraintSetResponse
   where
   rnf CreateSizeConstraintSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf sizeConstraintSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf sizeConstraintSet `Prelude.seq`
+        Prelude.rnf httpStatus

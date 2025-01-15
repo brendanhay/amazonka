@@ -185,9 +185,9 @@ instance Prelude.Hashable UpdateRegexMatchSet where
 
 instance Prelude.NFData UpdateRegexMatchSet where
   rnf UpdateRegexMatchSet' {..} =
-    Prelude.rnf regexMatchSetId
-      `Prelude.seq` Prelude.rnf updates
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf regexMatchSetId `Prelude.seq`
+      Prelude.rnf updates `Prelude.seq`
+        Prelude.rnf changeToken
 
 instance Data.ToHeaders UpdateRegexMatchSet where
   toHeaders =
@@ -268,5 +268,5 @@ updateRegexMatchSetResponse_httpStatus = Lens.lens (\UpdateRegexMatchSetResponse
 
 instance Prelude.NFData UpdateRegexMatchSetResponse where
   rnf UpdateRegexMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

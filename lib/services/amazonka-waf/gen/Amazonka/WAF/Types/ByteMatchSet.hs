@@ -147,6 +147,6 @@ instance Prelude.Hashable ByteMatchSet where
 
 instance Prelude.NFData ByteMatchSet where
   rnf ByteMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf byteMatchSetId
-      `Prelude.seq` Prelude.rnf byteMatchTuples
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf byteMatchSetId `Prelude.seq`
+        Prelude.rnf byteMatchTuples

@@ -209,9 +209,9 @@ instance Prelude.Hashable UpdateIPSet where
 
 instance Prelude.NFData UpdateIPSet where
   rnf UpdateIPSet' {..} =
-    Prelude.rnf iPSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf iPSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateIPSet where
   toHeaders =
@@ -290,5 +290,5 @@ updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateIPSetResponse where
   rnf UpdateIPSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

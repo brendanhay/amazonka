@@ -396,12 +396,12 @@ instance Prelude.Hashable ActivatedRule where
 
 instance Prelude.NFData ActivatedRule where
   rnf ActivatedRule' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf excludedRules
-      `Prelude.seq` Prelude.rnf overrideAction
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf excludedRules `Prelude.seq`
+        Prelude.rnf overrideAction `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf ruleId
 
 instance Data.ToJSON ActivatedRule where
   toJSON ActivatedRule' {..} =

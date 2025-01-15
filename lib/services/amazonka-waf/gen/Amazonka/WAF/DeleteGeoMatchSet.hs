@@ -140,8 +140,8 @@ instance Prelude.Hashable DeleteGeoMatchSet where
 
 instance Prelude.NFData DeleteGeoMatchSet where
   rnf DeleteGeoMatchSet' {..} =
-    Prelude.rnf geoMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf geoMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteGeoMatchSet where
   toHeaders =
@@ -221,5 +221,5 @@ deleteGeoMatchSetResponse_httpStatus = Lens.lens (\DeleteGeoMatchSetResponse' {h
 
 instance Prelude.NFData DeleteGeoMatchSetResponse where
   rnf DeleteGeoMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

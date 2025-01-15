@@ -136,6 +136,6 @@ instance Prelude.Hashable SizeConstraintSet where
 
 instance Prelude.NFData SizeConstraintSet where
   rnf SizeConstraintSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sizeConstraintSetId
-      `Prelude.seq` Prelude.rnf sizeConstraints
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sizeConstraintSetId `Prelude.seq`
+        Prelude.rnf sizeConstraints

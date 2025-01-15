@@ -179,5 +179,5 @@ getRuleGroupResponse_httpStatus = Lens.lens (\GetRuleGroupResponse' {httpStatus}
 
 instance Prelude.NFData GetRuleGroupResponse where
   rnf GetRuleGroupResponse' {..} =
-    Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ruleGroup `Prelude.seq`
+      Prelude.rnf httpStatus

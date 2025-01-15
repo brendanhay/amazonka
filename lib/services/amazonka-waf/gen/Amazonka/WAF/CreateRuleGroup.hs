@@ -176,10 +176,10 @@ instance Prelude.Hashable CreateRuleGroup where
 
 instance Prelude.NFData CreateRuleGroup where
   rnf CreateRuleGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateRuleGroup where
   toHeaders =
@@ -269,6 +269,6 @@ createRuleGroupResponse_httpStatus = Lens.lens (\CreateRuleGroupResponse' {httpS
 
 instance Prelude.NFData CreateRuleGroupResponse where
   rnf CreateRuleGroupResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf ruleGroup `Prelude.seq`
+        Prelude.rnf httpStatus

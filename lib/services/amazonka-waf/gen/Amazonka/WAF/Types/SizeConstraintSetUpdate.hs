@@ -105,8 +105,8 @@ instance Prelude.Hashable SizeConstraintSetUpdate where
 
 instance Prelude.NFData SizeConstraintSetUpdate where
   rnf SizeConstraintSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf sizeConstraint
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf sizeConstraint
 
 instance Data.ToJSON SizeConstraintSetUpdate where
   toJSON SizeConstraintSetUpdate' {..} =

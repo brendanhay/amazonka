@@ -131,6 +131,6 @@ instance Prelude.Hashable RegexPatternSet where
 
 instance Prelude.NFData RegexPatternSet where
   rnf RegexPatternSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regexPatternSetId
-      `Prelude.seq` Prelude.rnf regexPatternStrings
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf regexPatternSetId `Prelude.seq`
+        Prelude.rnf regexPatternStrings

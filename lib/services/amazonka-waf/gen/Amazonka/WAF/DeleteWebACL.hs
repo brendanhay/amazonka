@@ -131,8 +131,8 @@ instance Prelude.Hashable DeleteWebACL where
 
 instance Prelude.NFData DeleteWebACL where
   rnf DeleteWebACL' {..} =
-    Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf webACLId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteWebACL where
   toHeaders =
@@ -211,5 +211,5 @@ deleteWebACLResponse_httpStatus = Lens.lens (\DeleteWebACLResponse' {httpStatus}
 
 instance Prelude.NFData DeleteWebACLResponse where
   rnf DeleteWebACLResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

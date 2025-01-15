@@ -192,5 +192,5 @@ getRuleResponse_httpStatus = Lens.lens (\GetRuleResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetRuleResponse where
   rnf GetRuleResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -135,12 +135,12 @@ instance Core.AWSPager ListByteMatchSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listByteMatchSets_nextMarker
-          Lens..~ rs
-          Lens.^? listByteMatchSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listByteMatchSets_nextMarker
+              Lens..~ rs
+              Lens.^? listByteMatchSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListByteMatchSets where
   type
@@ -165,8 +165,8 @@ instance Prelude.Hashable ListByteMatchSets where
 
 instance Prelude.NFData ListByteMatchSets where
   rnf ListByteMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListByteMatchSets where
   toHeaders =
@@ -260,6 +260,6 @@ listByteMatchSetsResponse_httpStatus = Lens.lens (\ListByteMatchSetsResponse' {h
 
 instance Prelude.NFData ListByteMatchSetsResponse where
   rnf ListByteMatchSetsResponse' {..} =
-    Prelude.rnf byteMatchSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byteMatchSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

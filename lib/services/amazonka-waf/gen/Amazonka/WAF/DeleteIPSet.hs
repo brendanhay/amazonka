@@ -134,8 +134,8 @@ instance Prelude.Hashable DeleteIPSet where
 
 instance Prelude.NFData DeleteIPSet where
   rnf DeleteIPSet' {..} =
-    Prelude.rnf iPSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf iPSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteIPSet where
   toHeaders =
@@ -213,5 +213,5 @@ deleteIPSetResponse_httpStatus = Lens.lens (\DeleteIPSetResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteIPSetResponse where
   rnf DeleteIPSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -98,8 +98,8 @@ instance Prelude.Hashable RuleGroupUpdate where
 
 instance Prelude.NFData RuleGroupUpdate where
   rnf RuleGroupUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf activatedRule
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf activatedRule
 
 instance Data.ToJSON RuleGroupUpdate where
   toJSON RuleGroupUpdate' {..} =

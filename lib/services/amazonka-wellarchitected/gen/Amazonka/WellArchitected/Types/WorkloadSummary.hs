@@ -141,11 +141,11 @@ instance Prelude.Hashable WorkloadSummary where
 
 instance Prelude.NFData WorkloadSummary where
   rnf WorkloadSummary' {..} =
-    Prelude.rnf improvementStatus
-      `Prelude.seq` Prelude.rnf lenses
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf workloadArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadName
+    Prelude.rnf improvementStatus `Prelude.seq`
+      Prelude.rnf lenses `Prelude.seq`
+        Prelude.rnf owner `Prelude.seq`
+          Prelude.rnf riskCounts `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf workloadArn `Prelude.seq`
+                Prelude.rnf workloadId `Prelude.seq`
+                  Prelude.rnf workloadName

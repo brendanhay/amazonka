@@ -173,13 +173,13 @@ instance Prelude.Hashable ListCheckDetails where
 
 instance Prelude.NFData ListCheckDetails where
   rnf ListCheckDetails' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf choiceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workloadId `Prelude.seq`
+          Prelude.rnf lensArn `Prelude.seq`
+            Prelude.rnf pillarId `Prelude.seq`
+              Prelude.rnf questionId `Prelude.seq`
+                Prelude.rnf choiceId
 
 instance Data.ToHeaders ListCheckDetails where
   toHeaders =
@@ -265,6 +265,6 @@ listCheckDetailsResponse_httpStatus = Lens.lens (\ListCheckDetailsResponse' {htt
 
 instance Prelude.NFData ListCheckDetailsResponse where
   rnf ListCheckDetailsResponse' {..} =
-    Prelude.rnf checkDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checkDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,9 +125,9 @@ instance Prelude.Hashable GetLensReviewReport where
 
 instance Prelude.NFData GetLensReviewReport where
   rnf GetLensReviewReport' {..} =
-    Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf milestoneNumber `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf lensAlias
 
 instance Data.ToHeaders GetLensReviewReport where
   toHeaders =
@@ -213,7 +213,7 @@ getLensReviewReportResponse_httpStatus = Lens.lens (\GetLensReviewReportResponse
 
 instance Prelude.NFData GetLensReviewReportResponse where
   rnf GetLensReviewReportResponse' {..} =
-    Prelude.rnf lensReviewReport
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensReviewReport `Prelude.seq`
+      Prelude.rnf milestoneNumber `Prelude.seq`
+        Prelude.rnf workloadId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -173,13 +173,13 @@ instance Prelude.Hashable ListCheckSummaries where
 
 instance Prelude.NFData ListCheckSummaries where
   rnf ListCheckSummaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf choiceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workloadId `Prelude.seq`
+          Prelude.rnf lensArn `Prelude.seq`
+            Prelude.rnf pillarId `Prelude.seq`
+              Prelude.rnf questionId `Prelude.seq`
+                Prelude.rnf choiceId
 
 instance Data.ToHeaders ListCheckSummaries where
   toHeaders =
@@ -268,6 +268,6 @@ listCheckSummariesResponse_httpStatus = Lens.lens (\ListCheckSummariesResponse' 
 
 instance Prelude.NFData ListCheckSummariesResponse where
   rnf ListCheckSummariesResponse' {..} =
-    Prelude.rnf checkSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checkSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

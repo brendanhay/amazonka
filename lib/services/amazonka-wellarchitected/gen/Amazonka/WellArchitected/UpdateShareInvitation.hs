@@ -117,8 +117,8 @@ instance Prelude.Hashable UpdateShareInvitation where
 
 instance Prelude.NFData UpdateShareInvitation where
   rnf UpdateShareInvitation' {..} =
-    Prelude.rnf shareInvitationId
-      `Prelude.seq` Prelude.rnf shareInvitationAction
+    Prelude.rnf shareInvitationId `Prelude.seq`
+      Prelude.rnf shareInvitationAction
 
 instance Data.ToHeaders UpdateShareInvitation where
   toHeaders =
@@ -191,5 +191,5 @@ updateShareInvitationResponse_httpStatus = Lens.lens (\UpdateShareInvitationResp
 
 instance Prelude.NFData UpdateShareInvitationResponse where
   rnf UpdateShareInvitationResponse' {..} =
-    Prelude.rnf shareInvitation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shareInvitation `Prelude.seq`
+      Prelude.rnf httpStatus

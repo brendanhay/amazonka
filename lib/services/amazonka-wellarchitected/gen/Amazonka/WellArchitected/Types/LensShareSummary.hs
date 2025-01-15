@@ -100,7 +100,7 @@ instance Prelude.Hashable LensShareSummary where
 
 instance Prelude.NFData LensShareSummary where
   rnf LensShareSummary' {..} =
-    Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf shareId `Prelude.seq`
+      Prelude.rnf sharedWith `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusMessage

@@ -138,10 +138,10 @@ instance Prelude.Hashable GetAnswer where
 
 instance Prelude.NFData GetAnswer where
   rnf GetAnswer' {..} =
-    Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf questionId
+    Prelude.rnf milestoneNumber `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf lensAlias `Prelude.seq`
+          Prelude.rnf questionId
 
 instance Data.ToHeaders GetAnswer where
   toHeaders =
@@ -244,9 +244,9 @@ getAnswerResponse_httpStatus = Lens.lens (\GetAnswerResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetAnswerResponse where
   rnf GetAnswerResponse' {..} =
-    Prelude.rnf answer
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf answer `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensArn `Prelude.seq`
+          Prelude.rnf milestoneNumber `Prelude.seq`
+            Prelude.rnf workloadId `Prelude.seq`
+              Prelude.rnf httpStatus

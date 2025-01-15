@@ -200,16 +200,16 @@ instance Prelude.Hashable CheckDetail where
 
 instance Prelude.NFData CheckDetail where
   rnf CheckDetail' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf flaggedResources
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf choiceId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf flaggedResources `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lensArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf pillarId `Prelude.seq`
+                    Prelude.rnf provider `Prelude.seq`
+                      Prelude.rnf questionId `Prelude.seq`
+                        Prelude.rnf reason `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf updatedAt

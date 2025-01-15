@@ -133,10 +133,10 @@ instance Prelude.Hashable Lens where
 
 instance Prelude.NFData Lens where
   rnf Lens' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf shareInvitationId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lensArn `Prelude.seq`
+        Prelude.rnf lensVersion `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf shareInvitationId `Prelude.seq`
+                Prelude.rnf tags

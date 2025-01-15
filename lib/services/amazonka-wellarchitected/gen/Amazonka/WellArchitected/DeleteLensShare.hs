@@ -128,9 +128,9 @@ instance Prelude.Hashable DeleteLensShare where
 
 instance Prelude.NFData DeleteLensShare where
   rnf DeleteLensShare' {..} =
-    Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf shareId `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders DeleteLensShare where
   toHeaders =

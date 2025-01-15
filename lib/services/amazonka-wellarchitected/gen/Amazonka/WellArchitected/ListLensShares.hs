@@ -146,11 +146,11 @@ instance Prelude.Hashable ListLensShares where
 
 instance Prelude.NFData ListLensShares where
   rnf ListLensShares' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedWithPrefix
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sharedWithPrefix `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf lensAlias
 
 instance Data.ToHeaders ListLensShares where
   toHeaders =
@@ -226,6 +226,6 @@ listLensSharesResponse_httpStatus = Lens.lens (\ListLensSharesResponse' {httpSta
 
 instance Prelude.NFData ListLensSharesResponse where
   rnf ListLensSharesResponse' {..} =
-    Prelude.rnf lensShareSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensShareSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

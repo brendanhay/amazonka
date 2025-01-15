@@ -145,10 +145,10 @@ instance Prelude.Hashable CreateLensVersion where
 
 instance Prelude.NFData CreateLensVersion where
   rnf CreateLensVersion' {..} =
-    Prelude.rnf isMajorVersion
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf isMajorVersion `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensVersion `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateLensVersion where
   toHeaders =
@@ -231,6 +231,6 @@ createLensVersionResponse_httpStatus = Lens.lens (\CreateLensVersionResponse' {h
 
 instance Prelude.NFData CreateLensVersionResponse where
   rnf CreateLensVersionResponse' {..} =
-    Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensArn `Prelude.seq`
+      Prelude.rnf lensVersion `Prelude.seq`
+        Prelude.rnf httpStatus

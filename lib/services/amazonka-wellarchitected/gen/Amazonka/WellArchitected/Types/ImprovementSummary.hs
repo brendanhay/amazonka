@@ -125,9 +125,9 @@ instance Prelude.Hashable ImprovementSummary where
 
 instance Prelude.NFData ImprovementSummary where
   rnf ImprovementSummary' {..} =
-    Prelude.rnf improvementPlanUrl
-      `Prelude.seq` Prelude.rnf improvementPlans
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf questionTitle
-      `Prelude.seq` Prelude.rnf risk
+    Prelude.rnf improvementPlanUrl `Prelude.seq`
+      Prelude.rnf improvementPlans `Prelude.seq`
+        Prelude.rnf pillarId `Prelude.seq`
+          Prelude.rnf questionId `Prelude.seq`
+            Prelude.rnf questionTitle `Prelude.seq`
+              Prelude.rnf risk

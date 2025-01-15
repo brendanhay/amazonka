@@ -279,23 +279,23 @@ instance Prelude.Hashable UpdateWorkload where
 
 instance Prelude.NFData UpdateWorkload where
   rnf UpdateWorkload' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf architecturalDesign
-      `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf discoveryConfig
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf improvementStatus
-      `Prelude.seq` Prelude.rnf industry
-      `Prelude.seq` Prelude.rnf industryType
-      `Prelude.seq` Prelude.rnf isReviewOwnerUpdateAcknowledged
-      `Prelude.seq` Prelude.rnf nonAwsRegions
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarPriorities
-      `Prelude.seq` Prelude.rnf reviewOwner
-      `Prelude.seq` Prelude.rnf workloadName
-      `Prelude.seq` Prelude.rnf workloadId
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf applications `Prelude.seq`
+        Prelude.rnf architecturalDesign `Prelude.seq`
+          Prelude.rnf awsRegions `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf discoveryConfig `Prelude.seq`
+                Prelude.rnf environment `Prelude.seq`
+                  Prelude.rnf improvementStatus `Prelude.seq`
+                    Prelude.rnf industry `Prelude.seq`
+                      Prelude.rnf industryType `Prelude.seq`
+                        Prelude.rnf isReviewOwnerUpdateAcknowledged `Prelude.seq`
+                          Prelude.rnf nonAwsRegions `Prelude.seq`
+                            Prelude.rnf notes `Prelude.seq`
+                              Prelude.rnf pillarPriorities `Prelude.seq`
+                                Prelude.rnf reviewOwner `Prelude.seq`
+                                  Prelude.rnf workloadName `Prelude.seq`
+                                    Prelude.rnf workloadId
 
 instance Data.ToHeaders UpdateWorkload where
   toHeaders =
@@ -385,5 +385,5 @@ updateWorkloadResponse_httpStatus = Lens.lens (\UpdateWorkloadResponse' {httpSta
 
 instance Prelude.NFData UpdateWorkloadResponse where
   rnf UpdateWorkloadResponse' {..} =
-    Prelude.rnf workload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workload `Prelude.seq`
+      Prelude.rnf httpStatus

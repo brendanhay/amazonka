@@ -130,10 +130,10 @@ instance Prelude.Hashable WorkloadShare where
 
 instance Prelude.NFData WorkloadShare where
   rnf WorkloadShare' {..} =
-    Prelude.rnf permissionType
-      `Prelude.seq` Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf sharedBy
-      `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadName
+    Prelude.rnf permissionType `Prelude.seq`
+      Prelude.rnf shareId `Prelude.seq`
+        Prelude.rnf sharedBy `Prelude.seq`
+          Prelude.rnf sharedWith `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf workloadId `Prelude.seq`
+                Prelude.rnf workloadName

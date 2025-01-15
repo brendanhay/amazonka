@@ -162,12 +162,12 @@ instance Prelude.Hashable ListAnswers where
 
 instance Prelude.NFData ListAnswers where
   rnf ListAnswers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf milestoneNumber `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pillarId `Prelude.seq`
+            Prelude.rnf workloadId `Prelude.seq`
+              Prelude.rnf lensAlias
 
 instance Data.ToHeaders ListAnswers where
   toHeaders =
@@ -282,10 +282,10 @@ listAnswersResponse_httpStatus = Lens.lens (\ListAnswersResponse' {httpStatus} -
 
 instance Prelude.NFData ListAnswersResponse where
   rnf ListAnswersResponse' {..} =
-    Prelude.rnf answerSummaries
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf answerSummaries `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensArn `Prelude.seq`
+          Prelude.rnf milestoneNumber `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf workloadId `Prelude.seq`
+                Prelude.rnf httpStatus

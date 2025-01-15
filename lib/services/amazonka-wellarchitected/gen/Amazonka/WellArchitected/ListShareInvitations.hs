@@ -148,11 +148,11 @@ instance Prelude.Hashable ListShareInvitations where
 
 instance Prelude.NFData ListShareInvitations where
   rnf ListShareInvitations' {..} =
-    Prelude.rnf lensNamePrefix
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf shareResourceType
-      `Prelude.seq` Prelude.rnf workloadNamePrefix
+    Prelude.rnf lensNamePrefix `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf shareResourceType `Prelude.seq`
+            Prelude.rnf workloadNamePrefix
 
 instance Data.ToHeaders ListShareInvitations where
   toHeaders =
@@ -229,6 +229,6 @@ listShareInvitationsResponse_httpStatus = Lens.lens (\ListShareInvitationsRespon
 
 instance Prelude.NFData ListShareInvitationsResponse where
   rnf ListShareInvitationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf shareInvitationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf shareInvitationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

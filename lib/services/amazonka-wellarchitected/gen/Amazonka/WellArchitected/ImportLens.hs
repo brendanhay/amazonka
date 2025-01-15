@@ -149,10 +149,10 @@ instance Prelude.Hashable ImportLens where
 
 instance Prelude.NFData ImportLens where
   rnf ImportLens' {..} =
-    Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jSONString
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf lensAlias `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf jSONString `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders ImportLens where
   toHeaders =
@@ -232,6 +232,6 @@ importLensResponse_httpStatus = Lens.lens (\ImportLensResponse' {httpStatus} -> 
 
 instance Prelude.NFData ImportLensResponse where
   rnf ImportLensResponse' {..} =
-    Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

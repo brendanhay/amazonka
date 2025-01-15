@@ -111,8 +111,8 @@ instance Prelude.Hashable AssociateLenses where
 
 instance Prelude.NFData AssociateLenses where
   rnf AssociateLenses' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAliases
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf lensAliases
 
 instance Data.ToHeaders AssociateLenses where
   toHeaders =

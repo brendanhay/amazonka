@@ -89,6 +89,6 @@ instance Prelude.Hashable LensReviewReport where
 
 instance Prelude.NFData LensReviewReport where
   rnf LensReviewReport' {..} =
-    Prelude.rnf base64String
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
+    Prelude.rnf base64String `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensArn

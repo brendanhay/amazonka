@@ -153,12 +153,12 @@ instance Prelude.Hashable ShareInvitationSummary where
 
 instance Prelude.NFData ShareInvitationSummary where
   rnf ShareInvitationSummary' {..} =
-    Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensName
-      `Prelude.seq` Prelude.rnf permissionType
-      `Prelude.seq` Prelude.rnf shareInvitationId
-      `Prelude.seq` Prelude.rnf shareResourceType
-      `Prelude.seq` Prelude.rnf sharedBy
-      `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadName
+    Prelude.rnf lensArn `Prelude.seq`
+      Prelude.rnf lensName `Prelude.seq`
+        Prelude.rnf permissionType `Prelude.seq`
+          Prelude.rnf shareInvitationId `Prelude.seq`
+            Prelude.rnf shareResourceType `Prelude.seq`
+              Prelude.rnf sharedBy `Prelude.seq`
+                Prelude.rnf sharedWith `Prelude.seq`
+                  Prelude.rnf workloadId `Prelude.seq`
+                    Prelude.rnf workloadName

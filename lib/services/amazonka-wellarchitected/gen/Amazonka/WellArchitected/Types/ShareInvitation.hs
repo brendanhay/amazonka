@@ -112,8 +112,8 @@ instance Prelude.Hashable ShareInvitation where
 
 instance Prelude.NFData ShareInvitation where
   rnf ShareInvitation' {..} =
-    Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf shareInvitationId
-      `Prelude.seq` Prelude.rnf shareResourceType
-      `Prelude.seq` Prelude.rnf workloadId
+    Prelude.rnf lensAlias `Prelude.seq`
+      Prelude.rnf lensArn `Prelude.seq`
+        Prelude.rnf shareInvitationId `Prelude.seq`
+          Prelude.rnf shareResourceType `Prelude.seq`
+            Prelude.rnf workloadId

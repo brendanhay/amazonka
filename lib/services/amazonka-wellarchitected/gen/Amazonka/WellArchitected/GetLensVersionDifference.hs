@@ -129,9 +129,9 @@ instance Prelude.Hashable GetLensVersionDifference where
 
 instance Prelude.NFData GetLensVersionDifference where
   rnf GetLensVersionDifference' {..} =
-    Prelude.rnf baseLensVersion
-      `Prelude.seq` Prelude.rnf targetLensVersion
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf baseLensVersion `Prelude.seq`
+      Prelude.rnf targetLensVersion `Prelude.seq`
+        Prelude.rnf lensAlias
 
 instance Data.ToHeaders GetLensVersionDifference where
   toHeaders =
@@ -246,10 +246,10 @@ instance
     GetLensVersionDifferenceResponse
   where
   rnf GetLensVersionDifferenceResponse' {..} =
-    Prelude.rnf baseLensVersion
-      `Prelude.seq` Prelude.rnf latestLensVersion
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf targetLensVersion
-      `Prelude.seq` Prelude.rnf versionDifferences
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseLensVersion `Prelude.seq`
+      Prelude.rnf latestLensVersion `Prelude.seq`
+        Prelude.rnf lensAlias `Prelude.seq`
+          Prelude.rnf lensArn `Prelude.seq`
+            Prelude.rnf targetLensVersion `Prelude.seq`
+              Prelude.rnf versionDifferences `Prelude.seq`
+                Prelude.rnf httpStatus

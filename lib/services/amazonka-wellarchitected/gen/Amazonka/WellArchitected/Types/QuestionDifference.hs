@@ -91,6 +91,6 @@ instance Prelude.Hashable QuestionDifference where
 
 instance Prelude.NFData QuestionDifference where
   rnf QuestionDifference' {..} =
-    Prelude.rnf differenceStatus
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf questionTitle
+    Prelude.rnf differenceStatus `Prelude.seq`
+      Prelude.rnf questionId `Prelude.seq`
+        Prelude.rnf questionTitle

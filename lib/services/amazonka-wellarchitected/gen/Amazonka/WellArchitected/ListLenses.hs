@@ -138,11 +138,11 @@ instance Prelude.Hashable ListLenses where
 
 instance Prelude.NFData ListLenses where
   rnf ListLenses' {..} =
-    Prelude.rnf lensName
-      `Prelude.seq` Prelude.rnf lensStatus
-      `Prelude.seq` Prelude.rnf lensType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf lensName `Prelude.seq`
+      Prelude.rnf lensStatus `Prelude.seq`
+        Prelude.rnf lensType `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLenses where
   toHeaders =
@@ -218,6 +218,6 @@ listLensesResponse_httpStatus = Lens.lens (\ListLensesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListLensesResponse where
   rnf ListLensesResponse' {..} =
-    Prelude.rnf lensSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

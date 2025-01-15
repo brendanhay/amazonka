@@ -87,9 +87,9 @@ instance Prelude.Hashable ChoiceUpdate where
 
 instance Prelude.NFData ChoiceUpdate where
   rnf ChoiceUpdate' {..} =
-    Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf notes `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON ChoiceUpdate where
   toJSON ChoiceUpdate' {..} =

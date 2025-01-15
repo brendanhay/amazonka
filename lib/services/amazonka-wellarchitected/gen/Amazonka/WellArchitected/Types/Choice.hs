@@ -132,9 +132,9 @@ instance Prelude.Hashable Choice where
 
 instance Prelude.NFData Choice where
   rnf Choice' {..} =
-    Prelude.rnf additionalResources
-      `Prelude.seq` Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf helpfulResource
-      `Prelude.seq` Prelude.rnf improvementPlan
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf additionalResources `Prelude.seq`
+      Prelude.rnf choiceId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf helpfulResource `Prelude.seq`
+            Prelude.rnf improvementPlan `Prelude.seq`
+              Prelude.rnf title

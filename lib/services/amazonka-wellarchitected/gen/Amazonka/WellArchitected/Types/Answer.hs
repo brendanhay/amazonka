@@ -208,17 +208,17 @@ instance Prelude.Hashable Answer where
 
 instance Prelude.NFData Answer where
   rnf Answer' {..} =
-    Prelude.rnf choiceAnswers
-      `Prelude.seq` Prelude.rnf choices
-      `Prelude.seq` Prelude.rnf helpfulResourceDisplayText
-      `Prelude.seq` Prelude.rnf helpfulResourceUrl
-      `Prelude.seq` Prelude.rnf improvementPlanUrl
-      `Prelude.seq` Prelude.rnf isApplicable
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf questionDescription
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf questionTitle
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf selectedChoices
+    Prelude.rnf choiceAnswers `Prelude.seq`
+      Prelude.rnf choices `Prelude.seq`
+        Prelude.rnf helpfulResourceDisplayText `Prelude.seq`
+          Prelude.rnf helpfulResourceUrl `Prelude.seq`
+            Prelude.rnf improvementPlanUrl `Prelude.seq`
+              Prelude.rnf isApplicable `Prelude.seq`
+                Prelude.rnf notes `Prelude.seq`
+                  Prelude.rnf pillarId `Prelude.seq`
+                    Prelude.rnf questionDescription `Prelude.seq`
+                      Prelude.rnf questionId `Prelude.seq`
+                        Prelude.rnf questionTitle `Prelude.seq`
+                          Prelude.rnf reason `Prelude.seq`
+                            Prelude.rnf risk `Prelude.seq`
+                              Prelude.rnf selectedChoices

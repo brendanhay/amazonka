@@ -193,10 +193,11 @@ exposedModules = Lens.to f
   where
     f x =
       let ns = x ^. libraryNS
-       in x ^. typesNS
-            : x ^. lensNS
-            : x ^. waitersNS
-            : x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
+       in [ x ^. typesNS,
+            x ^. lensNS,
+            x ^. waitersNS
+          ]
+            ++ x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
 
 data Templates = Templates
   { cabalTemplate :: Template,

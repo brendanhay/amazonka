@@ -93,6 +93,6 @@ instance Prelude.Hashable DataReplicationInitiation where
 
 instance Prelude.NFData DataReplicationInitiation where
   rnf DataReplicationInitiation' {..} =
-    Prelude.rnf nextAttemptDateTime
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf nextAttemptDateTime `Prelude.seq`
+      Prelude.rnf startDateTime `Prelude.seq`
+        Prelude.rnf steps

@@ -126,11 +126,11 @@ instance
     ReplicationConfigurationReplicatedDisk
   where
   rnf ReplicationConfigurationReplicatedDisk' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf isBootDisk
-      `Prelude.seq` Prelude.rnf stagingDiskType
-      `Prelude.seq` Prelude.rnf throughput
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf iops `Prelude.seq`
+        Prelude.rnf isBootDisk `Prelude.seq`
+          Prelude.rnf stagingDiskType `Prelude.seq`
+            Prelude.rnf throughput
 
 instance
   Data.ToJSON

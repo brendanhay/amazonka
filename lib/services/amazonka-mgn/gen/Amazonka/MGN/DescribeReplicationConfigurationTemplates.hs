@@ -118,12 +118,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplicationConfigurationTemplates_nextToken
-          Lens..~ rs
-          Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplicationConfigurationTemplates_nextToken
+              Lens..~ rs
+              Lens.^? describeReplicationConfigurationTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -161,9 +161,9 @@ instance
     DescribeReplicationConfigurationTemplates
   where
   rnf DescribeReplicationConfigurationTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replicationConfigurationTemplateIDs
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf replicationConfigurationTemplateIDs
 
 instance
   Data.ToHeaders
@@ -264,6 +264,6 @@ instance
   where
   rnf
     DescribeReplicationConfigurationTemplatesResponse' {..} =
-      Prelude.rnf items
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf items `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

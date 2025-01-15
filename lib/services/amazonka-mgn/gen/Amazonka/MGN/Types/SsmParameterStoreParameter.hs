@@ -88,8 +88,8 @@ instance Prelude.Hashable SsmParameterStoreParameter where
 
 instance Prelude.NFData SsmParameterStoreParameter where
   rnf SsmParameterStoreParameter' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterType
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf parameterType
 
 instance Data.ToJSON SsmParameterStoreParameter where
   toJSON SsmParameterStoreParameter' {..} =

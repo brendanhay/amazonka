@@ -131,8 +131,8 @@ instance
     JobPostLaunchActionsLaunchStatus
   where
   rnf JobPostLaunchActionsLaunchStatus' {..} =
-    Prelude.rnf executionID
-      `Prelude.seq` Prelude.rnf executionStatus
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf ssmDocument
-      `Prelude.seq` Prelude.rnf ssmDocumentType
+    Prelude.rnf executionID `Prelude.seq`
+      Prelude.rnf executionStatus `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf ssmDocument `Prelude.seq`
+            Prelude.rnf ssmDocumentType

@@ -80,5 +80,5 @@ instance Prelude.Hashable CPU where
 
 instance Prelude.NFData CPU where
   rnf CPU' {..} =
-    Prelude.rnf cores
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf cores `Prelude.seq`
+      Prelude.rnf modelName

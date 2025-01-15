@@ -109,8 +109,8 @@ instance Prelude.Hashable StartCutover where
 
 instance Prelude.NFData StartCutover where
   rnf StartCutover' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceServerIDs
 
 instance Data.ToHeaders StartCutover where
   toHeaders =
@@ -179,5 +179,5 @@ startCutoverResponse_httpStatus = Lens.lens (\StartCutoverResponse' {httpStatus}
 
 instance Prelude.NFData StartCutoverResponse where
   rnf StartCutoverResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

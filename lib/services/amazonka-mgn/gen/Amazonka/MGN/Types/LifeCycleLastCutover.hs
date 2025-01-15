@@ -94,6 +94,6 @@ instance Prelude.Hashable LifeCycleLastCutover where
 
 instance Prelude.NFData LifeCycleLastCutover where
   rnf LifeCycleLastCutover' {..} =
-    Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf initiated
-      `Prelude.seq` Prelude.rnf reverted
+    Prelude.rnf finalized `Prelude.seq`
+      Prelude.rnf initiated `Prelude.seq`
+        Prelude.rnf reverted

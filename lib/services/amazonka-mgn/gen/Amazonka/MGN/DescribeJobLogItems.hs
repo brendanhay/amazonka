@@ -114,12 +114,12 @@ instance Core.AWSPager DescribeJobLogItems where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeJobLogItems_nextToken
-          Lens..~ rs
-          Lens.^? describeJobLogItemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeJobLogItems_nextToken
+              Lens..~ rs
+              Lens.^? describeJobLogItemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeJobLogItems where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable DescribeJobLogItems where
 
 instance Prelude.NFData DescribeJobLogItems where
   rnf DescribeJobLogItems' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobID
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobID
 
 instance Data.ToHeaders DescribeJobLogItems where
   toHeaders =
@@ -226,6 +226,6 @@ describeJobLogItemsResponse_httpStatus = Lens.lens (\DescribeJobLogItemsResponse
 
 instance Prelude.NFData DescribeJobLogItemsResponse where
   rnf DescribeJobLogItemsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

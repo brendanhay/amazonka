@@ -111,11 +111,11 @@ instance
     DescribeSourceServersRequestFilters
   where
   rnf DescribeSourceServersRequestFilters' {..} =
-    Prelude.rnf applicationIDs
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf lifeCycleStates
-      `Prelude.seq` Prelude.rnf replicationTypes
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf applicationIDs `Prelude.seq`
+      Prelude.rnf isArchived `Prelude.seq`
+        Prelude.rnf lifeCycleStates `Prelude.seq`
+          Prelude.rnf replicationTypes `Prelude.seq`
+            Prelude.rnf sourceServerIDs
 
 instance
   Data.ToJSON

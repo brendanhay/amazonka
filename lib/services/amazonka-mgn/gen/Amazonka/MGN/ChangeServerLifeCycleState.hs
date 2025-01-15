@@ -124,8 +124,8 @@ instance Prelude.Hashable ChangeServerLifeCycleState where
 
 instance Prelude.NFData ChangeServerLifeCycleState where
   rnf ChangeServerLifeCycleState' {..} =
-    Prelude.rnf lifeCycle
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf lifeCycle `Prelude.seq`
+      Prelude.rnf sourceServerID
 
 instance Data.ToHeaders ChangeServerLifeCycleState where
   toHeaders =

@@ -71,8 +71,8 @@ instance Prelude.Hashable ListWavesRequestFilters where
 
 instance Prelude.NFData ListWavesRequestFilters where
   rnf ListWavesRequestFilters' {..} =
-    Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf waveIDs
+    Prelude.rnf isArchived `Prelude.seq`
+      Prelude.rnf waveIDs
 
 instance Data.ToJSON ListWavesRequestFilters where
   toJSON ListWavesRequestFilters' {..} =

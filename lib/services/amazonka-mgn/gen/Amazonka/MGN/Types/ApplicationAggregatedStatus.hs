@@ -105,7 +105,7 @@ instance Prelude.Hashable ApplicationAggregatedStatus where
 
 instance Prelude.NFData ApplicationAggregatedStatus where
   rnf ApplicationAggregatedStatus' {..} =
-    Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf lastUpdateDateTime
-      `Prelude.seq` Prelude.rnf progressStatus
-      `Prelude.seq` Prelude.rnf totalSourceServers
+    Prelude.rnf healthStatus `Prelude.seq`
+      Prelude.rnf lastUpdateDateTime `Prelude.seq`
+        Prelude.rnf progressStatus `Prelude.seq`
+          Prelude.rnf totalSourceServers

@@ -149,11 +149,11 @@ instance Prelude.Hashable VcenterClient where
 
 instance Prelude.NFData VcenterClient where
   rnf VcenterClient' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf datacenterName
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf lastSeenDatetime
-      `Prelude.seq` Prelude.rnf sourceServerTags
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vcenterClientID
-      `Prelude.seq` Prelude.rnf vcenterUUID
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf datacenterName `Prelude.seq`
+        Prelude.rnf hostname `Prelude.seq`
+          Prelude.rnf lastSeenDatetime `Prelude.seq`
+            Prelude.rnf sourceServerTags `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf vcenterClientID `Prelude.seq`
+                  Prelude.rnf vcenterUUID

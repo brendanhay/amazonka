@@ -89,9 +89,9 @@ instance
     ListApplicationsRequestFilters
   where
   rnf ListApplicationsRequestFilters' {..} =
-    Prelude.rnf applicationIDs
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf waveIDs
+    Prelude.rnf applicationIDs `Prelude.seq`
+      Prelude.rnf isArchived `Prelude.seq`
+        Prelude.rnf waveIDs
 
 instance Data.ToJSON ListApplicationsRequestFilters where
   toJSON ListApplicationsRequestFilters' {..} =

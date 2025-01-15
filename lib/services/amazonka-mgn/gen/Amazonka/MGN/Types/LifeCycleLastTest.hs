@@ -94,6 +94,6 @@ instance Prelude.Hashable LifeCycleLastTest where
 
 instance Prelude.NFData LifeCycleLastTest where
   rnf LifeCycleLastTest' {..} =
-    Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf initiated
-      `Prelude.seq` Prelude.rnf reverted
+    Prelude.rnf finalized `Prelude.seq`
+      Prelude.rnf initiated `Prelude.seq`
+        Prelude.rnf reverted

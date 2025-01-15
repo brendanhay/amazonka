@@ -81,5 +81,5 @@ instance Prelude.Hashable LifeCycleLastTestInitiated where
 
 instance Prelude.NFData LifeCycleLastTestInitiated where
   rnf LifeCycleLastTestInitiated' {..} =
-    Prelude.rnf apiCallDateTime
-      `Prelude.seq` Prelude.rnf jobID
+    Prelude.rnf apiCallDateTime `Prelude.seq`
+      Prelude.rnf jobID

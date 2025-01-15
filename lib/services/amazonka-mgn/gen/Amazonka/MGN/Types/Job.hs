@@ -166,12 +166,12 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf initiatedBy
-      `Prelude.seq` Prelude.rnf participatingServers
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf jobID
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf endDateTime `Prelude.seq`
+          Prelude.rnf initiatedBy `Prelude.seq`
+            Prelude.rnf participatingServers `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf jobID

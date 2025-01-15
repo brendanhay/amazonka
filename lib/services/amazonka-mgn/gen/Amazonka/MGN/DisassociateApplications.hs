@@ -109,8 +109,8 @@ instance Prelude.Hashable DisassociateApplications where
 
 instance Prelude.NFData DisassociateApplications where
   rnf DisassociateApplications' {..} =
-    Prelude.rnf applicationIDs
-      `Prelude.seq` Prelude.rnf waveID
+    Prelude.rnf applicationIDs `Prelude.seq`
+      Prelude.rnf waveID
 
 instance Data.ToHeaders DisassociateApplications where
   toHeaders =

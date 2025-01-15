@@ -212,16 +212,16 @@ instance Prelude.Hashable PutSourceServerAction where
 
 instance Prelude.NFData PutSourceServerAction where
   rnf PutSourceServerAction' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf mustSucceedForCutover
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf actionID
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf documentIdentifier
-      `Prelude.seq` Prelude.rnf order
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf documentVersion `Prelude.seq`
+        Prelude.rnf mustSucceedForCutover `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf timeoutSeconds `Prelude.seq`
+              Prelude.rnf actionID `Prelude.seq`
+                Prelude.rnf actionName `Prelude.seq`
+                  Prelude.rnf documentIdentifier `Prelude.seq`
+                    Prelude.rnf order `Prelude.seq`
+                      Prelude.rnf sourceServerID
 
 instance Data.ToHeaders PutSourceServerAction where
   toHeaders =

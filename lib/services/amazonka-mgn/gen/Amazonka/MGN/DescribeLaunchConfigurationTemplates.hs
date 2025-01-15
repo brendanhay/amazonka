@@ -123,12 +123,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLaunchConfigurationTemplates_nextToken
-          Lens..~ rs
-          Lens.^? describeLaunchConfigurationTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLaunchConfigurationTemplates_nextToken
+              Lens..~ rs
+              Lens.^? describeLaunchConfigurationTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -165,9 +165,9 @@ instance
     DescribeLaunchConfigurationTemplates
   where
   rnf DescribeLaunchConfigurationTemplates' {..} =
-    Prelude.rnf launchConfigurationTemplateIDs
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf launchConfigurationTemplateIDs `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -268,6 +268,6 @@ instance
     DescribeLaunchConfigurationTemplatesResponse
   where
   rnf DescribeLaunchConfigurationTemplatesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

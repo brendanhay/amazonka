@@ -129,12 +129,12 @@ instance Core.AWSPager ListTemplateActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTemplateActions_nextToken
-          Lens..~ rs
-          Lens.^? listTemplateActionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTemplateActions_nextToken
+              Lens..~ rs
+              Lens.^? listTemplateActionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplateActions where
   type
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListTemplateActions where
 
 instance Prelude.NFData ListTemplateActions where
   rnf ListTemplateActions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf launchConfigurationTemplateID
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf launchConfigurationTemplateID
 
 instance Data.ToHeaders ListTemplateActions where
   toHeaders =
@@ -247,6 +247,6 @@ listTemplateActionsResponse_httpStatus = Lens.lens (\ListTemplateActionsResponse
 
 instance Prelude.NFData ListTemplateActionsResponse where
   rnf ListTemplateActionsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

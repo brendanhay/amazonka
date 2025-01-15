@@ -110,8 +110,8 @@ instance Prelude.Hashable RemoveSourceServerAction where
 
 instance Prelude.NFData RemoveSourceServerAction where
   rnf RemoveSourceServerAction' {..} =
-    Prelude.rnf actionID
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf actionID `Prelude.seq`
+      Prelude.rnf sourceServerID
 
 instance Data.ToHeaders RemoveSourceServerAction where
   toHeaders =

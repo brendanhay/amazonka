@@ -116,11 +116,11 @@ instance Prelude.Hashable PostLaunchActions where
 
 instance Prelude.NFData PostLaunchActions where
   rnf PostLaunchActions' {..} =
-    Prelude.rnf cloudWatchLogGroupName
-      `Prelude.seq` Prelude.rnf deployment
-      `Prelude.seq` Prelude.rnf s3LogBucket
-      `Prelude.seq` Prelude.rnf s3OutputKeyPrefix
-      `Prelude.seq` Prelude.rnf ssmDocuments
+    Prelude.rnf cloudWatchLogGroupName `Prelude.seq`
+      Prelude.rnf deployment `Prelude.seq`
+        Prelude.rnf s3LogBucket `Prelude.seq`
+          Prelude.rnf s3OutputKeyPrefix `Prelude.seq`
+            Prelude.rnf ssmDocuments
 
 instance Data.ToJSON PostLaunchActions where
   toJSON PostLaunchActions' {..} =

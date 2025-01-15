@@ -264,21 +264,21 @@ instance
     CreateLaunchConfigurationTemplate
   where
   rnf CreateLaunchConfigurationTemplate' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf copyPrivateIp
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf enableMapAutoTagging
-      `Prelude.seq` Prelude.rnf largeVolumeConf
-      `Prelude.seq` Prelude.rnf launchDisposition
-      `Prelude.seq` Prelude.rnf licensing
-      `Prelude.seq` Prelude.rnf mapAutoTaggingMpeID
-      `Prelude.seq` Prelude.rnf postLaunchActions
-      `Prelude.seq` Prelude.rnf smallVolumeConf
-      `Prelude.seq` Prelude.rnf smallVolumeMaxSize
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf
-        targetInstanceTypeRightSizingMethod
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf bootMode `Prelude.seq`
+        Prelude.rnf copyPrivateIp `Prelude.seq`
+          Prelude.rnf copyTags `Prelude.seq`
+            Prelude.rnf enableMapAutoTagging `Prelude.seq`
+              Prelude.rnf largeVolumeConf `Prelude.seq`
+                Prelude.rnf launchDisposition `Prelude.seq`
+                  Prelude.rnf licensing `Prelude.seq`
+                    Prelude.rnf mapAutoTaggingMpeID `Prelude.seq`
+                      Prelude.rnf postLaunchActions `Prelude.seq`
+                        Prelude.rnf smallVolumeConf `Prelude.seq`
+                          Prelude.rnf smallVolumeMaxSize `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf
+                                targetInstanceTypeRightSizingMethod
 
 instance
   Data.ToHeaders

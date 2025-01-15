@@ -228,17 +228,17 @@ instance Prelude.Hashable PutTemplateAction where
 
 instance Prelude.NFData PutTemplateAction where
   rnf PutTemplateAction' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf mustSucceedForCutover
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf actionID
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf documentIdentifier
-      `Prelude.seq` Prelude.rnf launchConfigurationTemplateID
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf documentVersion `Prelude.seq`
+        Prelude.rnf mustSucceedForCutover `Prelude.seq`
+          Prelude.rnf operatingSystem `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf timeoutSeconds `Prelude.seq`
+                Prelude.rnf actionID `Prelude.seq`
+                  Prelude.rnf actionName `Prelude.seq`
+                    Prelude.rnf documentIdentifier `Prelude.seq`
+                      Prelude.rnf launchConfigurationTemplateID `Prelude.seq`
+                        Prelude.rnf order
 
 instance Data.ToHeaders PutTemplateAction where
   toHeaders =

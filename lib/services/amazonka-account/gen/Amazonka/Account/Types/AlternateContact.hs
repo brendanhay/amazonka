@@ -116,8 +116,8 @@ instance Prelude.Hashable AlternateContact where
 
 instance Prelude.NFData AlternateContact where
   rnf AlternateContact' {..} =
-    Prelude.rnf alternateContactType
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf alternateContactType `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf phoneNumber `Prelude.seq`
+            Prelude.rnf title

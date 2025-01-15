@@ -237,18 +237,18 @@ instance Prelude.Hashable NetworkResource where
 
 instance Prelude.NFData NetworkResource where
   rnf NetworkResource' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf networkResourceArn
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf orderArn
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vendor
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf health `Prelude.seq`
+            Prelude.rnf model `Prelude.seq`
+              Prelude.rnf networkArn `Prelude.seq`
+                Prelude.rnf networkResourceArn `Prelude.seq`
+                  Prelude.rnf networkSiteArn `Prelude.seq`
+                    Prelude.rnf orderArn `Prelude.seq`
+                      Prelude.rnf position `Prelude.seq`
+                        Prelude.rnf serialNumber `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusReason `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf vendor

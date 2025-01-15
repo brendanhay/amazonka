@@ -115,11 +115,11 @@ instance Prelude.Hashable Position where
 
 instance Prelude.NFData Position where
   rnf Position' {..} =
-    Prelude.rnf elevation
-      `Prelude.seq` Prelude.rnf elevationReference
-      `Prelude.seq` Prelude.rnf elevationUnit
-      `Prelude.seq` Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf longitude
+    Prelude.rnf elevation `Prelude.seq`
+      Prelude.rnf elevationReference `Prelude.seq`
+        Prelude.rnf elevationUnit `Prelude.seq`
+          Prelude.rnf latitude `Prelude.seq`
+            Prelude.rnf longitude
 
 instance Data.ToJSON Position where
   toJSON Position' {..} =

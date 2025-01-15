@@ -194,14 +194,14 @@ instance Prelude.Hashable CreateNetworkSite where
 
 instance Prelude.NFData CreateNetworkSite where
   rnf CreateNetworkSite' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pendingPlan
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf networkSiteName
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf pendingPlan `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf networkArn `Prelude.seq`
+                  Prelude.rnf networkSiteName
 
 instance Data.ToHeaders CreateNetworkSite where
   toHeaders =
@@ -288,6 +288,6 @@ createNetworkSiteResponse_httpStatus = Lens.lens (\CreateNetworkSiteResponse' {h
 
 instance Prelude.NFData CreateNetworkSiteResponse where
   rnf CreateNetworkSiteResponse' {..} =
-    Prelude.rnf networkSite
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkSite `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

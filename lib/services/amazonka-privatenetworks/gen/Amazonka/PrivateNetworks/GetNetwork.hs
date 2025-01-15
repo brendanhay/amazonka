@@ -165,6 +165,6 @@ getNetworkResponse_network = Lens.lens (\GetNetworkResponse' {network} -> networ
 
 instance Prelude.NFData GetNetworkResponse where
   rnf GetNetworkResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf network
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf network

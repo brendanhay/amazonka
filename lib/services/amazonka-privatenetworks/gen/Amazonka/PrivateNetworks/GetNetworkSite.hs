@@ -166,6 +166,6 @@ getNetworkSiteResponse_httpStatus = Lens.lens (\GetNetworkSiteResponse' {httpSta
 
 instance Prelude.NFData GetNetworkSiteResponse where
   rnf GetNetworkSiteResponse' {..} =
-    Prelude.rnf networkSite
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkSite `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -80,5 +80,5 @@ instance Prelude.Hashable UpdateNetworkSiteResponse where
 
 instance Prelude.NFData UpdateNetworkSiteResponse where
   rnf UpdateNetworkSiteResponse' {..} =
-    Prelude.rnf networkSite
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf networkSite `Prelude.seq`
+      Prelude.rnf tags

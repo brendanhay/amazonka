@@ -147,10 +147,10 @@ instance Prelude.Hashable Order where
 
 instance Prelude.NFData Order where
   rnf Order' {..} =
-    Prelude.rnf acknowledgmentStatus
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf orderArn
-      `Prelude.seq` Prelude.rnf shippingAddress
-      `Prelude.seq` Prelude.rnf trackingInformation
+    Prelude.rnf acknowledgmentStatus `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf networkArn `Prelude.seq`
+          Prelude.rnf networkSiteArn `Prelude.seq`
+            Prelude.rnf orderArn `Prelude.seq`
+              Prelude.rnf shippingAddress `Prelude.seq`
+                Prelude.rnf trackingInformation

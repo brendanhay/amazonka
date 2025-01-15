@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteNetwork where
 
 instance Prelude.NFData DeleteNetwork where
   rnf DeleteNetwork' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf networkArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf networkArn
 
 instance Data.ToHeaders DeleteNetwork where
   toHeaders =
@@ -182,5 +182,5 @@ deleteNetworkResponse_network = Lens.lens (\DeleteNetworkResponse' {network} -> 
 
 instance Prelude.NFData DeleteNetworkResponse where
   rnf DeleteNetworkResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf network
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf network

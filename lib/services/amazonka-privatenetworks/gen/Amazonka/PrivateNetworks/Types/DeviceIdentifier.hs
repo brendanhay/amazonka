@@ -167,12 +167,12 @@ instance Prelude.Hashable DeviceIdentifier where
 
 instance Prelude.NFData DeviceIdentifier where
   rnf DeviceIdentifier' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deviceIdentifierArn
-      `Prelude.seq` Prelude.rnf iccid
-      `Prelude.seq` Prelude.rnf imsi
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf orderArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trafficGroupArn
-      `Prelude.seq` Prelude.rnf vendor
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf deviceIdentifierArn `Prelude.seq`
+        Prelude.rnf iccid `Prelude.seq`
+          Prelude.rnf imsi `Prelude.seq`
+            Prelude.rnf networkArn `Prelude.seq`
+              Prelude.rnf orderArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf trafficGroupArn `Prelude.seq`
+                    Prelude.rnf vendor

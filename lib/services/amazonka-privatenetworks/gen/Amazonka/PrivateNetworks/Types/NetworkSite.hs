@@ -196,14 +196,14 @@ instance Prelude.Hashable NetworkSite where
 
 instance Prelude.NFData NetworkSite where
   rnf NetworkSite' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf currentPlan
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pendingPlan
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf networkSiteName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf currentPlan `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf pendingPlan `Prelude.seq`
+                Prelude.rnf statusReason `Prelude.seq`
+                  Prelude.rnf networkArn `Prelude.seq`
+                    Prelude.rnf networkSiteArn `Prelude.seq`
+                      Prelude.rnf networkSiteName `Prelude.seq`
+                        Prelude.rnf status

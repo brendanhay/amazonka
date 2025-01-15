@@ -129,9 +129,9 @@ instance Prelude.Hashable ActivateNetworkSite where
 
 instance Prelude.NFData ActivateNetworkSite where
   rnf ActivateNetworkSite' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf shippingAddress
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf networkSiteArn `Prelude.seq`
+        Prelude.rnf shippingAddress
 
 instance Data.ToHeaders ActivateNetworkSite where
   toHeaders =
@@ -203,5 +203,5 @@ activateNetworkSiteResponse_httpStatus = Lens.lens (\ActivateNetworkSiteResponse
 
 instance Prelude.NFData ActivateNetworkSiteResponse where
   rnf ActivateNetworkSiteResponse' {..} =
-    Prelude.rnf networkSite
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkSite `Prelude.seq`
+      Prelude.rnf httpStatus

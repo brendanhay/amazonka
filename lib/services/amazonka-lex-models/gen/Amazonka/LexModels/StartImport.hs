@@ -209,10 +209,10 @@ instance Prelude.Hashable StartImport where
 
 instance Prelude.NFData StartImport where
   rnf StartImport' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf mergeStrategy
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf payload `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf mergeStrategy
 
 instance Data.ToHeaders StartImport where
   toHeaders =
@@ -340,11 +340,11 @@ startImportResponse_httpStatus = Lens.lens (\StartImportResponse' {httpStatus} -
 
 instance Prelude.NFData StartImportResponse where
   rnf StartImportResponse' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf mergeStrategy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf importId `Prelude.seq`
+        Prelude.rnf importStatus `Prelude.seq`
+          Prelude.rnf mergeStrategy `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

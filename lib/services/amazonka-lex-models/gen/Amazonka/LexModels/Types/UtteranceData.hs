@@ -116,8 +116,8 @@ instance Prelude.Hashable UtteranceData where
 
 instance Prelude.NFData UtteranceData where
   rnf UtteranceData' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf distinctUsers
-      `Prelude.seq` Prelude.rnf firstUtteredDate
-      `Prelude.seq` Prelude.rnf lastUtteredDate
-      `Prelude.seq` Prelude.rnf utteranceString
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf distinctUsers `Prelude.seq`
+        Prelude.rnf firstUtteredDate `Prelude.seq`
+          Prelude.rnf lastUtteredDate `Prelude.seq`
+            Prelude.rnf utteranceString

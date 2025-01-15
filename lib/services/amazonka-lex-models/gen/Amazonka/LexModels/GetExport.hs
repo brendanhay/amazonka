@@ -150,10 +150,10 @@ instance Prelude.Hashable GetExport where
 
 instance Prelude.NFData GetExport where
   rnf GetExport' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf exportType
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf exportType
 
 instance Data.ToHeaders GetExport where
   toHeaders =
@@ -302,11 +302,11 @@ getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetExportResponse where
   rnf GetExportResponse' {..} =
-    Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf exportType
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportStatus `Prelude.seq`
+      Prelude.rnf exportType `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf url `Prelude.seq`
+                Prelude.rnf version `Prelude.seq`
+                  Prelude.rnf httpStatus

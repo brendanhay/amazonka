@@ -138,12 +138,12 @@ instance Core.AWSPager GetSlotTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSlotTypes_nextToken
-          Lens..~ rs
-          Lens.^? getSlotTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSlotTypes_nextToken
+              Lens..~ rs
+              Lens.^? getSlotTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSlotTypes where
   type AWSResponse GetSlotTypes = GetSlotTypesResponse
@@ -167,9 +167,9 @@ instance Prelude.Hashable GetSlotTypes where
 
 instance Prelude.NFData GetSlotTypes where
   rnf GetSlotTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetSlotTypes where
   toHeaders =
@@ -248,6 +248,6 @@ getSlotTypesResponse_httpStatus = Lens.lens (\GetSlotTypesResponse' {httpStatus}
 
 instance Prelude.NFData GetSlotTypesResponse where
   rnf GetSlotTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf slotTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf slotTypes `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -225,11 +225,11 @@ instance Prelude.Hashable StartMigration where
 
 instance Prelude.NFData StartMigration where
   rnf StartMigration' {..} =
-    Prelude.rnf v1BotName
-      `Prelude.seq` Prelude.rnf v1BotVersion
-      `Prelude.seq` Prelude.rnf v2BotName
-      `Prelude.seq` Prelude.rnf v2BotRole
-      `Prelude.seq` Prelude.rnf migrationStrategy
+    Prelude.rnf v1BotName `Prelude.seq`
+      Prelude.rnf v1BotVersion `Prelude.seq`
+        Prelude.rnf v2BotName `Prelude.seq`
+          Prelude.rnf v2BotRole `Prelude.seq`
+            Prelude.rnf migrationStrategy
 
 instance Data.ToHeaders StartMigration where
   toHeaders =
@@ -368,12 +368,12 @@ startMigrationResponse_httpStatus = Lens.lens (\StartMigrationResponse' {httpSta
 
 instance Prelude.NFData StartMigrationResponse where
   rnf StartMigrationResponse' {..} =
-    Prelude.rnf migrationId
-      `Prelude.seq` Prelude.rnf migrationStrategy
-      `Prelude.seq` Prelude.rnf migrationTimestamp
-      `Prelude.seq` Prelude.rnf v1BotLocale
-      `Prelude.seq` Prelude.rnf v1BotName
-      `Prelude.seq` Prelude.rnf v1BotVersion
-      `Prelude.seq` Prelude.rnf v2BotId
-      `Prelude.seq` Prelude.rnf v2BotRole
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf migrationId `Prelude.seq`
+      Prelude.rnf migrationStrategy `Prelude.seq`
+        Prelude.rnf migrationTimestamp `Prelude.seq`
+          Prelude.rnf v1BotLocale `Prelude.seq`
+            Prelude.rnf v1BotName `Prelude.seq`
+              Prelude.rnf v1BotVersion `Prelude.seq`
+                Prelude.rnf v2BotId `Prelude.seq`
+                  Prelude.rnf v2BotRole `Prelude.seq`
+                    Prelude.rnf httpStatus

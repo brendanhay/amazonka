@@ -139,12 +139,12 @@ instance Core.AWSPager GetBots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBots_nextToken
-          Lens..~ rs
-          Lens.^? getBotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBots_nextToken
+              Lens..~ rs
+              Lens.^? getBotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBots where
   type AWSResponse GetBots = GetBotsResponse
@@ -168,9 +168,9 @@ instance Prelude.Hashable GetBots where
 
 instance Prelude.NFData GetBots where
   rnf GetBots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetBots where
   toHeaders =
@@ -246,6 +246,6 @@ getBotsResponse_httpStatus = Lens.lens (\GetBotsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetBotsResponse where
   rnf GetBotsResponse' {..} =
-    Prelude.rnf bots
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bots `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

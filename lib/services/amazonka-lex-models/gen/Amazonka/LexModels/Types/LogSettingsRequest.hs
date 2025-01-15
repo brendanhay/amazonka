@@ -117,10 +117,10 @@ instance Prelude.Hashable LogSettingsRequest where
 
 instance Prelude.NFData LogSettingsRequest where
   rnf LogSettingsRequest' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf logType
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf logType `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf resourceArn
 
 instance Data.ToJSON LogSettingsRequest where
   toJSON LogSettingsRequest' {..} =

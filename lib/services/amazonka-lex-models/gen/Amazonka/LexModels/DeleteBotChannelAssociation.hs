@@ -125,9 +125,9 @@ instance Prelude.Hashable DeleteBotChannelAssociation where
 
 instance Prelude.NFData DeleteBotChannelAssociation where
   rnf DeleteBotChannelAssociation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botAlias
 
 instance Data.ToHeaders DeleteBotChannelAssociation where
   toHeaders =

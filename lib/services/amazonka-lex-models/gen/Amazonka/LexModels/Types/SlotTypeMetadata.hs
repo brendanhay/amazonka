@@ -116,8 +116,8 @@ instance Prelude.Hashable SlotTypeMetadata where
 
 instance Prelude.NFData SlotTypeMetadata where
   rnf SlotTypeMetadata' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdatedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf version

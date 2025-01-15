@@ -173,12 +173,12 @@ instance Prelude.Hashable GetMigrations where
 
 instance Prelude.NFData GetMigrations where
   rnf GetMigrations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf migrationStatusEquals
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortByAttribute
-      `Prelude.seq` Prelude.rnf sortByOrder
-      `Prelude.seq` Prelude.rnf v1BotNameContains
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf migrationStatusEquals `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortByAttribute `Prelude.seq`
+            Prelude.rnf sortByOrder `Prelude.seq`
+              Prelude.rnf v1BotNameContains
 
 instance Data.ToHeaders GetMigrations where
   toHeaders =
@@ -265,6 +265,6 @@ getMigrationsResponse_httpStatus = Lens.lens (\GetMigrationsResponse' {httpStatu
 
 instance Prelude.NFData GetMigrationsResponse where
   rnf GetMigrationsResponse' {..} =
-    Prelude.rnf migrationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf migrationSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

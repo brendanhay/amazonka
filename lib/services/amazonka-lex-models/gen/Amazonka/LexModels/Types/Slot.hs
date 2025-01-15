@@ -250,17 +250,17 @@ instance Prelude.Hashable Slot where
 
 instance Prelude.NFData Slot where
   rnf Slot' {..} =
-    Prelude.rnf defaultValueSpec
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf obfuscationSetting
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf responseCard
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slotType
-      `Prelude.seq` Prelude.rnf slotTypeVersion
-      `Prelude.seq` Prelude.rnf valueElicitationPrompt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf slotConstraint
+    Prelude.rnf defaultValueSpec `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf obfuscationSetting `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf responseCard `Prelude.seq`
+              Prelude.rnf sampleUtterances `Prelude.seq`
+                Prelude.rnf slotType `Prelude.seq`
+                  Prelude.rnf slotTypeVersion `Prelude.seq`
+                    Prelude.rnf valueElicitationPrompt `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf slotConstraint
 
 instance Data.ToJSON Slot where
   toJSON Slot' {..} =

@@ -316,14 +316,14 @@ getMigrationResponse_httpStatus = Lens.lens (\GetMigrationResponse' {httpStatus}
 
 instance Prelude.NFData GetMigrationResponse where
   rnf GetMigrationResponse' {..} =
-    Prelude.rnf alerts
-      `Prelude.seq` Prelude.rnf migrationId
-      `Prelude.seq` Prelude.rnf migrationStatus
-      `Prelude.seq` Prelude.rnf migrationStrategy
-      `Prelude.seq` Prelude.rnf migrationTimestamp
-      `Prelude.seq` Prelude.rnf v1BotLocale
-      `Prelude.seq` Prelude.rnf v1BotName
-      `Prelude.seq` Prelude.rnf v1BotVersion
-      `Prelude.seq` Prelude.rnf v2BotId
-      `Prelude.seq` Prelude.rnf v2BotRole
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alerts `Prelude.seq`
+      Prelude.rnf migrationId `Prelude.seq`
+        Prelude.rnf migrationStatus `Prelude.seq`
+          Prelude.rnf migrationStrategy `Prelude.seq`
+            Prelude.rnf migrationTimestamp `Prelude.seq`
+              Prelude.rnf v1BotLocale `Prelude.seq`
+                Prelude.rnf v1BotName `Prelude.seq`
+                  Prelude.rnf v1BotVersion `Prelude.seq`
+                    Prelude.rnf v2BotId `Prelude.seq`
+                      Prelude.rnf v2BotRole `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -93,5 +93,5 @@ instance Prelude.Hashable BuiltinIntentMetadata where
 
 instance Prelude.NFData BuiltinIntentMetadata where
   rnf BuiltinIntentMetadata' {..} =
-    Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf supportedLocales
+    Prelude.rnf signature `Prelude.seq`
+      Prelude.rnf supportedLocales

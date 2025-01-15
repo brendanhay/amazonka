@@ -222,13 +222,13 @@ instance Prelude.Hashable PutBotAlias where
 
 instance Prelude.NFData PutBotAlias where
   rnf PutBotAlias' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf conversationLogs
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf botName
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf conversationLogs `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf botVersion `Prelude.seq`
+                Prelude.rnf botName
 
 instance Data.ToHeaders PutBotAlias where
   toHeaders =
@@ -384,13 +384,13 @@ putBotAliasResponse_httpStatus = Lens.lens (\PutBotAliasResponse' {httpStatus} -
 
 instance Prelude.NFData PutBotAliasResponse where
   rnf PutBotAliasResponse' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf conversationLogs
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf checksum `Prelude.seq`
+          Prelude.rnf conversationLogs `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastUpdatedDate `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

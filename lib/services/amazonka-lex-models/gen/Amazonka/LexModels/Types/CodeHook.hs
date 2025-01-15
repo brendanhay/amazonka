@@ -88,8 +88,8 @@ instance Prelude.Hashable CodeHook where
 
 instance Prelude.NFData CodeHook where
   rnf CodeHook' {..} =
-    Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf messageVersion
+    Prelude.rnf uri `Prelude.seq`
+      Prelude.rnf messageVersion
 
 instance Data.ToJSON CodeHook where
   toJSON CodeHook' {..} =

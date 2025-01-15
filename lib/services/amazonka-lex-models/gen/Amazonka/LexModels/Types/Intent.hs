@@ -84,8 +84,8 @@ instance Prelude.Hashable Intent where
 
 instance Prelude.NFData Intent where
   rnf Intent' {..} =
-    Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf intentVersion
+    Prelude.rnf intentName `Prelude.seq`
+      Prelude.rnf intentVersion
 
 instance Data.ToJSON Intent where
   toJSON Intent' {..} =

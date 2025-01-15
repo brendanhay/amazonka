@@ -126,7 +126,7 @@ instance Prelude.Hashable MigrationAlert where
 
 instance Prelude.NFData MigrationAlert where
   rnf MigrationAlert' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf referenceURLs
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf referenceURLs `Prelude.seq`
+          Prelude.rnf type'

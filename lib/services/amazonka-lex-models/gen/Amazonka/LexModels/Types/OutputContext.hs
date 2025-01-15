@@ -113,9 +113,9 @@ instance Prelude.Hashable OutputContext where
 
 instance Prelude.NFData OutputContext where
   rnf OutputContext' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeToLiveInSeconds
-      `Prelude.seq` Prelude.rnf turnsToLive
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf timeToLiveInSeconds `Prelude.seq`
+        Prelude.rnf turnsToLive
 
 instance Data.ToJSON OutputContext where
   toJSON OutputContext' {..} =

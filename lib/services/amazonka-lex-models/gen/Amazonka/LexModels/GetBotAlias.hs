@@ -256,12 +256,12 @@ getBotAliasResponse_httpStatus = Lens.lens (\GetBotAliasResponse' {httpStatus} -
 
 instance Prelude.NFData GetBotAliasResponse where
   rnf GetBotAliasResponse' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf conversationLogs
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf checksum `Prelude.seq`
+          Prelude.rnf conversationLogs `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastUpdatedDate `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf httpStatus

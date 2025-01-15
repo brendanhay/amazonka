@@ -628,22 +628,22 @@ instance Prelude.Hashable PutIntent where
 
 instance Prelude.NFData PutIntent where
   rnf PutIntent' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf conclusionStatement
-      `Prelude.seq` Prelude.rnf confirmationPrompt
-      `Prelude.seq` Prelude.rnf createVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf followUpPrompt
-      `Prelude.seq` Prelude.rnf fulfillmentActivity
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf rejectionStatement
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf conclusionStatement `Prelude.seq`
+        Prelude.rnf confirmationPrompt `Prelude.seq`
+          Prelude.rnf createVersion `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf dialogCodeHook `Prelude.seq`
+                Prelude.rnf followUpPrompt `Prelude.seq`
+                  Prelude.rnf fulfillmentActivity `Prelude.seq`
+                    Prelude.rnf inputContexts `Prelude.seq`
+                      Prelude.rnf kendraConfiguration `Prelude.seq`
+                        Prelude.rnf outputContexts `Prelude.seq`
+                          Prelude.rnf parentIntentSignature `Prelude.seq`
+                            Prelude.rnf rejectionStatement `Prelude.seq`
+                              Prelude.rnf sampleUtterances `Prelude.seq`
+                                Prelude.rnf slots `Prelude.seq`
+                                  Prelude.rnf name
 
 instance Data.ToHeaders PutIntent where
   toHeaders =
@@ -949,23 +949,23 @@ putIntentResponse_httpStatus = Lens.lens (\PutIntentResponse' {httpStatus} -> ht
 
 instance Prelude.NFData PutIntentResponse where
   rnf PutIntentResponse' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf conclusionStatement
-      `Prelude.seq` Prelude.rnf confirmationPrompt
-      `Prelude.seq` Prelude.rnf createVersion
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf followUpPrompt
-      `Prelude.seq` Prelude.rnf fulfillmentActivity
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf rejectionStatement
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf conclusionStatement `Prelude.seq`
+        Prelude.rnf confirmationPrompt `Prelude.seq`
+          Prelude.rnf createVersion `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf dialogCodeHook `Prelude.seq`
+                  Prelude.rnf followUpPrompt `Prelude.seq`
+                    Prelude.rnf fulfillmentActivity `Prelude.seq`
+                      Prelude.rnf inputContexts `Prelude.seq`
+                        Prelude.rnf kendraConfiguration `Prelude.seq`
+                          Prelude.rnf lastUpdatedDate `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf outputContexts `Prelude.seq`
+                                Prelude.rnf parentIntentSignature `Prelude.seq`
+                                  Prelude.rnf rejectionStatement `Prelude.seq`
+                                    Prelude.rnf sampleUtterances `Prelude.seq`
+                                      Prelude.rnf slots `Prelude.seq`
+                                        Prelude.rnf version `Prelude.seq`
+                                          Prelude.rnf httpStatus

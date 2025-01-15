@@ -173,12 +173,12 @@ instance Prelude.Hashable MigrationSummary where
 
 instance Prelude.NFData MigrationSummary where
   rnf MigrationSummary' {..} =
-    Prelude.rnf migrationId
-      `Prelude.seq` Prelude.rnf migrationStatus
-      `Prelude.seq` Prelude.rnf migrationStrategy
-      `Prelude.seq` Prelude.rnf migrationTimestamp
-      `Prelude.seq` Prelude.rnf v1BotLocale
-      `Prelude.seq` Prelude.rnf v1BotName
-      `Prelude.seq` Prelude.rnf v1BotVersion
-      `Prelude.seq` Prelude.rnf v2BotId
-      `Prelude.seq` Prelude.rnf v2BotRole
+    Prelude.rnf migrationId `Prelude.seq`
+      Prelude.rnf migrationStatus `Prelude.seq`
+        Prelude.rnf migrationStrategy `Prelude.seq`
+          Prelude.rnf migrationTimestamp `Prelude.seq`
+            Prelude.rnf v1BotLocale `Prelude.seq`
+              Prelude.rnf v1BotName `Prelude.seq`
+                Prelude.rnf v1BotVersion `Prelude.seq`
+                  Prelude.rnf v2BotId `Prelude.seq`
+                    Prelude.rnf v2BotRole

@@ -88,5 +88,5 @@ instance Prelude.Hashable UtteranceList where
 
 instance Prelude.NFData UtteranceList where
   rnf UtteranceList' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf utterances
+    Prelude.rnf botVersion `Prelude.seq`
+      Prelude.rnf utterances

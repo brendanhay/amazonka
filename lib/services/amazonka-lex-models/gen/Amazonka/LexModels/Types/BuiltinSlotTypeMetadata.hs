@@ -94,5 +94,5 @@ instance Prelude.Hashable BuiltinSlotTypeMetadata where
 
 instance Prelude.NFData BuiltinSlotTypeMetadata where
   rnf BuiltinSlotTypeMetadata' {..} =
-    Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf supportedLocales
+    Prelude.rnf signature `Prelude.seq`
+      Prelude.rnf supportedLocales

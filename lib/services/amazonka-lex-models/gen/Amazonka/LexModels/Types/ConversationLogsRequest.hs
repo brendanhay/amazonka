@@ -92,8 +92,8 @@ instance Prelude.Hashable ConversationLogsRequest where
 
 instance Prelude.NFData ConversationLogsRequest where
   rnf ConversationLogsRequest' {..} =
-    Prelude.rnf logSettings
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf logSettings `Prelude.seq`
+      Prelude.rnf iamRoleArn
 
 instance Data.ToJSON ConversationLogsRequest where
   toJSON ConversationLogsRequest' {..} =

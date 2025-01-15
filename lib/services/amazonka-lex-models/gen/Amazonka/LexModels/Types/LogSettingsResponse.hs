@@ -130,8 +130,8 @@ instance Prelude.Hashable LogSettingsResponse where
 
 instance Prelude.NFData LogSettingsResponse where
   rnf LogSettingsResponse' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf logType
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourcePrefix
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf kmsKeyArn `Prelude.seq`
+        Prelude.rnf logType `Prelude.seq`
+          Prelude.rnf resourceArn `Prelude.seq`
+            Prelude.rnf resourcePrefix

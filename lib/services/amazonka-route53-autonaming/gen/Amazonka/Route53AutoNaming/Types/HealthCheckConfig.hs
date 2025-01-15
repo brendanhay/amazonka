@@ -266,9 +266,9 @@ instance Prelude.Hashable HealthCheckConfig where
 
 instance Prelude.NFData HealthCheckConfig where
   rnf HealthCheckConfig' {..} =
-    Prelude.rnf failureThreshold
-      `Prelude.seq` Prelude.rnf resourcePath
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf failureThreshold `Prelude.seq`
+      Prelude.rnf resourcePath `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON HealthCheckConfig where
   toJSON HealthCheckConfig' {..} =

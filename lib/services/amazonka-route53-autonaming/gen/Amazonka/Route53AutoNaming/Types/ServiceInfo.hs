@@ -302,15 +302,15 @@ instance Prelude.Hashable ServiceInfo where
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsConfig
-      `Prelude.seq` Prelude.rnf healthCheckConfig
-      `Prelude.seq` Prelude.rnf healthCheckCustomConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dnsConfig `Prelude.seq`
+              Prelude.rnf healthCheckConfig `Prelude.seq`
+                Prelude.rnf healthCheckCustomConfig `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf instanceCount `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf namespaceId `Prelude.seq`
+                          Prelude.rnf type'

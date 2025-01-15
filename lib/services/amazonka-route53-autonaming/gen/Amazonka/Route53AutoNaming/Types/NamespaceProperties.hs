@@ -87,5 +87,5 @@ instance Prelude.Hashable NamespaceProperties where
 
 instance Prelude.NFData NamespaceProperties where
   rnf NamespaceProperties' {..} =
-    Prelude.rnf dnsProperties
-      `Prelude.seq` Prelude.rnf httpProperties
+    Prelude.rnf dnsProperties `Prelude.seq`
+      Prelude.rnf httpProperties

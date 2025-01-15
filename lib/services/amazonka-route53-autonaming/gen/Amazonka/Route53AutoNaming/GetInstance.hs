@@ -108,8 +108,8 @@ instance Prelude.Hashable GetInstance where
 
 instance Prelude.NFData GetInstance where
   rnf GetInstance' {..} =
-    Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf serviceId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GetInstance where
   toHeaders =
@@ -181,5 +181,5 @@ getInstanceResponse_httpStatus = Lens.lens (\GetInstanceResponse' {httpStatus} -
 
 instance Prelude.NFData GetInstanceResponse where
   rnf GetInstanceResponse' {..} =
-    Prelude.rnf instance'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instance' `Prelude.seq`
+      Prelude.rnf httpStatus

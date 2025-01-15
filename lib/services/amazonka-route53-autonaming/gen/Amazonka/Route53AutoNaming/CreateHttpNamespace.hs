@@ -153,10 +153,10 @@ instance Prelude.Hashable CreateHttpNamespace where
 
 instance Prelude.NFData CreateHttpNamespace where
   rnf CreateHttpNamespace' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creatorRequestId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateHttpNamespace where
   toHeaders =
@@ -238,5 +238,5 @@ createHttpNamespaceResponse_httpStatus = Lens.lens (\CreateHttpNamespaceResponse
 
 instance Prelude.NFData CreateHttpNamespaceResponse where
   rnf CreateHttpNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

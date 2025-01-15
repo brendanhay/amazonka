@@ -160,9 +160,9 @@ instance Prelude.Hashable NamespaceFilter where
 
 instance Prelude.NFData NamespaceFilter where
   rnf NamespaceFilter' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON NamespaceFilter where
   toJSON NamespaceFilter' {..} =

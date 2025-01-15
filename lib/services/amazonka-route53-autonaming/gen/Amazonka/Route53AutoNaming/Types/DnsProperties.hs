@@ -85,5 +85,5 @@ instance Prelude.Hashable DnsProperties where
 
 instance Prelude.NFData DnsProperties where
   rnf DnsProperties' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf soa
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf soa

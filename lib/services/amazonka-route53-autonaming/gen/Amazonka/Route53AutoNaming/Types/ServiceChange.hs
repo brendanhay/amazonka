@@ -91,9 +91,9 @@ instance Prelude.Hashable ServiceChange where
 
 instance Prelude.NFData ServiceChange where
   rnf ServiceChange' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsConfig
-      `Prelude.seq` Prelude.rnf healthCheckConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dnsConfig `Prelude.seq`
+        Prelude.rnf healthCheckConfig
 
 instance Data.ToJSON ServiceChange where
   toJSON ServiceChange' {..} =

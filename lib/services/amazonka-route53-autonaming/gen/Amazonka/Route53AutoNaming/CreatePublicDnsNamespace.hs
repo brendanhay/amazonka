@@ -178,11 +178,11 @@ instance Prelude.Hashable CreatePublicDnsNamespace where
 
 instance Prelude.NFData CreatePublicDnsNamespace where
   rnf CreatePublicDnsNamespace' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creatorRequestId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreatePublicDnsNamespace where
   toHeaders =
@@ -268,5 +268,5 @@ instance
     CreatePublicDnsNamespaceResponse
   where
   rnf CreatePublicDnsNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

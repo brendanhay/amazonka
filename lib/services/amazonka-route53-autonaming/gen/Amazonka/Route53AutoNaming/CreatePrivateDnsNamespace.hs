@@ -186,12 +186,12 @@ instance Prelude.Hashable CreatePrivateDnsNamespace where
 
 instance Prelude.NFData CreatePrivateDnsNamespace where
   rnf CreatePrivateDnsNamespace' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf creatorRequestId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf vpc
 
 instance Data.ToHeaders CreatePrivateDnsNamespace where
   toHeaders =
@@ -278,5 +278,5 @@ instance
     CreatePrivateDnsNamespaceResponse
   where
   rnf CreatePrivateDnsNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

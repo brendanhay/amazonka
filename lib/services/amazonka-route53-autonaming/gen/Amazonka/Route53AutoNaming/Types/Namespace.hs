@@ -216,12 +216,12 @@ instance Prelude.Hashable Namespace where
 
 instance Prelude.NFData Namespace where
   rnf Namespace' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf serviceCount
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf properties `Prelude.seq`
+                  Prelude.rnf serviceCount `Prelude.seq`
+                    Prelude.rnf type'
